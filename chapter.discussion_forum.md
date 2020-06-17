@@ -1,0 +1,9 @@
+<div xmlns="http://www.w3.org/1999/xhtml" role="" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.discussion_forum"></a>Chapter 47. OpenType discussion forum</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm114626714480"></a>Overview</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.47.1.1"></a>Specification</h3></div></div></div><p role="">An e-mail based discussion forum has been set up
+	  specifically to help people working on the development of
+	  OpenType fonts and associated technologies.</p><div role="" class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li role="" class="listitem"><p role="">To subscribe to the OpenType Mailing List, send
+	      e-mail to: opentype-subscribe@topica.com</p></li><li role="" class="listitem"><p role="">To post a message to the list, send e-mail to:
+	    opentype@topica.com</p></li><li role="" class="listitem"><p role="">To remove yourself from this mailing list, send
+	    e-mail to: opentype-unsubscribe@topica.com</p></li><li role="" class="listitem"><p role="">To get a list of archives available, browse to:
+	    http://topica.com/lists/opentype/read</p></li><li role="" class="listitem"><p role="">For more help with mailing list commands, browse to:
+	    http://topica.com/lists/opentype/</p></li></ul></div><p role="">Please note that if you join the forum your e-mail
+	  address will be accessible to the other subscribers.</p></div></div></div>

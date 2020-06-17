@@ -98,6 +98,8 @@
 <xsl:template match='section[@role="compiler"]'/>
 <xsl:template match='section[@role="decompiler"]'/>
 <xsl:template match='section[@role="test-suite"]'/>
+<xsl:template match='section[@role="validation"]'/>
+<xsl:template match='section[@role="xml-representation"]'/>
 
 <xsl:template match='code-title'>
   <classname><xsl:apply-templates/></classname>

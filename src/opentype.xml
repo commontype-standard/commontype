@@ -22919,8 +22919,7 @@ public class Loca extends Table {
 
   <!--************************************************************************-->
   <section id='chapter.CFF'>
-    <title>CFF - PostScript font program (Compact Font Format)
-      table</title>
+    <title>CFF - PostScript font program (Compact Font Format) table</title>
 
     <!--======================================================================-->
     <section role='fragment'>
@@ -23193,8 +23192,7 @@ public class Loca extends Table {
 
   <!--************************************************************************-->
   <section id='chapter.advanced'>
-    <title>Advanced Typographic Extensions &#x2013; OpenType
-    Layout</title>
+    <title>Advanced Typographic Extensions &#x2013; OpenType Layout</title>
 
 
     <!--======================================================================-->

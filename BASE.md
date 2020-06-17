@@ -20,7 +20,7 @@ diacritical marks, math symbols, subscripts, and superscripts may be
 clipped.
 
 ![Figure 5a. Incorrect alignment of glyphs from Latin and Kanji (Latin
-dominant)](fig5a.gif)
+dominant)](src/images/fig5a.gif)
 
 In addition, different baselines can cause text lines to waver visually
 as glyphs from different scripts are placed next to one another. For
@@ -35,7 +35,7 @@ figure 5b). Script min/max extents can be modified for particular
 language systems or features.
 
 ![Figure 5b. Proper alignment of glyphs from Latin and Kanji (Latin
-dominant)](fig5b.gif)
+dominant)](src/images/fig5b.gif)
 
 ## Baseline Values
 
@@ -57,7 +57,7 @@ a client can specify others. For instance, the client may want to assign
 baseline positions different from those in the font.
 
 ![Figure 5c. Comparing Latin and Kanji baselines, with characters
-aligned according to the dominant run](fig5c.gif)
+aligned according to the dominant run](src/images/fig5c.gif)
 
 ## Min/Max Extent Values
 
@@ -107,7 +107,7 @@ vertical axis would indicate the baseline of rotated Latin text.
 Figure 5d shows how the [BASE](#chapter.BASE) table is organized.
 
 ![Figure 5d. High-level organization of [BASE](#chapter.BASE)
-table](fig5d.gif)
+table](src/images/fig5d.gif)
 
 ## Text Direction
 

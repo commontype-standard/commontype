@@ -14,7 +14,7 @@ meaning of characters. These writing systems require controlled
 placement of all marks in relation to one another for legibility and
 linguistic accuracy.
 
-![Figure 4a. Vietnamese words with marks.](fig4a.gif)
+![Figure 4a. Vietnamese words with marks.](src/images/fig4a.gif)
 
 Other writing systems require sophisticated glyph positioning for
 correct typographic composition. For instance, Urdu glyphs are
@@ -24,7 +24,7 @@ text-processing client must modify both the horizontal (X) and vertical
 (Y) positions of each glyph.
 
 ![Figure 4b. Urdu layout requires glyph positioning control, as well as
-contextual substitution](fig4b.gif)
+contextual substitution](src/images/fig4b.gif)
 
 With the [GPOS](#chapter.GPOS) table, a font developer can define a
 complete set of positioning adjustment features in an OpenType font.
@@ -42,7 +42,7 @@ position the next glyph (see Figure 4c). For horizontal text, placement
 corresponds to the left side bearing, and advance corresponds to the
 advance width.
 
-![Figure 4c. Glyph positioning with TrueType](fig4c.gif)
+![Figure 4c. Glyph positioning with TrueType](src/images/fig4c.gif)
 
 TrueType specifies placement and advance only in the X direction for
 horizontal layout and only in the Y direction for vertical layout. For
@@ -96,7 +96,7 @@ might have multiple attachment points. The point used will depend on the
 glyph to be attached. For instance, a base glyph could have attachment
 points for different diacritical marks.
 
-![Base glyph with multiple attachment points.](attach.gif)
+![Base glyph with multiple attachment points.](src/images/attach.gif)
 
 To reduce the size of the font file, a base glyph may use the same
 attachment point for all mark glyphs assigned to a particular class. For
@@ -113,7 +113,7 @@ cursive attachment feature and define explicit exit and entry attachment
 points for each glyph (see Figure 4d).
 
 ![Figure 4d. Entry and exit points marked on contextual Urdu glyph
-variations](fig4d.gif)
+variations](src/images/fig4d.gif)
 
 The [GPOS](#chapter.GPOS) table supports eight types of actions for
 positioning and attaching glyphs:
@@ -154,7 +154,8 @@ positioning and attaching glyphs:
     sequences.
 
 ![Figure 4e. Contextual positioning lowered the accent over a vowel
-glyph that followed an overhanging uppercase glyph](fig4e.gif)
+glyph that followed an overhanging uppercase
+glyph](src/images/fig4e.gif)
 
 Table Organization
 
@@ -176,7 +177,7 @@ see the chapter, Common Table Formats. The following discussion
 summarizes how the [GPOS](#chapter.GPOS) table works.
 
 ![Figure 4f. High-level organization of [GPOS](#chapter.GPOS)
-table](fig4f.gif)
+table](src/images/fig4f.gif)
 
 The [GPOS](#chapter.GPOS) table is organized so text processing clients
 can easily locate the features and lookups that apply to a particular

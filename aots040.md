@@ -91,7 +91,7 @@ with an "X". Creative shapes, like swirls or other symbols, may not be
 recognized by users as indicating that a glyph is missing from the font
 and is not being displayed at that location.
 
-![Suggested shapes of .notdef glyph](notdef.gif)
+![Suggested shapes of .notdef glyph](src/images/notdef.gif)
 
 ## BASE Table
 

@@ -11,7 +11,7 @@ sidebearings) for the vertical layout of each of the glyphs in the font.
 The vertical metrics coordinate system is shown below.
 
 ![Figure 2a. Glyphs in the Latin, Kanji, and Arabic
-scripts](img00287.gif)
+scripts](src/images/img00287.gif)
 
 OpenType vertical fonts require both a vertical header table
 ([vhea](#chapter.vhea)) and the vertical metrics table discussed below.

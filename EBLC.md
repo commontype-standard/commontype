@@ -131,9 +131,9 @@ The colorRef and bitDepth fields are reserved for future enhancements.
 For monochrome bitmaps they should have the values colorRef=0 and
 bitDepth=1.
 
-![Horizontal text](img00283.gif)
+![Horizontal text](src/images/img00283.gif)
 
-![Vertical text](img00284.gif)
+![Vertical text](src/images/img00284.gif)
 
 Associated with the image data for every glyph in a strike is a set of
 glyph metrics. These glyph metrics describe bounding box height and
@@ -180,7 +180,7 @@ smallGlyphMetrics
 
 The following diagram illustrates the meaning of the glyph metrics.
 
-![](img00285.gif)
+![](src/images/img00285.gif)
 
 The bitmapSizeTable for each strike contains the offset to an array of
 indexSubTableArray elements. Each element describes a glyph code range

@@ -3017,7 +3017,7 @@ families Mrs Eaves and Filosofia). This feature turns lowercase
 characters into petite capitals. Forms related to petite capitals, such
 as specially designed figures, may be included.
 
-![pcap illustration](pcapprop.gif)
+![pcap illustration](src/images/pcapprop.gif)
 
 Example: The user enters text as lowercase or mixed case, and gets
 petite cap text or text with regular uppercase and petite caps. Note
@@ -4065,7 +4065,7 @@ appropriate to the design. If aligning to the x-height, smallcap glyphs
 may be substituted, or specially designed unicase forms might be used.
 Substitutions might also include specially designed figures.
 
-![unic illustration](unicprop.gif)
+![unic illustration](src/images/unicprop.gif)
 
 Example: The user enters text as uppercase, lowercase or mixed case, and
 gets unicase text.

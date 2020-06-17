@@ -23,7 +23,7 @@ fonts from other formats. Whatever the case, it is necessary to create a
 TrueType font file that, among other things, describes each glyph in the
 font as an outline in the TrueType format.
 
-![](img00288.gif)
+![](src/images/img00288.gif)
 
 ## From Font File to Paper
 
@@ -42,7 +42,7 @@ interpreter. The result of carrying out the instructions is a
 grid-fitted outline for the requested glyph. This outline is then scan
 converted to produce a bitmap that can be rendered on the target device.
 
-![](ball.gif)
+![](src/images/ball.gif)
 
 1.  Digitize outline with FUnit coordinates in TrueType font file
 
@@ -82,13 +82,13 @@ glyphs. Certain control characters that have no visible manifestation
 will map to the glyph with no contours.
 
 ![Figure 1-1. Glyphs with one, two, three contours
-respectively](img00290.gif)
+respectively](src/images/img00290.gif)
 
 ![Figure 1-1. Glyphs with one, two, three contours
-respectively](img00291.gif)
+respectively](src/images/img00291.gif)
 
 ![Figure 1-1. Glyphs with one, two, three contours
-respectively](img00292.gif)
+respectively](src/images/img00292.gif)
 
 Contours are composed of straight lines and curves. Curves are defined
 by a series of points that describe second order Bezier-splines. The
@@ -98,7 +98,7 @@ combination of off and on curve points is acceptable when defining a
 curve. Straight lines are defined by two consecutive on curve points.
 
 ![Figure 1-2 A glyph description consisting of a series of on and off
-curve points](img00293.gif)
+curve points](src/images/img00293.gif)
 
 The points that make up a curve must be numbered in consecutive order.
 It makes a difference whether the order is increasing or decreasing in
@@ -116,7 +116,7 @@ of the em square typically are those of the full body height of a font
 plus some extra spacing to prevent lines of text from colliding when
 typeset without extra leading.
 
-![](img00294.gif)
+![](src/images/img00294.gif)
 
 While in the days of metal type, glyphs could not extend beyond the em
 square, digital typefaces are not so constrained. The em square may be
@@ -126,7 +126,7 @@ outside the em square. TrueType fonts can handle either approach so the
 choice is that of the font manufacturer. Figure 1-3 A character that
 extends outside of the em square
 
-![](img00295.gif)
+![](src/images/img00295.gif)
 
 The em square defines a two-dimensional coordinate grid whose x-axis
 describes movement in a horizontal direction and whose y-axis describes
@@ -151,7 +151,7 @@ units per em (upem)-is made by the font manufacturer. Outline scaling
 will be fastest if units per em is chosen to be a power of 2, such as
 2048.
 
-![Figure 1-4 The coordinate system](img00296.gif)
+![Figure 1-4 The coordinate system](src/images/img00296.gif)
 
 The origin of the em square need not have any consistent relationship to
 the glyph outlines. In practice, however, applications depend upon the
@@ -174,7 +174,8 @@ printers.
 
 ![Figure 1-5 Two possible choices for the glyph origin in a Roman font.
 In the first case (left) the left side bearing is x-zero. In the second
-(right), the aesthetic center of the character is x-zero](img00297.gif)
+(right), the aesthetic center of the character is
+x-zero](src/images/img00297.gif)
 
 Non-Roman fonts may wish to use other conventions for the meaning of the
 x-origin and y-origin. For best results with high-lighting and carets,
@@ -190,10 +191,10 @@ The greater the number of units per em, the greater the precision
 available in addressing locations within the em square.
 
 ![Figure 1-6 Two em squares, 8 units per em (left), 16 units per em
-(right)](img00298.gif)
+(right)](src/images/img00298.gif)
 
 ![Figure 1-6 Two em squares, 8 units per em (left), 16 units per em
-(right)](img00299.gif)
+(right)](src/images/img00299.gif)
 
 FUnits are relative units because they vary in size as the size of the
 em square changes. The number of units per em remains constant for a
@@ -206,7 +207,7 @@ font is displayed, the absolute size of an FUnit varies as the point
 size varies.
 
 ![Figure 1-7 72 point M and 127 point M and their em squares. Upem
-equals 8 in both cases.](img00300.gif)
+equals 8 in both cases.](src/images/img00300.gif)
 
 Because FUnits are relative to the em square, a given location on a
 glyph will have the same coordinate location in FUnits regardless of the
@@ -271,7 +272,7 @@ device. Change the resolution to 300 dpi and it has 75 pixels per em, or
 change to 1200 dpi and it has 300 pixels per em.
 
 ![Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200
-dpi.](img00302b.gif)
+dpi.](src/images/img00302b.gif)
 
 Displaying type on a particular device at a specific point size yields
 an effective resolution measured in pixels per em (ppem). The formula
@@ -324,7 +325,7 @@ The figure below illustrates how grid-fitting a character distorts the
 outline found in the original design.
 
 ![Figure 1-9 12 point outlines ungrid-fitted (left) and grid-fitted
-(right)](img00304.gif)
+(right)](src/images/img00304.gif)
 
 As the illustration above suggests, the grid-fitting employed in
 TrueType goes well beyond aligning a glyph's left side bearing to the
@@ -333,7 +334,7 @@ The beneficial effects of grid-fitting are illustrated in the next
 figure.
 
 ![Figure 1-10 12 point outlines and bitmap ungrid-fitted (left) and
-grid-fitted (right)](img00305.gif)
+grid-fitted (right)](src/images/img00305.gif)
 
 Grid-fitting is the process of stretching the outline of a glyph
 according to the instructions associated with it. Once a glyph is
@@ -395,10 +396,10 @@ second glyph, instructions have aligned the stems to the grid so that
 the glyph suffers no similar loss.
 
 ![Figure 1-11 9 point Arial m-uninstructed (left), instructed
-(right)](img00306.gif)
+(right)](src/images/img00306.gif)
 
 ![Figure 1-11 9 point Arial m-uninstructed (left), instructed
-(right)](img00307.gif)
+(right)](src/images/img00307.gif)
 
 **The TrueType interpreter**
 
@@ -431,7 +432,7 @@ The interpreter's actions can be summarized as follows:
     the examples that follow. Note that the pointer indicates the next
     instruction to be executed.
     
-    ![](img00308.gif)
+    ![](src/images/img00308.gif)
 
 2.  The instruction is executed
     
@@ -441,12 +442,12 @@ The interpreter's actions can be summarized as follows:
       - Any other instruction will pop any data it needs from the stack.
         A pop is illustrated below.
         
-        ![](img00309.gif)
+        ![](src/images/img00309.gif)
     
       - Any data the instruction produces is pushed onto the interpreter
         stack. A push is illustrated below.
         
-        ![](img00310.gif)
+        ![](src/images/img00310.gif)
         
         As the previous discussion indicates, the interpreter stack is a
         LIFO or last in first out data structure. An instruction takes
@@ -468,7 +469,7 @@ The interpreter's actions can be summarized as follows:
         In the illustration shown, the Graphics State variable rp0 is
         updated using a value taken from the interpreter stack.
         
-        ![](img00311.gif)
+        ![](src/images/img00311.gif)
 
 3.  The process is repeated until there are no further instructions to
     be executed.
@@ -616,7 +617,8 @@ p2, undergoes an off transition followed by an on transition followed by
 an off transition yielding a winding number of +1. The point is in the
 interior of the glyph.
 
-![Figure 1-14 Determining the winding number of a point.](img00312.gif)
+![Figure 1-14 Determining the winding number of a
+point.](src/images/img00312.gif)
 
 **What is a dropout?**
 
@@ -624,7 +626,7 @@ A dropout occurs whenever there is a connected region of a glyph
 interior that contains two black pixels that cannot be connected by a
 straight line that only passes through black pixels.
 
-![Figure 1-15 The letter m with two dropouts.](img00313.gif)
+![Figure 1-15 The letter m with two dropouts.](src/images/img00313.gif)
 
 **Preventing dropouts**
 

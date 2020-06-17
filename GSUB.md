@@ -14,9 +14,10 @@ substitutes are aesthetic options for the user, such as the use of
 ligature glyphs in the English language (see Figure 2)
 
 ![Figure 1: Isolated, initial, medial, and final forms of the Arabic
-character HAH](fig3a.gif)
+character HAH](src/images/fig3a.gif)
 
-![Figure 2. Two Latin glyphs and their associated ligature](fig3b.gif)
+![Figure 2. Two Latin glyphs and their associated
+ligature](src/images/fig3b.gif)
 
 Many fonts use limited character encoding standards that map glyphs to
 characters one-to-one, assigning a glyph to each character code value in
@@ -66,14 +67,14 @@ substitutions that are widely used in international typography:
     and vertical text in the Far East (see Figure 3)
     
     ![Figure 3. Alternative forms of parentheses used when positioning
-    Kanji vertically](fig3c.gif)
+    Kanji vertically](src/images/fig3c.gif)
 
   - A *multiple substitution* replaces a single glyph with more than one
     glyph. This is used to specify actions such as ligature
     decomposition (see Figure 4)
     
     ![Figure 4. Decomposing a Latin ligature glyph into its individual
-    glyph components](fig3d.gif)
+    glyph components](src/images/fig3d.gif)
 
   - An *alternate substitution* identifies functionally equivalent but
     different looking forms of a glyph. These glyphs are often referred
@@ -83,7 +84,8 @@ substitutions that are widely used in international typography:
     default glyph or substitute any of the four alternatives (see Figure
     5)
     
-    ![Figure 5. Alternative ampersand glyphs in a font](fig3e.gif)
+    ![Figure 5. Alternative ampersand glyphs in a
+    font](src/images/fig3e.gif)
 
   - A *ligature substitution* replaces several glyph indices with a
     single glyph index, as when an Arabic ligature glyph replaces a
@@ -94,7 +96,7 @@ substitutions that are widely used in international typography:
     of lookup flags.
     
     ![Figure 6. Three Arabic glyphs and their associated ligature
-    glyph](fig3f.gif)
+    glyph](src/images/fig3f.gif)
 
   - *Contextual substitution*, the most powerful type, describes glyph
     substitutions in context – that is, a substitution of one or more
@@ -153,7 +155,7 @@ For a detailed discussion of ScriptLists, FeatureLists, and LookupLists,
 see the chapter Common Table Formats
 
 ![Figure 7. High-level organization of [GSUB](#chapter.GSUB)
-table](fig3g.gif)
+table](src/images/fig3g.gif)
 
 This organization helps text-processing clients to easily locate the
 features and lookups that apply to a particular script or language

@@ -51,7 +51,7 @@ end of a word. OpenType Layout helps a text-processing application
 determine which variant to substitute when composing text.
 
 ![Figure 1a. Isolated, initial, medial, and final forms of the Arabic
-character ha.](fig1a.gif)
+character ha.](src/images/fig1a.gif)
 
 Similarly, OpenType Layout helps an application use the correct forms of
 characters when text is positioned vertically instead of horizontally,
@@ -59,7 +59,7 @@ such as with Kanji. For example, Kanji uses alternative forms of
 parentheses when positioned vertically.
 
 ![Figure 1b. Alternative forms of parentheses used when positioning
-Kanji vertically.](fig1b.gif)
+Kanji vertically.](src/images/fig1b.gif)
 
 The OpenType Layout font format also supports the composition and
 decomposition of ligatures. For example, English, French, and other
@@ -69,10 +69,11 @@ individual "f" and "i" glyphs could replace the ligature, possibly to
 give a text-processing application more flexibility when spacing glyphs
 to fill a line of justified text.
 
-![Figure 1c. Two Latin glyphs and their associated ligature.](fig1c.gif)
+![Figure 1c. Two Latin glyphs and their associated
+ligature.](src/images/fig1c.gif)
 
 ![Figure 1d. Three Arabic glyphs and their associated
-ligature](fig1d.gif)
+ligature](src/images/fig1d.gif)
 
 Glyph substitution is just one way OpenType Layout extends font
 capabilities. Using precise X and Y coordinates for positioning glyphs,
@@ -87,7 +88,7 @@ information is especially useful for aligning text that mixes glyphs
 from scripts for different languages.
 
 ![Figure 1c. A line of text, baselines adjusted, mixing Latin and Arabic
-scripts.](fig1e.gif)
+scripts.](src/images/fig1e.gif)
 
 ## TrueType versus OpenType Layout
 
@@ -136,7 +137,8 @@ a word, so a font would need several different glyphs to represent a
 single character. OpenType Layout fonts contain a table that provides a
 client with information about possible glyph substitutions.
 
-![Figure 1f. Multiple glyphs for the ampersand character.](fig1f.gif)
+![Figure 1f. Multiple glyphs for the ampersand
+character.](src/images/fig1f.gif)
 
 **Scripts**
 
@@ -146,7 +148,8 @@ scripts. A font may use a single script, or it may use many scripts.
 Within an OpenType Layout font, scripts are identified by unique 4-byte
 tags.
 
-![Figure 1g. Glyphs in the Latin, Kanji, and Arabic scripts.](fig2a.gif)
+![Figure 1g. Glyphs in the Latin, Kanji, and Arabic
+scripts.](src/images/fig2a.gif)
 
 **Language systems**
 
@@ -163,7 +166,7 @@ language system. Otherwise, the client will use the default
 language-system information provided with each script.
 
 ![Figure 1h. Differences in the English, French, and German language
-system.](fig1h.gif)
+system.](src/images/fig1h.gif)
 
 **Features**
 
@@ -180,7 +183,8 @@ OpenType Layout fonts, and enable client applications to support such
 features.
 
 ![Figure 1i. The relationship of scripts, language systems, features,
-and lookups for substitution and positioning tables.](fig1i.gif)
+and lookups for substitution and positioning
+tables.](src/images/fig1i.gif)
 
 **OpenType Layout tables**
 

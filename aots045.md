@@ -702,5 +702,5 @@ For detailed information about the euro, links to what other people are
 are doing with it, please see our comprehensive frequently asked
 questions page.
 
-![](neweuro.gif)
+![](src/images/neweuro.gif)
 

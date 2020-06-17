@@ -17,7 +17,7 @@ space to spread the characters, justification can produce large gaps
 between words, cramped or extended glyph spacing, uneven line break
 patterns, and other jarring visual effects. For example:
 
-![Figure 6a. Poorly justified text](fig6a.gif)
+![Figure 6a. Poorly justified text](src/images/fig6a.gif)
 
 To offset these effects, text-processing clients have used justification
 algorithms that redistribute the space with a series of glyph spacing
@@ -42,7 +42,7 @@ space between specific pairs of glyphs, and decreasing the spacing
 within particular glyph sequences.
 
 ![Figure 6b. [JSTF](#chapter.JSTF) shortens the top line of this example
-by using the "ffi" ligature](fig6b.gif)
+by using the "ffi" ligature](src/images/fig6b.gif)
 
 The font designer or developer defines [JSTF](#chapter.JSTF) data as
 prioritized suggestions. Each suggestion lists the particular actions
@@ -68,7 +68,7 @@ script and language-specific data:
     justification data for each language system.
 
 ![Figure 6c. High-level organization of [JSTF](#chapter.JSTF)
-table](fig6c.gif)
+table](src/images/fig6c.gif)
 
 A JstfLangSys table contains a list of justification suggestions. Each
 suggestion consists of a list of [GSUB](#chapter.GSUB) or

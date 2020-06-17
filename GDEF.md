@@ -36,7 +36,7 @@ chapter describes the individual [GDEF](#chapter.GDEF) tables and the
 tables that they reference.
 
 ![Figure 7a. High-level organization of [GDEF](#chapter.GDEF)
-table](fig7a.gif)
+table](src/images/fig7a.gif)
 
 ### Annotation
 
@@ -69,7 +69,7 @@ differentiate the types of glyphs in a string. For example,
 simple base glyph and the mark glyph that follows it.
 
 ![Figure 7b. A base glyph, ligature glyph, mark glyph, and glyph
-components](fig7b.gif)
+components](src/images/fig7b.gif)
 
 In addition, a client uses class definitions to apply
 [GSUB](#chapter.GSUB) and [GPOS](#chapter.GPOS) LookupFlag data
@@ -111,7 +111,7 @@ for positioning carets on all ligatures in a font. The client uses this
 data to select and highlight ligature components in displayed text (see
 Figure 7c).
 
-![Figure 7c. Proper ligature caret postioning](fig7c.gif)
+![Figure 7c. Proper ligature caret postioning](src/images/fig7c.gif)
 
 Each ligature can have more than one caret position, with each position
 defined as an X or Y value on the baseline according to the writing

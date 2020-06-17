@@ -30,7 +30,8 @@ German, and many other languages. In contrast, three scripts-Hiragana,
 Katakana, and Kanji-are used to write Japanese. With OpenType Layout,
 multiple scripts may be supported by a single font.
 
-![Figure 2a. Glyphs in the Latin, Kanji, and Arabic scripts](fig2a.gif)
+![Figure 2a. Glyphs in the Latin, Kanji, and Arabic
+scripts](src/images/fig2a.gif)
 
 A language system may modify the functions or appearance of glyphs in a
 script to represent a particular language. For example, the eszet
@@ -40,7 +41,7 @@ for writing the Farsi and Urdu languages. In OpenType Layout, language
 systems are defined within scripts.
 
 ![Figure 2b. Differences in the English, French, and German language
-systems](fig2b.gif)
+systems](src/images/fig2b.gif)
 
 A language system defines features, which are typographic rules for
 using glyphs to represent a language. Sample features are a "vert"
@@ -55,7 +56,7 @@ word.
 
 ![Figure 2c. A ligature glyph feature substitutes the \<etc\> ligature
 for individual glyphs, and a mark feature positions diacritical marks
-above an Arabic ligature glyph.](fig2c.gif)
+above an Arabic ligature glyph.](src/images/fig2c.gif)
 
 Features are implemented with lookup data that the text-processing
 client uses to substitute and position glyphs. Lookups describe the
@@ -82,7 +83,8 @@ in the LookupList that describes how, when, and where to implement the
 feature
 
 ![Figure 2d. The relationship of scripts, language systems, features,
-and lookups for substitution and positioning tables](fig2d.gif)
+and lookups for substitution and positioning
+tables](src/images/fig2d.gif)
 
 > Note: The data in the [BASE](#chapter.BASE) and [JSTF](#chapter.JSTF)
 > tables also is organized by script and language system. However, the

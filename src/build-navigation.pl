@@ -14,7 +14,7 @@ for (<aots*.md>) {
     	rename $_, $newfile;
     }
     $newfile =~ s/.md$//;
-    print OUT qq{\t- title: "$header"\n};
-    print OUT qq{\t  url: "$newfile"\n};
+    print OUT qq{    - title: "$header"\n};
+    print OUT qq{      url: "$newfile"\n};
 }
 close OUT;

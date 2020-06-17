@@ -628,18 +628,3 @@ language-specific\].
 
 In the example, string 19 is not set in italic like the other strings.
 
-### XML Representation
-
-    name table ==
-          
-    name =
-      element name {
-        element name-record {
-          attribute platformID { text },
-          attribute encodingID { text },
-          attribute languageID { text },
-          attribute nameID { text },
-          attribute v { text }
-        }*
-      }
-

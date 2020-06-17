@@ -159,28 +159,6 @@ Header table.
 
 GDEF Header
 
-### XML Representation
-
-    GDEF ==
-          
-      GDEF =
-        element GDEF {
-          attribute major { "1" },
-          attribute minor { "0" },
-          element glyphClassDef      { classDefTableOffset }?,
-          element attachList         { attachListTableOffset }?,
-          element ligCaretList       { ligCaretListTableOffset }?,
-          element markAttachClassDef { classDefTableOffset }?,
-    
-          (  standaloneClassDefTable
-           | standaloneAttachListTable
-           | standaloneLigCaretListTable
-           | standaloneLigGlyphTable
-           | standaloneCaretValueTable
-           | standaloneCoverageTable
-           | standaloneDeviceTable)*
-        }
-
 ## Glyph Class Definition Table
 
 ### Specification
@@ -253,24 +231,6 @@ that defines attachment points for two glyphs.
 
 AttachPoint table
 
-### XML Representation
-
-    attachListTable ==
-          
-      attachListTable =
-        element coverage { coverageTableOffset }?,
-        element attachPoint {
-          attribute glyphID { text },
-          element point {
-            attribute index { text }
-          }*
-        }*
-    
-      standaloneAttachListTable =
-        element attachListTable { attribute id { text }, attachListTable }
-    
-      attachListTableOffset = attribute name { text } | attachListTable
-
 ## Ligature Caret List Table
 
 ### Specification
@@ -292,22 +252,6 @@ Example 4 at the end of this chapter shows a LigCaretList table.
 | Offset | LigGlyph \[LigGlyphCount\] | Array of offsets to LigGlyph tables-from beginning of LigCaretList table-in Coverage Index order |
 
 LigCaretList table
-
-### XML Representation
-
-    ligCaretListTable  ==
-          
-      ligCaretListTable =
-        element coverage { coverageTableOffset }?,
-        element ligGlyph {
-          attribute glyphID { text },
-          ligGlyphTableOffset
-        }*
-    
-      standaloneLigCaretListTable =
-        element ligCaretListTable { attribute id { text }, ligCaretListTable }
-    
-      ligCaretListTableOffset = attribute name { text } | ligCaretListTable
 
 ## Ligature Glyph Table
 
@@ -331,17 +275,6 @@ Example 4 at the end of the chapter shows a LigGlyph table.
 
 LigGlyph table
 
-### XML Representation
-
-    ligGlyphTable ==
-          
-      ligGlyphTable = element caretValue { caretValueTableOffset }*
-    
-      standaloneLigGlyphTable =
-        element ligGlyphTable { attribute id { text }, ligGlyphTable }
-    
-      ligGlyphTableOffset = attribute name { text } | ligGlyphTable
-
 ## Caret Values Table
 
 ### Specification
@@ -352,15 +285,6 @@ units to define the caret position. The other two formats use a contour
 point or Device table to fine-tune a caret's position at specific font
 sizes and device resolutions. Caret coordinates are either X or Y
 values, depending upon the text direction.
-
-### XML Representation
-
-    caretValueTable ==
-          
-      standaloneCaretValueTable =
-        element caretValueTable { attribute id { text }, caretValueTable }
-    
-      caretValueTableOffset = attribute name { text } | caretValueTable
 
 ## CaretValue Format 1
 
@@ -382,14 +306,6 @@ Exampel 4 at the end of this chapter shows a CaretValueFormat1 table.
 | int16  | Coordinate       | X or Y value, in design units |
 
 CaretValueFormat1 table: Design units only
-
-### XML Representation
-
-    caretValueTable, format 1 ==
-          
-      caretValueTable |=
-        attribute format { "1" },
-        attribute coord { text }
 
 ## CaretValue Format 2
 
@@ -414,14 +330,6 @@ table.
 
 CaretValueFormat2 table: Contour point
 
-### XML Representation
-
-    caretValueTable, format 2 ==
-          
-      caretValueTable |=
-        attribute format { "2" },
-        attribute contourPoint { text }
-
 ## CaretValue Format 3
 
 ### Specification
@@ -444,15 +352,6 @@ Example 6 at the end of this chapter shows a CaretValueFormat3 table.
 | Offset | DeviceTable      | Offset to Device table for X or Y value-from beginning of CaretValue table |
 
 CaretValueFormat3 table: Design units plus Device table
-
-### XML Representation
-
-    caretValueTable, format 3 ==
-          
-      caretValueTable |=
-        attribute format { "3" },
-        attribute coord { text },
-        element deviceTable { deviceTableOffset }
 
 ## Mark Attachment Class Definition Table
 

@@ -62,105 +62,6 @@ client uses to substitute and position glyphs. Lookups describe the
 glyphs affected by an operation, the type of operation to be applied to
 these glyphs, and the resulting glyph output.
 
-### XML Representation
-
-The layout tables heavily use subtables, that is blocks of data that
-points one to the other. In general, the shape of this graph of blocks
-is mostly a tree, but it is possible for a subtable to be referenced
-from multiple subtables. A typical example is that of a coverage, which
-may be used in multiple lookup subtables.
-
-We are using a consistent approach to represent those subtables and the
-pointers between them. The rest of this section describes this approach,
-and illustrates it with (a simplified version of) coverage subtables.
-
-We have one definition with the same name as the table. This definition
-contains the attributes and elements that represent the content of the
-table. A typical example is:
-
-``` 
-  coverageTable =
-    ... attributes and elements representing the content of a coverage table
-```
-
-When a subtable is pointed from multiple places, we just describe it in
-its one element, which has the same name as the subtable. This element
-will typically be a direct child of the element representing the
-OpenType table. It has an id attribute, to allow the various places that
-point to the subtable to refer to it:
-
-``` 
-  standaloneCoverageTable =
-    element coverageTable { attribute id { text}, coverageTable }
-```
-
-Whenever a subtable points to another, the former contains an offset to
-the latter. If there is a single pointer to the latter, we just include
-its representation “in-line”; otherwise, we use the name attribute to
-refer to the standalone table. This is supported by a declaration of the
-style:
-
-``` 
-  coverageTableOffset = attribute name { text } | coverageTable
-```
-
-In a subtable that references coverages, such as a MarkToMark subtable
-which contains two references to coverage subtables, we would then use
-something like:
-
-``` 
-  markToMarkTable =
-    ...
-    element mark1Coverage { coverageTableOfset }
-    element mark2Coverage { coverageTableOfset }
-    ...
-```
-
-This allows the following font contents::
-
-``` 
-  <coverageTable id='c' format='2'>
-    <range start='10' end='20'/>
-    <range start='30' end='40'/>
-  </coverageTable>
-
-  <markToMarkTable id='m'>
-    ...
-    <mark1Coverage name='c'/>
-
-    <mark2Coverage format='2'>
-      <range start='50' end='60'/>
-      <range start='70' end='80'/>
-    </mark2Coverage>
-    ...
-  </markToMarkTable>
-```
-
-Often, the content of a subtable can take one of a few formats. For
-those cases, we have a bunch of definitions combined as choices, with
-the attribute format used to distinguish them:
-
-``` 
-  coverageTable |=
-    attribute format { "1" }
-    ... attributes and elements for a format 1 coverage table
-
-  coverageTable |=
-    attribute format { "2" }
-    ... attributes and elements for a format 2 coverage table
-```
-
-furthermore, we often will create an "abstract" representation, which
-captures the essence of the subtable, but does not imply a choice of
-format. In that case, we use have one more define and we use the value
-any for the format.
-
-``` 
-  coverageTable |=
-    attribute format { "any" }
-    ... attributes and elements for a coverage in any format
-```
-
 ## Table Organization
 
 ### Specification
@@ -277,38 +178,6 @@ ScriptList table
 
 ScriptRecord
 
-### XML Representation
-
-    scriptListTable ==
-          
-      scriptListTable =
-        element script {
-          attribute tag { text },
-          scriptTableOffset
-        }*
-    
-      standaloneScriptListTable =
-        element scriptListTable { attribute id { text }, scriptListTable }
-    
-      scriptListTableOffset = attribute name { text } | scriptListTable
-
-### Validation
-
-    ScriptList validation ==
-          
-      { if (! available (scriptListOffset, 2)) {
-          return; }
-        int scriptCount = getuint16 (scriptListOffset);
-    
-        if (! claim ("script list", scriptListOffset, 2 + 6*scriptCount)) {
-          return; }
-    
-        for (int scr = 0; scr < scriptCount; scr++) {
-          int scriptOffset
-            = getOffset (scriptListOffset, 2 + 6*scr + 4);
-          validateScript (scriptOffset); }
-      }
-
 ## Script Table and Language System Record
 
 ### Specification
@@ -345,22 +214,6 @@ Script table
 | Offset | LangSys    | Offset to LangSys table-from beginning of Script table |
 
 LangSysRecord
-
-### XML Representation
-
-    scriptTable ==
-          
-      scriptTable =
-        element defaultLangSys { langSysTableOffset }?,
-        element langSysRecord {
-          attribute tag { text },
-          langSysTableOffset
-        }*
-    
-      standaloneScriptTable =
-        element scriptTable { attribute id { text }, scriptTable }
-    
-      scriptTableOffset = attribute name { text } | scriptTable
 
 ## Language System Table
 
@@ -403,23 +256,6 @@ LangSys table used for contextual positioning in the Arabic script.
 | uint16 | FeatureIndex \[FeatureCount\] | Array of indices into the FeatureList-in arbitrary order                               |
 
 LangSys table
-
-### XML Representation
-
-    langSysTable ==
-          
-      langSysTable =
-        element requiredFeature {
-          attribute name { text }
-        }?,
-        element featureIndex {
-          attribute name { text }
-        }*
-    
-      standaloneLangSysTable =
-        element langSysTable { attribute id { text }, langSysTable }
-    
-      langSysTableOffset = attribute name { text } | langSysTable
 
 ## Features and Lookups
 
@@ -505,22 +341,6 @@ FeatureList table
 
 FeatureRecord
 
-### XML Representation
-
-    featureListTable ==
-          
-      featureListTable =
-        element feature {
-          attribute id { text },
-          attribute tag { text },
-          featureTableOffset
-        }*
-    
-      standaloneFeatureListTable =
-        element featureListTable { attribute id { text }, featureListTable }
-    
-      featureListTableOffset = attribute name { text } | featureListTable
-
 ## Feature Table
 
 ### Specification
@@ -579,20 +399,6 @@ relative to the beginning of the Feature Table; = NULL if not required".
 It is unclear why it has been changed and in fact the old version is
 better, since there are font with feature params.
 
-### XML Representation
-
-    featureTable ==
-          
-      featureTable =
-        element lookupIndex {
-          attribute name { text }
-        }*
-    
-      standaloneFeatureTable =
-        element featureTable { attribute id { text }, featureTable }
-    
-      featureTableOffset = attribute name { text } | featureTable
-
 ## Lookup List Table
 
 ### Specification
@@ -616,41 +422,6 @@ LookupList table.
 | Offset | Lookup \[LookupCount\] | Array of offsets to Lookup tables-from beginning of LookupList -zero based (first lookup is Lookup index = 0) |
 
 LookupList table
-
-### XML Representation
-
-    lookupListTable ==
-          
-      GSUBlookup =
-        element lookup {
-          attribute id { text },
-          GSUBlookupTableOffset
-        }
-    
-      GSUBlookupListTable =
-        GSUBlookup*
-    
-      standaloneGSUBLookupListTable =
-        element lookupListTable { attribute id { text }, GSUBlookupListTable }
-    
-      GSUBlookupListTableOffset =  attribute name { text } | GSUBlookupListTable
-    
-    
-      GPOSlookup =
-        element lookup {
-          attribute id { text },
-          GPOSlookupTableOffset
-        }
-    
-      GPOSlookupListTable =
-        GPOSlookup*
-    
-      standaloneGPOSLookupListTable =
-        element lookupListTable { attribute id { text }, GPOSlookupListTable }
-    
-      GPOSlookupListTableOffset =  attribute name { text } | GPOSlookupListTable
-    
-      lookup = GSUBlookup | GPOSlookup
 
 ## Lookup Table
 
@@ -841,29 +612,6 @@ determine if a glyph should be skipped cannot look just at the mark
 attachment class definition, it must also look at the glyph class
 definition.
 
-### XML Representation
-
-    Lookup type ==
-          
-      lookupTableCommonAttributes =
-        attribute rightToLeft         { yesOrNo }?,
-        attribute ignoreBaseGlyphs    { yesOrNo }?,
-        attribute ignoreLigatures     { yesOrNo }?,
-        attribute ignoreMarks         { yesOrNo }?,
-        attribute markAttachmentType  { text }?
-    
-    
-      standaloneGSUBLookupTable =
-        element lookupTable { attribute id { text }, GSUBlookupTable }
-    
-      GSUBlookupTableOffset = attribute name { text } | GSUBlookupTable
-    
-    
-      standaloneGPOSLookupTable =
-        element lookupTable { attribute id { text }, GPOSlookupTable }
-    
-      GPOSlookupTableOffset = attribute name { text } | GPOSlookupTable
-
 ## Coverage Table
 
 ### Specification
@@ -907,25 +655,6 @@ does not hold. However, this seems unlikely, and we will assume that the
 property will always hold. Recommendation: make that clear in the
 specification.
 
-### XML Representation
-
-In many cases, we do not care to specify the format which should be used
-to represent a coverage, but instead would prefer the compiler to figure
-out the best representation. For this purpose, we use the observation in
-our annotations, and represent two attributes: format with the value any
-and glyphs to hold the list of covered glyphs:
-
-    coverageTable ==
-          
-      coverageTable |=
-        attribute format { "any" },
-        attribute glyphs { text }
-    
-      standaloneCoverageTable =
-        element coverageTable { attribute id { text }, coverageTable }
-    
-      coverageTableOffset = attribute name { text } | coverageTable
-
 ## Coverage Format 1
 
 ### Specification
@@ -949,14 +678,6 @@ font.
 | GlyphID | GlyphArray \[GlyphCount\] | Array of GlyphIDs-in numerical order |
 
 CoverageFormat1 table: Individual glyph indices
-
-### XML Representation
-
-    coverageTable, format 1 ==
-          
-      coverageTable |=
-        attribute format { "1" },
-        attribute glyphs { text }
 
 ## Coverage Format 2
 
@@ -995,17 +716,6 @@ CoverageFormat2 table: Range of glyphs
 
 RangeRecord
 
-### XML Representation
-
-    coverageTable, format 2 ==
-          
-      coverageTable |=
-        attribute format { "2" },
-        element range {
-          attribute start { text },
-          attribute end { text }
-        }*
-
 ## Class Definition Table
 
 ### Specification
@@ -1034,27 +744,6 @@ one class.
 The ClassDef table can have either of two formats: one that assigns a
 range of consecutive glyph indices to different classes, or one that
 puts groups of consecutive glyph indices into the same class.
-
-### XML Representation
-
-In many cases, we do not care to specify the format which should be used
-to represent a class definition, but instead would prefer the compiler
-to figure out the best representation. In that case, the classes are
-just listed:
-
-    classDefTable, any format ==
-          
-      classDefTable |=
-        attribute format { "any" },
-        element class {
-          attribute classID { text },
-          attribute glyphs { text }
-        }*
-    
-      standaloneClassDefTable =
-        element classDefTable { attribute id { text }, classDefTable }
-    
-      classDefTableOffset = attribute name { text } | classDefTable
 
 ## Class Definition Table Format 1
 
@@ -1087,15 +776,6 @@ font.
 | uint16  | ClassValueArray \[GlyphCount\] | Array of Class Values-one per GlyphID |
 
 ClassDefFormat1 table: Class array
-
-### XML Representation
-
-    classDefTable, format 1 ==
-          
-      classDefTable |=
-        attribute format { "1" },
-        attribute startGlyph { text },
-        attribute classes    { text }
 
 ## Class Definition Table Format 2
 
@@ -1134,18 +814,6 @@ ClassDefFormat2 table: Class ranges
 | uint16  | Class | Applied to all glyphs in the range |
 
 ClassRangeRecord
-
-### XML Representation
-
-    classDefTable, format 2 ==
-          
-      classDefTable |=
-        attribute format { "2" },
-        element range {
-          attribute start { text },
-          attribute end   { text },
-          attribute class { text }
-        }*
 
 ## Device Tables
 
@@ -1205,21 +873,6 @@ minimum extent value for a math script.
 | uint16 | DeltaValue \[\] | Array of compressed data                    |
 
 Device table
-
-### XML Representation
-
-    deviceTable ==
-          
-      deviceTable =
-        attribute startSize    { text },
-        attribute endSize      { text },
-        attribute deltaFormat  { text },
-        attribute values       { text }
-    
-      standaloneDeviceTable =
-        element deviceTable { attribute id { text }, deviceTable }
-    
-      deviceTableOffset = attribute name { text } | deviceTable
 
 ## Common Table Examples
 

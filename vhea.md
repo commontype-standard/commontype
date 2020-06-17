@@ -98,38 +98,3 @@ Vertical Header Table Example
 | 0          | metricDataFormat     | Set to 0.                                                                                             |
 | 258        | numOfLongVerMetrics  | Number of advance heights in the vertical metrics table is 258.                                       |
 
-### XML Representation
-
-    ?? ==
-          
-    vhea =
-      element vhea {
-        attribute major { text },
-        attribute minor { text },
-        element typo {
-          attribute ascender  { text },
-          attribute descender { text },
-          attribute lineGap   { text }
-        },
-        element advanceHeightMax {
-          attribute v { text }
-        },
-        element minTopSideBearing {
-          attribute v { text }
-        },
-        element minBottomSideBearing {
-          attribute v { text }
-        },
-        element yMaxExtent {
-          attribute v { text }
-        },
-        element caret {
-          attribute slopeRise { text },
-          attribute slopeRun { text },
-          attribute offset { text }
-        },
-        element numberOfVMetrics {
-          attribute v { text }
-        }
-      }
-

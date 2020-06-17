@@ -48,12 +48,3 @@ regardless of the font content.
 Since Multiple Master technology is not part of OpenType, the Top DICT
 must not contain the operators BaseFontName and BaseFontBlend.
 
-### XML Representation
-
-Pretty simple:
-
-    CFF ==
-          
-      CFF =
-        element CFF { grammar { include "cfffontset.rnc" } }
-

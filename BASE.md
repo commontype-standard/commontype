@@ -225,27 +225,6 @@ Example 1 at the end of this chapter shows a sample
 
 BASE Header
 
-### XML Representation
-
-    BASE ==
-          
-      BASE =
-        element BASE {
-          attribute major { "1" },
-          attribute minor { "0" },
-          element horizontalAxis { axisTableOffset }?,
-          element verticalAxis { axisTableOffset }?,
-    
-          (  standaloneAxisTable
-           | standaloneBaseTagListTable
-           | standaloneBaseScriptListTable
-           | standaloneBaseScriptTable
-           | standaloneBaseValuesTable
-           | standaloneMinMaxTable
-           | standaloneBaseCoordTable
-           | standaloneDeviceTable)*
-        }
-
 ## Axis Tables: HorizAxis and VertAxis
 
 ### Specification
@@ -270,19 +249,6 @@ Example 1 at the end of this chapter shows an example of an Axis table.
 | Offset | BaseScriptList | Offset to BaseScriptList table-from beginning of Axis table          |
 
 Axis Table
-
-### XML Representation
-
-    axisTable ==
-          
-      axisTable =
-        element baseTagList    { baseTagListTableOffset }?,
-        element baseScriptList { baseScriptListTableOffset }
-    
-      standaloneAxisTable =
-        element axisTable { attribute id { text }, axisTable }
-    
-      axisTableOffset = attribute name { text } | axisTable
 
 ## BaseTagList Table
 
@@ -317,20 +283,6 @@ Example 1 at the end of this chapter shows a sample BaseTagList table.
 | Tag    | BaselineTag \[BaseTagCount\] | Array of 4-byte baseline identification tags-must be in alphabetical order    |
 
 BaseTagList table
-
-### XML Representation
-
-    baseTagListTable ==
-          
-      baseTagListTable =
-        element tag {
-          attribute v { text }
-        }*
-    
-      standaloneBaseTagListTable =
-        element baseTagListTable { attribute id { text }, baseTagListTable }
-    
-      baseTagListTableOffset = attribute name { text } | baseTagListTable
 
 ## BaseScriptList Table and BaseScript Record
 
@@ -372,21 +324,6 @@ Example 1 at the end of this chapter shows a sample BaseScriptRecord.
 | Offset | BaseScript    | Offset to BaseScript table-from beginning of BaseScriptList |
 
 BaseScriptRecord
-
-### XML Representation
-
-    baseScriptListTable ==
-          
-      baseScriptListTable =
-        element baseScriptRecord {
-          attribute tag { text },
-          baseScriptTableOffset
-        }*
-    
-      standaloneBaseScriptListTable =
-        element baseScriptListTable { attribute id { text }, baseScriptListTable }
-    
-      baseScriptListTableOffset = attribute name { text } | baseScriptListTable
 
 ## BaseScript Table and BaseLangSys Record
 
@@ -473,23 +410,6 @@ Example 2 at the end of this chapter shows a BaseLangSysRecord.
 
 BaseLangSysRecord
 
-### XML Representation
-
-    baseScriptTable ==
-          
-      baseScriptTable =
-        element baseValues    { baseValuesTableOffset }?,
-        element defaultMinMax { minMaxTableOffset }?,
-        element baseLangSysRecord {
-          attribute tag { text },
-          element minMax { minMaxTableOffset }
-        }*
-    
-      standaloneBaseScriptTable =
-         element baseScriptTable { attribute id { text }, baseScriptTable }
-    
-      baseScriptTableOffset = attribute name { text } | baseScriptTable
-
 ## BaseValues Table
 
 ### Specification
@@ -562,20 +482,6 @@ positions defined for several scripts.
 | Offset | BaseCoord \[BaseCoordCount\] | Array of offsets to BaseCoord-from beginning of BaseValues table-order matches BaselineTag array in the BaseTagList        |
 
 BaseValues table
-
-### XML Representation
-
-    baseValuesTable ==
-          
-      baseValuesTable =
-        attribute defaultIndex { text },
-    
-        element baseCoord { baseCoordTableOffset }*
-    
-      standaloneBaseValuesTable =
-        element baseValuesTable { attribute id { text }, baseValuesTable }
-    
-      baseValuesTableOffset = attribute name { text } | baseValuesTable
 
 ## The MinMax Table and FeatMinMaxRecord
 
@@ -655,28 +561,6 @@ MinMax table
 
 FeatMinMaxRecord
 
-### XML Representation
-
-``` 
- ==
-      
-  minMaxTable =
-    element minCoord { baseCoordTableOffset }?,
-    element maxCoord { baseCoordTableOffset }?,
-    element featMinMax { featMinMaxRecord }*
-
-  featMinMaxRecord =
-    attribute v { text },
-
-    element minCoord { baseCoordTableOffset }?,
-    element maxCoord { baseCoordTableOffset }?
-
-  standaloneMinMaxTable =
-    element minMaxTable { attribute id { text }, minMaxTable }
-
-  minMaxTableOffset = attribute name { text } | minMaxTable
-```
-
 ## BaseCoord Tables
 
 ### Specification
@@ -700,15 +584,6 @@ coordinate values in design units. Two of the formats also support fine
 adjustments to the X or Y values based on a contour point or a Device
 table.
 
-### XML Representation
-
-    baseCoordTable ==
-          
-      standaloneBaseCoordTable =
-        element baseCoordTable { attribute id { text }, baseCoordTable }
-    
-      baseCoordTableOffset = attribute name { text } | baseCoordTable
-
 ## BaseCoord Format 1
 
 ### Specification
@@ -728,14 +603,6 @@ table.
 | int16  | Coordinate      | X or Y value, in design units |
 
 BaseCoordFormat1 table: Design units only
-
-### XML Representation
-
-    baseCoordTable, format 1 ==
-          
-      baseCoordTable |=
-        attribute format { "1" },
-        attribute coord { text }
 
 ## BaseCoord Format 2
 
@@ -761,16 +628,6 @@ Example 6 shows a sample of a BaseCoordFormat2 table.
 
 BaseCoordFormat2 table: Design units plus contour point
 
-### XML Representation
-
-    baseCoordTable, format 2 ==
-          
-      baseCoordTable |=
-        attribute format { "2" },
-        attribute coord { text },
-        attribute glyphID { text },
-        attribute baseCoordPoint { text }
-
 ## BaseCoord Format 3
 
 ### Specification
@@ -792,15 +649,6 @@ BaseCoordFormat3 table.
 | Offset | DeviceTable     | Offset to Device table for X or Y value |
 
 BaseCoordFormat3 table: Design units plus Device table
-
-### XML Representation
-
-    baseCoordTable, format 3 ==
-          
-      baseCoordTable |=
-        attribute format { "3" },
-        attribute coord {text },
-        element deviceTable { deviceTableOffset }
 
 ## BASE Table Examples
 

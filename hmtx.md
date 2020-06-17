@@ -34,26 +34,3 @@ initial position in x is calculated as follows:
     pp1 = xmin - lsb
     pp2 = pp1 + aw
 
-### XML Representation
-
-In the XML representation, the various entries can occur in any order,
-and the long and short metrics can even be interleaved. However, the
-entries must have distinct gid attribute values, and collectively cover
-exactly the range \[0, n-1\]. In a fully valid font, n must of course be
-equal to the maxp.numGlyphs.
-
-    ?? ==
-          
-    hmtx =
-      element hmtx {
-        element hMetric {
-          attribute gid { text },
-          attribute lsb { text },
-          attribute adv { text }
-        }*,
-        element lsb {
-          attribute gid { text },
-          attribute lsb { text }
-        }*
-      }
-

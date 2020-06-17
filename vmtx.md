@@ -105,18 +105,3 @@ The format of the top sidebearing array is given below.
 | ----- | ------------------- | ----------------------------------------------------------- |
 | SHORT | topSideBearing \[\] | The top sidebearing of the glyph. Signed integer in FUnits. |
 
-### XML Representation
-
-    ?? ==
-          
-    vmtx =
-      element vmtx {
-        element vMetric {
-          attribute tsb { text },
-          attribute adv { text }
-        }*,
-        element tsb {
-          attribute tsb { text }
-        }*
-      }
-

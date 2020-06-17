@@ -232,45 +232,6 @@ substitutions.
 
 Last sentence: the occurrence of 'five' should be replaced by 'seven'.
 
-### XML Representation
-
-    GSUB lookup types ==
-          
-      GSUBlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "1" | "singleSubst" },
-        element singleSubst { singleSubstTableOffset }*
-    
-      GSUBlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "2" | "multipleSubst" },
-        element multipleSubst { multipleSubstTableOffset }*
-    
-      GSUBlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "3" | "alternateSubst" },
-        element alternateSubst { alternateSubstTableOffset }*
-    
-      GSUBlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "4" | "ligatureSubst" },
-        element ligatureSubst { ligatureSubstTableOffset }*
-    
-      GSUBlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "5" | "contextual" },
-        element contextual { contextualTableOffset }*
-    
-      GSUBlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "6" | "chainingContextual" },
-        element chainingContextual { chainingContextualTableOffset }*
-    
-      GSUBlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "7" | "extensionSubst" },
-        element extensionSubst { extensionTableOffset }*
-
 ## GSUB header
 
 ### Specification
@@ -295,46 +256,6 @@ GSUB Header
 
 There is a typo in the first sentence "... to a three tables:..."
 
-### XML Representation
-
-    GSUB table ==
-          
-    GSUB =
-      element GSUB {
-        attribute major { "1" },
-        attribute minor { "0" },
-        element scriptList { scriptListTableOffset },
-        element featureList { featureListTableOffset },
-        element lookupList { GSUBlookupListTableOffset },
-    
-        (  standaloneScriptListTable
-         | standaloneScriptTable
-         | standaloneLangSysTable
-         | standaloneFeatureListTable
-         | standaloneFeatureTable
-         | standaloneGSUBLookupListTable
-         | standaloneGSUBLookupTable
-         | standaloneSingleSubstTable
-         | standaloneMultipleSubstTable
-         | standaloneAlternateSubstTable
-         | standaloneLigatureSubstTable
-         | standaloneContextualTable
-         | standaloneChainingContextualTable
-         | standaloneExtensionTable
-         | standaloneCoverageTable
-         | standaloneClassDefTable
-         | standaloneDeviceTable)*
-      }
-
-### Validation
-
-``` 
-GSUB Validation Method ==
-       public void
-          validate () { }
-        
-```
-
 ## Lookup Type 1: Single Substitution Subtable
 
 ### Specification
@@ -349,38 +270,6 @@ that defines the output glyphs. Format 1 requires less space than Format
 ### Annotation
 
 None.
-
-### XML Representation
-
-Our generic format for single substitions describes the mapping one
-substitution at a time.
-
-    singleSubstTable ==
-          
-      singleSubstTable |=
-        attribute format { "any" },
-        element subst {
-          attribute in { text },
-          attribute out { text }
-        }*
-    
-      standaloneSingleSubstTable =
-        element singleSubstTable { attribute id { text }, singleSubstTable }
-    
-      singleSubstTableOffset = attribute name { text } | singleSubstTable
-
-### Validation
-
-    GSUB 1 subtable validation ==
-          
-      ensureAvailableBytes (gsub, 0, 2);
-      int substFormat = getuint16 (stOffset);
-      switch (substFormat) {
-        case 1: { Validate GSUB 1/1 subtable; break; }
-        case 2: { Validate GSUB 1/2 subtable; break; }
-        default: reportError ("GSUB Subtable at offset " + stOffset
-                              + " has an invalid SubstFormat ("
-                              + substFormat + ")"); }
 
 ## Single Substitution Format 1
 
@@ -429,31 +318,6 @@ The action of this subtable is to replace the glyph matched by C; if the
 id of that glyph is g, then the replacement glyph has id
 (g+DeltaGlyphId) % 0xffff.
 
-### XML Representation
-
-    Single substitution format 1 type ==
-          
-      singleSubstTable |=
-        attribute format { "1" },
-        element coverage { coverageTableOffset },
-        element delta {
-          attribute v { text }
-        }
-
-### Validation
-
-Remembering our general discussion of lookupFlag \[insert link here\],
-we have a warning-level message if the coverage table includes any glyph
-that is also covered by lookupFlag.
-
-    Validate GSUB 1/1 subtable ==
-          
-      ensureAvailableBytes (stOffset, 6);
-      markByteRange (stOffset, 6, FRAGMENT_TYPE_GSUB_1_1);
-      int coverageOffset = stOffset + getuint16 (stOffset + 2);
-      validateCoverageTable (coverageOffset);
-      warnIfCoverageOverlapsLookupFlag (lookupFlag, gsub, coverageOffset);
-
 ## Single Substitution Format 2
 
 ### Specification
@@ -497,25 +361,6 @@ The pattern matched by this subtable is ▶ C ◀ where:
 
 The action of this subtable is to replace the glyph matched by C by the
 corresponding glyph in the Substitute array.
-
-### XML Representation
-
-    Single substitution format 2 type ==
-          
-      singleSubstTable |=
-        attribute format { "2" },
-        element coverage { coverageTableOffset }?,
-        element subst {
-          attribute in { text },
-          attribute out { text }
-        }*
-
-### Validation
-
-``` 
-Validate GSUB 1/2 subtable ==
-      
-```
 
 ## LookupType 2: Multiple Substitution Subtable
 
@@ -577,27 +422,6 @@ The pattern matched by this subtable is ▶ C ◀ where:
 The action of this subtable is to replace the glyph matched by C by the
 Substitute sequence of glyphs in the corresponding Sequence table, in
 the order in which they appear in that array.
-
-### XML Representation
-
-In many cases, we do not care to specify the format which should be used
-to represent a multiple substitution, but instead would prefer the
-compiler to figure out the best representation.:
-
-    MultipleSubst type ==
-          
-      multipleSubstTable |=
-        attribute format { "1" },
-        element coverage { coverageTableOffset }?,
-        element subst {
-          attribute in { text },
-          attribute out { text }
-        }*
-    
-      standaloneMultipleSubstTable =
-        element multipleSubstTable { attribute id { text }, multipleSubstTable }
-    
-      multipleSubstTableOffset = attribute name { text } | multipleSubstTable
 
 ## LookupType 3: Alternate Substitution Subtable
 
@@ -666,27 +490,6 @@ The action of this subtable is to replace the glyph matched by C by one
 of the glyphs in the Alternate array corresponding to the replaced
 glyph. The mechanism by which the client indicates which of those glyphs
 is used is not specified.
-
-### XML Representation
-
-In many cases, we do not care to specify the format which should be used
-to represent a alternate substitution, but instead would prefer the
-compiler to figure out the best representation.:
-
-    AlternateSubst type ==
-          
-      alternateSubstTable |=
-        attribute format { "1" },
-        element coverage { coverageTableOffset }?,
-        element subst {
-          attribute in { text },
-          attribute out { text }
-        }*
-    
-      standaloneAlternateSubstTable =
-        element alternateSubstTable { attribute id { text }, alternateSubstTable }
-    
-      alternateSubstTableOffset = attribute name { text } | alternateSubstTable
 
 ## LookupType 4: Ligature Substitution Subtable
 
@@ -797,23 +600,6 @@ The pattern matched by the Ligature table t = LigatureSet \[m\].Ligature
 The action of this Ligature table is to replace the entire input
 sequence by the glyph t.LigGlyph.
 
-### XML Representation
-
-    LigatureSubst type ==
-          
-      ligatureSubstTable |=
-        attribute format { "1" },
-        element coverage { coverageTableOffset }?,
-        element subst {
-          attribute in { text },
-          attribute out { text }
-        }*
-    
-      standaloneLigatureSubstTable =
-        element ligatureSubstTable { attribute id { text }, ligatureSubstTable }
-    
-      ligatureSubstTableOffset = attribute name { text } | ligatureSubstTable
-
 ## LookupType 5: Contextual Substitution Subtable
 
 ### Specification
@@ -885,20 +671,6 @@ version 1.25, after the description of lookups 5 and 6, I believe. As it
 stands, it is parts of the LookupType 5 description, which is a bit
 misleading since it’s also used in type 6. Recommendation: restore it in
 its own section.
-
-### XML Representation
-
-It is difficult to find a format-independent description of a contextual
-substitution, so we do not have one for now.
-
-Here is the boiler plate:
-
-    Coverage tables ==
-          
-      standaloneContextualTable =
-        element contextualTable { attribute id { text }, contextualTable }
-    
-      contextualTableOffset = attribute name { text } | contextualTable
 
 ## Context Substitution Format 1
 
@@ -1074,18 +846,6 @@ The pattern matched by the SubRule table t = SubRuleSet \[m\].SubRule
 
 A SubRule table does not directly modify the glyph run. Instead, it
 invokes other lookups at the current position.
-
-### XML Representation
-
-    Contextual substitution format 1 type ==
-          
-      contextualTable |=
-        attribute format { "1" },
-        element coverage { coverageTableOffset }?,
-        element pattern {
-          attribute in { text },
-          subLookups
-        }*
 
 ## Context Substitution Format 2
 
@@ -1270,19 +1030,6 @@ L\* I<sub>i-1</sub> ◀, where:
 A SubClassRule table does not directly modify the glyph run. Instead, it
 invokes other lookups at the current position.
 
-### XML Representation
-
-    Contextual substitution format 2 ==
-          
-      contextualTable |=
-        attribute format { "2" },
-        element coverage { coverageTableOffset }?,
-        element classDef { classDefTableOffset },
-        element pattern {
-          attribute in { text },
-          subLookups
-        }*
-
 ## Context Substitution Format 3
 
 ### Specification
@@ -1365,15 +1112,6 @@ I<sub>1</sub> L\* ... L\* I<sub>i-1</sub> ◀, where:
 This table does not directly modify the glyph run. Instead, it invokes
 other lookups at the current position.
 
-### XML Representation
-
-    Contextual substitution format 3 type ==
-          
-      contextualTable |=
-        attribute format { "3" },
-        element coverage { coverageTableOffset }*,
-        subLookups
-
 ## Lookup Type 6: Chaining Contextual Substitution Subtable
 
 ### Specification
@@ -1399,31 +1137,6 @@ BacktrackGlyphCount*. The first element of the lookahead array is
 matched against the glyph at position *i + InputGlyphCount*, and the
 last element in that array is matched against the glyph as position *i +
 InputGlyphCount + LookaheadGlyphCount - 1*.
-
-### XML Representation
-
-In many cases, we do not care to specify the format which should be used
-to represent a chaining contextual substitution, but instead would
-prefer the compiler to figure out the best representation.:
-
-    ChainingContextualSubst type ==
-          
-      chainingContextualTable |=
-        attribute format { "any" },
-        element subst {
-          attribute in { text },
-          attribute out { text },
-          subLookups
-        }*
-    
-      standaloneChainingContextualTable =
-        element chainingContextualTable {
-          attribute id { text },
-          chainingContextualTable
-        }
-    
-      chainingContextualTableOffset = attribute name { text }
-        | chainingContextualTable
 
 ## Chaining Context Substitution Format 1: Simple Chaining Context Glyph Substitution
 
@@ -1638,20 +1351,6 @@ A<sub>0</sub> L\* ... L\* A<sub>a-1</sub>, where:
 A SubRule table does not directly modify the glyph run. Instead, it
 invokes other lookups at the current position.
 
-### XML Representation
-
-    Chaining contextual substitution format 1 type ==
-          
-      chainingContextualTable |=
-        attribute format { "1" },
-        element coverage { coverageTableOffset }?,
-        element pattern {
-          attribute back { text },
-          attribute in { text },
-          attribute ahead { text },
-          subLookups
-        }*
-
 ## Chaining Context Substitution Format 2: Class-based Chaining Context Glyph Substitution
 
 ### Specification
@@ -1838,23 +1537,6 @@ A<sub>0</sub> L\* ... L\* A<sub>a-1</sub>, where:
 A SubRule table does not directly modify the glyph run. Instead, it
 invokes other lookups at the current position.
 
-### XML Representation
-
-    Chaining contextual substitution format 2 ==
-          
-      chainingContextualTable |=
-        attribute format { "2" },
-        element coverage { coverageTableOffset }?,
-        element backClassDef { classDefTableOffset },
-        element inClassDef { classDefTableOffset },
-        element aheadClassDef { classDefTableOffset },
-        element pattern {
-          attribute back { text },
-          attribute in { text },
-          attribute ahead { text },
-          subLookups
-        }*
-
 ## Chaining Context Substitution Format 3: Coverage-based Chaining Context Glyph Substitution
 
 ### Specification
@@ -1929,23 +1611,6 @@ I<sub>i-1</sub> ◀ L\* A<sub>0</sub> L\* ... L\* A<sub>a-1</sub>, where:
 This table does not directly modify the glyph run. Instead, it invokes
 other lookups at the current position.
 
-### XML Representation
-
-    Chaning contextual substitution format 3 type ==
-          
-      chainingContextualTable |=
-        attribute format { "3" },
-        element backCoverages {
-          element coverage { coverageTableOffset }*
-        },
-        element inCoverages {
-          element coverage { coverageTableOffset }*
-        },
-        element aheadCoverages {
-          element coverage { coverageTableOffset }*
-        },
-        subLookups
-
 ## LookupType 7: Extension Substitution
 
 ### Specification
@@ -1984,22 +1649,6 @@ it shall:
 
 This subtable does not match a pattern by itself, nor does it have an
 action by itself.
-
-### XML Representation
-
-    Coverage tables ==
-          
-      extensionTable |=
-        attribute format { "1" },
-        element ext {
-          attribute type { text },
-          attribute name { text }
-        }
-    
-      standaloneExtensionTable =
-        element extensionTable { attribute id { text }, extensionTable }
-    
-      extensionTableOffset = attribute name { text } | extensionTable
 
 ## Lookup Type 8: Reverse Chaining Contextual Single Substitution
 
@@ -2082,16 +1731,6 @@ the end of this chapter show SubstLookupRecords.
 
 As noted earlier, the description of a SubstLookupRecord should be moved
 back in this section.
-
-### XML Representation
-
-    subLookups ==
-          
-      subLookups =
-        element apply {
-          attribute pos { text },
-          attribute lookup { text }
-        }*
 
 ## GSUB Subtable Examples
 

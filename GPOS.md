@@ -260,55 +260,6 @@ subtables share other tables: ValueRecords, Anchor tables, and
 MarkArrays. For easy reference, the shared tables are described at the
 end of this chapter.
 
-### XML Representation
-
-    lookupTable for GPOS ==
-          
-      GPOSlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "1" | "singlePos" },
-        element singlePos { singlePosTableOffset }*
-    
-      GPOSlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "2" | "pairPos" },
-        element pairPos { pairPosTableOffset }*
-    
-      GPOSlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "3" | "cursiveAttachment" },
-        element cursiveAttachment { cursiveAttachmentTableOffset }*
-    
-      GPOSlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "4" | "markToBaseAttachement" },
-        element markToBaseAttachment { markToBaseAttachmentTableOffset }*
-    
-      GPOSlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "5" | "markToLigatureAttachment" },
-        element markToLigatureAttachment { markToLigatureAttachmentTableOffset }*
-    
-      GPOSlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "6" | "markToMarkAttachment" },
-        element markToMarkAttachment { markToMarkAttachmentTableOffset }*
-    
-      GPOSlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "7" | "contextual" },
-        element contextual { contextualTableOffset }*
-    
-      GPOSlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "8" | "chainingContextual" },
-        element chainingContextual { chainingContextualTableOffset }*
-    
-      GPOSlookupTable |=
-        lookupTableCommonAttributes,
-        attribute type { "9" | "extensionPos" },
-        element extensionPos { extensionTableOffset }*
-
 ## GPOS Header
 
 ### Specification
@@ -333,41 +284,6 @@ GPOS Header
 
 Nothing to note.
 
-### XML Representation
-
-    GPOS ==
-          
-      GPOS =
-        element GPOS {
-          attribute major { "1" },
-          attribute minor { "0" },
-          element scriptList { scriptListTableOffset },
-          element featureList { featureListTableOffset },
-          element lookupList { GPOSlookupListTableOffset },
-    
-          (  standaloneScriptListTable
-           | standaloneScriptTable
-           | standaloneLangSysTable
-           | standaloneFeatureListTable
-           | standaloneFeatureTable
-           | standaloneGPOSLookupListTable
-           | standaloneGPOSLookupTable
-           | standaloneSinglePosTable
-           | standalonePairPosTable
-           | standaloneCursiveAttachmentTable
-           | standaloneMarkToBaseAttachmentTable
-           | standaloneMarkToLigatureAttachmentTable
-           | standaloneMarkToMarkAttachmentTable
-           | standaloneContextualTable
-           | standaloneChainingContextualTable
-           | standaloneExtensionTable
-           | standaloneAnchorTable
-           | standaloneCoverageTable
-           | standaloneClassDefTable
-           | standaloneDeviceTable
-           | standalonePairSetTable)*
-        }
-
 ## Lookup Type 1: Single Adjustment Positioning Subtable
 
 ### Specification
@@ -384,17 +300,6 @@ adjustment for each unique glyph.
 ### Annotation
 
 None
-
-### XML Representation
-
-Here is the boiler plate:
-
-    singlePostTable ==
-          
-      standaloneSinglePosTable =
-        element singlePosTable { attribute id { text }, singlePosTable }
-    
-      singlePosTableOffset = attribute name { text } | singlePosTable
 
 ## Single Adjustment Positioning: Format 1
 
@@ -435,15 +340,6 @@ The pattern matched by this subtable is ▶ C ◀ where:
 
 The action of this subtable is to adjust the glyph matched by C by
 {ValueFormat, Value}.
-
-### XML Representation
-
-    singlePosTable, format 1 ==
-          
-      singlePosTable |=
-        attribute format { "1" },
-        element coverage { coverageTableOffset },
-        element value { valueRecord }
 
 ## Single Adjustment Positioning: Format 2
 
@@ -508,18 +404,6 @@ The action of this subtable is to adjust the glyph matched by C by
 {ValueFormat, Value \[Coverage\[g\]\]}, where g is the glyph id of the
 matched glyph.
 
-### XML Representation
-
-    singlePosTable, format 2 ==
-          
-      singlePosTable |=
-        attribute format { "2" },
-        element coverage { coverageTableOffset }?,
-        element value {
-          attribute glyph { text },
-          valueRecord
-        }*
-
 ## Lookup Type 2: Pair Adjustment Positioning Subtable
 
 ### Specification
@@ -537,15 +421,6 @@ adjust glyph positions at each font size and device resolution.
 PairPos subtables can be either of two formats: one that identifies
 glyphs individually by index (Format 1), or one that identifies glyphs
 by class (Format 2).
-
-### XML Representation
-
-    pairPosTable ==
-          
-      standalonePairPosTable =
-        element pairPosTable { attribute id { text }, pairPosTable }
-    
-      pairPosTableOffset = attribute name { text } | pairPosTable
 
 ## Pair Positioning Adjustment: Format 1
 
@@ -653,30 +528,6 @@ I<sub>0</sub> ◀ L\* I<sub>1</sub>.
 The action of this subtable is to adjust the glyph matched by
 I<sub>0</sub> by {ValueFormat1, r.Value1} and then the glyph matched by
 I<sub>1</sub> by {ValueFormat2, r.Value2}.
-
-### XML Representation
-
-    pairPosTable, format 1 ==
-          
-      pairPosTable |=
-        attribute format { "1" },
-        element coverage { coverageTableOffset }?,
-        element pairSet {
-          attribute in { text },
-          pairSetTableOffset
-        }*
-    
-      pairSetTable =
-        element pos2 {
-          attribute in { text },
-          element value1 { valueRecord }?,
-          element value2 { valueRecord }?
-        }*
-    
-      standalonePairSetTable =
-        element pairSetTable { attribute id { text }, pairSetTable }
-    
-      pairSetTableOffset = attribute name { text } | pairSetTable
 
 ## Pair Positioning Adjustment: Format 2
 
@@ -794,21 +645,6 @@ The action of r is to adjust the glyph matched by I<sub>0</sub> by
 {ValueFormat1, r.Value1} and then the glyph matched by I<sub>1</sub> by
 {ValueFormat2, r.Value2}.
 
-### XML Representation
-
-    pairPosTable, format 2 ==
-          
-      pairPosTable |=
-        attribute format { "2" },
-        element coverage { coverageTableOffset }?,
-        element classdef { classDefTableOffset },
-        element classdef { classDefTableOffset },
-        element pos2 {
-          attribute in { text },
-          element value1 { valueRecord }?,
-          element value2 { valueRecord }?
-        }*
-
 ## Lookup Type 3: Cursive Attachment Positioning Subtable
 
 ### Specification
@@ -883,23 +719,6 @@ cursive attachment.
 
 \[All this is obviously wrong, but I need more work to figure out how
 this lookup type really works.\]
-
-### XML Representation
-
-    cursiveAttachmentTable ==
-          
-      cursiveAttachmentTable =
-        attribute format { "1" },
-        element coverage { coverageTableOffset }?,
-        element entryExit {
-          attribute glyphID { text },
-          element entry { anchorTableOffset }?,
-          element exit  { anchorTableOffset }?
-        }*
-    
-      standaloneCursiveAttachmentTable =
-        element cursiveAttachmentTable { attribute id { text }, cursiveAttachmentTable }
-      cursiveAttachmentTableOffset = attribute name { text } | cursiveAttachmentTable
 
 ## Lookup Type 4: MarkToBase Attachment Positioning Subtable
 
@@ -1088,35 +907,6 @@ such that its anchor MarkArray.MarkRecord\[MarkCoverage
 \[m\]\].MarkAnchor coincides with the anchor BaseArray.BaseRecord
 \[BaseCoverage \[b\]\].BaseAnchor \[MarkArray.MarkRecord\[m\].Class\] of
 b.
-
-### XML Representation
-
-Since the BaseArray.BaseRecord array has exactly one element for each
-glyph covered by BaseCoverage, we do not explicitly represent that
-coverage, but instead record the glyphID with the baseGlyph element.
-Similarlly the MarkCoverage is folded in the markGlyph elements.
-
-    markToBaseAttachementTable ==
-          
-      markToBaseAttachmentTable |=
-        attribute format { "1" },
-        element baseGlyph {
-          attribute glyphID { text },
-          element baseAnchor {
-            attribute class { text },
-            anchorTableOffset
-          }*
-        }*,
-        element markGlyphAnchor {
-          attribute glyphID { text },
-          attribute class { text },
-          anchorTableOffset
-        }*
-    
-      standaloneMarkToBaseAttachmentTable =
-        element markToBaseAttachmentTable { attribute id { text }, markToBaseAttachmentTable }
-    
-      markToBaseAttachmentTableOffset = attribute name { text } | markToBaseAttachmentTable
 
 ## Lookup Type 5: MarkToLigature Attachment Positioning Subtable
 
@@ -1336,33 +1126,6 @@ LigatureArray.LigatureAttach \[LigatureCoverage \[b\]\].ComponentRecord
 to the client to determine to which component the mark should be
 attached.
 
-### XML Representation
-
-    markToLigatureAttachementTable ==
-          
-      markToLigatureAttachmentTable |=
-        attribute format { "1" },
-        element ligGlyph {
-          attribute glyphID { text },
-          element ligComponent {
-            attribute comp { text },
-            element ligAnchor {
-              attribute class { text },
-              anchorTableOffset
-            }*
-          }*
-        }*,
-        element markGlyphAnchor {
-          attribute glyphID { text },
-          attribute class { text },
-          anchorTableOffset
-        }*
-    
-      standaloneMarkToLigatureAttachmentTable =
-        element markToLigatureAttachmentTable { attribute id { text }, markToLigatureAttachmentTable }
-    
-      markToLigatureAttachmentTableOffset = attribute name { text } | markToLigatureAttachmentTable
-
 ## Lookup Type 6: MarkToMark Attachment Positioning Subtable
 
 ### Specification
@@ -1482,30 +1245,6 @@ such that its anchor Mark1Array.MarkRecord \[MarkCoverage
 \[Mark2Coverage \[m2\]\].Mark2Anchor
 \[Mark1Array.MarkRecord\[m\].Class\] of m2.
 
-### XML Representation
-
-    markToMarkAttachmentTable ==
-          
-      markToMarkAttachmentTable |=
-        attribute format { "1" },
-        element mark2Glyph {
-          attribute glyphID { text },
-          element mark2Anchor {
-            attribute class { text },
-            anchorTableOffset
-          }*
-        }*,
-        element mark1GlyphAnchor {
-          attribute glyphID { text },
-          attribute class { text },
-          anchorTableOffset
-        }*
-    
-      standaloneMarkToMarkAttachmentTable =
-        element markToMarkAttachmentTable { attribute id { text }, markToMarkAttachmentTable }
-    
-      markToMarkAttachmentTableOffset = attribute name { text } | markToMarkAttachmentTable
-
 ## Lookup Type 7: Contextual Positioning Subtables
 
 ### Specification
@@ -1525,10 +1264,6 @@ terms of sets of glyphs (Format 3).
 
 All ContextPos subtables specify positioning data in a PosLookupRecord.
 A description of that record follows.
-
-### XML Representation
-
-See GSUB
 
 ## PosLookupRecord
 
@@ -1553,10 +1288,6 @@ show PosLookupRecords.
 | uint16 | LookupListIndex | Lookup to apply to that position-zero-based   |
 
 PosLookupRecord
-
-### XML Representation
-
-See GSUB
 
 ## Context Positioning Subtable: Format 1
 
@@ -1698,10 +1429,6 @@ The pattern matched by the PosRule table t = PosRuleSet \[m\].PosRule
 
 A PosRule table does not directly modify the glyph run. Instead, it
 invokes other lookups at the current position.
-
-### XML Representation
-
-See GSUB
 
 ## Context Positioning Subtable: Format 2
 
@@ -1857,10 +1584,6 @@ L\* I<sub>i-1</sub> ◀, where:
 A SubClassRule table does not directly modify the glyph run. Instead, it
 invokes other lookups at the current position.
 
-### XML Representation
-
-See GSUB
-
 ## Context Positioning Subtable: Format 3
 
 ### Specification
@@ -1934,10 +1657,6 @@ I<sub>1</sub> L\* ... L\* I<sub>i-1</sub> ◀, where:
 This table does not directly modify the glyph run. Instead, it invokes
 other lookups at the current position.
 
-### XML Representation
-
-See GSUB
-
 ## Lookup Type 8: Chaining Contextual Positioning Subtable
 
 ### Specification
@@ -1989,10 +1708,6 @@ BacktrackGlyphCount*. The first element of the lookahead array is
 matched against the glyph at position *i + InputGlyphCount*, and the
 last element in that array is matched against the glyph as position *i +
 InputGlyphCount + LookaheadGlyphCount - 1*.
-
-### XML Representation
-
-See GSUB
 
 ## Chaining Context Positioning Format 1: Simple Chaining Context Glyph Positioning
 
@@ -2063,10 +1778,6 @@ A<sub>0</sub> L\* ... L\* A<sub>a-1</sub>, where:
 
 A SubRule table does not directly modify the glyph run. Instead, it
 invokes other lookups at the current position.
-
-### XML Representation
-
-See GSUB
 
 ## Chaining Context Positioning Format 2: Class-based Chaining Context Glyph Positioning
 
@@ -2146,10 +1857,6 @@ A<sub>0</sub> L\* ... L\* A<sub>a-1</sub>, where:
 A SubRule table does not directly modify the glyph run. Instead, it
 invokes other lookups at the current position.
 
-### XML Representation
-
-See GSUB
-
 ## Chaining Context Positioning Format 3: Coverage-based Chaining Context Glyph Positioning
 
 ### Specification
@@ -2222,10 +1929,6 @@ I<sub>i-1</sub> ◀ L\* A<sub>0</sub> L\* ... L\* A<sub>a-1</sub>, where:
 This table does not directly modify the glyph run. Instead, it invokes
 other lookups at the current position.
 
-### XML Representation
-
-See GSUB
-
 ## Lookup Type 9: Extension Positioning
 
 ### Specification
@@ -2264,10 +1967,6 @@ it shall:
 
 This subtable does not match a pattern by itself, nor does it have an
 action by itself.
-
-### XML Representation
-
-See GSUB
 
 ## Shared Tables: ValueRecord, Anchor Table, and MarkArray
 
@@ -2364,16 +2063,6 @@ ValueFormat bit enumeration (indicates which fields are present)
 
 None
 
-### XML Representation
-
-    valueRecord ==
-          
-      valueRecord =
-        attribute xPlacement { text }?,
-        attribute yPlacement { text }?,
-        attribute xAdvance { text }?,
-        attribute yAdvance { text }?
-
 ## Anchor Table
 
 ### Specification
@@ -2388,15 +2077,6 @@ formats. The first format uses design units to specify a location for
 the anchor point. The other two formats refine the location of the
 anchor point using contour points (Format 2) or Device tables (Format
 3).
-
-### XML Representation
-
-    anchorTable ==
-          
-      standaloneAnchorTable =
-        element anchorTable { attribute id { text }, anchorTable }
-    
-      anchorTableOffset = attribute name { text } | anchorTable
 
 ## Anchor Table: Format 1
 
@@ -2417,15 +2097,6 @@ Example 15 at the end of this chapter uses AnchorFormat1.
 | int16  | YCoordinate  | Vertical value-in design units   |
 
 AnchorFormat1 table: Design units only
-
-### XML Representation
-
-    anchorTable, format 1 ==
-          
-      anchorTable |=
-        attribute format { "1" },
-        attribute x { text },
-        attribute y { text }
 
 ## Anchor Table: Format 2
 
@@ -2451,16 +2122,6 @@ Example 16 at the end of this chapter uses AnchorFormat2.
 | uint16 | AnchorPoint  | Index to glyph contour point     |
 
 AnchorFormat2 table: Design units plus contour point
-
-### XML Representation
-
-    anchorTable, format 2 ==
-          
-      anchorTable |=
-        attribute format { "2" },
-        attribute x { text },
-        attribute y { text },
-        attribute point { text }
 
 ## Anchor Table: Format 3
 
@@ -2490,17 +2151,6 @@ Example 17 at the end of the chapter shows an AnchorFormat3 table.
 | Offset | YDeviceTable | Offset to Device table for Y coordinate- from beginning of Anchor table (may be NULL) |
 
 AnchorFormat3 table: Design units plus Device tables
-
-### XML Representation
-
-    anchorTable, format 3 ==
-          
-      anchorTable |=
-        attribute format { "3" },
-        attribute x { text },
-        attribute y { text },
-        element xDeviceTable { deviceTableOffset }?,
-        element yDeviceTable { deviceTableOffset }?
 
 ## Mark Array
 

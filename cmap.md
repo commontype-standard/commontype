@@ -115,192 +115,6 @@ multiple platforms. For example, if there is a Unicode cmap subtable, it
 can be referenced from one entry with platformID/encodingID (0, 3), and
 from another entry with (3, 1).
 
-### XML Representation
-
-A cmap table is represented by a cmap element, with each entry
-represented by a mapping element. Each cmap subtalble will contribute a
-bunch of attributes and elements. As usual, those can be attached
-directly to the mapping element, or they can be attached to a
-cmapsubtable element. In the latter case, the mapping element carries an
-IDREF name attribute, and the cmapsubtable carries a corresponding ID id
-attribute. This mechanism is useful, e.g. when a cmapsutable is listed
-under both Microsoft/Unicode BMP (3/1) and Unicode/BMP (1/0).
-
-We pull the language field of each cmap subtable in the mapping entry,
-as it logically belongs there. However, this creates a validity
-constraint: if a cmapsubtable is referenced from multiple entries, then
-all those entries must have the same language.
-
-When we do not care about the format of a cmap subtable, we set the
-format attribute to any and simply list the code point to glyph
-correspondance.
-
-Each cmap subtable format is also dual: it can either be expressed
-(mostly) as a bunch of mappings, or it can be precise, recording all the
-details specific to the format. We need this flexibility, because many
-font consumers impose that the subtable for a given platform/encoding be
-in a specific format, yet we want to describe the mappings simply.
-
-    cmap table ==
-          
-      cmap =
-        element cmap {
-          attribute version { "0" },
-          element mapping {
-            attribute platformid { text },
-            attribute encodingid { text },
-            attribute language { text },
-            cmapsubtableOffset }*,
-    
-          standaloneCmapsubtable*
-        }
-    
-      standaloneCmapsubtable =
-        element cmapsubtable { attribute id { text }, cmapsubtable }
-    
-      cmapsubtableOffset = attribute name { text } | cmapsubtable
-    
-      cmapsubtable |=
-        attribute format { "any" },
-        element map {
-          attribute code { text },
-          attribute glyph { text }}*
-
-### Validation
-
-Let's start by verifying the header.
-
-    Validate header and set 'numTables' ==
-          
-      if (! claim ("cmap header", 0, 4)) {
-        return; }
-    
-      int version = getuint16 (0);
-      if (version > 0) {
-        reportError ("cmap table version (" + version
-                       + ") not part of the specification"); }
-    
-      int numTables = getuint16 (2);
-      if (numTables == 0) {
-        reportMistake ("font does not have any cmap subtables"); }
-
-Let's move on to the directory of subtables. We first need to claim the
-bytes:
-
-    Validate directory ==
-          
-      if (! claim ("cmap directory", 4, 8*numTables)) {
-        return; }
-
-Another check is to make sure that the subtables are properly ordered:
-
-    Validate directory order ==
-          
-      int lastPlatformID = -1;
-      int lastEncodingID = -1;
-    
-      for (int st = 0; st < numTables; st++) {
-        int platformID = getuint16 (4 + 8*st);
-        int encodingID = getuint16 (4 + 8*st + 2);
-    
-        if (   platformID < lastPlatformID
-            || (   platformID == lastPlatformID
-                && encodingID <= lastEncodingID)) {
-          reportError ("cmap subtables not ordered by (platformID, encodingID)"); }
-    
-        lastPlatformID = platformID;
-        lastEncodingID = encodingID; }
-
-Another check is that there are entries for 3/1 and 0/3, and that they
-point ot the same subtable. This is a requirement for Adobe fonts only.
-
-    Check there are 3/1 and 0/3 entries for the same
-      subtable ==
-          
-      int subtable03offset = -1;
-      int subtable31offset = -1;
-    
-      for (int st = 0; st < numTables; st++) {
-        int platformID = getuint16 (4 + 8*st);
-        int encodingID = getuint16 (4 + 8*st + 2);
-    
-        if (platformID == 0 && encodingID == 3) {
-          subtable03offset = getLOffset (4 + 8*st + 4); }
-    
-        if (platformID == 3 && encodingID == 1) {
-          subtable31offset = getLOffset (4 + 8*st + 4); }}
-    
-      if (subtable03offset == -1) {
-        reportMistake ("no 0_3 subtable defined"); }
-      if (subtable31offset == -1) {
-        reportMistake ("no 3_1 subtable defined"); }
-    
-      if (   subtable03offset != subtable31offset
-          && subtable03offset != -1
-          && subtable31offset != -1) {
-        reportMistake ("subtable 0_3 and 3_1 are not the same"); }
-
-We validate each unique subtable on its own.
-
-    Validate each subtable ==
-          
-      for (int st = 0; st < numTables; st++) {
-        String stPrefix = "cmap subtable " + st;
-        int stOffset = getLOffset (4 + 8*st + 4);
-        boolean checked = false;
-        for (int st2 = 0; st2 < st; st2++) {
-          int st2Offset = getLOffset (4 + 8*st2 + 4);
-          if (st2Offset == stOffset) {
-             checked = true; }}
-    
-        if (checked) {
-          continue; }
-    
-        int format = getuint16 (stOffset);
-        switch (format) {
-          case 0: { Validate cmap 0 subtable at stOffset; break; }
-          case 2: { Validate cmap 2 subtable at stOffset; break; }
-          case 4: { Validate cmap 4 subtable at stOffset; break; }
-          case 6: { Validate cmap 6 subtable at stOffset; break; }
-          default:{
-            reportError (stPrefix + " is in an invalid format (" + format + ")");
-            break; }}}
-
-Finally, we verify that the Unicode cmap subtable is in the appropriate
-format:
-
-    Check the format of the Microsoft Unicode subtable ==
-          
-      for (int st = 0; st < numTables; st++) {
-        int platformID = getuint16 (4 + 8*st);
-        int encodingID = getuint16 (4 + 8*st + 2);
-    
-        if (platformID == 3 && encodingID == 1) {
-          int stOffset = getLOffset (4 + 8*st + 4);
-          int format = getuint16 (stOffset);
-          if (format != 4) {
-            reportError ("cmap subtable 3/1 must be in format 4"); }
-          break; }}
-
-Time to put everything together:
-
-    Cmap Validation Method ==
-          
-      public void validate () {
-    
-        Validate header and set 'numTables'
-    
-        Validate directory
-        Validate directory order
-        Check there are 3/1 and 0/3 entries for the same
-      subtable
-    
-        Validate each subtable
-        Check the format of the Microsoft Unicode subtable
-    
-        report ();
-      }
-
 ## OTF Windows NT compatibility mapping
 
 ### Specification
@@ -376,47 +190,6 @@ recommend that font designers always put 256 entries in glyphIdArray
 to handle fonts where the glyphIdArray contains length - 6 entries (but
 no more than 256).
 
-### XML Representation
-
-``` 
- ==
-      
-  cmapsubtable |=
-    attribute format { "0" },
-    element map {
-      attribute code { text },
-      attribute glyph { text }
-    }*
-```
-
-### Validation
-
-In line with our annotation, the validation code generates a warning if
-the glyphIdArray does not have exactly 256 entries.
-
-    Validate cmap 0 subtable at stOffset ==
-          
-      if (! claim (stPrefix + " header", stOffset, 6)) {
-        break; }
-    
-      int stVersion = getuint16 (stOffset + 4);
-      if (stVersion > 0) {
-        reportError ("cmap@" + stOffset + " table version (" + stVersion
-                     + ") not part of the specification"); }
-    
-      int size = getuint16 (stOffset + 2);
-      if (size < 6) {
-        reportError ("cmap subtable at " + stOffset + " has length <  6"); }
-      if (size > 6 + 256) {
-        reportError ("cmap subtable at " + stOffset
-                         + " has more than 256 entries"); }
-      if (size < 6 + 256) {
-        reportWarning ("cmap subtable at " + stOffset
-                       + " has less than 256 entries"); }
-      // check that each glyphID in glyphIdArray is a valid glyph
-    
-      claim (stPrefix + " glyphIDArray", stOffset + 6, size - 6);
-
 ## Format 2: High-byte mapping through table
 
 ### Specification
@@ -476,62 +249,6 @@ How about an intelligible description of the use of this format?
 Assuming that it intends to describe the same structure as the Apple
 True Type format, simply switching to their version would already be a
 vast improvement.
-
-### XML Representation
-
-We do not represent explicitly the subHeaderKeys array. Rather, we
-represent the subHeaders structure directly, and collect the
-subHeaderKeys from which they are referenced in the subHeaderKeys
-attribute. The first
-
-The idRangeOffset field can be interpreted only when one knows its
-location in the cmap subtable. Since this datum disappears in our XML
-representation, the field idRangeOffset is the index of the first
-integer corresponding to the subHeader in the glyphIndexArray.
-
-If we are given only the mapping from code points to glyphs, we have no
-way of knowing which code points are represented on one byte, and which
-are represented in two bytes. Therefore, this format contributes an
-attribute singleBytes to record those. We need this attribute only when
-we use the 'bunch of mappings' representation; when we have all the
-details, the first subheader element carries the single byte code
-points.
-
-    XML representation of format 2 cmap subtables ==
-          
-      cmapsubtable |=
-        attribute format { "2" },
-    
-        ((element subheader {
-            attribute subHeaderKeys { text },
-            attribute firstCode { text },
-            attribute entryCount { text },
-            attribute idDelta { text },
-            attribute idRangeOffset { text }
-          }*,
-    
-          element glyphIndex {
-            attribute v { text }
-          })
-        |
-         (attribute singleBytes { text },
-          element map {
-            attribute code { text },
-            attribute glyph { text }}*))
-
-### Validation
-
-    Validate cmap 2 subtable at stOffset ==
-          
-      if (! claim (stPrefix + " header", stOffset + 2, 4)) {
-        break; }
-    
-      int stVersion = getuint16 (stOffset + 4);
-      if (stVersion > 0) {
-        reportError ("cmap@" + stOffset + " table version (" + stVersion
-                     + ") not part of the specification"); }
-    
-      int length = getuint16 (stOffset + 2);
 
 ## Format 4: Segment mapping to delta values
 
@@ -672,89 +389,6 @@ removed?
 It seems a necessary property of this format that the segments be
 disjoint, yet it is not mentionned explicitly.
 
-### XML Representation
-
-``` 
- ==
-      
-  cmapsubtable |=
-    attribute format { "4" },
-
-    ((element segment {
-        attribute startCode { text },
-        attribute endCode { text },
-        attribute idDelta { text },
-        attribute idRangeOffset { text }}*,
-
-      element glyphIndex {
-        attribute v { text }})
-    |
-     (element map {
-        attribute code { text },
-        attribute glyph { text }}*))
-```
-
-### Validation
-
-    Validate cmap 4 subtable at stOffset ==
-          
-      if (! claim (stPrefix + " header", stOffset + 2, 12)) {
-        break; }
-    
-      int stVersion = getuint16 (stOffset + 4);
-      if (stVersion > 0) {
-        reportError ("cmap@" + stOffset + " table version (" + stVersion
-                     + ") not part of the specification"); }
-    
-      int length = getuint16 (stOffset + 2);
-    
-      int segCountX2 = getuint16 (stOffset + 6);
-      if (segCountX2 % 2 != 0) {
-        reportError ("cmap@" + stOffset + " segCountX2 is not even");
-        break; }
-      int segCount = segCountX2 / 2;
-    
-      int searchRange = getuint16 (stOffset + 8);
-      // verify searchRange = 2 x (2 ^ (log2 (segCount)))
-    
-      int entrySelector = getuint16 (stOffset + 10);
-      // verify entrySelector = log2 (searchRange/2)
-    
-      int rangeShift = getuint16 (stOffset + 12);
-      if (rangeShift != segCountX2 - searchRange) {
-        reportError ("cmap@" + stOffset + " has wrong rangeShift value"); }
-    
-      if (! claim (stPrefix + " data 1",
-                         stOffset + 14, segCount * 8 + 2)) {
-        break; }
-    
-      int lastEndCount = -1;
-      int glyphIdSizeNeeded = 0;
-    
-      for (int s = 0; s < segCount; s++) {
-        int endCount = getuint16 (stOffset + 14 + 2*s);
-        int startCount = getuint16 (stOffset + 14 + 2*segCount + 2 + 2*s);
-    
-        if (startCount > endCount) {
-          reportError ("cmap@" + stOffset + ", range " + s
-                       + ", startCount>endCount");
-          break; }
-    
-        if (startCount <= lastEndCount) {
-          reportError ("cmap@" + stOffset + ", range " + s
-                       + ", overlaps with previous range"); }
-        lastEndCount = endCount;
-    
-        int rangeOffset = stOffset + 14 + 6*segCount + 2 + 2*s;
-        int range = getuint16 (rangeOffset);
-    
-        if (range != 0) {
-          claim (stPrefix + " range " + s,
-                       rangeOffset + range, 2 * (endCount - startCount + 1)); }}
-    
-      if (lastEndCount != 0xffff) {
-        reportError ("cmap@" + stOffset + ", last range does not end at 0xffff"); }
-
 ## Format 6: Trimmed table mapping
 
 ### Specification
@@ -785,42 +419,6 @@ there are two intersting properties: the range can be bigger than 256;
 and more importantly, the glyph indices are USHORT instead of BYTE. So
 this format can be used for byte encodings to reach glyphs other than
 the first 256 glyphs.
-
-### XML Representation
-
-``` 
- ==
-      
-  cmapsubtable |=
-    attribute format { "6" },
-
-    element map {
-      attribute code { text },
-      attribute glyph { text }
-    }*
-```
-
-### Validation
-
-    Validate cmap 6 subtable at stOffset ==
-          
-      if (! claim (stPrefix + " header", stOffset + 2, 8)) {
-        break; }
-    
-      int stVersion = getuint16 (stOffset + 4);
-      if (stVersion > 0) {
-        reportError ("cmap@" + stOffset + " table version (" + stVersion
-                     + ") not part of the specification"); }
-    
-      int length = getuint16 (stOffset + 2);
-    
-      int firstCode = getuint16 (stOffset + 6);
-      int entryCount = getuint16 (stOffset + 8);
-    
-      if (length != 2*entryCount + 10) {
-        reportError ("cmap subtable at " + stOffset + " has wrong length"); }
-    
-      claim (stPrefix + " glyphIdArray", stOffset + 10, 2*entryCount);
 
 ## Supporting 4-byte character codes
 
@@ -921,25 +519,6 @@ Unicode encodings, it is useful only for UTF-16 (the only version that
 has 16 bit code units), so spending 8K bytes to is If the intent is
 really for a Unicode encodings, then it is known
 
-### XML Representation
-
-``` 
- ==
-      
-  cmapsubtable |=
-    attribute format { "8" },
-    attribute singleWords { text },
-
-    ((element group {
-        attribute firstCode { text },
-        attribute lastCode { text },
-        attribute firstGlyph { text }}*)
-    |
-     (element map {
-        attribute code { text },
-        attribute glyph { text }}*))
-```
-
 ## Format 10: Trimmed array
 
 ### Specification
@@ -964,20 +543,6 @@ This format is not supported by Microsoft.
 For coherence with the other formats, the description of the format
 field should be "Format number is set to 10" and the description of the
 length field should be "This is the length in bytes of the subtable."
-
-### XML Representation
-
-``` 
- ==
-      
-  cmapsubtable |=
-    attribute format { "10" },
-
-    element map {
-      attribute code { text },
-      attribute glyph { text }
-    }*
-```
 
 ## Format 12: Segmented coverage
 
@@ -1031,24 +596,6 @@ for Unicode supplemental characters..."
 For coherence with the other formats, the description of the format
 field should be "Format number is set to 12" and the description of the
 length field should be "This is the length in bytes of the subtable."
-
-### XML Representation
-
-``` 
- ==
-      
-  cmapsubtable |=
-    attribute format { "12" },
-
-    ((element map {
-        attribute code { text },
-        attribute glyph { text },
-        attribute count { text }}*)
-
-    |(element map {
-        attribute code { text },
-        attribute glyph { text }}*))
-```
 
 ## Format 14: Unicode Variation Sequences
 
@@ -1207,44 +754,6 @@ it will:
 
   - specify \<U+82A6, U+E0101\> -\> glyph ID 7961 in the UVS cmap
     subtables Non-Default UVS Table
-
-### XML Representation
-
-``` 
- ==
-      
-
-  defaultUVSTable =
-    element defaultMappings {
-      element range {
-        attribute start { text },
-        attribute additionalCount { text }}* }
-
-  standaloneDefaultUVS =
-    element defaultUVSTable { attribute id { text }, defaultUVSTable }
-
-  defaultUVSOffset = attribute defaultUVSTable { text } | defaultUVSTable
-
-
-  nonDefaultUVSTable =
-    element nonDefaultMappings {
-      element map {
-        attribute usv { text },
-        attribute gid  { text }}* }
-
-  standaloneNonDefaultUVS =
-    element nonDefaultUVSSubtable { attribute id { text }, nonDefaultUVSTable }
-
-  nonDefaultUVSOffset = attribute nonDefaultUVSTable { text } | nonDefaultUVSTable
-
-  cmapsubtable |=
-    attribute format { "14" },
-
-    element variation-selector {
-      attribute vs { text },
-      defaultUVSOffset,
-      nonDefaultUVSOffset }*
-```
 
 ## Various test fonts
 

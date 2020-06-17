@@ -98,19 +98,3 @@ vertOriginY of 880 except for glyphs with glyph indexes 10, 12, and 13:
     [1]=(12,861)
     [2]=(13,849)
 
-### XML Representation
-
-    ?? ==
-          
-    VORG =
-      element VORG {
-        attribute major { "1" },
-        attribute minor { "0" },
-        attribute defaultVertOriginY { text },
-    
-        element vMetric {
-          attribute gid { text },
-          attribute vertOriginY { text }
-        }*
-      }
-

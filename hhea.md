@@ -33,38 +33,3 @@ areas must be set to 0.
 Note: The ascender, descender and linegap values in this table are Apple
 specific. Also, see information in the [OS/2](#chapter.OS2) table.
 
-### XML Representation
-
-    ?? ==
-          
-    hhea =
-      element hhea {
-        attribute major { text },
-        attribute minor { text },
-        element macLineMetrics {
-          attribute ascent { text },
-          attribute descent { text },
-          attribute lineGap { text }
-        },
-        element advanceWidthMax {
-          attribute v { text }
-        },
-        element minLeftSideBearing {
-          attribute v { text }
-        },
-        element minRightSideBearing {
-          attribute v { text }
-        },
-        element xMaxExtent {
-          attribute v { text }
-        },
-        element caret {
-          attribute slopeRise { text },
-          attribute slopeRun { text },
-          attribute offset { text }
-        },
-        element numberOfHMetrics {
-          attribute v { text }
-        }
-      }
-

@@ -58,17 +58,3 @@ pixels per em (ppem) size listed at the start of the DeviceRecord.
 
 The ppem sizes are measured along the y axis.
 
-### XML Representation
-
-    ?? ==
-          
-    hdmx =
-      element hdmx {
-        attribute version { text },
-        element deviceRecord {
-          attribute pixelSize { text },
-          attribute maxWidth { text },
-          element width {
-            attribute gid { text },
-            attribute v   { text }}* }* }
-

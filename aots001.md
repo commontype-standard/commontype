@@ -25,25 +25,3 @@ providing background information.
 The “Specification” sections contain the exact text of version 1.3 of
 the OpenType specification.
 
-### XML Representation
-
-The “XML representation” sections propose an XML representation of
-OpenType fonts. The mains goals are:
-
-  - allow the precise representation of fonts in an XML form, to
-    facilitate exchange, manipulation by programs, or archival of fonts.
-
-  - be a convenient form to author fonts or fragments of fonts; in
-    particular, facilitate the creation of fonts to test OpenType
-    engines.
-
-The XML representation is currently formalized in a Relax NG schema,
-expressed here in the compact syntax.
-
-### Validation
-
-The “Validation” sections are the source code for a font validator. The
-intent is that the validator would detect violation of the
-specification, as well as violation of additional rules and dubious
-constructs.
-

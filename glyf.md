@@ -29,26 +29,6 @@ the xMin should be -12. If the lsb is 0 then xMin is 0. If all glyphs
 are done like this, set bit 1 of flags field in the
 [head](#chapter.head) table.
 
-### XML Representation
-
-    Relax Schema for glyf table ==
-          
-    glyf =
-      element glyf {
-        ( simple_glyph | empty_glyph | composite_glyph )*
-      }
-    
-    empty_glyph =
-      element empty_glyph {
-        attribute gid { text } }
-    
-    glyph_attributes =
-      attribute gid { text },
-      attribute xMin { text },
-      attribute yMin { text },
-      attribute xMax { text },
-      attribute yMax { text }
-
 ## Simple Glyph Description
 
 ### Specification
@@ -82,23 +62,6 @@ Each flag is a single byte. Their meanings are shown below.
 | This y is same (Positive y-Short Vector) | 5   | This flag has two meanings, depending on how the y-Short Vector flag is set. If y-Short Vector is set, this bit describes the sign of the value, with 1 equalling positive and 0 negative. If the y-Short Vector bit is not set and this bit is set, then the current y-coordinate is the same as the previous y-coordinate. If the y-Short Vector bit is not set and this bit is also not set, the current y-coordinate is a signed 16-bit delta vector. |
 | Reserved                                 | 6   | This bit is reserved. Set it to zero.                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Reserved                                 | 7   | This bit is reserved. Set it to zero.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-
-### XML Representation
-
-    Relax Schema for glyf table ==
-          
-    simple_glyph =
-      element simple_glyph {
-        glyph_attributes,
-        element contour {
-          element point {
-            attribute on_curve { yesOrNo },
-            attribute x { text },
-            attribute y { text } }+ } +,
-    
-        element instructions {
-          attribute opcodes { text }} ?
-      }
 
 ## Composite Glyph Description
 
@@ -194,35 +157,4 @@ to be explicitly set with TrueType instructions).
 
 Note that the behavior of the USE\_MY\_METRICS operation is undefined
 for rotated composite components.
-
-### XML Representation
-
-    Relax Schema for glyf table ==
-          
-    composite_glyph =
-      element composite_glyph {
-        glyph_attributes,
-        element component {
-          attribute flags { text },
-          attribute gid { text },
-          attribute arg1 { text },
-          attribute arg2 { text },
-          component_scale? } +,
-    
-        element instructions {
-          attribute opcodes { text }} ?
-      }
-    
-    component_scale |=
-       attribute scale { text ? }
-    
-    component_scale |=
-       attribute xscale { text ? },
-       attribute yscale { text ? }
-    
-    component_scale |=
-       attribute xscale { text ? },
-       attribute scale01 { text ? },
-       attribute scale10 { text ? },
-       attribute yscale { text ? }
 

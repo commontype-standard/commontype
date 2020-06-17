@@ -123,27 +123,3 @@ to 65535). The choice of SHORT and USHORT for vTable is dictated by the
 requirement that yMax and yMin be signed values (and 127 to -128 is too
 small a range) and the desire to word-align the vTable elements.
 
-### XML Representation
-
-    ?? ==
-          
-    VDMX =
-      element VDMX {
-        attribute version { text },
-        element ratio {
-          attribute bCharSet { text },
-          attribute xRatio  { text },
-          attribute yStartRatio { text },
-          attribute yEndRatio { text },
-          attribute groupIndex { text }}*,
-    
-        element group {
-          attribute groupIndex { text },
-          attribute startsz { text },
-          attribute endsz { text },
-          element rec {
-            attribute yPelHeight { text },
-            attribute yMax { text },
-            attribute yMin { text }}* }*
-      }
-

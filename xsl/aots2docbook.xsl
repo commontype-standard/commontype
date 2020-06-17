@@ -312,6 +312,11 @@
   </link>
 </xsl:template>
 
+<xsl:template match='imagedata'>
+  <imagedata>
+    <xsl:attribute name="fileref">src/images/<xsl:value-of select="@fileref"/></xsl:attribute>
+  </imagedata>
+</xsl:template>
 
 <xsl:template match='@* | node()'>
   <xsl:copy>

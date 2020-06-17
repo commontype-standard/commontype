@@ -13,6 +13,14 @@ clean::
 
 htmls: html/opentype.html html/cff.html html/type2.html
 
+gh-pages:
+	git checkout gh-pages
+	git merge reformat -m "Merge reformat"
+	make markdown
+	git commit -m "Rebuild" *.md
+	git push
+	git checkout reformat
+
 docbooks: docbook/opentype.docbook docbook/cff.docbook docbook/type2.docbook
 
 markdown: docbook/opentype.docbook

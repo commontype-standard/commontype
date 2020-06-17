@@ -3,3 +3,6 @@ java/
 schemas/
 tests/
 jars/aots.jar
+docbook/
+_site/
+markdown/

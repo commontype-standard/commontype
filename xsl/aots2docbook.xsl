@@ -57,6 +57,16 @@
     </section>
 </xsl:template>
 
+<xsl:template match='section[starts-with(@id, "chapter")]'>
+  <chapter>
+    <xsl:attribute name='id'>
+      <xsl:text>section.</xsl:text>
+      <xsl:number level='multiple' count='section|chapter' format='1.1'/>
+    </xsl:attribute>
+    <xsl:apply-templates select='@* | node()'/>
+  </chapter>
+</xsl:template>
+
 <xsl:template match='section'>
   <xsl:copy>
     <xsl:attribute name='id'>

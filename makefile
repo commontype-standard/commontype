@@ -44,7 +44,7 @@ mdhtml : docbook/opentype.docbook
 		--stringparam use.id.as.filename 1 \
 		 xsl/mychunk.xsl docbook/opentype.docbook
 	perl src/build-navigation.pl
-	rename 's/.html$/.md/' *.html
+	rename -f 's/.html/.md/' *.html
 
 all:: htmls
 

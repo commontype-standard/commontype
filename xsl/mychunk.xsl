@@ -105,6 +105,4 @@
   </xsl:choose>
 </xsl:template>
 
-<!-- Pretend we are outputting markdown -->
-<xsl:param name="html.ext">.md</xsl:param>
 </xsl:stylesheet>

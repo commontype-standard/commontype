@@ -20,7 +20,7 @@
      customizes any presentation templates. Then your chunking
      customization should import mydocbook.xsl instead of
      docbook.xsl.  -->
-<xsl:import href="docbook-no-doctype.xsl"/>
+<xsl:import href="docbook.xsl"/>
 
 <!-- chunk-common.xsl contains all the named templates for chunking.
      In a customization file, you import chunk-common.xsl, then
@@ -82,4 +82,29 @@
     </xsl:when>
   </xsl:choose>
 </xsl:template>
+
+<!-- Use HTML not XHTML anchors -->
+<xsl:template name="anchor">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="conditional" select="1"/>
+
+  <xsl:choose>
+    <xsl:when test="$generate.id.attributes != 0">
+      <!-- No named anchors output when this param is set -->
+    </xsl:when>
+    <xsl:when test="$conditional = 0 or $node/@id or $node/@xml:id">
+      <a>
+        <xsl:attribute name="name">
+          <xsl:call-template name="object.id">
+            <xsl:with-param name="object" select="$node"/>
+          </xsl:call-template>
+        </xsl:attribute>
+        <xsl:comment></xsl:comment>
+      </a>
+    </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+<!-- Pretend we are outputting markdown -->
+<xsl:param name="html.ext">.md</xsl:param>
 </xsl:stylesheet>

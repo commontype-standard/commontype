@@ -18,7 +18,7 @@ gh-pages:
 	git checkout gh-pages
 	git merge reformat -m "Merge reformat"
 	make mdhtml
-	git commit -m "Rebuild" *.html
+	git commit -m "Rebuild" *.md
 	git push
 	git checkout reformat
 
@@ -44,7 +44,7 @@ mdhtml : docbook/opentype.docbook
 		--stringparam use.id.as.filename 1 \
 		 xsl/mychunk.xsl docbook/opentype.docbook
 	perl src/build-navigation.pl
-
+	rename 's/.html$/.md/' *.html
 
 all:: htmls
 

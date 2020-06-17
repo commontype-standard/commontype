@@ -1,0 +1,22 @@
+title: The Annotated OpenType Specification
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "single"
+      read_time: true
+      toc: true
+      strip_title: true
+      sidebar:
+        nav: "chapters"
+
+titles_from_headings:
+  enabled:     true
+  strip_title: true
+markdown: kramdown
+theme: minimal-mistakes-jekyll
+plugins:
+  - jekyll-titles-from-headings
+  - jekyll-redirect-from
+

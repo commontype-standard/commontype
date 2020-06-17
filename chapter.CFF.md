@@ -1,5 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml" role="" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.CFF"></a>Chapter 19. CFF - PostScript font program (Compact Font Format)
-      table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm114628125296"></a>Introduction</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.19.1.1"></a>Specification</h3></div></div></div><p role="">This table contains a compact representation of a
+      table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm320133740096"></a>Introduction</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.19.1.1"></a>Specification</h3></div></div></div><p role="">This table contains a compact representation of a
           PostScript Type 1, or CIDFont and is structured according to
           Adobe Technical Note #5176: <a role="" class="ulink" href="http://partners.adobe.com/asn/developer/pdfs/tn/5176.CFF.pdf" target="_top">The
             Compact Font Format Specification</a> and Adobe

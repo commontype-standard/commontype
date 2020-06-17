@@ -15,7 +15,7 @@ titles_from_headings:
   enabled:     true
   strip_title: true
 markdown: kramdown
-theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.19.3"
 plugins:
   - jekyll-titles-from-headings
   - jekyll-redirect-from

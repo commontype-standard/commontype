@@ -1,8 +1,8 @@
-<div xmlns="http://www.w3.org/1999/xhtml" role="" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.head"></a>Chapter 6. head - Font Header</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm320136838976"></a>Introduction</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.6.1.1"></a>Specification</h3></div></div></div><p role="">This table gives global information about the font. The
+<div xmlns="http://www.w3.org/1999/xhtml" role="" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.head"></a>Chapter 6. head - Font Header</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm383057353568"></a>Introduction</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.6.1.1"></a>Specification</h3></div></div></div><p role="">This table gives global information about the font. The
           bounding box values should be computed using
           <span role="" class="emphasis"><em>only</em></span> glyphs that have contours. Glyphs
           with no contours should be ignored for the purposes of these
-          calculations.</p><div class="table"><a name="idm320136836288"></a><p class="title"><strong>Table 6.1. </strong></p><div class="table-contents"><table role="" class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th role="">Type</th><th role="">Name</th><th role="">Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td role="">Fixed</td><td role="">Table version number</td><td role="">0x00010000 for version 1.0.</td><td class="auto-generated"> </td></tr><tr><td role="">Fixed</td><td role="">fontRevision</td><td role="">Set by font manufacturer.</td><td class="auto-generated"> </td></tr><tr><td role="">ULONG</td><td role="">checkSumAdjustment</td><td role="">To compute: set it to 0, sum the entire font
+          calculations.</p><div class="table"><a name="idm383057350800"></a><p class="title"><strong>Table 6.1. </strong></p><div class="table-contents"><table role="" class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th role="">Type</th><th role="">Name</th><th role="">Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td role="">Fixed</td><td role="">Table version number</td><td role="">0x00010000 for version 1.0.</td><td class="auto-generated"> </td></tr><tr><td role="">Fixed</td><td role="">fontRevision</td><td role="">Set by font manufacturer.</td><td class="auto-generated"> </td></tr><tr><td role="">ULONG</td><td role="">checkSumAdjustment</td><td role="">To compute: set it to 0, sum the entire font
               as ULONG, then store 0xB1B0AFBA - sum.</td><td class="auto-generated"> </td></tr><tr><td role="">ULONG</td><td role="">magicNumber</td><td role="">Set to 0x5F0F3CF5.</td><td class="auto-generated"> </td></tr><tr><td role="">USHORT</td><td role="">flags</td><td role=""><table border="0" summary="Simple list" role="" class="simplelist"><tr><td>Bit 0: baseline for font at y=0;</td></tr><tr><td>Bit 1: left sidebearing at x=0;</td></tr><tr><td>Bit 2: instructions may depend on point
                   size;</td></tr><tr><td>Bit 3: force ppem to integer values for all internal
                   scaler math; may use fractional ppem sizes if this bit is
@@ -24,9 +24,9 @@
                   <table border="0" summary="Simple list" role="" class="simplelist"><tr><td>0: Fully mixed directional
                       glyphs;</td></tr><tr><td>1: Only strongly left to right;</td></tr><tr><td>2: Like 1 but also contains
                       neutrals;</td></tr><tr><td>-1: Only strongly right to left;</td></tr><tr><td>-2: Like -1 but also contains
-                      neutrals<a href="#ftn.idm320133638656" class="footnote" id="idm320133638656"><sup class="footnote">[a]</sup></a>.</td></tr></table>
+                      neutrals<a href="#ftn.idm383057314432" class="footnote" id="idm383057314432"><sup class="footnote">[a]</sup></a>.</td></tr></table>
             </td><td class="auto-generated"> </td></tr><tr><td role="">SHORT</td><td role="">indexToLocFormat</td><td role="">0 for short offsets, 1 for
-              long.</td><td class="auto-generated"> </td></tr><tr><td role="">SHORT</td><td role="">glyphDataFormat</td><td role="">0 for current format.</td><td class="auto-generated"> </td></tr></tbody><tbody class="footnotes"><tr><td colspan="4"><div id="ftn.idm320133638656" role="" class="footnote"><p role=""><a href="#idm320133638656" class="para"><sup class="para">[a] </sup></a>A neutral character has no inherent
+              long.</td><td class="auto-generated"> </td></tr><tr><td role="">SHORT</td><td role="">glyphDataFormat</td><td role="">0 for current format.</td><td class="auto-generated"> </td></tr></tbody><tbody class="footnotes"><tr><td colspan="4"><div id="ftn.idm383057314432" role="" class="footnote"><p role=""><a href="#idm383057314432" class="para"><sup class="para">[a] </sup></a>A neutral character has no inherent
                           directionality; it is not a character with
                           zero (0) width. Spaces and punctuation are
                           examples of neutral characters. Non-neutral
@@ -37,12 +37,12 @@
                           In a "normal" Roman font where spaces and
                           punctuation are present, the font direction
                           hints should be set to two (2).</p></div></td></tr></tbody></table></div></div><br class="table-break"/><p role=""/><p role="">Note that macStyle bits must agree with the
-          <a role="" class="link" href="chapter.OS2.md" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table fsSelection bits. The
+          <a role="" class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table fsSelection bits. The
           fsSelection bits are used over the macStyle bits in
           Microsoft Windows. The PANOSE values and
-          <a role="" class="link" href="chapter.post.md" title="Chapter 13. post - PostScript">post</a> table values are ignored for
+          <a role="" class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> table values are ignored for
           determining bold or italic fonts.</p><p role="">For historical reasons, the fontRevision value contained
           in this table is not used by Windows to determine the
           version of a font. Instead, Windows evaluates the version
-          string (id 5) in the <a role="" class="link" href="chapter.name.md" title="Chapter 10. name - Naming Table">name</a> table.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.6.1.2"></a>Annotation</h3></div></div></div><p role="">It seems that Table version number is set to 'OTTO' for
+          string (id 5) in the <a role="" class="link" href="chapter.name.html" title="Chapter 10. name - Naming Table">name</a> table.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.6.1.2"></a>Annotation</h3></div></div></div><p role="">It seems that Table version number is set to 'OTTO' for
           CFF based fonts.</p></div></div></div>

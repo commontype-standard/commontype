@@ -1,1 +1,1 @@
-<div xmlns="http://www.w3.org/1999/xhtml" role="" class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idm320144707888"></a>Annotated OpenType Specification</h2></div></div><hr/></div></div>
+<div xmlns="http://www.w3.org/1999/xhtml" role="" class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idm383059089520"></a>Annotated OpenType Specification</h2></div></div><hr/></div></div>

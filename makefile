@@ -31,7 +31,7 @@ docbooks: docbook/opentype.docbook docbook/cff.docbook docbook/type2.docbook
 
 docbook/opentype.docbook : src/opentype.xml xsl/aots2docbook.xsl
 	mkdir -p docbook
-	$(xslt) -s:docbook -xsl:xsl/aots2docbook.xsl -o:docbook/opentype.docbook fontdir=../tests/ tracedir=../tests/
+	$(xslt) -s:src/opentype.xml -xsl:xsl/aots2docbook.xsl -o:docbook/opentype.docbook fontdir=../tests/ tracedir=../tests/
 
 mdhtml : docbook/opentype.docbook
 	xsltproc \
@@ -44,7 +44,7 @@ mdhtml : docbook/opentype.docbook
 		--stringparam use.id.as.filename 1 \
 		 xsl/mychunk.xsl docbook/opentype.docbook
 	perl src/build-navigation.pl
-	rename 's/.html$/.md/' *.html
+	rename -f 's/.html/.md/' *.html
 
 all:: htmls
 

@@ -41,49 +41,6 @@
       <xsl:copy/>
     </xsl:for-each>
   <xsl:apply-templates/>
-
-    <section id='tests-index'>
-      <title>Test Font Index</title>
-  
-      <para>This is the list of all the test fonts in the AOTS test suite.</para>
-
-      <simplelist>
-        <xsl:for-each select='//aots:test-font'>
-
-          <member>
-             <link>
-               <xsl:attribute name='linkend'>
-                 <xsl:text>section.</xsl:text>
-                 <xsl:number level='multiple' count='section|chapter' format='1.1'/>
-               </xsl:attribute>
-               <xsl:value-of select='@id'/></link></member>
-        </xsl:for-each>
-      </simplelist>
-    </section>
-
-    <section id='tests-index'>
-      <title>Tests Index</title>
-  
-      <para>This is the list of all the test cases in the AOTS test suite.</para>
-
-      <simplelist>
-        <xsl:for-each select='//aots:cmap-test
-                            | //aots:cmap-uvs-test
-			    | //aots:gsub-test 
-                            | //aots:gpos-test
-			    | //aots:context-test'>
-
-          <member>
-             <link>
-               <xsl:attribute name='linkend'>
-                 <xsl:text>section.</xsl:text>
-                 <xsl:number level='multiple' count='section|chapter' format='1.1'/>
-               </xsl:attribute>
-               <xsl:value-of select='@id'/></link></member>
-        </xsl:for-each>
-      </simplelist>
-    </section>
-  
   </article>
 </xsl:template>
 
@@ -126,6 +83,11 @@
 </programlisting>
   </para>
 </xsl:template>
+
+<xsl:template match='section[@role="implementation"]'/>
+<xsl:template match='section[@role="compiler"]'/>
+<xsl:template match='section[@role="decompiler"]'/>
+<xsl:template match='section[@role="test-suite"]'/>
 
 <xsl:template match='code-title'>
   <classname><xsl:apply-templates/></classname>

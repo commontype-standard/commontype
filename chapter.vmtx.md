@@ -1,10 +1,10 @@
-<div xmlns="http://www.w3.org/1999/xhtml" role="" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.vmtx"></a>Chapter 38. vmtx - Vertical Metrics Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm383050947984"></a>Overview</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.38.1.1"></a>Specification</h3></div></div></div><p role="">The vertical metrics table allows you to specify the
+<div xmlns="http://www.w3.org/1999/xhtml" role="" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.vmtx"></a>Chapter 38. vmtx - Vertical Metrics Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm80792744784"></a>Overview</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.38.1.1"></a>Specification</h3></div></div></div><p role="">The vertical metrics table allows you to specify the
           vertical spacing for each glyph in a vertical font. This
           table consists of either one or two arrays that contain
           metric information (the advance heights and top
           sidebearings) for the vertical layout of each of the glyphs
           in the font. The vertical metrics coordinate system is shown
-          below.</p><div class="figure"><a name="idm383050945472"></a><p class="title"><strong>Figure 38.1. Figure 2a. Glyphs in the Latin, Kanji, and Arabic
+          below.</p><div class="figure"><a name="idm80792742272"></a><p class="title"><strong>Figure 38.1. Figure 2a. Glyphs in the Latin, Kanji, and Arabic
             scripts</strong></p><div class="figure-contents"><div role="" class="mediaobject"><img src="src/images/img00287.gif" alt="Figure 2a. Glyphs in the Latin, Kanji, and Arabic scripts"/></div></div></div><br class="figure-break"/><p role="">OpenType vertical fonts require both a vertical
           header table (<a role="" class="link" href="chapter.vhea.html" title="Chapter 37. vhea - Vertical Header Table">vhea</a>) and the vertical metrics table
           discussed below. The vertical header table contains
@@ -13,7 +13,7 @@
           specific glyphs. The formats of these tables are similar to
           those for horizontal metrics (hhea and hmtx).</p><p role="">See the section "OpenType CJK Font Guidelines" for more
           information about constructing CJK (Chinese, Japanese, and
-          Korean) fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm383050940768"></a>Vertical Origin and Advance Height</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.38.2.1"></a>Specification</h3></div></div></div><p role="">The y coordinate of a glyph's vertical origin is
+          Korean) fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm80792737568"></a>Vertical Origin and Advance Height</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.38.2.1"></a>Specification</h3></div></div></div><p role="">The y coordinate of a glyph's vertical origin is
           specified as the sum of the glyph's top side bearing
           (recorded in the <a role="" class="link" href="chapter.vmtx.html" title="Chapter 38. vmtx - Vertical Metrics Table">vmtx</a> table) and the top (i.e. maximum y)
           of the glyph’s bounding box.</p><p role="">TrueType OpenType fonts contain glyph bounding box
@@ -37,7 +37,7 @@
           vertical origin of the next glyph in the run, by default.
           Metric-adjustment OpenType layout features such as Vertical
           Kerning ('vkrn') could modify the vertical advances in a
-          manner similar to kerning in horizontal mode.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm383050930448"></a>Vertical Metrics Table Format</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.38.3.1"></a>Specification</h3></div></div></div><p role="">The overall structure of the vertical metrics table
+          manner similar to kerning in horizontal mode.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm80792727248"></a>Vertical Metrics Table Format</h2></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="section.38.3.1"></a>Specification</h3></div></div></div><p role="">The overall structure of the vertical metrics table
           consists of two arrays shown below: the vMetrics array
           followed by an array of top side bearings. The top side
           bearing is measured relative to the top of the origin of
@@ -52,7 +52,7 @@
           glyphs have the same advance height. If the font is
           monospaced, only one entry need be in the first array, but
           that one entry is required.</p><p role="">The format of an entry in the vertical metrics array is
-          given below.</p><div class="table"><a name="idm383050925168"></a><p class="title"><strong>Table 38.1. </strong></p><div class="table-contents"><table role="" class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th role="">Type</th><th role="">Name</th><th role="">Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td role="">USHORT</td><td role="">advanceHeight</td><td role="">The advance height of the glyph. Unsigned
+          given below.</p><div class="table"><a name="idm80792721968"></a><p class="title"><strong>Table 38.1. </strong></p><div class="table-contents"><table role="" class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th role="">Type</th><th role="">Name</th><th role="">Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td role="">USHORT</td><td role="">advanceHeight</td><td role="">The advance height of the glyph. Unsigned
               integer in FUnits </td><td class="auto-generated"> </td></tr><tr><td role="">SHORT</td><td role="">topSideBearing</td><td role="">The top sidebearing of the glyph. Signed
               integer in FUnits.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p role="">The second array is optional and generally is used for a
           run of monospaced glyphs in the font. Only one such run is
@@ -66,5 +66,5 @@
           of glyphs in the font. The sum of glyphs represented in the
           first array plus the glyphs represented in the second array
           therefore equals the number of glyphs in the font. The
-          format of the top sidebearing array is given below.</p><div class="table"><a name="idm383050918400"></a><p class="title"><strong>Table 38.2. </strong></p><div class="table-contents"><table role="" class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th role="">Type</th><th role="">Name</th><th role="">Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td role="">SHORT</td><td role="">topSideBearing []</td><td role="">The top sidebearing of the glyph. Signed
+          format of the top sidebearing array is given below.</p><div class="table"><a name="idm80792715200"></a><p class="title"><strong>Table 38.2. </strong></p><div class="table-contents"><table role="" class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th role="">Type</th><th role="">Name</th><th role="">Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td role="">SHORT</td><td role="">topSideBearing []</td><td role="">The top sidebearing of the glyph. Signed
               integer in FUnits. </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div></div>

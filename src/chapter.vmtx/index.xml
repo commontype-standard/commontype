@@ -1,139 +1,121 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="chapter.vmtx">
-    <title>vmtx - Vertical Metrics Table</title>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Overview</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The vertical metrics table allows you to specify the
+  <title>vmtx - Vertical Metrics Table</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The vertical metrics table allows you to specify the
           vertical spacing for each glyph in a vertical font. This
           table consists of either one or two arrays that contain
           metric information (the advance heights and top
           sidebearings) for the vertical layout of each of the glyphs
           in the font. The vertical metrics coordinate system is shown
           below.</para>
-
-        <figure>
-          <title>Figure 2a. Glyphs in the Latin, Kanji, and Arabic
+      <figure>
+        <title>Figure 2a. Glyphs in the Latin, Kanji, and Arabic
             scripts</title>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../../img00287.gif"/>
-            </imageobject>
-          </mediaobject>
-        </figure>
-
-        <para>CommonType vertical fonts require both a vertical
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../../img00287.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>CommonType vertical fonts require both a vertical
           header table (<ottable>vhea</ottable>) and the vertical metrics table
           discussed below. The vertical header table contains
           information that is general to the font as a whole. The
           vertical metrics table contains information that pertains to
           specific glyphs. The formats of these tables are similar to
           those for horizontal metrics (hhea and hmtx).</para>
-        <para>See the section &quot;CommonType CJK Font Guidelines&quot; for more
+      <para>See the section "CommonType CJK Font Guidelines" for more
           information about constructing CJK (Chinese, Japanese, and
           Korean) fonts.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Vertical Origin and Advance Height</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-
-        <para>The y coordinate of a glyph's vertical origin is
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Vertical Origin and Advance Height</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The y coordinate of a glyph's vertical origin is
           specified as the sum of the glyph's top side bearing
           (recorded in the <ottable>vmtx</ottable> table) and the top (i.e. maximum y)
           of the glyph’s bounding box.</para>
-
-        <para>TrueType CommonType fonts contain glyph bounding box
+      <para>TrueType CommonType fonts contain glyph bounding box
           information in the Glyph Data (<ottable>glyf</ottable>)
           table. CFF CommonType fonts do not contain glyph bounding box
           information, and so for these fonts the top of the glyph's
           bounding box must be calculated from the charstring data in
           the Compact Font Format (<ottable>CFF</ottable>) table.</para>
-
-        <para>CommonType 1.3 introduced the optional Vertical Origin
+      <para>CommonType 1.3 introduced the optional Vertical Origin
           (<ottable>VORG</ottable>) table for CFF CommonType fonts,
           which records the y coordinate of glyphs' vertical origins
           directly, thus obviating the need to calculate bounding
           boxes as an intermediate step. This improves accuracy and
           efficiency for CFF CommonType clients.</para>
-
-        <para>The x coordinate of a glyph's vertical origin is not
+      <para>The x coordinate of a glyph's vertical origin is not
           specified in the <ottable>vmtx</ottable> table. Vertical writing
           implementions may make use of the baseline values in the
           Baseline (<ottable>BASE</ottable>) table, if present, in
           order to align the glyphs in the x direction as appropriate
           to the desired vertical baseline.</para>
-
-        <para>The advance height of a glyph starts from the y
+      <para>The advance height of a glyph starts from the y
           coordinate of the glyph’s vertical origin and advances
           downwards. Its endpoint is at the y coordinate of the
           vertical origin of the next glyph in the run, by default.
           Metric-adjustment CommonType layout features such as Vertical
           Kerning ('vkrn') could modify the vertical advances in a
           manner similar to kerning in horizontal mode.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Vertical Metrics Table Format</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The overall structure of the vertical metrics table
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Vertical Metrics Table Format</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The overall structure of the vertical metrics table
           consists of two arrays shown below: the vMetrics array
           followed by an array of top side bearings. The top side
           bearing is measured relative to the top of the origin of
           glyphs, for vertical composition of ideographic
           glyphs.</para>
-        <para>This table does not have a header, but does require that
+      <para>This table does not have a header, but does require that
           the number of glyphs included in the two arrays equals the
           total number of glyphs in the font.</para>
-        <para>The number of entries in the vMetrics array is
+      <para>The number of entries in the vMetrics array is
           determined by the value of the numOfLongVerMetrics field of
           the vertical header table.</para>
-        <para>The vMetrics array contains two values for each entry.
+      <para>The vMetrics array contains two values for each entry.
           These are the advance height and the top sidebearing for
           each glyph included in the array.</para>
-        <para>In monospaced fonts, such as Courier or Kanji, all
+      <para>In monospaced fonts, such as Courier or Kanji, all
           glyphs have the same advance height. If the font is
           monospaced, only one entry need be in the first array, but
           that one entry is required.</para>
-        <para>The format of an entry in the vertical metrics array is
+      <para>The format of an entry in the vertical metrics array is
           given below.</para>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>USHORT</otfieldtype>
-            <otfieldname>advanceHeight</otfieldname>
-            <otfielddesc>The advance height of the glyph. Unsigned
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>advanceHeight</otfieldname>
+          <otfielddesc>The advance height of the glyph. Unsigned
               integer in FUnits </otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>SHORT</otfieldtype>
-            <otfieldname>topSideBearing</otfieldname>
-            <otfielddesc>The top sidebearing of the glyph. Signed
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>topSideBearing</otfieldname>
+          <otfielddesc>The top sidebearing of the glyph. Signed
               integer in FUnits.</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>The second array is optional and generally is used for a
+        </otfield>
+      </otformat>
+      <para>The second array is optional and generally is used for a
           run of monospaced glyphs in the font. Only one such run is
           allowed per font, and it must be located at the end of the
           font. This array contains the top sidebearings of glyphs not
@@ -141,30 +123,26 @@
           array must have the same advance height as the last entry in
           the vMetrics array. All entries in this array are therefore
           monospaced.</para>
-        <para>The number of entries in this array is calculated by
+      <para>The number of entries in this array is calculated by
           subtracting the value of numOfLongVerMetrics from the number
           of glyphs in the font. The sum of glyphs represented in the
           first array plus the glyphs represented in the second array
           therefore equals the number of glyphs in the font. The
           format of the top sidebearing array is given below.</para>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>SHORT</otfieldtype>
-            <otfieldname>topSideBearing []</otfieldname>
-            <otfielddesc>The top sidebearing of the glyph. Signed
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>topSideBearing []</otfieldname>
+          <otfielddesc>The top sidebearing of the glyph. Signed
               integer in FUnits. </otfielddesc>
-          </otfield>
-        </otformat>
-      </section>
-
-      <!--________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-<code-fragment id="schema">
-  <code-title>??</code-title>
+        </otfield>
+      </otformat>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>??</code-title>
 vmtx =
   element vmtx {
     element vMetric {
@@ -176,13 +154,11 @@ vmtx =
     }*
   }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="compiler">
-        <title>Compiler</title>
-
-<code-fragment id="vmtx.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="vmtx.methods">
   public void fromXML (Element vmtx)
     throws InvalidFontException, UnsupportedFontException {
 
@@ -192,9 +168,9 @@ vmtx =
     int tsbs = 0;
     for (int i = 0; i &lt; metrics.getLength (); i++) {
       Element x = (Element) metrics.item (i);
-      if (&quot;vMetric&quot;.equals (x.getTagName ())) {
+      if ("vMetric".equals (x.getTagName ())) {
         vmetrics++; }
-      if (&quot;tsb&quot;.equals (x.getTagName ())) {
+      if ("tsb".equals (x.getTagName ())) {
         tsbs++; }}
 
     Block me = new Block (vmetrics*4 + tsbs*2, 0);
@@ -202,34 +178,31 @@ vmtx =
     int offset = 0;
     for (int i = 0; i &lt; metrics.getLength (); i++) {
       Element metric = (Element) metrics.item (i);
-      if (&quot;vMetric&quot;.equals (metric.getTagName ())) {
+      if ("vMetric".equals (metric.getTagName ())) {
         me.setuint16 (offset,
-                      Integer.decode (metric.getAttribute (&quot;adv&quot;)).intValue ());
+                      Integer.decode (metric.getAttribute ("adv")).intValue ());
         me.setint16 (offset + 2,
-                     Integer.decode (metric.getAttribute (&quot;tsb&quot;)).intValue ());
+                     Integer.decode (metric.getAttribute ("tsb")).intValue ());
         offset += 4; }
-      if (&quot;tsb&quot;.equals (metric.getTagName ())) {
+      if ("tsb".equals (metric.getTagName ())) {
         me.setFWord (offset,
-                     Integer.decode (metric.getAttribute (&quot;tsb&quot;)).intValue ());
+                     Integer.decode (metric.getAttribute ("tsb")).intValue ());
         offset += 2; }}
 
     data = me.serialize ();
   }
 </code-fragment>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="vmtx.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="vmtx.methods">
   public void toXML (DecompilerConfig conf)
       throws org.xml.sax.SAXException {
 
     AttributesImpl at;
 
-    conf.ch.startElement (&quot;vmtx&quot;); {
+    conf.ch.startElement ("vmtx"); {
       int offset = 0;
       int gid = 0;
       int numberOfVMetrics = font.vhea.getNumberOfVMetrics ();
@@ -237,34 +210,30 @@ vmtx =
 
       for (int i = 0; i &lt; numberOfVMetrics; i++) {
         at = new AttributesImpl ();
-        at.addAttribute (&quot;&quot;, &quot;gid&quot;, &quot;gid&quot;, &quot;CDATA&quot;, &quot;&quot; + gid);
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
         gid++;
-        at.addAttribute (&quot;&quot;, &quot;adv&quot;, &quot;adv&quot;, &quot;CDATA&quot;, &quot;&quot; + getint16 (offset));
+        at.addAttribute ("", "adv", "adv", "CDATA", "" + getint16 (offset));
         offset += 2;
-        at.addAttribute (&quot;&quot;, &quot;tsb&quot;, &quot;tsb&quot;, &quot;CDATA&quot;, &quot;&quot; + getint16 (offset));
+        at.addAttribute ("", "tsb", "tsb", "CDATA", "" + getint16 (offset));
         offset += 2;
-        conf.ch.element (&quot;vMetric&quot;, at); }
+        conf.ch.element ("vMetric", at); }
 
       for (int i = 0; i &lt; numTsb; i++) {
         at = new AttributesImpl ();
-        at.addAttribute (&quot;&quot;, &quot;gid&quot;, &quot;gid&quot;, &quot;CDATA&quot;, &quot;&quot; + gid);
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
         gid++;
-        at.addAttribute (&quot;&quot;, &quot;tsb&quot;, &quot;tsb&quot;, &quot;CDATA&quot;, &quot;&quot; + getint16 (offset));
+        at.addAttribute ("", "tsb", "tsb", "CDATA", "" + getint16 (offset));
         offset += 2;
-        conf.ch.element (&quot;tsb&quot;, at); }
+        conf.ch.element ("tsb", at); }
 
-      conf.ch.endElement (&quot;vmtx&quot;); }
+      conf.ch.endElement ("vmtx"); }
   }
 </code-fragment>
-      </section>
-
-
-      <!--________________________________________________________________-->
-      <section role="implementation">
-        <title>Implementation</title>
-
-<code-fragment package="com.adobe.aots.CommonType" class="Vmtx">
-  <code-title>Vmtx class</code-title>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Vmtx"><code-title>Vmtx class</code-title>
 package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
@@ -302,8 +271,6 @@ public class Vmtx extends Table {
   <code-include linkend="vmtx.methods"/>
 }
 </code-fragment>
-
-      </section>
-
     </section>
   </section>
+</section>

@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="chapter.EBDT">
-    <title>EBDT - Embedded Bitmap Data Table</title>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Overview</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>Three tables are used to embed bitmaps in
+  <title>EBDT - Embedded Bitmap Data Table</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Three tables are used to embed bitmaps in
           CommonType fonts. They are the <ottable>EBLC</ottable>
           table for embedded bitmap locators, the
           <ottable>EBDT</ottable> table for embedded bitmap data, and
           the <ottable>EBSC</ottable> table for embedded bitmap
           scaling information.</para>
-
-        <para>CommonType embedded bitmaps are also called 'sbits' (for
-          &quot;scaler bitmaps&quot;). A set of bitmaps for a face at a given
+      <para>CommonType embedded bitmaps are also called 'sbits' (for
+          "scaler bitmaps"). A set of bitmaps for a face at a given
           size is called a strike.</para>
-
-        <para>The <ottable>EBLC</ottable> table identifies the sizes
+      <para>The <ottable>EBLC</ottable> table identifies the sizes
           and glyph ranges of the sbits, and keeps offsets to glyph
           bitmap data in indexSubTables. The <ottable>EBDT</ottable>
           table then stores the glyph bitmap data, in a number of
@@ -32,32 +27,27 @@
           <ottable>EBSC</ottable> table identifies sizes that will be
           handled by scaling up or scaling down other sbit
           sizes.</para>
-
-        <para>The <ottable>EBDT</ottable> table is a superset of
+      <para>The <ottable>EBDT</ottable> table is a superset of
           Apple's AAT (Apple Advanced Typography) 'bdat' table.</para>
-
-        <para>The <ottable>EBDT</ottable> table begins with a header
+      <para>The <ottable>EBDT</ottable> table begins with a header
           containing simply the table version number.</para>
-
-        <otformat>
-          <title>?</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>FIXED</otfieldtype>
-            <otfieldname>version</otfieldname>
-            <otfielddesc>Initially defined as 0x00020000</otfielddesc>
-          </otfield>
-        </otformat>
-
-       <para>The rest of the <ottable>EBDT</ottable> table is a
+      <otformat>
+        <title>?</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>FIXED</otfieldtype>
+          <otfieldname>version</otfieldname>
+          <otfielddesc>Initially defined as 0x00020000</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The rest of the <ottable>EBDT</ottable> table is a
           collection of bitmap data. The data can be in a number of
           possible formats, indicated by information in the <ottable>EBLC</ottable>
           table. Some of the formats contain metric information plus
           image data, and other formats contain only the image
           data. Long word alignment is not required for these sub
           tables; byte alignment is sufficient.</para>
-
-        <para>There are also two different formats for glyph metrics:
+      <para>There are also two different formats for glyph metrics:
           big glyph metrics and small glyph metrics. Big glyph metrics
           define metrics information for both horizontal and vertical
           layouts. This is important in fonts (such as Kanji) where
@@ -66,134 +56,124 @@
           direction applies, horizontal or vertical, is determined by
           the 'flags' field in the bitmapSizeTable field of the <ottable>EBLC</ottable>
           table.</para>
-
-        <table>
-          <title>bigGlyphMetrics</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <thead>
-              <row>
-                <entry>Type</entry>
-                <entry>Name</entry>
-              </row>
-            </thead>
-            <tbody>
-              <row>
-                <entry>BYTE</entry>
-                <entry>height</entry>
-              </row>
-              <row>
-                <entry>BYTE</entry>
-                <entry>width</entry>
-              </row>
-              <row>
-                <entry>CHAR</entry>
-                <entry>horiBearingX</entry>
-              </row>
-              <row>
-                <entry>CHAR</entry>
-                <entry>horiBearingY</entry>
-              </row>
-              <row>
-                <entry>BYTE</entry>
-                <entry>horiAdvance</entry>
-              </row>
-              <row>
-                <entry>CHAR</entry>
-                <entry>vertBearingX</entry>
-              </row>
-              <row>
-                <entry>CHAR</entry>
-                <entry>vertBearingY</entry>
-              </row>
-              <row>
-                <entry>BYTE</entry>
-                <entry>vertAdvance</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-
-        <table>
-          <title>smallGlyphMetrics</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <thead>
-              <row>
-                <entry>Type</entry>
-                <entry>Name</entry>
-              </row>
-            </thead>
-            <tbody>
-              <row>
-                <entry>BYTE</entry>
-                <entry>height</entry>
-              </row>
-              <row>
-                <entry>BYTE</entry>
-                <entry>width</entry>
-              </row>
-              <row>
-                <entry>CHAR</entry>
-                <entry>BearingX</entry>
-              </row>
-              <row>
-                <entry>CHAR</entry>
-                <entry>BearingY</entry>
-              </row>
-              <row>
-                <entry>BYTE</entry>
-                <entry>Advance</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-        <para>The nine different formats currently defined for glyph
+      <table>
+        <title>bigGlyphMetrics</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <thead>
+            <row>
+              <entry>Type</entry>
+              <entry>Name</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>BYTE</entry>
+              <entry>height</entry>
+            </row>
+            <row>
+              <entry>BYTE</entry>
+              <entry>width</entry>
+            </row>
+            <row>
+              <entry>CHAR</entry>
+              <entry>horiBearingX</entry>
+            </row>
+            <row>
+              <entry>CHAR</entry>
+              <entry>horiBearingY</entry>
+            </row>
+            <row>
+              <entry>BYTE</entry>
+              <entry>horiAdvance</entry>
+            </row>
+            <row>
+              <entry>CHAR</entry>
+              <entry>vertBearingX</entry>
+            </row>
+            <row>
+              <entry>CHAR</entry>
+              <entry>vertBearingY</entry>
+            </row>
+            <row>
+              <entry>BYTE</entry>
+              <entry>vertAdvance</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <table>
+        <title>smallGlyphMetrics</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <thead>
+            <row>
+              <entry>Type</entry>
+              <entry>Name</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>BYTE</entry>
+              <entry>height</entry>
+            </row>
+            <row>
+              <entry>BYTE</entry>
+              <entry>width</entry>
+            </row>
+            <row>
+              <entry>CHAR</entry>
+              <entry>BearingX</entry>
+            </row>
+            <row>
+              <entry>CHAR</entry>
+              <entry>BearingY</entry>
+            </row>
+            <row>
+              <entry>BYTE</entry>
+              <entry>Advance</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>The nine different formats currently defined for glyph
           bitmap data are listed and described below. Different
           formats are better for different purposes. Apple 'bdat'
           tables support only formats 1 through 7.</para>
-
-        <para>In all formats, if the bitDepth is greater than 1, all
+      <para>In all formats, if the bitDepth is greater than 1, all
           of a pixel's bits are stored consecutively in memory, and
           all of a row's pixels are stored consecutively.</para>
-
-        <para>Note: Each of these formats can contain black/white or
+      <para>Note: Each of these formats can contain black/white or
           grayscale bitmaps depending on the setting of the bitDepth
           field in the <ottable>EBLC</ottable> table. For performance reasons, we
           recommend using a byte-aligned format for embedded bitmaps
           with bitDepth of 8.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Format 1: small metrics, byte-aligned data</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>smallGlyphMetrics</otfieldtype>
-            <otfieldname>smallMetrics</otfieldname>
-            <otfielddesc>Metrics information for the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 1: small metrics, byte-aligned data</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>smallGlyphMetrics</otfieldtype>
+          <otfieldname>smallMetrics</otfieldname>
+          <otfielddesc>Metrics information for the
               glyph</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>5</otfieldoffs>
-            <otfieldtype>VARIABLE</otfieldtype>
-            <otfieldname>image data</otfieldname>
-            <otfielddesc>Byte-aligned bitmap data</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>Glyph bitmap format 1 consists of small metrics records
+        </otfield>
+        <otfield>
+          <otfieldoffs>5</otfieldoffs>
+          <otfieldtype>VARIABLE</otfieldtype>
+          <otfieldname>image data</otfieldname>
+          <otfielddesc>Byte-aligned bitmap data</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Glyph bitmap format 1 consists of small metrics records
           (either horizontal or vertical depending on the
           bitmapSizeTable 'flag' value in the <ottable>EBLC</ottable> table) followed
           by byte aligned bitmap data. The bitmap data begins with the
@@ -203,273 +183,239 @@
           is padded to a byte boundary, so the next row begins with
           the most significant bit of a new byte. 1 bits correspond to
           black, and 0 bits to white.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Format 2: small metrics, bit-aligned data</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <otformat>
-          <title>?</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>smallGlyphMetrics</otfieldtype>
-            <otfieldname>smallMetrics</otfieldname>
-            <otfielddesc>Metrics information for the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 2: small metrics, bit-aligned data</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <title>?</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>smallGlyphMetrics</otfieldtype>
+          <otfieldname>smallMetrics</otfieldname>
+          <otfielddesc>Metrics information for the
               glyph</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>5</otfieldoffs>
-            <otfieldtype>VARIABLE</otfieldtype>
-            <otfieldname>image data</otfieldname>
-            <otfielddesc>Bit-aligned bitmap data</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>Glyph bitmap format 2 is the same as format 1 except
+        </otfield>
+        <otfield>
+          <otfieldoffs>5</otfieldoffs>
+          <otfieldtype>VARIABLE</otfieldtype>
+          <otfieldname>image data</otfieldname>
+          <otfielddesc>Bit-aligned bitmap data</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Glyph bitmap format 2 is the same as format 1 except
           that the bitmap data is bit aligned. This means that the
           data for a new row will begin with the bit immediately
           following the last bit of the previous row. The start of
           each glyph must be byte aligned, so the last row of a glyph
           may require padding. This format takes a little more time to
           parse, but saves file space compared to format 1. </para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Format 3: (obsolete)</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>Format 3 is obsolete.</para>
-      </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 3: (obsolete)</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Format 3 is obsolete.</para>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Format 4: (not supported) metrics in EBLC, compressed
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 4: (not supported) metrics in EBLC, compressed
         data</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>Glyph bitmap format 4 is a compressed format used by
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Glyph bitmap format 4 is a compressed format used by
           Apple in some of their Far East fonts. MS has not
           implemented it in our rasterizer.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Format 5: metrics in EBLC, bit-aligned image data
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 5: metrics in EBLC, bit-aligned image data
         only</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <otformat>
-          <title>?</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>VARIABLE</otfieldtype>
-            <otfieldname>image data</otfieldname>
-            <otfielddesc>Bit-aligned bitmap data</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>Glyph bitmap format 5 is similar to format 2 except that
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <title>?</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>VARIABLE</otfieldtype>
+          <otfieldname>image data</otfieldname>
+          <otfielddesc>Bit-aligned bitmap data</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Glyph bitmap format 5 is similar to format 2 except that
           no metrics information is included, just the bit aligned
           data. This format is for use with <ottable>EBLC</ottable> indexSubTable
           format 2 or format 5, which will contain the metrics
           information for all glyphs. It works well for Kanji
           fonts.</para>
-
-        <para>The rasterizer recalculates sbit metrics for Format 5
+      <para>The rasterizer recalculates sbit metrics for Format 5
           bitmap data, allowing Windows to report correct ABC widths,
           even if the bitmaps have white space on either side of the
           bitmap image. This allows fonts to store monospaced bitmap
           glyphs in the efficient Format 5 without breaking Windows
           GetABCWidths call.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Format 6: big metrics, byte-aligned data</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <otformat>
-          <title>?</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>bigGlyphMetrics</otfieldtype>
-            <otfieldname>bigMetrics</otfieldname>
-            <otfielddesc>Metrics information for the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 6: big metrics, byte-aligned data</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <title>?</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>bigGlyphMetrics</otfieldtype>
+          <otfieldname>bigMetrics</otfieldname>
+          <otfielddesc>Metrics information for the
               glyph</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>8</otfieldoffs>
-            <otfieldtype>VARIABLE</otfieldtype>
-            <otfieldname>image data</otfieldname>
-            <otfielddesc>Byte-aligned bitmap data</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>Glyph bitmap format 6 is the same as format 1 except
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>VARIABLE</otfieldtype>
+          <otfieldname>image data</otfieldname>
+          <otfielddesc>Byte-aligned bitmap data</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Glyph bitmap format 6 is the same as format 1 except
           that is uses big glyph metrics instead of small.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Format 7: big metrics, bit-aligned data</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>bigGlyphMetrics</otfieldtype>
-            <otfieldname>bigMetrics</otfieldname>
-            <otfielddesc>Metrics information for the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 7: big metrics, bit-aligned data</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>bigGlyphMetrics</otfieldtype>
+          <otfieldname>bigMetrics</otfieldname>
+          <otfielddesc>Metrics information for the
               glyph</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>8</otfieldoffs>
-            <otfieldtype>VARIABLE</otfieldtype>
-            <otfieldname>image data</otfieldname>
-            <otfielddesc>Bit-aligned bitmap data</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>Glyph bitmap format 7 is the same as format 2 except
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>VARIABLE</otfieldtype>
+          <otfieldname>image data</otfieldname>
+          <otfielddesc>Bit-aligned bitmap data</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Glyph bitmap format 7 is the same as format 2 except
           that is uses big glyph metrics instead of small.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>ebdtComponent; array used by Formats 8 and 9</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>USHORT</otfieldtype>
-            <otfieldname>glyphCode</otfieldname>
-            <otfielddesc>Component glyph code</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>CHAR</otfieldtype>
-            <otfieldname>xOffset</otfieldname>
-            <otfielddesc>Position of component left</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>3</otfieldoffs>
-            <otfieldtype>CHAR</otfieldtype>
-            <otfieldname>yOffset</otfieldname>
-            <otfielddesc>Position of component top</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>The component array, used by Formats 8 and 9, contains
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>ebdtComponent; array used by Formats 8 and 9</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>glyphCode</otfieldname>
+          <otfielddesc>Component glyph code</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>CHAR</otfieldtype>
+          <otfieldname>xOffset</otfieldname>
+          <otfielddesc>Position of component left</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>3</otfieldoffs>
+          <otfieldtype>CHAR</otfieldtype>
+          <otfieldname>yOffset</otfieldname>
+          <otfielddesc>Position of component top</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The component array, used by Formats 8 and 9, contains
           the glyph code of the component, which can be looked up in
           the <ottable>EBLC</ottable> table, as well as xOffset and yOffset values
           which tell where to position the top-left corner of the
           component in the composite. Nested composites (a composite
           of composites) are allowed, and the number of nesting levels
           is determined by implementation stack space.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Format 8: small metrics, component data</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>smallGlyphMetrics</otfieldtype>
-            <otfieldname>smallMetrics</otfieldname>
-            <otfielddesc>Metrics information for the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 8: small metrics, component data</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>smallGlyphMetrics</otfieldtype>
+          <otfieldname>smallMetrics</otfieldname>
+          <otfielddesc>Metrics information for the
               glyph</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>5</otfieldoffs>
-            <otfieldtype>BYTE</otfieldtype>
-            <otfieldname>pad</otfieldname>
-            <otfielddesc>Pad to short boundary</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>6</otfieldoffs>
-            <otfieldtype>USHORT</otfieldtype>
-            <otfieldname>numComponents</otfieldname>
-            <otfielddesc>Number of components</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>8</otfieldoffs>
-            <otfieldtype>ebdtComponent</otfieldtype>
-            <otfieldname>componentArray [n]</otfieldname>
-            <otfielddesc>Glyph code, offset array</otfielddesc>
-          </otfield>
-        </otformat>
-      </section>
+        </otfield>
+        <otfield>
+          <otfieldoffs>5</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>pad</otfieldname>
+          <otfielddesc>Pad to short boundary</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numComponents</otfieldname>
+          <otfielddesc>Number of components</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ebdtComponent</otfieldtype>
+          <otfieldname>componentArray [n]</otfieldname>
+          <otfielddesc>Glyph code, offset array</otfielddesc>
+        </otfield>
+      </otformat>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Format 9: big metrics, component data</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>bigGlyphMetrics</otfieldtype>
-            <otfieldname>bigMetrics</otfieldname>
-            <otfielddesc>Metrics information for the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 9: big metrics, component data</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>bigGlyphMetrics</otfieldtype>
+          <otfieldname>bigMetrics</otfieldname>
+          <otfielddesc>Metrics information for the
               glyph</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>12</otfieldoffs>
-            <otfieldtype>USHORT</otfieldtype>
-            <otfieldname>numComponents</otfieldname>
-            <otfielddesc>Number of components</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>14</otfieldoffs>
-            <otfieldtype>ebdtComponent</otfieldtype>
-            <otfieldname>componentArray [n]</otfieldname>
-            <otfielddesc>Glyph code, offset array</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>Glyph bitmap formats 8 and 9 are used for composite
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numComponents</otfieldname>
+          <otfielddesc>Number of components</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>14</otfieldoffs>
+          <otfieldtype>ebdtComponent</otfieldtype>
+          <otfieldname>componentArray [n]</otfieldname>
+          <otfielddesc>Glyph code, offset array</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Glyph bitmap formats 8 and 9 are used for composite
           bitmaps. For accented characters and other composite glyphs
           it may be more efficient to store a copy of each component
           separately, and then use a composite description to
@@ -477,6 +423,6 @@
           for any number of components, and allow the components to be
           positioned anywhere in the finished glyph. Format 8 uses
           small metrics, and format 9 uses big metrics.</para>
-      </section>
     </section>
   </section>
+</section>

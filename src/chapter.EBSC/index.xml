@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="chapter.EBSC">
-    <title>EBSC - Embedded Bitmap Scaling Table</title>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Overview</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The <ottable>EBSC</ottable> table provides a mechanism for describing
+  <title>EBSC - Embedded Bitmap Scaling Table</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The <ottable>EBSC</ottable> table provides a mechanism for describing
           embedded bitmaps which are created by scaling other embedded
           bitmaps. While this is the sort of thing that outline font
           technologies were invented to avoid, there are cases (small
@@ -18,84 +15,80 @@
           a more legible font than scan-converting an outline. For
           this reason the <ottable>EBSC</ottable> table allows a font to define a
           bitmap strike as a scaled version of another strike.</para>
-        <para>The <ottable>EBSC</ottable> table begins with a header containing the
+      <para>The <ottable>EBSC</ottable> table begins with a header containing the
           table version and number of strikes.</para>
-
-        <otformat>
-          <title>ebscHeader</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>FIXED</otfieldtype>
-            <otfieldname>version</otfieldname>
-            <otfielddesc>initially defined as 0x00020000</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>4</otfieldoffs>
-            <otfieldtype>ULONG</otfieldtype>
-            <otfieldname>numSizes</otfieldname>
-            <otfielddesc/>
-          </otfield>
-        </otformat>
-
-        <para>The ebscHeader is followed immediately by the
+      <otformat>
+        <title>ebscHeader</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>FIXED</otfieldtype>
+          <otfieldname>version</otfieldname>
+          <otfielddesc>initially defined as 0x00020000</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>numSizes</otfieldname>
+          <otfielddesc/>
+        </otfield>
+      </otformat>
+      <para>The ebscHeader is followed immediately by the
           bitmapScaleTable array. The numSizes in the ebscHeader
           indicates the number of bitmapScaleTables in the array. Each
           strike is defined by one bitmapScaleTable.</para>
-
-        <otformat>
-          <title>bitmapScaleTable</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>sbitLineMetrics</otfieldtype>
-            <otfieldname>hori</otfieldname>
-            <otfielddesc>line metrics</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>?</otfieldoffs>
-            <otfieldtype>sbitLineMetrics</otfieldtype>
-            <otfieldname>vert</otfieldname>
-            <otfielddesc>line metrics</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>?</otfieldoffs>
-            <otfieldtype>BYTE</otfieldtype>
-            <otfieldname>ppemX</otfieldname>
-            <otfielddesc>target horizontal pixels per Em</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>?</otfieldoffs>
-            <otfieldtype>BYTE</otfieldtype>
-            <otfieldname>ppemY</otfieldname>
-            <otfielddesc>target vertical pixels per Em</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>?</otfieldoffs>
-            <otfieldtype>BYTE</otfieldtype>
-            <otfieldname>substitutePpemX</otfieldname>
-            <otfielddesc>use bitmaps of this size</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>?</otfieldoffs>
-            <otfieldtype>BYTE</otfieldtype>
-            <otfieldname>substitutePpemY</otfieldname>
-            <otfielddesc>use bitmaps of this size</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>The line metrics have the same meaning as those in the
+      <otformat>
+        <title>bitmapScaleTable</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>sbitLineMetrics</otfieldtype>
+          <otfieldname>hori</otfieldname>
+          <otfielddesc>line metrics</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>sbitLineMetrics</otfieldtype>
+          <otfieldname>vert</otfieldname>
+          <otfielddesc>line metrics</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>ppemX</otfieldname>
+          <otfielddesc>target horizontal pixels per Em</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>ppemY</otfieldname>
+          <otfielddesc>target vertical pixels per Em</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>substitutePpemX</otfieldname>
+          <otfielddesc>use bitmaps of this size</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>substitutePpemY</otfieldname>
+          <otfielddesc>use bitmaps of this size</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The line metrics have the same meaning as those in the
           bitmapSizeTable, and refer to font wide metrics after
           scaling. The ppemX and ppemY values describe the size of the
           font after scaling. The substitutePpemX and substitutePpemY
           values describe the size of a strike that exists as an sbit
           in the <ottable>EBLC</ottable> and 'EBDT', and that will be scaled up or down
           to generate the new strike.</para>
-        <para>Notice that scaling in the x direction is independent of
+      <para>Notice that scaling in the x direction is independent of
           scaling in the y direction, and their scaling values may
           differ. A square aspect-ratio strike could be scaled to a
           non-square aspect ratio. Glyph metrics are scaled by the
           same factor as the pixels per Em (in the appropriate
           direction), and are rounded to the nearest integer
           pixel.</para>
-      </section>
     </section>
   </section>
+</section>

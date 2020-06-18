@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-
 <!--____________________________________________________________________________
 
 	Copyright 2000-2016 Adobe Systems Incorporated. All Rights Reserved.
@@ -16,42 +15,30 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
   ___________________________________________________________________________-->
-
-<article xmlns:web='http://aots.adobe.com/2001/web'
-         xmlns=''
-         web:area='opentype_spec'
-         web:index='yes'>
+<article xmlns:web="http://aots.adobe.com/2001/web" xmlns="" web:area="opentype_spec" web:index="yes">
   <title>A Type2 interpreter</title>
-
   <!--========================================================================-->
   <section>
     <title>Introduction</title>
-
     <para>Here is a simple Type 2 interpreter. It is not a rasterizer:
       however, Type 2 charstrings can be converted to other more or
       less equivalent formats, such as PDF, which can be
       rasterizered.</para>
-
     <para>The class Type2Interpreter is the core. It decodes the bytes
       in the charstring, manages the stack, and performs the
       arithmetic, stack and subroutine operations.
       For each operator, it calls a Type2Consumer, which can access
       the stack.</para>
-
     <para>The class Type2Dumper is a Type2Consumer that simply produces
       a human readable form of the Type2 charstring.</para>
-
     <para>The class Type22Pdf is a Type2Consumer that transforms the
       graphic operations (movetos, linetos and curvetos) in an equivalent
       PDF content stream. Of course, the hints are lost.</para>
   </section>
-
   <!--========================================================================-->
   <section>
     <title>Type2Interpreter</title>
-
-<code-fragment package='com.adobe.aots.opentype' class='Type2Interpreter'>
-  <code-title>Type2Interpreter class</code-title>
+    <code-fragment package="com.adobe.aots.opentype" class="Type2Interpreter"><code-title>Type2Interpreter class</code-title>
 package com.adobe.aots.opentype;
 
 public class Type2Interpreter {
@@ -133,7 +120,7 @@ public class Type2Interpreter {
       switch (b0)
 	{
 	case 1: { // hstem
-          check (stackDepth >= 2);
+          check (stackDepth &gt;= 2);
 	  nbHints += stackDepth / 2;
 	  c.hstem (stack, stackDepth);
 	  stackDepth = stackDepth % 2;
@@ -141,7 +128,7 @@ public class Type2Interpreter {
           break; }
 
         case 3: { // vstem
-	  check (stackDepth >= 2);
+	  check (stackDepth &gt;= 2);
 	  nbHints += stackDepth / 2;
 	  c.vstem (stack, stackDepth);
 	  stackDepth = stackDepth % 2;
@@ -156,31 +143,31 @@ public class Type2Interpreter {
 	  break; }
 
         case 5: { // rlineto
-	  check (stackDepth >= 2 &amp;&amp; stackDepth % 2 == 0);
+	  check (stackDepth &gt;= 2 &amp;&amp; stackDepth % 2 == 0);
 	  c.rlineto (stack, stackDepth);
 	  stackDepth = 0;
 	  break; }
 
         case 6: { // hlineto
-	  check (stackDepth > 0);
+	  check (stackDepth &gt; 0);
 	  c.hlineto (stack, stackDepth);
 	  stackDepth = 0;
 	  break; }
 
         case 7: { // vlineto
-	  check (stackDepth > 0);
+	  check (stackDepth &gt; 0);
 	  c.vlineto (stack, stackDepth);
 	  stackDepth = 0;
 	  break; }
 
         case 8: { // rrcurveto
-	  check (stackDepth > 0 &amp;&amp; stackDepth % 6 == 0);
+	  check (stackDepth &gt; 0 &amp;&amp; stackDepth % 6 == 0);
 	  c.rrcurveto (stack, stackDepth);
 	  stackDepth = 0;
 	  break; }
 
         case 10: { // callsubr
-	  check (stackDepth >= 1);
+	  check (stackDepth &gt;= 1);
 	  int subr = check_int (stack [--stackDepth]);
 
           if (localSubrs.length &lt; 1240) {
@@ -201,7 +188,7 @@ public class Type2Interpreter {
 	  break; }
 
         case 11: { // return
-	  check (callDepth > 0);
+	  check (callDepth &gt; 0);
 	  c.return_op (stack, stackDepth);
 	  return false; }
 
@@ -212,7 +199,7 @@ public class Type2Interpreter {
           switch (b1)
 	    {
             case 3: { // and
-	      check (stackDepth >= 2);
+	      check (stackDepth &gt;= 2);
 	      double num2 = stack [--stackDepth];
 	      double num1 = stack [--stackDepth];
 	      c.and (stack, stackDepth);
@@ -220,7 +207,7 @@ public class Type2Interpreter {
 	      break; }
 
             case 4: { // or
-	      check (stackDepth >= 2);
+	      check (stackDepth &gt;= 2);
 	      double num2 = stack [--stackDepth];
 	      double num1 = stack [--stackDepth];
 	      c.or (stack, stackDepth);
@@ -228,21 +215,21 @@ public class Type2Interpreter {
 	      break; }
 
             case 5: { // not
-	      check (stackDepth >= 1);
+	      check (stackDepth &gt;= 1);
 	      double num = stack [--stackDepth];
 	      c.not (stack, stackDepth);
 	      stack [stackDepth++] = (num == 0) ? 1 : 0;
 	      break; }
 
             case 9: { // abs
-	      check (stackDepth >= 1);
+	      check (stackDepth &gt;= 1);
 	      double num = stack [--stackDepth];
 	      c.abs (stack, stackDepth);
 	      stack [stackDepth++] = (num &lt; 0) ? (-num) : num;
 	      break; }
 
 	    case 10: { // add
-	      check (stackDepth >= 2);
+	      check (stackDepth &gt;= 2);
 	      double num2 = stack [--stackDepth];
 	      double num1 = stack [--stackDepth];
 	      c.add (stack, stackDepth);
@@ -250,7 +237,7 @@ public class Type2Interpreter {
 	      break; }
 
             case 11: { // sub
-	      check (stackDepth >= 2);
+	      check (stackDepth &gt;= 2);
 	      double num2 = stack [--stackDepth];
 	      double num1 = stack [--stackDepth];
 	      c.sub (stack, stackDepth);
@@ -258,7 +245,7 @@ public class Type2Interpreter {
 	      break; }
 
             case 12: { // div
-	      check (stackDepth >= 2);
+	      check (stackDepth &gt;= 2);
 	      double num2 = stack [--stackDepth];
 	      double num1 = stack [--stackDepth];
 	      c.div (stack, stackDepth);
@@ -266,14 +253,14 @@ public class Type2Interpreter {
 	      break; }
 
             case 14: { // neg
-	      check (stackDepth >= 1);
+	      check (stackDepth &gt;= 1);
 	      double num = stack [--stackDepth];
 	      c.neg (stack, stackDepth);
 	      stack [stackDepth++] = -num;
 	      break; }
 
             case 15: { // eq
-	      check (stackDepth >= 2);
+	      check (stackDepth &gt;= 2);
 	      double num2 = stack [--stackDepth];
 	      double num1 = stack [--stackDepth];
 	      c.eq (stack, stackDepth);
@@ -281,13 +268,13 @@ public class Type2Interpreter {
 	      break; }
 
             case 18: { // drop
-	      check (stackDepth >= 1);
+	      check (stackDepth &gt;= 1);
 	      double num = stack [--stackDepth];
 	      c.drop (stack, stackDepth);
 	      break; }
 
             case 20: { // put
-	      check (stackDepth >= 2);
+	      check (stackDepth &gt;= 2);
 	      int i = check_int (stack [--stackDepth]);
 	      double val = stack [--stackDepth];
 	      c.put (stack, stackDepth);
@@ -295,14 +282,14 @@ public class Type2Interpreter {
 	      break; }
 
             case 21: { // get
-	      check (stackDepth >= 1);
+	      check (stackDepth &gt;= 1);
 	      int i = check_int (stack [--stackDepth]);
 	      c.get (stack, stackDepth);
 	      stack [stackDepth++] = storage [i];
 	      break; }
 
             case 22: { // ifselse
-	      check (stackDepth >= 4);
+	      check (stackDepth &gt;= 4);
 	      double v2 = stack [--stackDepth];
 	      double v1 = stack [--stackDepth];
 	      double s2 = stack [--stackDepth];
@@ -317,7 +304,7 @@ public class Type2Interpreter {
 	      break; }
 
             case 24: { // mul
-	      check (stackDepth >= 2);
+	      check (stackDepth &gt;= 2);
 	      double num2 = stack [--stackDepth];
 	      double num1 = stack [--stackDepth];
 	      c.mul (stack, stackDepth);
@@ -325,14 +312,14 @@ public class Type2Interpreter {
 	      break; }
 
             case 26: { // sqrt
-	      check (stackDepth >= 1);
+	      check (stackDepth &gt;= 1);
 	      double num = stack [--stackDepth];
 	      c.sqrt (stack, stackDepth);
 	      stack [stackDepth++] = Math.sqrt (num);
 	      break; }
 
             case 27: { // dup
-	      check (stackDepth >= 1);
+	      check (stackDepth &gt;= 1);
 	      double num = stack [--stackDepth];
 	      c.dup (stack, stackDepth);
 	      stack [stackDepth++] = num;
@@ -340,7 +327,7 @@ public class Type2Interpreter {
 	      break; }
 
             case 28: { // exch
-	      check (stackDepth >= 2);
+	      check (stackDepth &gt;= 2);
 	      double num2 = stack [--stackDepth];
 	      double num1 = stack [--stackDepth];
 	      c.exch (stack, stackDepth);
@@ -349,18 +336,18 @@ public class Type2Interpreter {
 	      break; }
 
             case 29: { // index
-	      check (stackDepth >= 1);
+	      check (stackDepth &gt;= 1);
 	      int i = check_int (stack [--stackDepth]);
-	      check (stackDepth >= i);
+	      check (stackDepth &gt;= i);
 	      c.index (stack, stackDepth);
 	      stack [stackDepth++] = stack [stackDepth - i - 1];
 	      break; }
 
             case 30: { // roll
-	      check (stackDepth >= 2);
+	      check (stackDepth &gt;= 2);
 	      int j = check_int (stack [--stackDepth]);
 	      int n = check_int (stack [--stackDepth]);
-	      check (stackDepth >= n);
+	      check (stackDepth &gt;= n);
 	      c.roll (stack, stackDepth);
 	      // TODO
 	      break; }
@@ -401,7 +388,7 @@ public class Type2Interpreter {
 	  return true; }
 
         case 18: { // hstemhm
-	  check (stackDepth >= 2);
+	  check (stackDepth &gt;= 2);
 	  nbHints += stackDepth / 2;
 	  c.hstemhm (stack, stackDepth);
 	  stackDepth = stackDepth % 2;
@@ -410,7 +397,7 @@ public class Type2Interpreter {
 
         case 19: { // hintmask
 	  check (stackDepth % 2 == 0);
-          if (stackDepth > 0) {
+          if (stackDepth &gt; 0) {
   	    nbHints += stackDepth / 2;
 	    c.implicit_vstemhm (stack, stackDepth);
 	    stackDepth = 0; }
@@ -423,7 +410,7 @@ public class Type2Interpreter {
 
         case 20: { // cntrmask
 	  check (stackDepth % 2 == 0);
-	  if (stackDepth > 0) {
+	  if (stackDepth &gt; 0) {
 	    nbHints += stackDepth / 2;
             c.implicit_vstemhm (stack, stackDepth);
 	    stackDepth = 0; }
@@ -449,7 +436,7 @@ public class Type2Interpreter {
 	  break; }
 
         case 23: { // vstemhm
-	  check (stackDepth >= 2 &amp;&amp; stackDepth % 2 == 0);
+	  check (stackDepth &gt;= 2 &amp;&amp; stackDepth % 2 == 0);
 	  nbHints += stackDepth / 2;
 	  c.vstemhm (stack, stackDepth);
 	  stackDepth = stackDepth % 2;
@@ -457,27 +444,27 @@ public class Type2Interpreter {
 	  break; }
 
         case 24: { // rcurveline
-	  check (stackDepth >= 8 &amp;&amp; stackDepth % 6 == 2);
+	  check (stackDepth &gt;= 8 &amp;&amp; stackDepth % 6 == 2);
 	  c.rcurveline (stack, stackDepth);
 	  stackDepth = 0;
 	  break; }
 
         case 25: { // rlinecurve
-	  check (stackDepth >= 8 &amp;&amp; stackDepth % 2 == 0);
+	  check (stackDepth &gt;= 8 &amp;&amp; stackDepth % 2 == 0);
 	  c.rlinecurve (stack, stackDepth);
 	  stackDepth = 0;
 	  break;
 	}
 
         case 26: { // vvcurveto
-	  check (stackDepth >= 4 &amp;&amp; stackDepth % 4 &lt;= 1);
+	  check (stackDepth &gt;= 4 &amp;&amp; stackDepth % 4 &lt;= 1);
 	  c.vvcurveto (stack, stackDepth);
 	  stackDepth = 0;
 	  break;
 	}
 
         case 27: { // hhcurveto
-	  check (stackDepth >= 4 &amp;&amp; stackDepth % 4 &lt;= 1);
+	  check (stackDepth &gt;= 4 &amp;&amp; stackDepth % 4 &lt;= 1);
 	  c.hhcurveto (stack, stackDepth);
 	  stackDepth = 0;
 	  break;
@@ -492,7 +479,7 @@ public class Type2Interpreter {
 
 
         case 29: { // callgsubr
-	  check (stackDepth >= 1);
+	  check (stackDepth &gt;= 1);
 	  int subr = check_int (stack [--stackDepth]);
           if (globalSubrs.length &lt; 1240) {
 	    subr += 107; }
@@ -512,7 +499,7 @@ public class Type2Interpreter {
 	  break; }
 
         case 30: { // vhcurveto
-	  check (stackDepth >= 4
+	  check (stackDepth &gt;= 4
 		  &amp;&amp; (   stackDepth % 8 == 0 || stackDepth % 8 == 1
                       || stackDepth % 8 == 4 || stackDepth % 8 == 5));
 	  c.vhcurveto (stack, stackDepth);
@@ -520,7 +507,7 @@ public class Type2Interpreter {
 	  break; }
 
         case 31: { // hvcurveto
-	  check (stackDepth >= 4
+	  check (stackDepth &gt;= 4
 		  &amp;&amp; (   stackDepth % 8 == 0 || stackDepth % 8 == 1
                       || stackDepth % 8 == 4 || stackDepth % 8 == 5));
 	  c.hvcurveto (stack, stackDepth);
@@ -566,15 +553,11 @@ public class Type2Interpreter {
   }
 }
 </code-fragment>
-
   </section>
-
   <!--========================================================================-->
   <section>
     <title>Type2Consumer</title>
-
-<code-fragment package='com.adobe.aots.opentype' class='Type2Consumer'>
-  <code-title>Type2Consumer class</code-title>
+    <code-fragment package="com.adobe.aots.opentype" class="Type2Consumer"><code-title>Type2Consumer class</code-title>
 package com.adobe.aots.opentype;
 
 public interface Type2Consumer {
@@ -635,16 +618,12 @@ public interface Type2Consumer {
 }
 </code-fragment>
   </section>
-
   <!--========================================================================-->
   <section>
     <title>Type2Dumper</title>
-
     <para>This consumer simply outputs a human readable version of
       charstring, with as little interpretation as possible.</para>
-
-<code-fragment package='com.adobe.aots.opentype' class='Type2Dumper'>
-  <code-title>Type2Consumer class</code-title>
+    <code-fragment package="com.adobe.aots.opentype" class="Type2Dumper"><code-title>Type2Consumer class</code-title>
 package com.adobe.aots.opentype;
 
 public class Type2Dumper implements Type2Consumer {
@@ -878,19 +857,14 @@ public class Type2Dumper implements Type2Consumer {
   }
 }
 </code-fragment>
-    </section>
-
-
+  </section>
   <!--========================================================================-->
   <section>
     <title>Type2LinesAndCurves</title>
-
     <para>This consumer defines three methods, MoveTo, Line and Curve,
       and calls them as the charstring is interpreted. The intent is
       that it is subclassed, with those three methods modified.</para>
-
-<code-fragment package='com.adobe.aots.opentype' class='Type2LinesAndCurves'>
-  <code-title>Type2LinesAndCurves class</code-title>
+    <code-fragment package="com.adobe.aots.opentype" class="Type2LinesAndCurves"><code-title>Type2LinesAndCurves class</code-title>
 package com.adobe.aots.opentype;
 
 public class Type2LinesAndCurves implements Type2Consumer {
@@ -1401,7 +1375,7 @@ public class Type2LinesAndCurves implements Type2Consumer {
     y += stack [i++];
     x3 = x;
     y3 = y;
-    if (Math.abs (x - startx) > Math.abs (y - starty)) {
+    if (Math.abs (x - startx) &gt; Math.abs (y - starty)) {
       x += stack [i++]; }
     else {
       y += stack [i++]; }
@@ -1410,19 +1384,14 @@ public class Type2LinesAndCurves implements Type2Consumer {
 }
 </code-fragment>
   </section>
-
   <!--========================================================================-->
   <section>
     <title>Type22Pdf</title>
-
     <para>This consumer fills a StringBuilder with a PDF content stream
       with path building operators that replicate the charstring. The
       path is not stroked or filled by this consumer.</para>
-
     <para>This should be rewritten as a subclass of Type2LinesAndCurves.</para>
-
-<code-fragment package='com.adobe.aots.opentype' class='Type22Pdf'>
-  <code-title>Type22Pdf class</code-title>
+    <code-fragment package="com.adobe.aots.opentype" class="Type22Pdf"><code-title>Type22Pdf class</code-title>
 package com.adobe.aots.opentype;
 
 public class Type22Pdf implements Type2Consumer {
@@ -1848,7 +1817,7 @@ public class Type22Pdf implements Type2Consumer {
     x += stack [i++];
     y += stack [i++];
     addXY (null);
-    if (Math.abs (x - startx) > Math.abs (y - starty)) {
+    if (Math.abs (x - startx) &gt; Math.abs (y - starty)) {
       x += stack [i++]; }
     else {
       y += stack [i++]; }
@@ -1859,16 +1828,12 @@ public class Type22Pdf implements Type2Consumer {
 }
 </code-fragment>
   </section>
-
   <!--========================================================================-->
   <section>
     <title>Type2BoundingBox</title>
-
     <para>This consumer interprets a Type 2 charstring to compute a
       bounding box for the outline.</para>
-
-<code-fragment package='com.adobe.aots.opentype' class='Type2BoundingBox'>
-  <code-title>Type2Bounding class</code-title>
+    <code-fragment package="com.adobe.aots.opentype" class="Type2BoundingBox"><code-title>Type2Bounding class</code-title>
 package com.adobe.aots.opentype;
 
 public class Type2BoundingBox extends Type2LinesAndCurves {
@@ -1942,5 +1907,4 @@ public class Type2BoundingBox extends Type2LinesAndCurves {
 }
 </code-fragment>
   </section>
-
 </article>

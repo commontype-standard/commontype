@@ -1,122 +1,114 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="chapter.PCLT">
-    <title>PCLT - PCL 5 Table</title>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Overview</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The <ottable>PCLT</ottable> table is strongly
+  <title>PCLT - PCL 5 Table</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The <ottable>PCLT</ottable> table is strongly
           discouraged for CommonType fonts with TrueType outlines. Extra
           information on many of these fields can be found in the HP
           PCL 5 Printer Language Technical Reference Manual available
           from Hewlett-Packard Boise Printer Division.</para>
-          <para>The format for the table is:</para>
-
-        <informaltable>
-          <tgroup cols="3">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <thead>
-              <row>
-                <entry>Offset</entry>
-                <entry>Type</entry>
-                <entry>Name of Entry</entry>
-              </row>
-            </thead>
-            <tbody>
-              <row>
-                <entry>0</entry>
-                <entry>FIXED</entry>
-                <entry>Version</entry>
-              </row>
-              <row>
-                <entry>4</entry>
-                <entry>ULONG</entry>
-                <entry>FontNumber</entry>
-              </row>
-              <row>
-                <entry>6</entry>
-               <entry>USHORT</entry>
-                <entry>Pitch</entry>
-              </row>
-              <row>
-                <entry>8</entry>
-                <entry>USHORT</entry>
-                <entry>xHeight</entry>
-              </row>
-              <row>
-                <entry>10</entry>
-                <entry>USHORT</entry>
-                <entry>Style</entry>
-              </row>
-              <row>
-                <entry>12</entry>
-                <entry>USHORT</entry>
-                <entry>TypeFamily</entry>
-              </row>
-              <row>
-                <entry>14</entry>
-                <entry>USHORT</entry>
-                <entry>CapHeight</entry>
-              </row>
-              <row>
-                <entry>16</entry>
-                <entry>USHORT</entry>
-                <entry>SymbolSet</entry>
-              </row>
-              <row>
-                <entry>18</entry>
-                <entry>CHAR</entry>
-                <entry>Typeface[16]</entry>
-              </row>
-              <row>
-                <entry>34</entry>
-                <entry>CHAR</entry>
-                <entry>CharacterComplement[8]</entry>
-              </row>
-              <row>
-                <entry>42</entry>
-                <entry>CHAR</entry>
-                <entry>FileName[6]</entry>
-              </row>
-              <row>
-                <entry>48</entry>
-                <entry>CHAR</entry>
-                <entry>StrokeWeight</entry>
-              </row>
-              <row>
-                <entry>49</entry>
-                <entry>CHAR</entry>
-                <entry>WidthType</entry>
-              </row>
-              <row>
-                <entry>50</entry>
-                <entry>BYTE</entry>
-                <entry>SerifStyle</entry>
-              </row>
-              <row>
-                <entry>51</entry>
-                <entry>BYTE</entry>
-                <entry>Reserved (pad)</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-
-        <bridgehead>Version</bridgehead>
-
-        <para>Table version number 1.0 is represented as
+      <para>The format for the table is:</para>
+      <informaltable>
+        <tgroup cols="3">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <thead>
+            <row>
+              <entry>Offset</entry>
+              <entry>Type</entry>
+              <entry>Name of Entry</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>0</entry>
+              <entry>FIXED</entry>
+              <entry>Version</entry>
+            </row>
+            <row>
+              <entry>4</entry>
+              <entry>ULONG</entry>
+              <entry>FontNumber</entry>
+            </row>
+            <row>
+              <entry>6</entry>
+              <entry>USHORT</entry>
+              <entry>Pitch</entry>
+            </row>
+            <row>
+              <entry>8</entry>
+              <entry>USHORT</entry>
+              <entry>xHeight</entry>
+            </row>
+            <row>
+              <entry>10</entry>
+              <entry>USHORT</entry>
+              <entry>Style</entry>
+            </row>
+            <row>
+              <entry>12</entry>
+              <entry>USHORT</entry>
+              <entry>TypeFamily</entry>
+            </row>
+            <row>
+              <entry>14</entry>
+              <entry>USHORT</entry>
+              <entry>CapHeight</entry>
+            </row>
+            <row>
+              <entry>16</entry>
+              <entry>USHORT</entry>
+              <entry>SymbolSet</entry>
+            </row>
+            <row>
+              <entry>18</entry>
+              <entry>CHAR</entry>
+              <entry>Typeface[16]</entry>
+            </row>
+            <row>
+              <entry>34</entry>
+              <entry>CHAR</entry>
+              <entry>CharacterComplement[8]</entry>
+            </row>
+            <row>
+              <entry>42</entry>
+              <entry>CHAR</entry>
+              <entry>FileName[6]</entry>
+            </row>
+            <row>
+              <entry>48</entry>
+              <entry>CHAR</entry>
+              <entry>StrokeWeight</entry>
+            </row>
+            <row>
+              <entry>49</entry>
+              <entry>CHAR</entry>
+              <entry>WidthType</entry>
+            </row>
+            <row>
+              <entry>50</entry>
+              <entry>BYTE</entry>
+              <entry>SerifStyle</entry>
+            </row>
+            <row>
+              <entry>51</entry>
+              <entry>BYTE</entry>
+              <entry>Reserved (pad)</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <bridgehead>Version</bridgehead>
+      <para>Table version number 1.0 is represented as
           0x00010000.</para>
-
-        <bridgehead>FontNumber</bridgehead>
-
-        <para>This 32-bit number is segmented in two parts. The most
+      <bridgehead>FontNumber</bridgehead>
+      <para>This 32-bit number is segmented in two parts. The most
           significant bit indicates native versus converted format.
           Only font vendors should create fonts with this bit zeroed.
           The 7 next most significant bits are assigned by
@@ -124,861 +116,799 @@
           vendors. The least significant 24 bits are assigned by the
           vendor. Font vendors should attempt to insure that each of
           their fonts are marked with unique values.</para>
-
-        <informaltable>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <thead>
-              <row>
-                <entry>Code</entry>
-                <entry>Vendor</entry>
-              </row>
-            </thead>
-            <tbody>
-              <row>
-                <entry>A</entry>
-                <entry>Adobe Systems</entry>
-              </row>
-              <row>
-                <entry>B</entry>
-                <entry>Bitstream Inc.</entry>
-              </row>
-              <row>
-                <entry>C</entry>
-                <entry>Agfa Corporation</entry>
-              </row>
-              <row>
-                <entry>H</entry>
-                <entry>Bigelow &amp; Holmes</entry>
-              </row>
-              <row>
-                <entry>L</entry>
-                <entry>Linotype Company</entry>
-              </row>
-              <row>
-                <entry>M</entry>
-                <entry>Monotype Typography Ltd.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-
-        <bridgehead>Pitch</bridgehead>
-
-        <para>The width of the space in FUnits (FUnits are described
+      <informaltable>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <thead>
+            <row>
+              <entry>Code</entry>
+              <entry>Vendor</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>A</entry>
+              <entry>Adobe Systems</entry>
+            </row>
+            <row>
+              <entry>B</entry>
+              <entry>Bitstream Inc.</entry>
+            </row>
+            <row>
+              <entry>C</entry>
+              <entry>Agfa Corporation</entry>
+            </row>
+            <row>
+              <entry>H</entry>
+              <entry>Bigelow &amp; Holmes</entry>
+            </row>
+            <row>
+              <entry>L</entry>
+              <entry>Linotype Company</entry>
+            </row>
+            <row>
+              <entry>M</entry>
+              <entry>Monotype Typography Ltd.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <bridgehead>Pitch</bridgehead>
+      <para>The width of the space in FUnits (FUnits are described
           by the unitsPerEm field of the <ottable>head</ottable> table). Monospace
           fonts derive the width of all characters from this
           field.</para>
-
-
-        <bridgehead>xHeight</bridgehead>
-
-        <para>The height of the optical line describing the height of
+      <bridgehead>xHeight</bridgehead>
+      <para>The height of the optical line describing the height of
           the lowercase x in FUnits. This might not be the same as the
           measured height of the lowercase x.</para>
-
-
-        <bridgehead>Style</bridgehead>
-
-        <para>The most significant 6 bits are reserved. The 5 next
+      <bridgehead>Style</bridgehead>
+      <para>The most significant 6 bits are reserved. The 5 next
           most significant bits encode structure. The next 3 most
           significant bits encode appearance width. The 2 least
           significant bits encode posture.</para>
-
-        <table>
-          <title>Structure (bits 5-9)</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>0</entry>
-                <entry>Solid (normal, black)</entry>
-              </row>
-              <row>
-                <entry>1</entry>
-                <entry>Outline (hollow)</entry>
-              </row>
-              <row>
-                <entry>2</entry>
-                <entry>Inline (incised, engraved)</entry>
-              </row>
-              <row>
-                <entry>3</entry>
-                <entry>Contour, edged (antique, distressed)</entry>
-              </row>
-              <row>
-                <entry>4</entry>
-                <entry>Solid with shadow</entry>
-              </row>
-              <row>
-                <entry>5</entry>
-                <entry>Outline with shadow</entry>
-              </row>
-              <row>
-                <entry>6</entry>
-                <entry>Inline with shadow</entry>
-              </row>
-              <row>
-                <entry>7</entry>
-                <entry>Contour, or edged, with shadow</entry>
-              </row>
-              <row>
-                <entry>8</entry>
-                <entry>Pattern filled</entry>
-              </row>
-              <row>
-                <entry>9</entry>
-                <entry>Pattern filled #1 (when more than one
+      <table>
+        <title>Structure (bits 5-9)</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>0</entry>
+              <entry>Solid (normal, black)</entry>
+            </row>
+            <row>
+              <entry>1</entry>
+              <entry>Outline (hollow)</entry>
+            </row>
+            <row>
+              <entry>2</entry>
+              <entry>Inline (incised, engraved)</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>Contour, edged (antique, distressed)</entry>
+            </row>
+            <row>
+              <entry>4</entry>
+              <entry>Solid with shadow</entry>
+            </row>
+            <row>
+              <entry>5</entry>
+              <entry>Outline with shadow</entry>
+            </row>
+            <row>
+              <entry>6</entry>
+              <entry>Inline with shadow</entry>
+            </row>
+            <row>
+              <entry>7</entry>
+              <entry>Contour, or edged, with shadow</entry>
+            </row>
+            <row>
+              <entry>8</entry>
+              <entry>Pattern filled</entry>
+            </row>
+            <row>
+              <entry>9</entry>
+              <entry>Pattern filled #1 (when more than one
                   pattern)</entry>
-              </row>
-              <row>
-                <entry>10</entry>
-                <entry>Pattern filled #2 (when more than two
+            </row>
+            <row>
+              <entry>10</entry>
+              <entry>Pattern filled #2 (when more than two
                   patterns)</entry>
-              </row>
-              <row>
-                <entry>11</entry>
-                <entry>Pattern filled #3 (when more than three
+            </row>
+            <row>
+              <entry>11</entry>
+              <entry>Pattern filled #3 (when more than three
                   patterns)</entry>
-              </row>
-              <row>
-                <entry>12</entry>
-                <entry>Pattern filled with shadow</entry>
-              </row>
-              <row>
-                <entry>13</entry>
-                <entry>Pattern filled with shadow #1 (when more than
+            </row>
+            <row>
+              <entry>12</entry>
+              <entry>Pattern filled with shadow</entry>
+            </row>
+            <row>
+              <entry>13</entry>
+              <entry>Pattern filled with shadow #1 (when more than
                   one pattern or shadow)</entry>
-              </row>
-              <row>
-                <entry>14</entry>
-                <entry>Pattern filled with shadow #2 (when more than
+            </row>
+            <row>
+              <entry>14</entry>
+              <entry>Pattern filled with shadow #2 (when more than
                   two patterns or shadows)</entry>
-              </row>
-              <row>
-                <entry>15</entry>
-                <entry>Pattern filled with shadow #3 (when more than
+            </row>
+            <row>
+              <entry>15</entry>
+              <entry>Pattern filled with shadow #3 (when more than
                   three patterns or shadows)</entry>
-              </row>
-              <row>
-                <entry>16</entry>
-                <entry>Inverse</entry>
-              </row>
-              <row>
-                <entry>17</entry>
-                <entry>Inverse with border</entry>
-              </row>
-              <row>
-                <entry>18-31</entry>
-                <entry>reserved</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-        <table>
-          <title>Width (bits 2-4)</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>0</entry>
-                <entry>normal</entry>
-              </row>
-              <row>
-                <entry>1</entry>
-                <entry>condensed</entry>
-              </row>
-              <row>
-                <entry>2</entry>
-                <entry>compressed, extra condensed</entry>
-              </row>
-              <row>
-                <entry>3</entry>
-                <entry>extra compressed</entry>
-              </row>
-              <row>
-                <entry>4</entry>
-                <entry>ultra compressed</entry>
-              </row>
-              <row>
-                <entry>5</entry>
-                <entry>reserved</entry>
-              </row>
-              <row>
-                <entry>6</entry>
-                <entry>expanded, extended</entry>
-              </row>
-              <row>
-                <entry>7</entry>
-                <entry>extra expanded, extra extended</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-        <table>
-          <title>Posture (bits 0-1)</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>0</entry>
-                <entry>upright</entry>
-              </row>
-              <row>
-                <entry>1</entry>
-                <entry>oblique, italic</entry>
-              </row>
-              <row>
-                <entry>2</entry>
-                <entry>alternate italic (backslanted, cursive,
+            </row>
+            <row>
+              <entry>16</entry>
+              <entry>Inverse</entry>
+            </row>
+            <row>
+              <entry>17</entry>
+              <entry>Inverse with border</entry>
+            </row>
+            <row>
+              <entry>18-31</entry>
+              <entry>reserved</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <table>
+        <title>Width (bits 2-4)</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>0</entry>
+              <entry>normal</entry>
+            </row>
+            <row>
+              <entry>1</entry>
+              <entry>condensed</entry>
+            </row>
+            <row>
+              <entry>2</entry>
+              <entry>compressed, extra condensed</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>extra compressed</entry>
+            </row>
+            <row>
+              <entry>4</entry>
+              <entry>ultra compressed</entry>
+            </row>
+            <row>
+              <entry>5</entry>
+              <entry>reserved</entry>
+            </row>
+            <row>
+              <entry>6</entry>
+              <entry>expanded, extended</entry>
+            </row>
+            <row>
+              <entry>7</entry>
+              <entry>extra expanded, extra extended</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <table>
+        <title>Posture (bits 0-1)</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>0</entry>
+              <entry>upright</entry>
+            </row>
+            <row>
+              <entry>1</entry>
+              <entry>oblique, italic</entry>
+            </row>
+            <row>
+              <entry>2</entry>
+              <entry>alternate italic (backslanted, cursive,
                   swash)</entry>
-              </row>
-              <row>
-                <entry>3</entry>
-                <entry>reserved</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-
-
-
-        <bridgehead>TypeFamily</bridgehead>
-
-        <para>The 4 most significant bits are font vendor codes. The
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>reserved</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <bridgehead>TypeFamily</bridgehead>
+      <para>The 4 most significant bits are font vendor codes. The
           12 least significant bits are typeface family codes. Both
           are assigned by HP Boise Division. </para>
-
-        <table>
-          <title>Vendor Codes (bits 12-15)</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>0</entry>
-                <entry>reserved</entry>
-              </row>
-              <row>
-                <entry>1</entry>
-                <entry>Agfa Corporation</entry>
-              </row>
-              <row>
-                <entry>2</entry>
-                <entry>Bitstream Inc.</entry>
-              </row>
-              <row>
-                <entry>3</entry>
-                <entry>Linotype Company</entry>
-              </row>
-              <row>
-                <entry>4</entry>
-                <entry>Monotype Typography Ltd.</entry>
-              </row>
-              <row>
-                <entry>5</entry>
-                <entry>Adobe Systems</entry>
-              </row>
-              <row>
-                <entry>6</entry>
-                <entry>font repackagers</entry>
-              </row>
-              <row>
-                <entry>7</entry>
-                <entry>vendors of unique typefaces</entry>
-              </row>
-              <row>
-                <entry>8-15</entry>
-                <entry>reserved</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-        <bridgehead>CapHeight</bridgehead>
-
-        <para>The height of the optical line describing the top of the
+      <table>
+        <title>Vendor Codes (bits 12-15)</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>0</entry>
+              <entry>reserved</entry>
+            </row>
+            <row>
+              <entry>1</entry>
+              <entry>Agfa Corporation</entry>
+            </row>
+            <row>
+              <entry>2</entry>
+              <entry>Bitstream Inc.</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>Linotype Company</entry>
+            </row>
+            <row>
+              <entry>4</entry>
+              <entry>Monotype Typography Ltd.</entry>
+            </row>
+            <row>
+              <entry>5</entry>
+              <entry>Adobe Systems</entry>
+            </row>
+            <row>
+              <entry>6</entry>
+              <entry>font repackagers</entry>
+            </row>
+            <row>
+              <entry>7</entry>
+              <entry>vendors of unique typefaces</entry>
+            </row>
+            <row>
+              <entry>8-15</entry>
+              <entry>reserved</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <bridgehead>CapHeight</bridgehead>
+      <para>The height of the optical line describing the top of the
           uppercase H in FUnits. This might not be the same as the
           measured height of the uppercase H. </para>
-
-
-        <bridgehead>SymbolSet</bridgehead>
-
-        <para>The most significant 11 bits are the value of the symbol
-          set &quot;number&quot; field. The value of the least significant 5
+      <bridgehead>SymbolSet</bridgehead>
+      <para>The most significant 11 bits are the value of the symbol
+          set "number" field. The value of the least significant 5
           bits, when added to 64, is the ASCII value of the symbol set
-          &quot;ID&quot; field. Symbol set values are assigned by HP Boise
-          Division. Unbound fonts, or &quot;typefaces&quot; should have a symbol
+          "ID" field. Symbol set values are assigned by HP Boise
+          Division. Unbound fonts, or "typefaces" should have a symbol
           set value of 0. See the PCL 5 Printer Language Technical
           Reference Manual or the PCL 5 Comparison Guide for the most
           recent published list of codes. </para>
-
-
-        <table>
-          <title>Examples</title>
-          <tgroup cols="3">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <thead>
-              <row>
-                <entry/>
-                <entry>PCL</entry>
-                <entry>decimal</entry>
-              </row>
-            </thead>
-            <tbody>
-              <row>
-                <entry>Windows 3.1 &quot;ANSI&quot;</entry>
-                <entry>19U</entry>
-                <entry>629</entry>
-              </row>
-              <row>
-                <entry>Windows 3.0 &quot;ANSI&quot;</entry>
-                <entry>9U</entry>
-                <entry>309</entry>
-              </row>
-              <row>
-                <entry>Adobe &quot;Symbol&quot;</entry>
-                <entry>19M</entry>
-                <entry>621</entry>
-              </row>
-              <row>
-                <entry>Macintosh</entry>
-                <entry>12J</entry>
-                <entry>394</entry>
-              </row>
-              <row>
-                <entry>PostScript ISO Latin 1</entry>
-                <entry>11J</entry>
-                <entry>362</entry>
-              </row>
-              <row>
-                <entry>PostScript Std. Encoding</entry>
-                <entry>10J</entry>
-                <entry>330</entry>
-              </row>
-              <row>
-                <entry>Code Page 1004</entry>
-                <entry>9J</entry>
-                <entry>298</entry>
-              </row>
-              <row>
-                <entry>DeskTop</entry>
-                <entry>7J</entry>
-                <entry>234</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-
-        <bridgehead>TypeFace</bridgehead>
-
-        <para>This 16-byte ASCII string appears in the &quot;font print&quot; of
+      <table>
+        <title>Examples</title>
+        <tgroup cols="3">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <thead>
+            <row>
+              <entry/>
+              <entry>PCL</entry>
+              <entry>decimal</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Windows 3.1 "ANSI"</entry>
+              <entry>19U</entry>
+              <entry>629</entry>
+            </row>
+            <row>
+              <entry>Windows 3.0 "ANSI"</entry>
+              <entry>9U</entry>
+              <entry>309</entry>
+            </row>
+            <row>
+              <entry>Adobe "Symbol"</entry>
+              <entry>19M</entry>
+              <entry>621</entry>
+            </row>
+            <row>
+              <entry>Macintosh</entry>
+              <entry>12J</entry>
+              <entry>394</entry>
+            </row>
+            <row>
+              <entry>PostScript ISO Latin 1</entry>
+              <entry>11J</entry>
+              <entry>362</entry>
+            </row>
+            <row>
+              <entry>PostScript Std. Encoding</entry>
+              <entry>10J</entry>
+              <entry>330</entry>
+            </row>
+            <row>
+              <entry>Code Page 1004</entry>
+              <entry>9J</entry>
+              <entry>298</entry>
+            </row>
+            <row>
+              <entry>DeskTop</entry>
+              <entry>7J</entry>
+              <entry>234</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <bridgehead>TypeFace</bridgehead>
+      <para>This 16-byte ASCII string appears in the "font print" of
           PCL printers. Care should be taken to insure that the base
           string for all typefaces of a family are consistent, and
           that the designators for bold, italic, etc. are
           standardized. </para>
-
-        <table>
-          <title>Example</title>
-          <tgroup cols="1">
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>Times New</entry>
-              </row>
-              <row>
-                <entry>Times New  Bd</entry>
-              </row>
-              <row>
-                <entry>Times New  It</entry>
-              </row>
-              <row>
-                <entry>Times New  BdIt</entry>
-              </row>
-              <row>
-                <entry>Courier New</entry>
-              </row>
-              <row>
-                <entry>Courier New  Bd</entry>
-              </row>
-              <row>
-                <entry>Courier New  It</entry>
-              </row>
-              <row>
-                <entry>Courier New  BdIt</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-
-
-        <bridgehead>CharacterComplement</bridgehead>
-
-        <para>This 8-byte field identifies the symbol collections
+      <table>
+        <title>Example</title>
+        <tgroup cols="1">
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>Times New</entry>
+            </row>
+            <row>
+              <entry>Times New  Bd</entry>
+            </row>
+            <row>
+              <entry>Times New  It</entry>
+            </row>
+            <row>
+              <entry>Times New  BdIt</entry>
+            </row>
+            <row>
+              <entry>Courier New</entry>
+            </row>
+            <row>
+              <entry>Courier New  Bd</entry>
+            </row>
+            <row>
+              <entry>Courier New  It</entry>
+            </row>
+            <row>
+              <entry>Courier New  BdIt</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <bridgehead>CharacterComplement</bridgehead>
+      <para>This 8-byte field identifies the symbol collections
           provided by the font, each bit identifies a symbol
           collection and is independently interpreted. Symbol set
           bound fonts should have this field set to all F's (except
           bit 0). </para>
-
-
-        <table>
-          <title>Example</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>DOS/PCL Complement</entry>
-                <entry>0xFFFFFFFF003FFFFE</entry>
-              </row>
-              <row>
-                <entry>Windows 3.1 &quot;ANSI&quot;</entry>
-                <entry>0xFFFFFFFF37FFFFFE</entry>
-              </row>
-              <row>
-                <entry>Macintosh</entry>
-                <entry>0xFFFFFFFF36FFFFFE</entry>
-              </row>
-              <row>
-                <entry>ISO 8859-1 Latin 1</entry>
-                <entry>0xFFFFFFFF3BFFFFFE</entry>
-              </row>
-              <row>
-                <entry>ISO 8859-1,2,9 Latin 1,2,5</entry>
-                <entry>0xFFFFFFFF0BFFFFFE</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-        <para>The character collections identified by each bit are as
+      <table>
+        <title>Example</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>DOS/PCL Complement</entry>
+              <entry>0xFFFFFFFF003FFFFE</entry>
+            </row>
+            <row>
+              <entry>Windows 3.1 "ANSI"</entry>
+              <entry>0xFFFFFFFF37FFFFFE</entry>
+            </row>
+            <row>
+              <entry>Macintosh</entry>
+              <entry>0xFFFFFFFF36FFFFFE</entry>
+            </row>
+            <row>
+              <entry>ISO 8859-1 Latin 1</entry>
+              <entry>0xFFFFFFFF3BFFFFFE</entry>
+            </row>
+            <row>
+              <entry>ISO 8859-1,2,9 Latin 1,2,5</entry>
+              <entry>0xFFFFFFFF0BFFFFFE</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>The character collections identified by each bit are as
           follows:</para>
-
-
-        <informaltable>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>31</entry>
-                <entry>ASCII (supports several standard
+      <informaltable>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>31</entry>
+              <entry>ASCII (supports several standard
                   interpretations)</entry>
-              </row>
-              <row>
-                <entry>30</entry>
-                <entry>Latin 1 extensions</entry>
-              </row>
-              <row>
-                <entry>29</entry>
-                <entry>Latin 2 extensions</entry>
-              </row>
-              <row>
-                <entry>28</entry>
-                <entry>Latin 5 extensions</entry>
-              </row>
-              <row>
-                <entry>27</entry>
-                <entry>Desktop Publishing Extensions</entry>
-              </row>
-              <row>
-                <entry>26</entry>
-                <entry>Accent Extensions (East and West
+            </row>
+            <row>
+              <entry>30</entry>
+              <entry>Latin 1 extensions</entry>
+            </row>
+            <row>
+              <entry>29</entry>
+              <entry>Latin 2 extensions</entry>
+            </row>
+            <row>
+              <entry>28</entry>
+              <entry>Latin 5 extensions</entry>
+            </row>
+            <row>
+              <entry>27</entry>
+              <entry>Desktop Publishing Extensions</entry>
+            </row>
+            <row>
+              <entry>26</entry>
+              <entry>Accent Extensions (East and West
                   Europe)</entry>
-              </row>
-              <row>
-                <entry>25</entry>
-                <entry>PCL Extensions</entry>
-              </row>
-              <row>
-                <entry>24</entry>
-                <entry>Macintosh Extensions</entry>
-              </row>
-              <row>
-                <entry>23</entry>
-                <entry>PostScript Extensions</entry>
-              </row>
-              <row>
-                <entry>22</entry>
-                <entry>Code Page Extensions</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-
-        <para>The character complement field also indicates the index
+            </row>
+            <row>
+              <entry>25</entry>
+              <entry>PCL Extensions</entry>
+            </row>
+            <row>
+              <entry>24</entry>
+              <entry>Macintosh Extensions</entry>
+            </row>
+            <row>
+              <entry>23</entry>
+              <entry>PostScript Extensions</entry>
+            </row>
+            <row>
+              <entry>22</entry>
+              <entry>Code Page Extensions</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>The character complement field also indicates the index
           mechanism used with an unbound font. Bit 0 must always be
           cleared when the font elements are provided in Unicode
           order.</para>
-
-
-        <bridgehead>FileName</bridgehead>
-
-        <para>This 6-byte field is composed of 3 parts. The first 3
+      <bridgehead>FileName</bridgehead>
+      <para>This 6-byte field is composed of 3 parts. The first 3
           bytes are an industry standard typeface family string. The
           fourth byte is a treatment character, such as R, B, I. The
           last two characters are either zeroes for an unbound font or
           a two character mnemonic for a symbol set if symbol set
           found. </para>
-
-        <table>
-          <title>Examples</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>TNRR00</entry>
-                <entry>Times New (text weight, upright)</entry>
-              </row>
-              <row>
-                <entry>TNRI00</entry>
-                <entry>Times New Italic</entry>
-              </row>
-              <row>
-                <entry>TNRB00</entry>
-                <entry>Times New Bold</entry>
-              </row>
-              <row>
-                <entry>TNRJ00</entry>
-                <entry>Times New Bold Italic</entry>
-              </row>
-              <row>
-                <entry>COUR00</entry>
-                <entry>Courier</entry>
-              </row>
-              <row>
-                <entry>COUI00</entry>
-                <entry>Courier Italic</entry>
-              </row>
-              <row>
-                <entry>COUB00</entry>
-                <entry>Courier Bold</entry>
-              </row>
-              <row>
-                <entry>COUJ00</entry>
-                <entry>Courier Bold Italic</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-        <table>
-          <title>Treatment Flags</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>R</entry>
-                <entry>Text, normal, book, etc.</entry>
-              </row>
-              <row>
-                <entry>I</entry>
-                <entry>Italic, oblique, slanted, etc.</entry>
-              </row>
-              <row>
-                <entry>B</entry>
-                <entry>Bold</entry>
-              </row>
-              <row>
-                <entry>J</entry>
-                <entry>Bold Italic, Bold Oblique</entry>
-              </row>
-              <row>
-                <entry>D</entry>
-                <entry>Demibold</entry>
-              </row>
-              <row>
-                <entry>E</entry>
-                <entry>Demibold Italic, Demibold Oblique</entry>
-              </row>
-              <row>
-                <entry>K</entry>
-                <entry>Black</entry>
-              </row>
-              <row>
-                <entry>G</entry>
-                <entry>Black Italic, Black Oblique</entry>
-              </row>
-              <row>
-                <entry>L</entry>
-                <entry>Light</entry>
-              </row>
-              <row>
-                <entry>P</entry>
-                <entry>Light Italic, Light Oblique</entry>
-              </row>
-              <row>
-                <entry>C</entry>
-                <entry>Condensed</entry>
-              </row>
-              <row>
-                <entry>A</entry>
-                <entry>Condensed Italic, Condensed Oblique</entry>
-              </row>
-              <row>
-                <entry>F</entry>
-                <entry>Bold Condensed</entry>
-              </row>
-              <row>
-                <entry>H</entry>
-                <entry>Bold Condensed Italic, Bold Condensed
+      <table>
+        <title>Examples</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>TNRR00</entry>
+              <entry>Times New (text weight, upright)</entry>
+            </row>
+            <row>
+              <entry>TNRI00</entry>
+              <entry>Times New Italic</entry>
+            </row>
+            <row>
+              <entry>TNRB00</entry>
+              <entry>Times New Bold</entry>
+            </row>
+            <row>
+              <entry>TNRJ00</entry>
+              <entry>Times New Bold Italic</entry>
+            </row>
+            <row>
+              <entry>COUR00</entry>
+              <entry>Courier</entry>
+            </row>
+            <row>
+              <entry>COUI00</entry>
+              <entry>Courier Italic</entry>
+            </row>
+            <row>
+              <entry>COUB00</entry>
+              <entry>Courier Bold</entry>
+            </row>
+            <row>
+              <entry>COUJ00</entry>
+              <entry>Courier Bold Italic</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <table>
+        <title>Treatment Flags</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>R</entry>
+              <entry>Text, normal, book, etc.</entry>
+            </row>
+            <row>
+              <entry>I</entry>
+              <entry>Italic, oblique, slanted, etc.</entry>
+            </row>
+            <row>
+              <entry>B</entry>
+              <entry>Bold</entry>
+            </row>
+            <row>
+              <entry>J</entry>
+              <entry>Bold Italic, Bold Oblique</entry>
+            </row>
+            <row>
+              <entry>D</entry>
+              <entry>Demibold</entry>
+            </row>
+            <row>
+              <entry>E</entry>
+              <entry>Demibold Italic, Demibold Oblique</entry>
+            </row>
+            <row>
+              <entry>K</entry>
+              <entry>Black</entry>
+            </row>
+            <row>
+              <entry>G</entry>
+              <entry>Black Italic, Black Oblique</entry>
+            </row>
+            <row>
+              <entry>L</entry>
+              <entry>Light</entry>
+            </row>
+            <row>
+              <entry>P</entry>
+              <entry>Light Italic, Light Oblique</entry>
+            </row>
+            <row>
+              <entry>C</entry>
+              <entry>Condensed</entry>
+            </row>
+            <row>
+              <entry>A</entry>
+              <entry>Condensed Italic, Condensed Oblique</entry>
+            </row>
+            <row>
+              <entry>F</entry>
+              <entry>Bold Condensed</entry>
+            </row>
+            <row>
+              <entry>H</entry>
+              <entry>Bold Condensed Italic, Bold Condensed
                   Oblique</entry>
-              </row>
-              <row>
-                <entry>S</entry>
-                <entry>Semibold (lighter than demibold)</entry>
-              </row>
-              <row>
-                <entry>T</entry>
-                <entry>Semibold Italic, Semibold Oblique</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-        <para>other treatment flags are assigned over time.</para>
-
-
-        <bridgehead>StrokeWeight</bridgehead>
-
-        <para>This signed 1-byte field contains the PCL stroke weight
+            </row>
+            <row>
+              <entry>S</entry>
+              <entry>Semibold (lighter than demibold)</entry>
+            </row>
+            <row>
+              <entry>T</entry>
+              <entry>Semibold Italic, Semibold Oblique</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>other treatment flags are assigned over time.</para>
+      <bridgehead>StrokeWeight</bridgehead>
+      <para>This signed 1-byte field contains the PCL stroke weight
           value. Only values in the range -7 to 7 are valid:</para>
-
-        <informaltable>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>-7</entry>
-                <entry>Ultra Thin</entry>
-              </row>
-              <row>
-                <entry>-6</entry>
-                <entry>Extra Thin</entry>
-              </row>
-              <row>
-                <entry>-5</entry>
-                <entry> Thin</entry>
-              </row>
-              <row>
-                <entry>-4</entry>
-                <entry>Extra Light</entry>
-              </row>
-              <row>
-                <entry>-3</entry>
-                <entry>Light</entry>
-              </row>
-              <row>
-                <entry>-2</entry>
-                <entry>Demilight</entry>
-              </row>
-              <row>
-                <entry>-1</entry>
-                <entry>Semilight</entry>
-              </row>
-              <row>
-                <entry>0</entry>
-                <entry>Book, text, regular, etc.</entry>
-              </row>
-              <row>
-                <entry>1</entry>
-                <entry>Semibold (Medium, when darker than
+      <informaltable>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>-7</entry>
+              <entry>Ultra Thin</entry>
+            </row>
+            <row>
+              <entry>-6</entry>
+              <entry>Extra Thin</entry>
+            </row>
+            <row>
+              <entry>-5</entry>
+              <entry> Thin</entry>
+            </row>
+            <row>
+              <entry>-4</entry>
+              <entry>Extra Light</entry>
+            </row>
+            <row>
+              <entry>-3</entry>
+              <entry>Light</entry>
+            </row>
+            <row>
+              <entry>-2</entry>
+              <entry>Demilight</entry>
+            </row>
+            <row>
+              <entry>-1</entry>
+              <entry>Semilight</entry>
+            </row>
+            <row>
+              <entry>0</entry>
+              <entry>Book, text, regular, etc.</entry>
+            </row>
+            <row>
+              <entry>1</entry>
+              <entry>Semibold (Medium, when darker than
                   Book)</entry>
-              </row>
-              <row>
-                <entry>2</entry>
-                <entry>Demibold</entry>
-              </row>
-              <row>
-                <entry>3</entry>
-                <entry>Bold</entry>
-              </row>
-              <row>
-                <entry>4</entry>
-                <entry>Extra Bold</entry>
-              </row>
-              <row>
-                <entry>5</entry>
-                <entry>Black</entry>
-              </row>
-              <row>
-                <entry>6</entry>
-                <entry>Extra Black</entry>
-              </row>
-              <row>
-                <entry>7</entry>
-                <entry>Ultra Black, or Ultra</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-
-        <para>Type designers often use interesting names for weights
+            </row>
+            <row>
+              <entry>2</entry>
+              <entry>Demibold</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>Bold</entry>
+            </row>
+            <row>
+              <entry>4</entry>
+              <entry>Extra Bold</entry>
+            </row>
+            <row>
+              <entry>5</entry>
+              <entry>Black</entry>
+            </row>
+            <row>
+              <entry>6</entry>
+              <entry>Extra Black</entry>
+            </row>
+            <row>
+              <entry>7</entry>
+              <entry>Ultra Black, or Ultra</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>Type designers often use interesting names for weights
           or combinations of weights and styles, such as Heavy,
           Compact, Inserat, Bold No. 2, etc. PCL stroke weights are
           assigned on the basis of the entire family and use of the
-          faces. Typically, display faces don't have a &quot;text&quot; weight
+          faces. Typically, display faces don't have a "text" weight
           assignment.</para>
-
-
-        <bridgehead>WidthType</bridgehead>
-
-        <para>This signed 1-byte field contains the PCL appearance
+      <bridgehead>WidthType</bridgehead>
+      <para>This signed 1-byte field contains the PCL appearance
           width value. The values are not directly related to those in
           the appearance with field of the style word above. Only
           values in the range -5 to 5 are valid. </para>
-
-        <informaltable>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>-5</entry>
-                <entry>Ultra Compressed</entry>
-              </row>
-              <row>
-                <entry>-4</entry>
-                <entry>Extra Compressed</entry>
-              </row>
-              <row>
-                <entry>-3</entry>
-                <entry>Compressed, or Extra Condensed</entry>
-              </row>
-              <row>
-                <entry>-2</entry>
-                <entry>Condensed</entry>
-              </row>
-              <row>
-                <entry>0</entry>
-                <entry>Normal</entry>
-              </row>
-              <row>
-                <entry>2</entry>
-                <entry>Expanded</entry>
-              </row>
-              <row>
-                <entry>3</entry>
-                <entry>Extra Expanded</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-
-
-        <bridgehead>SerifStyle</bridgehead>
-
-        <para>This signed 1-byte field contains the PCL serif style
+      <informaltable>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>-5</entry>
+              <entry>Ultra Compressed</entry>
+            </row>
+            <row>
+              <entry>-4</entry>
+              <entry>Extra Compressed</entry>
+            </row>
+            <row>
+              <entry>-3</entry>
+              <entry>Compressed, or Extra Condensed</entry>
+            </row>
+            <row>
+              <entry>-2</entry>
+              <entry>Condensed</entry>
+            </row>
+            <row>
+              <entry>0</entry>
+              <entry>Normal</entry>
+            </row>
+            <row>
+              <entry>2</entry>
+              <entry>Expanded</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>Extra Expanded</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <bridgehead>SerifStyle</bridgehead>
+      <para>This signed 1-byte field contains the PCL serif style
           value. The most significant 2 bits of this byte specify the
           serif/sans or contrast/monoline characterisitics of the
           typeface.</para>
-
-        <table>
-          <title>Bottom 6 bit values:</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>0</entry>
-                <entry>Sans Serif Square</entry>
-              </row>
-              <row>
-                <entry>1</entry>
-                <entry>Sans Serif Round</entry>
-              </row>
-              <row>
-                <entry>2</entry>
-                <entry>Serif Line</entry>
-              </row>
-              <row>
-                <entry>3</entry>
-                <entry>Serif Triangle</entry>
-              </row>
-              <row>
-                <entry>4</entry>
-                <entry>Serif Swath</entry>
-              </row>
-              <row>
-                <entry>5</entry>
-                <entry>Serif Block</entry>
-              </row>
-              <row>
-                <entry>6</entry>
-                <entry>Serif Bracket</entry>
-              </row>
-              <row>
-                <entry>7</entry>
-                <entry>Rounded Bracket</entry>
-              </row>
-              <row>
-                <entry>8</entry>
-                <entry>Flair Serif, Modified Sans</entry>
-              </row>
-              <row>
-                <entry>9</entry>
-                <entry>Script Nonconnecting</entry>
-              </row>
-              <row>
-                <entry>10</entry>
-                <entry>Script Joining</entry>
-              </row>
-              <row>
-                <entry>11</entry>
-                <entry>Script Calligraphic</entry>
-              </row>
-              <row>
-                <entry>12</entry>
-                <entry>Script Broken Letter</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-        <table>
-          <title>Top 2 bit values:</title>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <tbody>
-              <row>
-                <entry>0</entry>
-                <entry>reserved</entry>
-              </row>
-              <row>
-                <entry>1</entry>
-                <entry>Sans Serif/Monoline</entry>
-              </row>
-              <row>
-                <entry>2</entry>
-                <entry>Serif/Contrasting</entry>
-              </row>
-              <row>
-                <entry>3</entry>
-                <entry>reserved</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-
-        <bridgehead>Reserved</bridgehead>
-
-        <para>Should be set to zero.</para>
-      </section>
+      <table>
+        <title>Bottom 6 bit values:</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>0</entry>
+              <entry>Sans Serif Square</entry>
+            </row>
+            <row>
+              <entry>1</entry>
+              <entry>Sans Serif Round</entry>
+            </row>
+            <row>
+              <entry>2</entry>
+              <entry>Serif Line</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>Serif Triangle</entry>
+            </row>
+            <row>
+              <entry>4</entry>
+              <entry>Serif Swath</entry>
+            </row>
+            <row>
+              <entry>5</entry>
+              <entry>Serif Block</entry>
+            </row>
+            <row>
+              <entry>6</entry>
+              <entry>Serif Bracket</entry>
+            </row>
+            <row>
+              <entry>7</entry>
+              <entry>Rounded Bracket</entry>
+            </row>
+            <row>
+              <entry>8</entry>
+              <entry>Flair Serif, Modified Sans</entry>
+            </row>
+            <row>
+              <entry>9</entry>
+              <entry>Script Nonconnecting</entry>
+            </row>
+            <row>
+              <entry>10</entry>
+              <entry>Script Joining</entry>
+            </row>
+            <row>
+              <entry>11</entry>
+              <entry>Script Calligraphic</entry>
+            </row>
+            <row>
+              <entry>12</entry>
+              <entry>Script Broken Letter</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <table>
+        <title>Top 2 bit values:</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>0</entry>
+              <entry>reserved</entry>
+            </row>
+            <row>
+              <entry>1</entry>
+              <entry>Sans Serif/Monoline</entry>
+            </row>
+            <row>
+              <entry>2</entry>
+              <entry>Serif/Contrasting</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>reserved</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <bridgehead>Reserved</bridgehead>
+      <para>Should be set to zero.</para>
     </section>
   </section>
+</section>

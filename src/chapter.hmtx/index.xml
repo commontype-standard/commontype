@@ -1,43 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="chapter.hmtx">
-    <title>hmtx - Horizontal Metrics</title>
-
-    <section role="fragment">
-      <title>Introduction</title>
-
-      <!--________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The type longHorMetric is defined as an array where each
+  <title>hmtx - Horizontal Metrics</title>
+  <section role="fragment">
+    <title>Introduction</title>
+    <!--________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The type longHorMetric is defined as an array where each
           element has two parts: the advance width, which is of type
           USHORT, and the left side bearing, which is of type SHORT.
           Or, more formally:</para>
-
-<literallayout>
+      <literallayout>
 typedef struct  _longHorMetric {
      USHORT advanceWidth;
      SHORT  lsb;
 }  longHorMetric;
 </literallayout>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>longHorMetric [numberOfHMetrics]</otfieldtype>
-            <otfieldname>hMetrics</otfieldname>
-            <otfielddesc>Paired advance width and left side bearing
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>longHorMetric [numberOfHMetrics]</otfieldtype>
+          <otfieldname>hMetrics</otfieldname>
+          <otfielddesc>Paired advance width and left side bearing
               values for each glyph. The value numOfHMetrics comes
               from the <ottable>hhea</ottable> table. If the font is
               monospaced, only one entry need be in the array, but
               that entry is required. The last entry applies to all
               subsequent glyphs.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>??</otfieldoffs>
-            <otfieldtype>FWord [ ]</otfieldtype>
-            <otfieldname>leftSideBearing</otfieldname>
-            <otfielddesc>Here the advanceWidth is assumed to be the
+        </otfield>
+        <otfield>
+          <otfieldoffs>??</otfieldoffs>
+          <otfieldtype>FWord [ ]</otfieldtype>
+          <otfieldname>leftSideBearing</otfieldname>
+          <otfielddesc>Here the advanceWidth is assumed to be the
               same as the advanceWidth for the last entry above. The
               number of entries in this array is derived from
               numGlyphs (from <ottable>maxp</ottable> table) minus
@@ -46,40 +41,31 @@ typedef struct  _longHorMetric {
               Only one run is allowed and it must be at the end. This
               allows a monospaced font to vary the left side bearing
               values for each glyph.</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>In CFF CommonType fonts, every glyph's advanceWidth as
+        </otfield>
+      </otformat>
+      <para>In CFF CommonType fonts, every glyph's advanceWidth as
           recorded in the <ottable>hmtx</ottable> table must be identical to its x
           width in the <ottable>CFF</ottable> table.</para>
-
-        <para>For any glyph, xmax and xmin are given in
+      <para>For any glyph, xmax and xmin are given in
           <ottable>glyf</ottable> table, lsb and aw are given in
           <ottable>hmtx</ottable> table. rsb is calculated as
           follows:</para>
-
-<literallayout>
+      <literallayout>
 rsb = aw - (lsb + xmax - xmin)
 </literallayout>
-
-        <para>If pp1 and pp2 are phantom points used to control lsb
+      <para>If pp1 and pp2 are phantom points used to control lsb
           and rsb, their initial position in x is calculated as
           follows:</para>
-
-<literallayout>
+      <literallayout>
 pp1 = xmin - lsb
 pp2 = pp1 + aw
 </literallayout>
-      </section>
-
-      <!--________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-        <para>In the XML representation, the various entries can occur in any order, and the long and short metrics can even be interleaved. However, the entries must have distinct gid attribute values, and collectively cover exactly the range [0, n-1]. In a fully valid font, n must of course be equal to the maxp.numGlyphs.</para>
-
-<code-fragment id="schema">
-  <code-title>??</code-title>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <para>In the XML representation, the various entries can occur in any order, and the long and short metrics can even be interleaved. However, the entries must have distinct gid attribute values, and collectively cover exactly the range [0, n-1]. In a fully valid font, n must of course be equal to the maxp.numGlyphs.</para>
+      <code-fragment id="schema"><code-title>??</code-title>
 hmtx =
   element hmtx {
     element hMetric {
@@ -93,13 +79,11 @@ hmtx =
     }*
   }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="compiler">
-        <title>Compiler</title>
-
-<code-fragment id="hmtx.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="hmtx.methods">
   private class HMetric {
     int lsb;
     int adv;
@@ -130,27 +114,27 @@ hmtx =
     for (int i = 0; i &lt; m.length; i++) {
       Element metric = (Element) metrics.item (i);
 
-      int gid = Integer.decode (metric.getAttribute (&quot;gid&quot;));
+      int gid = Integer.decode (metric.getAttribute ("gid"));
 
       if (m.length &lt;= gid) {
-         throw new InvalidFontException (&quot;htmx: gid &quot; + gid + &quot; is too large&quot;); }
+         throw new InvalidFontException ("htmx: gid " + gid + " is too large"); }
 
       if (m [gid] != null) {
-        throw new InvalidFontException (&quot;duplicate gid &quot; + gid + &quot; in hmtx&quot;); }
+        throw new InvalidFontException ("duplicate gid " + gid + " in hmtx"); }
 
-      if (&quot;hMetric&quot;.equals (metric.getTagName ())) {
-        m [gid] = new HMetric (Integer.decode (metric.getAttribute (&quot;adv&quot;)).intValue (),
-                               Integer.decode (metric.getAttribute (&quot;lsb&quot;)).intValue ());
+      if ("hMetric".equals (metric.getTagName ())) {
+        m [gid] = new HMetric (Integer.decode (metric.getAttribute ("adv")).intValue (),
+                               Integer.decode (metric.getAttribute ("lsb")).intValue ());
         hmetrics++; }
 
-      else if (&quot;lsb&quot;.equals (metric.getTagName ())) {
-        m [gid] = new HMetric (Integer.decode (metric.getAttribute (&quot;lsb&quot;)).intValue ());
+      else if ("lsb".equals (metric.getTagName ())) {
+        m [gid] = new HMetric (Integer.decode (metric.getAttribute ("lsb")).intValue ());
         lsbs++; }}
 
     // verify that all lsbs are after all hmetric
     for (int gid = hmetrics; gid &lt; hmetrics + lsbs; gid++) {
       if (m [gid].hasAdvance) {
-        throw new InvalidFontException (&quot;htmx: gid &quot; + gid + &quot; has advance and is larger that first gid without advance &quot; + hmetrics); }}
+        throw new InvalidFontException ("htmx: gid " + gid + " has advance and is larger that first gid without advance " + hmetrics); }}
 
     Block me = new Block (hmetrics*4 + lsbs*2, 0);
 
@@ -168,20 +152,17 @@ hmtx =
     data = me.serialize ();
   }
 </code-fragment>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="hmtx.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="hmtx.methods">
   public void toXML (DecompilerConfig conf)
       throws org.xml.sax.SAXException {
 
     AttributesImpl at;
 
-    conf.ch.startElement (&quot;hmtx&quot;); {
+    conf.ch.startElement ("hmtx"); {
       int offset = 0;
       int gid = 0;
       int numberOfHMetrics = font.hhea.getNumberOfHMetrics ();
@@ -189,34 +170,30 @@ hmtx =
 
       for (int i = 0; i &lt; numberOfHMetrics; i++) {
         at = new AttributesImpl ();
-        at.addAttribute (&quot;&quot;, &quot;gid&quot;, &quot;gid&quot;, &quot;CDATA&quot;, &quot;&quot; + gid);
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
         gid++;
-        at.addAttribute (&quot;&quot;, &quot;adv&quot;, &quot;adv&quot;, &quot;CDATA&quot;, &quot;&quot; + getint16 (offset));
+        at.addAttribute ("", "adv", "adv", "CDATA", "" + getint16 (offset));
         offset += 2;
-        at.addAttribute (&quot;&quot;, &quot;lsb&quot;, &quot;lsb&quot;, &quot;CDATA&quot;, &quot;&quot; + getint16 (offset));
+        at.addAttribute ("", "lsb", "lsb", "CDATA", "" + getint16 (offset));
         offset += 2;
-        conf.ch.element (&quot;hMetric&quot;, at); }
+        conf.ch.element ("hMetric", at); }
 
       for (int i = 0; i &lt; numLsb; i++) {
         at = new AttributesImpl ();
-        at.addAttribute (&quot;&quot;, &quot;gid&quot;, &quot;gid&quot;, &quot;CDATA&quot;, &quot;&quot; + gid);
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
         gid++;
-        at.addAttribute (&quot;&quot;, &quot;lsb&quot;, &quot;lsb&quot;, &quot;CDATA&quot;, &quot;&quot; + getint16 (offset));
+        at.addAttribute ("", "lsb", "lsb", "CDATA", "" + getint16 (offset));
         offset += 2;
-        conf.ch.element (&quot;lsb&quot;, at); }
+        conf.ch.element ("lsb", at); }
 
-      conf.ch.endElement (&quot;hmtx&quot;); }
+      conf.ch.endElement ("hmtx"); }
   }
 </code-fragment>
-      </section>
-
-
-      <!--________________________________________________________________-->
-      <section role="implementation">
-        <title>Implementation</title>
-
-<code-fragment package="com.adobe.aots.CommonType" class="Hmtx">
-  <code-title>Hmtx class</code-title>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Hmtx"><code-title>Hmtx class</code-title>
 package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
@@ -254,7 +231,6 @@ public class Hmtx extends Table {
   <code-include linkend="hmtx.methods"/>
 }
 </code-fragment>
-
-      </section>
     </section>
   </section>
+</section>

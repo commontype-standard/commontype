@@ -1,150 +1,142 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="chapter.hhea">
-    <title>hhea - Horizontal Header</title>
-
-    <section role="fragment">
-      <title>Introduction</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>This table contains information for horizontal layout.
+  <title>hhea - Horizontal Header</title>
+  <section role="fragment">
+    <title>Introduction</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This table contains information for horizontal layout.
           The values in the minRightSidebearing, minLeftSideBearing
           and xMaxExtent should be computed using
           <emphasis>only</emphasis> glyphs that have contours. Glyphs
           with no contours should be ignored for the purposes of these
           calculations. All reserved areas must be set to 0.</para>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>Fixed</otfieldtype>
-            <otfieldname>Table</otfieldname>
-            <otfielddesc>version number 0x00010000 for version
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>Fixed</otfieldtype>
+          <otfieldname>Table</otfieldname>
+          <otfielddesc>version number 0x00010000 for version
               1.0.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>4</otfieldoffs>
-            <otfieldtype>FWORD</otfieldtype>
-            <otfieldname>Ascender</otfieldname>
-            <otfielddesc>Typographic ascent (<ulink url="http://developer.apple.com/fonts/TTRefMan/RM06/Chap6hhea.html">Distance
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>FWORD</otfieldtype>
+          <otfieldname>Ascender</otfieldname>
+          <otfielddesc>Typographic ascent (<ulink url="http://developer.apple.com/fonts/TTRefMan/RM06/Chap6hhea.html">Distance
             from baseline to highest ascender</ulink>)</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>6</otfieldoffs>
-            <otfieldtype>FWORD</otfieldtype>
-            <otfieldname>Descender</otfieldname>
-            <otfielddesc>Typographic descent(<ulink url="http://developer.apple.com/fonts/TTRefMan/RM06/Chap6hhea.html">Distance
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>FWORD</otfieldtype>
+          <otfieldname>Descender</otfieldname>
+          <otfielddesc>Typographic descent(<ulink url="http://developer.apple.com/fonts/TTRefMan/RM06/Chap6hhea.html">Distance
             from baseline to highest ascender</ulink>)</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>8</otfieldoffs>
-            <otfieldtype>FWORD</otfieldtype>
-            <otfieldname>LineGap</otfieldname>
-            <otfielddesc>Typographic line gap. Negative LineGap values are
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>FWORD</otfieldtype>
+          <otfieldname>LineGap</otfieldname>
+          <otfielddesc>Typographic line gap. Negative LineGap values are
               treated as zero in Windows 3.1, System 6, and System
               7.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>10</otfieldoffs>
-            <otfieldtype>UFWORD</otfieldtype>
-            <otfieldname>advanceWidthMax</otfieldname>
-            <otfielddesc>Maximum advance width value in
+        </otfield>
+        <otfield>
+          <otfieldoffs>10</otfieldoffs>
+          <otfieldtype>UFWORD</otfieldtype>
+          <otfieldname>advanceWidthMax</otfieldname>
+          <otfielddesc>Maximum advance width value in
               <ottable>hmtx</ottable> table.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>12</otfieldoffs>
-            <otfieldtype>FWORD</otfieldtype>
-            <otfieldname>minLeftSideBearing</otfieldname>
-            <otfielddesc>Minimum left sidebearing value in
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>FWORD</otfieldtype>
+          <otfieldname>minLeftSideBearing</otfieldname>
+          <otfielddesc>Minimum left sidebearing value in
               <ottable>hmtx</ottable> table.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>14</otfieldoffs>
-            <otfieldtype>FWORD</otfieldtype>
-            <otfieldname>minRightSideBearing</otfieldname>
-            <otfielddesc>Minimum right sidebearing value; calculated
+        </otfield>
+        <otfield>
+          <otfieldoffs>14</otfieldoffs>
+          <otfieldtype>FWORD</otfieldtype>
+          <otfieldname>minRightSideBearing</otfieldname>
+          <otfielddesc>Minimum right sidebearing value; calculated
               as Min(aw - lsb - (xMax - xMin)).</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>16</otfieldoffs>
-            <otfieldtype>FWORD</otfieldtype>
-            <otfieldname>xMaxExtent</otfieldname>
-            <otfielddesc>Max(lsb + (xMax - xMin)).</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>18</otfieldoffs>
-            <otfieldtype>SHORT</otfieldtype>
-            <otfieldname>caretSlopeRise</otfieldname>
-            <otfielddesc>Used to calculate the slope of the cursor
+        </otfield>
+        <otfield>
+          <otfieldoffs>16</otfieldoffs>
+          <otfieldtype>FWORD</otfieldtype>
+          <otfieldname>xMaxExtent</otfieldname>
+          <otfielddesc>Max(lsb + (xMax - xMin)).</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>18</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>caretSlopeRise</otfieldname>
+          <otfielddesc>Used to calculate the slope of the cursor
               (rise/run); 1 for vertical.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>20</otfieldoffs>
-            <otfieldtype>SHORT</otfieldtype>
-            <otfieldname>caretSlopeRun</otfieldname>
-            <otfielddesc>0 for vertical.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>22</otfieldoffs>
-            <otfieldtype>SHORT</otfieldtype>
-            <otfieldname>caretOffset</otfieldname>
-            <otfielddesc>The amount by which a slanted highlight on a
+        </otfield>
+        <otfield>
+          <otfieldoffs>20</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>caretSlopeRun</otfieldname>
+          <otfielddesc>0 for vertical.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>22</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>caretOffset</otfieldname>
+          <otfielddesc>The amount by which a slanted highlight on a
               glyph needs to be shifted to produce the best
               appearance. Set to 0 for non-slanted
               fonts.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>24</otfieldoffs>
-            <otfieldtype>SHORT</otfieldtype>
-            <otfieldname>(reserved)</otfieldname>
-            <otfielddesc>set to 0.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>26</otfieldoffs>
-            <otfieldtype>SHORT</otfieldtype>
-            <otfieldname>(reserved)</otfieldname>
-            <otfielddesc>set to 0.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>28</otfieldoffs>
-            <otfieldtype>SHORT</otfieldtype>
-            <otfieldname>(reserved)</otfieldname>
-            <otfielddesc>set to 0.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>30</otfieldoffs>
-            <otfieldtype>SHORT</otfieldtype>
-            <otfieldname>(reserved)</otfieldname>
-            <otfielddesc>set to 0.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>32</otfieldoffs>
-            <otfieldtype>SHORT</otfieldtype>
-            <otfieldname>metricDataFormat</otfieldname>
-            <otfielddesc>0 for current format.</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>34</otfieldoffs>
-            <otfieldtype>USHORT</otfieldtype>
-            <otfieldname>numberOfHMetrics</otfieldname>
-            <otfielddesc>Number of hMetric entries in
+        </otfield>
+        <otfield>
+          <otfieldoffs>24</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>(reserved)</otfieldname>
+          <otfielddesc>set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>26</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>(reserved)</otfieldname>
+          <otfielddesc>set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>28</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>(reserved)</otfieldname>
+          <otfielddesc>set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>30</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>(reserved)</otfieldname>
+          <otfielddesc>set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>32</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>metricDataFormat</otfieldname>
+          <otfielddesc>0 for current format.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>34</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numberOfHMetrics</otfieldname>
+          <otfielddesc>Number of hMetric entries in
               <ottable>hmtx</ottable> table.</otfielddesc>
-          </otfield>
-        </otformat>
-
-	<para>Note: The ascender, descender and linegap values in this
+        </otfield>
+      </otformat>
+      <para>Note: The ascender, descender and linegap values in this
 	  table are Apple specific. Also, see information in the
 	  <ottable>OS/2</ottable> table.</para>
-      </section>
-
-      <!--________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-<code-fragment id="schema">
-  <code-title>??</code-title>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>??</code-title>
 hhea =
   element hhea {
     attribute major { text },
@@ -176,50 +168,48 @@ hhea =
     }
   }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="compiler">
-        <title>Compiler</title>
-
-<code-fragment id="hhea.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="hhea.methods">
   public void fromXML (Element hhea)
       throws InvalidFontException, UnsupportedFontException {
 
     Block me = new Block (36, 0);
 
     me.setFixed (0,
-                 Integer.decode (hhea.getAttribute (&quot;major&quot;)).intValue (),
-                 Integer.decode (hhea.getAttribute (&quot;minor&quot;)).intValue ());
+                 Integer.decode (hhea.getAttribute ("major")).intValue (),
+                 Integer.decode (hhea.getAttribute ("minor")).intValue ());
 
     NodeList children = hhea.getChildNodes ();
     for (int i = 0; i &lt; children.getLength (); i++) {
       Element e = (Element) children.item (i);
 
-      if (&quot;macLineMetrics&quot;.equals (e.getTagName ())) {
-        me.setFWord (4, Integer.decode (e.getAttribute (&quot;ascent&quot;)).intValue());
-        me.setFWord (6, Integer.decode (e.getAttribute (&quot;descent&quot;)).intValue());
-        me.setFWord (8, Integer.decode (e.getAttribute (&quot;lineGap&quot;)).intValue()); }
+      if ("macLineMetrics".equals (e.getTagName ())) {
+        me.setFWord (4, Integer.decode (e.getAttribute ("ascent")).intValue());
+        me.setFWord (6, Integer.decode (e.getAttribute ("descent")).intValue());
+        me.setFWord (8, Integer.decode (e.getAttribute ("lineGap")).intValue()); }
 
-      if (&quot;advanceWidthMax&quot;.equals (e.getTagName ())) {
-        me.setuFWord (10, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+      if ("advanceWidthMax".equals (e.getTagName ())) {
+        me.setuFWord (10, Integer.decode (e.getAttribute ("v")).intValue()); }
 
-      if (&quot;minLeftSideBearing&quot;.equals (e.getTagName ())) {
-        me.setFWord (12, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+      if ("minLeftSideBearing".equals (e.getTagName ())) {
+        me.setFWord (12, Integer.decode (e.getAttribute ("v")).intValue()); }
 
-      if (&quot;minRightSideBearing&quot;.equals (e.getTagName ())) {
-        me.setFWord (14, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+      if ("minRightSideBearing".equals (e.getTagName ())) {
+        me.setFWord (14, Integer.decode (e.getAttribute ("v")).intValue()); }
 
-      if (&quot;xMaxExtent&quot;.equals (e.getTagName ())) {
-        me.setFWord (16, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+      if ("xMaxExtent".equals (e.getTagName ())) {
+        me.setFWord (16, Integer.decode (e.getAttribute ("v")).intValue()); }
 
-      if (&quot;caret&quot;.equals (e.getTagName ())) {
-        me.setint16 (18, Integer.decode (e.getAttribute (&quot;slopeRise&quot;)).intValue());
-        me.setint16 (20, Integer.decode (e.getAttribute (&quot;slopeRun&quot;)).intValue());
-        me.setint16 (22, Integer.decode (e.getAttribute (&quot;offset&quot;)).intValue()); }
+      if ("caret".equals (e.getTagName ())) {
+        me.setint16 (18, Integer.decode (e.getAttribute ("slopeRise")).intValue());
+        me.setint16 (20, Integer.decode (e.getAttribute ("slopeRun")).intValue());
+        me.setint16 (22, Integer.decode (e.getAttribute ("offset")).intValue()); }
 
-      if (&quot;numberOfHMetrics&quot;.equals (e.getTagName ())) {
-        me.setint16 (34, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }}
+      if ("numberOfHMetrics".equals (e.getTagName ())) {
+        me.setint16 (34, Integer.decode (e.getAttribute ("v")).intValue()); }}
 
     me.setint16 (24, 0);
     me.setint16 (26, 0);
@@ -230,13 +220,11 @@ hhea =
     data = me.serialize ();
   }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="hhea.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="hhea.methods">
   public void toXML (DecompilerConfig conf)
       throws org.xml.sax.SAXException {
 
@@ -244,56 +232,52 @@ hhea =
 
     int [] version = getFixed (0);
     at = new AttributesImpl ();
-    at.addAttribute (&quot;&quot;, &quot;major&quot;, &quot;major&quot;, &quot;CDATA&quot;, &quot;&quot; + version [0]);
-    at.addAttribute (&quot;&quot;, &quot;minor&quot;, &quot;minor&quot;, &quot;CDATA&quot;, &quot;&quot; + version [1]);
-    conf.ch.startElement (&quot;hhea&quot;, at); {
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
+    conf.ch.startElement ("hhea", at); {
 
       at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;ascent&quot;, &quot;ascent&quot;, &quot;CDATA&quot;, &quot;&quot; + getFWord (4));
-      at.addAttribute (&quot;&quot;, &quot;descent&quot;, &quot;descent&quot;, &quot;CDATA&quot;, &quot;&quot; + getFWord (6));
-      at.addAttribute (&quot;&quot;, &quot;lineGap&quot;, &quot;lineGap&quot;, &quot;CDATA&quot;, &quot;&quot; +  getFWord (8));
-      conf.ch.element (&quot;macLineMetrics&quot;, at);
+      at.addAttribute ("", "ascent", "ascent", "CDATA", "" + getFWord (4));
+      at.addAttribute ("", "descent", "descent", "CDATA", "" + getFWord (6));
+      at.addAttribute ("", "lineGap", "lineGap", "CDATA", "" +  getFWord (8));
+      conf.ch.element ("macLineMetrics", at);
 
       at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; +  getuFWord (10) );
-      conf.ch.element (&quot;advanceWidthMax&quot;, at);
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getuFWord (10) );
+      conf.ch.element ("advanceWidthMax", at);
 
       at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; +  getFWord (12) );
-      conf.ch.element (&quot;minLeftSideBearing&quot;, at);
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getFWord (12) );
+      conf.ch.element ("minLeftSideBearing", at);
 
       at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; +  getFWord (14) );
-      conf.ch.element (&quot;minRightSideBearing&quot;, at);
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getFWord (14) );
+      conf.ch.element ("minRightSideBearing", at);
 
       at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; +  getFWord (16) );
-      conf.ch.element (&quot;xMaxExtent&quot;, at);
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getFWord (16) );
+      conf.ch.element ("xMaxExtent", at);
 
       at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;slopeRise&quot;, &quot;slopeRise&quot;, &quot;CDATA&quot;, &quot;&quot; +  getint16 (18) );
-      at.addAttribute (&quot;&quot;, &quot;slopeRun&quot;, &quot;slopeRun&quot;, &quot;CDATA&quot;, &quot;&quot; +  getint16 (20) );
-      at.addAttribute (&quot;&quot;, &quot;offset&quot;, &quot;offset&quot;, &quot;CDATA&quot;, &quot;&quot; +  getint16 (22) );
-      conf.ch.element (&quot;caret&quot;, at);
+      at.addAttribute ("", "slopeRise", "slopeRise", "CDATA", "" +  getint16 (18) );
+      at.addAttribute ("", "slopeRun", "slopeRun", "CDATA", "" +  getint16 (20) );
+      at.addAttribute ("", "offset", "offset", "CDATA", "" +  getint16 (22) );
+      conf.ch.element ("caret", at);
 
       at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getNumberOfHMetrics ());
-      conf.ch.element (&quot;numberOfHMetrics&quot;, at);
+      at.addAttribute ("", "v", "v", "CDATA", "" + getNumberOfHMetrics ());
+      conf.ch.element ("numberOfHMetrics", at);
 
-      conf.ch.endElement (&quot;hhea&quot;); }
+      conf.ch.endElement ("hhea"); }
   }
 </code-fragment>
-      </section>
-
-      <!--________________________________________________________________-->
-      <section role="implementation">
-        <title>Implementation</title>
-
-        <para>Here is the class definition for <ottable>hhea</ottable>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <para>Here is the class definition for <ottable>hhea</ottable>
           tables:</para>
-
-<code-fragment package="com.adobe.aots.CommonType" class="Hhea">
-  <code-title>Hhea class</code-title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Hhea"><code-title>Hhea class</code-title>
 package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
@@ -315,12 +299,8 @@ public class Hhea extends Table {
   <code-include linkend="hhea.methods"/>
 }
 </code-fragment>
-
-
-        <para>We have simple accessor functions:</para>
-
-<code-fragment id="hhea.methods">
-  <code-title>Hhea class</code-title>
+      <para>We have simple accessor functions:</para>
+      <code-fragment id="hhea.methods"><code-title>Hhea class</code-title>
   public int getAscender () {
     return getint16 (4);
   }
@@ -386,9 +366,7 @@ public class Hhea extends Table {
   }
 
 </code-fragment>
-
-<code-fragment id="hhea.methods">
-  <code-title>Hhea class</code-title>
+      <code-fragment id="hhea.methods"><code-title>Hhea class</code-title>
   public void fixDerivedValues () {
     int advanceWidthMax = 0;
     int minLeftSideBearing = Integer.MAX_VALUE;
@@ -415,9 +393,6 @@ public class Hhea extends Table {
     setXMaxExtent (xMaxExtent);
   }
 </code-fragment>
-
-
-
-      </section>
     </section>
   </section>
+</section>

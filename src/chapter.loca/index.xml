@@ -1,109 +1,91 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="chapter.loca">
-    <title>loca - Index to Location</title>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Introduction</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The indexToLoc table stores the offsets to the locations
+  <title>loca - Index to Location</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Introduction</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The indexToLoc table stores the offsets to the locations
           of the glyphs in the font, relative to the beginning of the
           glyphData table. In order to compute the length of the last
           glyph element, there is an extra entry after the last valid
           index.</para>
-        <para>By definition, index zero points to the &quot;missing
-          character,&quot; which is the character that appears if a
+      <para>By definition, index zero points to the "missing
+          character," which is the character that appears if a
           character is not found in the font. The missing character is
           commonly represented by a blank box (such as ) or a space.
           If the font does not contain an outline for the missing
           character, then the first and second offsets should have the
           same value. This also applies to any other character without
           an outline, such as the space character.</para>
-        <para>Most routines will look at the <ottable>maxp</ottable>
+      <para>Most routines will look at the <ottable>maxp</ottable>
           table to determine the number of glyphs in the font, but the
           value in the <ottable>loca</ottable> table should
           agree.</para>
-        <para>There are two versions of this table, the short and the
+      <para>There are two versions of this table, the short and the
           long. The version is specified in the indexToLocFormat entry
           in the <ottable>head</ottable> table.</para>
-
-        <bridgehead>Short version</bridgehead>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>USHORT</otfieldtype>
-            <otfieldname>offsets [n]</otfieldname>
-            <otfielddesc>The actual local offset divided by 2 is
+      <bridgehead>Short version</bridgehead>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>offsets [n]</otfieldname>
+          <otfielddesc>The actual local offset divided by 2 is
               stored. The value of n is numGlyphs + 1. The value for
               numGlyphs is found in the <ottable>maxp</ottable>
               table.</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <bridgehead>Long version</bridgehead>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>ULONG</otfieldtype>
-            <otfieldname>offsets [n]</otfieldname>
-            <otfielddesc>The actual local offset is stored. The value
+        </otfield>
+      </otformat>
+      <bridgehead>Long version</bridgehead>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>offsets [n]</otfieldname>
+          <otfielddesc>The actual local offset is stored. The value
               of n is numGlyphs + 1. The value for numGlyphs is found
               in the <ottable>maxp</ottable> table.</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>Note that the local offsets should be long-aligned,
+        </otfield>
+      </otformat>
+      <para>Note that the local offsets should be long-aligned,
           i.e., multiples of 4. Offsets which are not long-aligned may
           seriously degrade performance of some processors.</para>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="annotation">
-        <title>Annotation</title>
-
-	<para>We assume that 'indexToLoc' should be replaced by 'loca'
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>We assume that 'indexToLoc' should be replaced by 'loca'
 	  and 'glyphData' should be replaced by 'glyph'.</para>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="compiler">
-        <title>Compiler</title>
-
-<code-fragment id="loca.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="loca.methods">
   public void fromXML (Element cmap)
       throws InvalidFontException, UnsupportedFontException {
 
       //TODO
   }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="loca.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="loca.methods">
   public void toXML (DecompilerConfig conf)
       throws org.xml.sax.SAXException, InvalidFontException {
 
       //TODO
   }
 </code-fragment>
-      </section>
-
-      <!--________________________________________________________________-->
-      <section role="implementation">
-        <title>Implementation</title>
-
-<code-fragment package="com.adobe.aots.CommonType" class="Loca">
-  <code-title>Loca class</code-title>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Loca"><code-title>Loca class</code-title>
 package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
@@ -125,11 +107,8 @@ public class Loca extends Table {
   <code-include linkend="loca.methods"/>
 }
 </code-fragment>
-
-	<para>Here is a method to return the location of a glyph.</para>
-
-<code-fragment id="loca.methods">
-  <code-title>Loca methods</code-title>
+      <para>Here is a method to return the location of a glyph.</para>
+      <code-fragment id="loca.methods"><code-title>Loca methods</code-title>
   public long getGlyphLocation (int gid) {
 
     if (font.head.getIndexToLocFormat () == 0) {
@@ -145,7 +124,6 @@ public class Loca extends Table {
       setuint32 (gid * 4, offset); }
   }
 </code-fragment>
-      </section>
-
     </section>
   </section>
+</section>

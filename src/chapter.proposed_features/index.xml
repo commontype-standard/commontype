@@ -1,32 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="chapter.proposed_features">
-    <title>Proposed CommonType features</title>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Introduction</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-	<para>Proposals for new features are posted here for
+  <title>Proposed CommonType features</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Introduction</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Proposals for new features are posted here for
 	review. If you have questions, comments or concerns regarding
 	any of the proposals listed please post them to the CommonType
 	discussion mailing list.</para>
-      </section>
     </section>
-
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Proposing new features</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-	<para> Microsoft and Adobe welcome nominations for new
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Proposing new features</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para> Microsoft and Adobe welcome nominations for new
 	  features and feature tags. To qualify for registration, a
 	  feature must have a single function that is clearly
 	  identified by its tag. The function of the feature should be
@@ -35,53 +28,50 @@
 	  features. When font developers register feature tags and
 	  functions with Microsoft, they do not have to supply
 	  implementation details.</para>
-
-	<para>To submit a proposal please e-mail the following
+      <para>To submit a proposal please e-mail the following
 	  information to ttwsite@microsoft.com. See the current
 	  registered features for example wording.</para>
-
-	<itemizedlist>
-	  <listitem>
-	    <para>Tag</para>
-	  </listitem>
-	  <listitem>
-	    <para>Friendly name</para>
-	  </listitem>
-	  <listitem>
-	    <para>Registered by</para>
-	  </listitem>
-	  <listitem>
-	    <para>Status</para>
-	  </listitem>
-	  <listitem>
-	    <para>Function</para>
-	  </listitem>
-	  <listitem>
-	    <para>Example</para>
-	  </listitem>
-	  <listitem>
-	    <para>Recommended implementation</para>
-	  </listitem>
-	  <listitem>
-	    <para>Application interface</para>
-	  </listitem>
-	  <listitem>
-	    <para>UI suggestion</para>
-	  </listitem>
-	  <listitem>
-	    <para>Script/language sensitivity</para>
-	  </listitem>
-	  <listitem>
-	    <para>Feature interaction</para>
-	  </listitem>
-	</itemizedlist>
-
-	<para>Providing the proposal raises no serious concerns we will
+      <itemizedlist>
+        <listitem>
+          <para>Tag</para>
+        </listitem>
+        <listitem>
+          <para>Friendly name</para>
+        </listitem>
+        <listitem>
+          <para>Registered by</para>
+        </listitem>
+        <listitem>
+          <para>Status</para>
+        </listitem>
+        <listitem>
+          <para>Function</para>
+        </listitem>
+        <listitem>
+          <para>Example</para>
+        </listitem>
+        <listitem>
+          <para>Recommended implementation</para>
+        </listitem>
+        <listitem>
+          <para>Application interface</para>
+        </listitem>
+        <listitem>
+          <para>UI suggestion</para>
+        </listitem>
+        <listitem>
+          <para>Script/language sensitivity</para>
+        </listitem>
+        <listitem>
+          <para>Feature interaction</para>
+        </listitem>
+      </itemizedlist>
+      <para>Providing the proposal raises no serious concerns we will
 	  post it here for review. After a further period of review the
 	  status of the proposal will be updated to indicate if the
 	  proposed feature has been accepted or rejected. Accepted
 	  proposals will be added to the CommonType registered features
 	  list when the CommonType specification is next updated.</para>
-      </section>
     </section>
   </section>
+</section>

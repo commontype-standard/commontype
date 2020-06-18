@@ -1,46 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<section id="chapter.GDEF" >
-    <title>GDEF - The Glyph Definition Table</title>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Overview</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The Glyph Definition (<ottable>GDEF</ottable>) table
+<section id="chapter.GDEF">
+  <title>GDEF - The Glyph Definition Table</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The Glyph Definition (<ottable>GDEF</ottable>) table
           contains three types of information in three independent
           tables:</para>
-
-
-        <itemizedlist>
-          <listitem>
-            <para>The <emphasis>GlyphClassDef</emphasis> table
+      <itemizedlist>
+        <listitem>
+          <para>The <emphasis>GlyphClassDef</emphasis> table
               classifies the different types of glyphs in the
               font.</para>
-          </listitem>
-          <listitem>
-            <para>The <emphasis>AttachmentList</emphasis> table
+        </listitem>
+        <listitem>
+          <para>The <emphasis>AttachmentList</emphasis> table
               identifies all attachment points on the glyphs, which
               streamlines data access and bitmap caching.</para>
-          </listitem>
-          <listitem>
-            <para>The <emphasis>LigatureCaretList</emphasis> table
+        </listitem>
+        <listitem>
+          <para>The <emphasis>LigatureCaretList</emphasis> table
               contains positioning data for ligature carets, which the
               text-processing client uses on screen to select and
               highlight the individual components of a ligature
               glyph.</para>
-          </listitem>
-          <listitem>
-            <para>The <emphasis>MarkAttachClassDef</emphasis> table
+        </listitem>
+        <listitem>
+          <para>The <emphasis>MarkAttachClassDef</emphasis> table
               classifies mark glyphs, to help group together marks
               that are positioned similarly.</para>
-          </listitem>
-        </itemizedlist>
-
-        <para>Both the <ottable>GSUB</ottable> and
+        </listitem>
+      </itemizedlist>
+      <para>Both the <ottable>GSUB</ottable> and
           <ottable>GPOS</ottable> tables reference the
           <ottable>GDEF</ottable> table information to supplement
           their own data for substituting and positioning glyphs. Even
@@ -50,34 +44,28 @@
           client may have to define and maintain the
           <ottable>GDEF</ottable> information on its own when
           substituting and positioning glyphs.</para>
-
-        <para>A client may use any one or more of the three
+      <para>A client may use any one or more of the three
           <ottable>GDEF</ottable> tables during text processing. This
           overview explains how each of the three tables are organized
           and used (See Figure 7a). The rest of this chapter describes
           the individual <ottable>GDEF</ottable> tables and the tables
           that they reference.</para>
-
-        <figure>
-          <title>Figure 7a. High-level organization of <ottable>GDEF</ottable>
+      <figure>
+        <title>Figure 7a. High-level organization of <ottable>GDEF</ottable>
           table</title>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../../fig7a.gif"/>
-            </imageobject>
-          </mediaobject>
-        </figure>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="annotation">
-        <title>Annotation</title>
-
-
-        <para>First sentence, both occurrences of 'three' should be
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../../fig7a.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>First sentence, both occurrences of 'three' should be
 	  replaced by 'four'.</para>
-
-        <para>Last two sentences of paragraph after the bullet list: I
+      <para>Last two sentences of paragraph after the bullet list: I
           am not sure that this comment applies to GlyphClassDef for
           example. There does not seem to be any mandatory data in
           <ottable>GSUB</ottable> or <ottable>GPOS</ottable> that
@@ -88,21 +76,17 @@
           lookup with LookupFlag set to ignoreBaseGlyphs. What glyphs
           should be ignored by this lookup? Or is this font
           illegal?</para>
-
-        <para>Last paragraph: both occurrences of 'three' should be
+      <para>Last paragraph: both occurrences of 'three' should be
 	  replaced by 'four'.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Glyph Class Definition Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The Glyph Class Definition (GlyphClassDef) table
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Glyph Class Definition Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The Glyph Class Definition (GlyphClassDef) table
           identifies four types of glyphs in a font: base glyphs,
           ligature glyphs, combining mark glyphs, and glyph components
           (see Figure 7b). <ottable>GSUB</ottable> and
@@ -111,18 +95,16 @@
           For example, <ottable>GPOS</ottable> uses the glyph classes
           to distinguish between a simple base glyph and the mark
           glyph that follows it.</para>
-
-        <figure>
-          <title>Figure 7b. A base glyph, ligature glyph, mark
+      <figure>
+        <title>Figure 7b. A base glyph, ligature glyph, mark
             glyph, and glyph components</title>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../../fig7b.gif"/>
-            </imageobject>
-          </mediaobject>
-        </figure>
-
-        <para>In addition, a client uses class definitions to apply
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../../fig7b.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>In addition, a client uses class definitions to apply
           <ottable>GSUB</ottable> and <ottable>GPOS</ottable>
           LookupFlag data correctly. For example, a LookupFlag may
           specify ignoring ligatures and marks during a glyph
@@ -130,32 +112,24 @@
           table, the client must define and maintain this information
           when using the <ottable>GSUB</ottable> and
           <ottable>GPOS</ottable> tables.</para>
-      </section>
-
-
-      <!--____________________________________________________________________-->
-      <section role="annotation">
-        <title>Annotation</title>
-
-        <para>First sentence: shouldn’t “glyph
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>First sentence: shouldn’t “glyph
         components” be replaced by “component
         glyphs”? Similarly in the figure’s title.</para>
-
-        <para>Last sentence: How can the client figure out the class
+      <para>Last sentence: How can the client figure out the class
         of a glyph from a font lacking a GlyphClassDef table?</para>
-
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Attachment Point List Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The Attachment Point List table (AttachmentList)
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Attachment Point List Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The Attachment Point List table (AttachmentList)
           identifies all the attachment points defined in the
           <ottable>GPOS</ottable> table and their associated glyphs so
           a client can quickly access coordinates for each glyph's
@@ -166,34 +140,29 @@
           be slower because the client would have to decode the
           <ottable>GPOS</ottable> lookups that define attachment
           points and compile the points in a list.</para>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Ligature Caret List Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The Ligature Caret List table (LigatureCaretList),
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Ligature Caret List Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The Ligature Caret List table (LigatureCaretList),
           particularly useful in Arabic and other scripts with many
           ligatures, specifies coordinates for positioning carets on
           all ligatures in a font. The client uses this data to select
           and highlight ligature components in displayed text (see
           Figure 7c).</para>
-
-        <figure>
-          <title>Figure 7c. Proper ligature caret postioning</title>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../../fig7c.gif"/>
-            </imageobject>
-          </mediaobject>
-        </figure>
-
-        <para>Each ligature can have more than one caret position,
+      <figure>
+        <title>Figure 7c. Proper ligature caret postioning</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../../fig7c.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Each ligature can have more than one caret position,
           with each position defined as an X or Y value on the
           baseline according to the writing direction of the script or
           language system. The font developer can use any of three
@@ -202,30 +171,25 @@
           value based on a designated contour point, and the third
           uses a Device table to adjust values at specific font
           sizes.</para>
-
-        <para>Without a Ligature Caret List table, the client would
+      <para>Without a Ligature Caret List table, the client would
           have to define caret positions without knowing the positions
           of the ligature components. The resulting highlighting or
           hit-testing might be ambiguous. For example, suppose a
           client places a caret at the midpoint position along the
-          width of a hyphothetical &quot;wi&quot; ligature. Because the &quot;w&quot; is
-          wider than the &quot;i,&quot; that position would not clearly indicate
+          width of a hyphothetical "wi" ligature. Because the "w" is
+          wider than the "i," that position would not clearly indicate
           which component is selected. Instead, for accurate
           selection, the caret should be moved to the right so that
-          either the &quot;w&quot; or &quot;i&quot; could be clearly highlighted.</para>
-
-      </section>
+          either the "w" or "i" could be clearly highlighted.</para>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>GDEF Header</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The <ottable>GDEF</ottable> table begins with a header
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>GDEF Header</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The <ottable>GDEF</ottable> table begins with a header
           that consists of a version number (Version), initially set
           to 0x00010000, an offset to a table defining the types of
           glyphs in the font (GlyphClassDef), an offset to a list
@@ -237,67 +201,61 @@
           Please refer the 'LookupFlag bit enumeration' section in the
           Common Table Formats for more on using lookup flags with the
           information in these fields.</para>
-
-        <para>Example 1 at the end of this chapter shows a
+      <para>Example 1 at the end of this chapter shows a
           <ottable>GDEF</ottable> Header table.</para>
-
-        <otformat>
-          <title>GDEF Header</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>Fixed</otfieldtype>
-            <otfieldname>Version</otfieldname>
-            <otfielddesc>Version of the <ottable>GDEF</ottable>
+      <otformat>
+        <title>GDEF Header</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>Fixed</otfieldtype>
+          <otfieldname>Version</otfieldname>
+          <otfielddesc>Version of the <ottable>GDEF</ottable>
               table-initially 0x00010000</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>4</otfieldoffs>
-            <otfieldtype>Offset</otfieldtype>
-            <otfieldname>GlyphClassDef</otfieldname>
-            <otfielddesc>Offset to class definition table for glyph
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>Offset</otfieldtype>
+          <otfieldname>GlyphClassDef</otfieldname>
+          <otfielddesc>Offset to class definition table for glyph
               type-from beginning of <ottable>GDEF</ottable> header
               (may be NULL)</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>6</otfieldoffs>
-            <otfieldtype>Offset</otfieldtype>
-            <otfieldname>AttachList</otfieldname>
-            <otfielddesc>Offset to list of glyphs with attachment
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>Offset</otfieldtype>
+          <otfieldname>AttachList</otfieldname>
+          <otfielddesc>Offset to list of glyphs with attachment
               points-from beginning of <ottable>GDEF</ottable> header
               (may be NULL)</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>8</otfieldoffs>
-            <otfieldtype>Offset</otfieldtype>
-            <otfieldname>LigCaretList</otfieldname>
-            <otfielddesc>Offset to list of positioning points for
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>Offset</otfieldtype>
+          <otfieldname>LigCaretList</otfieldname>
+          <otfielddesc>Offset to list of positioning points for
               ligature carets-from beginning of
               <ottable>GDEF</ottable> header (may be
               NULL)</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>10</otfieldoffs>
-            <otfieldtype>Offset</otfieldtype>
-            <otfieldname>MarkAttachClassDef</otfieldname>
-            <otfielddesc>Offset to class definition table for mark
+        </otfield>
+        <otfield>
+          <otfieldoffs>10</otfieldoffs>
+          <otfieldtype>Offset</otfieldtype>
+          <otfieldname>MarkAttachClassDef</otfieldname>
+          <otfielddesc>Offset to class definition table for mark
               attachment type-from beginning of
               <ottable>GDEF</ottable> header (may  be
               NULL)</otfielddesc>
-          </otfield>
-        </otformat>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-<code-fragment id="schema">
-  <code-title>GDEF</code-title>
+        </otfield>
+      </otformat>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>GDEF</code-title>
   GDEF =
     element GDEF {
-      attribute major { &quot;1&quot; },
-      attribute minor { &quot;0&quot; },
+      attribute major { "1" },
+      attribute minor { "0" },
       element glyphClassDef      { classDefTableOffset }?,
       element attachList         { attachListTableOffset }?,
       element ligCaretList       { ligCaretListTableOffset }?,
@@ -312,13 +270,11 @@
        | standaloneDeviceTable)*
     }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="compiler">
-        <title>Compiler</title>
-
-<code-fragment id="gdef.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gdef.methods">
   public void fromXML (Element gdef)
       throws InvalidFontException, UnsupportedFontException {
 
@@ -335,16 +291,16 @@
 
     for (int i = 0; i &lt; l.getLength (); i++) {
       Element e = (Element) l.item (i);
-      if (&quot;glyphClassDef&quot;.equals (e.getTagName ())) {
+      if ("glyphClassDef".equals (e.getTagName ())) {
         me.setOffset (4, classdefFromXML (e, gdef, blockCache));
         glyphClassDefSet = true;}
-      if (&quot;attachList&quot;.equals (e.getTagName ())) {
+      if ("attachList".equals (e.getTagName ())) {
         me.setOffset (6, null /*TODO*/);
         attachListSet = true;}
-      if (&quot;ligCaretList&quot;.equals (e.getTagName ())) {
+      if ("ligCaretList".equals (e.getTagName ())) {
         me.setOffset (8, null /*TODO*/);
         ligCaretListSet = true; }
-      if (&quot;markAttachClassDef&quot;.equals (e.getTagName ())) {
+      if ("markAttachClassDef".equals (e.getTagName ())) {
         me.setOffset (10, classdefFromXML (e, gdef, blockCache));
         markAttachClassDefSet = true;}}
 
@@ -360,13 +316,11 @@
     data = me.serialize ();
   }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="gdef.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gdef.methods">
   public void toXML (DecompilerConfig conf)
       throws org.xml.sax.SAXException, InvalidFontException {
 
@@ -394,23 +348,23 @@
 
     int [] version = getTableVersion ();
     at = new AttributesImpl ();
-    at.addAttribute (&quot;&quot;, &quot;major&quot;, &quot;major&quot;, &quot;CDATA&quot;, &quot;&quot; + version [0]);
-    at.addAttribute (&quot;&quot;, &quot;minor&quot;, &quot;minor&quot;, &quot;CDATA&quot;, &quot;&quot; + version [1]);
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
 
-    conf.ch.startElement (&quot;GDEF&quot;, at); {
+    conf.ch.startElement ("GDEF", at); {
 
       if (getOffset (0, 4) != 0) {
         classDefTableOffsetToXML (conf, getOffset (0, 4), counts,
-                                  &quot;glyphClassDef&quot;, new AttributesImpl ()); }
+                                  "glyphClassDef", new AttributesImpl ()); }
       if (getOffset (0, 6) != 0) {
         attachListTableOffsetToXML (conf, getOffset (0, 6), counts,
-                                   &quot;attachList&quot;, new AttributesImpl ()); }
+                                   "attachList", new AttributesImpl ()); }
       if (getOffset (0, 8) != 0) {
         ligCaretListTableOffsetToXML (conf, getOffset (0, 8), counts,
-                                      &quot;ligCaretList&quot;, new AttributesImpl ()); }
+                                      "ligCaretList", new AttributesImpl ()); }
       if (getOffset (0, 10) != 0) {
         classDefTableOffsetToXML (conf, getOffset (0, 10), counts,
-                                  &quot;markAttachClassDef&quot;, new AttributesImpl ()); }
+                                  "markAttachClassDef", new AttributesImpl ()); }
 
       if (getOffset (0, 4) != 0) {
         classDefTableToXML (conf, getOffset (0, 4), counts); }
@@ -421,17 +375,14 @@
       if (getOffset (0, 10) != 0) {
         classDefTableToXML (conf, getOffset (0, 10), counts); }
 
-      conf.ch.endElement (&quot;GDEF&quot;); }
+      conf.ch.endElement ("GDEF"); }
   }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="implementation">
-        <title>Implementation</title>
-
-<code-fragment package="com.adobe.aots.CommonType" class="Gdef">
-  <code-title>GDEF Class</code-title>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Gdef"><code-title>GDEF Class</code-title>
 package com.adobe.aots.CommonType;
 
 import java.util.Map;
@@ -460,64 +411,57 @@ public class Gdef extends LayoutTable {
   <code-include linkend="gdef.methods"/>
 }
 </code-fragment>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Glyph Class Definition Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The <ottable>GSUB</ottable> and <ottable>GPOS</ottable>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Glyph Class Definition Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The <ottable>GSUB</ottable> and <ottable>GPOS</ottable>
           tables use the Glyph Class Definition table (GlyphClassDef)
           to identify which glyph classes to adjust with
           lookups.</para>
-
-        <para>The table uses the same format as the Class Definition
+      <para>The table uses the same format as the Class Definition
           table (for details, see the chapter, Common Table
           Formats). However, the GlyphClassDef table uses class values
           already defined in the GlyphClassDef Enumeration
           list:</para>
-
-        <table>
-          <title>GlyphClassDef Enumeration List</title>
-
-          <tgroup cols="2">
-            <colspec colwidth="6pc"/>
-            <colspec colwidth="24pc"/>
-            <thead>
-              <row>
-                <entry>Class</entry>
-                <entry>Description</entry>
-              </row>
-            </thead>
-            <tbody>
-              <row>
-                <entry>1</entry>
-                <entry>Base glyph (single character, spacing glyph)</entry>
-              </row>
-              <row>
-                <entry>2</entry>
-                <entry>Ligature glyph (multiple character, spacing
+      <table>
+        <title>GlyphClassDef Enumeration List</title>
+        <tgroup cols="2">
+          <colspec colwidth="6pc"/>
+          <colspec colwidth="24pc"/>
+          <thead>
+            <row>
+              <entry>Class</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1</entry>
+              <entry>Base glyph (single character, spacing glyph)</entry>
+            </row>
+            <row>
+              <entry>2</entry>
+              <entry>Ligature glyph (multiple character, spacing
                   glyph)</entry>
-              </row>
-              <row>
-                <entry>3</entry>
-                <entry>Mark glyph (non-spacing combining glyph)</entry>
-              </row>
-              <row>
-                <entry>4</entry>
-                <entry>Component glyph (part of single character,
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>Mark glyph (non-spacing combining glyph)</entry>
+            </row>
+            <row>
+              <entry>4</entry>
+              <entry>Component glyph (part of single character,
                   spacing glyph)</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-        <para>The font developer does not have to classify every glyph
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>The font developer does not have to classify every glyph
         in the font, but any glyph not assigned a class value falls
         into Class zero (0). For instance, class values might be
         useful for the Arabic glyphs in a font, but not for the Latin
@@ -529,19 +473,14 @@ public class Gdef extends LayoutTable {
         the component glyphs in the desired sequence.  Component
         glyphs are not used in defining any <ottable>GSUB</ottable> or
         <ottable>GPOS</ottable> formats.</para>
-
-        <para>Example 2 at the end of this chapter defines a
+      <para>Example 2 at the end of this chapter defines a
           GlyphClassDef table with a sample glyph for each of the
           assigned classes.</para>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="implementation">
-        <title>Implementation</title>
-
-<code-fragment id="gdef.methods">
-  <code-title>Method to compute the GDEF class of a glyph</code-title>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="gdef.methods"><code-title>Method to compute the GDEF class of a glyph</code-title>
   public int getGlyphClass (int glyph)
     throws InvalidFontException {
 
@@ -549,91 +488,78 @@ public class Gdef extends LayoutTable {
     return classIndex (glyph, glyphClassOffset);
   }
 </code-fragment>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Attachment List Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The Attachment List table (AttachList) may be used to
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Attachment List Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The Attachment List table (AttachList) may be used to
           cache attachment point coordinates along with glyph
           bitmaps.</para>
-
-        <para>The table consists of an offset to a Coverage table
+      <para>The table consists of an offset to a Coverage table
         (Coverage) listing all glyphs that define attachment points in
         the <ottable>GPOS</ottable> table, a count of the glyphs with
         attachment points (GlyphCount), and an array of offsets to
         AttachPoint tables (AttachPoint). The array lists the
         AttachPoint tables, one for each glyph in the Coverage table,
         in the same order as the Coverage Index.</para>
-
-        <otformat>
-          <title>AttachList table</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>Offset</otfieldtype>
-            <otfieldname>Coverage</otfieldname>
-            <otfielddesc>Offset to Coverage table - from beginning of
+      <otformat>
+        <title>AttachList table</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>Offset</otfieldtype>
+          <otfieldname>Coverage</otfieldname>
+          <otfielddesc>Offset to Coverage table - from beginning of
               AttachList table</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>uint16</otfieldtype>
-            <otfieldname>GlyphCount</otfieldname>
-            <otfielddesc>Number of glyphs with attachment
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>uint16</otfieldtype>
+          <otfieldname>GlyphCount</otfieldname>
+          <otfielddesc>Number of glyphs with attachment
               points</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>4</otfieldoffs>
-            <otfieldtype>Offset</otfieldtype>
-            <otfieldname>AttachPoint [GlyphCount]</otfieldname>
-            <otfielddesc>Array of offsets to AttachPoint tables-from
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>Offset</otfieldtype>
+          <otfieldname>AttachPoint [GlyphCount]</otfieldname>
+          <otfielddesc>Array of offsets to AttachPoint tables-from
               beginning of AttachList table-in Coverage Index
               order</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>An AttachPoint table consists of a count of the
+        </otfield>
+      </otformat>
+      <para>An AttachPoint table consists of a count of the
           attachment points on a single glyph (PointCount) and an
           array of contour indices of those points (PointIndex),
           listed in increasing numerical order.</para>
-
-        <para>Example 3 at the end of the chapter demonstrates an
+      <para>Example 3 at the end of the chapter demonstrates an
           AttachList table that defines attachment points for two
           glyphs.</para>
-
-
-        <otformat>
-          <title>AttachPoint table</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>uint16</otfieldtype>
-            <otfieldname>PointCount</otfieldname>
-            <otfielddesc>Number of attachment points on this
+      <otformat>
+        <title>AttachPoint table</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>uint16</otfieldtype>
+          <otfieldname>PointCount</otfieldname>
+          <otfielddesc>Number of attachment points on this
               glyph</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>uint16</otfieldtype>
-            <otfieldname>PointIndex [PointCount]</otfieldname>
-            <otfielddesc>Array of contour point indices -in increasing
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>uint16</otfieldtype>
+          <otfieldname>PointIndex [PointCount]</otfieldname>
+          <otfielddesc>Array of contour point indices -in increasing
               numerical order</otfielddesc>
-          </otfield>
-        </otformat>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-<code-fragment id="schema">
-  <code-title>attachListTable</code-title>
+        </otfield>
+      </otformat>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>attachListTable</code-title>
   attachListTable =
     element coverage { coverageTableOffset }?,
     element attachPoint {
@@ -648,13 +574,11 @@ public class Gdef extends LayoutTable {
 
   attachListTableOffset = attribute name { text } | attachListTable
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="gdef.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gdef.methods">
   public void attachListTableToXMLCount (int offset, int[] counts) {
     counts [offset]++;
   }
@@ -665,8 +589,8 @@ public class Gdef extends LayoutTable {
       throws org.xml.sax.SAXException, InvalidFontException {
 
     if (counts [offset] != 1) {
-      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
-                       &quot;attachListTable_&quot; + Integer.toHexString (offset));
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "attachListTable_" + Integer.toHexString (offset));
       conf.ch.element (element, at); }
 
     else {
@@ -679,9 +603,9 @@ public class Gdef extends LayoutTable {
 
     if (counts [offset] &gt; 1) {
       AttributesImpl at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
-                       &quot;attachListTable_&quot; + Integer.toHexString (offset));
-      attachListTableToXMLEmit (conf, offset, counts, &quot;attachListTable&quot;, at);
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "attachListTable_" + Integer.toHexString (offset));
+      attachListTableToXMLEmit (conf, offset, counts, "attachListTable", at);
       counts [offset] = 0; }
   }
 
@@ -699,36 +623,32 @@ public class Gdef extends LayoutTable {
         int attachPointOffset = getOffset (offset, 4 + 2*g);
         if (attachPointOffset != 0) {
 	  at = new AttributesImpl ();
-          at.addAttribute (&quot;&quot;, &quot;glyphID&quot;, &quot;glyphID&quot;, &quot;CDATA&quot;,
-                           &quot;&quot; + coveredGlyphs [g]);
-	  conf.ch.startElement (&quot;attachPoint&quot;, at); {
+          at.addAttribute ("", "glyphID", "glyphID", "CDATA",
+                           "" + coveredGlyphs [g]);
+	  conf.ch.startElement ("attachPoint", at); {
 	    int pointCount = getuint16 (attachPointOffset);
 	    int o = attachPointOffset + 2;
 	    for (int p = 0; p &lt; pointCount; p++) {
 	      int pointIndex = getuint16 (o);
 	      o += 2;
 	      at = new AttributesImpl ();
-	      at.addAttribute (&quot;&quot;, &quot;index&quot;, &quot;index&quot;, &quot;CDATA&quot;, &quot;&quot; + pointIndex);
-	      conf.ch.element (&quot;point&quot;, at); }
+	      at.addAttribute ("", "index", "index", "CDATA", "" + pointIndex);
+	      conf.ch.element ("point", at); }
 
-	      conf.ch.endElement (&quot;attachPoint&quot;); }}}
+	      conf.ch.endElement ("attachPoint"); }}}
 
       conf.ch.endElement (element); }
   }
 </code-fragment>
-      </section>
-
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Ligature Caret List Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The Ligature Caret List table (LigCaretList) defines
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Ligature Caret List Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The Ligature Caret List table (LigCaretList) defines
           caret positions for all the ligatures in a font. The table
           consists of an offset to a Coverage table that lists all the
           ligature glyphs (Coverage), a count of the defined ligatures
@@ -736,44 +656,37 @@ public class Gdef extends LayoutTable {
           (LigGlyph). The array lists the LigGlyph tables, one for
           each ligature in the Coverage table, in the same order as
           the Coverage Index.</para>
-
-        <para>Example 4 at the end of this chapter shows a
+      <para>Example 4 at the end of this chapter shows a
           LigCaretList table.</para>
-
-
-        <otformat>
-          <title>LigCaretList table</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>Offset</otfieldtype>
-            <otfieldname>Coverage</otfieldname>
-            <otfielddesc>Offset to Coverage table - from beginning of
+      <otformat>
+        <title>LigCaretList table</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>Offset</otfieldtype>
+          <otfieldname>Coverage</otfieldname>
+          <otfielddesc>Offset to Coverage table - from beginning of
               LigCaretList table</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>uint16</otfieldtype>
-            <otfieldname>LigGlyphCount</otfieldname>
-            <otfielddesc>Number of ligature glyphs</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>4</otfieldoffs>
-            <otfieldtype>Offset</otfieldtype>
-            <otfieldname>LigGlyph [LigGlyphCount]</otfieldname>
-            <otfielddesc>Array of offsets to LigGlyph tables-from
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>uint16</otfieldtype>
+          <otfieldname>LigGlyphCount</otfieldname>
+          <otfielddesc>Number of ligature glyphs</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>Offset</otfieldtype>
+          <otfieldname>LigGlyph [LigGlyphCount]</otfieldname>
+          <otfielddesc>Array of offsets to LigGlyph tables-from
               beginning of LigCaretList table-in Coverage Index
               order</otfielddesc>
-          </otfield>
-        </otformat>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-<code-fragment id="schema">
-  <code-title>ligCaretListTable </code-title>
+        </otfield>
+      </otformat>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>ligCaretListTable </code-title>
   ligCaretListTable =
     element coverage { coverageTableOffset }?,
     element ligGlyph {
@@ -786,13 +699,11 @@ public class Gdef extends LayoutTable {
 
   ligCaretListTableOffset = attribute name { text } | ligCaretListTable
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="gdef.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gdef.methods">
   public void ligCaretListTableToXMLCount (int offset, int[] counts) {
     counts [offset]++;
     if (counts [offset] &gt; 1) {
@@ -812,8 +723,8 @@ public class Gdef extends LayoutTable {
       throws org.xml.sax.SAXException, InvalidFontException {
 
     if (counts [offset] != 1) {
-      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
-                       &quot;attachListTable_&quot; + Integer.toHexString (offset));
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "attachListTable_" + Integer.toHexString (offset));
       conf.ch.element (element, at); }
 
     else {
@@ -826,9 +737,9 @@ public class Gdef extends LayoutTable {
 
     if (counts [offset] &gt; 1) {
       AttributesImpl at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
-                       &quot;ligCaretListTable_&quot; + Integer.toHexString (offset));
-      ligCaretListTableToXMLEmit (conf, offset, counts, &quot;ligCaretListTable&quot;, at);
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "ligCaretListTable_" + Integer.toHexString (offset));
+      ligCaretListTableToXMLEmit (conf, offset, counts, "ligCaretListTable", at);
       counts [offset] = 0; }
 
     int[] coveredGlyphs = getCoveredGlyphs (getOffset (offset, 0));
@@ -854,67 +765,56 @@ public class Gdef extends LayoutTable {
         int ligGlyphOffset = getOffset (offset, 4 + 2*g);
         if (ligGlyphOffset != 0) {
           at = new AttributesImpl ();
-          at.addAttribute (&quot;&quot;, &quot;glyphID&quot;, &quot;glyphID&quot;, &quot;CDATA&quot;,
-                           &quot;&quot; + coveredGlyphs [g]);
+          at.addAttribute ("", "glyphID", "glyphID", "CDATA",
+                           "" + coveredGlyphs [g]);
           ligGlyphTableOffsetToXML (conf, ligGlyphOffset, counts,
-                                    &quot;ligGlyph&quot;, at); }}
+                                    "ligGlyph", at); }}
 
       conf.ch.endElement (element); }
   }
 </code-fragment>
-      </section>
-
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Ligature Glyph Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>A Ligature Glyph table (LigGlyph) contains the caret
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Ligature Glyph Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>A Ligature Glyph table (LigGlyph) contains the caret
           coordinates for a single ligature glyph. The number of
           coordinate values, each defined in a separate CaretValue
           table, equals the number of components in the ligature minus
           one (1).</para>
-
-        <para>The LigGlyph table consists of a count of the number of
+      <para>The LigGlyph table consists of a count of the number of
           CaretValue tables defined for the ligature (CaretCount) and
           an array of offsets to CaretValue tables
           (CaretValue).</para>
-
-        <para>Example 4 at the end of the chapter shows a LigGlyph
+      <para>Example 4 at the end of the chapter shows a LigGlyph
           table.</para>
-
-        <otformat>
-          <title>LigGlyph table</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>uint16</otfieldtype>
-            <otfieldname>CaretCount</otfieldname>
-            <otfielddesc>Number of CaretValues for this ligature
+      <otformat>
+        <title>LigGlyph table</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>uint16</otfieldtype>
+          <otfieldname>CaretCount</otfieldname>
+          <otfielddesc>Number of CaretValues for this ligature
               (components - 1)</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>Offset</otfieldtype>
-            <otfieldname>CaretValue [CaretCount]</otfieldname>
-            <otfielddesc>Array of offsets to CaretValue tables-from
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>Offset</otfieldtype>
+          <otfieldname>CaretValue [CaretCount]</otfieldname>
+          <otfielddesc>Array of offsets to CaretValue tables-from
               beginning of LigGlyph table-in increasing coordinate
               order</otfielddesc>
-          </otfield>
-        </otformat>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-<code-fragment id="schema">
-  <code-title>ligGlyphTable</code-title>
+        </otfield>
+      </otformat>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>ligGlyphTable</code-title>
   ligGlyphTable = element caretValue { caretValueTableOffset }*
 
   standaloneLigGlyphTable =
@@ -922,13 +822,11 @@ public class Gdef extends LayoutTable {
 
   ligGlyphTableOffset = attribute name { text } | ligGlyphTable
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="gdef.methods">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gdef.methods">
   public void ligGlyphTableToXMLCount (int offset, int[] counts) {
     counts [offset]++;
     if (counts [offset] &gt; 1) {
@@ -947,8 +845,8 @@ public class Gdef extends LayoutTable {
       throws org.xml.sax.SAXException, InvalidFontException {
 
     if (counts [offset] != 1) {
-      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
-                       &quot;attachListTable_&quot; + Integer.toHexString (offset));
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "attachListTable_" + Integer.toHexString (offset));
       conf.ch.element (element, at); }
 
     else {
@@ -961,9 +859,9 @@ public class Gdef extends LayoutTable {
 
     if (counts [offset] &gt; 1) {
       AttributesImpl at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
-                       &quot;ligGlyphTable_&quot; + Integer.toHexString (offset));
-      ligGlyphTableToXMLEmit (conf, offset, counts, &quot;ligGlyphTable&quot;, at);
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "ligGlyphTable_" + Integer.toHexString (offset));
+      ligGlyphTableToXMLEmit (conf, offset, counts, "ligGlyphTable", at);
       counts [offset] = 0; }
 
     int caretCount = getuint16 (offset);
@@ -987,23 +885,20 @@ public class Gdef extends LayoutTable {
         if (caretValueOffset != 0) {
           at = new AttributesImpl ();
           caretValueTableOffsetToXML (conf, caretValueOffset, counts,
-                                      &quot;caretValue&quot;, at); }}
+                                      "caretValue", at); }}
 
       conf.ch.endElement (element); }
   }
 </code-fragment>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Caret Values Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>A Caret Values table (CaretValues), which defines caret
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Caret Values Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>A Caret Values table (CaretValues), which defines caret
           positions for a ligature, can be any of three possible
           formats. One format uses design units to define the caret
           position. The other two formats use a contour point or
@@ -1011,28 +906,21 @@ public class Gdef extends LayoutTable {
           font sizes and device resolutions. Caret coordinates are
           either X or Y values, depending upon the text
           direction.</para>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-<code-fragment id="schema">
-  <code-title>caretValueTable</code-title>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>caretValueTable</code-title>
   standaloneCaretValueTable =
     element caretValueTable { attribute id { text }, caretValueTable }
 
   caretValueTableOffset = attribute name { text } | caretValueTable
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="gdef.methods">
-  <code-title>??</code-title>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gdef.methods"><code-title>??</code-title>
 
   public void caretValueTableToXMLCount (int offset, int [] counts) {
     counts [offset]++;
@@ -1050,8 +938,8 @@ public class Gdef extends LayoutTable {
       throws org.xml.sax.SAXException, InvalidFontException {
 
     if (counts [offset] != 1) {
-      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
-                       &quot;caretValueTable_&quot; + Integer.toHexString (offset));
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "caretValueTable_" + Integer.toHexString (offset));
       conf.ch.element (element, at); }
 
     else {
@@ -1064,10 +952,10 @@ public class Gdef extends LayoutTable {
 
     if (counts [offset] &gt; 1) {
       AttributesImpl at = new AttributesImpl ();
-      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
-                       &quot;caretValueTable_&quot; + Integer.toHexString (offset));
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "caretValueTable_" + Integer.toHexString (offset));
       caretValueTableToXMLEmit (conf, offset, counts,
-                               &quot;caretValueTable&quot;, at);
+                               "caretValueTable", at);
       counts [offset] = 0; }
 
     switch (getuint16 (offset)) {
@@ -1080,256 +968,211 @@ public class Gdef extends LayoutTable {
                                        String element, AttributesImpl at)
       throws org.xml.sax.SAXException, InvalidFontException {
 
-    at.addAttribute (&quot;&quot;, &quot;format&quot;, &quot;format&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (offset));
+    at.addAttribute ("", "format", "format", "CDATA", "" + getuint16 (offset));
 
     switch (getuint16 (offset)) {
       <code-include linkend="caretValueTableToXMLEmit.cases"/> }
 
   }
 </code-fragment>
-      </section>
-
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>CaretValue Format 1</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The first format (CaretValueFormat1) consists of a
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>CaretValue Format 1</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The first format (CaretValueFormat1) consists of a
           format identifier (CaretValueFormat), followed by a single
           coordinate for the caret position (Coordinate). The
           Coordinate is in design units.</para>
-
-        <para>This format has the benefits of small size and
+      <para>This format has the benefits of small size and
           simplicity, but the Coordinate value cannot be hinted for
           fine adjustments at different device resolutions.</para>
-
-        <para>Exampel 4 at the end of this chapter shows a
+      <para>Exampel 4 at the end of this chapter shows a
           CaretValueFormat1 table.</para>
-
-        <otformat>
-          <title>CaretValueFormat1 table: Design units only</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>uint16</otfieldtype>
-            <otfieldname>CaretValueFormat</otfieldname>
-            <otfielddesc>Format identifier-format = 1</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>int16</otfieldtype>
-            <otfieldname>Coordinate</otfieldname>
-            <otfielddesc>X or Y value, in design units</otfielddesc>
-          </otfield>
-        </otformat>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-<code-fragment id="schema">
-  <code-title>caretValueTable, format 1</code-title>
+      <otformat>
+        <title>CaretValueFormat1 table: Design units only</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>uint16</otfieldtype>
+          <otfieldname>CaretValueFormat</otfieldname>
+          <otfielddesc>Format identifier-format = 1</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>int16</otfieldtype>
+          <otfieldname>Coordinate</otfieldname>
+          <otfielddesc>X or Y value, in design units</otfielddesc>
+        </otfield>
+      </otformat>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>caretValueTable, format 1</code-title>
   caretValueTable |=
-    attribute format { &quot;1&quot; },
+    attribute format { "1" },
     attribute coord { text }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="caretValueTableToXMLEmit.cases">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="caretValueTableToXMLEmit.cases">
   case 1: {
-    at.addAttribute (&quot;&quot;, &quot;coord&quot;, &quot;coord&quot;, &quot;CDATA&quot;, &quot;&quot; + getint16 (offset + 2));
+    at.addAttribute ("", "coord", "coord", "CDATA", "" + getint16 (offset + 2));
     conf.ch.element (element, at);
     break; }
 </code-fragment>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>CaretValue Format 2</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The second format (CaretValueFormat2) specifies the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>CaretValue Format 2</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The second format (CaretValueFormat2) specifies the
           caret coordinate in terms of a contour point index on a
           specific glyph. During font hinting, the contour point on
           the glyph outline may move. The point's final position after
           hinting provides the final value for rendering a given font
           size.</para>
-
-        <para>The table contains a format identifier
+      <para>The table contains a format identifier
           (CaretValueFormat) and a contour point index
           (CaretValuePoint).</para>
-
-        <para>Example 5 at the end of this chapter demonstrates a
+      <para>Example 5 at the end of this chapter demonstrates a
           CaretValueFormat2 table.</para>
-
-        <otformat>
-          <title>CaretValueFormat2 table: Contour point</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>uint16</otfieldtype>
-            <otfieldname>CaretValueFormat</otfieldname>
-            <otfielddesc>Format identifier-format = 2</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>uint16</otfieldtype>
-            <otfieldname>CaretValuePoint</otfieldname>
-            <otfielddesc>Contour point index on glyph</otfielddesc>
-          </otfield>
-        </otformat>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-<code-fragment id="schema">
-  <code-title>caretValueTable, format 2</code-title>
+      <otformat>
+        <title>CaretValueFormat2 table: Contour point</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>uint16</otfieldtype>
+          <otfieldname>CaretValueFormat</otfieldname>
+          <otfielddesc>Format identifier-format = 2</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>uint16</otfieldtype>
+          <otfieldname>CaretValuePoint</otfieldname>
+          <otfielddesc>Contour point index on glyph</otfielddesc>
+        </otfield>
+      </otformat>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>caretValueTable, format 2</code-title>
   caretValueTable |=
-    attribute format { &quot;2&quot; },
+    attribute format { "2" },
     attribute contourPoint { text }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="caretValueTableToXMLEmit.cases">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="caretValueTableToXMLEmit.cases">
   case 2: {
-    at.addAttribute (&quot;&quot;, &quot;contourPoint&quot;, &quot;contourPoint&quot;, &quot;CDATA&quot;,
-                     &quot;&quot; + getint16 (offset + 2));
+    at.addAttribute ("", "contourPoint", "contourPoint", "CDATA",
+                     "" + getint16 (offset + 2));
     conf.ch.element (element, at);
     break; }
 </code-fragment>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>CaretValue Format 3</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The third format (CaretValueFormat3) also specifies the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>CaretValue Format 3</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The third format (CaretValueFormat3) also specifies the
           value in design units, but it uses a Device table rather
           than a contour point to adjust the value. This format offers
           the advantage of fine-tuning the Coordinate value for any
           device resolution. (For more information about Device
           tables, see the chapter, Common Table Formats.)</para>
-
-        <para>The format consists of a format identifier
+      <para>The format consists of a format identifier
           (CaretValueFormat), an X or Y value (Coordinate), and an
           offset to a Device table (DeviceTable).</para>
-
-        <para>Example 6 at the end of this chapter shows a
+      <para>Example 6 at the end of this chapter shows a
           CaretValueFormat3 table.</para>
-
-        <otformat>
-          <title>CaretValueFormat3 table: Design units plus Device table</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>uint16</otfieldtype>
-            <otfieldname>CaretValueFormat</otfieldname>
-            <otfielddesc>Format identifier-format = 3</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>int16</otfieldtype>
-            <otfieldname>Coordinate</otfieldname>
-            <otfielddesc>X or Y value, in design units</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>4</otfieldoffs>
-            <otfieldtype>Offset</otfieldtype>
-            <otfieldname>DeviceTable</otfieldname>
-            <otfielddesc>Offset to Device table for X or Y value-from
+      <otformat>
+        <title>CaretValueFormat3 table: Design units plus Device table</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>uint16</otfieldtype>
+          <otfieldname>CaretValueFormat</otfieldname>
+          <otfielddesc>Format identifier-format = 3</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>int16</otfieldtype>
+          <otfieldname>Coordinate</otfieldname>
+          <otfielddesc>X or Y value, in design units</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>Offset</otfieldtype>
+          <otfieldname>DeviceTable</otfieldname>
+          <otfielddesc>Offset to Device table for X or Y value-from
               beginning of CaretValue table</otfielddesc>
-          </otfield>
-        </otformat>
-
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="xml-representation">
-        <title>XML Representation</title>
-
-<code-fragment id="schema">
-  <code-title>caretValueTable, format 3</code-title>
+        </otfield>
+      </otformat>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>caretValueTable, format 3</code-title>
   caretValueTable |=
-    attribute format { &quot;3&quot; },
+    attribute format { "3" },
     attribute coord { text },
     element deviceTable { deviceTableOffset }
 </code-fragment>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="decompiler">
-        <title>Decompiler</title>
-
-<code-fragment id="caretValueTableToXMLCount.cases">
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="caretValueTableToXMLCount.cases">
   case 3: {
     deviceTableToXMLCount (getOffset (offset, 4), counts);
     break; }
 </code-fragment>
-
-<code-fragment id="caretValueTableToXML.cases">
+      <code-fragment id="caretValueTableToXML.cases">
   case 3: {
     deviceTableToXML (conf, getOffset (offset, 4), counts);
     break; }
 </code-fragment>
-
-<code-fragment id="caretValueTableToXMLEmit.cases">
+      <code-fragment id="caretValueTableToXMLEmit.cases">
   case 3: {
-    at.addAttribute (&quot;&quot;, &quot;coord&quot;, &quot;coord&quot;, &quot;CDATA&quot;, &quot;&quot; + getint16 (offset + 2));
+    at.addAttribute ("", "coord", "coord", "CDATA", "" + getint16 (offset + 2));
     conf.ch.startElement (element, at); {
       deviceTableOffsetToXML (conf, getOffset (offset, 4), counts,
-                              &quot;deviceTable&quot;, new AttributesImpl ());
+                              "deviceTable", new AttributesImpl ());
       conf.ch.endElement (element); }
     break; }
 </code-fragment>
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Mark Attachment Class Definition Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>A Mark Attachment Class Definition Table defines the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Mark Attachment Class Definition Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>A Mark Attachment Class Definition Table defines the
           class to which a mark glyph may belong. This table uses the
           same format as the Class Definition table (for details, see
           the chapter, Common Table Formats ).</para>
-
-        <para>Example 7 in this document shows a MarkAttachClassDef
+      <para>Example 7 in this document shows a MarkAttachClassDef
         table.</para>
-      </section>
-
-      <!--____________________________________________________________________-->
-      <section role="implementation">
-        <title>Implementation</title>
-
-<code-fragment id="gdef.methods">
-  <code-title>Method to compute the Mark Attachment class of a glyph</code-title>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="gdef.methods"><code-title>Method to compute the Mark Attachment class of a glyph</code-title>
   public int getMarkAttachClass (int glyph)
     throws InvalidFontException {
 
@@ -1341,751 +1184,718 @@ public class Gdef extends LayoutTable {
       return 0; }
   }
 </code-fragment>
-
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>GDEF Table Examples</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The rest of this chapter describes examples of all the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>GDEF Table Examples</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The rest of this chapter describes examples of all the
           <ottable>GDEF</ottable> table formats. All the examples reflect unique
           parameters described below, but the samples provide a useful
           reference for building tables specific to other
           situations.</para>
-        <para>The examples have three columns showing hex data,
+      <para>The examples have three columns showing hex data,
           source, and comments.</para>
-
-      </section>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Example 1: GDEF Header</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>Example 1 shows a <ottable>GDEF</ottable> Header
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Example 1: GDEF Header</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Example 1 shows a <ottable>GDEF</ottable> Header
           definition with offsets to each of the main tables in
           <ottable>GDEF</ottable>.</para>
-
-        <otexample>
-          <title>Example 1</title>
-          <otexline>
-            <otexdata/>
-            <otexsrc>GDEFHeader</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>TheGDEFHeader</otexsrc>
-            <otexcom>GDEFHeader table
+      <otexample>
+        <title>Example 1</title>
+        <otexline>
+          <otexdata/>
+          <otexsrc>GDEFHeader</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>TheGDEFHeader</otexsrc>
+          <otexcom>GDEFHeader table
                   definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>00010000</otexdata>
-            <otexsrc>0x00010000</otexsrc>
-            <otexcom>Version</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>000A</otexdata>
-            <otexsrc>GlyphClassDefTable</otexsrc>
-            <otexcom>offset to GlyphClassDef table</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0026</otexdata>
-            <otexsrc>AttachListTable</otexsrc>
-            <otexcom>offset to AttachList table</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0040</otexdata>
-            <otexsrc>LigCaretListTable</otexsrc>
-            <otexcom>offset to LigCaretList table</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>005A</otexdata>
-            <otexsrc>MarkAttachClassDefTable</otexsrc>
-            <otexcom>offset to Mark Attachment Class Definition
+        </otexline>
+        <otexline>
+          <otexdata>00010000</otexdata>
+          <otexsrc>0x00010000</otexsrc>
+          <otexcom>Version</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>000A</otexdata>
+          <otexsrc>GlyphClassDefTable</otexsrc>
+          <otexcom>offset to GlyphClassDef table</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0026</otexdata>
+          <otexsrc>AttachListTable</otexsrc>
+          <otexcom>offset to AttachList table</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0040</otexdata>
+          <otexsrc>LigCaretListTable</otexsrc>
+          <otexcom>offset to LigCaretList table</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>005A</otexdata>
+          <otexsrc>MarkAttachClassDefTable</otexsrc>
+          <otexcom>offset to Mark Attachment Class Definition
                   Table</otexcom>
-          </otexline>
-        </otexample>
-      </section>
+        </otexline>
+      </otexample>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Example 2: GlyphClassDef Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>The GlyphClassDef table in Example 2 specifies a glyph
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Example 2: GlyphClassDef Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The GlyphClassDef table in Example 2 specifies a glyph
           for the each of the glyph classes predefined in the
           GlyphClassDef Enumeration List.</para>
-
-        <otexample>
-          <title>Example 2</title>
-          <otexline>
-            <otexdata/>
-            <otexsrc>ClassDefFormat2</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>GlyphClassDefTable</otexsrc>
-            <otexcom>ClassDef table
+      <otexample>
+        <title>Example 2</title>
+        <otexline>
+          <otexdata/>
+          <otexsrc>ClassDefFormat2</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>GlyphClassDefTable</otexsrc>
+          <otexcom>ClassDef table
                   definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>ClassFormat</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0004</otexdata>
-            <otexsrc>4</otexsrc>
-            <otexcom>ClassRangeCount ClassRangeRecord[0</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0024</otexdata>
-            <otexsrc>iGlyphID</otexsrc>
-            <otexcom>Start</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0024</otexdata>
-            <otexsrc>iGlyphID</otexsrc>
-            <otexcom>End</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0001</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>Class, 1 = base glyphs
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>ClassFormat</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0004</otexdata>
+          <otexsrc>4</otexsrc>
+          <otexcom>ClassRangeCount ClassRangeRecord[0</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0024</otexdata>
+          <otexsrc>iGlyphID</otexsrc>
+          <otexcom>Start</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0024</otexdata>
+          <otexsrc>iGlyphID</otexsrc>
+          <otexcom>End</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0001</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>Class, 1 = base glyphs
                   ClassRangeRecord[1]</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>009F</otexdata>
-            <otexsrc>ffiLigGlyphID</otexsrc>
-            <otexcom>Start</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>009F</otexdata>
-            <otexsrc>ffiLigGlyphID</otexsrc>
-            <otexcom>End</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>Class, 2 = ligature glyphs
+        </otexline>
+        <otexline>
+          <otexdata>009F</otexdata>
+          <otexsrc>ffiLigGlyphID</otexsrc>
+          <otexcom>Start</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>009F</otexdata>
+          <otexsrc>ffiLigGlyphID</otexsrc>
+          <otexcom>End</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>Class, 2 = ligature glyphs
                   ClassRangeRecord[2]</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0058</otexdata>
-            <otexsrc>umlautAccentGlyphID</otexsrc>
-            <otexcom>Start</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0058</otexdata>
-            <otexsrc>umlautAccentGlyphID</otexsrc>
-            <otexcom>End</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0003</otexdata>
-            <otexsrc>3</otexsrc>
-            <otexcom>Class, 3 = mark glyphs
+        </otexline>
+        <otexline>
+          <otexdata>0058</otexdata>
+          <otexsrc>umlautAccentGlyphID</otexsrc>
+          <otexcom>Start</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0058</otexdata>
+          <otexsrc>umlautAccentGlyphID</otexsrc>
+          <otexcom>End</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0003</otexdata>
+          <otexsrc>3</otexsrc>
+          <otexcom>Class, 3 = mark glyphs
                   ClassRangeRecord[3]</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>018F</otexdata>
-            <otexsrc>CurvedTailComponentGlyphID</otexsrc>
-            <otexcom>Start</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>018F</otexdata>
-            <otexsrc>CurvedTailComponentGlyphID</otexsrc>
-            <otexcom>End</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0004</otexdata>
-            <otexsrc>4</otexsrc>
-            <otexcom>Class, 4 = component glyphs</otexcom>
-          </otexline>
-        </otexample>
-      </section>
+        </otexline>
+        <otexline>
+          <otexdata>018F</otexdata>
+          <otexsrc>CurvedTailComponentGlyphID</otexsrc>
+          <otexcom>Start</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>018F</otexdata>
+          <otexsrc>CurvedTailComponentGlyphID</otexsrc>
+          <otexcom>End</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0004</otexdata>
+          <otexsrc>4</otexsrc>
+          <otexcom>Class, 4 = component glyphs</otexcom>
+        </otexline>
+      </otexample>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Example 3: AttachList Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>In Example 3, the AttachList table enumerates the
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Example 3: AttachList Table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>In Example 3, the AttachList table enumerates the
           attachment points defined for two glyphs. The GlyphCoverage
-          table identifies the glyphs: &quot;a&quot; and &quot;e.&quot; For each covered
+          table identifies the glyphs: "a" and "e." For each covered
           glyph, an AttachPoint table specifies the attachment point
-          count and point indices: one point for the &quot;a&quot; glyph and two
-          for the &quot;e&quot; glyph.</para>
-
-        <otexample>
-          <title>Example 3</title>
-          <otexline>
-            <otexdata/>
-            <otexsrc>AttachList</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>AttachListTable</otexsrc>
-            <otexcom>AttachList table
+          count and point indices: one point for the "a" glyph and two
+          for the "e" glyph.</para>
+      <otexample>
+        <title>Example 3</title>
+        <otexline>
+          <otexdata/>
+          <otexsrc>AttachList</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>AttachListTable</otexsrc>
+          <otexcom>AttachList table
                   definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0012</otexdata>
-            <otexsrc>GlyphCoverage</otexsrc>
-            <otexcom>offset to Coverage table</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>GlyphCount</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0008</otexdata>
-            <otexsrc>aAttachPoint</otexsrc>
-            <otexcom>AttachPoint[0]</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>000C</otexdata>
-            <otexsrc>eAttachPoint</otexsrc>
-            <otexcom>AttachPoint[1</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>AttachPoint</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>aAttachPoint</otexsrc>
-            <otexcom>AttachPoint table
+        </otexline>
+        <otexline>
+          <otexdata>0012</otexdata>
+          <otexsrc>GlyphCoverage</otexsrc>
+          <otexcom>offset to Coverage table</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>GlyphCount</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0008</otexdata>
+          <otexsrc>aAttachPoint</otexsrc>
+          <otexcom>AttachPoint[0]</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>000C</otexdata>
+          <otexsrc>eAttachPoint</otexsrc>
+          <otexcom>AttachPoint[1</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>AttachPoint</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>aAttachPoint</otexsrc>
+          <otexcom>AttachPoint table
                   definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0001</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>PointCount</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0012</otexdata>
-            <otexsrc>18</otexsrc>
-            <otexcom>PointIndex[0</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>AttachPoint</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>eAttachPoint</otexsrc>
-            <otexcom>AttachPoint table
+        </otexline>
+        <otexline>
+          <otexdata>0001</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>PointCount</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0012</otexdata>
+          <otexsrc>18</otexsrc>
+          <otexcom>PointIndex[0</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>AttachPoint</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>eAttachPoint</otexsrc>
+          <otexcom>AttachPoint table
                   definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>PointCount</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>000E</otexdata>
-            <otexsrc>14</otexsrc>
-            <otexcom>PointIndex[0]</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0017</otexdata>
-            <otexsrc>23</otexsrc>
-            <otexcom>PointIndex[1</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CoverageFormat1</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>GlyphCoverage</otexsrc>
-            <otexcom>Coverage table definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0001</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>CoverageFormat</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>GlyphCount</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>001C</otexdata>
-            <otexsrc>aGlyphID</otexsrc>
-            <otexcom>GlyphArray[0]</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0020</otexdata>
-            <otexsrc>eGlyphID</otexsrc>
-            <otexcom>GlyphArray[1]</otexcom>
-          </otexline>
-        </otexample>
-      </section>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>PointCount</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>000E</otexdata>
+          <otexsrc>14</otexsrc>
+          <otexcom>PointIndex[0]</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0017</otexdata>
+          <otexsrc>23</otexsrc>
+          <otexcom>PointIndex[1</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CoverageFormat1</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>GlyphCoverage</otexsrc>
+          <otexcom>Coverage table definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0001</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>CoverageFormat</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>GlyphCount</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>001C</otexdata>
+          <otexsrc>aGlyphID</otexsrc>
+          <otexcom>GlyphArray[0]</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0020</otexdata>
+          <otexsrc>eGlyphID</otexsrc>
+          <otexcom>GlyphArray[1]</otexcom>
+        </otexline>
+      </otexample>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Example 4: LigCaretList Table, LigGlyph Table and
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Example 4: LigCaretList Table, LigGlyph Table and
         CaretValueFormat1 Table</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>Example 4 defines a list of ligature carets. The
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Example 4 defines a list of ligature carets. The
           LigCoverage table lists all the ligature glyphs that define
           caret positions. In this example, two ligatures are covered,
-          &quot;ffi&quot; and &quot;fi.&quot; For each covered glyph, a LigGlyph table
+          "ffi" and "fi." For each covered glyph, a LigGlyph table
           specifies the number of carets for the ligature and their
-          coordinate values. The &quot;fi&quot; ligature defines one caret,
-          positioned between the &quot;f&quot; and &quot;i&quot; components; the &quot;ffi&quot;
-          ligature defines two, one positioned between the two &quot;f&quot;
-          components and the other positioned between the &quot;f&quot; and &quot;i.&quot;
+          coordinate values. The "fi" ligature defines one caret,
+          positioned between the "f" and "i" components; the "ffi"
+          ligature defines two, one positioned between the two "f"
+          components and the other positioned between the "f" and "i."
           The CaretValue tables shown here use Format1, where values
           are specified in design units only.</para>
-
-        <otexample>
-          <title>Example 1</title>
-          <otexline>
-            <otexdata/>
-            <otexsrc>LigCaretList</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>LigCaretListTable</otexsrc>
-            <otexcom>LigCaretList table
+      <otexample>
+        <title>Example 1</title>
+        <otexline>
+          <otexdata/>
+          <otexsrc>LigCaretList</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>LigCaretListTable</otexsrc>
+          <otexcom>LigCaretList table
                   definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0008</otexdata>
-            <otexsrc>LigCoverage</otexsrc>
-            <otexcom>offset to Coverage table</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>LigGlyphCount</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0010</otexdata>
-            <otexsrc>fiLigGlyph</otexsrc>
-            <otexcom>offset to LigGlyph table[0]</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0014</otexdata>
-            <otexsrc>ffiLigGlyph</otexsrc>
-            <otexcom>offset to LigGlyph table[1</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CoverageFormat1</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>LigCoverage</otexsrc>
-            <otexcom>Coverage table definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0001</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>CoverageFormat</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>GlyphCount</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>009F</otexdata>
-            <otexsrc>ffiLigGlyphID</otexsrc>
-            <otexcom>GlyphArray[0]</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>00A5</otexdata>
-            <otexsrc>fiLigGlyphID</otexsrc>
-            <otexcom>GlyphArray[1</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>LigGlyph</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>fiLigGlyph</otexsrc>
-            <otexcom>LigGlyph table definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0001</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>CaretCount, equals the number of components -
+        </otexline>
+        <otexline>
+          <otexdata>0008</otexdata>
+          <otexsrc>LigCoverage</otexsrc>
+          <otexcom>offset to Coverage table</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>LigGlyphCount</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0010</otexdata>
+          <otexsrc>fiLigGlyph</otexsrc>
+          <otexcom>offset to LigGlyph table[0]</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0014</otexdata>
+          <otexsrc>ffiLigGlyph</otexsrc>
+          <otexcom>offset to LigGlyph table[1</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CoverageFormat1</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>LigCoverage</otexsrc>
+          <otexcom>Coverage table definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0001</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>CoverageFormat</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>GlyphCount</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>009F</otexdata>
+          <otexsrc>ffiLigGlyphID</otexsrc>
+          <otexcom>GlyphArray[0]</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>00A5</otexdata>
+          <otexsrc>fiLigGlyphID</otexsrc>
+          <otexcom>GlyphArray[1</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>LigGlyph</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>fiLigGlyph</otexsrc>
+          <otexcom>LigGlyph table definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0001</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>CaretCount, equals the number of components -
                   1</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>000E</otexdata>
-            <otexsrc>CaretFI</otexsrc>
-            <otexcom>CaretValue[0</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>LigGlyph</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>ffiLigGlyph</otexsrc>
-            <otexcom>LigGlyph table definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>CaretCount, equals the number of components -
+        </otexline>
+        <otexline>
+          <otexdata>000E</otexdata>
+          <otexsrc>CaretFI</otexsrc>
+          <otexcom>CaretValue[0</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>LigGlyph</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>ffiLigGlyph</otexsrc>
+          <otexcom>LigGlyph table definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>CaretCount, equals the number of components -
                   1</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0006</otexdata>
-            <otexsrc>CaretFFI1</otexsrc>
-            <otexcom>CaretValue[0]</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>000E</otexdata>
-            <otexsrc>CaretFFI2</otexsrc>
-            <otexcom>CaretValue[1</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CaretValueFormat1</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CaretFI</otexsrc>
-            <otexcom>CaretValue table definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0001</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>CaretValueFormat design units only</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>025B</otexdata>
-            <otexsrc>603</otexsrc>
-            <otexcom>Coordinate X or Y valu</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CaretValueFormat1</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CaretFFI1</otexsrc>
-            <otexcom>CaretValue table definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0001</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>CaretValueFormat design units only</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>025B</otexdata>
-            <otexsrc>603</otexsrc>
-            <otexcom>Coordinate X or Y valu</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CaretValueFormat1</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CaretFFI2</otexsrc>
-            <otexcom>CaretValue table definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0001</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>CaretValueFormat design units only</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>04B6</otexdata>
-            <otexsrc>1206</otexsrc>
-            <otexcom>Coordinate X or Y value</otexcom>
-          </otexline>
-        </otexample>
-      </section>
+        </otexline>
+        <otexline>
+          <otexdata>0006</otexdata>
+          <otexsrc>CaretFFI1</otexsrc>
+          <otexcom>CaretValue[0]</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>000E</otexdata>
+          <otexsrc>CaretFFI2</otexsrc>
+          <otexcom>CaretValue[1</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CaretValueFormat1</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CaretFI</otexsrc>
+          <otexcom>CaretValue table definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0001</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>CaretValueFormat design units only</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>025B</otexdata>
+          <otexsrc>603</otexsrc>
+          <otexcom>Coordinate X or Y valu</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CaretValueFormat1</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CaretFFI1</otexsrc>
+          <otexcom>CaretValue table definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0001</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>CaretValueFormat design units only</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>025B</otexdata>
+          <otexsrc>603</otexsrc>
+          <otexcom>Coordinate X or Y valu</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CaretValueFormat1</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CaretFFI2</otexsrc>
+          <otexcom>CaretValue table definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0001</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>CaretValueFormat design units only</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>04B6</otexdata>
+          <otexsrc>1206</otexsrc>
+          <otexcom>Coordinate X or Y value</otexcom>
+        </otexline>
+      </otexample>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Example 5: CaretValueFormat2 Table </title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>Example 5 shows a CaretValueFormat2 table that specifies
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Example 5: CaretValueFormat2 Table </title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Example 5 shows a CaretValueFormat2 table that specifies
           a ligature caret coordinate in terms of a contour point
           index on a specific glyph. The final position of the caret
           depends on the location of the contour point on the glyph
           after hinting.</para>
-
-        <otexample>
-          <title>Example 5</title>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CaretValueFormat2</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>Caret1</otexsrc>
-            <otexcom>CaretValue table definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>CaretValueFormat contour point</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>000D</otexdata>
-            <otexsrc>13</otexsrc>
-            <otexcom>CaretValuePoint contour point index</otexcom>
-          </otexline>
-        </otexample>
-      </section>
+      <otexample>
+        <title>Example 5</title>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CaretValueFormat2</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>Caret1</otexsrc>
+          <otexcom>CaretValue table definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>CaretValueFormat contour point</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>000D</otexdata>
+          <otexsrc>13</otexsrc>
+          <otexcom>CaretValuePoint contour point index</otexcom>
+        </otexline>
+      </otexample>
     </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Example 6: CaretValueFormat3 Table </title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>In Example 6, the CaretValueFormat3 table defines a
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Example 6: CaretValueFormat3 Table </title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>In Example 6, the CaretValueFormat3 table defines a
           caret position in design units, but includes a Device table
           to adjust the X or Y coordinate for the point size and
           resolution of the output font. Here, the Device table
           specifies pixel adjustments for font sizes from 12 ppem to
           17 ppem.</para>
-
-        <otexample>
-          <title>Example 6</title>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CaretValueFormat3</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>Caret3</otexsrc>
-            <otexcom>CaretValue table definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0003</otexdata>
-            <otexsrc>3</otexsrc>
-            <otexcom>CaretValueFormat design units plus Device
+      <otexample>
+        <title>Example 6</title>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CaretValueFormat3</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>Caret3</otexsrc>
+          <otexcom>CaretValue table definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0003</otexdata>
+          <otexsrc>3</otexsrc>
+          <otexcom>CaretValueFormat design units plus Device
                   table</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>04B6</otexdata>
-            <otexsrc>1206</otexsrc>
-            <otexcom>Coordinate X or Y value, design units</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0006</otexdata>
-            <otexsrc>CaretDevice</otexsrc>
-            <otexcom>offset to Device tabl</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>DeviceTableFormat2</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>CaretDevice</otexsrc>
-            <otexcom>Device Table definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>000C</otexdata>
-            <otexsrc>12</otexsrc>
-            <otexcom>StartSize</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0011</otexdata>
-            <otexsrc>17</otexsrc>
-            <otexcom>EndSize</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>DeltaFormat</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>1</otexsrc>
-            <otexcom>increase 12ppm by 1 pixel</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>1</otexsrc>
-            <otexcom>increase 13ppm by 1 pixel</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>1</otexsrc>
-            <otexcom>increase 14ppm by 1 pixel</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>1111</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>increase 15ppm by 1 pixel</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>2</otexsrc>
-            <otexcom>increase 16ppm by 2 pixel</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>2200</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>increase 17ppm by 2 pixel</otexcom>
-          </otexline>
-        </otexample>
-      </section>
-    </section>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Example 7: MarkAttachClassDef Table </title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>In Example 7, the MarkAttachClassDef table specifies an
-          attachment class for the each of the glyph ranges predefined
-          in the GlyphClassDef Enumeration List as marks.</para>
-
-        <otexample>
-          <title>Example 7</title>
-          <otexline>
-            <otexdata/>
-            <otexsrc>ClassDefFormat2</otexsrc>
-            <otexcom/>
-          </otexline>
-          <otexline>
-            <otexdata/>
-            <otexsrc>theMarkAttachClassDefTable</otexsrc>
-            <otexcom>ClassDef table
-                  definition</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>ClassFormat</otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0004</otexdata>
-            <otexsrc>4</otexsrc>
-            <otexcom>ClassRangeCount ClassRangeRecord[0] </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0268</otexdata>
-            <otexsrc>graveAccentGlyphID</otexsrc>
-            <otexcom>Start </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>026A</otexdata>
-            <otexsrc>circumflexAccentGlyphID</otexsrc>
-            <otexcom>End </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0001</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>Class, 1 = top marks ClassRangeRecord[1]
-                </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0270</otexdata>
-            <otexsrc>diaeresisAccentGlyphID</otexsrc>
-            <otexcom>Start </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0272</otexdata>
-            <otexsrc>acuteAccentGlyphID</otexsrc>
-            <otexcom>End </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0001</otexdata>
-            <otexsrc>1</otexsrc>
-            <otexcom>Class, 1 = top marks ClassRangeRecord[2]
-                </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>028C</otexdata>
-            <otexsrc>diaeresisBelowGlyphID</otexsrc>
-            <otexcom>Start </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>028F</otexdata>
-            <otexsrc>cedillaGlyphID</otexsrc>
-            <otexcom>End </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>Class, 2 = bottom marks ClassRangeRecord[3]
-                </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0295</otexdata>
-            <otexsrc>circumflexBelowGlyphID</otexsrc>
-            <otexcom>Start </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0295</otexdata>
-            <otexsrc>circumflexBelowGlyphID</otexsrc>
-            <otexcom>End </otexcom>
-          </otexline>
-          <otexline>
-            <otexdata>0002</otexdata>
-            <otexsrc>2</otexsrc>
-            <otexcom>Class, 2 = bottom marks </otexcom>
-          </otexline>
-        </otexample>
-      </section>
+        </otexline>
+        <otexline>
+          <otexdata>04B6</otexdata>
+          <otexsrc>1206</otexsrc>
+          <otexcom>Coordinate X or Y value, design units</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0006</otexdata>
+          <otexsrc>CaretDevice</otexsrc>
+          <otexcom>offset to Device tabl</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>DeviceTableFormat2</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>CaretDevice</otexsrc>
+          <otexcom>Device Table definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>000C</otexdata>
+          <otexsrc>12</otexsrc>
+          <otexcom>StartSize</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0011</otexdata>
+          <otexsrc>17</otexsrc>
+          <otexcom>EndSize</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>DeltaFormat</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>1</otexsrc>
+          <otexcom>increase 12ppm by 1 pixel</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>1</otexsrc>
+          <otexcom>increase 13ppm by 1 pixel</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>1</otexsrc>
+          <otexcom>increase 14ppm by 1 pixel</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>1111</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>increase 15ppm by 1 pixel</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>2</otexsrc>
+          <otexcom>increase 16ppm by 2 pixel</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>2200</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>increase 17ppm by 2 pixel</otexcom>
+        </otexline>
+      </otexample>
     </section>
   </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Example 7: MarkAttachClassDef Table </title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>In Example 7, the MarkAttachClassDef table specifies an
+          attachment class for the each of the glyph ranges predefined
+          in the GlyphClassDef Enumeration List as marks.</para>
+      <otexample>
+        <title>Example 7</title>
+        <otexline>
+          <otexdata/>
+          <otexsrc>ClassDefFormat2</otexsrc>
+          <otexcom/>
+        </otexline>
+        <otexline>
+          <otexdata/>
+          <otexsrc>theMarkAttachClassDefTable</otexsrc>
+          <otexcom>ClassDef table
+                  definition</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>ClassFormat</otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0004</otexdata>
+          <otexsrc>4</otexsrc>
+          <otexcom>ClassRangeCount ClassRangeRecord[0] </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0268</otexdata>
+          <otexsrc>graveAccentGlyphID</otexsrc>
+          <otexcom>Start </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>026A</otexdata>
+          <otexsrc>circumflexAccentGlyphID</otexsrc>
+          <otexcom>End </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0001</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>Class, 1 = top marks ClassRangeRecord[1]
+                </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0270</otexdata>
+          <otexsrc>diaeresisAccentGlyphID</otexsrc>
+          <otexcom>Start </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0272</otexdata>
+          <otexsrc>acuteAccentGlyphID</otexsrc>
+          <otexcom>End </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0001</otexdata>
+          <otexsrc>1</otexsrc>
+          <otexcom>Class, 1 = top marks ClassRangeRecord[2]
+                </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>028C</otexdata>
+          <otexsrc>diaeresisBelowGlyphID</otexsrc>
+          <otexcom>Start </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>028F</otexdata>
+          <otexsrc>cedillaGlyphID</otexsrc>
+          <otexcom>End </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>Class, 2 = bottom marks ClassRangeRecord[3]
+                </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0295</otexdata>
+          <otexsrc>circumflexBelowGlyphID</otexsrc>
+          <otexcom>Start </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0295</otexdata>
+          <otexsrc>circumflexBelowGlyphID</otexsrc>
+          <otexcom>End </otexcom>
+        </otexline>
+        <otexline>
+          <otexdata>0002</otexdata>
+          <otexsrc>2</otexsrc>
+          <otexcom>Class, 2 = bottom marks </otexcom>
+        </otexline>
+      </otexample>
+    </section>
+  </section>
+</section>

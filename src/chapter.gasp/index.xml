@@ -1,194 +1,180 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="chapter.gasp">
-    <title>gasp - Grid-fitting And Scan-conversion Procedure</title>
-
-    <!--======================================================================-->
-    <section role="fragment">
-      <title>Overview</title>
-
-      <!--____________________________________________________________________-->
-      <section role="specification">
-        <title>Specification</title>
-
-        <para>This table contains information which describes the
+  <title>gasp - Grid-fitting And Scan-conversion Procedure</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This table contains information which describes the
           preferred rasterization techniques for the typeface when it
           is rendered on grayscale-capable devices. This table also
           has some use for monochrome devices, which may use the table
           to turn off hinting at very large or small sizes, to improve
           performance.</para>
-        <para>At very small sizes, the best appearance on grayscale
+      <para>At very small sizes, the best appearance on grayscale
           devices can usually be achieved by rendering the glyphs in
           grayscale without using hints. At intermediate sizes,
           hinting and monochrome rendering will usually produce the
           best appearance. At large sizes, the combination of hinting
           and grayscale rendering will typically produce the best
           appearance.</para>
-        <para>If the <ottable>gasp</ottable> table is not present in a typeface, the
+      <para>If the <ottable>gasp</ottable> table is not present in a typeface, the
           rasterizer may apply default rules to decide how to render
           the glyphs on grayscale devices.</para>
-        <para>The <ottable>gasp</ottable> table consists of a header followed by
+      <para>The <ottable>gasp</ottable> table consists of a header followed by
           groupings of <ottable>gasp</ottable> records:</para>
-
-
-        <otformat>
-          <title>gasp Table</title>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>USHORT</otfieldtype>
-            <otfieldname>version</otfieldname>
-            <otfielddesc>Version number (set to 0)</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>USHORT</otfieldtype>
-            <otfieldname>numRanges</otfieldname>
-            <otfielddesc>Number of records to follow</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>4</otfieldoffs>
-            <otfieldtype>GASPRANGE</otfieldtype>
-            <otfieldname>gaspRange [numRanges]</otfieldname>
-            <otfielddesc>Sorted by ppem</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>Each GASPRANGE record looks like this:</para>
-
-        <otformat>
-          <otfield>
-            <otfieldoffs>0</otfieldoffs>
-            <otfieldtype>USHORT</otfieldtype>
-            <otfieldname>rangeMaxPPEM</otfieldname>
-            <otfielddesc>Upper limit of range, in PPEM</otfielddesc>
-          </otfield>
-          <otfield>
-            <otfieldoffs>2</otfieldoffs>
-            <otfieldtype>USHORT</otfieldtype>
-            <otfieldname>rangeGaspBehavior</otfieldname>
-            <otfielddesc>Flags describing desired rasterizer
+      <otformat>
+        <title>gasp Table</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>version</otfieldname>
+          <otfielddesc>Version number (set to 0)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numRanges</otfieldname>
+          <otfielddesc>Number of records to follow</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>GASPRANGE</otfieldtype>
+          <otfieldname>gaspRange [numRanges]</otfieldname>
+          <otfielddesc>Sorted by ppem</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Each GASPRANGE record looks like this:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>rangeMaxPPEM</otfieldname>
+          <otfielddesc>Upper limit of range, in PPEM</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>rangeGaspBehavior</otfieldname>
+          <otfielddesc>Flags describing desired rasterizer
               behavior.</otfielddesc>
-          </otfield>
-        </otformat>
-
-        <para>There are two flags for the rangeGaspBehavior
+        </otfield>
+      </otformat>
+      <para>There are two flags for the rangeGaspBehavior
           flags:</para>
-
-        <informaltable>
-          <tgroup cols="2">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <thead>
-              <row>
-                <entry>Flag</entry>
-                <entry>Meaning</entry>
-              </row>
-            </thead>
-            <tbody>
-              <row>
-                <entry>GASP_GRIDFIT</entry>
-                <entry>Use gridfitting</entry>
-              </row>
-              <row>
-                <entry>GASP_DOGRAY</entry>
-                <entry>Use grayscale rendering</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-
-        <para>The set of bit flags may be extended in the future.The
+      <informaltable>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <thead>
+            <row>
+              <entry>Flag</entry>
+              <entry>Meaning</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>GASP_GRIDFIT</entry>
+              <entry>Use gridfitting</entry>
+            </row>
+            <row>
+              <entry>GASP_DOGRAY</entry>
+              <entry>Use grayscale rendering</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>The set of bit flags may be extended in the future.The
           four currently defined values of rangeGaspBehavior would
           have the following uses:</para>
-
-        <informaltable>
-          <tgroup cols="3">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <thead>
-              <row>
-                <entry>Flag</entry>
-                <entry>Value</entry>
-                <entry>Meaning</entry>
-              </row>
-            </thead>
-            <tbody>
-              <row>
-                <entry>GASP_DOGRAY</entry>
-                <entry>0x0002</entry>
-                <entry>small sizes, typically ppem&lt;9</entry>
-              </row>
-              <row>
-                <entry>GASP_GRIDFIT</entry>
-                <entry>0x0001</entry>
-                <entry>medium sizes, typically 9&lt;=ppem&lt;=16</entry>
-              </row>
-              <row>
-                <entry>GASP_DOGRAY|GASP_GRIDFIT</entry>
-                <entry>0x0003</entry>
-                <entry>large sizes, typically ppem&gt;16</entry>
-              </row>
-              <row>
-                <entry>(neither)</entry>
-                <entry>0x0000</entry>
-                <entry>optional for very large sizes, typically
+      <informaltable>
+        <tgroup cols="3">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <thead>
+            <row>
+              <entry>Flag</entry>
+              <entry>Value</entry>
+              <entry>Meaning</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>GASP_DOGRAY</entry>
+              <entry>0x0002</entry>
+              <entry>small sizes, typically ppem&lt;9</entry>
+            </row>
+            <row>
+              <entry>GASP_GRIDFIT</entry>
+              <entry>0x0001</entry>
+              <entry>medium sizes, typically 9&lt;=ppem&lt;=16</entry>
+            </row>
+            <row>
+              <entry>GASP_DOGRAY|GASP_GRIDFIT</entry>
+              <entry>0x0003</entry>
+              <entry>large sizes, typically ppem&gt;16</entry>
+            </row>
+            <row>
+              <entry>(neither)</entry>
+              <entry>0x0000</entry>
+              <entry>optional for very large sizes, typically
                   ppem&gt;2048</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-
-        <para>The records in the gaspRange[] array must be sorted in
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>The records in the gaspRange[] array must be sorted in
           order of increasing rangeMaxPPEM value. The last record
           should use 0xFFFF as a sentinel value for rangeMaxPPEM and
           should describe the behavior desired at all sizes larger
           than the previous record's upper limit. If the only entry in
           <ottable>gasp</ottable> is the 0xFFFF sentinel value, the
           behavior described will be used for all sizes.</para>
-
-        <bridgehead>Sample <ottable>gasp</ottable> table</bridgehead>
-
-        <informaltable>
-          <tgroup cols="3">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <thead>
-              <row>
-                <entry>Flag</entry>
-                <entry>Value</entry>
-                <entry>Meaning</entry>
-              </row>
-            </thead>
-            <tbody>
-              <row>
-                <entry>version</entry>
-                <entry>0x0000</entry>
-                <entry/>
-              </row>
-              <row>
-                <entry>numRanges</entry>
-                <entry>0x0003</entry>
-                <entry/>
-              </row>
-              <row>
-                <entry>Range[0], Flag</entry>
-                <entry>0x0008 0x0002</entry>
-                <entry>ppem &lt;= 8, grayscale only</entry>
-              </row>
-              <row>
-                <entry>Range[1], Flag</entry>
-                <entry>0x0010 0x0001</entry>
-                <entry>9&lt;=ppem &lt;= 16, gridfit only</entry>
-              </row>
-              <row>
-                <entry>Range[2], Flag</entry>
-                <entry>0xFFFF 0x0003</entry>
-                <entry>16 &lt; ppem, gridfit and grayscale</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-      </section>
+      <bridgehead>Sample <ottable>gasp</ottable> table</bridgehead>
+      <informaltable>
+        <tgroup cols="3">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <thead>
+            <row>
+              <entry>Flag</entry>
+              <entry>Value</entry>
+              <entry>Meaning</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>version</entry>
+              <entry>0x0000</entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>numRanges</entry>
+              <entry>0x0003</entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>Range[0], Flag</entry>
+              <entry>0x0008 0x0002</entry>
+              <entry>ppem &lt;= 8, grayscale only</entry>
+            </row>
+            <row>
+              <entry>Range[1], Flag</entry>
+              <entry>0x0010 0x0001</entry>
+              <entry>9&lt;=ppem &lt;= 16, gridfit only</entry>
+            </row>
+            <row>
+              <entry>Range[2], Flag</entry>
+              <entry>0xFFFF 0x0003</entry>
+              <entry>16 &lt; ppem, gridfit and grayscale</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
     </section>
   </section>
+</section>

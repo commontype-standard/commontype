@@ -11,6 +11,10 @@ defaults:
       sidebar:
         nav: "chapters"
 
+github:
+  is_project_page: false
+url: http://commontype-standard.github.io/
+
 titles_from_headings:
   enabled:     true
   strip_title: true

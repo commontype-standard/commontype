@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.CFF">
+    <title>CFF - PostScript font program (Compact Font Format) table</title>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Introduction</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>This table contains a compact representation of a
+          PostScript Type 1, or CIDFont and is structured according to
+          Adobe Technical Note #5176: <ulink url="http://partners.adobe.com/asn/developer/pdfs/tn/5176.CFF.pdf">The
+            Compact Font Format Specification</ulink> and Adobe
+          Technical Note #5177: <ulink url="http://partners.adobe.com/asn/developer/pdfs/tn/5177.Type2.pdf">The
+            Type 2 Charstring Format</ulink>.</para>
+
+        <para>Existing TrueType fonts use a glyph index to specify and
+          access glyphs within a font, e.g. to index the loca table
+          and thereby access glyph data in the glyf table. This
+          concept is retained in CommonType PostScript fonts except
+          that glyph data is accessed through the CharStrings INDEX of
+          the <ottable>CFF</ottable> table.</para>
+
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="annotation">
+        <title>Annotation</title>
+
+        <para>The CFF specification was developed independantly of the
+          CommonType specification and is also meant to be used in other
+          contexts. Because of that, some CFF FontSets are not legal
+          CFF tables. These restrictions should be part of the
+          CommonType specification and are mentioned here:</para>
+
+        <para>It is unclear whether the deletion mechanism of CFF
+          FontSets (by setting the first byte of a font name to 0) is
+          allowed.  Given the intended use, it is not clear that such
+          a mechanism is useful in CommonType fonts, and we assume that
+          it is not allowed.</para>
+
+        <para>It is unclear which font in a CFF FontSet should be used
+          in the context of an CommonType font. One possibility is to
+          impose that the CFF FontSet contain only one font, with the
+          side effect of ruling out synthetic fonts. Another
+          possibility is to use the first font in the FontSet. Yet
+          another possibility is to use the font whose name matches
+          some entry in the <ottable>name</ottable> table. We assume
+          that the first possibility is actually the desired one.</para>
+
+        <para>It is not clear whether the name stored in the Name INDEX
+          must be equal to some entry in the CommonType
+          <ottable>name</ottable> table.</para>
+
+        <para>While the Top DICT must define (explicitly or
+          implicitly) an Encoding, this Encoding is never used. Thus
+          the best is to not include an Encoding entry in the Top DICT
+          and to get the default Standard Encoding, regardless of the
+          font content.</para>
+
+        <para>Since Multiple Master technology is not part of
+          CommonType, the Top DICT must not contain the operators
+          BaseFontName and BaseFontBlend.</para>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+        <para>Pretty simple:</para>
+
+<code-fragment id="schema">
+  <code-title>CFF</code-title>
+  CFF =
+    element CFF { grammar { include &quot;cfffontset.rnc&quot; } }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="cff.methods">
+  public void fromXML (org.w3c.dom.Element cff)
+      throws InvalidFontException, UnsupportedFontException {
+    fontset = new CFFFontSet ();
+    fontset.fromXML ((org.w3c.dom.Element) (cff.getChildNodes ().item (0)));
+    dataIsRight = false;
+    fontsetIsRight = true;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="cff.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    try {
+      makeFontsetRight (); }
+    catch (InvalidFontException e) {}
+
+    conf.ch.startElement (&quot;CFF&quot;); {
+      fontset.toXML (conf.ch);
+      conf.ch.endElement (&quot;CFF&quot;); }
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="implementation">
+        <title>Implementation</title>
+
+        <para>Of course, we have a class to represent a CFF Table
+          structure:</para>
+
+<code-fragment package="com.adobe.aots.CommonType" class="CFF">
+  <code-title>CFF class</code-title>
+  package com.adobe.aots.CommonType;
+
+  import com.adobe.aots.util.ContentHandlerPlus;
+
+  public class CFF extends Table {
+    <code-include linkend="cff.members"/>
+    <code-include linkend="cff.methods"/>
+
+    public CFF () {
+      super (Tag.CFF, null);
+    }
+
+    public CFF (Font font) {
+      super (Tag.CFF, font);
+    }
+  }
+</code-fragment>
+
+        <para>A CFF table is really a container for a CFF FontSet.</para>
+
+<code-fragment id="cff.members">
+  <code-title>CFF members</code-title>
+  protected boolean dataIsRight = false;
+  protected boolean fontsetIsRight = false;
+
+  protected CFFFontSet fontset;
+</code-fragment>
+
+        <para>This CFF FontSet must contain a single CFF Font.
+          Consequently, many of the operations on a CFF tables are
+          delegated to the first font of the CFF FontSet:</para>
+
+<code-fragment id="cff.methods">
+  public void makeFontsetRight ()
+      throws InvalidFontException {
+    if (! fontsetIsRight) {
+      fontset = new CFFFontSet ();
+      fontset.fromBinary (data);
+      fontsetIsRight = true; }
+  }
+
+  private void makeDataRight () {
+    if (! dataIsRight) {
+      data = fontset.toBinary (); }
+  }
+
+  public String getGlyphName (int gid) {
+    try {
+      makeFontsetRight ();  }
+    catch (InvalidFontException e) {
+      return &quot;??&quot;; }
+    return fontset.getGlyphName (0, gid);
+  }
+
+  public String[] getGlyphName (int[] gids) {
+    String[] names = new String [gids.length];
+    for (int i = 0; i &lt; gids.length; i++) {
+      names [i] = getGlyphName (gids [i]); }
+    return names;
+  }
+
+  public String[] getGlyphNames () {
+    String[] names = new String [font.maxp.getNumGlyphs ()];
+    for (int i = 0; i &lt; names.length; i++) {
+      names [i] = getGlyphName (i); }
+    return names;
+  }
+
+  public int getGlyphID (String glyphname)
+      throws InvalidFontException {
+    makeFontsetRight ();
+    return fontset.getGlyphID (0, glyphname);
+  }
+
+  public void getGlyphOutline (int gid, StringBuilder sb) {
+    try {
+      makeFontsetRight (); }
+    catch (InvalidFontException e) {
+      System.err.println (&quot;??&quot;); }
+    fontset.getGlyphOutline (0, gid, sb);
+  }
+
+  public void getGlyphLinesAndCurves (int gid, StringBuilder sb) {
+    try {
+      makeFontsetRight (); }
+    catch (InvalidFontException e) {
+      System.err.println (&quot;??&quot;); }
+    fontset.getGlyphLinesAndCurves (0, gid, sb);
+  }
+
+  public BoundingBox getContoursBoundingBox (int gid) {
+    try {
+      makeFontsetRight (); }
+    catch (InvalidFontException e) {
+      System.err.println (&quot;??&quot;); }
+    return fontset.getContoursBoundingBox (0, gid);
+  }
+
+  public String getPostScriptName ()
+      throws InvalidFontException {
+    makeFontsetRight ();
+    return fontset.getName (0);
+  }
+
+  public boolean isNameKeyed ()
+      throws InvalidFontException {
+    makeFontsetRight ();
+    return fontset.isNameKeyed (0);
+  }
+</code-fragment>
+
+        <para>Our <varname>CFFFontSet</varname> class does not see our
+          <varname>data</varname> and in fact requires that the binary
+          data be processed before other methods can be invoked. More
+          details can be found in the Annotated CFF
+          specification.</para>
+
+<code-fragment id="cff.methods">
+  <code-title>Loading/Unloading a CFF</code-title>
+  public int fromBinary (java.io.InputStream in, int length)
+      throws java.io.IOException, InvalidFontException {
+    super.fromBinary (in, length);
+    dataIsRight = true;
+    fontsetIsRight = false;
+    return length;
+  }
+
+  public byte[] toBinary () {
+    makeDataRight ();
+    return data;
+  }
+</code-fragment>
+
+<code-fragment id="cff.methods">
+  <code-title>??</code-title>
+  public void toCID () throws InvalidFontException {
+    makeFontsetRight ();
+    fontset.toCID (0);
+    dataIsRight = false;
+  }
+</code-fragment>
+
+      </section>
+
+    </section>
+  </section>

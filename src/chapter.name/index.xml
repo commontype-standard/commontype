@@ -1,0 +1,2511 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.name">
+    <title>name - Naming Table</title>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Introduction</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The naming table allows multilingual strings to be
+          associated with the CommonType font file. These strings can
+          represent copyright notices, font names, family names, style
+          names, and so on. To keep this table short, the font
+          manufacturer may wish to make a limited set of entries in
+          some small set of languages; later, the font can be
+          &quot;localized&quot; and the strings translated or added. Other parts
+          of the CommonType font file that require these strings can
+          then refer to them simply by their index number. Clients
+          that need a particular string can look it up by its platform
+          ID, character encoding ID, language ID and name ID. Note
+          that some platforms may require single byte character
+          strings, while others may require double byte
+          strings.</para>
+
+        <para>For historical reasons, some applications which install
+          fonts perform version control using Macintosh platform
+          (platform ID 1) strings from the <ottable>name</ottable>
+          table. Because of this, we strongly recommend that the
+          <ottable>name</ottable> table of all fonts include Macintosh
+          platform strings and that the syntax of the version number
+          (name id 5) follows the guidelines given in this
+          document.</para>
+
+        <para>The Naming Table is organized as follows:</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>format</otfieldname>
+            <otfielddesc>Format selector (=0).</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>count</otfieldname>
+            <otfielddesc>Number of name records.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>stringOffset</otfieldname>
+            <otfielddesc>Offset to start of string storage (from start
+                  of table).</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>n NameRecords</otfieldtype>
+            <otfieldname>nameRecord [count]</otfieldname>
+            <otfielddesc>The name records where count is the number of
+	      records.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>12n + 6</otfieldoffs>
+            <otfieldtype>(Variable)</otfieldtype>
+            <otfieldname/>
+            <otfielddesc>Storage for the actual string data.</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>Each NameRecord looks like this:</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>platformID</otfieldname>
+            <otfielddesc>Platform ID.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>encodingID</otfieldname>
+            <otfielddesc>Platform-specific encoding ID.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>languageID</otfieldname>
+            <otfielddesc>Language ID.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>nameID</otfieldname>
+            <otfielddesc>Name ID.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>8</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>length</otfieldname>
+            <otfielddesc>String length (in bytes).</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>10</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>offset</otfieldname>
+            <otfielddesc>String offset from start of storage area (in
+                  bytes).</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>Following are the descriptions of the four kinds of ID.
+          Note that the specific values listed here are the only ones
+          that are predefined; new ones may be added by registry with
+          Apple Developer Technical Support. Similar to the character
+          encoding table, the NameRecords is sorted by platform ID,
+          then platform-specific ID, then language ID, and then by
+          name ID.</para>
+
+        <table>
+          <title>Platform IDs, Platform-specific encoding IDs and
+            Language IDs</title>
+          <tgroup cols="4">
+            <colspec colwidth="3pc"/>
+            <colspec colwidth="8pc"/>
+            <colspec colwidth="11pc"/>
+            <colspec colwidth="8pc"/>
+            <thead>
+              <row>
+                <entry>PlatformID</entry>
+                <entry>Platform name</entry>
+                <entry>Platform-specific encoding IDs</entry>
+                <entry>Language IDs</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0</entry>
+                <entry>Unicode</entry>
+                <entry><link linkend="name_enc0">Various</link></entry>
+                <entry>None</entry>
+              </row>
+              <row>
+                <entry>1</entry>
+                <entry>Macintosh</entry>
+                <entry><link linkend="name_enc1">Script manager
+                    code</link></entry>
+                <entry><link linkend="name_lang1">Various</link></entry>
+              </row>
+              <row>
+                <entry>2</entry>
+                <entry>ISO [deprecated]</entry>
+                <entry><link linkend="name_enc2">ISO
+                    encoding</link> [deprecated]</entry>
+                <entry>None</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>Microsoft</entry>
+                <entry><link linkend="name_enc3">Microsoft
+                    encoding</link></entry>
+                <entry><link linkend="name_lang3">Various</link></entry>
+              </row>
+              <row>
+                <entry>4</entry>
+                <entry>Custom</entry>
+                <entry><link linkend="name_enc4">Custom</link></entry>
+                <entry>None</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <para>Note that platform ID 2 (ISO) has been deprecated as of
+          CommonType Specification v1.3. It was intended to represent
+          ISO/IEC 10646, as opposed to Unicode; both standards have
+          identical character code assignments.</para>
+
+        <para>PlatformID values 240 through 255 are reserved for
+          user-defined platforms. The DTS registry will never assign
+          these values to a registered platform.</para>
+
+        <table id="name_enc0">
+          <title>Unicode platform-specific encoding IDs (platform ID =
+            0)</title>
+          <tgroup cols="2">
+            <colspec colwidth="3pc"/>
+            <colspec colwidth="27pc"/>
+            <thead>
+              <row>
+                <entry>EncodingID</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0</entry>
+                <entry>Unicode 1.0 semantics</entry>
+              </row>
+              <row>
+                <entry>1</entry>
+                <entry>Unicode 1.1 semantics</entry>
+              </row>
+              <row>
+                <entry>2</entry>
+                <entry>ISO 10646:1993 semantics</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>Unicode 2.0 and onwards semantics, Unicode BMP only</entry>
+              </row>
+              <row>
+                <entry>4</entry>
+                <entry>Unicode 2.0 and onwards semantics, Unicode
+		  full repertoire</entry>
+              </row>
+              <row>
+                <entry>5</entry>
+                <entry>Unicode Variation Sequences</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <para>A new encoding ID for the Unicode platform will be
+          assigned if a new version of Unicode moves characters, in
+          order to properly specify character code semantics. The
+          distinction between Unicode platform-specific encoding IDs 1
+          and 2 is for historical reasons only; Unicode 1.1 is in fact
+          identical in repertoire and encoding to ISO 10646:1993
+          (before any amendments).</para>
+
+        <para>Unicode platform encoding ID 5 can be used for encodings
+        in the 'cmap' table but not for strings in the 'name' table.</para>
+
+        <para>There are currently no language IDs defined for the
+          Unicode platform. This means that it can be used for
+          encodings in the <ottable>cmap</ottable> table but not for
+          strings in the <ottable>name</ottable> table.</para>
+
+        <table id="name_enc3">
+          <title>Microsoft platform-specific encoding IDs (platform
+            ID= 3)</title>
+          <tgroup cols="3">
+            <colspec colwidth="5pc"/>
+            <colspec colwidth="5pc"/>
+            <colspec colwidth="20pc"/>
+            <thead>
+              <row>
+                <entry>Platform ID</entry>
+                <entry>Encoding ID</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>3</entry>
+                <entry>0</entry>
+                <entry>Symbol</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>1</entry>
+                <entry>Unicode BMP only</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>2</entry>
+                <entry>ShiftJIS</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>3</entry>
+                <entry>PRC</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>4</entry>
+                <entry>Big5</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>5</entry>
+                <entry>Wansung</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>6</entry>
+                <entry>Johab</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>7</entry>
+                <entry>Reserved</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>8</entry>
+                <entry>Reserved</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>9</entry>
+                <entry>Reserved</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>10</entry>
+                <entry>Unicode full repertoire</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <para>When building a Unicode font for Windows, the platform
+          ID should be 3 and the encoding ID should be 1. When
+          building a symbol font for Windows, the platform ID should
+          be 3 and the encoding ID should be 0. When building a font
+          that will be used on the Macintosh, the platform ID should
+          be 1 and the encoding ID should be 0.</para>
+
+        <para>Microsoft Language IDs (platform ID = 3)</para>
+
+        <para>The language ID (LCID in the table below) refers to a
+          value which identifies the language in which a particular
+          string is written. Fifty of the language ID's assigned by
+          Microsoft are listed below, along with their corresponding
+          code pages. There are 85 additional language ID's assigned.
+          corresponding code pages. There are 85 additional language
+          ID's assigned.  For a full list, please see the <ulink url="http://www.microsoft.com/globaldev/reference/loclanghome.asp">Microsoft
+          Global Development</ulink> site or <ulink url="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q224804">Knowledge
+          Base article Q224804</ulink>.</para>
+
+
+        <informaltable id="name_lang3">
+          <tgroup cols="5">
+            <colspec colwidth="8pc"/>
+            <colspec colwidth="8pc"/>
+            <colspec colwidth="6pc"/>
+            <colspec colwidth="4pc"/>
+            <colspec colwidth="4pc"/>
+            <thead>
+              <row>
+                <entry>Primary Language</entry>
+                <entry>Locale Name</entry>
+                <entry>LCID</entry>
+                <entry>Win CP</entry>
+                <entry>OEM CP</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>Albanian</entry>
+                <entry>Albania</entry>
+                <entry>(041c; SQI)</entry>
+                <entry/>
+                <entry/>
+              </row>
+              <row>
+                <entry>Basque</entry>
+                <entry>Basque</entry>
+                <entry>(042D; EUQ)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Byelorussian</entry>
+                <entry>Byelorussia</entry>
+                <entry>(0423, BEL)</entry>
+                <entry>1251</entry>
+                <entry>866</entry>
+              </row>
+              <row>
+                <entry>Bulgarian</entry>
+                <entry>Bulgaria</entry>
+                <entry>(0402, BGR)</entry>
+                <entry>1251</entry>
+                <entry>866</entry>
+              </row>
+              <row>
+                <entry>Catalan</entry>
+                <entry>Catalan</entry>
+                <entry>(0403; CAT)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Croatian</entry>
+                <entry>Croatian</entry>
+                <entry>(041a, SHL)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Czech</entry>
+                <entry>Czech</entry>
+                <entry>(0405; CSY)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Danish</entry>
+                <entry>Danish</entry>
+                <entry>(0406; DAN)</entry>
+                <entry>1252</entry>
+                <entry>865</entry>
+              </row>
+              <row>
+                <entry>Dutch (2):</entry>
+                <entry>Dutch (Standard)</entry>
+                <entry>(0413; NLD)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Dutch (2):</entry>
+                <entry>Belgian (Flemish)</entry>
+                <entry>(0813; NLB)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>American</entry>
+                <entry>(0409; ENU)</entry>
+                <entry>1252</entry>
+                <entry>437</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>British</entry>
+                <entry>(0809; ENG)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>Australian</entry>
+                <entry>(0c09; ENA)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>Canadian</entry>
+                <entry>(1009; ENC)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>New Zealand</entry>
+                <entry>(1409; ENZ)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>Ireland</entry>
+                <entry>(1809; ENI)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Estonian</entry>
+                <entry>Estonia</entry>
+                <entry>(0425, ETI)</entry>
+                <entry>1257</entry>
+                <entry>775</entry>
+              </row>
+              <row>
+                <entry>Finnish</entry>
+                <entry>Finnish</entry>
+                <entry>(040b; FIN)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>French</entry>
+                <entry>French (Standard)</entry>
+                <entry>(040c; FRA)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>French</entry>
+                <entry>Belgian</entry>
+                <entry>(080c; FRB)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>French</entry>
+                <entry>Canadian</entry>
+                <entry>(0c0c; FRC)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>French</entry>
+                <entry>Swiss</entry>
+                <entry>(100c; FRS)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>French</entry>
+                <entry>Luxembourg</entry>
+                <entry>(140c; FRL)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>German</entry>
+                <entry>German (Standard)</entry>
+                <entry>(0407; DEU)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>German</entry>
+                <entry>Swiss</entry>
+                <entry>(0807; DES)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>German</entry>
+                <entry>Austrian</entry>
+                <entry>(0c07; DEA)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>German</entry>
+                <entry>Luxembourg</entry>
+                <entry>(1007; DEL)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>German</entry>
+                <entry>Liechtenstein</entry>
+                <entry>(1407; DEC)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Greek</entry>
+                <entry>Greek</entry>
+                <entry>(0408; ELL)</entry>
+                <entry>1253</entry>
+                <entry>737 or 869<footnote>
+                    <para>737 is default, but 869 (IBM Greek) will be
+                      available at setup time through the selection of
+                      a bogus Greek locale in Custom Setup.</para>
+                  </footnote></entry>
+              </row>
+              <row>
+                <entry>Hungarian</entry>
+                <entry>Hungarian</entry>
+                <entry>(040e; HUN)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Icelandic</entry>
+                <entry>Icelandic</entry>
+                <entry>(040F; ISL)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Italian (2):</entry>
+                <entry>Italian (Standard)</entry>
+                <entry>(0410; ITA)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Italian (2):</entry>
+                <entry>Swiss</entry>
+                <entry>(0810; ITS)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Latvian</entry>
+                <entry>Latvia</entry>
+                <entry>(0426, LVI)</entry>
+                <entry>1257</entry>
+                <entry>775</entry>
+              </row>
+              <row>
+                <entry>Lithuanian</entry>
+                <entry>Lithuania</entry>
+                <entry>(0427, LTH)</entry>
+                <entry>1257</entry>
+                <entry>775</entry>
+              </row>
+              <row>
+                <entry>Norwegian (2):</entry>
+                <entry>Norwegian (Bokmal)</entry>
+                <entry>(0414; NOR)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Norwegian (2):</entry>
+                <entry>Norwegian (Nynorsk)</entry>
+                <entry>(0814; NON)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Polish</entry>
+                <entry>Polish</entry>
+                <entry>(0415; PLK)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Portuguese (2):</entry>
+                <entry>Portuguese (Brazilian)</entry>
+                <entry>(0416; PTB)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Portuguese (2):</entry>
+                <entry>Portuguese (Standard)</entry>
+                <entry>(0816; PTG)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Romanian (2):</entry>
+                <entry>Romania</entry>
+                <entry>(0418, ROM)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Russian</entry>
+                <entry>Russian</entry>
+                <entry>(0419; RUS)</entry>
+                <entry>1251</entry>
+                <entry>866</entry>
+              </row>
+              <row>
+                <entry>Slovak</entry>
+                <entry>Slovak</entry>
+                <entry>(041b; SKY)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Slovenian</entry>
+                <entry>Slovenia</entry>
+                <entry>(0424, SLV)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Spanish (3):</entry>
+                <entry>Spanish (Traditional Sort)</entry>
+                <entry>(040a; ESP)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Spanish (3):</entry>
+                <entry>Mexican</entry>
+                <entry>(080a; ESM)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Spanish (3):</entry>
+                <entry>Spanish (Modern Sort)</entry>
+                <entry>(0c0a; ESN)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Swedish</entry>
+                <entry>Swedish</entry>
+                <entry>(041D; SVE)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Turkish</entry>
+                <entry>Turkish</entry>
+                <entry>(041f; TRK)</entry>
+                <entry>1254</entry>
+                <entry>857</entry>
+              </row>
+              <row>
+                <entry>Ukrainian</entry>
+                <entry>Ukraine</entry>
+                <entry>(0422, UKR)</entry>
+                <entry>1251</entry>
+                <entry>866 </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+
+        <table id="name_enc1">
+          <title>Macintosh platform-specific encoding IDs (script
+            manager codes), (platform ID = 1)</title>
+
+          <tgroup cols="2">
+            <colspec colwidth="10pc"/>
+            <colspec colwidth="20pc"/>
+            <thead>
+              <row>
+                <entry>Code</entry>
+                <entry>Script</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0</entry>
+                <entry>Roman</entry>
+              </row>
+              <row>
+                <entry>1</entry>
+                <entry>Japanese</entry>
+              </row>
+              <row>
+                <entry>2</entry>
+                <entry>Chinese (Traditional)</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>Korean</entry>
+              </row>
+              <row>
+                <entry>4</entry>
+                <entry>Arabic</entry>
+              </row>
+              <row>
+                <entry>5</entry>
+                <entry>Hebrew</entry>
+              </row>
+              <row>
+                <entry>6</entry>
+                <entry>Greek</entry>
+              </row>
+              <row>
+                <entry>7</entry>
+                <entry>Russian</entry>
+              </row>
+              <row>
+                <entry>8</entry>
+                <entry>RSymbol</entry>
+              </row>
+              <row>
+                <entry>9</entry>
+                <entry>Devanagari</entry>
+              </row>
+              <row>
+                <entry>10</entry>
+                <entry>Gurmukhi</entry>
+              </row>
+              <row>
+                <entry>11</entry>
+                <entry>Gujarati</entry>
+              </row>
+              <row>
+                <entry>12</entry>
+                <entry>Oriya</entry>
+              </row>
+              <row>
+                <entry>13</entry>
+                <entry>Bengali</entry>
+              </row>
+              <row>
+                <entry>14</entry>
+                <entry>Tamil</entry>
+              </row>
+              <row>
+                <entry>15</entry>
+                <entry>Telugu</entry>
+              </row>
+              <row>
+                <entry>16</entry>
+                <entry>Kannada</entry>
+              </row>
+              <row>
+                <entry>17</entry>
+                <entry>Malayalam</entry>
+              </row>
+              <row>
+                <entry>18</entry>
+                <entry>Sinhalese</entry>
+              </row>
+              <row>
+                <entry>19</entry>
+                <entry>Burmese</entry>
+              </row>
+              <row>
+                <entry>20</entry>
+                <entry>Khmer</entry>
+              </row>
+              <row>
+                <entry>21</entry>
+                <entry>Thai</entry>
+              </row>
+              <row>
+                <entry>22</entry>
+                <entry>Laotian</entry>
+              </row>
+              <row>
+                <entry>23</entry>
+                <entry>Georgian</entry>
+              </row>
+              <row>
+                <entry>24</entry>
+                <entry>Armenian</entry>
+              </row>
+              <row>
+                <entry>25</entry>
+                <entry>Chinese (Simplified)</entry>
+              </row>
+              <row>
+                <entry>26</entry>
+                <entry>Tibetan</entry>
+              </row>
+              <row>
+                <entry>27</entry>
+                <entry>Mongolian</entry>
+              </row>
+              <row>
+                <entry>28</entry>
+                <entry>Geez</entry>
+              </row>
+              <row>
+                <entry>29</entry>
+                <entry>Slavic</entry>
+              </row>
+              <row>
+                <entry>30</entry>
+                <entry>Vietnamese</entry>
+              </row>
+              <row>
+                <entry>31</entry>
+                <entry>Sindhi</entry>
+              </row>
+              <row>
+                <entry>32</entry>
+                <entry>Uninterpreted</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <table id="name_lang1">
+          <title>Macintosh language IDs (platform ID = 1)</title>
+          <tgroup cols="2">
+            <colspec colwidth="10pc"/>
+            <colspec colwidth="20pc"/>
+            <thead>
+              <row>
+                <entry>Code</entry>
+                <entry>Language</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0</entry>
+                <entry>English</entry>
+              </row>
+              <row>
+                <entry>1</entry>
+                <entry>French</entry>
+              </row>
+              <row>
+                <entry>2</entry>
+                <entry>German</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>Italian</entry>
+              </row>
+              <row>
+                <entry>4</entry>
+                <entry>Dutch</entry>
+              </row>
+              <row>
+                <entry>5</entry>
+                <entry>Swedish</entry>
+              </row>
+              <row>
+                <entry>6</entry>
+                <entry>Spanish</entry>
+              </row>
+              <row>
+                <entry>7</entry>
+                <entry>Danish</entry>
+              </row>
+              <row>
+                <entry>8</entry>
+                <entry>Portuguese</entry>
+              </row>
+              <row>
+                <entry>9</entry>
+                <entry>Norwegian</entry>
+              </row>
+              <row>
+                <entry>10</entry>
+                <entry>Hebrew</entry>
+              </row>
+              <row>
+                <entry>11</entry>
+                <entry>Japanese</entry>
+              </row>
+              <row>
+                <entry>12</entry>
+                <entry>Arabic</entry>
+              </row>
+              <row>
+                <entry>13</entry>
+                <entry>Finnish</entry>
+              </row>
+              <row>
+                <entry>14</entry>
+                <entry>Greek</entry>
+              </row>
+              <row>
+                <entry>15</entry>
+                <entry>Icelandic</entry>
+              </row>
+              <row>
+                <entry>16</entry>
+                <entry>Maltese</entry>
+              </row>
+              <row>
+                <entry>17</entry>
+                <entry>Turkish</entry>
+              </row>
+              <row>
+                <entry>18</entry>
+                <entry>Yugoslavian</entry>
+              </row>
+              <row>
+                <entry>19</entry>
+                <entry>Chinese (Traditional)</entry>
+              </row>
+              <row>
+                <entry>20</entry>
+                <entry>Urdu</entry>
+              </row>
+              <row>
+                <entry>21</entry>
+                <entry>Hindi</entry>
+              </row>
+              <row>
+                <entry>22</entry>
+                <entry>Thai</entry>
+              </row>
+              <row>
+                <entry>23</entry>
+                <entry>Korean</entry>
+              </row>
+              <row>
+                <entry>24</entry>
+                <entry>Lithuanian</entry>
+              </row>
+              <row>
+                <entry>25</entry>
+                <entry>Polish</entry>
+              </row>
+              <row>
+                <entry>26</entry>
+                <entry>Hungarian</entry>
+              </row>
+              <row>
+                <entry>27</entry>
+                <entry>Estonian</entry>
+              </row>
+              <row>
+                <entry>28</entry>
+                <entry>Latvian</entry>
+              </row>
+              <row>
+                <entry>29</entry>
+                <entry>Sami</entry>
+              </row>
+              <row>
+                <entry>30</entry>
+                <entry>Faroese</entry>
+              </row>
+              <row>
+                <entry>31</entry>
+                <entry>Farsi/Persian</entry>
+              </row>
+              <row>
+                <entry>32</entry>
+                <entry>Russian</entry>
+              </row>
+              <row>
+                <entry>33</entry>
+                <entry>Chinese (Simplified)</entry>
+              </row>
+              <row>
+                <entry>34</entry>
+                <entry>Flemish</entry>
+              </row>
+              <row>
+                <entry>35</entry>
+                <entry>Irish Gaelic</entry>
+              </row>
+              <row>
+                <entry>36</entry>
+                <entry>Albanian</entry>
+              </row>
+              <row>
+                <entry>37</entry>
+                <entry>Romanian</entry>
+              </row>
+              <row>
+                <entry>38</entry>
+                <entry>Czech</entry>
+              </row>
+              <row>
+                <entry>39</entry>
+                <entry>Slovak</entry>
+              </row>
+              <row>
+                <entry>40</entry>
+                <entry>Slovenian</entry>
+              </row>
+              <row>
+                <entry>41</entry>
+                <entry>Yiddish</entry>
+              </row>
+              <row>
+                <entry>42</entry>
+                <entry>Serbian</entry>
+              </row>
+              <row>
+                <entry>43</entry>
+                <entry>Macedonian</entry>
+              </row>
+              <row>
+                <entry>44</entry>
+                <entry>Bulgarian</entry>
+              </row>
+              <row>
+                <entry>45</entry>
+                <entry>Ukrainian</entry>
+              </row>
+              <row>
+                <entry>46</entry>
+                <entry>Byelorussian </entry>
+              </row>
+              <row>
+                <entry>47</entry>
+                <entry>Uzbek </entry>
+              </row>
+              <row>
+                <entry>48</entry>
+                <entry>Kazakh </entry>
+              </row>
+              <row>
+                <entry>49</entry>
+                <entry>Azerbaijani (Cyrillic script) </entry>
+              </row>
+              <row>
+                <entry>50</entry>
+                <entry>Azerbaijani (Arabic script) </entry>
+              </row>
+              <row>
+                <entry>51</entry>
+                <entry>Armenian </entry>
+              </row>
+              <row>
+                <entry>52</entry>
+                <entry>Georgian </entry>
+              </row>
+              <row>
+                <entry>53</entry>
+                <entry>Moldavian</entry>
+              </row>
+              <row>
+                <entry>54</entry>
+                <entry>Kirghiz</entry>
+              </row>
+              <row>
+                <entry>55</entry>
+                <entry>Tajiki</entry>
+              </row>
+              <row>
+                <entry>56</entry>
+                <entry>Turkmen</entry>
+              </row>
+              <row>
+                <entry>57</entry>
+                <entry>Mongolian (Mongolian script)</entry>
+              </row>
+              <row>
+                <entry>58</entry>
+                <entry>Mongolian (Cyrillic script)</entry>
+              </row>
+              <row>
+                <entry>59</entry>
+                <entry>Pashto</entry>
+              </row>
+              <row>
+                <entry>60</entry>
+                <entry>Kurdish</entry>
+              </row>
+              <row>
+                <entry>61</entry>
+                <entry>Kashmiri</entry>
+              </row>
+              <row>
+                <entry>62</entry>
+                <entry>Sindhi</entry>
+              </row>
+              <row>
+                <entry>63</entry>
+                <entry>Tibetan</entry>
+              </row>
+              <row>
+                <entry>64</entry>
+                <entry>Nepali</entry>
+              </row>
+              <row>
+                <entry>65</entry>
+                <entry>Sanskrit</entry>
+              </row>
+              <row>
+                <entry>66</entry>
+                <entry>Marathi</entry>
+              </row>
+              <row>
+                <entry>67</entry>
+                <entry>Bengali</entry>
+              </row>
+              <row>
+                <entry>68</entry>
+                <entry>Assamese</entry>
+              </row>
+              <row>
+                <entry>69</entry>
+                <entry>Gujarati</entry>
+              </row>
+              <row>
+                <entry>70</entry>
+                <entry>Punjabi</entry>
+              </row>
+              <row>
+                <entry>71</entry>
+                <entry>Oriya</entry>
+              </row>
+              <row>
+                <entry>72</entry>
+                <entry>Malayalam</entry>
+              </row>
+              <row>
+                <entry>73</entry>
+                <entry>Kannada</entry>
+              </row>
+              <row>
+                <entry>74</entry>
+                <entry>Tamil</entry>
+              </row>
+              <row>
+                <entry>75</entry>
+                <entry>Telugu </entry>
+              </row>
+              <row>
+                <entry>76</entry>
+                <entry>Sinhalese </entry>
+              </row>
+              <row>
+                <entry>77</entry>
+                <entry>Burmese </entry>
+              </row>
+              <row>
+                <entry>78</entry>
+                <entry>Khmer </entry>
+              </row>
+              <row>
+                <entry>79</entry>
+                <entry>Lao </entry>
+              </row>
+              <row>
+                <entry>80</entry>
+                <entry>Vietnamese </entry>
+              </row>
+              <row>
+                <entry>81</entry>
+                <entry>Indonesian </entry>
+              </row>
+              <row>
+                <entry>82</entry>
+                <entry>Tagalong </entry>
+              </row>
+              <row>
+                <entry>83</entry>
+                <entry>Malay (Roman script) </entry>
+              </row>
+              <row>
+                <entry>84</entry>
+                <entry>Malay (Arabic script) </entry>
+              </row>
+              <row>
+                <entry>85</entry>
+                <entry>Amharic </entry>
+              </row>
+              <row>
+                <entry>86</entry>
+                <entry>Tigrinya </entry>
+              </row>
+              <row>
+                <entry>87</entry>
+                <entry>Galla </entry>
+              </row>
+              <row>
+                <entry>88</entry>
+                <entry>Somali </entry>
+              </row>
+              <row>
+                <entry>89</entry>
+                <entry>Swahili </entry>
+              </row>
+              <row>
+                <entry>90</entry>
+                <entry>Kinyarwanda/Ruanda </entry>
+              </row>
+              <row>
+                <entry>91</entry>
+                <entry>Rundi </entry>
+              </row>
+              <row>
+                <entry>92</entry>
+                <entry>Nyanja/Chewa </entry>
+              </row>
+              <row>
+                <entry>93</entry>
+                <entry>Malagasy </entry>
+              </row>
+              <row>
+                <entry>94</entry>
+                <entry>Esperanto </entry>
+              </row>
+              <row>
+                <entry>128</entry>
+                <entry>Welsh </entry>
+              </row>
+              <row>
+                <entry>129</entry>
+                <entry>Basque </entry>
+              </row>
+              <row>
+                <entry>130</entry>
+                <entry>Catalan </entry>
+              </row>
+              <row>
+                <entry>131</entry>
+                <entry>Latin </entry>
+              </row>
+              <row>
+                <entry>132</entry>
+                <entry>Quenchua </entry>
+              </row>
+              <row>
+                <entry>133</entry>
+                <entry>Guarani </entry>
+              </row>
+              <row>
+                <entry>134</entry>
+                <entry>Aymara </entry>
+              </row>
+              <row>
+                <entry>135</entry>
+                <entry>Tatar </entry>
+              </row>
+              <row>
+                <entry>136</entry>
+                <entry>Uighur </entry>
+              </row>
+              <row>
+                <entry>137</entry>
+                <entry>Dzongkha </entry>
+              </row>
+              <row>
+                <entry>138</entry>
+                <entry>Javanese (Roman script) </entry>
+              </row>
+              <row>
+                <entry>139</entry>
+                <entry>Sundanese (Roman script) </entry>
+              </row>
+              <row>
+                <entry>140</entry>
+                <entry>Galician </entry>
+              </row>
+              <row>
+                <entry>141</entry>
+                <entry>Afrikaans </entry>
+              </row>
+              <row>
+                <entry>142</entry>
+                <entry>Breton </entry>
+              </row>
+              <row>
+                <entry>143</entry>
+                <entry>Inuktitut [!!fixed] </entry>
+              </row>
+              <row>
+                <entry>144</entry>
+                <entry>Scottish Gaelic </entry>
+              </row>
+              <row>
+                <entry>145</entry>
+                <entry>Manx Gaelic </entry>
+              </row>
+              <row>
+                <entry>146</entry>
+                <entry>Irish Gaelic (with dot above) </entry>
+              </row>
+              <row>
+                <entry>147</entry>
+                <entry>Tongan </entry>
+              </row>
+              <row>
+                <entry>148</entry>
+                <entry>Greek (polytonic) </entry>
+              </row>
+              <row>
+                <entry>149</entry>
+                <entry>Greenlandic </entry>
+              </row>
+              <row>
+                <entry>150</entry>
+                <entry>Azerbaijani (Roman script) </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <table id="name_enc2">
+          <title>ISO specific encodings (platform ID=2)
+            [Deprecated]</title>
+          <tgroup cols="2">
+            <colspec colwidth="10pc"/>
+            <colspec colwidth="20pc"/>
+            <thead>
+              <row>
+                <entry>Code</entry>
+                <entry>ISO encoding</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0</entry>
+                <entry>7-bit ASCII</entry>
+              </row>
+              <row>
+                <entry>1</entry>
+                <entry>ISO 10646</entry>
+              </row>
+              <row>
+                <entry>2</entry>
+                <entry>ISO 8859-1</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <para>There are no ISO-specific language IDs.</para>
+
+        <table id="name_enc4">
+          <title>Custom platform-specific encoding IDs (platform
+            ID=4)</title>
+          <tgroup cols="2">
+            <colspec colwidth="10pc"/>
+            <colspec colwidth="20pc"/>
+            <thead>
+              <row>
+                <entry>ID</entry>
+                <entry>Custom encoding</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0-255</entry>
+                <entry>OTF Windows NT compatibility mapping</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <para>In cases where a custom platform <ottable>cmap</ottable>
+          is present for OTF Windows NT compatibility, the encoding ID
+          must be set to the Windows charset value (in the range 0 to
+          255, inclusive) present in the .PFM file of the original
+          Type 1 font. See the <ottable>cmap</ottable> table for more
+          details on the <link linkend="cmap_cust">OTF Windows NT
+            compatibility cmap</link>.</para>
+
+        <para>There are currently no language IDs defined for the
+          Custom platform. This means that it can be used for
+          encodings in the <ottable>cmap</ottable> table but not for
+          strings in the <ottable>name</ottable> table.</para>
+
+        <para>Name IDs</para>
+
+        <para>The following name IDs are pre-defined, and they apply to
+          all platforms unless indicated otherwise. Name IDs 21 to
+          255, inclusive, are reserved for future standard names. Name
+          IDs 256 to 32767, inclusive, are reserved for font-specific
+          names such as those referenced by a font's layout feature.</para>
+
+        <informaltable>
+          <tgroup cols="2">
+            <colspec colwidth="3pc"/>
+            <colspec colwidth="27pc"/>
+            <thead>
+              <row>
+                <entry>Code</entry>
+                <entry>Meaning</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0</entry>
+                <entry>Copyright notice.</entry>
+              </row>
+              <row>
+                <entry>1</entry> <entry>Font Family nam. Up to four
+		  fonts can share the Font Family name, forming a font
+		  style linking group (regular, italic, bold, bold
+		  italic - as defined by OS/2.fsSelection bit
+		  settings).</entry>
+              </row>
+              <row>
+                <entry>2</entry> <entry>Font Subfamily name. The Font
+		  Subfamily name distiguishes the font in a group with
+		  the same Font Family name (name ID 1). This is
+		  assumed to address style (italic, oblique) and !
+		  weight (light, bold, black, etc.). A font with no
+		  particular differences in weight or style (e.g.
+		  medium weight, not italic and fsSelection bit 6 set)
+		  should have the string &quot;Regular&quot; stored in this
+		  position.</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>Unique font identifier</entry>
+              </row>
+              <row>
+                <entry>4</entry> <entry>Full font name; this should be
+		  a combination of strings 1 and 2. Exception: if the
+		  font is &quot;Regular&quot; as indicated in string 2, then use
+		  only the family name contained in string 1. An
+		  exception to the above definition of Full font name
+		  is for Microsoft platform strings for CFF CommonType
+		  fonts: in this case, the Full font name string must
+		  be identical to the PostScript FontName in the CFF
+		  Name INDEX. </entry>
+              </row>
+              <row>
+                <entry>5</entry> <entry>Version string. Should begin
+		  with the syntax 'Version &lt;number&gt;.&lt;number&gt;'
+		  (upper case, lower case, or mixed, with a space
+		  between &quot;Version&quot; and the number).  The string must
+		  contain a version number of the following form: one
+		  or more digits (0-9) of value less than 65,535,
+		  followed by a period, followed by one or more digits
+		  of value less than 65,535. Any character other than
+		  a digit will terminate the minor number. A character
+		  such as &quot;;&quot; is helpful to separate different pieces
+		  of version information. The first such match in
+		  the string can be used by installation software to
+		  compare font versions. Note that some installers may
+		  require the string to start with &quot;Version &quot;,
+		  followed by a version number as above.</entry>
+              </row>
+              <row>
+                <entry>6</entry>
+                <entry>
+		  <para>Postscript name for the font; Name ID 6
+                    specifies a string which is used to invoke a
+                    PostScript language font that corresponds to this
+                    CommonType font. If no name ID 6 is present, then
+                    there is no defined method for invoking this font
+                    on a PostScript interpreter.</para> <para>CommonType
+                    fonts which include a name with name ID of 6 shall
+                    include these two names with name ID 6, and
+                    characteristics as follows:</para> <para>a.
+                    Platform: 1 [Macintosh]; Platform-specific
+                    encoding: 0 [Roman]; Language: 0 [English].</para>
+                  <para>b Platform: 3 [Microsoft]; Platform-specific
+                    encoding: 1 [Unicode]; Language: 0x409 [English
+                    (American)]. </para> <para>Names with name ID 6
+                    other than the above two, if present, must be
+                    ignored.</para> <para>When translated to ASCII,
+                    these two name strings must be identical; no
+                    longer than 63 characters; and restricted to the
+                    printable ASCII subset, codes 33 through 126,
+                    except for the 10 characters: '[', ']', '(', ')',
+                    '{', '}', '&lt;', '&gt;', '/', '%'.</para> <para>In
+                    CFF CommonType fonts, these two name strings, when
+                    translated to ASCII, must also be identical to the
+                    font name as stored in the CFF's Name
+                    INDEX.</para> <para>The term &quot;PostScript Name&quot;
+                    here means a string identical to the two identical
+                    name ID 6 strings described above.</para>
+                  <para>Depending on the particular font format that
+                    PostScript language font uses, the invocation
+                    method for the PostScript font differs, and the
+                    semantics of the resulting PostScript language
+                    font differ. The method used to invoke this font
+                    depends on the presence of name ID 20.</para>
+                  <para>If a name ID 20 is present in this font, then
+                    the default assumption should be that the
+                    PostScript Name defined by name ID 6 should be
+                    used with the &quot;composefont&quot; invocation. This
+                    PostScript Name is then the name of a PostScript
+                    language CIDFont resource which corresponds to the
+                    glyphs of the CommonType font. This name is valid to
+                    pass, with an appropriate PostScript language CMap
+                    reference, and an instance name, to the PostScript
+                    language &quot;composefont&quot; operator.</para> <para>If
+                    no name ID 20 is present in this font, then the
+                    default assumption should be that the PostScript
+                    Name defined by name ID 6 should be used with the
+                    &quot;findfont&quot; invocation, for locating the font in
+                    the context of a PostScript interpreter. This
+                    PostScript Name is then the name of a PostScript
+                    language Font resource which corresponds to the
+                    glyphs of the CommonType font. This name is valid to
+                    pass to the PostScript language &quot;findfont&quot;
+                    operator. Note that this does
+                    <emphasis>not</emphasis> necessarily imply that
+                    the resulting font dictionary accepts an /Encoding
+                    array, such as when the font referenced is a Type
+                    0 PostScript font.</para> <para>Note that this
+                    specification applies only to data fork CommonType
+                    fonts. Macintosh resource-fork TrueType and other
+                    Macintosh sfnt-wrapped fonts supply the PostScript
+                    font name to be used with the &quot;findfont&quot;
+                    invocation, in order to invoke the font in a
+                    PostScript interpreter, in the FOND resource
+                    style-mapping table.</para> <para>Developers may
+                    choose to ignore the default usage when
+                    appropriate. For example, PostScript printers
+                    whose version is earlier than 2015 cannot process
+                    CID font resources, and a CJK CommonType/CFF-CID
+                    font can be downloaded only as a set of Type 1
+                    PostScript fonts. Legacy CJK TrueType fonts, which
+                    do not have a name ID 20, may still be most
+                    effectively downloaded as a CID font resource.
+                    Definition of the full set of situations in which
+                    the defaults should not be followed is outside the
+                    scope of this document.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>7</entry> <entry>Trademark; this is used to
+                save any trademark notice/information for this
+                font. Such information should be based on legal
+                advice. This is <emphasis>distinctly</emphasis>
+                separate from the copyright. </entry>
+              </row>
+              <row>
+                <entry>8</entry>
+                <entry>Manufacturer Name.</entry>
+              </row>
+              <row>
+                <entry>9</entry>
+                <entry>Designer; name of the designer of the
+                  typeface.</entry>
+              </row>
+              <row>
+                <entry>10</entry>
+                <entry>Description; description of the typeface. Can
+                  contain revision information, usage recommendations,
+                  history, features, etc.</entry>
+              </row>
+              <row>
+                <entry>11</entry>
+                <entry>URL Vendor; URL of font vendor (with protocol,
+                  e.g., http://, ftp://). If a unique serial number is
+                  embedded in the URL, it can be used to register the
+                  font.</entry>
+              </row>
+              <row>
+                <entry>12</entry>
+                <entry>URL Designer; URL of typeface designer (with
+                  protocol, e.g., http://, ftp://).</entry>
+              </row>
+              <row>
+                <entry>13</entry>
+                <entry>License Description; description of how the
+                  font may be legally used, or different example
+                  scenarios for licensed use. This field should be
+                  written in plain language, not legalese.</entry>
+              </row>
+              <row>
+                <entry>14</entry>
+                <entry>License Info URL; URL where additional
+                  licensing information can be found.</entry>
+              </row>
+              <row>
+                <entry>15</entry>
+                <entry>Reserved; Set to zero.</entry>
+              </row>
+              <row>
+                <entry>16</entry> <entry>For historical reasons, font
+		  families have contained a maximum of four styles,
+		  but font designers may group more than four fonts to
+		  a single family.  The Preferred Family allows font
+		  designers to include the preferred family grouping
+		  which contains more than four fonts. This ID is only
+		  present if it is different from ID 1. </entry>
+              </row>
+              <row>
+                <entry>17</entry> <entry>Preferred Subfamily allows
+		  font designers to include the preferred subfamily
+		  grouping that is more descriptive than ID 2. This ID
+		  is only present if it is different from ID 2 and
+		  must be unique for the the Preferred Family.</entry>
+              </row>
+              <row>
+                <entry>18</entry>
+                <entry>Compatible Full (Macintosh only); On the
+                  Macintosh, the menu name is constructed using the
+                  FOND resource. This usually matches the Full Name.
+                  If you want the name of the font to appear
+                  differently than the Full Name, you can insert the
+                  Compatible Full Name in ID 18. </entry>
+              </row>
+              <row>
+                <entry>19</entry>
+                <entry>Sample text; This can be the font name, or any
+                  other text that the designer thinks is the best
+                  sample to display the font in.</entry>
+              </row>
+              <row>
+                <entry>20</entry>
+                <entry><para>PostScript CID findfont name; Its
+                    presence in a font means that the nameID 6 holds a
+                    PostScript font name that is meant to be used with
+                    the &quot;composefont&quot; invocation in order to invoke
+                    the font in a PostScript interpreter. See the
+                    definition of name ID 6.</para> <para>The value
+                    held in the name ID 20 string is interpreted as a
+                    PostScript font name that is meant to be used with
+                    the &quot;findfont&quot; invocation, in order to invoke the
+                    font in a PostScript interpreter.</para> <para>If
+                    the name ID 20 is present in a font, there must be
+                    one name ID 20 record for every Macintosh platform
+                    cmap subtable in that font. A particular name ID
+                    20 record is associated with the encoding
+                    specified by the matching cmap subtable. A name ID
+                    20 record is matched to a cmap subtable when they
+                    have the same platform and platform-specific
+                    encoding IDs, and corresponding language/version
+                    IDs. Name ID 20 records are meant to be used only
+                    with Macintosh cmap subtables. The version field
+                    for a cmap subtable is one more than the language
+                    ID value for the corresponding name ID 20 record,
+                    with the exception of the cmap subtable version
+                    field 0. This version field, meaning &quot;not
+                    language-specific&quot;, corresponds to the language ID
+                    value 0xFFFF, or decimal 65535, for the
+                    corresponding name ID 20 record.</para> <para>When
+                    translated to ASCII, this name string must be
+                    restricted to the printable ASCII subset, codes 33
+                    through 126, except for the 10 characters: '[',
+                    ']', '(', ')', '{', '}', '&lt;', '&gt;', '/',
+                    '%'.</para> <para>Note that this specification
+                    applies only to data fork CommonType fonts.
+                    Macintosh resource-fork TrueType and other
+                    Macintosh sfnt-wrapped fonts supply the PostScript
+                    font name to be used with the &quot;findfont&quot;
+                    invocation, in order to invoke the font in a
+                    PostScript interpreter, in the FOND resource
+                    style-mapping table.</para> <para>Note that a
+                    particular Name ID 20 string always corresponds to
+                    a particular Macintosh cmap subtable. However,
+                    some host CommonType/TTF fonts also contain a post
+                    table, format 4, which provides a mapping from
+                    glyph ID to encoding value, and also corresponds
+                    to a particular Macintosh cmap subtable.
+                    Unfortunately, the <ottable>post</ottable> table
+                    format 4 contains no provision for identifying
+                    which Macintosh cmap subtable it matches, nor for
+                    providing more than one mapping. Host fonts which
+                    contain a <ottable>post</ottable> table format 4,
+                    should also contain only a single Macintosh cmap
+                    subtable, and a single Name ID 20 string. In the
+                    case where there is more than one Macintosh cmap
+                    subtable and more than one Name ID 20 string,
+                    there is no definition of which one matches the
+                    <ottable>post</ottable> table format
+                    4.</para></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+
+        <para>Note that while both Apple and Microsoft support the
+          same set of name strings, the interpretations may be
+          somewhat different. But since name strings are stored by
+          platform, encoding and language (placing separate strings in
+          for both Apple and MS platforms), this should not present a
+          problem.</para>
+
+        <para>The key information for this table for MS fonts relates
+          to the use of strings 1, 2 and 4. To better help understand,
+          here are some examples of name usage, weight class and style
+          flags:</para>
+
+	<informaltable>
+	  <tgroup cols="5">
+	    <thead>
+	      <row>
+		<entry>Font</entry>
+		<entry>Name ID 1</entry>
+		<entry>Name ID 2</entry>
+		<entry>Name ID 4</entry>
+		<entry>Name ID 16</entry>
+		<entry>Name ID 17</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>Arial Narrow</entry>
+		<entry>Arial Narrow</entry>
+		<entry>Regular</entry>
+		<entry>Arial Narrow</entry>
+		<entry>Arial</entry>
+		<entry>Narrow</entry>
+	      </row>
+	      <row>
+		<entry>Arial Narrow Italic</entry>
+		<entry>Arial Narrow</entry>
+		<entry>Italic</entry>
+		<entry>Arial Narrow Italic</entry>
+		<entry>Arial</entry>
+		<entry>Narrow Italic</entry>
+	      </row>
+	      <row>
+		<entry>Arial Narrow Bold</entry>
+		<entry>Arial Narrow</entry>
+		<entry>Bold</entry>
+		<entry>Arial Narrow Bold</entry>
+		<entry>Arial</entry>
+		<entry>Narrow Bold</entry>
+	      </row>
+	      <row>
+		<entry>Arial Narrow Bold Italic</entry>
+		<entry>Arial Narrow</entry>
+		<entry>Bold Italic</entry>
+		<entry>Arial Narrow Bold Italic</entry>
+		<entry>Arial</entry>
+		<entry>Narrow Bold Italic</entry>
+	      </row>
+	      <row>
+		<entry>Arial</entry>
+		<entry>Arial</entry>
+		<entry>Regular</entry>
+		<entry>Arial</entry>
+		<entry>Arial</entry>
+	      </row>
+	      <row>
+		<entry>Arial Italic</entry>
+		<entry>Arial</entry>
+		<entry>Italic</entry>
+		<entry>Arial Italic</entry>
+		<entry>Arial</entry>
+		<entry>Italic</entry>
+	      </row>
+	      <row>
+		<entry>Arial Bold</entry>
+		<entry>Arial</entry>
+		<entry>Bold</entry>
+		<entry>Arial Bold</entry>
+		<entry>Arial</entry>
+		<entry>Bold</entry>
+	      </row>
+	      <row>
+		<entry>Arial Bold Italic</entry>
+		<entry>Arial</entry>
+		<entry>Bold Italic</entry>
+		<entry>Arial Bold Italic</entry>
+		<entry>Arial</entry>
+		<entry>Bold Italic</entry>
+	      </row>
+	      <row>
+		<entry>Arial Black</entry>
+		<entry>Arial Black</entry>
+		<entry>Regular</entry>
+		<entry>Arial Black</entry>
+		<entry>Arial</entry>
+		<entry>Black</entry>
+	      </row>
+	      <row>
+		<entry>Arial Black Italic</entry>
+		<entry>Arial Black</entry>
+		<entry>Italic</entry>
+		<entry>Arial Black Italic</entry>
+		<entry>Arial</entry>
+		<entry>Black Italic</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+
+	<para>In addition to name strings, OS/2.usWeightClass,
+	  OS/2.usWidthClass, OS/2.fsSelection style bits, and
+	  head.macStyle bits are shown. These settings allow the fonts
+	  to fit together into a single family of varying weight and
+	  compression/expansion.</para>
+
+	<informaltable>
+	  <tgroup cols="9">
+	    <thead>
+	      <row>
+		<entry>Font</entry>
+		<entry>OS/2 usWeightClass</entry>
+		<entry>OS/2 usWidthClass</entry>
+		<entry>OS/2 fsSelection Italic</entry>
+		<entry>OS/2 fsSelection Bold</entry>
+		<entry>OS/2 fsSelection Regular</entry>
+		<entry>head macStyle Bold</entry>
+		<entry>head macStyle Italic</entry>
+		<entry>head macStyle Condensed</entry>
+		<entry>head macStyle Extended</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>Arial Narrow</entry>
+		<entry>400</entry>
+		<entry>3</entry>
+		<entry/>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+	      </row>
+	      <row>
+		<entry>Arial Narrow Italic</entry>
+		<entry>400</entry>
+		<entry>3</entry>
+		<entry>x</entry>
+		<entry/>
+		<entry/>
+		<entry/>
+		<entry>x</entry>
+		<entry>x</entry>
+		<entry/>
+	      </row>
+	      <row>
+		<entry>Arial Narrow Bold</entry>
+		<entry>700</entry>
+		<entry>3</entry>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+	      </row>
+	      <row>
+		<entry>Arial Narrow Bold Italic</entry>
+		<entry>700</entry>
+		<entry>3</entry>
+		<entry>x</entry>
+		<entry>x</entry>
+		<entry/>
+		<entry>x</entry>
+		<entry>x</entry>
+		<entry>x</entry>
+		<entry/>
+	      </row>
+	      <row>
+		<entry>Arial</entry>
+		<entry>400</entry>
+		<entry>5</entry>
+		<entry/>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+		<entry/>
+		<entry/>
+		<entry/>
+	      </row>
+	      <row>
+		<entry>Arial Italic</entry>
+		<entry>400</entry>
+		<entry>5</entry>
+		<entry>x</entry>
+		<entry/>
+		<entry/>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+		<entry/>
+	      </row>
+	      <row>
+		<entry>Arial Bold</entry>
+		<entry>700</entry>
+		<entry>5</entry>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+		<entry/>
+		<entry/>
+	      </row>
+	      <row>
+		<entry>Arial Bold Italic</entry>
+		<entry>700</entry>
+		<entry>5</entry>
+		<entry>x</entry>
+		<entry>x</entry>
+		<entry/>
+		<entry>x</entry>
+		<entry>x</entry>
+		<entry/>
+		<entry/>
+	      </row>
+	      <row>
+		<entry>Arial Black</entry>
+		<entry>900</entry>
+		<entry>5</entry>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+		<entry>x</entry>
+		<entry/>
+		<entry/>
+		<entry/>
+	      </row>
+	      <row>
+		<entry>Arial Black Italic</entry>
+		<entry>900</entry>
+		<entry>5</entry>
+		<entry>x</entry>
+		<entry>x</entry>
+		<entry/>
+		<entry>x</entry>
+		<entry>x</entry>
+		<entry/>
+		<entry/>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+
+        <para>Note that OS/2 and Windows both require that all name
+          strings be defined in Unicode. Thus all 'name' table strings
+          for platform ID = 3 (Microsoft) will require two bytes per
+          character. Macintosh fonts require single byte
+          strings.</para>
+
+        <para>Examples of how these strings might be defined:</para>
+
+        <para>0. The copyright string from the font vendor. <emphasis>©
+          Copyright the Monotype Corporation plc, 1990</emphasis></para>
+
+        <para>1. The name the user sees. <emphasis>Times New
+            Roman</emphasis></para>
+
+        <para>2. The name of the style. <emphasis>Bold</emphasis></para>
+
+        <para>3. A unique identifier that applications can store to
+          identify the font being used. Monotype: <emphasis>Times New Roman
+          Bold:1990</emphasis></para>
+
+        <para>4. The complete, hopefully unique, human readable name
+          of the font. This name is used by Windows. <emphasis>Times
+          New Roman Bold</emphasis>. (If this were the Microsoft
+          platform string for a CFF CommonType font, then the value
+          would be <emphasis>TimesNewRoman-Bold</emphasis>, as
+          described in the definition of name ID 4 above.)</para>
+
+        <para>5. Release and version information from the font vendor.
+          <emphasis>Version 1.00 June 1, 1990, initial release</emphasis></para>
+
+        <para>6. The name the font will be known by on a PostScript
+          printer. <emphasis>TimesNewRoman-Bold</emphasis></para>
+
+        <para>7. Trademark string. <emphasis>Times New Roman is a registered
+          trademark of the Monotype Corporation.</emphasis></para>
+
+        <para>8. Manufacturer. <emphasis>Monotype Corporation
+        plc</emphasis></para>
+
+        <para>9. Designer. <emphasis>Stanley Morison</emphasis></para>
+
+        <para>10. Description. <emphasis>Designed in 1932 for the Times of
+          London newspaper. Excellent readability and a narrow overall
+          width, allowing more words per line than most fonts.</emphasis></para>
+
+        <para>11. URL of Vendor.
+          <emphasis>http://www.monotype.com</emphasis></para>
+
+        <para>12. URL of Designer.
+          <emphasis>http://www.monotype.com</emphasis></para>
+
+        <para>13. License Description. <emphasis>This font may be installed on
+          all of your machines and printers, but you may not sell or
+          give these fonts to anyone else.</emphasis></para>
+
+        <para>14. License Info URL.
+          <emphasis>http://www.monotype.com/license/</emphasis></para>
+
+        <para>15. Reserved. Set to zero.</para>
+
+        <para>16. Preferred Family. No name string
+          present, since it is the same as name ID 1 (Font Family
+          name).</para>
+
+        <para>17. Preferred Subfamily. No name string
+          present, since it is the same as name ID 2 (Font Subfamily
+          name).</para>
+
+        <para>18. Compatible Full (Macintosh only). No name string
+          present, since it is the same as name ID 4 (Full
+          name).</para>
+
+        <para>19. Sample text. <emphasis>The quick brown fox jumps over the lazy
+          dog.</emphasis></para>
+
+        <para>20. PostScript CID findfont name. No name string
+          present. Thus, the PostScript Name defined by name ID 6
+          should be used with the &quot;findfont&quot; invocation for locating
+          the font in the context of a PostScript interpreter.</para>
+
+        <para>The following is an example of only name IDs 6 and 20 in
+          the CFF CommonType Japanese font Kozuka Mincho Std Regular
+          (other name IDs are also present in this font):</para>
+
+        <para>6. PostScript name:
+          <emphasis>KozMinStd-Regular</emphasis>. Since a name ID 20
+          is present in the font (see below), then the PostScript name
+          defined by name ID 6 should be used with the &quot;composefont&quot;
+          invocation for locating the font in the context of a
+          PostScript interpreter.</para>
+
+        <para>20. PostScript CID findfont name:
+          <emphasis>KozMinStd-Regular-83pv-RKSJ-H</emphasis>, in a
+          name record of Platform 1 [Macintosh], Platform-specific
+          script 1 [Japanese], Language: 0xFFFF [English]. This name
+          string is a PostScript name that should be used with the
+          &quot;findfont&quot; invocation for locating the font in the context
+          of a PostScript interpreter, and is associated with the
+          encoding specified by the following cmap subtable, which
+          must be present in the font: Platform: 1 [Macintosh];
+          Platform-specific encoding: 1 [Japanese]; Language: 0 [not
+          language-specific].</para>
+
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="annotation">
+        <title>Annotation</title>
+
+        <para>In the example, string 19 is not set in italic like the
+        other strings.</para>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>name table</code-title>
+name =
+  element name {
+    element name-record {
+      attribute platformID { text },
+      attribute encodingID { text },
+      attribute languageID { text },
+      attribute nameID { text },
+      attribute v { text }
+    }*
+  }
+</code-fragment>
+
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="name.methods">
+  static private void enterName (Block b, int offset, int nameID,
+                                int stringSize, int stringOffset) {
+    b.setuint16 (offset,    3);
+    b.setuint16 (offset+2,  1);
+    b.setuint16 (offset+4,  1033);
+    b.setuint16 (offset+6,  nameID);
+    b.setuint16 (offset+8,  stringSize*2);
+    b.setuint16 (offset+10, stringOffset*2);
+  }
+
+  static public byte[] buildNameTable (String s)
+      throws Exception {
+    int nbEntries = 6;
+    String storage = s + &quot;-RegularVersion1.0&quot;;
+    int blockSize = 6 + 12*nbEntries + 2*storage.length ();
+    if (blockSize % 4 != 0) {
+      blockSize = ((blockSize / 4) + 1) * 4; }
+    Block b = new Block (blockSize, 0);
+
+    b.setuint16 (0, 0);
+    b.setuint16 (2, nbEntries);
+    b.setuint16 (4, 6 + 12*nbEntries);
+
+    enterName (b,  6, 1, s.length (), 0);
+    enterName (b, 18, 2, 7, s.length () + 1);
+    enterName (b, 30, 3, s.length (), 0);
+    enterName (b, 42, 4, s.length () + 8, 0);
+    enterName (b, 54, 5, 10, s.length () + 8);
+    enterName (b, 66, 6, s.length () + 8, 0);
+
+    for (int i = 0; i &lt; storage.length(); i++) {
+      b.setuint16 (78 + 2*i, storage.charAt (i)); }
+
+    return b.serialize ();
+  }
+
+
+  public void fromXML (Element name)
+      throws InvalidFontException, UnsupportedFontException {
+    NodeList nl = name.getChildNodes ();
+
+    entries = new java.util.ArrayList &lt;Entry&gt; ();
+
+    for (int i = 0; i &lt; nl.getLength (); i++) {
+      Element oneName = (Element) nl.item (i);
+
+      Entry e = new Entry ();
+      e.platformID = Integer.decode (oneName.getAttribute (&quot;platformID&quot;)).intValue ();
+      e.encodingID = Integer.decode (oneName.getAttribute (&quot;encodingID&quot;)).intValue ();
+      e.languageID = Integer.decode (oneName.getAttribute (&quot;languageID&quot;)).intValue ();
+      e.nameID = Integer.decode (oneName.getAttribute (&quot;nameID&quot;)).intValue ();
+
+      String charset = getCharset (e.platformID, e.encodingID);
+
+      try {
+        e.s = oneName.getAttribute (&quot;v&quot;).getBytes (charset); }
+
+      catch (java.io.UnsupportedEncodingException ex) {
+        System.err.println (&quot;cannot convert name entry '&quot;
+                            + oneName.getAttribute (&quot;v&quot;) + &quot;' to charset '&quot;
+                            + charset + &quot;'&quot;);
+        e.s = new byte[] {}; }
+
+      entries.add (e); }
+
+    dataReady = false;
+    expandedReady = true;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="name.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, UnsupportedFontException {
+
+    AttributesImpl at;
+
+    at = new AttributesImpl ();
+    conf.ch.startElement (&quot;name&quot;, at); {
+      int stringOffset = getuint16 (4);
+      for (int i = 0; i &lt; getuint16 (2); i++) {
+        int platformID = getuint16 (6 + 12*i);
+        int encodingID = getuint16 (6 + 12*i + 2);
+        int languageID = getuint16 (6 + 12*i + 4);
+        int nameID     = getuint16 (6 + 12*i + 6);
+        int length     = getuint16 (6 + 12*i + 8);
+        int offset     = getuint16 (6 + 12*i + 10);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;platformID&quot;, &quot;platformID&quot;, &quot;CDATA&quot;,
+	                 &quot;&quot; + platformID);
+        at.addAttribute (&quot;&quot;, &quot;encodingID&quot;, &quot;encodingID&quot;, &quot;CDATA&quot;,
+	                 &quot;&quot; + encodingID);
+        at.addAttribute (&quot;&quot;, &quot;languageID&quot;, &quot;languageID&quot;, &quot;CDATA&quot;,
+	                 &quot;&quot; + languageID);
+        at.addAttribute (&quot;&quot;, &quot;nameID&quot;, &quot;nameID&quot;, &quot;CDATA&quot;,
+	                 &quot;&quot; + nameID);
+
+        String charset = getCharset (platformID, encodingID);
+	if (charset == null) {
+          throw new UnsupportedFontException (&quot;name: unsupported encoding (&quot;
+                                + platformID + &quot;/&quot; + encodingID + &quot;)&quot;); }
+
+        try {
+          String v = new String (data, stringOffset + offset, length, charset);
+          at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, v); }
+        catch (java.io.UnsupportedEncodingException e) {
+          throw new UnsupportedFontException (&quot;name: unsupported encoding (&quot;
+                                + platformID + &quot;/&quot; + encodingID + &quot;)&quot;); }
+
+        conf.ch.element (&quot;name-record&quot;, at); }
+      conf.ch.endElement (&quot;name&quot;); }
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="implementation">
+        <title>Implementation</title>
+
+<code-fragment package="com.adobe.aots.CommonType" class="Name">
+  <code-title>Name class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Name extends Table {
+
+  public Name () {
+    super (Tag.name, null);
+  }
+
+  public Name (Font font) {
+    super (Tag.name, font);
+  }
+
+  private boolean dataReady = false;
+  private boolean expandedReady = false;
+
+  public class Entry {
+    public int platformID;
+    public int encodingID;
+    public int languageID;
+    public int nameID;
+    public byte[] s; }
+
+  public java.util.ArrayList &lt;Entry&gt; entries = null;
+
+  public int fromBinary (java.io.InputStream in, int length)
+      throws java.io.IOException, InvalidFontException {
+    super.fromBinary (in, length);
+    dataReady = true;
+    expandedReady = false;
+    return length;
+  }
+
+  public byte[] toBinary () {
+    makeDataReady ();
+    return data;
+  }
+
+  public void makeDataReady () {
+    if (dataReady) {
+      return; }
+
+    int nbRecords = entries.size ();
+    int storageSize = 0;
+    for (int i = 0; i &lt; nbRecords; i++) {
+      storageSize += entries.get (i).s.length; }
+
+    Block b = new Block (6 + 12 * nbRecords + storageSize, 0);
+    b.setuint16 (0, 0);
+    b.setuint16 (2, nbRecords);
+    b.setuint16 (4, 6 + 12 * nbRecords);
+
+    int offset = 6;
+    int storageOffset = 0;
+    for (int i = 0; i &lt; nbRecords; i++) {
+      Entry e = entries.get (i);
+      b.setuint16 (offset, e.platformID);
+      b.setuint16 (offset + 2, e.encodingID);
+      b.setuint16 (offset + 4, e.languageID);
+      b.setuint16 (offset + 6, e.nameID);
+      b.setuint16 (offset + 8, e.s.length);
+      b.setuint16 (offset + 10, storageOffset);
+      offset += 12;
+      storageOffset += e.s.length; }
+
+    for (int i = 0; i &lt; nbRecords; i++) {
+      Entry e = entries.get (i);
+      for (int j = 0; j &lt; e.s.length; j++) {
+        b.setuint8 (offset++, e.s[j]); }}
+
+    data = b.serialize ();
+    dataReady = true;
+  }
+
+  public void makeExpandedReady () {
+  }
+
+
+
+
+  public String getCharset (int platformID, int encodingID) {
+         if (platformID == 3 &amp;&amp; encodingID ==  1) { return &quot;UTF-16BE&quot;; }
+    else if (platformID == 3 &amp;&amp; encodingID ==  0) { return &quot;UTF-16BE&quot;; }
+    else if (platformID == 3 &amp;&amp; encodingID == 10) { return &quot;UTF-16BE&quot;; }
+    else if (platformID == 1 &amp;&amp; encodingID ==  0) { return &quot;MacRoman&quot;; }
+    else if (platformID == 1 &amp;&amp; encodingID ==  1) { return &quot;Shift_JIS&quot;; }
+    else if (platformID == 1 )                            { return &quot;MacRoman&quot;; }
+    else if (platformID == 0)                             { return &quot;UTF-16BE&quot;; }
+    else {                                                  return null; }
+  }
+
+  public String getName (int languageID, int nameID) {
+
+    try {
+      return getName (3, 1, languageID, nameID); }
+    catch (java.io.UnsupportedEncodingException e) {
+      // 3, 1 -&gt; UTF-16BE, which must be supported
+      return null; }
+  }
+
+  public String getName (int platformID, int encodingID,
+                         int languageID, int nameID)
+      throws java.io.UnsupportedEncodingException {
+    String charset = getCharset (platformID, encodingID);
+
+    if (charset == null) {
+      throw new java.io.UnsupportedEncodingException (); }
+
+    int nameRecordsNumber = getuint16 (2);
+    int stringStorageOffset = getuint16 (4);
+
+    for (int i = 0; i &lt; nameRecordsNumber; i++) {
+       if (   getuint16 (6 + 12*i + 0) == platformID
+           &amp;&amp; getuint16 (6 + 12*i + 2) == encodingID
+           &amp;&amp; (   -1 == languageID
+                       || getuint16 (6 + 12*i + 4) == languageID)
+           &amp;&amp; getuint16 (6 + 12*i + 6) == nameID) {
+         int stringLength = getuint16 (6 + 12*i + 8);
+         int stringOffset = stringStorageOffset + getuint16 (6 + 12*i + 10);
+
+         return new String (data, stringOffset, stringLength, charset); }}
+
+    return null;
+  }
+
+
+
+  public class Representation {
+    public int platformID;
+    public int encodingID;
+    public int languageID;
+
+    public Representation (int platformID, int encodingID, int languageID) {
+      this.platformID = platformID;
+      this.encodingID = encodingID;
+      this.languageID = languageID;
+    }
+  }
+
+  public Representation[] getRepresentations (int nameID) {
+   int nameRecordsNumber = getuint16 (2);
+
+   int reps = 0;
+   for (int i = 0; i &lt; nameRecordsNumber; i++) {
+      if (getuint16 (6 + 12*i + 6) == nameID) {
+        reps++; }}
+
+   Representation[] r = new Representation [reps];
+   reps = 0;
+
+   for (int i = 0; i &lt; nameRecordsNumber; i++) {
+      if (getuint16 (6 + 12*i + 6) == nameID) {
+        r [reps++] = new Representation (getuint16 (6 + 12*i + 0),
+                                         getuint16 (6 + 12*i + 2),
+                                         getuint16 (6 + 12*i + 4)); }}
+
+   return r;
+  }
+
+  public boolean checkOrder () {
+    int nameRecordsNumber = getuint16 (2);
+
+    int platformID = -1;
+    int encodingID = -1;
+    int languageID = -1;
+    int nameID = -1;
+
+    for (int i = 0; i &lt; nameRecordsNumber; i++) {
+      int k;
+      k = getuint16 (6 + 12*i + 0);
+      if (k &gt; platformID) {
+        platformID = getuint16 (6 + 12*i + 0);
+        encodingID = getuint16 (6 + 12*i + 2);
+        languageID = getuint16 (6 + 12*i + 4);
+        nameID     = getuint16 (6 + 12*i + 6); }
+      else if (k &lt; platformID) {
+        // System.out.println (&quot;-- platformID &quot; + k);
+        return false; }
+      else {
+        k = getuint16 (6 + 12*i + 2);
+        if (k &gt; encodingID) {
+          encodingID = getuint16 (6 + 12*i + 2);
+          languageID = getuint16 (6 + 12*i + 4);
+          nameID     = getuint16 (6 + 12*i + 6); }
+        else if (k &lt; encodingID) {
+          // System.out.println (&quot;-- encodingID &quot; + platformID + &quot; &quot; + k);
+          return false; }
+        else {
+          k = getuint16 (6 + 12*i + 4);
+          if (k &gt; languageID) {
+            languageID = getuint16 (6 + 12*i + 4);
+            nameID     = getuint16 (6 + 12*i + 6); }
+          else if (k &lt; languageID) {
+            //System.out.println (&quot;-- languageID &quot; + platformID + &quot; &quot; + encodingID + &quot; &quot; + k);
+            return false; }
+          else {
+            k = getuint16 (6 + 12*i + 6);
+            if (k &gt; nameID) {
+              nameID = getuint16 (6 + 12*i + 6); }
+            else {
+              // System.out.println (&quot;-- nameID &quot; + platformID + &quot; &quot; + encodingID + &quot; &quot; + languageID + &quot;  &quot; + k);
+              return false; }}}}}
+
+    return true;
+  }
+
+  <code-include linkend="name.methods"/>
+}
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="test-suite">
+        <title>Test Suite</title>
+
+        <para>The following piece of code creates a very basic name
+        table. We use it for our test fonts.</para>
+
+<code-fragment package="com.adobe.aots.CommonType" class="NameBuilder">
+  <code-title>NameBuilder class</code-title>
+  package com.adobe.aots.CommonType;
+
+  public class NameBuilder {
+    private static void writeUSHORT (int n)
+        throws java.io.IOException {
+      byte[] data = new byte[2];
+      data [1] =  (byte)( n       &amp; 0xff);
+      data [0] =  (byte)((n &gt;&gt; 8) &amp; 0xff);
+      System.out.write (data);
+    }
+
+    private static String storage = &quot;&quot;;
+
+
+    private static void writeNameRecord (int nameID, String s)
+        throws java.io.IOException {
+      writeUSHORT (3);
+      writeUSHORT (1);
+      writeUSHORT (1033);
+      writeUSHORT (nameID);
+      writeUSHORT (s.length () * 2);
+      writeUSHORT (storage.length () * 2);
+      storage = storage + s;
+    }
+
+    public static void main (String[] args) {
+      try {
+        int entries = 6;
+        writeUSHORT (0);
+        writeUSHORT (entries);
+        writeUSHORT (6 + 12*entries);
+
+        writeNameRecord (1, args[0]);
+        writeNameRecord (2, &quot;Regular&quot;);
+        writeNameRecord (3, args[0]);
+        writeNameRecord (4, args[0] + &quot;-Regular&quot;);
+        writeNameRecord (5, &quot;Version 1.00&quot;);
+        writeNameRecord (6, args[0] + &quot;-Regular&quot;);
+
+        for (int i = 0; i &lt; storage.length(); i++) {
+          writeUSHORT (storage.charAt (i)); }}
+
+      catch (Exception e) {
+       System.out.println (&quot;Exception: &quot; + e.getMessage ());
+       e.printStackTrace (); }
+    }
+  }
+</code-fragment>
+
+      </section>
+    </section>
+  </section>

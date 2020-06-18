@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<article xmlns:web="http://aots.adobe.com/2001/web" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:ots="http://aots.adobe.com/2001/ots" xmlns:aots="http://aots.adobe.com/2001/aots" xmlns="">
+    <title>The CommonType Standard</title>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.about/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.overview/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.font_file/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.CommonType_tables/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.cmap/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.head/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.hhea/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.hmtx/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.maxp/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.name/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.OS2/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.IBM/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.post/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.cvt/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.fpgm/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.glyf/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.loca/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.prep/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.CFF/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.advanced/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.common_tables/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.BASE/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.GDEF/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.GPOS/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.GSUB/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.JSTF/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.EBDT/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.EBLC/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.EBSC/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.DSIG/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.gasp/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.hdmx/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.kern/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.LTSH/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.PCLT/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.VDMX/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.vhea/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.vmtx/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.VORG/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.recommendations/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.tags_registry/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.proposed_features/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.ttfundamentals/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.ttinst/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.wgl4/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.changes/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.discussion_forum/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <!--************************************************************************-->
+  <xi:include href="chapter.misc/index.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</article>

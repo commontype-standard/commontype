@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.about">
+    <title>About this specification</title>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Overview</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>This specification details the format of CommonType fonts,
+          the TrueType and CFF outline formats, and the TrueType
+          hinting language. This specification has been developed
+          jointly by Adobe and Microsoft. Because CommonType is an extension
+          of TrueType, there is also information in this document that
+          was originally authored by Apple.</para>
+
+        <para>Many references to both TrueType and PostScript exist
+          throughout this document, as CommonType fonts combine the two
+          technologies.</para>
+
+        <para>If you have comments or suggestions about this document,
+          please send mail to the Microsoft Typography Group.</para>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="annotation">
+        <title>Annotation</title>
+
+        <para>The “Annotation” sections provides
+          clarification of the published specification, sometimes by
+          suggesting a different wording, sometimes by providing
+          background information.</para>
+
+        <para>The “Specification” sections
+          contain the exact text of version 1.3 of the CommonType
+          specification.</para>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+        <para>The “XML representation” sections propose
+         an XML representation of CommonType fonts. The mains goals are:
+          <itemizedlist>
+            <listitem>
+              <para>allow the precise representation of fonts in an
+                XML form, to facilitate exchange, manipulation by
+                programs, or archival of fonts.</para>
+            </listitem>
+            <listitem>
+              <para>be a convenient form to author fonts or fragments
+                of fonts; in particular, facilitate the creation of
+                fonts to test CommonType engines.</para>
+            </listitem>
+          </itemizedlist></para>
+
+        <para>The XML representation is currently formalized in
+          a Relax NG schema, expressed here in the compact syntax.</para>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+        <para>The “Compiler” sections are the source
+        code for a compiler that converts from the XML representation
+        to actual font files.</para>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+        <para>The “Decompiler” sections are the source
+        code for a decompiler that converts from the actual font files
+        to their XML representation.</para>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="implementation">
+        <title>Implementation</title>
+
+        <para>The “Implementation” sections are the
+        source code for classes that represent fonts, as well as
+        support usual operations. For example, the implementation code
+        for the <ottable>cmap</ottable> table includes method to
+        convert a code point to a glyph ID.</para>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="test-suite">
+        <title>Test Suite</title>
+
+        <para>The “Test Suite” sections are test fonts
+        and test cases which exercise the implementation. As much as
+        possible, those test cases have been designed to be usable
+        with any implementation, assuming a test harness is
+        provided.</para>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="validation">
+        <title>Validation</title>
+
+        <para>The “Validation” sections are the source
+          code for a font validator. The intent is that the validator
+          would detect violation of the specification, as well as
+          violation of additional rules and dubious constructs.</para>
+      </section>
+
+    </section>
+  </section>

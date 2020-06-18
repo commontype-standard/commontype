@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.CommonType_tables">
+    <title>CommonType Tables</title>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>CommonType Tables</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Whether TrueType or PostScript outlines are used in an
+        CommonType font, the following tables are required for the font
+        to function correctly:</para>
+
+        <table>
+          <title>Required Tables</title>
+          <tgroup cols="2">
+            <colspec colwidth="6pc"/>
+            <colspec colwidth="24pc"/>
+            <thead>
+              <row>
+                <entry>Tag</entry>
+                <entry>Name</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry><ottable>cmap</ottable></entry>
+                <entry>Character to glyph mapping</entry>
+              </row>
+              <row>
+                <entry><ottable>head</ottable></entry>
+                <entry>Font header</entry>
+              </row>
+              <row>
+                <entry><ottable>hhea</ottable></entry>
+                <entry>Horizontal header</entry>
+              </row>
+              <row>
+                <entry><ottable>hmtx</ottable></entry>
+                <entry>Horizontal metrics</entry>
+              </row>
+              <row>
+                <entry><ottable>maxp</ottable></entry>
+                <entry>Maximum profile</entry>
+              </row>
+              <row>
+                <entry><ottable>name</ottable></entry>
+                <entry>Naming table</entry>
+              </row>
+              <row>
+                <entry><ottable>OS/2</ottable></entry>
+                <entry>OS/2 and Windows specific metrics</entry>
+              </row>
+              <row>
+                <entry><ottable>post</ottable></entry>
+                <entry>PostScript information</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <para>For CommonType fonts based on TrueType outlines, the
+        following tables are used:</para>
+
+
+        <table>
+          <title>Tables Related to TrueType Outlines</title>
+          <tgroup cols="2">
+            <colspec colwidth="6pc"/>
+            <colspec colwidth="24pc"/>
+            <thead>
+              <row>
+                <entry>Tag</entry>
+                <entry>Name</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry><ottable>cvt</ottable></entry>
+                <entry>Control Value Table</entry>
+              </row>
+              <row>
+                <entry><ottable>fpgm</ottable></entry>
+                <entry>Font program</entry>
+              </row>
+              <row>
+                <entry><ottable>glyf</ottable></entry>
+                <entry>Glyph data</entry>
+              </row>
+              <row>
+                <entry><ottable>loca</ottable></entry>
+                <entry>Index to location</entry>
+              </row>
+              <row>
+                <entry><ottable>prep</ottable></entry>
+                <entry>CVT Program</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+
+        <para>The PostScript font extensions define a new set of
+        tables containing data specific to PostScript fonts that are
+        used instead of the tables listed above.</para>
+
+
+        <table>
+          <title>Tables Related to PostScript Outlines</title>
+          <tgroup cols="2">
+            <colspec colwidth="6pc"/>
+            <colspec colwidth="24pc"/>
+            <thead>
+              <row>
+                <entry>Tag</entry>
+                <entry>Name</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry><ottable>CFF</ottable></entry>
+                <entry>PostScript font program (compact font format)</entry>
+              </row>
+              <row>
+                <entry><ottable>VORG</ottable></entry>
+                <entry>Vertical Origin</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+
+
+
+        <para>Multiple Master support in CommonType, has been
+          discontinued as of version 1.3 of the specification. The
+          'fvar', 'MMSD', 'MMFX' tables have hence been
+          removed.</para>
+
+
+        <para>There are also several optional tables that support
+        vertical layout as well as other advanced typographic
+        functions:</para>
+
+        <table>
+          <title>Advanced Typographic Tables</title>
+          <tgroup cols="2">
+            <colspec colwidth="6pc"/>
+            <colspec colwidth="24pc"/>
+            <thead>
+              <row>
+                <entry>Tag</entry>
+                <entry>Name</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry><ottable>BASE</ottable></entry>
+                <entry>Baseline data</entry>
+              </row>
+              <row>
+                <entry><ottable>GDEF</ottable></entry>
+                <entry> Glyph definition data</entry>
+              </row>
+              <row>
+                <entry><ottable>GPOS</ottable></entry>
+                <entry> Glyph positioning data</entry>
+              </row>
+              <row>
+                <entry><ottable>GSUB</ottable></entry>
+                <entry> Glyph substitution data</entry>
+              </row>
+              <row>
+                <entry><ottable>JSTF</ottable></entry>
+                <entry> Justification data</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <para>For information on common table formats, please see
+          <link linkend="common_tables">CommonType Layout Common Table
+            Formats</link>.</para>
+
+        <para>CommonType fonts may also contain bitmaps of glyphs, in
+          addition to outlines. Hand-tuned bitmaps are especially
+          useful in CommonType fonts for representing complex glyphs at
+          very small sizes. If a bitmap for a particular size is
+          provided in a font, it will be used by the system instead of
+          the outline when rendering the glyph. (Note: ATM does not
+          currently support hinted bitmaps in CommonType fonts.)</para>
+
+        <table>
+          <title>Tables Related to Bitmap Glyphs</title>
+          <tgroup cols="2">
+            <colspec colwidth="6pc"/>
+            <colspec colwidth="24pc"/>
+            <thead>
+              <row>
+                <entry>Tag</entry>
+                <entry>Name</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry><ottable>EBDT</ottable></entry>
+                <entry>Embedded bitmap data</entry>
+              </row>
+              <row>
+                <entry><ottable>EBLC</ottable></entry>
+                <entry>Embedded bitmap location data</entry>
+              </row>
+              <row>
+                <entry><ottable>EBSC</ottable></entry>
+                <entry>Embedded bitmap scaling data</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+
+        <table>
+          <title>Other CommonType Tables</title>
+
+          <tgroup cols="2">
+            <colspec colwidth="6pc"/>
+            <colspec colwidth="24pc"/>
+            <thead>
+              <row>
+                <entry>Tag</entry>
+                <entry>Name</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry><ottable>DSIG</ottable></entry>
+                <entry>Digital signature</entry>
+              </row>
+              <row>
+                <entry><ottable>gasp</ottable></entry>
+                <entry>Grid-fitting/Scan-conversion</entry>
+              </row>
+              <row>
+                <entry><ottable>hdmx</ottable></entry>
+                <entry>Horizontal device metrics</entry>
+              </row>
+              <row>
+                <entry><ottable>kern</ottable></entry>
+                <entry>Kerning</entry>
+              </row>
+              <row>
+                <entry><ottable>LTSH</ottable></entry>
+                <entry>Linear threshold data</entry>
+              </row>
+              <row>
+                <entry><ottable>PCLT</ottable></entry>
+                <entry>PCL 5 data</entry>
+              </row>
+              <row>
+                <entry><ottable>VDMX</ottable></entry>
+                <entry>Vertical device metrics</entry>
+              </row>
+              <row>
+                <entry><ottable>vhea</ottable></entry>
+                <entry>Vertical Metrics header</entry>
+              </row>
+              <row>
+                <entry><ottable>vmtx</ottable></entry>
+                <entry>Vertical Metrics</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="annotation">
+        <title>Annotation</title>
+
+        <para>The sentence that introduces the tables related to
+        PostScript outlines should probably be better phrased: &quot;For
+        CommonType fonts based on PostScript outlines, the following
+        tables are used:&quot; It parallels the sentence for TT outlines.</para>
+
+        <para>The sentence that points to the &quot;CommonType Layout Common
+        Table Formats&quot; should probably be moved to the paragraph that
+        introduces the Advanced Typographic Tables. Currently, it is
+        between the paragraph that introduces bitmap related tables
+        and the list of those tables.</para>
+
+      </section>
+    </section>
+  </section>

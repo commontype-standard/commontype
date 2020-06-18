@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.maxp">
+    <title>maxp - Maximum Profile</title>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Introduction</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>This table establishes the memory requirements for this
+          font. Fonts with CFF data must use Version 0.5 of this
+          table, specifying only the numGlyphs field. Fonts with
+          TrueType outlines must use Version 1.0 of this table, where
+          all data is required. Both formats of CommonType require a
+          <ottable>maxp</ottable> table because a number of
+          applications call the Windows GetFontData( ) API on the
+          <ottable>maxp</ottable> table to determine the number of
+          glyphs in the font.</para>
+
+        <otformat>
+          <title>Version 0.5</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Fixed</otfieldtype>
+            <otfieldname>Table</otfieldname>
+            <otfielddesc>version number 0x00005000 for version 0.5
+              (Note the difference in the representation of a non-zero
+              fractional part, in Fixed numbers.) </otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>numGlyphs</otfieldname>
+            <otfielddesc>The number of glyphs in the
+              font.</otfielddesc>
+          </otfield>
+        </otformat>
+
+
+        <otformat>
+          <title>Version 1.0</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Fixed</otfieldtype>
+            <otfieldname>Table</otfieldname>
+            <otfielddesc>version number 0x00010000 for version
+              1.0.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>numGlyphs</otfieldname>
+            <otfielddesc>The number of glyphs in the
+              font.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxPoints</otfieldname>
+            <otfielddesc>Maximum points in a non-composite
+              glyph.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>8</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxContours</otfieldname>
+            <otfielddesc>Maximum contours in a non-composite
+              glyph.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>10</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxCompositePoints</otfieldname>
+            <otfielddesc>Maximum points in a composite
+              glyph.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>12</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxCompositeContours</otfieldname>
+            <otfielddesc>Maximum contours in a composite
+              glyph.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>14</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxZones</otfieldname>
+            <otfielddesc>1 if instructions do not use the twilight
+              zone (Z0), or 2 if instructions do use Z0; should be set
+              to 2 in most cases.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>16</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxTwilightPoints</otfieldname>
+            <otfielddesc>Maximum points used in Z0.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>18</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxStorage</otfieldname>
+            <otfielddesc>Number of Storage Area locations.
+            </otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>20</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxFunctionDefs</otfieldname>
+            <otfielddesc>Number of FDEFs.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>22</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxInstructionDefs</otfieldname>
+            <otfielddesc>Number of IDEFs.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>24</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxStackElements</otfieldname>
+            <otfielddesc>Maximum stack depth<footnote>
+                <para>This includes Font and CVT Programs, as well as
+                  the instructions for each glyph.</para>
+                  </footnote>.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>26</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxSizeOfInstructions</otfieldname>
+            <otfielddesc>Maximum byte count for glyph
+              instructions.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>28</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxComponentElements</otfieldname>
+            <otfielddesc>Maximum number of components referenced at
+              &quot;top level&quot; for any composite glyph.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>30</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>maxComponentDepth</otfieldname>
+            <otfielddesc>Maximum levels of recursion; 1 for simple
+              components.</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>??</code-title>
+maxp |=
+  element maxp {
+    attribute major { &quot;0&quot; },
+    attribute minor { &quot;5&quot; },
+    element numGlyphs {
+      attribute v { text }
+    }
+  }
+maxp |=
+  element maxp {
+    attribute major { &quot;1&quot; },
+    attribute minor { &quot;0&quot; },
+    element numGlyphs {
+      attribute v { text }
+    },
+    element maxPoints {
+      attribute v { text }
+    },
+    element maxContours {
+      attribute v { text }
+    },
+    element maxCompositePoints {
+      attribute v { text }
+    },
+    element maxCompositeContours {
+      attribute v { text }
+    },
+    element maxZones {
+      attribute v { text }
+    },
+    element maxTwilightPoints {
+      attribute v { text }
+    },
+    element maxStorage {
+      attribute v { text }
+    },
+    element maxFunctionDefs {
+      attribute v { text }
+    },
+    element maxInstructionDefs {
+      attribute v { text }
+    },
+    element maxStackElements {
+      attribute v { text }
+    },
+    element maxSizeOfInstructions {
+      attribute v { text }
+    },
+    element maxComponentElements {
+      attribute v { text }
+    },
+    element maxComponentDepth {
+      attribute v { text }
+    }
+  }
+</code-fragment>
+      </section>
+
+      <!--________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="maxp.methods">
+  public void fromXML (Element maxp)
+    throws InvalidFontException, UnsupportedFontException {
+
+    int major = Integer.decode (maxp.getAttribute (&quot;major&quot;)).intValue ();
+    int minor = Integer.decode (maxp.getAttribute (&quot;minor&quot;)).intValue ();
+    Block me;
+
+    if (major == 0 &amp;&amp; minor == 5) {
+      me = new Block (6, 0);
+      me.setFixed (0, 0, 0x5000); }
+    else if (major == 1 &amp;&amp; minor == 0) {
+      me = new Block (32, 0);
+      me.setFixed (0, 1, 0); }
+    else {
+      throw new InvalidFontException
+                   (&quot;invalid maxp version (&quot; + major + &quot;.&quot; + minor + &quot;)&quot;); }
+
+
+    NodeList children = maxp.getChildNodes ();
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element e = (Element) children.item (i);
+
+      if (&quot;numGlyphs&quot;.equals (e.getTagName ())) {
+        me.setuint16(4, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxPoints&quot;.equals (e.getTagName ())) {
+        me.setuint16(6, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxContours&quot;.equals (e.getTagName ())) {
+        me.setuint16(8, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxCompositePoints&quot;.equals (e.getTagName ())) {
+        me.setuint16(10, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxCompositeContours&quot;.equals (e.getTagName ())) {
+        me.setuint16(12, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxZones&quot;.equals (e.getTagName ())) {
+        me.setuint16(14, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxTwilightPoints&quot;.equals (e.getTagName ())) {
+        me.setuint16(16, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxStorage&quot;.equals (e.getTagName ())) {
+        me.setuint16(18, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxFunctionDefs&quot;.equals (e.getTagName ())) {
+        me.setuint16(20, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxInstructionDefs&quot;.equals (e.getTagName ())) {
+        me.setuint16(22, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxStackElements&quot;.equals (e.getTagName ())) {
+        me.setuint16(24, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxSizeOfInstructions&quot;.equals (e.getTagName ())) {
+        me.setuint16(26, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxComponentElements&quot;.equals (e.getTagName ())) {
+        me.setuint16(28, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }
+
+      if (&quot;maxComponentDepth&quot;.equals (e.getTagName ())) {
+        me.setuint16(30, Integer.decode (e.getAttribute (&quot;v&quot;)).intValue()); }}
+
+    data = me.serialize ();
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="maxp.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    int [] version = getFixed (0);
+    if (! (   (version [0] == 0 &amp;&amp; version [1] == 0x5000)
+           || (version [0] == 1 &amp;&amp; version [1] == 0))) {
+      throw new InvalidFontException (&quot;unsupported maxp table version (&quot;
+                                      + version [0] + &quot;.&quot; + version [1]
+                                      + &quot;) for decompilation&quot;); }
+
+    AttributesImpl at;
+    at = new AttributesImpl ();
+    at.addAttribute (&quot;&quot;, &quot;major&quot;, &quot;major&quot;, &quot;CDATA&quot;, &quot;&quot; + version [0]);
+    at.addAttribute (&quot;&quot;, &quot;minor&quot;, &quot;minor&quot;, &quot;CDATA&quot;,
+                     version [1] == 0x5000 ? &quot;5&quot; : &quot;0&quot;);
+    conf.ch.startElement (&quot;maxp&quot;, at); {
+
+      at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (4));
+      conf.ch.element (&quot;numGlyphs&quot;, at);
+
+      if (version [0] == 1 &amp;&amp; version [1] == 0) {
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (6));
+	conf.ch.element (&quot;maxPoints&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (8));
+        conf.ch.element (&quot;maxContours&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (10));
+        conf.ch.element (&quot;maxCompositePoints&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (12));
+        conf.ch.element (&quot;maxCompositeContours&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (14));
+        conf.ch.element (&quot;maxZones&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (16));
+        conf.ch.element (&quot;maxTwilightPoints&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (18));
+        conf.ch.element (&quot;maxStorage&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (20));
+        conf.ch.element (&quot;maxFunctionDefs&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (22));
+        conf.ch.element (&quot;maxInstructionDefs&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (24));
+        conf.ch.element (&quot;maxStackElements&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (26));
+        conf.ch.element (&quot;maxSizeOfInstructions&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (28));
+        conf.ch.element (&quot;maxComponentElements&quot;, at);
+
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (30));
+        conf.ch.element (&quot;maxComponentDepth&quot;, at); }
+
+      conf.ch.endElement (&quot;maxp&quot;); }
+  }
+</code-fragment>
+      </section>
+
+      <!--________________________________________________________________-->
+      <section role="implementation">
+        <title>Implementation</title>
+
+<code-fragment package="com.adobe.aots.CommonType" class="Maxp">
+  <code-title>Maxp class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Maxp extends Table {
+
+  public Maxp () {
+    super (Tag.maxp, null);
+  }
+
+  public Maxp (Font font) {
+    super (Tag.maxp, font);
+  }
+
+  public int getNumGlyphs () {
+    return getuint16 (4);
+  }
+
+  public void setNumGlyphs (int n) {
+    setuint16 (4, n);
+  }
+
+  public int getMaxPoints () {
+    return getuint16 (6);
+  }
+
+  public void setMaxPoints (int n) {
+    setuint16 (6, n);
+  }
+
+  public int getMaxContours () {
+    return getuint16 (8);
+  }
+
+  public void setMaxContours (int n) {
+    setuint16 (8, n);
+  }
+
+  public int getMaxCompositePoints () {
+    return getuint16 (10);
+  }
+
+  public void setMaxCompositePoints (int n) {
+    setuint16 (10, n);
+  }
+
+  public int getMaxCompositeContours () {
+    return getuint16 (12);
+  }
+
+  public void setMaxCompositeContours (int n) {
+    setuint16 (12, n);
+  }
+
+  public int getMaxZones () {
+    return getuint16 (14);
+  }
+
+  public void setMaxZones (int n) {
+    setuint16 (14, n);
+  }
+
+  public int getMaxComponentElements () {
+    return getuint16 (28);
+  }
+
+  public void setMaxComponentElements (int n) {
+    setuint16 (28, n);
+  }
+
+  public int getMaxComponentDepth () {
+    return getuint16 (30);
+  }
+
+  public void setMaxComponentDepth (int n) {
+    setuint16 (30, n);
+  }
+
+  public void fixValuesDerivedFromGlyf () {
+    if (font.glyf != null) {
+      int maxPoints = 0;
+      int maxCompositePoints = 0;
+      int maxContours = 0;
+      int maxCompositeContours = 0;
+      int maxComponentElements = 0;
+      int maxComponentDepth = 0;
+
+      for (int gid = 0; gid &lt; getNumGlyphs (); gid++) {
+        Glyf.MaxpValues values = font.glyf.getMaxpValues (gid);
+
+        maxPoints = Math.max (maxPoints, values.numPoints);
+        maxCompositePoints = Math.max (maxCompositePoints,
+                                       values.numCompositePoints);
+        maxContours = Math.max (maxContours, values.numContours);
+        maxCompositeContours = Math.max (maxCompositeContours,
+                                         values.numCompositeContours);
+
+        maxComponentElements = Math.max (maxComponentElements,
+                                         values.numComponentElements);
+        maxComponentDepth = Math.max (maxComponentDepth, values.componentDepth); }
+
+      setMaxPoints  (maxPoints);
+      setMaxContours (maxContours);
+      setMaxCompositePoints  (maxCompositePoints);
+      setMaxCompositeContours (maxCompositeContours);
+      setMaxComponentElements (maxComponentElements);
+      setMaxComponentDepth (Math.min (1, maxComponentDepth)); }
+  }
+
+  <code-include linkend="maxp.methods"/>
+}
+</code-fragment>
+      </section>
+    </section>
+  </section>

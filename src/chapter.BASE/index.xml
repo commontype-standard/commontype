@@ -1,0 +1,3627 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.BASE" >
+    <title>BASE - Baseline Table</title>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Overview</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The Baseline table (<ottable>BASE</ottable>) provides
+          information used to align glyphs of different scripts and
+          sizes in a line of text, whether the glyphs are in the same
+          font or in different fonts. To improve text layout, the
+          Baseline table also provides minimum (min) and maximum (max)
+          glyph extent values for each script, language system, or
+          feature in a font.</para>
+
+        <para>Lines of text composed with glyphs of different scripts
+          and point sizes need adjustment to correct interline spacing
+          and alignment. For example, glyphs designed to be the same
+          point size often differ in height and depth from one font to
+          another (see figure 5a). This variation can produce
+          interline spacing that looks too large or too small, and
+          diacritical marks, math symbols, subscripts, and
+          superscripts may be clipped.</para>
+
+        <figure>
+          <title>Figure 5a. Incorrect alignment of glyphs from Latin
+            and Kanji (Latin dominant)</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="../../fig5a.gif"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>In addition, different baselines can cause text lines to
+          waver visually as glyphs from different scripts are placed
+          next to one another. For example, ideographic scripts
+          position all glyphs on a low baseline. With Latin scripts,
+          however, the baseline is higher, and some glyphs descend
+          below it. Finally, several Indic scripts use a high &quot;hanging
+          baseline&quot; to align the tops of the glyphs.</para>
+
+        <para>To solve these composition problems, the
+          <ottable>BASE</ottable> table recommends baseline positions
+          and min/max extents for each script (see figure 5b). Script
+          min/max extents can be modified for particular language
+          systems or features.</para>
+
+
+        <figure>
+          <title>Figure 5b. Proper alignment of glyphs from Latin and
+            Kanji (Latin dominant)</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="../../fig5b.gif"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Baseline Values</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The <ottable>BASE</ottable> table uses a model that
+          assumes one script at one size is the &quot;dominant run&quot; during
+          text processing-that is, all other baselines are defined in
+          relation to this the dominant run.</para>
+
+        <para>For example, Latin glyphs and the ideographic Kanji
+          glyphs have different baselines. If a Latin script of a
+          particular size is specified as the dominant run, then all
+          Latin glyphs of all sizes will be aligned on the roman
+          baseline, and all Kanji glyphs will be aligned on the lower
+          ideographic baseline defined for use with Latin text. As a
+          result, all glyphs will look aligned within each line of
+          text.</para>
+
+        <para>The <ottable>BASE</ottable> table supplies recommended
+          baseline positions; a client can specify others. For
+          instance, the client may want to assign baseline positions
+          different from those in the font.</para>
+
+        <figure>
+          <title>Figure 5c. Comparing Latin and Kanji baselines, with
+            characters aligned according to the dominant run</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="../../fig5c.gif"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Min/Max Extent Values</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The <ottable>BASE</ottable> table gives clients the
+          option of using script, language system, or feature-specific
+          extent values to improve composition (see figure 5c). For
+          example, suppose a font contains glyphs in Latin and Arabic
+          scripts, and the min/max extents defined for the Arabic
+          script are larger than the Latin extents. The font also
+          supports Urdu, a language system that includes specific
+          variants of the Arabic glyphs, and some Urdu variants
+          require larger min/max extents than the default Arabic
+          extents. To accommodate the Urdu glyphs, the
+          <ottable>BASE</ottable> table can define language-specific
+          min/max extent values that will override the default Arabic
+          extents-but only when rendering Urdu glyphs.</para>
+
+        <para>The <ottable>BASE</ottable> table also can define
+          feature-specific min/max values that apply only when a
+          particular feature is enabled.  Suppose that the font
+          described earlier also supports the Farsi language system,
+          which has one feature that requires a minor alteration of
+          the Arabic script extents to display properly. The
+          <ottable>BASE</ottable> table can specify these extent
+          values and apply them only when that feature is enabled in
+          the Farsi language.</para>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Table Organization</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The <ottable>BASE</ottable> table begins with offsets to
+          Axis tables that describe layout data for the horizontal and
+          vertical layout directions of text. A font can provide
+          layout data for both text directions or for only one text
+          direction:</para>
+
+        <itemizedlist>
+          <listitem>
+           <para>The Horizontal Axis table (HorizAxis) defines
+              information used to lay out text horizontally. All
+              baseline and min/max values refer to the Y
+              direction.</para>
+          </listitem>
+          <listitem>
+            <para>The Vertical Axis table (VertAxis) defines
+              information used to lay out text vertically. All
+              baseline and min/max values refer to the X
+              direction.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>Note: The same baseline tags can be used for both
+          horizontal and vertical axes. For example, the 'romn' tag
+          description used for the vertical axis would indicate the
+          baseline of rotated Latin text.</para>
+
+        <para>Figure 5d shows how the <ottable>BASE</ottable> table is
+        organized.</para>
+
+        <figure>
+          <title>Figure 5d. High-level organization of <ottable>BASE</ottable>
+            table</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="../../fig5d.gif"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Text Direction</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The HorizAxis and VertAxis tables organize layout
+          information by script in BaseScriptList tables. A
+          BaseScriptList enumerates all scripts in the font that are
+          written in a particular direction (horizontal or
+          vertical).</para>
+        <para>For example, consider a Japanese font that contains
+          Kanji, Kana, and Latin scripts. Because all three scripts
+          are rendered horizontally, all three are defined in the
+          BaseScriptList of the HorizAxis table. Kanji and Kana also
+          are rendered vertically, so those two scripts are defined in
+          the BaseScriptList of the VertAxis table, too.</para>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Baseline Data</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Each Axis table also references a BaseTagList, which
+          identifies all the baselines for all scripts written in the
+          same direction (horizontal or vertical). The BaseTagList may
+          also include baseline tags for scripts supported in other
+          fonts.</para>
+
+        <para>Each script in a BaseScriptList is represented by a
+          BaseScriptRecord. This record references a BaseScript table,
+          which contains layout data for the script. In turn, the
+          BaseScript table references a BaseValues table, which
+          contains baseline information and several MinMax tables that
+          define min/max extent values.</para>
+
+        <para>The BaseValues table specifies the coordinate values for
+          all baselines in the BaseTagList. In addition, it identifies
+          one of these baselines as the default baseline for the
+          script. As glyphs in a script are scaled, they grow or
+          shrink from the script's default baseline position. Each
+          baseline can have unique coordinates. This contrasts with
+          TrueType 1.0, which implies a single, fixed baseline for all
+          scripts in a font. With the CommonType Layout tables, each
+          script can be aligned independently, although more than one
+          script may use the same baseline values.</para>
+
+        <para>Baseline coordinates for scripts in the same font must
+          be specified in relation to each other for correct alignment
+          of the glyphs. Consider the font, discussed earlier,
+          containing both Latin and Kanji glyphs. If the BaseTagList
+          of the HorizAxis table specifies two baselines, the roman
+          and the ideographic, then the layout data for both the Latin
+          and Kanji scripts will specify coordinate positions for both
+          baselines:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>The BaseValues table for the Latin script will give
+              coordinates for both baselines and specify the roman
+              baseline as the default.</para>
+          </listitem>
+          <listitem>
+            <para>The BaseValues table for the Kanji script will give
+              coordinates for both baselines and specify the
+              ideographic baseline as the default.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Min/Max Extents</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The BaseScript table can define minimum and maximum
+          extent values for each script, language system, or feature.
+          (These values are distinct from the min/max extent values
+          recorded for the font as a whole in the head, hhea, vhea,
+          and OS/2 tables.) These extent values appear in three
+          tables:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>The DefaultMinMax table defines the default min/max
+              extents for the script.</para>
+          </listitem>
+          <listitem>
+            <para>A MinMax table, referenced through a
+              BaseLangSysRecord, specifies min/max extents to
+              accommodate the glyphs in a specific language
+              system.</para>
+          </listitem>
+          <listitem>
+            <para>A FeatMinMaxRecord, referenced from the MinMax
+              table, provides min/max extent values to support
+              feature-specific glyph actions.</para>
+
+            <para>Note: Language-system or feature-specific extent
+              values may be essential to define some fonts. However,
+              the default min/max extent values specified for each
+              script should usually be enough to support high-quality
+              text layout.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>The actual baseline and min/max extent values used by
+          the <ottable>BASE</ottable> table reside in BaseCoord
+          tables. Three formats are defined for BaseCoord table
+          data. All formats define single X or Y coordinate values in
+          design units, but two formats support fine adjustments to
+          these values based on a contour point or a Device
+          table.</para>
+
+        <para>The rest of this chapter describes all the tables
+          defined within the <ottable>BASE</ottable> table. Sample
+          tables and lists that illustrate typical data for a font are
+          supplied at the end of the chapter.</para>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>BASE Header</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The <ottable>BASE</ottable> table begins with a header
+          that consists of a version number for the table (Version),
+          initially set to 1.0 (0x00010000), and offsets to horizontal
+          and vertical Axis tables (HorizAxis and VertAxis).</para>
+          <para>Each Axis table stores all baseline information and
+          min/max extents for one layout direction. The HorizAxis
+          table contains Y values for horizontal text layout; the
+          VertAxis table contains X values for vertical text
+          layout.</para> <para>A font may supply information for both
+          layout directions. If a font has values for only one text
+          direction, the Axis table offset value for the other
+          direction will be set to NULL.</para>
+
+        <para>Example 1 at the end of this chapter shows a sample
+          <ottable>BASE</ottable> Header.</para>
+
+
+        <otformat>
+          <title>BASE Header</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>fixed32</otfieldtype>
+            <otfieldname>Version</otfieldname>
+            <otfielddesc>Version of the <ottable>BASE</ottable>
+              table-initially 0x00010000</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>HorizAxis</otfieldname>
+            <otfielddesc>Offset to horizontal Axis table-from
+              beginning of <ottable>BASE</ottable> table-may be
+              NULL</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>VertAxis</otfieldname>
+            <otfielddesc>Offset to vertical Axis table-from beginning
+              of <ottable>BASE</ottable> table-may be
+              NULL</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>BASE</code-title>
+  BASE =
+    element BASE {
+      attribute major { &quot;1&quot; },
+      attribute minor { &quot;0&quot; },
+      element horizontalAxis { axisTableOffset }?,
+      element verticalAxis { axisTableOffset }?,
+
+      (  standaloneAxisTable
+       | standaloneBaseTagListTable
+       | standaloneBaseScriptListTable
+       | standaloneBaseScriptTable
+       | standaloneBaseValuesTable
+       | standaloneMinMaxTable
+       | standaloneBaseCoordTable
+       | standaloneDeviceTable)*
+    }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  public void fromXML (Element base)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Map&lt;Element, Block&gt; blockCache = new HashMap&lt;Element, Block&gt; ();
+    Block me = new Block (8, 2);
+    me.setFixed (0, 1, 0);
+
+    Element n = (Element) base.getFirstChild ();
+    if (n != null
+        &amp;&amp; &quot;horizontalAxis&quot;.equals (n.getTagName ())) {
+      me.setOffset (4, axisTableFromXML (n, base, blockCache));
+      n = (Element) n.getNextSibling (); }
+    else {
+      me.setOffset (4, null); }
+
+    if (n != null
+        &amp;&amp; &quot;verticalAxis&quot;.equals (n.getTagName ())) {
+      me.setOffset (6, axisTableFromXML (n, base, blockCache)); }
+    else {
+      me.setOffset (6, null); }
+
+    data = me.serialize ();
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="base.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    int [] counts = new int [data.length];
+    for (int i = 0; i &lt; counts.length; i++) {
+      counts [i] = 0; }
+
+    // phase 1
+    if (getOffset (4) != 0) {
+      axisTableToXMLCount (getOffset (4), counts); }
+    if (getOffset (6) != 0) {
+      axisTableToXMLCount (getOffset (6), counts); }
+
+    if (conf.pointers == DecompilerConfig.PointersAreShown.never) {
+      for (int i = 0; i &lt; counts.length; i++) {
+        counts [i] = 1; }}
+    if (conf.pointers == DecompilerConfig.PointersAreShown.always) {
+      for (int i = 0; i &lt; counts.length; i++) {
+        counts [i] = 2; }}
+
+    AttributesImpl at;
+
+    int [] version = getTableVersion ();
+    at = new AttributesImpl ();
+    at.addAttribute (&quot;&quot;, &quot;major&quot;, &quot;major&quot;, &quot;CDATA&quot;, &quot;&quot; + version [0]);
+    at.addAttribute (&quot;&quot;, &quot;minor&quot;, &quot;minor&quot;, &quot;CDATA&quot;, &quot;&quot; + version [1]);
+
+    conf.ch.startElement (&quot;BASE&quot;, at); {
+
+      // phase 2
+
+      if (getOffset (4) != 0) {
+        axisTableOffsetToXML (conf, getOffset (4), counts,
+                              &quot;horizontalAxis&quot;, new AttributesImpl ()); }
+      if (getOffset (6) != 0) {
+        axisTableOffsetToXML (conf, getOffset (6), counts,
+                              &quot;verticalAxis&quot;, new AttributesImpl ()); }
+
+      // phase 3
+      if (getOffset (4) != 0) {
+        axisTableToXML (conf, getOffset (4), counts); }
+      if (getOffset (6) != 0) {
+        axisTableToXML (conf, getOffset (6), counts); }
+
+      conf.ch.endElement (&quot;BASE&quot;); }
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="implementation">
+        <title>Implementation</title>
+
+<code-fragment package="com.adobe.aots.CommonType" class="Base">
+  <code-title>BASE Class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Base extends LayoutTable {
+
+  public Base () {
+    super (Tag.BASE, null);
+  }
+
+  public Base (Font font) {
+    super (Tag.BASE, font);
+  }
+
+  <code-include linkend="base.methods"/>
+
+  public int[] getTableVersion () {
+    return getFixed (0);
+  }
+
+}
+</code-fragment>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Axis Tables: HorizAxis and VertAxis</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+
+        <para>An Axis table is used to render scripts either
+          horizontally or vertically. It consists of offsets, measured
+          from the beginning of the Axis table, to a BaseTagList and a
+          BaseScriptList:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>The BaseScriptList enumerates all scripts rendered
+              in the text layout direction.</para>
+          </listitem>
+          <listitem>
+            <para>The BaseTagList enumerates all baselines used to
+              render the scripts in the text layout direction. If no
+              baseline data is available for a text direction, the
+              offset to the corresponding BaseTagList may be set to
+              NULL.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>Example 1 at the end of this chapter shows an example of
+          an Axis table.</para>
+
+        <otformat>
+          <title>Axis Table</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>BaseTagList</otfieldname>
+            <otfielddesc>Offset to BaseTagList table-from beginning of
+              Axis table-may be NULL</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>BaseScriptList</otfieldname>
+            <otfielddesc>Offset to BaseScriptList table-from beginning
+              of Axis table</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>axisTable</code-title>
+  axisTable =
+    element baseTagList    { baseTagListTableOffset }?,
+    element baseScriptList { baseScriptListTableOffset }
+
+  standaloneAxisTable =
+    element axisTable { attribute id { text }, axisTable }
+
+  axisTableOffset = attribute name { text } | axisTable
+</code-fragment>
+      </section>
+
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  public Block axisTableFromXML (Element t, Element table,
+                                 Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute (&quot;name&quot;);
+      if (name != null &amp;&amp; ! &quot;&quot;.equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    Block me = new Block (4, 2);
+
+    Element n = (Element) t.getFirstChild ();
+    if (n != null
+        &amp;&amp; &quot;baseTagList&quot;.equals (n.getTagName ())) {
+      me.setOffset (0, baseTagListTableFromXML (n, table, blockCache));
+      n = (Element) n.getNextSibling (); }
+    else {
+      me.setOffset (0, null); }
+
+    if (n != null
+        &amp;&amp; &quot;baseScriptList&quot;.equals (n.getTagName ())) {
+      me.setOffset (2, baseScriptListTableFromXML (n, table, blockCache)); }
+    else {
+      me.setOffset (2, null); }
+
+    blockCache.put (t, me);
+    return me;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="base.methods">
+  public void axisTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    if (getOffset (offset) != 0) {
+      baseTagListTableToXMLCount (getOffset (offset, 0), counts); }
+    baseScriptListTableToXMLCount (getOffset (offset, 2), counts);
+  }
+
+
+  public void axisTableOffsetToXML (DecompilerConfig conf, int offset,
+                                    int [] counts,
+                                    String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
+                       &quot;axisTable_&quot; + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      axisTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void axisTableToXML (DecompilerConfig conf, int offset,
+                              int [] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
+                       &quot;axisTable_&quot; + Integer.toHexString (offset));
+      axisTableToXMLEmit (conf, offset, counts, &quot;axisTable&quot;, at);
+      counts [offset] = 0; }
+
+    if (getOffset (offset) != 0) {
+      baseTagListTableToXML (conf, getOffset (offset, 0), counts); }
+    baseScriptListTableToXML (conf, getOffset (offset, 2), counts);
+  }
+
+  public void axisTableToXMLEmit (DecompilerConfig conf, int offset,
+                                  int[] counts,
+                                  String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+      if (getOffset (offset) != 0) {
+        at = new AttributesImpl ();
+        baseTagListTableOffsetToXML (conf, getOffset (offset, 0), counts,
+                                     &quot;baseTagList&quot;, at); }
+
+      at = new AttributesImpl ();
+      baseScriptListTableOffsetToXML (conf, getOffset (offset, 2),
+                                      counts,
+                                      &quot;baseScriptList&quot;, at);
+
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>BaseTagList Table</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The BaseTagList table identifies the baselines for all
+          scripts in the font that are rendered in the same text
+          direction. Each baseline is identified with a 4-byte
+          baseline tag. The <link linkend="ttoreg_basetags">Baseline Tags</link>
+          section of the CommonType Tag Registry lists currently
+          registered baseline tags. The BaseTagList can define any
+          number of baselines, and it may include baseline tags for
+          scripts supported in other fonts.</para>
+
+        <para>Each script in the BaseScriptList table must designate
+          one of these BaseTagList baselines as its default, which the
+          CommonType Layout Services use to align all glyphs in the
+          script. Even though the BaseScriptList and the BaseTagList
+          are defined independently of one another, the BaseTagList
+          typically includes a tag for each different default baseline
+          needed to render the scripts in the layout direction. If
+          some scripts use the same default baseline, the BaseTagList
+          needs to list the common baseline tag only once. </para>
+
+        <para>The BaseTagList table consists of an array of baseline
+          identification tags (BaselineTag), listed alphabetically,
+          and a count of the total number of baseline Tags in the
+          array (BaseTagCount).</para>
+
+        <para>Example 1 at the end of this chapter shows a sample
+          BaseTagList table.</para>
+
+        <otformat>
+          <title>BaseTagList table</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>uint16</otfieldtype>
+            <otfieldname>BaseTagCount</otfieldname>
+            <otfielddesc>Number of baseline identification tags in
+              this text direction-may be zero (0)</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>Tag</otfieldtype>
+            <otfieldname>BaselineTag [BaseTagCount]</otfieldname>
+            <otfielddesc>Array of 4-byte baseline identification
+              tags-must be in alphabetical order</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>baseTagListTable</code-title>
+  baseTagListTable =
+    element tag {
+      attribute v { text }
+    }*
+
+  standaloneBaseTagListTable =
+    element baseTagListTable { attribute id { text }, baseTagListTable }
+
+  baseTagListTableOffset = attribute name { text } | baseTagListTable
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  public Block baseTagListTableFromXML (Element t, Element table,
+                                        Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute (&quot;name&quot;);
+      if (name != null &amp;&amp; ! &quot;&quot;.equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    NodeList children = t.getChildNodes ();
+
+    Block me = new Block (2 + 4 * children.getLength (), 0);
+    me.setuint16 (0, children.getLength ());
+    int offset = 2;
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      me.setTag (offset, ((Element)(children.item (i))).getAttribute (&quot;v&quot;));
+      offset += 4; }
+
+    blockCache.put (t, me);
+    return me;
+  }
+</code-fragment>
+      </section>
+
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="base.methods">
+  public void baseTagListTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+  }
+
+  public void baseTagListTableOffsetToXML (DecompilerConfig conf, int offset,
+                                           int [] counts,
+                                           String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
+                       &quot;baseTagListTable_&quot; + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      baseTagListTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void baseTagListTableToXML (DecompilerConfig conf, int offset,
+                                     int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
+                       &quot;baseTagListTable_&quot; + Integer.toHexString (offset));
+      baseTagListTableToXMLEmit (conf, offset, counts, &quot;baseTagListTable&quot;, at);
+      counts [offset] = 0; }
+  }
+
+  public void baseTagListTableToXMLEmit (DecompilerConfig conf, int offset,
+                                         int[] counts,
+                                         String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+      for (int i = 0; i &lt; getuint16 (offset); i++) {
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;,
+                         Tag.tag2string (getuint32 (offset + 2 + 4*i)));
+        conf.ch.element (&quot;tag&quot;, at); }
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>BaseScriptList Table and BaseScript Record</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The BaseScriptList table identifies all scripts in the
+          font that are rendered in the same layout direction. If a
+          script is not listed here, then the text-processing client
+          will render the script using the layout information
+          specified for the entire font.</para>
+
+        <para>For each script listed in the BaseScriptList table, a
+          BaseScriptRecord must be defined that identifies the script
+          and references its layout data. BaseScriptRecords are stored
+          in the BaseScriptRecord array, ordered alphabetically by the
+          BaseScriptTag in each record. The BaseScriptCount specifies
+          the total number of BaseScriptRecords in the array.</para>
+
+        <para>Example 1 at the end of this chapter shows a sample
+          BaseScriptList table.</para>
+
+        <otformat>
+          <title>BaseScriptList table</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>uint16</otfieldtype>
+            <otfieldname>BaseScriptCount</otfieldname>
+            <otfielddesc>Number of BaseScriptRecords
+              defined</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>struct</otfieldtype>
+            <otfieldname>BaseScriptRecord [BaseScriptCount]</otfieldname>
+            <otfielddesc>Array of BaseScriptRecords-in alphabetical
+              order by BaseScriptTag</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>A BaseScriptRecord contains a script identification tag
+          (BaseScriptTag), which must be identical to the ScriptTag
+          used to define the script in the ScriptList of a
+          <ottable>GSUB</ottable> or <ottable>GPOS</ottable> table.
+          Each record also must include an offset to a BaseScript
+          table that defines the baseline and min/max extent data for
+          the script.</para>
+
+        <para>Example 1 at the end of this chapter shows a sample
+          BaseScriptRecord.</para>
+
+        <otformat>
+          <title>BaseScriptRecord</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Tag</otfieldtype>
+            <otfieldname>BaseScriptTag</otfieldname>
+            <otfielddesc>4-byte script identification
+            tag</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>BaseScript</otfieldname>
+            <otfielddesc>Offset to BaseScript table-from beginning of
+            BaseScriptList</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>baseScriptListTable</code-title>
+  baseScriptListTable =
+    element baseScriptRecord {
+      attribute tag { text },
+      baseScriptTableOffset
+    }*
+
+  standaloneBaseScriptListTable =
+    element baseScriptListTable { attribute id { text }, baseScriptListTable }
+
+  baseScriptListTableOffset = attribute name { text } | baseScriptListTable
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  public Block baseScriptListTableFromXML (Element t, Element table,
+                                           Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute (&quot;name&quot;);
+      if (name != null &amp;&amp; ! &quot;&quot;.equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    NodeList children = t.getChildNodes ();
+    int nbChildren = children.getLength ();
+
+    Block me = new Block (2 + 6*nbChildren, nbChildren);
+    me.setuint16 (0, nbChildren);
+    int offset = 2;
+
+    for (int i = 0; i &lt; nbChildren; i++) {
+      Element child = (Element) children.item (i);
+      me.setTag (offset, child.getAttribute (&quot;tag&quot;));
+      me.setOffset (offset + 4, baseScriptTableFromXML (child, table, blockCache));
+      offset += 6; }
+
+    blockCache.put (t, me);
+    return me;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="base.methods">
+  public void baseScriptListTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    for (int i = 0; i &lt; getuint16 (offset); i++) {
+      baseScriptTableToXMLCount (getOffset (offset, 2 + 6*i + 4),
+                             counts); }
+  }
+
+  public void baseScriptListTableOffsetToXML (DecompilerConfig conf, int offset,
+                                              int [] counts,
+                                              String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
+                       &quot;baseScriptListTable_&quot; + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      baseScriptListTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void baseScriptListTableToXML (DecompilerConfig conf, int offset,
+                                        int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
+                       &quot;baseScriptListTable_&quot; + Integer.toHexString (offset));
+      baseScriptListTableToXMLEmit (conf, offset, counts,
+                                    &quot;baseScriptListTable&quot;, at);
+      counts [offset] = 0; }
+
+    for (int i = 0; i &lt; getuint16 (offset); i++) {
+      baseScriptTableToXML (conf,
+                            getOffset (offset, 2 + 6*i + 4),
+                            counts); }
+  }
+
+  public void baseScriptListTableToXMLEmit (DecompilerConfig conf, int offset,
+                                            int[] counts,
+                                            String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+      for (int i = 0; i &lt; getuint16 (offset); i++) {
+        at = new AttributesImpl ();
+	at.addAttribute (&quot;&quot;, &quot;tag&quot;, &quot;tag&quot;, &quot;CDATA&quot;,
+                         Tag.tag2string (getuint32 (offset + 2 + 6*i)));
+        baseScriptTableOffsetToXML (conf, getOffset (offset, 2 + 6*i + 4),
+                               counts, &quot;baseScriptRecord&quot;, at); }
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>BaseScript Table and BaseLangSys Record</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>A BaseScript table organizes and specifies the baseline
+          data and min/max extent data for one script. Within a
+          BaseScript table, the BaseValues table contains baseline
+          information, and one or more MinMax tables contain min/max
+          extent data.</para>
+        <para>The BaseValues table identifies the default baseline for
+          the script and lists coordinate positions for each baseline
+          named in the corresponding BaseTagList. Each script can
+          assign a different position to each baseline, so each script
+          can be aligned independently in relation to any other
+          script. (For more details, see the BaseValues table
+          description later in this chapter.)</para>
+        <para>The DefaultMinMax table defines the default min/max
+          extent values for the script. (For details, see the MinMax
+          table description below.) If a language system or feature
+          defined in the font has no effect on the script's default
+          min/max extents, the CommonType Layout Services will use the
+          default script values.</para>
+        <para>Sometimes language-specific overrides for min/max
+          extents are needed to properly render the glyphs in a
+          specific language system. For example, a glyph substitution
+          required in a language system may result in a glyph whose
+          extents exceed the script's default min/max extents. Each
+          language system that specifies min/max extent values must
+          define a BaseLangSysRecord. The record should identify the
+          language system (BaseLangSysTag) and contain an offset to a
+          MinMax table of language-specific extent coordinates.</para>
+        <para>Feature-specific overrides for min/max extents also may
+          be needed to accommodate the effects of glyph actions used
+          to implement a specific feature. For example, superscript or
+          subscript features may require changes to the default script
+          or language system extents. Feature-specific extent values
+          not limited to a specific language system may be specified
+          in the DefaultMinMax table. However, extent values used for
+          a specific language system require a BaseLangSysRecord and a
+          MinMax table. In addition to specifying coordinate data, the
+          MinMax table must contain offsets to FeatMinMaxRecords that
+          define the feature-specific min/max data.</para>
+
+        <para>A BaseScript table has four components:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>An offset to a BaseValues table (BaseValues). If no
+              baseline data is defined for the script or the
+              corresponding BaseTagList is set to NULL, the offset to
+              the BaseValues table may be set to NULL.</para>
+          </listitem>
+          <listitem>
+            <para>An offset to the DefaultMinMax table. If no default
+              min/max extent data is defined for the script, this
+              offset may be set to NULL.</para>
+          </listitem>
+          <listitem>
+            <para>An array of BaseLangSysRecords (BaseLangSysRecord).
+              The individual records stored in the BaseLangSysRecord
+              array are listed alphabetically by
+              BaseLangSysTag.</para>
+          </listitem>
+          <listitem>
+            <para>A count of the BaseLangSysRecords included
+              (BaseLangSysCount). If no language system or
+              language-specific feature min/max values are defined,
+              the BaseLangSysCount may be set to zero (0).</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>Example 2 at the end of this chapter shows a sample
+          BaseScript table.</para>
+
+        <otformat>
+          <title>BaseScript Table</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>BaseValues</otfieldname>
+            <otfielddesc>Offset to BaseValues table-from beginning of
+              BaseScript table-may be NULL</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>DefaultMinMax</otfieldname>
+            <otfielddesc>Offset to MinMax table- from beginning of
+              BaseScript table-may be NULL</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>uint16</otfieldtype>
+            <otfieldname>BaseLangSysCount</otfieldname>
+            <otfielddesc>Number of BaseLangSysRecords defined-may be
+              zero (0)</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>struct</otfieldtype>
+            <otfieldname>BaseLangSysRecord [BaseLangSysCount]</otfieldname>
+            <otfielddesc>Array of BaseLangSysRecords-in alphabetical
+              order by BaseLangSysTag</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>A BaseLangSysRecord defines min/max extents for a
+          language system or a language-specific feature. Each record
+          contains an identification tag for the language system
+          (BaseLangSysTag) and an offset to a MinMax table (MinMax)
+          that defines extent coordinate values for the language
+          system and references feature-specific extent data.</para>
+
+        <para>Example 2 at the end of this chapter shows a
+          BaseLangSysRecord.</para>
+
+
+        <otformat>
+          <title>BaseLangSysRecord</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Tag</otfieldtype>
+            <otfieldname>BaseLangSysTag</otfieldname>
+            <otfielddesc>4-byte language system identification
+              tag</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>MinMax</otfieldname>
+            <otfielddesc>Offset to MinMax table-from beginning of
+              BaseScript table</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>baseScriptTable</code-title>
+  baseScriptTable =
+    element baseValues    { baseValuesTableOffset }?,
+    element defaultMinMax { minMaxTableOffset }?,
+    element baseLangSysRecord {
+      attribute tag { text },
+      element minMax { minMaxTableOffset }
+    }*
+
+  standaloneBaseScriptTable =
+     element baseScriptTable { attribute id { text }, baseScriptTable }
+
+  baseScriptTableOffset = attribute name { text } | baseScriptTable
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  public Block baseScriptTableFromXML (Element t, Element table,
+                                       Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute (&quot;name&quot;);
+      if (name != null &amp;&amp; ! &quot;&quot;.equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    Element child;
+
+    Block baseValuesBlock = null;
+    child = (Element) t.getFirstChild ();
+    if (child != null
+        &amp;&amp; &quot;baseValues&quot;.equals (child.getTagName())) {
+      baseValuesBlock = baseValuesTableFromXML (child,
+                                                table, blockCache);
+      t.removeChild (child); }
+
+    Block defaultMinMaxBlock = null;
+    child = (Element) table.getFirstChild ();
+    if (child != null
+        &amp;&amp;&quot;defaultMinMax&quot;.equals (child.getTagName ())) {
+      defaultMinMaxBlock = minMaxTableFromXML (child,
+                                               table, blockCache);
+      t.removeChild (child); }
+
+    NodeList children = t.getChildNodes ();
+    int nbChildren = children.getLength ();
+
+    Block me = new Block (6 + 2*nbChildren, 2 + nbChildren);
+    me.setOffset (0, baseValuesBlock);
+    me.setOffset (2, defaultMinMaxBlock);
+    me.setuint16 (4, nbChildren);
+
+    int offset = 6;
+    for (int i = 0; i &lt; nbChildren; i++) {
+      child = (Element) children.item (i);
+      me.setTag (offset, child.getAttribute (&quot;tag&quot;));
+      me.setOffset (offset + 4, minMaxTableFromXML ((Element) child.getFirstChild (),
+                                                    table, blockCache)); }
+
+    blockCache.put (t, me);
+    return me;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+<!--GOO-->
+
+<code-fragment id="base.methods">
+  public void baseScriptTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    if (getOffset (offset) != 0) {
+      baseValuesTableToXMLCount (getOffset (offset, 0), counts); }
+    if (getOffset (offset + 2) != 0) {
+      minMaxTableToXMLCount (getOffset (offset, 2), counts); }
+    for (int i = 0; i &lt; getuint16 (offset + 4); i++) {
+      minMaxTableToXMLCount (getOffset (offset, 6 + 6*i + 4), counts); }
+  }
+
+  public void baseScriptTableOffsetToXML (DecompilerConfig conf, int offset,
+                                          int [] counts,
+                                          String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
+                       &quot;baseScriptTable_&quot; + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      baseScriptTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void baseScriptTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
+                       &quot;baseScriptTable_&quot; + Integer.toHexString (offset));
+      baseScriptTableToXMLEmit (conf, offset, counts,
+                               &quot;baseScriptTable&quot;, at);
+      counts [offset] = 0; }
+
+    if (getOffset (offset) != 0) {
+      baseValuesTableToXML (conf, getOffset (offset, 0), counts); }
+    if (getOffset (offset + 2) != 0) {
+      minMaxTableToXML (conf, getOffset (offset, 2), counts); }
+    for (int i = 0; i &lt; getuint16 (offset + 4); i++) {
+      minMaxTableToXML (conf, getOffset (offset, 6 + 6*i + 4), counts); }
+  }
+
+
+  public void baseScriptTableToXMLEmit (DecompilerConfig conf, int offset,
+                                    int[] counts,
+                                    String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+      if (getOffset (offset) != 0) {
+        at = new AttributesImpl ();
+        baseValuesTableOffsetToXML (conf, getOffset (offset, 0), counts,
+                                    &quot;baseValues&quot;, at); }
+
+      if (getOffset (offset + 2) != 0) {
+        at = new AttributesImpl ();
+        minMaxTableOffsetToXML (conf, getOffset (offset, 2), counts,
+                                &quot;defaultMinMax&quot;, at); }
+
+      for (int i = 0; i &lt; getuint16 (offset + 4); i++) {
+        at = new AttributesImpl ();
+        at.addAttribute (&quot;&quot;, &quot;tag&quot;, &quot;tag&quot;, &quot;CDATA&quot;,
+                         Tag.tag2string (getuint32 (offset + 6 + 6*i)));
+        minMaxTableOffsetToXML (conf, getOffset (offset, 6 + 6*i + 4),
+                                counts, &quot;baseLangSysRecord&quot;, at); }
+
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>BaseValues Table</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>A BaseValues table lists the coordinate positions of all
+          baselines named in the BaselineTag array of the
+          corresponding BaseTagList and identifies a default baseline
+          for a script.</para>
+
+        <para>Note: When the offset to the corresponding BaseTagList
+          is NULL, a BaseValues table is not needed. However, if the
+          offset is not NULL, then each script must specify coordinate
+          positions for all baselines named in the BaseTagList.</para>
+
+        <para>The default baseline, one per script, is the baseline
+          used to lay out and align the glyphs in the script. The
+          DefaultIndex in the BaseValues table identifies the default
+          baseline with a value that equals the array index position
+          of the corresponding tag in the BaselineTag array.</para>
+        <para>For example, the Han and Latin scripts use different
+          baselines to align text. If a font supports both of these
+          scripts, the BaselineTag array in the BaseTagList of the
+          HorizAxis table will contain two tags, listed
+          alphabetically: &quot;ideo&quot; in BaselineTag[0] for the Han
+          ideographic baseline, and &quot;romn&quot; in BaselineTag[1] for the
+          Latin baseline. The BaseValues table for the Latin script
+          will specify the roman baseline as the default, so the
+          DefaultIndex in the BaseValues table for Latin will be &quot;1&quot;
+          to indicate the roman baseline tag. In the BaseValues table
+          for the Han script, the DefaultIndex will be &quot;0&quot; to indicate
+          the ideographic baseline tag.</para>
+        <para>Two or more scripts may share a default baseline. For
+          instance, if the font described above also supports the
+          Cyrillic script, the BaselineTag array does not need a
+          baseline tag for Cyrillic because Cyrillic and Latin share
+          the same baseline. The DefaultIndex defined in the
+          BaseValues table for the Cyrillic script will specify &quot;1&quot; to
+          indicate the roman baseline tag, listed in the second
+          position in the BaselineTag array.</para>
+        <para>In addition to identifying the DefaultIndex, the
+          BaseValues table contains an offset to an array of BaseCoord
+          tables (BaseCoord) that list the coordinate positions for
+          all baselines, including the default baseline, named in the
+          associated BaselineTag array. One BaseCoord table is defined
+          for each baseline. The BaseCoordCount defines the total
+          number of BaseCoord tables, which must equal the number of
+          baseline tags listed in BaseTagCount in the
+          BaseTagList.</para>
+        <para>Each baseline coordinate is defined as a single X or Y
+          value in design units measured from the zero position on the
+          relevant X or Y axis. For example, a BaseCoord table defined
+          in the HorizAxis table will contain a Y value because
+          horizontal baselines are positioned vertically. BaseCoord
+          values may be negative. Each script may assign a different
+          coordinate to each baseline.</para>
+        <para>Offsets to each BaseCoord table are stored in a
+          BaseCoord array within the BaseValues table. The order of
+          the stored offsets corresponds to the order of the tags
+          listed in the BaselineTag array of the BaseTagList. In other
+          words, the first position in the BaseCoord array will define
+          the offset to the BaseCoord table for the first baseline
+          named in the BaselineTag array, the second position will
+          define the offset to the BaseCoord table for the second
+          baseline named in the BaselineTag array, and so on.</para>
+        <para>Example 3 at the end of the chapter has two parts, one
+          that shows a BaseValues table and one that shows a chart
+          with different baseline positions defined for several
+          scripts.</para>
+
+        <otformat>
+          <title>BaseValues table</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>uint16</otfieldtype>
+            <otfieldname>DefaultIndex</otfieldname>
+            <otfielddesc>Index number of default baseline for this
+              script-equals index position of baseline tag in
+              BaselineArray of the BaseTagList</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>uint16</otfieldtype>
+            <otfieldname>BaseCoordCount</otfieldname>
+            <otfielddesc>Number of BaseCoord tables defined-should
+              equal BaseTagCount in the BaseTagList</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>BaseCoord [BaseCoordCount]</otfieldname>
+            <otfielddesc>Array of offsets to BaseCoord-from beginning
+              of BaseValues table-order matches BaselineTag array in
+              the BaseTagList</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>baseValuesTable</code-title>
+  baseValuesTable =
+    attribute defaultIndex { text },
+
+    element baseCoord { baseCoordTableOffset }*
+
+  standaloneBaseValuesTable =
+    element baseValuesTable { attribute id { text }, baseValuesTable }
+
+  baseValuesTableOffset = attribute name { text } | baseValuesTable
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  public Block baseValuesTableFromXML (Element t, Element base,
+                                       Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute (&quot;name&quot;);
+      if (name != null &amp;&amp; ! &quot;&quot;.equals (name)) {
+        t = resolveXMLid (base, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    NodeList children = t.getChildNodes ();
+    int nbChildren = children.getLength ();
+
+    Block me = new Block (4 + 2*nbChildren, nbChildren);
+    me.setuint16 (0, Integer.parseInt (t.getAttribute (&quot;defaultIndex&quot;)));
+    me.setuint16 (2, nbChildren);
+
+    int offset = 4;
+    for (int i = 0; i &lt; nbChildren; i++) {
+      Element child = (Element) children.item (i);
+      me.setOffset (offset, baseCoordTableFromXML (child,
+                                                   base, blockCache));
+      offset += 2; }
+
+    blockCache.put (t, me);
+    return me;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="base.methods">
+  public void baseValuesTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    for (int i = 0; i &lt; getuint16 (offset + 2); i++) {
+      baseCoordTableToXMLCount (getOffset (offset, 4 + 2*i), counts); }
+  }
+
+  public void baseValuesTableOffsetToXML (DecompilerConfig conf, int offset,
+                                          int [] counts,
+                                          String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
+                       &quot;baseValuesTable_&quot; + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      baseValuesTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void baseValuesTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
+                       &quot;baseValuesTable_&quot; + Integer.toHexString (offset));
+      baseValuesTableToXMLEmit (conf, offset, counts,
+                                &quot;baseValuesTable&quot;, at);
+      counts [offset] = 0; }
+
+    for (int i = 0; i &lt; getuint16 (offset + 2); i++) {
+      baseCoordTableToXML (conf,
+                           getOffset (offset, 4 + 2*i),
+			   counts); }
+  }
+
+  public void baseValuesTableToXMLEmit (DecompilerConfig conf, int offset,
+                                        int[] counts,
+                                        String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    at.addAttribute (&quot;&quot;, &quot;defaultIndex&quot;, &quot;defaultIndex&quot;, &quot;CDATA&quot;,
+                     &quot;&quot; + getuint16 (offset));
+    conf.ch.startElement (element, at); {
+      for (int i = 0; i &lt; getuint16 (offset + 2); i++) {
+        at = new AttributesImpl ();
+        baseCoordTableOffsetToXML (conf, getOffset (offset, 4 + 2*i),
+                                   counts, &quot;baseCoord&quot;, at); }
+
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>The MinMax Table and FeatMinMaxRecord</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The MinMax table specifies extents for scripts and
+          language systems. It also contains an array of
+          FeatMinMaxRecords used to define feature-specific
+          extents.</para>
+        <para>Both the MinMax table and the FeatMinMaxRecord define
+          offsets to two BaseCoord tables: one that defines the
+          mimimum extent value (MinCoord), and one that defines the
+          maximum extent value (MaxCoord). Each extent value is a
+          single X or Y value, depending upon the text direction, and
+          is specified in design units. Coordinate values may be
+          negative.</para>
+
+        <para>Different tables define the min/max extent values for
+          scripts, language systems, and features:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Min/max extent values for a script are defined in
+              the DefaultMinMax table, referenced in a BaseScript
+              table.</para>
+          </listitem>
+          <listitem>
+            <para>Within the DefaultMinMax table, FeatMinMaxRecords
+              can specify extent values for features that apply to the
+              entire script.</para>
+          </listitem>
+          <listitem>
+            <para>Min/max extent values for a language system are
+              defined in the MinMax table, referenced in a
+              BaseLangSysRecord.</para>
+          </listitem>
+          <listitem>
+            <para>FeatMinMaxRecords can be defined within the MinMax
+              table to specify extent values for features applied
+              within a language system.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>In a FeatMinMaxRecord, the MinCoord and MaxCoord tables
+          specify the minimum and maximum coordinate values for the
+          feature, and a FeatureTableTag defines a 4-byte feature
+          identification tag. The FeatureTableTag must match the tag
+          used to identify the feature in the FeatureList of the
+          <ottable>GSUB</ottable> or <ottable>GPOS</ottable>
+          table.</para>
+
+        <para>Each feature that exceeds the default min/max values
+          requires a FeatMinMaxRecord. All FeatMinMaxRecords are
+          listed alphabetically by FeatureTableTag in an array
+          (FeatMinMaxRecord) within the MinMax table. FeatMinMaxCount
+          defines the total number of FeatMinMaxRecords.</para>
+
+        <para>Text-processing clients should use the following
+          procedure to access the script, language system, and
+          feature-specific extent data:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Determine script extents in relation to the text
+              content.</para>
+          </listitem>
+          <listitem>
+            <para>Select language-specific extent values with respect
+              to the language system in use.</para>
+          </listitem>
+          <listitem>
+            <para>Have the application or user choose feature-specific
+              extent values.</para>
+          </listitem>
+          <listitem>
+            <para>If no extent values are defined for a language
+              system or for language-specific features, use the
+              default min/max extent values for the script.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>Example 4 at the end of this chapter has two parts. One
+          shows MinMax tables and a FeatMinMaxRecord for different
+          script, language system, and feature extents. The second
+          part shows how to define these tables when a language system
+          needs feature-specific extent values for an obscure feature,
+          but otherwise the language system and script extent values
+          match.</para>
+
+
+        <otformat>
+          <title>MinMax table</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>MinCoord</otfieldname>
+            <otfielddesc>Offset to BaseCoord table-defines minimum
+              extent value-from the beginning of MinMax table-may be
+              NULL</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>MaxCoord</otfieldname>
+            <otfielddesc>Offset to BaseCoord table-defines maximum
+              extent value-from the beginning of MinMax table-may be
+              NULL</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>uint16</otfieldtype>
+            <otfieldname>FeatMinMaxCount</otfieldname>
+            <otfielddesc>Number of FeatMinMaxRecords-may be zero
+              (0)</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>struct</otfieldtype>
+            <otfieldname>FeatMinMaxRecord [FeatMinMaxCount]</otfieldname>
+            <otfielddesc>Array of FeatMinMaxRecords-in alphabetical
+              order, by FeatureTableTag</otfielddesc>
+          </otfield>
+        </otformat>
+
+
+        <otformat>
+          <title>FeatMinMaxRecord</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Tag</otfieldtype>
+            <otfieldname>FeatureTableTag</otfieldname>
+            <otfielddesc>4-byte feature identification tag-must match
+              FeatureTag in FeatureList</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>MinCoord</otfieldname>
+            <otfielddesc>Offset to BaseCoord table-defines minimum
+              extent value-from beginning of MinMax table-may be
+              NULL</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>MaxCoord</otfieldname>
+            <otfielddesc>Offset to BaseCoord table-defines maximum
+              extent value-from beginning of MinMax table-may be
+              NULL</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title/>
+  minMaxTable =
+    element minCoord { baseCoordTableOffset }?,
+    element maxCoord { baseCoordTableOffset }?,
+    element featMinMax { featMinMaxRecord }*
+
+  featMinMaxRecord =
+    attribute v { text },
+
+    element minCoord { baseCoordTableOffset }?,
+    element maxCoord { baseCoordTableOffset }?
+
+  standaloneMinMaxTable =
+    element minMaxTable { attribute id { text }, minMaxTable }
+
+  minMaxTableOffset = attribute name { text } | minMaxTable
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  public Block minMaxTableFromXML (Element table, Element base,
+                                   Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = table.getAttribute (&quot;name&quot;);
+      if (name != null &amp;&amp; ! &quot;&quot;.equals (name)) {
+        table = resolveXMLid (base, name); }}
+
+    { Block cached = blockCache.get (table);
+      if (cached != null) {
+        return cached; }}
+
+    Element child;
+
+    Block minCoordBlock = null;
+    child = (Element) table.getFirstChild ();
+    if (child != null
+        &amp;&amp; &quot;minCoord&quot;.equals (child.getTagName())) {
+      minCoordBlock = baseCoordTableFromXML (child,
+                                             base, blockCache);
+      table.removeChild (child); }
+
+    Block maxCoordBlock = null;
+    child = (Element) table.getFirstChild ();
+    if (child != null
+        &amp;&amp;&quot;maxCoord&quot;.equals (child.getTagName ())) {
+      maxCoordBlock = baseCoordTableFromXML (child,
+                                             base, blockCache);
+      table.removeChild (child); }
+
+    NodeList children = table.getChildNodes ();
+    int nbChildren = children.getLength ();
+
+    Block me = new Block (6 + 6*nbChildren, 2 + nbChildren);
+    me.setOffset (0, minCoordBlock);
+    me.setOffset (2, maxCoordBlock);
+    me.setuint16 (4, nbChildren);
+
+    int offset = 6;
+    for (int i = 0; i &lt; nbChildren; i++) {
+      child = (Element) children.item (i);
+      me.setTag (offset, child.getAttribute (&quot;tag&quot;));
+      Element subChild = (Element) child.getFirstChild ();
+      if (subChild != null
+          &amp;&amp; &quot;minCoord&quot;.equals (subChild.getTagName ())) {
+        me.setOffset (offset + 4, baseCoordTableFromXML (subChild,
+                                                    base, blockCache));
+        child.removeChild (subChild); }
+      else {
+        me.setOffset (offset + 4, null); }
+
+      subChild = (Element) child.getFirstChild ();
+      if (subChild != null
+          &amp;&amp; &quot;maxCoord&quot;.equals (subChild.getTagName ())) {
+        me.setOffset (offset + 6, baseCoordTableFromXML (subChild,
+                                                    base, blockCache));
+        child.removeChild (subChild); }
+      else {
+        me.setOffset (offset + 6, null); }
+      offset += 6; }
+
+    blockCache.put (table, me);
+    return me;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="base.methods">
+  public void minMaxTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    if (getOffset (offset) != 0) {
+      baseCoordTableToXMLCount (getOffset (offset, 0), counts); }
+    if (getOffset (offset + 2) != 0) {
+      baseCoordTableToXMLCount (getOffset (offset, 2), counts); }
+    for (int i = 0; i &lt; getuint16 (offset + 4); i++) {
+      if (getOffset (offset + 6 + 8*i + 4) != 0) {
+        baseCoordTableToXMLCount (getOffset (offset, 6 + 8*i + 4),
+                                  counts); }
+      if (getOffset (offset + 6 + 8*i + 6) != 0) {
+        baseCoordTableToXMLCount (getOffset (offset, 6 + 8*i + 6),
+                                  counts); }}
+  }
+
+  public void minMaxTableOffsetToXML (DecompilerConfig conf, int offset,
+                                      int [] counts,
+                                      String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
+                       &quot;minMaxTable_&quot; + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      minMaxTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void minMaxTableToXML (DecompilerConfig conf, int offset,
+                                int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
+                       &quot;minMaxTable_&quot; + Integer.toHexString (offset));
+      minMaxTableToXMLEmit (conf, offset, counts,
+                            &quot;minMaxTable&quot;, at);
+      counts [offset] = 0; }
+
+    if (getOffset (offset) != 0) {
+      baseCoordTableToXML (conf, getOffset (offset, 0), counts); }
+    if (getOffset (offset + 2) != 0) {
+      baseCoordTableToXML (conf, getOffset (offset, 2), counts); }
+    for (int i = 0; i &lt; getuint16 (offset + 4); i++) {
+      if (getOffset (offset + 6 + 8*i + 4) != 0) {
+        baseCoordTableToXML (conf, getOffset (offset, 6 + 8*i + 4),
+                             counts); }
+      if (getOffset (offset + 6 + 8*i + 6) != 0) {
+        baseCoordTableToXML (conf, getOffset (offset, 6 + 8*i + 6),
+                             counts); }}
+  }
+
+  public void minMaxTableToXMLEmit (DecompilerConfig conf, int offset,
+                                    int[] counts,
+                                    String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+      if (getOffset (offset) != 0) {
+        at = new AttributesImpl ();
+        baseCoordTableOffsetToXML (conf, getOffset (offset, 0), counts,
+                                   &quot;minCoord&quot;, at); }
+
+      if (getOffset (offset + 2) != 0) {
+        at = new AttributesImpl ();
+        baseCoordTableOffsetToXML (conf, getOffset (offset, 2), counts,
+                                   &quot;maxCoord&quot;, at); }
+
+      for (int i = 0; i &lt; getuint16 (offset + 4); i++) {
+        at = new AttributesImpl ();
+        conf.ch.startElement (&quot;featMinMax&quot;, at); {
+
+          at = new AttributesImpl ();
+          at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;,
+                           Tag.tag2string (getuint32 (offset + 6 + 8*i)));
+          conf.ch.element (&quot;tag&quot;, at);
+
+          if (getOffset (offset + 6 + 8*i + 4) != 0) {
+            at = new AttributesImpl ();
+            baseCoordTableOffsetToXML (conf, getOffset (offset, 6 + 8*i + 4),
+                                       counts, &quot;minCoord&quot;, at); }
+
+          if (getOffset (offset + 6 + 8*i + 6) != 0) {
+            at = new AttributesImpl ();
+            baseCoordTableOffsetToXML (conf, getOffset (offset, 6 + 8*i + 6),
+                                       counts, &quot;maxCoord&quot;, at); }
+
+          conf.ch.endElement (&quot;featMinMax&quot;); }}
+
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>BaseCoord Tables</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Within the <ottable>BASE</ottable> table, a BaseCoord table defines
+          baseline and min/max extent values. Each BaseCoord table
+          defines one X or Y value:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>If defined within the HorizAxis table, then the
+              BaseCoord table contains a Y value.</para>
+          </listitem>
+          <listitem>
+            <para>If defined within the VertAxis table, then the
+              BaseCoord table contains an X value.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>All values are defined in design units, which typically
+          are scaled and rounded to the nearest integer when scaling
+          the glyphs. Values may be negative.</para>
+        <para>Three formats available for BaseCoord table data define
+          single X or Y coordinate values in design units. Two of the
+          formats also support fine adjustments to the X or Y values
+          based on a contour point or a Device table.</para>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>baseCoordTable</code-title>
+  standaloneBaseCoordTable =
+    element baseCoordTable { attribute id { text }, baseCoordTable }
+
+  baseCoordTableOffset = attribute name { text } | baseCoordTable
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  <code-title>Compile pairPos lookups</code-title>
+  private Block baseCoordTableFromXML (Element t,
+                                       Element base,
+                                       Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute (&quot;name&quot;);
+      if (name != null &amp;&amp; ! &quot;&quot;.equals (name)) {
+        t = resolveXMLid (base, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    String format = t.getAttribute (&quot;format&quot;);
+    Block me;
+
+    if (&quot;1&quot;.equals (format)) {
+      me = baseCoordTableFormat1FromXML (t, base, blockCache); }
+    else if (&quot;2&quot;.equals (format)) {
+      me = baseCoordTableFormat2FromXML (t, base, blockCache); }
+    else if (&quot;3&quot;.equals (format)) {
+      me = baseCoordTableFormat3FromXML (t, base, blockCache); }
+    else {
+      /* cannot get here from a valid document */
+      throw new InvalidFontException
+                  (&quot;invalid pair pos lookup format (&quot; + format + &quot;)&quot;); }
+
+    blockCache.put (t, me);
+    return me;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="base.methods">
+  <code-title>??</code-title>
+
+  public void baseCoordTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return;}
+
+    switch (getuint16 (offset)) {
+      <code-include linkend="baseCoordTableToXMLCount.cases"/>
+    }
+  }
+
+  public void baseCoordTableOffsetToXML (DecompilerConfig conf, int offset,
+                                         int [] counts,
+                                         String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;,
+                       &quot;baseCoordTable_&quot; + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      baseCoordTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void baseCoordTableToXML (DecompilerConfig conf, int offset,
+                                   int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;,
+                       &quot;baseCoordTable_&quot; + Integer.toHexString (offset));
+      baseCoordTableToXMLEmit (conf, offset, counts,
+                               &quot;baseCoordTable&quot;, at);
+      counts [offset] = 0; }
+
+    switch (getuint16 (offset)) {
+      <code-include linkend="baseCoordTableToXML.cases"/>
+    }
+  }
+
+  public void baseCoordTableToXMLEmit (DecompilerConfig conf, int offset,
+                                       int[] counts,
+                                       String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    at.addAttribute (&quot;&quot;, &quot;format&quot;, &quot;format&quot;, &quot;CDATA&quot;, &quot;&quot; + getuint16 (offset));
+
+    switch (getuint16 (offset)) {
+      <code-include linkend="baseCoordTableToXMLEmit.cases"/>
+    }
+  }
+</code-fragment>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>BaseCoord Format 1</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The first BaseCoord format (BaseCoordFormat1) consists
+          of a format identifier, followed by a single design unit
+          coordinate that specifies the BaseCoord value. This format
+          has the benefits of small size and simplicity, but the
+          BaseCoord value cannot be hinted for fine adjustments at
+          different sizes or device resolutions.</para>
+        <para>Example 5 at the end of the chapter shows a sample of a
+          BaseCoordFormat1 table.</para>
+
+
+        <otformat>
+          <title>BaseCoordFormat1 table: Design units only</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>uint16</otfieldtype>
+            <otfieldname>BaseCoordFormat</otfieldname>
+            <otfielddesc>Format identifier-format = 1</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>int16</otfieldtype>
+            <otfieldname>Coordinate</otfieldname>
+            <otfielddesc>X or Y value, in design units</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>baseCoordTable, format 1</code-title>
+  baseCoordTable |=
+    attribute format { &quot;1&quot; },
+    attribute coord { text }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  public Block baseCoordTableFormat1FromXML (Element t, Element base,
+                                             Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me = new Block (4, 0);
+    me.setuint16 (0, 1);
+    me.setuint16 (2, Integer.parseInt (t.getAttribute (&quot;coord&quot;)));
+
+    return me;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="baseCoordTableToXMLEmit.cases">
+  case 1: {
+    at.addAttribute (&quot;&quot;, &quot;coord&quot;, &quot;coord&quot;, &quot;CDATA&quot;, &quot;&quot; + getint16 (offset + 2));
+    conf.ch.element (element, at);
+    break; }
+</code-fragment>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>BaseCoord Format 2</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The second BaseCoord format (BaseCoordFormat2) specifies
+          the BaseCoord value in design units, but also supplies a
+          glyph index and a contour point for reference. During font
+          hinting, the contour point on the glyph outline may move.
+          The point's final position after hinting provides the final
+          value for rendering a given font size.</para>
+
+        <blockquote>
+          <para>Note: Glyph positioning operations defined in the
+            <ottable>GPOS</ottable> table do not affect the point's
+            final position.</para>
+        </blockquote>
+
+        <para>Example 6 shows a sample of a BaseCoordFormat2
+          table.</para>
+
+
+        <otformat>
+          <title>BaseCoordFormat2 table: Design units plus contour point</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>uint16</otfieldtype>
+            <otfieldname>BaseCoordFormat</otfieldname>
+            <otfielddesc>Format identifier-format = 2</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>int16</otfieldtype>
+            <otfieldname>Coordinate</otfieldname>
+            <otfielddesc>X or Y value, in design units</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>GlyphID</otfieldtype>
+            <otfieldname>ReferenceGlyph</otfieldname>
+            <otfielddesc>GlyphID of control glyph</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>uint16</otfieldtype>
+            <otfieldname>BaseCoordPoint</otfieldname>
+            <otfielddesc>Index of contour point on the
+              ReferenceGlyph</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>baseCoordTable, format 2</code-title>
+  baseCoordTable |=
+    attribute format { &quot;2&quot; },
+    attribute coord { text },
+    attribute glyphID { text },
+    attribute baseCoordPoint { text }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  public Block baseCoordTableFormat2FromXML (Element table, Element base,
+                                             Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me = new Block (8, 0);
+    me.setuint16 (0, 2);
+    me.setuint16 (2, Integer.parseInt (table.getAttribute (&quot;coord&quot;)));
+    me.setuint16 (4, Integer.parseInt (table.getAttribute (&quot;glyphID&quot;)));
+    me.setuint16 (6, Integer.parseInt (table.getAttribute (&quot;baseCoordPoint&quot;)));
+
+    return me;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="baseCoordTableToXMLEmit.cases">
+  case 2: {
+    at.addAttribute (&quot;&quot;, &quot;coord&quot;, &quot;coord&quot;, &quot;CDATA&quot;,
+                     &quot;&quot; + getint16 (offset + 2));
+    at.addAttribute (&quot;&quot;, &quot;glyphID&quot;, &quot;glyphID&quot;, &quot;CDATA&quot;,
+                     &quot;&quot; + getuint16 (offset + 4));
+    at.addAttribute (&quot;&quot;, &quot;baseCoordPoint&quot;, &quot;baseCoordPoint&quot;, &quot;CDATA&quot;,
+                     &quot;&quot; + getuint16 (offset + 6));
+    conf.ch.element (element, at);
+    break; }
+</code-fragment>
+
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>BaseCoord Format 3</title>
+
+      <!--___________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The third BaseCoord format (BaseCoordFormat3) also
+          specifies the BaseCoord value in design units, but it uses a
+          Device table rather than a contour point to adjust the
+          value. This format offers the advantage of fine-tuning the
+          BaseCoord value for any font size and device resolution.
+          (For more information about Device tables, see the chapter,
+          Common Table Formats.)</para>
+
+        <para>Example 7 at the end of this chapter shows a sample of a
+          BaseCoordFormat3 table.</para>
+
+
+        <otformat>
+          <title>BaseCoordFormat3 table: Design units plus Device table</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>uint16</otfieldtype>
+            <otfieldname>BaseCoordFormat</otfieldname>
+            <otfielddesc>Format identifier-format = 3</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>int16</otfieldtype>
+            <otfieldname>Coordinate</otfieldname>
+            <otfielddesc>X or Y value, in design units</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>Offset</otfieldtype>
+            <otfieldname>DeviceTable</otfieldname>
+            <otfielddesc>Offset to Device table for X or Y
+              value</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>baseCoordTable, format 3</code-title>
+  baseCoordTable |=
+    attribute format { &quot;3&quot; },
+    attribute coord {text },
+    element deviceTable { deviceTableOffset }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="base.methods">
+  public Block baseCoordTableFormat3FromXML (Element table, Element base,
+                                             Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me = new Block (6, 1);
+    me.setuint16 (0, 3);
+    me.setuint16 (2, Integer.parseInt (table.getAttribute (&quot;coord&quot;)));
+    me.setOffset (4, deviceTableFromXML ((Element) table.getFirstChild (),
+                                         base, blockCache));
+
+    return me;
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="baseCoordTableToXMLCount.cases">
+  case 3: {
+    deviceTableToXMLCount (getOffset (offset, 4), counts);
+    break; }
+</code-fragment>
+
+<code-fragment id="baseCoordTableToXML.cases">
+  case 3: {
+    deviceTableToXML (conf, getOffset (offset, 4), counts);
+    break; }
+</code-fragment>
+
+<code-fragment id="baseCoordTableToXMLEmit.cases">
+  case 3: {
+    at.addAttribute (&quot;&quot;, &quot;coord&quot;, &quot;coord&quot;, &quot;CDATA&quot;, &quot;&quot; + getint16 (offset + 2));
+    conf.ch.startElement (element, at);  {
+      deviceTableOffsetToXML (conf, getOffset (offset, 4), counts,
+                              &quot;deviceTable&quot;, new AttributesImpl ()); }
+    break; }
+</code-fragment>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>BASE Table Examples</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The rest of this chapter describes and illustrates
+          examples of all the <ottable>BASE</ottable> tables. All the
+          examples reflect unique parameters described below, but the
+          samples provide a useful reference for building tables
+          specific to other situations.</para>
+
+        <para>Most of the examples have three columns showing hex
+          data, source, and comments.</para>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 1: BASE Header Table, Axis Table, BaseTagList
+        Table, BaseScriptList Table, and BaseScriptRecord</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Example 1 describes a sample font that contains four
+          scripts: Cyrillic, Devanagari, Han, and Latin. All four
+          scripts are rendered horizontally; only one script, Han, is
+          rendered vertically. As a result, the
+          <ottable>BASE</ottable> header gives offsets to two Axis
+          tables: HorizAxis and VertAxis. Example 1 only shows data
+          defined in the HorizAxis table.</para>
+
+        <para>In the HorizAxis table, the BaseScriptList enumerates
+          all four scripts. The BaseTagList table names three
+          horizontal baselines for rendering these scripts: hanging,
+          ideographic, and roman. The hanging baseline is the default
+          for Devanagari, the ideographic baseline is the default for
+          Han, and the roman baseline is the default for both Latin
+          and Cyrillic.</para>
+
+        <para>The VertAxis table (not shown) would be defined
+          similarly: its BaseScriptList would enumerate one script,
+          Han, and its BaseTagList would specify the vertically
+          centered baseline for rendering the Han script.</para>
+
+
+        <otexample>
+          <title>Example 1</title>
+          <otexline>
+            <otexdata/>
+            <otexsrc><emphasis>BASEHeader</emphasis></otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>TheBASEHeader</otexsrc>
+            <otexcom><ottable>BASE</ottable> table header definition</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>00010000</otexdata>
+            <otexsrc>0x00010000</otexsrc>
+            <otexcom>Version</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0008</otexdata>
+            <otexsrc>HorizontalAxisTable</otexsrc>
+            <otexcom>Offset to HorizAxis table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>010C</otexdata>
+            <otexsrc>VerticalAxisTable</otexsrc>
+            <otexcom>Offset to VertAxis tabl</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>Axis</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizontalAxisTable</otexsrc>
+            <otexcom>Axis table definition</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0004</otexdata>
+            <otexsrc>HorizBaseTagList</otexsrc>
+            <otexcom>Offset to BaseTagList table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0012</otexdata>
+            <otexsrc>HorizBaseScriptList</otexsrc>
+            <otexcom>Offset to BaseScriptList tabl</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseTagList</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizBaseTagList</otexsrc>
+            <otexcom>BaseTagList table definition</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0003</otexdata>
+            <otexsrc>3</otexsrc>
+            <otexcom>BaseTagCount</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>68616E67</otexdata>
+            <otexsrc>&quot;hang&quot;</otexsrc>
+            <otexcom>BaselineTag[0], in alphabetical order</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>6964656F</otexdata>
+            <otexsrc>&quot;ideo&quot;</otexsrc>
+            <otexcom>BaselineTag[1]</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>726F6D6E</otexdata>
+            <otexsrc>&quot;romn&quot;</otexsrc>
+            <otexcom>BaselineTag[2]</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseScriptList</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizBaseScriptList</otexsrc>
+            <otexcom>BaseScriptList table definition</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0004</otexdata>
+            <otexsrc>4</otexsrc>
+            <otexcom>BaseScriptCount BaseScriptRecord[0], in
+                  alphabetical order</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>6379726C</otexdata>
+            <otexsrc>&quot;cyrl&quot;</otexsrc>
+            <otexcom>BaseScriptTag for Cyrillic script</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>001A</otexdata>
+            <otexsrc>HorizCyrillicBaseScriptTable</otexsrc>
+            <otexcom>Offset to BaseScript table for Cyrillic script
+                  BaseScriptRecord[1]</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>6465766E</otexdata>
+            <otexsrc>&quot;devn&quot;</otexsrc>
+            <otexcom>BaseScriptTag for Devanagari script</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0060</otexdata>
+            <otexsrc>HorizDevanagariBaseScriptTable</otexsrc>
+            <otexcom>Offset to BaseScript table for Devanagari
+                  script BaseScriptRecord[2]</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>68616E69</otexdata>
+            <otexsrc>&quot;hani&quot;</otexsrc>
+            <otexcom>BaseScriptTag for Han script</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>008A</otexdata>
+            <otexsrc>HorizHanBaseScriptTable</otexsrc>
+            <otexcom>Offset to BaseScript table for Han script
+                  BaseScriptRecord[3]</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>6C61746E</otexdata>
+            <otexsrc>&quot;latn&quot;</otexsrc>
+            <otexcom>BaseScriptTag for Latin script</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>00B4</otexdata>
+            <otexsrc>HorizLatinBaseScriptTable</otexsrc>
+            <otexcom>Offset to BaseScript table for Latin
+                  script</otexcom>
+          </otexline>
+        </otexample>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 2: BaseScript Table and BaseLangSysRecord</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Example 2 shows the BaseScript table and
+          BaseLangSysRecord for the Cyrillic script, one of the four
+          scripts included in the sample font described in Example 1.
+          The BaseScript table specifies offsets to tables that
+          contain the baseline and min/max extent data for Cyrillic.
+          (The BaseScript tables for the other three scripts in the
+          font would be defined similarly.) Again, the table specifies
+          only the horizontal text-layout information.</para>
+        <para>The HorizCyrillicBaseValues table contains the baseline
+          information for the script, and the
+          HorizCyrillicDefaultMinMax table contains the default script
+          extents. In addition, a BaseLangSysRecord defines min/max
+          extent data for the Russian language system.</para>
+
+
+        <otexample>
+          <title>Example 2</title>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseScript</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizCyrillicBaseScriptTable</otexsrc>
+            <otexcom>BaseScript table definition for Cyrillic
+                  script</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000C</otexdata>
+            <otexsrc>HorizCyrillicBaseValuesTable</otexsrc>
+            <otexcom>Offset to BaseValues table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0022</otexdata>
+            <otexsrc>HorizCyrillicDefaultMinMaxTable</otexsrc>
+            <otexcom>Offset to DefaultMinMax table default script
+                  extents</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseLangSysCount, feature-specific extents
+                  BaseLangSysRecord[0] in alphabetical order</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>52555320</otexdata>
+            <otexsrc>&quot;RUS &quot;</otexsrc>
+            <otexcom>BaseLangSysTag, Russian language system</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0030</otexdata>
+            <otexsrc>HorizRussianMinMaxTable</otexsrc>
+            <otexcom>Offset to MinMax table feature-specific
+                  extents</otexcom>
+          </otexline>
+        </otexample>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 3: BaseValues Table</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Example 3 extends the <ottable>BASE</ottable> table
+          definition for the Cyrillic script described in Examples 1
+          and 2. It contains two parts:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Example 3A illustrates a fully defined BaseValues
+              table for Cyrillic. The table includes the corresponding
+              BaseCoord table definitions.</para>
+          </listitem>
+          <listitem>
+            <para>Example 3B shows two different sets of baseline
+              values that can be defined for each of the four scripts
+              in the sample font.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>The examples show only horizontal text-layout data, and
+          the font uses 2,048 design units/em.</para>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 3A: BaseValues Table for Cyrillic</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The BaseValues table of Example 3A identifies the
+          default baseline for Cyrillic and specifies coordinate
+          positions for each baseline listed in the BaseTagList shown
+          in Example 1:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>The hanging baseline is the default for the
+              Devanagari script, and it has the highest baseline
+              position.</para>
+          </listitem>
+          <listitem>
+            <para>The ideographic baseline is the default for the Han
+              script, and it has the lowest baseline position.</para>
+          </listitem>
+          <listitem>
+            <para>The roman baseline is the default for both the Latin
+              and Cyrillic scripts, and its position lies between the
+              hanging and ideographic baselines.</para>
+          </listitem>
+        </itemizedlist>
+
+        <otexample>
+          <title>Example 3A</title>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseValues</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizCyrillicBaseValuesTable</otexsrc>
+            <otexcom>BaseValues table definition for Cyrillic
+                  script</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0002</otexdata>
+            <otexsrc>2</otexsrc>
+            <otexcom>DefaultIndex, roman baseline BaselineTag
+                  index</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0003</otexdata>
+            <otexsrc>3</otexsrc>
+            <otexcom>BaseCoordCount, equals BaseTagCount</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000A</otexdata>
+            <otexsrc>HorizHangingBaseCoordForCyrl</otexsrc>
+            <otexcom>Offset to BaseCoord[0] table hanging baseline
+                  coordinate, order matches order of BaselineTag array
+                  in BaseTagList</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000E</otexdata>
+            <otexsrc>HorizideographicBaseCoordForCyrl</otexsrc>
+            <otexcom>Offset to BaseCoord[1] table ideographic
+                  baseline coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0012</otexdata>
+            <otexsrc>HorizromanBaseCoordForCyrl</otexsrc>
+            <otexcom>Offset to BaseCoord[2] table roman baseline
+                  coordinat</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizHangingBaseCoordForCyrl</otexsrc>
+            <otexcom>BaseCoord table definition</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>05DC</otexdata>
+            <otexsrc>1500</otexsrc>
+            <otexcom>Coordinate Y value, in design unit</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizideographicBaseCoordForCyrl</otexsrc>
+            <otexcom>BaseCoord table definition</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>FEE0</otexdata>
+            <otexsrc>-288</otexsrc>
+            <otexcom>Coordinate Y value, in design unit</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizromanBaseCoordinateForCyrl</otexsrc>
+            <otexcom>BaseCoord table definition</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat, design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0000</otexdata>
+            <otexsrc>0</otexsrc>
+            <otexcom>Coordinate, Y value, in design units</otexcom>
+          </otexline>
+        </otexample>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 3B: Baseline Values for Four Scripts</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Example 3B shows two tables that contain baseline values
+          for each of the four scripts in the sample font described in
+          Example 1:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>The first table shows what might happen if the
+              baseline values in all four scripts are designed
+              consistently. Their respective BaseValues tables list
+              identical baseline values with the roman baseline
+              positioned at a Y value of zero (0), the ideographic
+              baseline at 1500, and the hanging baseline at
+              -288.</para>
+          </listitem>
+          <listitem>
+            <para>The second table shows what might happen if the
+              baseline values in the scripts are designed differently
+              with the default baseline for each script at the zero
+              (0) coordinate.</para>
+          </listitem>
+        </itemizedlist>
+        <para>Either method of assigning baseline values can be used
+          in the <ottable>BASE</ottable> table.</para>
+
+
+        <table>
+          <title>Example 3B: Identical baseline values</title>
+
+          <tgroup cols="5">
+            <colspec colwidth="10pc"/>
+            <colspec colwidth="5pc"/>
+            <colspec colwidth="5pc"/>
+            <colspec colwidth="5pc"/>
+            <colspec colwidth="5pc"/>
+            <thead>
+              <row>
+                <entry>Baseline type</entry>
+                <entry>Han</entry>
+                <entry>Latin</entry>
+                <entry>Cyrillic</entry>
+                <entry>Devanagari</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>hanging</entry>
+                <entry>1500</entry>
+                <entry>1500</entry>
+                <entry>1500</entry>
+                <entry>1500</entry>
+              </row>
+              <row>
+                <entry>roman</entry>
+                <entry>0</entry>
+                <entry>0</entry>
+                <entry>0</entry>
+                <entry>0</entry>
+              </row>
+              <row>
+                <entry>ideographic</entry>
+                <entry>-288</entry>
+                <entry>-288</entry>
+                <entry>-288</entry>
+                <entry>-288</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <table>
+          <title>Example 3B: Assigned baseline values with default
+            baselines at 0</title>
+
+          <tgroup cols="5">
+            <colspec colwidth="10pc"/>
+            <colspec colwidth="5pc"/>
+            <colspec colwidth="5pc"/>
+            <colspec colwidth="5pc"/>
+            <colspec colwidth="5pc"/>
+            <thead>
+              <row>
+                <entry>Baseline type</entry>
+                <entry>Han</entry>
+                <entry>Latin</entry>
+                <entry>Cyrillic</entry>
+                <entry>Devanagari</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>hanging</entry>
+                <entry>1788</entry>
+                <entry>1500</entry>
+                <entry>1500</entry>
+                <entry>0</entry>
+              </row>
+              <row>
+                <entry>roman</entry>
+                <entry>288</entry>
+                <entry>0</entry>
+                <entry>0</entry>
+                <entry>-1500</entry>
+              </row>
+              <row>
+                <entry>ideographic</entry>
+                <entry>0</entry>
+                <entry>-288</entry>
+                <entry>-288</entry>
+                <entry>-1788</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 4: MinMax Table and FeatMinMaxRecord</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Example 4 shows MinMax table and FeatMinMaxRecord
+          definitions for the same Cyrillic script described in the
+          previous example. It contains two parts:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Example 4A defines tables with different script,
+              language system, and feature extents.</para>
+          </listitem>
+          <listitem>
+            <para>Example 4B shows these same table definitions
+              written when the language system extents match the
+              script extents, but an obscure feature of the language
+              system requires feature-specific extents if that feature
+              is implemented.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>The examples show only horizontal text-layout data, and
+          the font uses 2,048 design units/em.</para>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 4A: Min/Max Extents For Cyrillic Script, Russian
+        Language, and Russian Feature</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Example 4A shows two MinMax tables and a
+          FeatMinMaxRecord for the Cyrillic script, along with sample
+          BaseCoord tables. Only the MinCoord extent data is
+          included.</para>
+
+        <para>The DefaultMinMax table defines the default minimum and
+          maximum extents for the Cyrillic script. Another MinMax
+          table defines language-specific min/max extents for the
+          Russian language system to accommodate the height and width
+          of certain glyphs used in Russian. Also, a FeatMinMaxRecord
+          defines min/max extents for a single feature in the Russian
+          language system that substitutes a tall integral math symbol
+          when required.</para>
+
+
+        <otexample>
+          <title>Example 4A</title>
+          <otexline>
+            <otexdata/>
+            <otexsrc>MinMax</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizCyrillicDefaultMinMaxTable</otexsrc>
+            <otexcom>DefaultMinMax table definition, Cyrillic
+                  script</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0006</otexdata>
+            <otexsrc>HorizCyrillicMinCoordTable</otexsrc>
+            <otexcom>MinCoord offset to BaseCoord table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000A</otexdata>
+            <otexsrc>HorizCyrillicMaxCoordTable</otexsrc>
+            <otexcom>MaxCoord offset to BaseCoord table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0000</otexdata>
+            <otexsrc>0</otexsrc>
+            <otexcom>FeatMinMaxCount no default feature extents
+                  FeatMinMaxRecord[], no FeatMinMaxRecord</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizCyrillicMinCoordTable</otexsrc>
+            <otexcom>BaseCoord table definition, default Cyrillic
+              Min extent coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat, design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>FF38</otexdata>
+            <otexsrc>-200</otexsrc>
+            <otexcom>Coordinate Y value, in design unit</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizCyrillicMaxCoordTable</otexsrc>
+            <otexcom>BaseCoord table
+                  definition default Cyrillic Max extent
+                  coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat, design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0674</otexdata>
+            <otexsrc>1652</otexsrc>
+            <otexcom>Coordinate Y value, in design unit</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>MinMax</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizRussianMinMaxTable</otexsrc>
+            <otexcom>MinMax table definition
+                  Russian language extents</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000E</otexdata>
+            <otexsrc>HorizRussianLangSysMinCoordTable</otexsrc>
+            <otexcom>MinCoord Offset to BaseCoord table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0012</otexdata>
+            <otexsrc>HorizRussianLangSysMaxCoordTable</otexsrc>
+            <otexcom>MaxCoord Offset to BaseCoord table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>FeatMinMaxCount FeatMinMaxRecord[0] in
+                  alphabetical order</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>696E7467</otexdata>
+            <otexsrc>&quot;intg&quot;</otexsrc>
+            <otexcom>FeatureTableTag integral math symbol Feature
+                  must be same as Tag in FeatureList</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0016</otexdata>
+            <otexsrc>HorizRussianFeatureMinCoordTable</otexsrc>
+            <otexcom>MinCoord Offset to BaseCoord table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>001A</otexdata>
+            <otexsrc>HorizRussianFeatureMaxCoordTable</otexsrc>
+            <otexcom>MaxCoord Offset to BaseCoord tabl</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizRussianLangSys</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>MinCoordTable</otexsrc>
+            <otexcom>BaseCoord table definition
+                  Russian language min extent coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>FF08</otexdata>
+            <otexsrc>-248</otexsrc>
+            <otexcom>Coordinate Y value, in design units, increased
+                  Min extent beyond default Cyrillic min exten</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizRussianLangSysMaxCoordTable</otexsrc>
+            <otexcom>BaseCoord
+                  table definition Russian language feature Max extent
+                  coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>06A4</otexdata>
+            <otexsrc>1700</otexsrc>
+            <otexcom>Coordinate Y value, in design units increased
+                  max extent beyond default Cyrillic max exten</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizRussianFeatureMinCoordTable</otexsrc>
+            <otexcom>BaseCoord
+                  table definition Russian language Min extent
+                  coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat Design Units Only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>FED8</otexdata>
+            <otexsrc>-296</otexsrc>
+            <otexcom>Coordinate Y value, in design units, increased
+                  Min extent beyond default Cyrillic script and
+                  Russian language min extent</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizRussianFeatureMaxCoordTable</otexsrc>
+            <otexcom>BaseCoord
+                  table definition Russian language feature Max extent
+                  coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>06D8</otexdata>
+            <otexsrc>1752</otexsrc>
+            <otexcom>Coordinate Y value, in design units increased
+                  Max extent beyond default Cyrillic script and
+                  Russian language max extents</otexcom>
+          </otexline>
+        </otexample>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 4B: Min/Max Extents For Cyrillic Script and
+        Russian Feature</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>A particular language system does not need to define
+          min/max extent coordinates if its extents match the default
+          extents defined for the script. However, an obscure or
+          infrequently used feature within the language system may
+          require feature-specific extent values for proper
+          rendering.</para>
+        <para>Example 4B shows the MinMax and FeatMinMaxRecord table
+          definitions for this situation. The example also includes a
+          BaseScript table, but not a BaseValues tables since it is
+          not relevant in this example. The example shows horizontal
+          text layout extents for the Cyrillic script and
+          feature-specific extents for one feature in the Russian
+          language system. Much of the data is repeated from Example
+          4A and modified here for comparison.</para>
+        <para>The BaseScript table includes a DefaultMinMax table for
+          the Cyrillic script and a BaseLangSysRecord that defines a
+          BaseLangSysTag and an offset to a MinMax table for the
+          Russian language. The MinMax table includes a
+          FeatMinMaxRecord and specifies a FeatMinMaxCount, but both
+          the MinCoord and MaxCoord offsets in the MinMax table are
+          set to NULL since no language-specific extent values are
+          defined for Russian. The FeatMinMaxRecord defines the
+          min/max coordinates for the Russian feature and specifies
+          the correct FeatureTableTag.</para>
+
+
+        <otexample>
+          <title>Example 4B</title>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseScript</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizCyrillicBaseScriptTable</otexsrc>
+            <otexcom>BaseScript table
+                  definition Cyrillic script</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0000</otexdata>
+            <otexsrc>NULL</otexsrc>
+            <otexcom>offset to BaseValues table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000C</otexdata>
+            <otexsrc>HorizCyrillicDefault MinMaxTable</otexsrc>
+            <otexcom>offset to DefaultMinMax table for default
+                  script extents</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseLangSysCount</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc/>
+            <otexcom>BaseLangSysRecord[0] for Russian
+                  feature-specific-extents</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>52555320</otexdata>
+            <otexsrc>&quot;RUS</otexsrc>
+            <otexcom>&quot; BaseLangSysTag = Russian</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>001A</otexdata>
+            <otexsrc>HorizRussianMinMaxTable</otexsrc>
+            <otexcom>offset to MinMax table for feature-specific
+                  extent</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>MinMax</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizCyrillicDefaultMinMaxTable</otexsrc>
+            <otexcom>DefaultMinMax
+                  table definition Cyrillic script</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0006</otexdata>
+            <otexsrc>HorizCyrillicMinCoordTable</otexsrc>
+            <otexcom>MinCoord offset to BaseCoord table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000A</otexdata>
+            <otexsrc>HorizCyrillicMaxCoordTable</otexsrc>
+            <otexcom>MaxCoord offset to BaseCoord table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0000</otexdata>
+            <otexsrc>0</otexsrc>
+            <otexcom>FeatMinMaxCount, no default feature extents
+                  FeatMinMaxRecord[], no FeatMinMaxRecords</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizCyrillicMinCoordTable</otexsrc>
+            <otexcom>BaseCoord table
+                  definition default Cyrillic Min extent
+                  coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>FF38</otexdata>
+            <otexsrc>-200</otexsrc>
+            <otexcom>Coordinate Y value, in design unit</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizCyrillicMaxCoordTable</otexsrc>
+            <otexcom>BaseCoord table
+                  definition default Cyrillic Min extent
+                  coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0674</otexdata>
+            <otexsrc>1652</otexsrc>
+            <otexcom>Coordinate Y value, in design unit</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>MinMax</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizRussianMinMaxTable</otexsrc>
+            <otexcom>MinMax table definition
+                  for Russian feature no extent differences for
+                  Russian language itself</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0000</otexdata>
+            <otexsrc>NULL</otexsrc>
+            <otexcom>offset to Min BaseCoord table not defined,
+                  matches default</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0000</otexdata>
+            <otexsrc>NULL</otexsrc>
+            <otexcom>offset to Max BaseCoord table not defined,
+                  matches default</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>FeatMinMaxCount, FeatMinMaxRecord[0] in
+                  alphabetical order</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>696E7467</otexdata>
+            <otexsrc>&quot;intg&quot;</otexsrc>
+            <otexcom>FeatureTableTag integral math sign Feature must
+                  be same as Tag in FeatureList</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000E</otexdata>
+            <otexsrc>HorizRussianFeatureMinCoordTable</otexsrc>
+            <otexcom>MinCoord offset to BaseCoord table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0012</otexdata>
+            <otexsrc>HorizRussianFeatureMaxCoordTable</otexsrc>
+            <otexcom>MaxCoord offset to BaseCoord tabl</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizRussianFeatureMinCoordTable</otexsrc>
+            <otexcom>BaseCoord
+                  table definition Russian Feature Min extent
+                  coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat, design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>FED8</otexdata>
+            <otexsrc>-296</otexsrc>
+            <otexcom>Coordinate Y value, in design units increased
+                  Min extent beyond default Cyrillic Min
+                  extent</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizRussianFeatureMaxCoordTable</otexsrc>
+            <otexcom>BaseCoord
+                  table definition, Russian feature Max extent
+                  coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>06D8</otexdata>
+            <otexsrc>1752</otexsrc>
+            <otexcom>Coordinate Y value, in design units, increased
+                  Max extent beyond default Cyrillic Max
+                  extent</otexcom>
+          </otexline>
+        </otexample>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 5: BaseCoordFormat1 Table</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Example 5 illustrates BaseCoordFormat1, which specifies
+          single coordinate values in design units only. The font uses
+          2,048 design units/em. The example defines the default
+          minimum extent coordinate for a math script.</para>
+
+
+        <otexample>
+          <title>Example 5</title>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizMathMinCoordTable</otexsrc>
+            <otexcom>Definition of BaseCoord
+                  table for Math Min coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>BaseCoordFormat, design units only</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>FEE8</otexdata>
+            <otexsrc>-280</otexsrc>
+            <otexcom>Coordinate Y value, in design units</otexcom>
+          </otexline>
+        </otexample>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 6: BaseCoordFormat2 Table</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Example 6 illustrates the BaseCoord Format 2. Like
+          Example 5, it specifies the minimum extent coordinate for a
+          math script. With this format, the coordinate value depends
+          on the final position of a specific contour point on one
+          glyph, the integral math symbol, after hinting. Again, the
+          value is in design units (2,048 units/em).</para>
+
+
+        <otexample>
+          <title>Example 6</title>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat2</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizMathMinCoordTable</otexsrc>
+            <otexcom>BaseCoord table
+                  definition for Math Min coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0002</otexdata>
+            <otexsrc>2</otexsrc>
+            <otexcom>BaseCoordFormat design units plus contour
+                  point</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>FEE8</otexdata>
+            <otexsrc>-280</otexsrc>
+            <otexcom>Coordinate Y value, in design units</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0128</otexdata>
+            <otexsrc>IntegralSignGlyphID</otexsrc>
+            <otexcom>ReferenceGlyph math integral sign</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0043</otexdata>
+            <otexsrc>67</otexsrc>
+            <otexcom>BaseCoordPoint glyph contour point
+                  index</otexcom>
+          </otexline>
+        </otexample>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Example 7: BaseCoordFormat3 Table</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>Example 7 illustrates the BaseCoord Format 3. Like
+          Examples 5 and 6, it specifies the minimum extent coordinate
+          for a math script in design units (2,048 units/em). This
+          format, however, uses a Device table to modify the
+          coordinate value for the point size and resolution of the
+          output font. Here, the Device table defines pixel
+          adjustments for font sizes from 11 ppem to 15 ppem. The
+          adjustments add one pixel at each size.</para>
+
+
+        <otexample>
+          <title>Example 7</title>
+          <otexline>
+            <otexdata/>
+            <otexsrc>BaseCoordFormat3</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizMathMinCoordTable</otexsrc>
+            <otexcom>BaseCoord table
+                  definition for Math Min coordinate</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0003</otexdata>
+            <otexsrc>3</otexsrc>
+            <otexcom>BaseCoordFormat design units plus device
+                  table</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>-280</otexsrc>
+            <otexcom>Coordinate Y value, in design
+                  units</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000C</otexdata>
+            <otexsrc>HorizMathMinCoordDeviceTable</otexsrc>
+            <otexcom>Offset to Device tabl</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>DeviceTableFormat1</otexsrc>
+            <otexcom/>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>HorizMathMinCoordDeviceTable</otexsrc>
+            <otexcom>Device table
+                  definition for MinCoord</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000B</otexdata>
+            <otexsrc>11</otexsrc>
+            <otexcom>StartSize -11 ppem</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>000F</otexdata>
+            <otexsrc>15</otexsrc>
+            <otexcom>EndSize -15 ppem</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>0001</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>DeltaFormat signed 2 bit value, 8 values per
+                  uint16</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>1</otexsrc>
+            <otexcom>Increase 11ppem by 1 pixel</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>1</otexsrc>
+            <otexcom>Increase 12ppem by 1 pixel</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>1</otexsrc>
+            <otexcom>Increase 13ppem by 1 pixel</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata/>
+            <otexsrc>1</otexsrc>
+            <otexcom>Increase 14ppem by 1 pixel</otexcom>
+          </otexline>
+          <otexline>
+            <otexdata>5540</otexdata>
+            <otexsrc>1</otexsrc>
+            <otexcom>Increase 15ppem by 1 pixel</otexcom>
+          </otexline>
+        </otexample>
+      </section>
+    </section>
+  </section>

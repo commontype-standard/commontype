@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.discussion_forum">
+    <title>CommonType discussion forum</title>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Overview</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+	<para>An e-mail based discussion forum has been set up
+	  specifically to help people working on the development of
+	  CommonType fonts and associated technologies.</para>
+
+	<itemizedlist>
+	  <listitem>
+	    <para>To subscribe to the CommonType Mailing List, send
+	      e-mail to: CommonType-subscribe@topica.com</para>
+	  </listitem>
+	  <listitem>
+	    <para>To post a message to the list, send e-mail to:
+	    CommonType@topica.com</para>
+	  </listitem>
+	  <listitem>
+	    <para>To remove yourself from this mailing list, send
+	    e-mail to: CommonType-unsubscribe@topica.com</para>
+	  </listitem>
+	  <listitem>
+	    <para>To get a list of archives available, browse to:
+	    http://topica.com/lists/CommonType/read</para>
+	  </listitem>
+	  <listitem>
+	    <para>For more help with mailing list commands, browse to:
+	    http://topica.com/lists/CommonType/</para>
+	  </listitem>
+	</itemizedlist>
+
+	<para>Please note that if you join the forum your e-mail
+	  address will be accessible to the other subscribers.</para>
+      </section>
+    </section>
+  </section>

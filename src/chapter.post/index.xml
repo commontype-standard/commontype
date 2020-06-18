@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.post">
+    <title>post - PostScript</title>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Introduction</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>This table contains additional information needed to use
+        TrueType or CommonType fonts on PostScript printers.  This
+        includes data for the FontInfo dictionary entry and the
+        PostScript names of all the glyphs. For more information about
+        PostScript names, see the Adobe document <ulink url="http://partners.adobe.com/asn/developer/typeforum/unicodegm.html">Unicode
+        and Glyph Names</ulink>.</para>
+
+        <para>Versions 1.0, 2.0, and 2.5 refer to TrueType fonts and
+          CommonType fonts with TrueType data. CommonType fonts with
+          TrueType data may also use Version 3.0. CommonType fonts with
+          CFF data use Version 3.0 only.</para>
+
+        <para>The table begins as follows:</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Fixed</otfieldtype>
+            <otfieldname>Version</otfieldname>
+            <otfielddesc>
+              <simplelist>
+                <member>0x00010000 for version 1.0</member>
+                <member>0x00020000 for version 2.0</member>
+                <member>0x00025000 for version 2.5
+                  (deprecated)</member>
+                <member>0x00030000 for version 3.0</member>
+              </simplelist>
+            </otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>Fixed</otfieldtype>
+            <otfieldname>italicAngle</otfieldname>
+            <otfielddesc>Italic angle in counter-clockwise degrees
+              from the vertical. Zero for upright text, negative for
+              text that leans to the right (forward).</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>8</otfieldoffs>
+            <otfieldtype>FWord</otfieldtype>
+            <otfieldname>underlinePosition</otfieldname>
+            <otfielddesc>This is the suggested distance of the top
+              of the underline from the baseline (negative
+              values indicate below baseline). The
+              PostScript definition of this FontInfo dictionary key (the y
+              coordinate of the center of the stroke) is not used for
+              historical reasons. The value of the PostScript key may be
+              calculated by subtracting half the underlineThickness from
+              the value of this field.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>10</otfieldoffs>
+            <otfieldtype>FWord</otfieldtype>
+            <otfieldname>underlineThickness</otfieldname>
+            <otfielddesc>Suggested values for the underline
+              thickness.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>12</otfieldoffs>
+            <otfieldtype>ULONG</otfieldtype>
+            <otfieldname>isFixedPitch</otfieldname>
+            <otfielddesc>Set to 0 if the font is proportionally
+              spaced, non-zero if the font is not proportionally
+              spaced (i.e. monospaced).</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>16</otfieldoffs>
+            <otfieldtype>ULONG</otfieldtype>
+            <otfieldname>minMemType42</otfieldname>
+            <otfielddesc>Minimum memory usage when an CommonType font is
+              downloaded.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>20</otfieldoffs>
+            <otfieldtype>ULONG</otfieldtype>
+            <otfieldname>maxMemType42</otfieldname>
+            <otfielddesc>Maximum memory usage when an CommonType font is
+              downloaded.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>24</otfieldoffs>
+            <otfieldtype>ULONG</otfieldtype>
+            <otfieldname>minMemType1</otfieldname>
+            <otfielddesc>Minimum memory usage when an CommonType font is
+              downloaded as a Type 1 font.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>28</otfieldoffs>
+            <otfieldtype>ULONG</otfieldtype>
+            <otfieldname>maxMemType1</otfieldname>
+            <otfielddesc>Maximum memory usage when an CommonType font is
+              downloaded as a Type 1 font.</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>The last four entries in the table are present because
+          PostScript drivers can do better memory management if the
+          virtual memory (VM) requirements of a downloadable CommonType
+          font are known before the font is downloaded. This
+          information should be supplied if known. If it is not known,
+          set the value to zero. The driver will still work but will
+          be less efficient.</para>
+
+        <para>Maximum memory usage is minimum memory usage plus
+          maximum runtime memory use. Maximum runtime memory use
+          depends on the maximum band size of any bitmap potentially
+          rasterized by the font scaler. Runtime memory usage could be
+          calculated by rendering characters at different point sizes
+          and comparing memory use.</para>
+
+        <para>If the version is 1.0 or 3.0, the table ends here. The
+          additional entries for versions 2.0 and 2.5 are shown below.
+          Apple has defined a version 4.0 for use with Apple's AAT
+          (Apple Advanced Typography), which is described in their
+          documentation.</para>
+
+        <bridgehead>Version 1.0</bridgehead>
+
+        <para>This TrueType-based font file contains exactly the 258
+          glyphs in the standard Macintosh TrueType font file (see
+          <ulink url="http://www.microsoft.com/typography/otspec/WGL4.htm">The
+            WGL4.0 Character Set</ulink> chapter for a list of the
+          Macintosh glyphs). As a result, the glyph names are taken
+          from the system with no storage required by the font.</para>
+
+        <bridgehead>Version 2.0</bridgehead>
+
+        <para>This is the version required by TrueType-based fonts to
+          be used on Windows.</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>numberOfGlyphs</otfieldname>
+            <otfielddesc>Number of glyphs (this should be the same as
+              numGlyphs in <ottable>maxp</ottable>
+              table).</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>glyphNameIndex [numGlyphs]</otfieldname>
+            <otfielddesc>This is not an offset, but is the ordinal
+              number of the glyph in <ottable>post</ottable> string
+              tables.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>CHAR</otfieldtype>
+            <otfieldname>names [numberNewGlyphs]</otfieldname>
+            <otfielddesc>Glyph names with length bytes [variable] (a
+              Pascal string).</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>This TrueType-based font file contains glyphs not in the
+          standard Macintosh set or the ordering of the glyphs in the
+          TrueType font file is non-standard (again, for the
+          Macintosh). The glyph name array maps the glyphs in this
+          font to name index. If the name index is between 0 and 257,
+          treat the name index as a glyph index in the Macintosh
+          standard order. If the name index is between 258 and 32767,
+          then subtract 258 and use that to index into the list of
+          Pascal strings at the end of the table. Thus a given font
+          may map some of its glyphs to the standard glyph names, and
+          some to its own names.</para>
+
+        <para>Index numbers 32768 through 65535 are reserved for
+          future use. If you do not want to associate a PostScript
+          name with a particular glyph, use index number 0 which
+          points the name .notdef.</para>
+
+
+        <bridgehead>Version 2.5</bridgehead>
+
+        <para>This version of the <ottable>post</ottable> table has
+          been deprecated as of CommonType Specification v1.3.</para>
+
+        <para>This version provides a space saving table for
+          TrueType-based fonts which contain a pure subset of, or a
+          simple reordering of, the standard Macintosh glyph
+          set.</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>numberOfGlyphs</otfieldname>
+            <otfielddesc>Number of glyphs</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>CHAR</otfieldtype>
+            <otfieldname>offset [numGlyphs]</otfieldname>
+            <otfielddesc>Difference between graphic index and standard
+              order of glyph</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>This version is useful for TrueType-based font files
+          that contain only glyphs in the standard Macintosh glyph set
+          but which have those glyphs arranged in a non-standard order
+          or which are missing some glyphs. The table contains one
+          byte for each glyph in the font file. The byte is treated as
+          a signed offset that maps the glyph index used in this font
+          into the standard glyph index. In other words, assuming that
+          the font contains the three glyphs A, B, and C which are the
+          37th, 38th, and 39th glyphs in the standard ordering, the
+          <ottable>post</ottable> table would contain the bytes +36,
+          +36, +36. This format has been deprecated by Apple, as of
+          February 2000.</para>
+
+
+        <bridgehead>Version 3.0</bridgehead>
+
+        <para>This version is used by CommonType fonts with TrueType or
+          CFF data. The version makes it possible to create a special
+          font that is not burdened with a large
+          <ottable>post</ottable> table set of glyph names.</para>
+
+        <para>This version specifies that no PostScript name
+          information is provided for the glyphs in this font file.
+          The printing behavior of this version on PostScript printers
+          is unspecified, except that it should not result in a fatal
+          or unrecoverable error. Some drivers may print nothing,
+          other drivers may attempt to print using a default naming
+          scheme.</para>
+
+        <para>Windows makes use of the italic angle value in the
+          <ottable>post</ottable> table but does not actually
+          <emphasis>require</emphasis> any glyph names to be stored as
+          Pascal strings.</para>
+      </section>
+
+
+      <!--________________________________________________________________-->
+      <section role="xml-representation">
+        <title>XML Representation</title>
+
+<code-fragment id="schema">
+  <code-title>??</code-title>
+post |=
+  element post {
+    attribute major { &quot;1&quot; },
+    attribute minor { &quot;0&quot; },
+    post_common
+  }
+
+post |=
+  element post {
+    attribute major { &quot;2&quot; },
+    attribute minor { &quot;0&quot; },
+    post_common,
+    element glyph {
+      attribute id { text },
+      attribute name { text }
+    }*
+  }
+
+post |=
+  element post {
+    attribute major { &quot;2&quot; },
+    attribute minor { &quot;5&quot; },
+    post_common,
+    element offset {
+      attribute v { text }
+    }*
+  }
+
+post |=
+  element post {
+    attribute major { &quot;3&quot; },
+    attribute minor { &quot;0&quot; },
+    post_common
+  }
+
+post_common =
+  element italicAngle {
+    attribute int { text },
+    attribute frac { text }
+  },
+  element underline {
+    attribute position { text },
+    attribute thickness { text }
+  },
+  element isFixedPitch {
+    attribute v { yesOrNo }
+  },
+  element memType42 {
+    attribute min { text },
+    attribute max { text }
+  },
+  element memType1 {
+    attribute min { text },
+    attribute max { text }
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="compiler">
+        <title>Compiler</title>
+
+<code-fragment id="post.methods">
+  public void fromXML (Element post)
+      throws InvalidFontException, UnsupportedFontException {
+
+    int highestGid = -1;
+    int namesLength = 0;
+    int nbOffsets = 0;
+
+    NodeList children = post.getChildNodes ();
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element e = (Element) children.item (i);
+
+      if (&quot;glyph&quot;.equals (e.getTagName ())) {
+        int gid = Integer.decode (e.getAttribute (&quot;id&quot;)).intValue ();
+        if (gid &gt; highestGid) {
+          highestGid = gid; }
+        namesLength += 1 + e.getAttribute (&quot;name&quot;).length (); }
+
+      else if (&quot;offset&quot;.equals (e.getTagName ())) {
+        nbOffsets++; }}
+
+    int nbGids = highestGid + 1;
+
+    int major = Integer.decode (post.getAttribute (&quot;major&quot;)).intValue ();
+    int minor = Integer.decode (post.getAttribute (&quot;minor&quot;)).intValue ();
+
+    int blockSize = 32;
+
+    if (major == 2) {
+      if (minor == 0) {
+        blockSize += 2 + 2 * nbGids + namesLength; }
+      else {
+        blockSize += 2 + nbOffsets; }}
+
+    Block me = new Block (blockSize, 0);
+    String[] names = new String [nbGids];
+    int[] offsets = new int [nbOffsets];
+    int o = 0;
+
+    me.setFixed (0, major, minor);
+
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element e = (Element) children.item (i);
+
+      if (&quot;italicAngle&quot;.equals (e.getTagName ())) {
+        me.setFixed (4,
+	             Integer.decode (e.getAttribute (&quot;int&quot;)).intValue(),
+	             Integer.decode (e.getAttribute (&quot;frac&quot;)).intValue()); }
+
+      if (&quot;underline&quot;.equals (e.getTagName ())) {
+        me.setFWord (8, Integer.decode (e.getAttribute (&quot;position&quot;)).intValue());
+        me.setFWord (10, Integer.decode (e.getAttribute (&quot;thickness&quot;)).intValue()); }
+
+      if (&quot;isFixedPitch&quot;.equals (e.getTagName ())) {
+        me.setuint32 (12, &quot;yes&quot;.equals (e.getAttribute (&quot;v&quot;)) ? 1 : 0); }
+
+      if (&quot;memType42&quot;.equals (e.getTagName ())) {
+        me.setuint32 (16, Integer.decode (e.getAttribute (&quot;min&quot;)).intValue());
+        me.setuint32 (20, Integer.decode (e.getAttribute (&quot;max&quot;)).intValue()); }
+
+      if (&quot;memType1&quot;.equals (e.getTagName ())) {
+        me.setuint32 (24, Integer.decode (e.getAttribute (&quot;min&quot;)).intValue());
+        me.setuint32 (28, Integer.decode (e.getAttribute (&quot;max&quot;)).intValue()); }
+
+      if (&quot;glyph&quot;.equals (e.getTagName ())) {
+        int gid = Integer.decode (e.getAttribute (&quot;id&quot;)).intValue ();
+        names [gid] = e.getAttribute (&quot;name&quot;); }
+
+      if (&quot;offset&quot;.equals (e.getTagName ())) {
+        offsets [o] = Integer.decode (e.getAttribute (&quot;v&quot;)).intValue ();
+        o++; }}
+
+
+    if (major == 2) {
+      if (minor == 0) {
+
+        me.setuint16 (32, nbGids);
+        int indexOffset = 34;
+        int charOffset = indexOffset + nbGids * 2;
+
+        for (int gid = 0; gid &lt; nbGids; gid++) {
+          me.setuint16 (indexOffset, 258 + gid);
+          indexOffset += 2;
+
+          char[] name = names [gid].toCharArray ();
+
+          me.setuint8 (charOffset, name.length);
+          charOffset++;
+          for (int i = 0; i &lt; name.length; i++) {
+            me.setuint8 (charOffset, name [i]);
+            charOffset ++; }}}
+
+      else if (minor == 5) {
+        me.setuint16 (32, nbOffsets);
+        for (int i = 0; i &lt; nbOffsets; i++) {
+          me.setint8 (34 + i, offsets [i]); }}}
+
+    data = me.serialize ();
+  }
+</code-fragment>
+      </section>
+
+      <!--____________________________________________________________________-->
+      <section role="decompiler">
+        <title>Decompiler</title>
+
+<code-fragment id="post.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    int [] version = getFixed (0);
+
+    AttributesImpl at;
+
+    at = new AttributesImpl ();
+    at.addAttribute (&quot;&quot;, &quot;major&quot;, &quot;major&quot;, &quot;CDATA&quot;, &quot;&quot; + version [0]);
+    at.addAttribute (&quot;&quot;, &quot;minor&quot;, &quot;minor&quot;, &quot;CDATA&quot;, &quot;&quot; + version [1]);
+    conf.ch.startElement (&quot;post&quot;, at); {
+
+      at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;int&quot;, &quot;int&quot;, &quot;CDATA&quot;, &quot;&quot; + getFixed (4) [0]);
+      at.addAttribute (&quot;&quot;, &quot;frac&quot;, &quot;frac&quot;, &quot;CDATA&quot;, &quot;&quot; + getFixed (4) [1]);
+      conf.ch.element (&quot;italicAngle&quot;, at);
+
+      at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;position&quot;, &quot;position&quot;, &quot;CDATA&quot;, &quot;&quot; +  getFWord (8) );
+      at.addAttribute (&quot;&quot;, &quot;thickness&quot;, &quot;thickness&quot;, &quot;CDATA&quot;, &quot;&quot; +  getFWord (10) );
+      conf.ch.element (&quot;underline&quot;, at);
+
+      at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;v&quot;, &quot;v&quot;, &quot;CDATA&quot;, getuint32 (12) == 0 ? &quot;no&quot;:&quot;yes&quot;);
+      conf.ch.element (&quot;isFixedPitch&quot;, at);
+
+      at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;min&quot;, &quot;min&quot;, &quot;CDATA&quot;, &quot;&quot; +  getuint32 (16) );
+      at.addAttribute (&quot;&quot;, &quot;max&quot;, &quot;max&quot;, &quot;CDATA&quot;, &quot;&quot; +  getuint32 (20) );
+      conf.ch.element (&quot;memType42&quot;, at);
+
+      at = new AttributesImpl ();
+      at.addAttribute (&quot;&quot;, &quot;min&quot;, &quot;min&quot;, &quot;CDATA&quot;, &quot;&quot; +  getuint32 (24) );
+      at.addAttribute (&quot;&quot;, &quot;max&quot;, &quot;max&quot;, &quot;CDATA&quot;, &quot;&quot; +  getuint32 (28) );
+      conf.ch.element (&quot;memType1&quot;, at);
+
+      if (version [0] == 2 &amp;&amp; version [1] == 0) {
+        String [] names = getGlyphNames ();
+        for (int g = 0; g &lt; names.length; g++) {
+	  at = new AttributesImpl ();
+	  at.addAttribute (&quot;&quot;, &quot;id&quot;, &quot;id&quot;, &quot;CDATA&quot;, &quot;&quot; + g);
+          at.addAttribute (&quot;&quot;, &quot;name&quot;, &quot;name&quot;, &quot;CDATA&quot;, names [g]);
+          conf.ch.element (&quot;glyph&quot;, at); }}
+
+      conf.ch.endElement (&quot;post&quot;); }
+  }
+</code-fragment>
+      </section>
+
+      <!--________________________________________________________________-->
+      <section role="implementation">
+        <title>Implementation</title>
+
+<code-fragment package="com.adobe.aots.CommonType" class="Post">
+  <code-title>Post class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Post extends Table {
+
+  public Post () {
+    super (Tag.post);
+  }
+
+  public Post (Font font) {
+    super (Tag.post, font);
+  }
+
+  <code-include linkend="post.methods"/>
+}
+</code-fragment>
+
+
+<code-fragment id="post.methods">
+  <code-title>Glyph names</code-title>
+
+  protected static String [] wellKnownNames = {
+     &quot;.notdef&quot;, // 0
+     &quot;.null&quot;, // 1
+     &quot;nonmarkingreturn&quot;, // 2
+     &quot;space&quot;, // 3
+     &quot;exclam&quot;, // 4
+     &quot;quotedbl&quot;, // 5
+     &quot;numbersign&quot;, // 6
+     &quot;dollar&quot;, // 7
+     &quot;percent&quot;, // 8
+     &quot;ampersand&quot;, // 9
+     &quot;quotesingle&quot;, // 10
+     &quot;parenleft&quot;, // 11
+     &quot;parenright&quot;, // 12
+     &quot;asterisk&quot;, // 13
+     &quot;plus&quot;, // 14
+     &quot;comma&quot;, // 15
+     &quot;hyphen&quot;, // 16
+     &quot;period&quot;, // 17
+     &quot;slash&quot;, // 18
+     &quot;zero&quot;, // 19
+     &quot;one&quot;, // 20
+     &quot;two&quot;, // 21
+     &quot;three&quot;, // 22
+     &quot;four&quot;, // 23
+     &quot;five&quot;, // 24
+     &quot;six&quot;, // 25
+     &quot;seven&quot;, // 26
+     &quot;eight&quot;, // 27
+     &quot;nine&quot;, // 28
+     &quot;colon&quot;, // 29
+     &quot;semicolon&quot;, // 30
+     &quot;less&quot;, // 31
+     &quot;equal&quot;, // 32
+     &quot;greater&quot;, // 33
+     &quot;question&quot;, // 34
+     &quot;at&quot;, // 35
+     &quot;A&quot;, // 36
+     &quot;B&quot;, // 37
+     &quot;C&quot;, // 38
+     &quot;D&quot;, // 39
+     &quot;E&quot;, // 40
+     &quot;F&quot;, // 41
+     &quot;G&quot;, // 42
+     &quot;H&quot;, // 43
+     &quot;I&quot;, // 44
+     &quot;J&quot;, // 45
+     &quot;K&quot;, // 46
+     &quot;L&quot;, // 47
+     &quot;M&quot;, // 48
+     &quot;N&quot;, // 49
+     &quot;O&quot;, // 50
+     &quot;P&quot;, // 51
+     &quot;Q&quot;, // 52
+     &quot;R&quot;, // 53
+     &quot;S&quot;, // 54
+     &quot;T&quot;, // 55
+     &quot;U&quot;, // 56
+     &quot;V&quot;, // 57
+     &quot;W&quot;, // 58
+     &quot;X&quot;, // 59
+     &quot;Y&quot;, // 60
+     &quot;Z&quot;, // 61
+     &quot;bracketleft&quot;, // 62
+     &quot;backslash&quot;, // 63
+     &quot;bracketright&quot;, // 64
+     &quot;asciicircum&quot;, // 65
+     &quot;underscore&quot;, // 66
+     &quot;grave&quot;, // 67
+     &quot;a&quot;, // 68
+     &quot;b&quot;, // 69
+     &quot;c&quot;, // 70
+     &quot;d&quot;, // 71
+     &quot;e&quot;, // 72
+     &quot;f&quot;, // 73
+     &quot;g&quot;, // 74
+     &quot;h&quot;, // 75
+     &quot;i&quot;, // 76
+     &quot;j&quot;, // 77
+     &quot;k&quot;, // 78
+     &quot;l&quot;, // 79
+     &quot;m&quot;, // 80
+     &quot;n&quot;, // 81
+     &quot;o&quot;, // 82
+     &quot;p&quot;, // 83
+     &quot;q&quot;, // 84
+     &quot;r&quot;, // 85
+     &quot;s&quot;, // 86
+     &quot;t&quot;, // 87
+     &quot;u&quot;, // 88
+     &quot;v&quot;, // 89
+     &quot;w&quot;, // 90
+     &quot;x&quot;, // 91
+     &quot;y&quot;, // 92
+     &quot;z&quot;, // 93
+     &quot;braceleft&quot;, // 94
+     &quot;bar&quot;, // 95
+     &quot;braceright&quot;, // 96
+     &quot;asciitilde&quot;, // 97
+     &quot;Adieresis&quot;, // 98
+     &quot;Aring&quot;, // 99
+     &quot;Ccedilla&quot;, // 100
+     &quot;Eacute&quot;, // 101
+     &quot;Ntilde&quot;, // 102
+     &quot;Odieresis&quot;, // 103
+     &quot;Udieresis&quot;, // 104
+     &quot;aacute&quot;, // 105
+     &quot;agrave&quot;, // 106
+     &quot;acircumflex&quot;, // 107
+     &quot;adieresis&quot;, // 108
+     &quot;atilde&quot;, // 109
+     &quot;aring&quot;, // 110
+     &quot;ccedilla&quot;, // 111
+     &quot;eacute&quot;, // 112
+     &quot;egrave&quot;, // 113
+     &quot;ecircumflex&quot;, // 114
+     &quot;edieresis&quot;, // 115
+     &quot;iacute&quot;, // 116
+     &quot;igrave&quot;, // 117
+     &quot;icircumflex&quot;, // 118
+     &quot;idieresis&quot;, // 119
+     &quot;ntilde&quot;, // 120
+     &quot;oacute&quot;, // 121
+     &quot;ograve&quot;, // 122
+     &quot;ocircumflex&quot;, // 123
+     &quot;odieresis&quot;, // 124
+     &quot;otilde&quot;, // 125
+     &quot;uacute&quot;, // 126
+     &quot;ugrave&quot;, // 127
+     &quot;ucircumflex&quot;, // 128
+     &quot;udieresis&quot;, // 129
+     &quot;dagger&quot;, // 130
+     &quot;degree&quot;, // 131
+     &quot;cent&quot;, // 132
+     &quot;sterling&quot;, // 133
+     &quot;section&quot;, // 134
+     &quot;bullet&quot;, // 135
+     &quot;paragraph&quot;, // 136
+     &quot;germandbls&quot;, // 137
+     &quot;registered&quot;, // 138
+     &quot;copyright&quot;, // 139
+     &quot;trademark&quot;, // 140
+     &quot;acute&quot;, // 141
+     &quot;dieresis&quot;, // 142
+     &quot;notequal&quot;, // 143
+     &quot;AE&quot;, // 144
+     &quot;Oslash&quot;, // 145
+     &quot;infinity&quot;, // 146
+     &quot;plusminus&quot;, // 147
+     &quot;lessequal&quot;, // 148
+     &quot;greaterequal&quot;, // 149
+     &quot;yen&quot;, // 150
+     &quot;mu&quot;, // 151
+     &quot;partialdiff&quot;, // 152
+     &quot;summation&quot;, // 153
+     &quot;product&quot;, // 154
+     &quot;pi&quot;, // 155
+     &quot;integral&quot;, // 156
+     &quot;ordfeminine&quot;, // 157
+     &quot;ordmasculine&quot;, // 158
+     &quot;Omega&quot;, // 159
+     &quot;ae&quot;, // 160
+     &quot;oslash&quot;, // 161
+     &quot;questiondown&quot;, // 162
+     &quot;exclamdown&quot;, // 163
+     &quot;logicalnot&quot;, // 164
+     &quot;radical&quot;, // 165
+     &quot;florin&quot;, // 166
+     &quot;approxequal&quot;, // 167
+     &quot;Delta&quot;, // 168
+     &quot;guillemotleft&quot;, // 169
+     &quot;guillemotright&quot;, // 170
+     &quot;ellipsis&quot;, // 171
+     &quot;nonbreakingspace&quot;, // 172
+     &quot;Agrave&quot;, // 173
+     &quot;Atilde&quot;, // 174
+     &quot;Otilde&quot;, // 175
+     &quot;OE&quot;, // 176
+     &quot;oe&quot;, // 177
+     &quot;endash&quot;, // 178
+     &quot;emdash&quot;, // 179
+     &quot;quotedblleft&quot;, // 180
+     &quot;quotedblright&quot;, // 181
+     &quot;quoteleft&quot;, // 182
+     &quot;quoteright&quot;, // 183
+     &quot;divide&quot;, // 184
+     &quot;lozenge&quot;, // 185
+     &quot;ydieresis&quot;, // 186
+     &quot;Ydieresis&quot;, // 187
+     &quot;fraction&quot;, // 188
+     &quot;currency&quot;, // 189
+     &quot;guilsinglleft&quot;, // 190
+     &quot;guilsinglright&quot;, // 191
+     &quot;fi&quot;, // 192
+     &quot;fl&quot;, // 193
+     &quot;daggerdbl&quot;, // 194
+     &quot;periodcentered&quot;, // 195
+     &quot;quotesinglbase&quot;, // 196
+     &quot;quotedblbase&quot;, // 197
+     &quot;perthousand&quot;, // 198
+     &quot;Acircumflex&quot;, // 199
+     &quot;Ecircumflex&quot;, // 200
+     &quot;Aacute&quot;, // 201
+     &quot;Edieresis&quot;, // 202
+     &quot;Egrave&quot;, // 203
+     &quot;Iacute&quot;, // 204
+     &quot;Icircumflex&quot;, // 205
+     &quot;Idieresis&quot;, // 206
+     &quot;Igrave&quot;, // 207
+     &quot;Oacute&quot;, // 208
+     &quot;Ocircumflex&quot;, // 209
+     &quot;apple&quot;, // 210
+     &quot;Ograve&quot;, // 211
+     &quot;Uacute&quot;, // 212
+     &quot;Ucircumflex&quot;, // 213
+     &quot;Ugrave&quot;, // 214
+     &quot;dotlessi&quot;, // 215
+     &quot;circumflex&quot;, // 216
+     &quot;tilde&quot;, // 217
+     &quot;macron&quot;, // 218
+     &quot;breve&quot;, // 219
+     &quot;dotaccent&quot;, // 220
+     &quot;ring&quot;, // 221
+     &quot;cedilla&quot;, // 222
+     &quot;hungarumlaut&quot;, // 223
+     &quot;ogonek&quot;, // 224
+     &quot;caron&quot;, // 225
+     &quot;Lslash&quot;, // 226
+     &quot;lslash&quot;, // 227
+     &quot;Scaron&quot;, // 228
+     &quot;scaron&quot;, // 229
+     &quot;Zcaron&quot;, // 230
+     &quot;zcaron&quot;, // 231
+     &quot;brokenbar&quot;, // 232
+     &quot;Eth&quot;, // 233
+     &quot;eth&quot;, // 234
+     &quot;Yacute&quot;, // 235
+     &quot;yacute&quot;, // 236
+     &quot;Thorn&quot;, // 237
+     &quot;thorn&quot;, // 238
+     &quot;minus&quot;, // 239
+     &quot;multiply&quot;, // 240
+     &quot;onesuperior&quot;, // 241
+     &quot;twosuperior&quot;, // 242
+     &quot;threesuperior&quot;, // 243
+     &quot;onehalf&quot;, // 244
+     &quot;onequarter&quot;, // 245
+     &quot;threequarters&quot;, // 246
+     &quot;franc&quot;, // 247
+     &quot;Gbreve&quot;, // 248
+     &quot;gbreve&quot;, // 249
+     &quot;Idotaccent&quot;, // 250
+     &quot;Scedilla&quot;, // 251
+     &quot;scedilla&quot;, // 252
+     &quot;Cacute&quot;, // 253
+     &quot;cacute&quot;, // 254
+     &quot;Ccaron&quot;, // 255
+     &quot;ccaron&quot;, // 256
+     &quot;dcroat&quot;, // 257
+    };
+
+
+  protected String[] myNames = null;
+
+  public int getGid (String name) {
+    if (myNames == null) {
+      myNames = getGlyphNames (); }
+
+    if (myNames == null) {
+      return -1; }
+
+    for (int gid = 0; gid &lt; myNames.length; gid++) {
+      if (name.equals (myNames [gid])) {
+         return gid; }}
+
+    return -1;
+  }
+
+  public String[] getGlyphNames () {
+    int [] version = getFixed (0);
+
+    if (version [0] == 2 &amp;&amp; version [1] == 0) {
+      int numGlyphs = getuint16 (32);
+      int[] positions = new int [numGlyphs];
+      int offset = 34;
+      int highestIndex = 0;
+
+      for (int g = 0; g &lt; numGlyphs; g++) {
+        positions [g] = getuint16 (offset);
+    	if (positions [g] &gt; highestIndex) {
+          highestIndex = positions [g]; }
+        offset += 2; }
+
+      int numberNewGlyphs = highestIndex &gt; 257 ? highestIndex - 257 : 0;
+      String[] newNames = new String [numberNewGlyphs];
+      try {
+        for (int i = 0; i &lt; numberNewGlyphs; i++) {
+          int len = getuint8 (offset);
+          offset++;
+          newNames [i] = new String (data, offset, len, &quot;ASCII&quot;);
+          offset += len; }}
+      catch (java.io.UnsupportedEncodingException e) {
+    	System.err.println (&quot;ASCII encoding not supported in String creation&quot;);
+        System.exit (1); }
+
+      String[] names = new String [numGlyphs];
+      for (int g = 0; g &lt; numGlyphs; g++) {
+        names [g] = positions [g] &gt; 257
+    	                ? newNames [positions[g]-258]
+    			: wellKnownNames [positions[g]]; }
+      return names; }
+
+    else {
+      return null; }
+  }
+</code-fragment>
+
+      </section>
+    </section>
+  </section>

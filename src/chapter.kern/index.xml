@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.kern">
+    <title>kern - Kerning</title>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Overview</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+	<para>Note: Apple has extended the definition of the
+	<ottable>kern</ottable> table to provide additional
+	functionality. The Apple extensions are not supported on
+	Windows. Fonts intended for cross-platform use or for the
+	Windows platform in general should conform to the
+	<ottable>kern</ottable> table format specified here.</para>
+
+        <para>The kerning table contains the values that control the
+        intercharacter spacing for the glyphs in a font. There is
+        currently no system level support for kerning (other than
+        returning the kern pairs and kern values). CommonType fonts
+        containing CFF outlines are not supported by the
+        <ottable>kern</ottable> table and must use the
+        <ottable>GPOS</ottable> CommonType Layout table.</para>
+
+        <para>Each subtable varies in format, and can contain
+        information for vertical or horizontal text, and can contain
+        kerning values or minimum values. Kerning values are used to
+        adjust inter-character spacing, and minimum values are used to
+        limit the amount of adjustment that the scaler applies by the
+        combination of kerning and tracking. Because the adjustments
+        are additive, the order of the subtables containing kerning
+        values is not important. However, tables containing minimum
+        values should usually be placed last, so that they can be used
+        to limit the total effect of other subtables.</para>
+
+        <para>The kerning table in the CommonType font file has a
+        header, which contains the format number and the number of
+        subtables present, and the subtables themselves.</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>version</otfieldname>
+            <otfielddesc>Table version number (starts at
+              0)</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>nTables</otfieldname>
+            <otfielddesc>Number of subtables in the kerning
+              table.</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>Kerning subtables will share the same header format.
+        This header is used to identify the format of the subtable and
+        the kind of information it contains:</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>version</otfieldname>
+            <otfielddesc>Kern subtable version number</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>length</otfieldname>
+            <otfielddesc>Length of the subtable, in bytes (including
+              this header). </otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>coverage</otfieldname>
+            <otfielddesc>What type of information is contained in this
+              table.</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>The coverage field is divided into the following
+        sub-fields, with sizes given in bits:</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>horizontal</otfieldoffs>
+            <otfieldtype>0</otfieldtype>
+            <otfieldname>1</otfieldname>
+            <otfielddesc>1 if table has horizontal data, 0 if
+              vertical.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>minimum</otfieldoffs>
+            <otfieldtype>1</otfieldtype>
+            <otfieldname>1</otfieldname>
+            <otfielddesc>If this bit is set to 1, the table has
+              minimum values. If set to 0, the table has kerning
+              values.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>cross-stream</otfieldoffs>
+            <otfieldtype>2</otfieldtype>
+            <otfieldname>1</otfieldname>
+            <otfielddesc>
+	      <para>If set to 1, kerning is perpendicular to the flow
+		of the text.</para>
+
+	      <para>If the text is normally written horizontally,
+		kerning will be done in the up and down directions. If
+		kerning values are positive, the text will be kerned
+		upwards; if they are negative, the text will be kerned
+		downwards.</para>
+
+	      <para>If the text is normally written vertically,
+		kerning will be done in the left and right
+		directions. If kerning values are positive, the text
+		will be kerned to the right; if they are negative, the
+		text will be kerned to the left.</para> <para>The
+		value 0x8000 in the kerning data resets the
+		cross-stream kerning back to 0.</para>
+            </otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>override</otfieldoffs>
+            <otfieldtype>3</otfieldtype>
+            <otfieldname>1</otfieldname>
+            <otfielddesc>If this bit is set to 1 the value in this
+              table should replace the value currently being
+              accumulated.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>reserved1</otfieldoffs>
+            <otfieldtype>4-7</otfieldtype>
+            <otfieldname>4</otfieldname>
+            <otfielddesc>Reserved. This should be set to
+              zero.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>format</otfieldoffs>
+            <otfieldtype>8-15</otfieldtype>
+            <otfieldname>8</otfieldname>
+            <otfielddesc>Format of the subtable. Only formats 0 and 2
+              have been defined. Formats 1 and 3 through 255 are
+              reserved for future use.</otfielddesc>
+          </otfield>
+        </otformat>
+      </section>
+
+      <!--____________________________________________________________________-->
+<!--
+      <section role='xml-representation'>
+        <title>XML Representation</title>
+
+<code-fragment id='schema'>
+  <code-title>kern table</code-title>
+  kern =
+    element kern {
+      attribute version { "0" },
+
+      kernsubtable*
+    }
+
+  kernsubtable |=
+    element kernsubtable {
+      attribute version { "0" },
+      attribute horizontalData { yesOrNo },
+      attribute minimumValues {yesOrNo },
+      attribute crossStream { yesOrNo },
+      attribute override { yesOrNo },
+      attribute format { "0" },
+
+      element pair {
+        attribute left { text },
+        attribute right { text },
+        attribute v { text }
+      }*
+    }
+
+  kernsubtable !=
+    element kernsubtable {
+      attribute version { "0" },
+      attribute horizontalData { yesOrNo },
+      attribute minimumValues {yesOrNo },
+      attribute crossStream { yesOrNo },
+      attribute override { yesOrNo },
+      attribute format { "2" },
+
+      element pair {
+        attribute left { text },
+        attribute right { text },
+        attribute v { text }
+      }*
+    }
+</code-fragment>
+-->
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Format 0</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>This is the only format that will be properly
+          interpreted by Windows and OS/2.</para>
+        <para>This subtable is a sorted list of kerning pairs and
+          values. The list is preceded by information which makes it
+          possible to make an efficient binary search of the
+          list:</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>nPairs</otfieldname>
+            <otfielddesc>This gives the number of kerning pairs in the
+              table.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>searchRange</otfieldname>
+            <otfielddesc>The largest power of two less than or equal
+              to the value of nPairs, multiplied by the size in bytes
+              of an entry in the table.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>entrySelector</otfieldname>
+            <otfielddesc>This is calculated as log2 of the largest
+              power of two less than or equal to the value of nPairs.
+              This value indicates how many iterations of the search
+              loop will have to be made. (For example, in a list of
+              eight items, there would have to be three iterations of
+              the loop).</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>rangeShift</otfieldname>
+            <otfielddesc>The value of nPairs minus the largest power
+              of two less than or equal to nPairs, and then multiplied
+              by the size in bytes of an entry in the
+              table.</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>This is followed by the list of kerning pairs and
+          values. Each has the following format:</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>left</otfieldname>
+            <otfielddesc>The glyph index for the left-hand glyph in
+              the kerning pair.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>right</otfieldname>
+            <otfielddesc>The glyph index for the right-hand glyph in
+              the kerning pair. </otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>FWORD</otfieldtype>
+            <otfieldname>value</otfieldname>
+            <otfielddesc>The kerning value for the above pair, in
+              FUnits. If this value is greater than zero, the
+              characters will be moved apart. If this value is less
+              than zero, the character will be moved closer
+              together.</otfielddesc>
+          </otfield>
+        </otformat>
+
+	<para>The left and right halves of the kerning pair make an
+	unsigned 32-bit number, which is then used to order the
+	kerning pairs numerically.</para>
+
+	<para>A binary search is most efficiently coded if the search
+	range is a power of two. The search range can be reduced by
+	half by shifting instead of dividing. In general, the number
+	of kerning pairs, nPairs, will not be a power of two. The
+	value of the search range, searchRange, should be the largest
+	power of two less than or equal to nPairs. The number of pairs
+	not covered by searchRange (that is, nPairs - searchRange) is
+	the value rangeShift.</para>
+
+        <para>Windows v3.1 does not make use of the
+        <ottable>kern</ottable> data other than to expose it to
+        applications through the GetFontData() API.Format 2 </para>
+      </section>
+    </section>
+
+    <!--======================================================================-->
+    <section role="fragment">
+      <title>Format 2</title>
+
+      <!--____________________________________________________________________-->
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>This subtable is a two-dimensional array of kerning
+          values. The glyphs are mapped to classes, using a different
+          mapping for left- and right-hand glyphs. This allows glyphs
+          that have similar right- or left-side shapes to be handled
+          together. Each similar right- or left-hand shape is said to
+          be single class.</para>
+        <para>Each row in the kerning array represents one left-hand
+          glyph class, each column represents one right-hand glyph
+          class, and each cell contains a kerning value. Row and
+          column 0 always represent glyphs that do not kern and
+          contain all zeros.</para>
+        <para>The values in the right class table are stored
+          pre-multiplied by the number of bytes in a single kerning
+          value, and the values in the left class table are stored
+          pre-multiplied by the number of bytes in one row. This
+          eliminates needing to multiply the row and column values
+          together to determine the location of the kerning value. The
+          array can be indexed by doing the right- and left-hand class
+          mappings, adding the class values to the address of the
+          array, and fetching the kerning value to which the new
+          address points.</para>
+        <para>The header for the simple array has the following
+          format:</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>rowWidth</otfieldname>
+            <otfielddesc>The width, in bytes, of a row in the
+              table.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>leftClassTable</otfieldname>
+            <otfielddesc>Offset from beginning of this subtable to
+              left-hand class table.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>rightClassTable</otfieldname>
+            <otfielddesc>Offset from beginning of this subtable to
+              right-hand class table. </otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>array</otfieldname>
+            <otfielddesc>Offset from beginning of this subtable to the
+              start of the kerning array. </otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>Each class table has the following header:</para>
+
+        <otformat>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>firstGlyph</otfieldname>
+            <otfielddesc>First glyph in class range.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>2</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>nGlyphs</otfieldname>
+            <otfielddesc>Number of glyph in class range.</otfielddesc>
+          </otfield>
+        </otformat>
+
+        <para>This header is followed by nGlyphs number of class
+          values, which are in USHORT format. Entries for glyphs that
+          don't participate in kerning should point to the row or
+          column at position zero.</para>
+
+        <para>The array itself is a left by right array of kerning
+          values, which are FWords, where left is the number of
+          left-hand classes and R is the number of right-hand classes.
+          The array is stored by row.</para>
+        <para>Note that this format is the quickest to process since
+          each lookup requires only a few index operations. The table
+          can be quite large since it will contain the number of cells
+          equal to the product of the number of right-hand classes and
+          the number of left-hand classes, even though many of these
+          classes do not kern with each other.</para>
+      </section>
+    </section>
+  </section>

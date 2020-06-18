@@ -14,6 +14,7 @@ defaults:
 github:
   is_project_page: false
 url: http://commontype-standard.github.io/
+baseurl: ""
 
 titles_from_headings:
   enabled:     true

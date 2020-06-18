@@ -329,9 +329,6 @@ This function identifies those situations.</para>
           below.</para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="1cm"/>
-          <colspec colwidth="10cm"/>
           <thead>
             <row>
               <entry>Flags</entry>
@@ -938,9 +935,6 @@ if (flags & WE_HAVE_INSTR){
       <para>These are the constants for the flags field:</para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="13pc"/>
-          <colspec colwidth="2pc"/>
-          <colspec colwidth="15pc"/>
           <thead>
             <row>
               <entry>Flags</entry>

@@ -2327,9 +2327,6 @@ public abstract class LookupTable extends LayoutTable {
       <table>
         <title>LookupFlag bit enumeration</title>
         <tgroup cols="3">
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4782,9 +4779,6 @@ public class ClassdefTableBlock extends Block {
           information for one coordinate at a range of sizes.</para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>

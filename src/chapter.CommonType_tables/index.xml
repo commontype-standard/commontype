@@ -13,8 +13,6 @@
       <table>
         <title>Required Tables</title>
         <tgroup cols="2">
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="24pc"/>
           <thead>
             <row>
               <entry>Tag</entry>
@@ -78,8 +76,6 @@
       <table>
         <title>Tables Related to TrueType Outlines</title>
         <tgroup cols="2">
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="24pc"/>
           <thead>
             <row>
               <entry>Tag</entry>
@@ -126,8 +122,6 @@
       <table>
         <title>Tables Related to PostScript Outlines</title>
         <tgroup cols="2">
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="24pc"/>
           <thead>
             <row>
               <entry>Tag</entry>
@@ -160,8 +154,6 @@
       <table>
         <title>Advanced Typographic Tables</title>
         <tgroup cols="2">
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="24pc"/>
           <thead>
             <row>
               <entry>Tag</entry>
@@ -215,8 +207,6 @@
       <table>
         <title>Tables Related to Bitmap Glyphs</title>
         <tgroup cols="2">
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="24pc"/>
           <thead>
             <row>
               <entry>Tag</entry>
@@ -248,8 +238,6 @@
       <table>
         <title>Other CommonType Tables</title>
         <tgroup cols="2">
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="24pc"/>
           <thead>
             <row>
               <entry>Tag</entry>

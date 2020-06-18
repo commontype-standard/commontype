@@ -267,9 +267,6 @@
       <para>Comments:</para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="4pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="18pc"/>
           <thead>
             <row>
               <entry>Value</entry>
@@ -343,10 +340,6 @@
           specifies. </para>
       <informaltable>
         <tgroup cols="4">
-          <colspec colwidth="4pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
-          <colspec colwidth="4pc"/>
           <thead>
             <row>
               <entry>Value</entry>
@@ -442,9 +435,6 @@
 	  least restrictive of the bits that are set.</para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="1cm"/>
-          <colspec colwidth="2cm"/>
-          <colspec colwidth="10cm"/>
           <thead>
             <row>
               <entry>Bit</entry>
@@ -758,8 +748,6 @@
           located at <ulink url="http://www.panose.com/hardware/pan2.asp">http://www.panose.com/hardware/pan2.asp</ulink>.</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -833,8 +821,6 @@
           and characters.  </para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="20pc"/>
           <thead>
             <row>
               <entry>Bit</entry>
@@ -1341,10 +1327,6 @@
           of the font patterns, as follows:</para>
       <informaltable>
         <tgroup cols="4">
-          <colspec colwidth="4pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="10pc"/>
           <thead>
             <row>
               <entry>Bit #</entry>
@@ -1603,9 +1585,6 @@
           Big-Endian form. </para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="18pc"/>
           <thead>
             <row>
               <entry>Bit</entry>
@@ -2137,8 +2116,6 @@
           example:</para>
       <informaltable>
         <tgroup cols="4">
-          <colspec colwidth="15pc"/>
-          <colspec colwidth="15pc"/>
           <thead>
             <row>
               <entry>Letter</entry>
@@ -2266,9 +2243,6 @@
       <para>Comments:</para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="4pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="18pc"/>
           <thead>
             <row>
               <entry>Value</entry>
@@ -2342,10 +2316,6 @@
           specifies. </para>
       <informaltable>
         <tgroup cols="4">
-          <colspec colwidth="4pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
-          <colspec colwidth="4pc"/>
           <thead>
             <row>
               <entry>Value</entry>
@@ -2436,9 +2406,6 @@
             closed.</emphasis></para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="1cm"/>
-          <colspec colwidth="2cm"/>
-          <colspec colwidth="10cm"/>
           <thead>
             <row>
               <entry>Bit</entry>
@@ -2761,8 +2728,6 @@
           located at http://www.fonts.com/hp/panose/greybook/</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -2837,8 +2802,6 @@
           and characters.  </para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="20pc"/>
           <thead>
             <row>
               <entry>Bit</entry>
@@ -3245,10 +3208,6 @@
           of the font patterns, as follows:</para>
       <informaltable>
         <tgroup cols="4">
-          <colspec colwidth="4pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="10pc"/>
           <thead>
             <row>
               <entry>Bit #</entry>
@@ -3500,9 +3459,6 @@
           Big-Endian form. </para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="18pc"/>
           <thead>
             <row>
               <entry>Bit</entry>

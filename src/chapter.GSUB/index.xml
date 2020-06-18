@@ -287,9 +287,6 @@
         <title>LookupType Enumeration table for glyph
             substitution</title>
         <tgroup cols="3">
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="11pc"/>
-          <colspec colwidth="16pc"/>
           <thead>
             <row>
               <entry>Value</entry>
@@ -1126,11 +1123,6 @@ public class Gsub extends LookupTable {
         <table>
           <title>Test feature</title>
           <tgroup cols="5">
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
-            <colspec colwidth="3cm"/>
             <thead>
               <row>
                 <entry>Input glyph</entry>

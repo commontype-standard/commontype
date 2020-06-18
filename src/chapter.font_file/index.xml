@@ -765,8 +765,6 @@ public class Decompiler {
         Endian):</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="22pc"/>
           <thead>
             <row>
               <entry>Data Type</entry>
@@ -856,10 +854,6 @@ public class Decompiler {
         of 2.14 values are:</para>
       <informaltable>
         <tgroup cols="4">
-          <colspec colwidth="7.5pc"/>
-          <colspec colwidth="7.5pc"/>
-          <colspec colwidth="7.5pc"/>
-          <colspec colwidth="7.5pc"/>
           <thead>
             <row>
               <entry>Decimal Value</entry>
@@ -917,8 +911,6 @@ public class Decompiler {
           replace the type above, as their names are more useful:</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="15pc"/>
-          <colspec colwidth="15pc"/>
           <tbody>
             <row>
               <entry>uint8</entry>

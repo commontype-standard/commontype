@@ -75,8 +75,6 @@
       <table>
         <title>CFF Data Layout</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="22pc"/>
           <thead>
             <row>
               <entry>Entry</entry>
@@ -664,9 +662,6 @@ fontSet =
       <table>
         <title>CFF Data Types</title>
         <tgroup>
-          <colspec colwidth="4pc"/>
-          <colspec colwidth="4pc"/>
-          <colspec colwidth="22pc"/>
           <thead>
             <row>
               <entry>Name</entry>
@@ -893,10 +888,6 @@ fontSet =
       <table>
         <title>Operand Encoding</title>
         <tgroup>
-          <colspec colwidth="4pc"/>
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="12pc"/>
           <thead>
             <row>
               <entry>Size</entry>
@@ -946,8 +937,6 @@ fontSet =
       <table>
         <title>Integer Format Examples</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
           <thead>
             <row>
               <entry>Value</entry>
@@ -1004,8 +993,6 @@ fontSet =
       <table>
         <title>Nibble Definitions</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
           <thead>
             <row>
               <entry>Nibble</entry>
@@ -1059,8 +1046,6 @@ fontSet =
       <table>
         <title>Operand Types</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="22pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -2106,9 +2091,6 @@ fontSet =
       <table>
         <title>INDEX Format</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -2329,9 +2311,6 @@ protected int[] getINDEXOffsets (byte[] data, int offset)
       <table>
         <title>Header Format</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -2613,10 +2592,6 @@ protected int[] getINDEXOffsets (byte[] data, int offset)
       <table>
         <title>Top DICT Operator Entries</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="7pc"/>
-          <colspec colwidth="12pc"/>
           <thead>
             <row>
               <entry>Name</entry>
@@ -2800,10 +2775,6 @@ protected int[] getINDEXOffsets (byte[] data, int offset)
       <table>
         <title>CIDFont Operator Extensions</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="7pc"/>
-          <colspec colwidth="12pc"/>
           <thead>
             <row>
               <entry>Name</entry>
@@ -2889,9 +2860,6 @@ protected int[] getINDEXOffsets (byte[] data, int offset)
       <para>The legal operators in the TopDict of a named-keyed font are:</para>
       <informaltable>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="7pc"/>
-          <colspec colwidth="15pc"/>
           <thead>
             <row>
               <entry>Operator</entry>
@@ -3057,9 +3025,6 @@ protected int[] getINDEXOffsets (byte[] data, int offset)
         Top DICT) are:</para>
       <informaltable>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="7pc"/>
-          <colspec colwidth="15pc"/>
           <thead>
             <row>
               <entry>Operator</entry>
@@ -4025,9 +3990,6 @@ name-keyed-font =
       <table>
         <title>Format 0</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4060,9 +4022,6 @@ name-keyed-font =
       <table>
         <title>Format 1</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4093,9 +4052,6 @@ name-keyed-font =
       <table>
         <title>Range1 Format (Encoding)</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4131,9 +4087,6 @@ name-keyed-font =
       <table>
         <title>Supplemental Encoding Data</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4160,9 +4113,6 @@ name-keyed-font =
       <table>
         <title>Supplement Format</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4197,8 +4147,6 @@ name-keyed-font =
       <table>
         <title>Encoding ID</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="22pc"/>
           <thead>
             <row>
               <entry>Id</entry>
@@ -4447,9 +4395,6 @@ name-keyed-font =
       <table>
         <title>Format 0</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4481,9 +4426,6 @@ name-keyed-font =
       <table>
         <title>Format 1</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4509,9 +4451,6 @@ name-keyed-font =
       <table>
         <title>Range1 Format (Charset)</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4542,9 +4481,6 @@ name-keyed-font =
       <table>
         <title>Format 2</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4570,9 +4506,6 @@ name-keyed-font =
       <table>
         <title>Range2 Format</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -4608,8 +4541,6 @@ name-keyed-font =
       <table>
         <title>Charset ID</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="22pc"/>
           <thead>
             <row>
               <entry>Id</entry>
@@ -5685,10 +5616,6 @@ public class Type2Font2XML implements Type2Consumer {
       <table>
         <title>Private DICT Operators</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="7pc"/>
-          <colspec colwidth="12pc"/>
           <thead>
             <row>
               <entry>Name</entry>
@@ -5889,11 +5816,6 @@ else
       <table>
         <title>nSubrs &lt; 1240, bias = 107</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="3pc"/>
           <thead>
             <row>
               <entry>Ordered index</entry>
@@ -5931,11 +5853,6 @@ else
       <table>
         <title>nSubrs &lt; 33900, bias = 1131</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="3pc"/>
           <thead>
             <row>
               <entry>Ordered index</entry>
@@ -5987,11 +5904,6 @@ else
       <table>
         <title>nSubrs &gt;= 33900, bias = 32768</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="3pc"/>
           <thead>
             <row>
               <entry>Ordered index</entry>
@@ -6050,8 +5962,6 @@ else
       <para>Where the column headings are interpreted as follows:</para>
       <informaltable>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="22pc"/>
           <tbody>
             <row>
               <entry>Ordered index</entry>
@@ -6119,9 +6029,6 @@ else
       <para>The legal operators in the TopDict of a synthetic are:</para>
       <informaltable>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="7pc"/>
-          <colspec colwidth="15pc"/>
           <thead>
             <row>
               <entry>Operator</entry>
@@ -6337,9 +6244,6 @@ else
       <para>The legal operators in the TopDict of a CID-keyed are:</para>
       <informaltable>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="7pc"/>
-          <colspec colwidth="15pc"/>
           <thead>
             <row>
               <entry>Operator</entry>
@@ -6530,9 +6434,6 @@ else
         the Top DICT) are:</para>
       <informaltable>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="7pc"/>
-          <colspec colwidth="15pc"/>
           <thead>
             <row>
               <entry>Operator</entry>
@@ -6568,9 +6469,6 @@ else
         Font DICT, itself pointed by FDArray in the Top DICT) are:</para>
       <informaltable>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="7pc"/>
-          <colspec colwidth="15pc"/>
           <thead>
             <row>
               <entry>Operator</entry>
@@ -7184,9 +7082,6 @@ else
       <table>
         <title>Format 0</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -7218,9 +7113,6 @@ else
       <table>
         <title>Format 3</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -7256,9 +7148,6 @@ else
       <table>
         <title>Range3 Format</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -7467,8 +7356,6 @@ else
       <title>Specification</title>
       <informaltable>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="22pc"/>
           <thead>
             <row>
               <entry>SID</entry>
@@ -9459,9 +9346,6 @@ else
       <table>
         <title>Standard Encoding</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>code</entry>
@@ -10756,9 +10640,6 @@ else
       <table>
         <title>Expert Encoding</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>code</entry>
@@ -12590,8 +12471,6 @@ else
       <table>
         <title>ISOAdobe</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="22pc"/>
           <thead>
             <row>
               <entry>SID</entry>
@@ -13517,8 +13396,6 @@ else
       <table>
         <title>Expert</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="22pc"/>
           <thead>
             <row>
               <entry>SID</entry>
@@ -14192,8 +14069,6 @@ else
       <table>
         <title>Expert Subset</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="22pc"/>
           <thead>
             <row>
               <entry>SID</entry>
@@ -15289,9 +15164,6 @@ offSize=1
       <table>
         <title>One-byte CFF DICT Operators</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Dec</entry>
@@ -15483,9 +15355,6 @@ offSize=1
       <table>
         <title>Two-byte CFF DICT Operators</title>
         <tgroup>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Dec</entry>

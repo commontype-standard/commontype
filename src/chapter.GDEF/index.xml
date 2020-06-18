@@ -431,8 +431,6 @@ public class Gdef extends LayoutTable {
       <table>
         <title>GlyphClassDef Enumeration List</title>
         <tgroup cols="2">
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="24pc"/>
           <thead>
             <row>
               <entry>Class</entry>

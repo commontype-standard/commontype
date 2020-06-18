@@ -115,10 +115,6 @@
         <title>Platform IDs, Platform-specific encoding IDs and
             Language IDs</title>
         <tgroup cols="4">
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="11pc"/>
-          <colspec colwidth="8pc"/>
           <thead>
             <row>
               <entry>PlatformID</entry>
@@ -187,8 +183,6 @@
         <title>Unicode platform-specific encoding IDs (platform ID =
             0)</title>
         <tgroup cols="2">
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="27pc"/>
           <thead>
             <row>
               <entry>EncodingID</entry>
@@ -241,9 +235,6 @@
         <title>Microsoft platform-specific encoding IDs (platform
             ID= 3)</title>
         <tgroup cols="3">
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="20pc"/>
           <thead>
             <row>
               <entry>Platform ID</entry>
@@ -328,11 +319,6 @@
           Base article Q224804</ulink>.</para>
       <informaltable id="name_lang3">
         <tgroup cols="5">
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="8pc"/>
-          <colspec colwidth="6pc"/>
-          <colspec colwidth="4pc"/>
-          <colspec colwidth="4pc"/>
           <thead>
             <row>
               <entry>Primary Language</entry>
@@ -702,8 +688,6 @@
         <title>Macintosh platform-specific encoding IDs (script
             manager codes), (platform ID = 1)</title>
         <tgroup cols="2">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="20pc"/>
           <thead>
             <row>
               <entry>Code</entry>
@@ -849,8 +833,6 @@
       <table id="name_lang1">
         <title>Macintosh language IDs (platform ID = 1)</title>
         <tgroup cols="2">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="20pc"/>
           <thead>
             <row>
               <entry>Code</entry>
@@ -1337,8 +1319,6 @@
         <title>ISO specific encodings (platform ID=2)
             [Deprecated]</title>
         <tgroup cols="2">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="20pc"/>
           <thead>
             <row>
               <entry>Code</entry>
@@ -1366,8 +1346,6 @@
         <title>Custom platform-specific encoding IDs (platform
             ID=4)</title>
         <tgroup cols="2">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="20pc"/>
           <thead>
             <row>
               <entry>ID</entry>
@@ -1401,8 +1379,6 @@
           names such as those referenced by a font's layout feature.</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="27pc"/>
           <thead>
             <row>
               <entry>Code</entry>

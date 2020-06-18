@@ -296,9 +296,6 @@
         <title>LookupType Enumeration table for glyph
             positioning</title>
         <tgroup cols="3">
-          <colspec colwidth="3pc"/>
-          <colspec colwidth="11pc"/>
-          <colspec colwidth="16pc"/>
           <thead>
             <row>
               <entry>Value</entry>
@@ -6903,9 +6900,6 @@ Lookahead sequence                           0   1   2   3
         <title>ValueFormat bit enumeration (indicates which fields
             are present)</title>
         <tgroup cols="3">
-          <colspec colwidth="7pc"/>
-          <colspec colwidth="9pc"/>
-          <colspec colwidth="14pc"/>
           <thead>
             <row>
               <entry>Mask</entry>

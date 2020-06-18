@@ -15,9 +15,6 @@
       <para>The format for the table is:</para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Offset</entry>
@@ -118,8 +115,6 @@
           their fonts are marked with unique values.</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Code</entry>
@@ -171,8 +166,6 @@
       <table>
         <title>Structure (bits 5-9)</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>0</entry>
@@ -262,8 +255,6 @@
       <table>
         <title>Width (bits 2-4)</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>0</entry>
@@ -303,8 +294,6 @@
       <table>
         <title>Posture (bits 0-1)</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>0</entry>
@@ -333,8 +322,6 @@
       <table>
         <title>Vendor Codes (bits 12-15)</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>0</entry>
@@ -391,9 +378,6 @@
       <table>
         <title>Examples</title>
         <tgroup cols="3">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry/>
@@ -454,7 +438,6 @@
       <table>
         <title>Example</title>
         <tgroup cols="1">
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>Times New</entry>
@@ -492,8 +475,6 @@
       <table>
         <title>Example</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>DOS/PCL Complement</entry>
@@ -522,8 +503,6 @@
           follows:</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>31</entry>
@@ -584,8 +563,6 @@
       <table>
         <title>Examples</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>TNRR00</entry>
@@ -625,8 +602,6 @@
       <table>
         <title>Treatment Flags</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>R</entry>
@@ -702,8 +677,6 @@
           value. Only values in the range -7 to 7 are valid:</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>-7</entry>
@@ -782,8 +755,6 @@
           values in the range -5 to 5 are valid. </para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>-5</entry>
@@ -824,8 +795,6 @@
       <table>
         <title>Bottom 6 bit values:</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>0</entry>
@@ -885,8 +854,6 @@
       <table>
         <title>Top 2 bit values:</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>0</entry>

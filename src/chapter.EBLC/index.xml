@@ -148,8 +148,6 @@
       <table>
         <title>sbitLineMetrics</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -238,8 +236,6 @@
       <table>
         <title>bitDepth</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Value</entry>
@@ -272,9 +268,6 @@
       <table>
         <title>Bitmap Flags</title>
         <tgroup cols="3">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -338,9 +331,6 @@
       <table>
         <title>bigGlyphMetrics</title>
         <tgroup cols="3">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Offset</entry>
@@ -395,9 +385,6 @@
       <table>
         <title>smallGlyphMetrics</title>
         <tgroup cols="3">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Offset</entry>

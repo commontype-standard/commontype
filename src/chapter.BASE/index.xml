@@ -2578,11 +2578,6 @@ public class Base extends LayoutTable {
       <table>
         <title>Example 3B: Identical baseline values</title>
         <tgroup cols="5">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="5pc"/>
           <thead>
             <row>
               <entry>Baseline type</entry>
@@ -2621,11 +2616,6 @@ public class Base extends LayoutTable {
         <title>Example 3B: Assigned baseline values with default
             baselines at 0</title>
         <tgroup cols="5">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="5pc"/>
           <thead>
             <row>
               <entry>Baseline type</entry>

@@ -94,8 +94,6 @@
       <para>Ratios are set up as follows:</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <tbody>
             <row>
               <entry>For a 1:1 aspect ratio</entry>
@@ -150,8 +148,6 @@
       <table>
         <title>Character Set Values ’ Version 0</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Value</entry>
@@ -179,8 +175,6 @@
       <table>
         <title>Character Set Values ’ Version 1</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Value</entry>

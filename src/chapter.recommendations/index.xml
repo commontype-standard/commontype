@@ -625,9 +625,6 @@
           order) are 1:1, 1.67:1 and 1.33:1.</para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Device</entry>
@@ -698,8 +695,6 @@
           CreateLogFont( ) API.</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Windows Metric</entry>
@@ -747,8 +742,6 @@
           Typography (AAT) GetFontInfo () API.</para>
       <informaltable>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Macintosh Metric</entry>

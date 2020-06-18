@@ -59,8 +59,6 @@
       <table>
         <title>bigGlyphMetrics</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Type</entry>
@@ -106,8 +104,6 @@
       <table>
         <title>smallGlyphMetrics</title>
         <tgroup cols="2">
-          <colspec colwidth="3cm"/>
-          <colspec colwidth="3cm"/>
           <thead>
             <row>
               <entry>Type</entry>

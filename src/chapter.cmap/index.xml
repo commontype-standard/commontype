@@ -48,9 +48,6 @@
       <table>
         <title>Microsoft Encodings</title>
         <tgroup cols="3">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="10pc"/>
           <thead>
             <row>
               <entry>Platform ID</entry>
@@ -2114,9 +2111,6 @@ static public Index WinUnicode10 = new Index (3, 10);
           following:</para>
       <informaltable>
         <tgroup cols="3">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="10pc"/>
           <tbody>
             <row>
               <entry>segCountX2</entry>
@@ -2184,11 +2178,6 @@ static public Index WinUnicode10 = new Index (3, 10);
           of glyph indices may look like this:</para>
       <informaltable>
         <tgroup cols="5">
-          <colspec colwidth="10pc"/>
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="5pc"/>
-          <colspec colwidth="5pc"/>
           <tbody>
             <row>
               <entry>segCountX2:</entry>

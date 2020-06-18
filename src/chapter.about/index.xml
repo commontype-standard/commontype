@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="section.about" xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>About this specification</title>
-  <!--======================================================================-->
-  <section role="fragment">
-    <title>Overview</title>
     <!--____________________________________________________________________-->
     <section role="specification">
-      <title>Specification</title>
       <para>This specification details the format of CommonType fonts,
           the TrueType and CFF outline formats, and the TrueType
           hinting language. This document derives from Adobe's
@@ -26,15 +22,11 @@
           an issue</link>.</para>
     </section>
     <!--____________________________________________________________________-->
-    <section role="annotation">
-      <title>Annotation</title>
-      <para>The “Annotation” sections provides
-          clarification of the published specification, sometimes by
-          suggesting a different wording, sometimes by providing
-          background information.</para>
-      <para>The “Specification” sections
-          contain the exact text of version 1.3 of the CommonType
-          specification.</para>
+    <section role="discussion">
+      <title>Discussion</title>
+      <para>The “Discussion” sections provide non-normative information about
+           the specification, including clarifications, examples, additional
+           techniques, background information and so on.</para>
     </section>
     <!--____________________________________________________________________-->
     <section role="xml-representation">
@@ -89,5 +81,4 @@
           would detect violation of the specification, as well as
           violation of additional rules and dubious constructs.</para>
     </section>
-  </section>
 </section>

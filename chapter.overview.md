@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.overview"></a>Chapter 1. Overview</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm363769366896"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The CommonType font format is an extension of the TrueType
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.overview"></a>Chapter 1. Overview</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm79895800800"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The CommonType font format is an extension of the TrueType
 	font format, adding support for PostScript font data. The
 	CommonType font format is derived from the OpenType font format
   developed jointly by Microsoft and Adobe. CommonType fonts and the
@@ -34,7 +34,7 @@
 	documents, before using them. Also, font developers can encode
 	embedding restrictions in CommonType fonts, and these
 	restrictions cannot be altered in a font signed by the
-	developer.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm363769415952"></a>Related documentation</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The following documents may be consulted for further
+	developer.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm79895939664"></a>Related documentation</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The following documents may be consulted for further
 	information:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><a class="link" href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5176.CFF.pdf" target="_top">Adobe Technical Note #5176</a>: "The Compact Font Format
 	      Specification."</p></li><li class="listitem"><p><a class="link" href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5177.Type2.pdf" target="_top">Adobe Technical Note #5177</a>: "Type 2 Charstring Format."</p></li><li class="listitem"><p><a class="link" href="https://docs.microsoft.com/en-us/typography/opentype/spec/" target="_top">The OpenType Specification</a>. Microsoft.</p></li><li class="listitem"><p>Adobe Type 1 Font Format. Addison Wesley, 1991; ISBN
 	      0-201-57044-0.</p></li><li class="listitem"><p><a class="link" href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5015.Type1_Supp.pdf" target="_top">Adobe Technical Note #5015</a>: "The Type 1 Font Format

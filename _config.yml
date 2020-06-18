@@ -11,8 +11,6 @@ defaults:
       sidebar:
         nav: "chapters"
 
-github:
-  is_project_page: false
 url: http://commontype-standard.github.io/
 baseurl: ""
 

@@ -1,0 +1,1490 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.glyf">
+  <title>glyf - Glyf Data</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Introduction</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This table contains information that describes the
+          glyphs in the font in the TrueType outline format.
+          Information regarding the rasterizer (scaler) refers to the
+          TrueType rasterizer.</para>
+      <para>Each glyph begins with the following header:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>numberOfContours</otfieldname>
+          <otfielddesc>If the number of contours is greater than or
+              equal to zero, this is a single glyph; if negative, this
+              is a composite glyph.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>xMin</otfieldname>
+          <otfielddesc>Minimum x for coordinate data.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>yMin</otfieldname>
+          <otfielddesc>Minimum y for coordinate data.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>xMax</otfieldname>
+          <otfielddesc>Maximum x for coordinate data.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>yMax</otfieldname>
+          <otfielddesc>Maximum y for coordinate data.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Note that the bounding rectangle from each character is
+          defined as the rectangle with a lower left corner of (xMin,
+          yMin) and an upper right corner of (xMax, yMax).</para>
+      <para>Note: The scaler will perform better if the glyph
+          coordinates have been created such that the xMin is equal to
+          the lsb. For example, if the lsb is 123, then xMin for the
+          glyph should be 123. If the lsb is -12 then the xMin should
+          be -12. If the lsb is 0 then xMin is 0. If all glyphs are
+          done like this, set bit 1 of flags field in the
+          <ottable>head</ottable> table.</para>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Relax Schema for glyf table</code-title>
+glyf =
+  element glyf {
+    ( simple_glyph | empty_glyph | composite_glyph )*
+  }
+
+empty_glyph =
+  element empty_glyph {
+    attribute gid { text } }
+
+glyph_attributes =
+  attribute gid { text },
+  attribute xMin { text },
+  attribute yMin { text },
+  attribute xMax { text },
+  attribute yMax { text }
+
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="glyf.methods"><code-title>Compilation methods</code-title>
+  public void fromXML (Element glyf)
+      throws InvalidFontException, UnsupportedFontException {
+
+      NodeList l = glyf.getChildNodes ();
+
+      int glyfSize = 0;
+
+      Block glyphs [] = new Block [l.getLength ()];
+
+      for (int gid = 0; gid &lt; l.getLength (); gid++) {
+        Element e = (Element) l.item (gid);
+        if ("simple_glyph".equals (e.getTagName ())) {
+          glyphs [gid] = simpleGlyphFromXML (e); }
+        else if ("composite_glyph".equals (e.getTagName ())) {
+          glyphs [gid] = compositeGlyphFromXML (e); }
+        else if ("empty_glyph".equals (e.getTagName ())) {
+          glyphs [gid] = new Block (0, 0); }
+        glyfSize += glyphs [gid].content.length; }
+
+      data = new byte [glyfSize];
+
+      boolean shortLoca;
+
+      if (font.loca == null) {
+        font.loca = new Loca (font);
+        font.tables.put (Tag.loca, font.loca); }
+
+      if (glyfSize / 2 &lt; 65536) {
+        shortLoca = true;
+        font.head.setIndexToLocFormat (0);
+        font.loca.data = new byte [(l.getLength () + 1) * 2]; }
+      else {
+        shortLoca = false;
+        font.head.setIndexToLocFormat (1);
+        font.loca.data = new byte [(l.getLength () + 1) * 4]; }
+
+      int offset = 0;
+
+      for (int gid = 0; gid &lt; l.getLength (); gid++) {
+        Element e = (Element) l.item (gid);
+
+        if (shortLoca) {
+          font.loca.setuint16 (2 * gid, offset / 2); }
+        else {
+          font.loca.setuint32 (4 * gid, offset); }
+
+        int s = glyphs [gid].content.length;
+        System.arraycopy (glyphs [gid].content, 0,
+                         data, offset, s);
+        offset += s; }
+
+      if (shortLoca) {
+        font.loca.setuint16 (2 * l.getLength (), offset / 2); }
+      else {
+        font.loca.setuint32 (4 * l.getLength (), offset); }
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="glyf.methods"><code-title>Decompilation methods</code-title>
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+      int numGlyphs = font.maxp.getNumGlyphs ();
+
+      conf.ch.startElement ("glyf");
+
+      for (int gid = 0; gid &lt; numGlyphs; gid++) {
+        AttributesImpl at = new AttributesImpl ();
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
+
+        if (isEmpty (gid)) {
+          conf.ch.element ("empty_glyph", at);
+          continue; }
+
+        int offset = (int) font.loca.getGlyphLocation (gid);
+        int nbContours = getint16 (offset);
+
+        at.addAttribute ("", "xMin", "xMin", "CDATA", "" + getint16 (offset + 2));
+        at.addAttribute ("", "yMin", "yMin", "CDATA", "" + getint16 (offset + 4));
+        at.addAttribute ("", "xMax", "xMax", "CDATA", "" + getint16 (offset + 6));
+        at.addAttribute ("", "yMax", "yMax", "CDATA", "" + getint16 (offset + 8));
+
+        offset += 10;
+
+        if (nbContours &lt; 0) {
+          conf.ch.startElement ("composite_glyph", at);
+          compositeGlyphToXML (conf, offset);
+          conf.ch.endElement ("composite_glyph"); }
+
+        else {
+          conf.ch.startElement ("simple_glyph", at);
+          simpleGlyphToXML (conf, offset, nbContours);
+          conf.ch.endElement ("simple_glyph"); }}
+
+      conf.ch.endElement ("glyf");
+  }
+</code-fragment>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Glyf"><code-title>Glyf class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Glyf extends Table {
+
+  public Glyf () {
+    super (Tag.glyf);
+  }
+
+  public Glyf (Font font) {
+    super (Tag.glyf, font);
+  }
+
+  <code-include linkend="glyf.methods"/>
+}
+</code-fragment>
+      <para>For a given glyph with id g, loca[g] = loca[g+1] indicates
+an empty outline. Similarly loca[g] = sizeof(glyph) for the last glyph.
+This function identifies those situations.</para>
+      <code-fragment id="glyf.methods"><code-title>Empty glyf detection</code-title>
+  public boolean isEmpty (int gid) {
+    int offset = (int) font.loca.getGlyphLocation (gid);
+
+    if (gid == font.maxp.getNumGlyphs ()) {
+      return offset &gt;= data.length; }
+    else {
+      return offset == (int) font.loca.getGlyphLocation (gid + 1); }
+  }
+</code-fragment>
+      <para>Here is a method to return the bounding box of a glyph given the
+	  offset to glyph header:</para>
+      <code-fragment id="glyf.methods"><code-title>Glyf methods</code-title>
+  public boolean isComposite (int gid) {
+    if (isEmpty (gid)) {
+      return false; }
+
+    int offset = (int) font.loca.getGlyphLocation (gid);
+    return getint16 (offset) &lt; 0;
+  }
+
+  public BoundingBox getGlyfBoundingBox (int gid) {
+    BoundingBox b = new BoundingBox ();
+
+    if (isEmpty (gid)) {
+      return b; }
+
+    int offset = (int)font.loca.getGlyphLocation (gid);
+    b.xmin = getint16 (offset + 2);
+    b.ymin = getint16 (offset + 4);
+    b.xmax = getint16 (offset + 6);
+    b.ymax = getint16 (offset + 8);
+    return b;
+  }
+</code-fragment>
+      <para>And a method to return the bounding box of the contours of a glyph:</para>
+      <code-fragment id="glyf.methods"><code-title>Glyf methods</code-title>
+  public BoundingBox getContoursBoundingBox (int gid) {
+
+    if (isEmpty (gid)) {
+      return new BoundingBox (); }
+
+    int offset = (int) font.loca.getGlyphLocation (gid);
+    int nbContours = getint16 (offset);
+
+    offset += 10;
+
+    if (nbContours &lt; 0) {
+      return getCompositeGlyphContoursBoundingBox (offset); }
+    else {
+      return getSimpleGlyphContoursBoundingBox (offset, nbContours); }
+  }
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Simple Glyph Description</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This is the table information needed if numberOfContours
+          is greater than zero, that is, a glyph is not a
+          composite.</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>endPtsOfContours [n]</otfieldname>
+          <otfielddesc>Array of last points of each contour; n is
+              the number of contours.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2n</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>instructionLength</otfieldname>
+          <otfielddesc>Total number of bytes for
+              instructions.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2n+2</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>instructions [n]</otfieldname>
+          <otfielddesc>Array of instructions for each glyph; n is
+              the number of instructions.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>3n+2</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>flags [n]</otfieldname>
+          <otfielddesc>Array of flags for each coordinate in
+              outline; n is the number of flags.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4n+2</otfieldoffs>
+          <otfieldtype>BYTE or SHORT</otfieldtype>
+          <otfieldname>xCoordinates []</otfieldname>
+          <otfielddesc> First coordinates relative to (0,0); others
+              are relative to previous point.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>5n+2 or 6n+2</otfieldoffs>
+          <otfieldtype>BYTE or SHORT</otfieldtype>
+          <otfieldname>yCoordinates []</otfieldname>
+          <otfielddesc>First coordinates relative to (0,0); others
+              are relative to previous point.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Note: In the <ottable>glyf</ottable> table, the position
+          of a point is not stored in absolute terms but as a vector
+          relative to the previous point. The delta-x and delta-y
+          vectors represent these (often small) changes in
+          position.</para>
+      <para>Each flag is a single byte. Their meanings are shown
+          below.</para>
+      <informaltable>
+        <tgroup cols="3">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="1cm"/>
+          <colspec colwidth="10cm"/>
+          <thead>
+            <row>
+              <entry>Flags</entry>
+              <entry>Bit</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>On Curve</entry>
+              <entry>0</entry>
+              <entry>If set, the point is on the curve; otherwise,
+                  it is off the curve.</entry>
+            </row>
+            <row>
+              <entry>x-Short Vector</entry>
+              <entry>1</entry>
+              <entry>If set, the corresponding x-coordinate is 1
+                  byte long. If not set, 2 bytes.</entry>
+            </row>
+            <row>
+              <entry>y-Short Vector</entry>
+              <entry>2</entry>
+              <entry>If set, the corresponding y-coordinate is 1
+                  byte long. If not set, 2 bytes.</entry>
+            </row>
+            <row>
+              <entry>Repeat</entry>
+              <entry>3</entry>
+              <entry>If set, the next byte specifies the number of
+                  additional times this set of flags is to be
+                  repeated. In this way, the number of flags listed
+                  can be smaller than the number of points in a
+                  character.</entry>
+            </row>
+            <row>
+              <entry>This x is same (Positive x-Short
+                  Vector)</entry>
+              <entry>4</entry>
+              <entry>This flag has two meanings, depending on how
+                  the x-Short Vector flag is set. If x-Short Vector is
+                  set, this bit describes the sign of the value, with
+                  1 equalling positive and 0 negative. If the x-Short
+                  Vector bit is not set and this bit is set, then the
+                  current x-coordinate is the same as the previous
+                  x-coordinate. If the x-Short Vector bit is not set
+                  and this bit is also not set, the current
+                  x-coordinate is a signed 16-bit delta
+                  vector.</entry>
+            </row>
+            <row>
+              <entry>This y is same (Positive y-Short
+                  Vector)</entry>
+              <entry>5</entry>
+              <entry>This flag has two meanings, depending on how
+                  the y-Short Vector flag is set. If y-Short Vector is
+                  set, this bit describes the sign of the value, with
+                  1 equalling positive and 0 negative. If the y-Short
+                  Vector bit is not set and this bit is set, then the
+                  current y-coordinate is the same as the previous
+                  y-coordinate. If the y-Short Vector bit is not set
+                  and this bit is also not set, the current
+                  y-coordinate is a signed 16-bit delta
+                  vector.</entry>
+            </row>
+            <row>
+              <entry>Reserved</entry>
+              <entry>6</entry>
+              <entry>This bit is reserved. Set it to zero.</entry>
+            </row>
+            <row>
+              <entry>Reserved</entry>
+              <entry>7</entry>
+              <entry>This bit is reserved. Set it to zero.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Relax Schema for glyf table</code-title>
+simple_glyph =
+  element simple_glyph {
+    glyph_attributes,
+    element contour {
+      element point {
+        attribute on_curve { yesOrNo },
+        attribute x { text },
+        attribute y { text } }+ } +,
+
+    element instructions {
+      attribute opcodes { text }} ?
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="glyf.methods">
+  public Block simpleGlyphFromXML (Element e) {
+
+    NodeList contours = e.getChildNodes ();
+    int nbContours = contours.getLength ();
+
+    Element instructionsElt = (Element) contours.item (nbContours - 1);
+    Block instructions;
+
+    if ("instructions".equals (instructionsElt.getTagName())) {
+      nbContours--;
+      int opcodes [] = parseIntList (instructionsElt.getAttribute ("opcodes"));
+      instructions = new Block (opcodes.length, 0);
+      for (int i = 0; i &lt; opcodes.length; i++) {
+        instructions.setuint8 (i, opcodes [i]); }}
+    else {
+      instructions = new Block (0, 0); }
+
+    int nbTotalPoints = 0;
+    for (int c = 0; c &lt; nbContours; c++) {
+       Element contour = (Element) contours.item (c);
+       NodeList points = (NodeList) contour.getChildNodes ();
+       nbTotalPoints += points.getLength (); }
+
+    int endPts []  = new int [nbContours];
+
+    // pessimistic allocation
+    Block flags = new Block (nbTotalPoints, 0);
+    int flagsOffset = 0;
+    Block x = new Block (nbTotalPoints * 2, 0);
+    int xOffset = 0;
+    Block y = new Block (nbTotalPoints * 2, 0);
+    int yOffset = 0;
+
+
+    int currentPoint = 0;
+    int currentX = 0;
+    int currentY = 0;
+
+    int lastFlags = 0;
+    boolean lastFlagsRepeat = false;
+    int lastFlagsCount = 0;
+
+    for (int c = 0; c &lt; nbContours; c++) {
+       Element contour = (Element) contours.item (c);
+
+       NodeList points = (NodeList) contour.getChildNodes ();
+       int nbPoints = points.getLength ();
+
+       for (int p = 0; p &lt; nbPoints; p++) {
+         Element point = (Element) points.item (p);
+         int thisX = Integer.parseInt (point.getAttribute ("x"));
+         int thisY = Integer.parseInt (point.getAttribute ("y"));
+
+         int thisFlags = 0;
+
+         if ("yes".equals (point.getAttribute ("on_curve"))) {
+           thisFlags |= ON_CURVE_POINT; }
+
+         int delta_x = thisX - currentX;
+         if (delta_x == 0) {
+           thisFlags |= X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR; }
+         else if (-255 &lt;= delta_x &amp;&amp; delta_x &lt;= 255) {
+           thisFlags |= X_SHORT_VECTOR;
+           if (0 &lt; delta_x) {
+             thisFlags |= X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR; }
+           else {
+             delta_x = - delta_x; }
+           x.setuint8 (xOffset, delta_x);
+           xOffset += 1; }
+         else {
+           x.setint16 (xOffset, delta_x);
+           xOffset += 2; }
+
+         currentX = thisX;
+
+         int delta_y = thisY - currentY;
+         if (delta_y == 0) {
+           thisFlags |= Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR; }
+         else if (-255 &lt;= delta_y &amp;&amp; delta_y &lt;= 255) {
+           thisFlags |= Y_SHORT_VECTOR;
+           if (0 &lt; delta_y) {
+             thisFlags |= Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR; }
+           else {
+             delta_y = - delta_y; }
+           y.setuint8 (yOffset, delta_y);
+           yOffset += 1; }
+         else {
+           y.setint16 (yOffset, delta_y);
+           yOffset += 2; }
+
+         currentY = thisY;
+
+         if (0 &lt; flagsOffset  &amp;&amp; thisFlags == lastFlags) {
+           if (lastFlagsRepeat) {
+             if (lastFlagsCount &lt; 255) {
+               lastFlagsCount++;
+               flags.setuint8 (flagsOffset - 1, lastFlagsCount); }
+             else {
+               flags.setuint8 (flagsOffset, thisFlags);
+               flagsOffset += 1;
+               lastFlagsRepeat = false;
+               lastFlagsCount = 0; }}
+           else {
+             flags.setuint8 (flagsOffset - 1, lastFlags | REPEAT_FLAG);
+             flags.setuint8 (flagsOffset, 1);
+             flagsOffset += 1;
+             lastFlagsRepeat = true;
+             lastFlagsCount = 1; }}
+         else {
+           flags.setuint8 (flagsOffset, thisFlags);
+           flagsOffset += 1;
+           lastFlagsRepeat = false;
+           lastFlagsCount = 0; }
+
+         lastFlags = thisFlags; }
+
+      endPts [c] = ((c == 0) ? -1 : endPts [c - 1]) + nbPoints; }
+
+
+    int totalSize = 10
+                     + endPts.length * 2
+                     + 2 + instructions.content.length
+                     + flagsOffset + xOffset + yOffset;
+
+    if (totalSize % 2 == 1) {
+      totalSize++; }
+
+    Block result = new Block (totalSize, 0);
+    int b = 0;
+
+    result.setuint16 (b, nbContours); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("xMin"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("yMin"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("xMax"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("yMax"))); b += 2;
+
+    for (int c = 0; c &lt; nbContours; c++) {
+      result.setuint16 (b, endPts [c]); b += 2; }
+
+    if (instructions == null) {
+      result.setuint16 (b, 0); b += 2; }
+    else {
+      result.setuint16 (b, instructions.content.length); b += 2;
+      System.arraycopy (instructions.content, 0,
+                        result.content, b,
+                        instructions.content.length);
+      b += instructions.content.length; }
+
+    System.arraycopy (flags.content, 0, result.content, b, flagsOffset);
+    b += flagsOffset;
+
+    System.arraycopy (x.content, 0, result.content, b, xOffset);
+    b += xOffset;
+
+    System.arraycopy (y.content, 0, result.content, b, yOffset);
+    b += yOffset;
+
+    return result;
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="glyf.methods"><code-title>Decompiler for simple glyphs</code-title>
+
+  public void simpleGlyphToXML (DecompilerConfig conf,
+                                int offset,
+                                int nbContours)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+      SimpleGlyphUnpack u = unpackSimpleGlyphContours (offset, nbContours);
+
+      offset += 2 * nbContours;  // skip to the instructions
+
+      int numInstr = getuint16 (offset); offset += 2;
+      String opcodes = "";
+      String prefix = "";
+      for (int i = 0; i &lt; numInstr; i++) {
+        opcodes += prefix + "0x" + Integer.toHexString (getuint8 (offset));
+        offset += 1;
+        prefix = " "; }
+
+      int pt = 0;
+      for (int c = 0; c &lt; nbContours; c++) {
+        conf.ch.startElement ("contour");
+
+        while (pt &lt;= u.endPts [c]) {
+
+          AttributesImpl at = new AttributesImpl ();
+          at.addAttribute ("", "on_curve", "on_curve", "CDATA",
+                           u.on [pt] ? "yes" : "no");
+          at.addAttribute ("", "x", "x", "CDATA", Integer.toString (u.x [pt]));
+          at.addAttribute ("", "y", "y", "CDATA", Integer.toString (u.y [pt]));
+
+          conf.ch.element ("point", at);
+          pt++; }
+
+        conf.ch.endElement ("contour"); }
+
+      if (numInstr != 0) {
+        AttributesImpl at = new AttributesImpl ();
+        at.addAttribute ("", "opcodes", "opcodes", "CDATA", opcodes);
+        conf.ch.element ("instructions", at); }
+  }
+</code-fragment>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="glyf.methods"><code-title>Glyf methods</code-title>
+  public static final int ON_CURVE_POINT                       = 0x0001;
+  public static final int X_SHORT_VECTOR                       = 0x0002;
+  public static final int Y_SHORT_VECTOR                       = 0x0004;
+  public static final int REPEAT_FLAG                          = 0x0008;
+  public static final int X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR = 0x0010;
+  public static final int Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR = 0x0020;
+</code-fragment>
+      <para>This method unpacks the fields of a simple glyph, so that we have the list of coordinates readily available.</para>
+      <code-fragment id="glyf.methods">
+
+  public class SimpleGlyphUnpack {
+    int offset;
+    int endPts [];
+    int nbPts;
+    int x[];
+    int y[];
+    boolean on[];
+  }
+
+  public SimpleGlyphUnpack unpackSimpleGlyphContours (int offset,
+                                                      int nbContours) {
+
+    SimpleGlyphUnpack u = new SimpleGlyphUnpack ();
+
+    u.endPts = new int [nbContours];
+    for (int i = 0; i &lt; nbContours; i++) {
+      u.endPts [i] = getuint16 (offset); offset += 2; }
+
+    offset += 2 + getuint16 (offset);  // instructionLength
+
+    u.nbPts = u.endPts [nbContours - 1] + 1;
+    u.x = new int [u.nbPts];
+    u.y = new int [u.nbPts];
+    u.on = new boolean [u.nbPts];
+
+    int flags[] = new int [u.nbPts];
+    int repeat = 0;
+    int f = 0;
+
+    for (int i = 0; i &lt; u.nbPts; i++) {
+      if (repeat == 0) {
+        f = getuint8 (offset); offset++;
+        repeat = 0;
+        if ((f &amp; REPEAT_FLAG) != 0) {
+          repeat = getuint8 (offset); offset++; }}
+      else {
+        repeat--; }
+      flags [i] = f;
+      u.on [i] = ((f &amp; ON_CURVE_POINT) != 0);  }
+
+    int current_x = 0;
+
+    for (int i = 0; i &lt; u.nbPts; i++) {
+      if ((flags [i] &amp; X_SHORT_VECTOR) != 0) {
+        int xOffset = getuint8 (offset); offset += 1;
+        if ((flags [i] &amp; X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR) == 0) {
+          xOffset = - xOffset; }
+        current_x += xOffset; }
+
+      else if ((flags [i] &amp; X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR) != 0) {
+        /* same */ }
+
+      else {
+        current_x += getint16 (offset); offset += 2; }
+
+      u.x [i] = current_x; }
+
+    int current_y = 0;
+
+    for (int i = 0; i &lt; u.nbPts; i++) {
+      if ((flags [i] &amp; Y_SHORT_VECTOR) != 0) {
+        int yOffset = getuint8 (offset); offset += 1;
+        if ((flags [i] &amp; Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR) == 0) {
+          yOffset = - yOffset; }
+        current_y += yOffset; }
+
+      else if ((flags [i] &amp; Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR) != 0) {
+        /* same */ }
+
+      else {
+        current_y += getint16 (offset); offset += 2; }
+
+      u.y [i] = current_y; }
+
+    return u;
+  }
+</code-fragment>
+      <para>This class receives descriptions of the lines and curves of contours and computes their bounding box.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="TTBoundingBox"><code-title>Type2Bounding class</code-title>
+package com.adobe.aots.CommonType;
+
+public class TTBoundingBox {
+  public BoundingBox bb;
+
+  TTBoundingBox () {
+    this.bb = new BoundingBox ();
+  }
+
+  public void line (double x1, double y1, double x2, double y2) {
+    bb.include (x1, y1);
+    bb.include (x2, y2);
+  }
+
+  private double at (double t, double z1, double z2, double z3)
+  {
+    double mt = 1 - t;
+    return mt * mt * z1 + 2 * mt * t * z2 + t * t * z3;
+  }
+
+  private void includeAtT (double t,
+                           double x1, double y1, double x2, double y2,
+                           double x3, double y3)
+  {
+    if (0 &lt; t &amp;&amp; t &lt; 1) {
+      bb.include (at (t, x1, x2, x3),
+                  at (t, y1, y2, y3)); }
+  }
+
+  private void includeExtremas (double z1, double z2, double z3,
+                                double x1, double y1, double x2, double y2,
+                                double x3, double y3)
+  {
+    double denom = z1 - 2*z2 + z3;
+    if (Math.abs (denom) &lt; 1e-12) {
+      return; }
+
+      includeAtT ((z1 - z2) / denom,
+                  x1, y1, x2, y2, x3, y3);
+  }
+
+  public void curve (double x1, double y1, double x2, double y2,
+                     double x3, double y3)
+  {
+    bb.include (x1, y1);
+    bb.include (x3, y3);
+
+    includeExtremas (x1, x2, x3,
+                     x1, y1, x2, y2, x3, y3);
+    includeExtremas (y1, y2, y3,
+                     x1, y1, x2, y2, x3, y3);
+  }
+}
+</code-fragment>
+      <para>Using this class, this method walks the contours of a simple glyph to get their bounding box:</para>
+      <code-fragment id="glyf.methods">
+  public BoundingBox getSimpleGlyphContoursBoundingBox (int offset, int nbContours)
+  {
+    TTBoundingBox b = new TTBoundingBox ();
+
+    SimpleGlyphUnpack u = unpackSimpleGlyphContours (offset, nbContours);
+
+      int pt = 0;
+
+      for (int c = 0; c &lt; nbContours; c++) {
+
+        int originx = u.x [pt];
+        int originy = u.y [pt];
+        pt++;
+        boolean lastPointIsOn = true;
+
+        int p0x, p0y, p1x, p1y;
+        p0x = originx;
+        p0y = originy;
+        p1x = 0;  // just to make the compiler happy
+        p1y = 0;
+
+        while (pt &lt;= u.endPts [c]) {
+          if (u.on [pt]) {
+            if (lastPointIsOn) {
+              b.line (p0x, p0y, u.x [pt], u.y [pt]); }
+            else {
+              b.curve (p0x, p0y, p1x, p1y, u.x [pt], u.y [pt]); }
+            p0x = u.x [pt];
+            p0y = u.y [pt];
+            lastPointIsOn = true; }
+
+          else {
+            if (! lastPointIsOn) {
+              int mx = (p1x + u.x [pt]) / 2;
+              int my = (p1y + u.y [pt]) / 2;
+              b.curve (p0x, p0y, p1x, p1y, mx, my);
+              p0x = mx;
+              p0y = my; }
+
+            p1x = u.x [pt];
+            p1y = u.y [pt];
+            lastPointIsOn = false; }
+
+          pt++; }
+
+        if (! lastPointIsOn) {
+          b.curve (p0x, p0y, p1x, p1y, originx, originy); }}
+
+    return b.bb;
+  }
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Composite Glyph Description</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This is the table information needed for composite
+          glyphs (numberOfContours is -1). A composite glyph starts
+          with two USHORT values ("flags" and "glyphIndex," i.e. the
+          index of the first contour in this composite glyph); the
+          data then varies according to "flags").</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>flags</otfieldname>
+          <otfielddesc>component flag</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>glyphIndex</otfieldname>
+          <otfielddesc>glyph index of component</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>VARIABLE</otfieldtype>
+          <otfieldname>argument1</otfieldname>
+          <otfielddesc>x-offset for component or point number; type
+              depends on bits 0 and 1 in component flags</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>VARIABLE</otfieldtype>
+          <otfieldname>argument2</otfieldname>
+          <otfielddesc>y-offset for component or point number; type
+              depends on bits 0 and 1 in component flags</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>Transformation Option</otfieldtype>
+          <otfieldname/>
+          <otfielddesc/>
+        </otfield>
+      </otformat>
+      <para>The C pseudo-code fragment below shows how the composite
+          glyph information is stored and parsed; definitions for
+          "flags" bits follow this fragment:</para>
+      <literallayout><![CDATA[
+do {
+        USHORT flags;
+        USHORT glyphIndex;
+        if ( flags & ARG_1_AND_2_ARE_WORDS) {
+        (SHORT or FWord) argument1;
+        (SHORT or FWord) argument2;
+        } else {
+                USHORT arg1and2; /* (arg1 << 8) | arg2 */
+        }
+        if ( flags & WE_HAVE_A_SCALE ) {
+                F2Dot14  scale;    /* Format 2.14 */
+        } else if ( flags & WE_HAVE_AN_X_AND_Y_SCALE ) {
+                F2Dot14  xscale;    /* Format 2.14 */
+                F2Dot14  yscale;    /* Format 2.14 */
+        } else if ( flags & WE_HAVE_A_TWO_BY_TWO ) {
+                F2Dot14  xscale;    /* Format 2.14 */
+                F2Dot14  scale01;   /* Format 2.14 */
+                F2Dot14  scale10;   /* Format 2.14 */
+                F2Dot14  yscale;    /* Format 2.14 */
+        }
+} while ( flags & MORE_COMPONENTS )
+if (flags & WE_HAVE_INSTR){
+        USHORT numInstr
+        BYTE instr[numInstr]
+]]></literallayout>
+      <para>Argument1 and argument2 can be either x and y offsets to
+          be added to the glyph or two point numbers. In the latter
+          case, the first point number indicates the point that is to
+          be matched to the new glyph. The second number indicates the
+          new glyph's "matched" point. Once a glyph is added, its
+          point numbers begin directly after the last glyphs (endpoint
+          of first glyph + 1).</para>
+      <para>When arguments 1 and 2 are an x and a y offset instead
+          of points and the bit ROUND_XY_TO_GRID is set to 1, the
+          values are rounded to those of the closest grid lines before
+          they are added to the glyph. X and Y offsets are described
+          in FUnits.</para>
+      <para>If the bit WE_HAVE_A_SCALE is set, the scale value is
+          read in 2.14 format-the value can be between -2 to almost
+          +2. The glyph will be scaled by this value before
+          grid-fitting.</para>
+      <para>The bit WE_HAVE_A_TWO_BY_TWO allows for an
+          interrelationship between the x and y coordinates. This
+          could be used for 90-degree rotations, for example.</para>
+      <para>These are the constants for the flags field:</para>
+      <informaltable>
+        <tgroup cols="3">
+          <colspec colwidth="13pc"/>
+          <colspec colwidth="2pc"/>
+          <colspec colwidth="15pc"/>
+          <thead>
+            <row>
+              <entry>Flags</entry>
+              <entry>Bit</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>ARG_1_AND_2_ARE_WORDS</entry>
+              <entry>0</entry>
+              <entry>If this is set, the arguments are words;
+                  otherwise, they are bytes.</entry>
+            </row>
+            <row>
+              <entry>ARGS_ARE_XY_VALUES</entry>
+              <entry>1</entry>
+              <entry>If this is set, the arguments are xy values;
+                  otherwise, they are points.</entry>
+            </row>
+            <row>
+              <entry>ROUND_XY_TO_GRID</entry>
+              <entry>2</entry>
+              <entry>For the xy values if the preceding is
+                  true.</entry>
+            </row>
+            <row>
+              <entry>WE_HAVE_A_SCALE</entry>
+              <entry>3</entry>
+              <entry>This indicates that there is a simple scale for
+                  the component. Otherwise, scale = 1.0.</entry>
+            </row>
+            <row>
+              <entry>RESERVED</entry>
+              <entry>4</entry>
+              <entry>This bit is reserved. Set it to 0.</entry>
+            </row>
+            <row>
+              <entry>MORE_COMPONENTS</entry>
+              <entry>5</entry>
+              <entry>Indicates at least one more glyph after this
+                  one.</entry>
+            </row>
+            <row>
+              <entry>WE_HAVE_AN_X_AND_Y_SCALE</entry>
+              <entry>6</entry>
+              <entry>The x direction will use a different scale from
+                  the y direction.</entry>
+            </row>
+            <row>
+              <entry>WE_HAVE_A_TWO_BY_TWO</entry>
+              <entry>7</entry>
+              <entry>There is a 2 by 2 transformation that will be
+                  used to scale the component.</entry>
+            </row>
+            <row>
+              <entry>WE_HAVE_INSTRUCTIONS</entry>
+              <entry>8</entry>
+              <entry>Following the last component are instructions
+                  for the composite character.</entry>
+            </row>
+            <row>
+              <entry>USE_MY_METRICS</entry>
+              <entry>9</entry>
+              <entry>If set, this forces the aw and lsb (and rsb)
+                  for the composite to be equal to those from this
+                  original glyph. This works for hinted and unhinted
+                  characters.</entry>
+            </row>
+            <row>
+              <entry>OVERLAP_COMPOUND</entry>
+              <entry>10</entry>
+              <entry>Used by Apple in GX fonts.</entry>
+            </row>
+            <row>
+              <entry>SCALED_COMPONENT_OFFSET</entry>
+              <entry>11</entry>
+              <entry>Composite designed to have the component offset
+                  scaled (designed for Apple rasterizer).</entry>
+            </row>
+            <row>
+              <entry>UNSCALED_COMPONENT_OFFSET</entry>
+              <entry>12</entry>
+              <entry>Composite designed not to have the component
+                  offset scaled (designed for the Microsoft TrueType
+                  rasterizer).</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>The purpose of USE_MY_METRICS is to force the lsb and
+          rsb to take on a desired value. For example, an i-circumflex
+          (U+00EF) is often composed of the circumflex and a
+          dotless-i. In order to force the composite to have the same
+          metrics as the dotless-i, set USE_MY_METRICS for the
+          dotless-i component of the composite. Without this bit, the
+          rsb and lsb would be calculated from the hmtx entry for the
+          composite (or would need to be explicitly set with TrueType
+          instructions).</para>
+      <para>Note that the behavior of the USE_MY_METRICS operation
+          is undefined for rotated composite components.</para>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Relax Schema for glyf table</code-title>
+composite_glyph =
+  element composite_glyph {
+    glyph_attributes,
+    element component {
+      attribute flags { text },
+      attribute gid { text },
+      attribute arg1 { text },
+      attribute arg2 { text },
+      component_scale? } +,
+
+    element instructions {
+      attribute opcodes { text }} ?
+  }
+
+component_scale |=
+   attribute scale { text ? }
+
+component_scale |=
+   attribute xscale { text ? },
+   attribute yscale { text ? }
+
+component_scale |=
+   attribute xscale { text ? },
+   attribute scale01 { text ? },
+   attribute scale10 { text ? },
+   attribute yscale { text ? }
+
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="glyf.methods">
+  public Block compositeGlyphFromXML (Element e) {
+
+    NodeList components = e.getChildNodes ();
+    int nbComponents = components.getLength ();
+
+    Element instructionsElt = (Element) components.item (nbComponents - 1);
+    Block instructions;
+
+    if ("instructions".equals (instructionsElt.getTagName())) {
+      nbComponents--;
+      int opcodes [] = parseIntList (instructionsElt.getAttribute ("opcodes"));
+      instructions = new Block (opcodes.length, 0);
+      for (int i = 0; i &lt; opcodes.length; i++) {
+        instructions.setuint8 (i, opcodes [i]); }}
+    else {
+      instructions = new Block (0, 0); }
+
+    // pessimistic allocation
+    Block data = new Block (10 + nbComponents * (4 + 4 + 8), 0);
+    int dataOffset = 0;
+
+    for (int c = 0; c &lt; nbComponents; c++) {
+      Element component = (Element) components.item (c);
+
+      int flags = Integer.decode (component.getAttribute ("flags"));
+      int gid = Integer.decode (component.getAttribute ("gid"));
+      int arg1 = Integer.decode (component.getAttribute ("arg1"));
+      int arg2 = Integer.decode (component.getAttribute ("arg2"));
+
+      int xscale = 1 &lt;&lt; 14;
+      int scale01 = 0;
+      int scale10 = 0;
+      int yscale = 1 &lt;&lt; 14;
+
+      if (component.getAttribute ("scale") != null
+          &amp;&amp; ! "".equals (component.getAttribute ("scale"))) {
+        xscale = Integer.parseInt (component.getAttribute ("scale"));
+        yscale = xscale; }
+
+      if (component.getAttribute ("xscale") != null
+          &amp;&amp; ! "".equals (component.getAttribute ("xscale"))) {
+        xscale = Integer.parseInt (component.getAttribute ("xscale")); }
+
+      if (component.getAttribute ("scale01") != null
+          &amp;&amp; ! "".equals (component.getAttribute ("scale01"))) {
+        scale01 = Integer.parseInt (component.getAttribute ("scale01")); }
+
+      if (component.getAttribute ("scale10") != null
+          &amp;&amp; ! "".equals (component.getAttribute ("scale10"))) {
+        scale10 = Integer.parseInt (component.getAttribute ("scale10")); }
+
+      if (component.getAttribute ("yscale") != null
+          &amp;&amp; ! "".equals (component.getAttribute ("yscale"))) {
+        yscale = Integer.parseInt (component.getAttribute ("yscale")); }
+
+
+      int flagsOffset = dataOffset;
+      dataOffset += 2;
+
+      data.setuint16 (dataOffset, gid); dataOffset += 2;
+
+      // retain only those bits from our input, we will
+      // set the others as needed
+      flags &amp;= ARGS_ARE_XY_VALUES
+            | ROUND_XY_TO_GRID
+            | USE_MY_METRICS
+            | OVERLAP_COMPOUND
+            | SCALED_COMPONENT_OFFSET
+            | UNSCALED_COMPONENT_OFFSET;
+
+      if ((flags &amp; ARGS_ARE_XY_VALUES) != 0) {
+        if (arg1 &lt; -128 || 127 &lt; arg1 || arg2 &lt; -128 || 127 &lt; arg2 ) {
+          flags |= ARG_1_AND_2_ARE_WORDS;
+          data.setint16 (dataOffset, arg1); dataOffset += 2;
+          data.setint16 (dataOffset, arg2); dataOffset += 2; }
+        else {
+          data.setint8 (dataOffset, arg1); dataOffset += 1;
+          data.setint8 (dataOffset, arg2); dataOffset += 1; }}
+      else {
+        if (256 &lt; arg1 || 256 &lt; arg2) {
+          flags |= ARG_1_AND_2_ARE_WORDS;
+          data.setuint16 (dataOffset, arg1); dataOffset += 2;
+          data.setuint16 (dataOffset, arg2); dataOffset += 2; }
+        else {
+          data.setuint8 (dataOffset, arg1); dataOffset += 1;
+          data.setuint8 (dataOffset, arg2); dataOffset += 1; }}
+
+      if (scale01 != 0 || scale10 != 0) {
+        flags |= WE_HAVE_A_TWO_BY_TWO;
+        data.setuint16 (dataOffset, xscale); dataOffset += 2;
+        data.setuint16 (dataOffset, scale01); dataOffset += 2;
+        data.setuint16 (dataOffset, scale10); dataOffset += 2;
+        data.setuint16 (dataOffset, yscale); dataOffset += 2; }
+
+      else if (xscale != yscale) {
+        flags |= WE_HAVE_AN_X_AND_Y_SCALE;
+        data.setuint16 (dataOffset, xscale); dataOffset += 2;
+        data.setuint16 (dataOffset, yscale); dataOffset += 2; }
+
+      else if (xscale != 1 &lt;&lt;14) {
+        flags |= WE_HAVE_A_SCALE;
+        data.setuint16 (dataOffset, xscale); dataOffset += 2; }
+
+      if (c &lt; nbComponents - 1) {
+        flags |= MORE_COMPONENTS; }
+
+      if (instructions.content.length &gt; 0) {
+        flags |= WE_HAVE_INSTRUCTIONS; }
+
+      data.setuint16 (flagsOffset, flags); }
+
+    int totalSize = 10 + dataOffset;
+    if (instructions.content.length &gt; 0) {
+      totalSize += 2 + instructions.content.length; }
+
+    if (totalSize % 2 == 1) {
+      totalSize++; }
+
+    Block result = new Block (totalSize, 0);
+    int b = 0;
+
+    result.setint16 (b, -1); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("xMin"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("yMin"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("xMax"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("yMax"))); b += 2;
+
+    for (int i = 0; i &lt; dataOffset; i++) {
+      result.setuint8 (b, data.content [i]); b++; }
+
+    if (instructions.content.length &gt; 0) {
+      result.setuint16 (b, instructions.content.length); b += 2;
+
+      System.arraycopy (instructions.content, 0,
+                        result.content, b,
+                        instructions.content.length);
+
+      b += instructions.content.length; }
+
+    return result;
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="glyf.methods">
+  public void compositeGlyphToXML (DecompilerConfig conf, int offset)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    CompositeGlyphUnpack u = unpackCompositeGlyph (offset);
+
+    for (CompositeGlyphComponent c : u.components) {
+      AttributesImpl at = new AttributesImpl ();
+
+      at.addAttribute ("", "flags", "flags", "CDATA",
+                       "0x" + Integer.toHexString (c.flags &amp; 0x1e06));
+
+      at.addAttribute ("", "gid", "gid", "CDATA",
+                       Integer.toString (c.gid));
+
+      at.addAttribute ("", "arg1", "arg1", "CDATA",
+                       Integer.toString (c.arg1));
+      at.addAttribute ("", "arg2", "arg2", "CDATA",
+                       Integer.toString (c.arg2));
+
+      if ((c.flags &amp; WE_HAVE_A_SCALE) != 0) {
+        at.addAttribute ("", "scale", "scale", "CDATA",
+                         Integer.toString (c.xscale)); }
+
+      else if ((c.flags &amp; WE_HAVE_AN_X_AND_Y_SCALE) != 0) {
+        at.addAttribute ("", "xscale", "xscale", "CDATA",
+                         Integer.toString (c.xscale));
+        at.addAttribute ("", "yscale", "yscale", "CDATA",
+                         Integer.toString (c.yscale)); }
+
+
+      else if ((c.flags &amp; WE_HAVE_A_TWO_BY_TWO) != 0) {
+        at.addAttribute ("", "xscale", "xscale", "CDATA",
+                         Integer.toString (c.xscale));
+        at.addAttribute ("", "scale01", "scale01", "CDATA",
+                         Integer.toString (c.scale01));
+        at.addAttribute ("", "scale10", "scale10", "CDATA",
+                         Integer.toString (c.scale10));
+        at.addAttribute ("", "yscale", "yscale", "CDATA",
+                         Integer.toString (c.yscale)); }
+
+      conf.ch.element ("component", at); }
+
+    if (u.instructions != null) {
+      String opcodes = "";
+      String prefix = "";
+      for (int i = 0; i &lt; u.instructions.length; i++) {
+        opcodes += prefix + "0x" + Integer.toString (u.instructions [i]);
+        prefix = " "; }
+
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "opcodes", "opcodes", "CDATA",
+                       opcodes);
+
+      conf.ch.element ("instructions", at); }
+  }
+</code-fragment>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="glyf.methods"><code-title>Glyf methods</code-title>
+  public static final int ARG_1_AND_2_ARE_WORDS      = 0x0001;
+  public static final int ARGS_ARE_XY_VALUES         = 0x0002;
+  public static final int ROUND_XY_TO_GRID           = 0x0004;
+  public static final int WE_HAVE_A_SCALE            = 0x0008;
+  public static final int MORE_COMPONENTS            = 0x0020;
+  public static final int WE_HAVE_AN_X_AND_Y_SCALE   = 0x0040;
+  public static final int WE_HAVE_A_TWO_BY_TWO       = 0x0080;
+  public static final int WE_HAVE_INSTRUCTIONS       = 0x0100;
+  public static final int USE_MY_METRICS             = 0x0200;
+  public static final int OVERLAP_COMPOUND           = 0x0400;
+  public static final int SCALED_COMPONENT_OFFSET    = 0x0800;
+  public static final int UNSCALED_COMPONENT_OFFSET  = 0x1000;
+</code-fragment>
+      <code-fragment id="glyf.methods">
+  public class CompositeGlyphComponent {
+    int flags;
+    int gid;
+    int arg1, arg2;
+
+    int xscale = 1 &lt;&lt; 14;
+    int yscale = 1 &lt;&lt; 14;
+    int scale01 = 0;
+    int scale10 = 0;
+  }
+
+  public class CompositeGlyphUnpack {
+    int offset;
+    java.util.Vector&lt;CompositeGlyphComponent&gt; components;
+    int[] instructions;
+
+    public CompositeGlyphUnpack ()
+    {
+      this.components = new java.util.Vector&lt;CompositeGlyphComponent&gt; ();
+      this.instructions = null;
+    }
+  }
+
+
+  public CompositeGlyphUnpack unpackCompositeGlyph (int offset) {
+
+    CompositeGlyphUnpack u = new CompositeGlyphUnpack ();
+
+    boolean we_have_instructions = false;
+
+    while (true) {
+      CompositeGlyphComponent c = new CompositeGlyphComponent ();
+
+      int flags = getuint16 (offset);
+      offset += 2;
+
+      c.flags = flags;  // remove ARG1, scale, instr
+
+      we_have_instructions |= ((flags &amp; WE_HAVE_INSTRUCTIONS) != 0);
+
+      c.gid = getGlyphID (offset);
+      offset += 2;
+
+      if ((flags &amp; ARG_1_AND_2_ARE_WORDS) != 0) {
+        if ((flags &amp; ARGS_ARE_XY_VALUES) != 0) {
+          c.arg1 = getint16 (offset); offset += 2;
+          c.arg2 = getint16 (offset); offset += 2; }
+        else {
+          c.arg1 = getuint16 (offset); offset += 2;
+          c.arg2 = getuint16 (offset); offset += 2; }}
+      else {
+        if ((flags &amp; ARGS_ARE_XY_VALUES) != 0) {
+          c.arg1 = getint8 (offset); offset += 1;
+          c.arg2 = getint8 (offset); offset += 1; }
+        else {
+          c.arg1 = getuint8 (offset); offset += 1;
+          c.arg2 = getuint8 (offset); offset += 1; }}
+
+      if ((flags &amp; WE_HAVE_A_SCALE) != 0) {
+        c.xscale = c.yscale = getFWord (offset); offset += 2; }
+
+      else if ((flags &amp; WE_HAVE_AN_X_AND_Y_SCALE) != 0) {
+        c.xscale = getFWord (offset); offset += 2;
+        c.yscale = getFWord (offset); offset += 2; }
+
+      else if ((flags &amp; WE_HAVE_A_TWO_BY_TWO) != 0) {
+        c.xscale = getFWord (offset); offset += 2;
+        c.scale01 = getFWord (offset); offset += 2;
+        c.scale10 = getFWord (offset); offset += 2;
+        c.yscale = getFWord (offset); offset += 2; }
+
+      u.components.add (c);
+
+      if ((flags &amp; MORE_COMPONENTS) == 0) {
+        break; }}
+
+    if (we_have_instructions) {
+      int numInstr = getuint16 (offset); offset += 2;
+      u.instructions = new int [numInstr];
+      for (int i = 0; i &lt; numInstr; i++) {
+        u.instructions [i] = getuint8 (offset);
+        offset += 1; }}
+
+    u.offset = offset;
+
+    return u;
+  }
+</code-fragment>
+      <para>This method computes some of the 'maxp' values from the glyphs.</para>
+      <code-fragment id="glyf.methods">
+  static public class MaxpValues {
+    int numPoints;
+    int numCompositePoints;
+    int numContours;
+    int numCompositeContours;
+    int numComponentElements;
+    int componentDepth;
+  };
+
+  public MaxpValues getMaxpValues (int gid) {
+    MaxpValues maxpValues = new MaxpValues ();
+    maxpValues.numPoints = 0;
+    maxpValues.numCompositePoints = 0;
+    maxpValues.numContours = 0;
+    maxpValues.numCompositeContours = 0;
+    maxpValues.numComponentElements = 0;
+    maxpValues.componentDepth = 0;
+
+    if (isEmpty (gid)) {
+      return maxpValues; }
+
+    int offset = (int) font.loca.getGlyphLocation (gid);
+
+    if (getint16 (offset) &gt;= 0) {
+      maxpValues.componentDepth = 0;
+      maxpValues.numContours = getuint16 (offset);
+      maxpValues.numPoints = getuint16 (offset + 10 + (maxpValues.numContours-1) * 2) + 1;
+      maxpValues.numCompositeContours = maxpValues.numContours;
+      maxpValues.numCompositePoints = maxpValues.numPoints;
+
+      return maxpValues; }
+
+
+    maxpValues.componentDepth = 0;
+
+    offset += 10;
+
+    while (true) {
+      int flags = getuint16 (offset);
+      MaxpValues maxpValues2 = getMaxpValues (getuint16 (offset + 2));
+
+      maxpValues.numCompositePoints += maxpValues2.numCompositePoints;
+      maxpValues.numCompositeContours += maxpValues2.numCompositeContours;
+
+      maxpValues.componentDepth = Math.max (maxpValues.componentDepth,
+                                     1 + maxpValues2.componentDepth);
+
+      maxpValues.numComponentElements += 1;
+
+      offset += 4;
+      if ((flags &amp; ARG_1_AND_2_ARE_WORDS) != 0) {
+        offset += 4; }
+      else {
+        offset += 2; }
+
+      if ((flags &amp; WE_HAVE_A_SCALE) != 0) {
+        offset += 2; }
+      else if ((flags &amp; WE_HAVE_AN_X_AND_Y_SCALE) != 0) {
+        offset += 4; }
+      else if ((flags &amp; WE_HAVE_A_TWO_BY_TWO) != 0) {
+        offset += 8; }
+
+      if ((flags &amp; MORE_COMPONENTS) == 0) {
+        break; }}
+
+    return maxpValues;
+  }
+
+  public BoundingBox getCompositeGlyphContoursBoundingBox (int offset)
+  {
+    BoundingBox b = new BoundingBox ();
+
+    CompositeGlyphUnpack u = unpackCompositeGlyph (offset);
+
+    for (CompositeGlyphComponent c : u.components) {
+      BoundingBox cb = getContoursBoundingBox (c.gid);
+
+      if ((c.flags &amp; ARGS_ARE_XY_VALUES) == 0) {
+        throw new Error ("oops"); }
+
+      // not really the best, should pass the transformation matrix
+      // to get the bb of the transformed glyph; in fact, should
+      // get ctm in and combine with the glyph tm
+
+      b.include (cb.xmin * c.xscale/16384.0  + cb.ymin * c.scale01/16384.0 + c.arg1,
+                 cb.xmin * c.scale10/16384.0 + cb.ymin * c.yscale/16384.0  + c.arg2);
+
+      b.include (cb.xmax * c.xscale/16384.0  + cb.ymax * c.scale01/16384.0 + c.arg1,
+                 cb.xmax * c.scale10/16384.0 + cb.ymax * c.yscale/16384.0  + c.arg2); }
+
+    return b;
+  }
+</code-fragment>
+    </section>
+  </section>
+</section>

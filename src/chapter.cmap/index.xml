@@ -1,0 +1,4660 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:web="http://aots.adobe.com/2001/web" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:ots="http://aots.adobe.com/2001/ots" xmlns:aots="http://aots.adobe.com/2001/aots" id="chapter.cmap">
+  <title>cmap - Character to Glyph Index Mapping Table</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Introduction</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This table defines the mapping of character codes to the
+          glyph index values used in the font. It may contain more
+          than one subtable, in order to support more than one
+          character encoding scheme. Character codes that do not
+          correspond to any glyph in the font should be mapped to
+          glyph index 0. The glyph at this location must be a special
+          glyph representing a missing character, commonly known as
+          .notdef.</para>
+      <para>The table header indicates the character encodings for
+          which subtables are present. Each subtable is in one of seven
+          possible formats and begins with a format code indicating
+          the format used.</para>
+      <para>The platform ID and platform-specific encoding ID in the
+          header entry (and, in the case of the Macintosh platform,
+          the language field in the subtable itself) are used to
+          specify a particular <ottable>cmap</ottable>
+          encoding.The header entries must be sorted first by platform
+          ID, then by platform-specific encoding ID, and then by the
+          version field in the corresponding subtable. Each platform
+          ID, platform-specific encoding ID, and subtable language
+          combination may appear only once in the
+          <ottable>cmap</ottable> table.</para>
+      <para>When building a Unicode font for Windows, the platform
+          ID should be 3 and the encoding ID should be 1. When
+          building a symbol font for Windows, the platform ID should
+          be 3 and the encoding ID should be 0. When building a font
+          that will be used on the Macintosh, the platform ID should
+          be 1 and the encoding ID should be 0.</para>
+      <para>All Microsoft Unicode encodings (Platform ID = 3,
+          Encoding ID = 1) must provide at least a Format 4
+          <ottable>cmap</ottable> subtable. If the font is meant to
+          support supplementary Unicode characters, it will additionally
+          need a Format 12 subtable with a platform encoding ID 10.
+          The contents of the Format 12 subtable need to be a superset
+          of the contents of the Format 4 subtable. Microsoft
+          <emphasis>strongly</emphasis> recommends using a Unicode
+          <ottable>cmap</ottable> for all fonts. However, some other
+          encodings that appear in current fonts follow:</para>
+      <table>
+        <title>Microsoft Encodings</title>
+        <tgroup cols="3">
+          <colspec colwidth="10pc"/>
+          <colspec colwidth="10pc"/>
+          <colspec colwidth="10pc"/>
+          <thead>
+            <row>
+              <entry>Platform ID</entry>
+              <entry>Encoding ID</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>3</entry>
+              <entry>0</entry>
+              <entry>Symbol</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>1</entry>
+              <entry>Unicode</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>2</entry>
+              <entry>ShiftJIS</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>3</entry>
+              <entry>PRC</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>4</entry>
+              <entry>Big5</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>5</entry>
+              <entry>Wansung</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>6</entry>
+              <entry>Johab</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>7</entry>
+              <entry>Reserved</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>9</entry>
+              <entry>Reserved</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>9</entry>
+              <entry>Reserved</entry>
+            </row>
+            <row>
+              <entry>3</entry>
+              <entry>10</entry>
+              <entry>UCS-4</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Unicode Variation Sequences supported by the font may be
+        specified in the cmap table under platform ID 0 and encoding
+        ID 5, using a format 14 cmap subtable.</para>
+      <para>The Character To Glyph Index Mapping Table is organized
+          as follows:</para>
+      <otformat>
+        <title>cmap Header</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>version</otfieldname>
+          <otfielddesc>Table version number (0).</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numTables</otfieldname>
+          <otfielddesc>Number of encoding tables that follow.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The cmap table header is followed by an array of
+	  encoding records that specify the particular encoding and
+	  the offset to the subtable for that encoding. The number of
+	  encoding records is numTables. An encoding record entry
+	  looks like:</para>
+      <otformat>
+        <title>Encoding Record</title>
+        <otfield>
+          <otfieldoffs>4+8i</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>platformID</otfieldname>
+          <otfielddesc>Platform ID.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4+8i+2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>encodingID</otfieldname>
+          <otfielddesc>Platform-specific encoding ID.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4+8i+4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>offset</otfieldname>
+          <otfielddesc>Byte offset from beginning of table to the
+                  subtable for this encoding.</otfielddesc>
+        </otfield>
+      </otformat>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>The first paragraph covers three cases of missing
+          glyphs: (1) there is a cmap subtable for the encoding but
+          the character code is not covered by the subtable; (2) there
+          is no subtable for the encoding; (3) there is a cmap for the
+          encoding, but the format of that subtable is not 0, 2, 4 or
+          6, 8, 10, or 12 (the currently defined formats). It is quite
+          clear that the described behaviour applies to the first
+          case, but it is not clear that this is the mandated
+          behaviour in the second or third case. We assume it is.
+          Recommendation: make that clear, by rephrasing: "Character
+          codes that do not correspond to any glyph in the font
+          (either because there is no subtable for their encoding or
+          or because the subtable in a format not supported by the
+          application or because the subtable does not map them)
+          should be mapped to glyph index 0."</para>
+      <para>The case of unknown formats is a bit more complicated.
+          The recommendation is to mandate that all characters codes
+          should map to glyph 0 for subtables in unknown
+          formats.</para>
+      <para>The descriptions of the fields of this table do not include
+          names for them, as most other tables do. The recommendation
+          is to include them: version, numTables, platformID,
+          encodingID, offset.</para>
+      <para>In the fifth paragraph, "UCS-4 (surrogate) characters"
+          should be replaced by "Unicode supplemental characters" or
+          "Unicode supplemental (non-BMP) characters". BMP characters are also
+          UCS-4 characters. And anyways, UCS-4 is an encoding, not a
+          character collection.</para>
+      <para>It is legal to have a single subtable which is referenced
+          from multiple entries? This is useful when a given character
+          encoding is present on multiple platforms. For example, if
+          there is a Unicode cmap subtable, it can be referenced from
+          one entry with platformID/encodingID (0, 3), and from
+          another entry with (3, 1).</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <para>A cmap table is represented by a <sgmltag>cmap</sgmltag>
+	element, with each entry represented by a
+	<sgmltag>mapping</sgmltag> element. Each cmap subtalble will
+	contribute a bunch of attributes and elements. As usual, those
+	can be attached directly to the <sgmltag>mapping</sgmltag>
+	element, or they can be attached to a
+	<sgmltag>cmapsubtable</sgmltag> element. In the latter case,
+	the <sgmltag>mapping</sgmltag> element carries an IDREF
+	<sgmltag>name</sgmltag> attribute, and the
+	<sgmltag>cmapsubtable</sgmltag> carries a corresponding ID
+	<sgmltag>id</sgmltag> attribute. This mechanism is useful,
+	e.g. when a cmapsutable is listed under both Microsoft/Unicode
+	BMP (3/1) and Unicode/BMP (1/0).</para>
+      <para>We pull the language field of each cmap subtable in the
+	<sgmltag>mapping</sgmltag> entry, as it logically belongs
+	there. However, this creates a validity constraint: if a
+	<sgmltag>cmapsubtable</sgmltag> is referenced from multiple
+	entries, then all those entries must have the same
+	<sgmltag>language</sgmltag>.</para>
+      <para>When we do not care about the format of a cmap subtable,
+	we set the <sgmltag>format</sgmltag> attribute to
+	<sgmltag>any</sgmltag> and simply list the code point to glyph
+	correspondance.</para>
+      <para>Each cmap subtable format is also dual: it can either be
+	expressed (mostly) as a bunch of mappings, or it can be
+	precise, recording all the details specific to the format. We
+	need this flexibility, because many font consumers impose that
+	the subtable for a given platform/encoding be in a specific
+	format, yet we want to describe the mappings simply.</para>
+      <code-fragment id="schema"><code-title>cmap table</code-title>
+  cmap =
+    element cmap {
+      attribute version { "0" },
+      element mapping {
+        attribute platformid { text },
+        attribute encodingid { text },
+        attribute language { text },
+        cmapsubtableOffset }*,
+
+      standaloneCmapsubtable*
+    }
+
+  standaloneCmapsubtable =
+    element cmapsubtable { attribute id { text }, cmapsubtable }
+
+  cmapsubtableOffset = attribute name { text } | cmapsubtable
+
+  cmapsubtable |=
+    attribute format { "any" },
+    element map {
+      attribute code { text },
+      attribute glyph { text }}*
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods">
+  public void fromXML (Element cmap)
+      throws InvalidFontException, UnsupportedFontException {
+
+    int version = Integer.parseInt (cmap.getAttribute ("version"));
+    if (version != 0) {
+      throw new UnsupportedFontException ( "invalid cmap version: " + version); }
+
+    NodeList cmaps = cmap.getChildNodes ();
+
+    int cmapsCount = 0;
+
+    for (int i = 0; i &lt; cmaps.getLength (); i++) {
+      Element e = (Element) cmaps.item (i);
+      if ("mapping".equals (e.getTagName ())) {
+        cmapsCount++; }}
+
+    Block[] cmapsSubtables = new Block [cmapsCount];
+    int[] platformids = new int [cmapsCount];
+    int[] encodingids = new int [cmapsCount];
+    int[] languages = new int [cmapsCount];
+    int format;
+
+    for (int i = 0; i &lt; cmapsCount; i++) {
+      Element cmaptable = (Element) cmaps.item (i);
+      platformids [i] = Integer.parseInt (cmaptable.getAttribute ("platformid"));
+      encodingids [i] = Integer.parseInt (cmaptable.getAttribute ("encodingid"));
+      languages [i]   = Integer.parseInt (cmaptable.getAttribute ("language"));
+
+      { String name = cmaptable.getAttribute ("name");
+        if (name != null &amp;&amp; ! "".equals (name)) {
+          cmaptable = resolveXMLid (cmap, name); }}
+
+      format = Integer.parseInt (cmaptable.getAttribute ("format"));
+      cmapsSubtables [i] = null;
+
+      if (format == 0) {
+        cmapsSubtables [i] = format0FromXML (cmaptable, languages [i]); }
+      else if (format == 2) {
+        cmapsSubtables [i] = format2FromXML (cmaptable, languages [i]); }
+      else if (format == 4) {
+        cmapsSubtables [i] = format4FromXML (cmaptable, languages [i]); }
+      else if (format == 6) {
+        cmapsSubtables [i] = format6FromXML (cmaptable, languages [i]); }
+      else if (format == 8) {
+        cmapsSubtables [i] = format8FromXML (cmaptable, languages [i]); }
+      else if (format == 10) {
+        cmapsSubtables [i] = format10FromXML (cmaptable, languages [i]); }
+      else if (format == 12) {
+        cmapsSubtables [i] = format12FromXML (cmaptable, languages [i]); }
+      else if (format == 14) {
+        cmapsSubtables [i] = format14FromXML (cmaptable, languages [i]); }}
+
+
+    for (int i = 0; i &lt; cmapsCount; i++) {
+      for (int j = i + 1; j &lt; cmapsCount; j++) {
+        boolean swap = false;
+        if (platformids [i] &gt; platformids [j]) {
+          swap = true; }
+        else if (platformids [i] == platformids [j]) {
+          if (encodingids [i] &gt; encodingids [j]) {
+            swap = true; }
+          else if (encodingids [i] == encodingids [j]) {
+            if (languages [i] &gt; languages [j]) {
+              swap = true; }}}
+
+        if (swap) {
+          { int tmp = platformids [j];
+            platformids [j] = platformids [i];
+            platformids [i] = tmp; }
+
+          { int tmp = encodingids [j];
+            encodingids [j] = encodingids [i];
+            encodingids [i] = tmp; }
+
+          { int tmp = languages [j];
+            languages [j] = languages [i];
+            languages [i] = tmp; }
+
+          { Block tmp = cmapsSubtables [j];
+            cmapsSubtables [j] = cmapsSubtables [i];
+            cmapsSubtables [i] = tmp; }}}}
+
+
+    int size = 4 + cmapsCount * 8;
+    Block me = new Block (size, cmapsCount);
+    me.setuint16 (0, version);
+    me.setuint16 (2, cmapsCount);
+
+    int offset = 4;
+    for (int i = 0; i &lt; cmapsCount; i++) {
+      me.setuint16 (offset, platformids [i]);
+      me.setuint16 (offset+2, encodingids [i]);
+      me.setBigOffset (offset + 4, cmapsSubtables [i]);
+      offset += 8; }
+
+    data = me.serialize ();
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.methods"><code-title>Decompile a cmap table</code-title>
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, UnsupportedFontException, InvalidFontException {
+
+    AttributesImpl at;
+
+    at = new AttributesImpl ();
+    at.addAttribute ("", "version", "version", "CDATA", "" + getuint16 (0));
+    conf.ch.startElement ("cmap", at); {
+
+      int[] counts = new int [data.length];
+      for (int o = 0; o &lt; counts.length; o++) {
+        counts [o] = 0; }
+
+      for (int st = 0; st &lt; getuint16 (2); st++) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+	counts [stOffset]++; }
+
+      if (conf.pointers == DecompilerConfig.PointersAreShown.never) {
+        for (int i = 0; i &lt; counts.length; i++) {
+          counts [i] = 1; }}
+      if (conf.pointers == DecompilerConfig.PointersAreShown.always) {
+        for (int i = 0; i &lt; counts.length; i++) {
+          counts [i] = 2; }}
+
+      for (int st = 0; st &lt; getuint16 (2); st++) {
+        at = new AttributesImpl ();
+        int stOffset = getLOffset (4 + 8*st + 4);
+
+	int platformID = getuint16 (4 + 8*st);
+        int encodingID = getuint16 (4 + 8*st + 2);
+
+        at.addAttribute ("", "platformid", "platformid", "CDATA",
+                         "" + platformID);
+        at.addAttribute ("", "encodingid", "encodingid", "CDATA",
+                         "" + encodingID);
+        at.addAttribute ("", "language", "language", "CDATA",
+                         "" + getuint16 (stOffset + 4));
+
+        if (counts [stOffset] != 1) {
+          at.addAttribute ("", "name", "name", "CDATA",
+	                   "cmapsubtable_" + Integer.toHexString (stOffset));
+          conf.ch.element ("mapping", at); }
+
+        else {
+          oneSubtableToXML (conf, counts, stOffset, platformID, encodingID,
+                            "mapping", at); }}
+
+      for (int st = 0; st &lt; getuint16 (2); st++) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+	int platformID = getuint16 (4 + 8*st);
+        int encodingID = getuint16 (4 + 8*st + 2);
+        if (counts [stOffset] != 1) {
+	  at = new AttributesImpl ();
+	  at.addAttribute ("", "id", "id", "CDATA",
+	                   "cmapsubtable_" + Integer.toHexString (stOffset));
+          oneSubtableToXML (conf, counts, stOffset, platformID, encodingID,
+                            "cmapsubtable", at);
+          counts [stOffset] = 1; }}
+
+      conf.ch.endElement ("cmap"); }
+  }
+
+  void oneSubtableToXML (DecompilerConfig conf, int[] counts, int stOffset,
+                         int platformID, int encodingID,
+                         String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, UnsupportedFontException, InvalidFontException {
+
+    int format = getuint16 (stOffset);
+    at.addAttribute ("", "format", "format", "CDATA", "" + format);
+
+    switch (format) {
+      case 0: { <code-include linkend="cmap.decompile.format0.att"/>; break; }
+      case 2: { <code-include linkend="cmap.decompile.format2.att"/>; break; }
+      case 4: { <code-include linkend="cmap.decompile.format4.att"/>; break; }
+      case 6: { <code-include linkend="cmap.decompile.format6.att"/>; break; }
+      case 8: { <code-include linkend="cmap.decompile.format8.att"/>; break; }
+      case 10: { <code-include linkend="cmap.decompile.format10.att"/>; break; }
+      case 12: { <code-include linkend="cmap.decompile.format12.att"/>; break; }
+      case 14: { <code-include linkend="cmap.decompile.format14.att"/>; break; }
+      default: { break; }}
+
+     conf.ch.startElement (element, at); {
+
+      switch (format) {
+        case 0: { <code-include linkend="cmap.decompile.format0.elt"/>; break; }
+        case 2: { <code-include linkend="cmap.decompile.format2.elt"/>; break; }
+        case 4: { <code-include linkend="cmap.decompile.format4.elt"/>; break; }
+        case 6: { <code-include linkend="cmap.decompile.format6.elt"/>; break; }
+        case 8: { <code-include linkend="cmap.decompile.format8.elt"/>; break; }
+        case 10: { <code-include linkend="cmap.decompile.format10.elt"/>; break; }
+        case 12: { <code-include linkend="cmap.decompile.format12.elt"/>; break; }
+        case 14: { <code-include linkend="cmap.decompile.format14.elt"/>; break; }
+        default: { break; }}
+
+      if (! conf.preciseCmap) {
+        SortedMap&lt;Integer, Integer&gt; m = getMap (platformID, encodingID);
+
+        if (m != null) {
+          for (int c : m.keySet ()) {
+            int g = m.get (c);
+            at = new AttributesImpl ();
+            at.addAttribute ("", "code", "code", "CDATA",
+                             "0x" + Integer.toHexString (c));
+            at.addAttribute ("", "glyph", "glyph", "CDATA", glyphToXML (conf, g));
+            conf.ch.element ("map", at); }}}
+
+       conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <para>Here is the class representing a <ottable>cmap</ottable>
+          table.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Cmap"><code-title>Cmap class</code-title>
+
+package com.adobe.aots.CommonType;
+
+import java.util.Iterator;
+import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.Arrays;
+import java.util.Vector;
+
+import java.net.URL;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Cmap extends Table {
+
+  public Cmap () {
+    super (Tag.cmap, null);
+  }
+
+  public Cmap (Font font) {
+    super (Tag.cmap, font);
+  }
+
+  <code-include linkend="cmap.methods"/>
+}
+</code-fragment>
+      <para>Here is a helper class to represent cmap selection:</para>
+      <code-fragment id="cmap.methods"><code-title>Index class</code-title>
+static public class Index implements Comparable {
+  int platformID;
+  int encodingID;
+  int language;
+
+  public Index (int platformID, int encodingID) {
+    this.platformID = platformID;
+    this.encodingID = encodingID;
+  }
+
+  public Index (int platformID, int encodingID, int language) {
+    this.platformID = platformID;
+    this.encodingID = encodingID;
+    this.language = language;
+  }
+
+  public int compareTo (Object o) {
+    Index index = (Index) o;
+
+    if (this.platformID &lt; index.platformID) {
+      return -1; }
+    if (this.platformID &gt; index.platformID) {
+      return 1; }
+
+    if (this.encodingID &lt; index.platformID) {
+      return -1; }
+    if (this.encodingID &gt; index.encodingID) {
+      return 1; }
+
+    if (this.platformID == 1) {
+      if (this.language &lt; index.language) {
+        return -1; }
+      if (this.language &gt; index.language) {
+        return 1; }}
+
+    return 0;
+  }
+}
+
+static public Index WinUnicode1 = new Index (3, 1);
+static public Index WinUnicode10 = new Index (3, 10);
+</code-fragment>
+      <para>Our internal representation decomposes a cmap in its
+        subtables:</para>
+      <!--code-fragment id='cmap.methods'>
+  private java.util.Map subtables;
+
+  public int fromBinary (InputStream in, int length)
+      throws IOException, InvalidFontException {
+
+    byte[] head = new byte[4];
+</code-fragment-->
+      <para>The basic operation on a cmap is to find a glyph given a
+          platformID, encodingID and character code.</para>
+      <para>As noted earlier, a subtable can be in a number of
+          formats. We need to go a little bit ahead of the
+          specification and note that the first USHORT of a subtable
+          is that format.</para>
+      <code-fragment id="cmap.methods"><code-title>Character to Glyph Method</code-title>
+  public int char2glyph (int platformID, int encodingID, int charCode)
+     throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   platformID == getuint16 (4 + 8*st)
+          &amp;&amp; encodingID == getuint16 (4 + 8*st + 2)) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+        int format = getuint16 (stOffset);
+        switch (format) {
+          case 0: { <code-include linkend="cmap_format0"/> }
+          case 2: { <code-include linkend="cmap_format2"/> }
+          case 4: { <code-include linkend="cmap_format4"/> }
+          case 6: { <code-include linkend="cmap_format6"/> }
+          case 8: { <code-include linkend="cmap_format8"/> }
+          case 10: { <code-include linkend="cmap_format10"/> }
+          case 12: { <code-include linkend="cmap_format12"/> }
+          default: return 0; }}}
+
+    return 0;
+  }
+
+  public int unicodechar2glyph (int charCode) throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+    int encodingID = 1;
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (getuint16 (4 + 8*st) == 3 &amp;&amp; getuint16 (4 + 8*st + 2) == 10) {
+        encodingID = 10; }}
+
+    return char2glyph (3, encodingID, charCode);
+  }
+</code-fragment>
+      <code-fragment id="cmap.methods"><code-title>map generator</code-title>
+  public java.util.SortedMap&lt;Integer, Integer&gt; getMap (int platformID, int encodingID)
+      throws UnsupportedFontException {
+    return getMap (platformID, encodingID, 0, 0x7fffffff);
+  }
+
+  public java.util.SortedMap&lt;Integer, Integer&gt;
+           getMap (int platformID, int encodingID, int from, int to)
+      throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   platformID == getuint16 (4 + 8*st)
+          &amp;&amp; encodingID == getuint16 (4 + 8*st + 2)) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+        int format = getuint16 (stOffset);
+        switch (format) {
+          case 0: { <code-include linkend="cmap_format0_iterator"/>}
+          case 2: { <code-include linkend="cmap_format2_iterator"/>}
+          case 4: { <code-include linkend="cmap_format4_iterator"/>}
+          case 6: { <code-include linkend="cmap_format6_iterator"/>}
+          case 8: { <code-include linkend="cmap_format8_iterator"/>}
+          case 10: { <code-include linkend="cmap_format10_iterator"/>}
+          case 12: { <code-include linkend="cmap_format12_iterator"/>}
+          default: return null; }}}
+
+    return null;
+  }
+</code-fragment>
+      <para>Once we know how to convert a single character, it's
+          easy to convert a bunch of them:</para>
+      <code-fragment id="cmap.methods"><code-title>Characters to Glyphs Method</code-title>
+  public int[] char2glyph (int platformID, int encodingID, int[] charCodes)
+      throws UnsupportedFontException {
+    int[] glyphIDs = new int [charCodes.length];
+    for (int i = 0; i &lt; charCodes.length; i++) {
+      glyphIDs [i] = char2glyph (platformID, encodingID, charCodes [i]); }
+    return glyphIDs;
+  }
+</code-fragment>
+      <para>The inverse transformation, i.e. to find a character
+          which maps to a given glyphID, is also possible. It can be
+          that there is no character that maps the glyphID (in which
+          case we return the special value -1), and it can be that
+          there are multiple characters that map to the glyphID (in
+          which case we return one of them).</para>
+      <para>The main reason to expose this functionality is that not
+          all software systems permit the access to glyphs in a font
+          through glyphIDs; for example, SVG supports the
+          specification of glyphs by their ids, but Adobe's SVG Viewer
+          1.0 does not implement that. In such a case, the renderer
+          has to be presented with characters, hence this
+          functionality. Some font vendors (e.g. Adobe) also construct
+          their fonts such that every glyph is mapped from the Unicode
+          cmap, precisely to allow this scheme to work.</para>
+      <code-fragment id="cmap.methods"><code-title>Glyph to Character Method</code-title>
+  public int glyph2char (int platformID, int encodingID, int glyphID)
+      throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   platformID == getuint16 (4 + 8*st)
+          &amp;&amp; encodingID == getuint16 (4 + 8*st + 2)) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+
+        int format = getuint16 (stOffset);
+        switch (format) {
+          case  0: { <code-include linkend="cmap_format0_inv"/>}
+          case  2: { <code-include linkend="cmap_format2_inv"/>}
+          case  4: { <code-include linkend="cmap_format4_inv"/>}
+          case  6: { <code-include linkend="cmap_format6_inv"/>}
+          case  8: { <code-include linkend="cmap_format8_inv"/>}
+          case 10: { <code-include linkend="cmap_format10_inv"/>}
+          case 12: { <code-include linkend="cmap_format12_inv"/>}}}}
+    return -1;
+  }
+
+  public int glyph2unicodechar (int glyphID) throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+    int encodingID = 1;
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (getuint16 (4 + 8*st) == 3 &amp;&amp; getuint16 (4 + 8*st + 2) == 10) {
+        encodingID = 10; }}
+
+    return glyph2char (3, encodingID, glyphID);
+  }
+</code-fragment>
+      <para>Again, it's easy to handle a bunch of glyphs:</para>
+      <code-fragment id="cmap.methods"><code-title>Glyphs to Characters Method</code-title>
+  public int [] glyph2char (int platformID, int encodingID, int[] glyphIDs)
+       throws UnsupportedFontException {
+    int[] charCodes = new int [glyphIDs.length];
+    for (int i = 0; i &lt; glyphIDs.length; i++) {
+      charCodes [i] = glyph2char (platformID, encodingID, glyphIDs [i]); }
+    return charCodes;
+  }
+</code-fragment>
+      <para>Here is another version that returns all the characters
+	  that map to a given glyphID:</para>
+      <code-fragment id="cmap.methods"><code-title>Glyph to Characters Method</code-title>
+  public int[] glyph2chars (int platformID, int encodingID, int glyphID) {
+
+    java.util.Vector&lt;Integer&gt; v = new java.util.Vector&lt;Integer&gt; ();
+
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   platformID == getuint16 (4 + 8*st)
+          &amp;&amp; encodingID == getuint16 (4 + 8*st + 2)) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+
+        int format = getuint16 (stOffset);
+
+        switch (format) {
+          case  0: { <code-include linkend="cmap_format0_inv2"/>; break;}
+          case  2: { <code-include linkend="cmap_format2_inv2"/>; break;}
+          case  4: { <code-include linkend="cmap_format4_inv2"/>; break;}
+          case  6: { <code-include linkend="cmap_format6_inv2"/>; break;}
+          case  8: { <code-include linkend="cmap_format8_inv2"/>; break;}
+          case 10: { <code-include linkend="cmap_format10_inv2"/>; break;}
+          case 12: { <code-include linkend="cmap_format12_inv2"/>; break;}}}}
+
+    int[] result = new int [v.size ()];
+    for (int i = 0; i &lt; v.size (); i++) {
+      result [i] = v.get (i); }
+    return result;
+  }
+
+  public int[] glyph2unicodechars (int glyphID) {
+
+    int numTables = getuint16 (2);
+    int encodingID = 1;
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (getuint16 (4 + 8*st) == 3 &amp;&amp; getuint16 (4 + 8*st + 2) == 10) {
+        encodingID = 10; }}
+
+    return glyph2chars (3, encodingID, glyphID);
+  }
+</code-fragment>
+      <para>Another useful operation is to probe for the presence of
+          a cmap for a particular plaftformID/encodingID:</para>
+      <code-fragment id="cmap.methods"><code-title>Cmap subtable probe</code-title>
+  public boolean hasCmapSubtable (int platformID, int encodingID, int languageID) {
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   platformID == getuint16 (4 + 8*st)
+          &amp;&amp; encodingID == getuint16 (4 + 8*st + 2)) {
+        return true; }}
+    return false;
+  }
+</code-fragment>
+      <code-fragment id="cmap.methods2"><code-title>??</code-title>
+  public void addDirectMappings () {
+    java.util.SortedMap m;
+
+    boolean has310 = true;
+    m = getMap (3, 10);
+    if (m == null) {
+      has310 = false;
+      m = getMap (3, 1); }
+
+    for (int g = 0; g &lt; font.maxp.getNumGlyphs ()) {
+      m.add (new Integer (0x100000 + g), new Integer (g)); }
+
+    Block b = toBinaryFormat12 (m);
+
+    if (has310)
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="test-suite">
+      <title>Test Suite</title>
+      <para>Our test framework is simply to convert a sequence of
+          characters to a sequence of glyphs.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="CmapTester"><code-title>CmapTest class</code-title>
+  package com.adobe.aots.CommonType;
+
+  <code-include linkend="test_imports"/>
+
+  public class CmapTester {
+
+    <code-include linkend="test_methods"/>
+
+    public static void main (String[] args) throws Exception {
+
+      try {
+        String testName = "anonymousTest";
+	URL fontURL = null;
+	Font font = null;
+	int platformID = 3;
+	int encodingID = 10;
+        int[] inputs= null;
+	int[] expected = null;
+
+        for (int i = 0; i &lt; args.length; i++) {
+          if ("-testname".equals (args [i])) {
+	    i++;
+	    testName = args [i]; }
+
+	  if ("-font".equals (args [i])) {
+	    i++;
+	    fontURL = new File (args [i]).getAbsoluteFile ().toURL ();
+	    font = new Font ();
+	    font.fromBinary (fontURL); }
+
+	  if ("-platform".equals (args [i])) {
+	    i++;
+	    platformID = Integer.parseInt (args [i]); }
+
+	  if ("-encoding".equals (args [i])) {
+	    i++;
+	    encodingID = Integer.parseInt (args [i]); }
+
+	  if ("-inputs".equals (args [i])) {
+	    i++;
+	    inputs = parseIntList (args [i]); }
+
+	  if ("-expected".equals (args [i])) {
+	    i++;
+	    expected = parseIntList (args [i]); }}
+
+        int[] outputs = font.cmap.char2glyph (platformID, encodingID, inputs);
+
+        if (expected != null) {
+	  boolean pass = compareIntLists (expected, outputs) ;
+	  if (! pass) {
+  	    System.err.print ("  expected:");
+	    for (int i = 0; i &lt; expected.length; i++) {
+              System.err.print (" " + expected [i]); }
+	    System.err.println ("");
+
+  	    System.err.print ("  actual:  ");
+	    for (int i = 0; i &lt; outputs.length; i++) {
+              System.err.print (" " + outputs [i]); }
+	    System.err.println (""); }
+
+          reportStatus (testName, pass); }
+        else {
+          System.out.println ("outputs: ");
+          printIntList (outputs); }}
+
+      catch (Exception e) {
+        System.out.println ("Exception: " + e.getMessage ());
+        e.printStackTrace (); }
+    }
+  }
+</code-fragment>
+      <code-fragment package="com.adobe.aots.CommonType" class="CmapUVSTester"><code-title>CmapUVSTest class</code-title>
+  package com.adobe.aots.CommonType;
+
+  <code-include linkend="test_imports"/>
+
+  public class CmapUVSTester {
+
+    <code-include linkend="test_methods"/>
+
+    public static void main (String[] args) throws Exception {
+
+      try {
+        String testName = "anonymousTest";
+	URL fontURL = null;
+	Font font = null;
+	int platformID = 3;
+	int encodingID = 10;
+        int[] inputs= null;
+	int[] expected = null;
+
+        for (int i = 0; i &lt; args.length; i++) {
+          if ("-testname".equals (args [i])) {
+	    i++;
+	    testName = args [i]; }
+
+	  if ("-font".equals (args [i])) {
+	    i++;
+	    fontURL = new File (args [i]).getAbsoluteFile ().toURL ();
+	    font = new Font ();
+	    font.fromBinary (fontURL); }
+
+	  if ("-inputs".equals (args [i])) {
+	    i++;
+	    inputs = parseIntList (args [i]); }
+
+	  if ("-expected".equals (args [i])) {
+	    i++;
+	    expected = parseIntList (args [i]); }}
+
+        int[] outputs = new int [inputs.length / 2];
+
+        for (int i = 0; i &lt; inputs.length; i += 2) {
+          outputs [i/2] = font.cmap.uvs2glyph (inputs [i], inputs [i+1]); }
+
+        if (expected != null) {
+	  boolean pass = compareIntLists (expected, outputs) ;
+	  if (! pass) {
+  	    System.err.print ("  expected:");
+	    for (int i = 0; i &lt; expected.length; i++) {
+              System.err.print (" " + expected [i]); }
+	    System.err.println ("");
+
+  	    System.err.print ("  actual:  ");
+	    for (int i = 0; i &lt; outputs.length; i++) {
+              System.err.print (" " + outputs [i]); }
+	    System.err.println (""); }
+
+          reportStatus (testName, pass); }
+        else {
+          System.out.println ("outputs: ");
+          printIntList (outputs); }}
+
+      catch (Exception e) {
+        System.out.println ("Exception: " + e.getMessage ());
+        e.printStackTrace (); }
+    }
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="validation">
+      <title>Validation</title>
+      <para>Let's start by verifying the header.</para>
+      <code-fragment id="validate_header"><code-title>Validate header and set 'numTables'</code-title>
+  if (! claim ("cmap header", 0, 4)) {
+    return; }
+
+  int version = getuint16 (0);
+  if (version &gt; 0) {
+    reportError ("cmap table version (" + version
+                   + ") not part of the specification"); }
+
+  int numTables = getuint16 (2);
+  if (numTables == 0) {
+    reportMistake ("font does not have any cmap subtables"); }
+</code-fragment>
+      <para>Let's move on to the directory of subtables. We first
+          need to claim the bytes:</para>
+      <code-fragment id="validate_directory"><code-title>Validate directory</code-title>
+  if (! claim ("cmap directory", 4, 8*numTables)) {
+    return; }
+</code-fragment>
+      <para>Another check is to make sure that the subtables are
+          properly ordered:</para>
+      <code-fragment id="validate_directory_order"><code-title>Validate directory order</code-title>
+  int lastPlatformID = -1;
+  int lastEncodingID = -1;
+
+  for (int st = 0; st &lt; numTables; st++) {
+    int platformID = getuint16 (4 + 8*st);
+    int encodingID = getuint16 (4 + 8*st + 2);
+
+    if (   platformID &lt; lastPlatformID
+        || (   platformID == lastPlatformID
+            &amp;&amp; encodingID &lt;= lastEncodingID)) {
+      reportError ("cmap subtables not ordered by (platformID, encodingID)"); }
+
+    lastPlatformID = platformID;
+    lastEncodingID = encodingID; }
+</code-fragment>
+      <para>Another check is that there are entries for 3/1 and 0/3,
+          and that they point ot the same subtable. This is a
+          requirement for Adobe fonts only.</para>
+      <code-fragment id="validate_directory_has_unicode"><code-title>Check there are 3/1 and 0/3 entries for the same
+  subtable</code-title>
+  int subtable03offset = -1;
+  int subtable31offset = -1;
+
+  for (int st = 0; st &lt; numTables; st++) {
+    int platformID = getuint16 (4 + 8*st);
+    int encodingID = getuint16 (4 + 8*st + 2);
+
+    if (platformID == 0 &amp;&amp; encodingID == 3) {
+      subtable03offset = getLOffset (4 + 8*st + 4); }
+
+    if (platformID == 3 &amp;&amp; encodingID == 1) {
+      subtable31offset = getLOffset (4 + 8*st + 4); }}
+
+  if (subtable03offset == -1) {
+    reportMistake ("no 0_3 subtable defined"); }
+  if (subtable31offset == -1) {
+    reportMistake ("no 3_1 subtable defined"); }
+
+  if (   subtable03offset != subtable31offset
+      &amp;&amp; subtable03offset != -1
+      &amp;&amp; subtable31offset != -1) {
+    reportMistake ("subtable 0_3 and 3_1 are not the same"); }
+</code-fragment>
+      <para>We validate each unique subtable on its own.</para>
+      <code-fragment id="validate_subtables"><code-title>Validate each subtable</code-title>
+  for (int st = 0; st &lt; numTables; st++) {
+    String stPrefix = "cmap subtable " + st;
+    int stOffset = getLOffset (4 + 8*st + 4);
+    boolean checked = false;
+    for (int st2 = 0; st2 &lt; st; st2++) {
+      int st2Offset = getLOffset (4 + 8*st2 + 4);
+      if (st2Offset == stOffset) {
+         checked = true; }}
+
+    if (checked) {
+      continue; }
+
+    int format = getuint16 (stOffset);
+    switch (format) {
+      case 0: { <code-include linkend="validate_cmap_format0"/>; break; }
+      case 2: { <code-include linkend="validate_cmap_format2"/>; break; }
+      case 4: { <code-include linkend="validate_cmap_format4"/>; break; }
+      case 6: { <code-include linkend="validate_cmap_format6"/>; break; }
+      default:{
+        reportError (stPrefix + " is in an invalid format (" + format + ")");
+        break; }}}
+</code-fragment>
+      <para>Finally, we verify that the Unicode cmap subtable is in
+          the  appropriate format:</para>
+      <code-fragment id="validate_unicode_subtable_format"><code-title>Check the format of the Microsoft Unicode subtable</code-title>
+  for (int st = 0; st &lt; numTables; st++) {
+    int platformID = getuint16 (4 + 8*st);
+    int encodingID = getuint16 (4 + 8*st + 2);
+
+    if (platformID == 3 &amp;&amp; encodingID == 1) {
+      int stOffset = getLOffset (4 + 8*st + 4);
+      int format = getuint16 (stOffset);
+      if (format != 4) {
+        reportError ("cmap subtable 3/1 must be in format 4"); }
+      break; }}
+</code-fragment>
+      <para>Time to put everything together:</para>
+      <code-fragment id="cmap.methods"><code-title>Cmap Validation Method</code-title>
+  public void validate () {
+
+    <code-include linkend="validate_header"/>
+
+    <code-include linkend="validate_directory"/>
+    <code-include linkend="validate_directory_order"/>
+    <code-include linkend="validate_directory_has_unicode"/>
+
+    <code-include linkend="validate_subtables"/>
+    <code-include linkend="validate_unicode_subtable_format"/>
+
+    report ();
+  }
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment" id="cmap_cust">
+    <title>OTF Windows NT compatibility mapping</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>If a platform ID 4 (custom), encoding ID 0-255 (OTF
+          Windows NT compatibility mapping) <ottable>cmap</ottable>
+          encoding is present in an CommonType font with CFF outlines,
+          then the OTF font driver in Windows NT will: (a) superimpose
+          the glyphs encoded at character codes 0-255 in the encoding
+          on the corresponding Windows ANSI (code page 1252) Unicode
+          values in the Unicode encoding it reports to the system; (b)
+          add Windows ANSI (CharSet 0) to the list of CharSets
+          supported by the font; and (c) consider the value of the
+          encoding ID to be a Windows CharSet value and add it to the
+          list of CharSets supported by the font. Note: The
+          <ottable>cmap</ottable> subtable must use Format 0 or 6 for
+          its subtable, and the encoding must be identical to the
+          CFF's encoding.</para>
+      <para>This <ottable>cmap</ottable> encoding is not required.
+          It provides a compatibility mechanism for non-Unicode
+          applications that use the font as if it were Windows ANSI
+          encoded. Non-Windows ANSI Type 1 fonts, such as Cyrillic and
+          Central European fonts, that Adobe shipped in the past had
+          "0" (Windows ANSI) recorded in the CharSet field of the .PFM
+          file; ATM for Windows 9x ignores the CharSet altogether.
+          Adobe provides this compatibility <ottable>cmap</ottable>
+          encoding in every OTF converted from a Type1 font in which
+          the Encoding is not StandardEncoding.</para>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment" id="language_note">
+    <title>Note on the language field in <ottable>cmap</ottable>
+        subtables</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This field must be set to zero for all
+          <ottable>cmap</ottable> subtables whose platform IDs are
+          other than Macintosh (platform ID 1). For
+          <ottable>cmap</ottable> subtables whose platform IDs are
+          Macintosh, set this field to the Macintosh language ID of
+          the <ottable>cmap</ottable> subtable plus one, or to zero if
+          the <ottable>cmap</ottable> subtable is not
+          language-specific. For example, a Mac OS Turkish
+          <ottable>cmap</ottable> subtable must set this field to 18,
+          since the Macintosh language ID for Turkish is 17. A Mac OS
+          Roman <ottable>cmap</ottable> subtable must set this field
+          to 0, since Mac OS Roman is not a language-specific
+          encoding.</para>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 0: Byte encoding table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This is the Apple standard character to glyph index
+          mapping table.</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Format number is set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>This is the length in bytes of the
+              subtable.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in cmap subtables</link> in this
+              document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>glyphIdArray[256]</otfieldname>
+          <otfielddesc>An array that maps character codes to glyph
+              index values.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This is a simple 1 to 1 mapping of character codes to
+          glyph indices. The glyph set is limited to 256. Note that if
+          this format is used to index into a larger glyph set, only
+          the first 256 glyphs will be accessible.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>As the declaration stands, the length field seems
+          superfluous, since the table appears to always be 262 bytes
+          long. This can be explained in one of two ways:
+
+          <itemizedlist><listitem><para>the length field is included to make the first three
+                words of all cmap subtables similar; it must always be
+                262.</para></listitem><listitem><para>the glyphIdArray does not need to be always 256
+                elements long, it can be shorter.</para></listitem></itemizedlist></para>
+      <para>In the spirit of "generate conservatively, accept
+          liberally", we recommend that font designers always put 256
+          entries in glyphIdArray (and consequently set length to 262), and
+          that font consumers be ready to handle fonts where the
+          glyphIdArray contains length - 6 entries (but no more than
+          256).</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+  cmapsubtable |=
+    attribute format { "0" },
+    element map {
+      attribute code { text },
+      attribute glyph { text }
+    }*
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods"><code-title>Method to compile a format 0 cmap</code-title>
+  private Block format0FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+    int m[] = new int [256];
+
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element map = (Element) children.item (i);
+
+        int charcode = Integer.decode (map.getAttribute ("code")).intValue ();
+        int glyphid = Integer.decode (map.getAttribute ("glyph")).intValue ();
+
+        if (charcode &gt;= 256) {
+          warning ("charcode too big in cmap format 0"); }
+
+        m [charcode] = glyphid; }
+
+    Block b = new Block (262, 0);
+    b.setuint16 (0, 0);
+    b.setuint16 (2, 262);
+    b.setuint16 (4, language);
+    int offset = 6;
+    for (int i = 0; i &lt;= 255; i++) {
+      b.setuint8 (offset, m[i]);
+      offset += 1; }
+
+    return b;
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format0.elt"><code-title>Generate elements for the format 0 cmap subtable at 'stOffset'</code-title>
+  for (int i = 0; i &lt; 256; i++) {
+    if (conf.preciseCmap || getuint8 (stOffset + 6 + i) != 0) {
+      at = new AttributesImpl ();
+      at.addAttribute ("", "code", "code", "CDATA",
+                       "0x" + Integer.toHexString (i));
+      at.addAttribute ("", "glyph", "glyph", "CDATA",
+                       "" + getuint8 (stOffset + 6 + i));
+      conf.ch.element ("map", at); }}
+
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="cmap_format0"><code-title>Return glyph for 'charCode', using format 0 subtable at 'stOffset'</code-title>
+  { int size = getuint16 (stOffset + 2) - 6;
+    if (0 &lt;= charCode &amp;&amp; charCode &lt; size) {
+      return getuint8 (stOffset + 6 + charCode); }
+    else {
+      return 0; }}
+</code-fragment>
+      <code-fragment id="cmap_format0_iterator"><code-title>Enumerate mappings in format 0 subtable at 'stOffset'</code-title>
+  { java.util.TreeMap&lt;Integer, Integer&gt; m
+        = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    int size = getuint16 (stOffset + 2) - 6;
+    for (int i = 0; i &lt; size; i++) {
+      if (from &lt;= i &amp;&amp; (i &lt;= to || to == -1)) {
+        m.put (i, getuint8 (stOffset + 6 + i)); }}
+
+    return m; }
+</code-fragment>
+      <code-fragment id="cmap_format0_inv"><code-title>Return character for 'glyphID', using format 0 subtable at 'stOffset'</code-title>
+  { int size = getuint16 (stOffset + 2) - 6;
+    for (int i = 0; i &lt; size; i++) {
+      if (getuint8 (stOffset + 6 + i) == glyphID) {
+        return i; }}
+    return -1; }
+</code-fragment>
+      <code-fragment id="cmap_format0_inv2"><code-title>Fill 'v' with characters for 'glyphID', using format 0 subtable at 'stOffset'</code-title>
+  { int size = getuint16 (stOffset + 2) - 6;
+    for (int i = 0; i &lt; size; i++) {
+      if (getuint8 (stOffset + 6 + i) == glyphID) {
+        v.add (new Integer (i)); }}}
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap0_font1: basic test</title>
+        <para>Let's start with a simple case:</para>
+        <aots:test-font id="cmap0_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="0">
+              <map code="0x34" glyph="17"/>
+              <map code="0x35" glyph="56"/>
+              <map code="0x36" glyph="12"/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap0_test1" font="cmap0_font1" platformID="3" encodingID="1" inputs="0,  0x01, 0x33, 0x34, 0x35, 0x36, 0x37, 0xffff" outputs="0,  0,       0,   17,   56,   12,    0,      0"/>
+      </section>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="validation">
+      <title>Validation</title>
+      <para>In line with our annotation, the validation code generates a
+          warning if the glyphIdArray does not have exactly 256
+          entries.</para>
+      <code-fragment id="validate_cmap_format0"><code-title>Validate cmap 0 subtable at stOffset</code-title>
+  if (! claim (stPrefix + " header", stOffset, 6)) {
+    break; }
+
+  int stVersion = getuint16 (stOffset + 4);
+  if (stVersion &gt; 0) {
+    reportError ("cmap@" + stOffset + " table version (" + stVersion
+                 + ") not part of the specification"); }
+
+  int size = getuint16 (stOffset + 2);
+  if (size &lt; 6) {
+    reportError ("cmap subtable at " + stOffset + " has length &lt;  6"); }
+  if (size &gt; 6 + 256) {
+    reportError ("cmap subtable at " + stOffset
+                     + " has more than 256 entries"); }
+  if (size &lt; 6 + 256) {
+    reportWarning ("cmap subtable at " + stOffset
+                   + " has less than 256 entries"); }
+  // check that each glyphID in glyphIdArray is a valid glyph
+
+  claim (stPrefix + " glyphIDArray", stOffset + 6, size - 6);
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 2: High-byte mapping through table </title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This subtable is useful for the national character code
+          standards used for Japanese, Chinese, and Korean characters.
+          These code standards use a mixed 8/16-bit encoding, in which
+          certain byte values signal the first byte of a 2-byte
+          character (but these values are also legal as the second
+          byte of a 2-byte character).</para>
+      <para>In addition, even for the 2-byte characters, the mapping
+          of character codes to glyph index values depends heavily on
+          the first byte. Consequently, the table begins with an array
+          that maps the first byte to a 4-word subHeader. For 2-byte
+          character codes, the subHeader is used to map the second
+          byte's value through a subArray, as described below. When
+          processing mixed 8/16-bit text, subHeader 0 is special: it
+          is used for single-byte character codes. When subHeader zero
+          is used, a second byte is not needed; the single byte value
+          is mapped through the subArray.</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Format number is set to 2.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>This is the length in bytes of the
+              subtable.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>subHeaderKeys [256]</otfieldname>
+          <otfielddesc>Array that maps high bytes to subHeaders:
+              value is subHeader index * 8.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>518</otfieldoffs>
+          <otfieldtype>4 words struct</otfieldtype>
+          <otfieldname>subHeaders []</otfieldname>
+          <otfielddesc>Variable-length array of subHeader
+              structures.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>glyphIndexArray []</otfieldname>
+          <otfielddesc>Variable-length array containing subarrays
+              used for mapping the low byte of 2-byte
+              characters.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>A subHeader is structured as follows:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>firstCode</otfieldname>
+          <otfielddesc>First valid low byte for this
+              subHeader.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>entryCount</otfieldname>
+          <otfielddesc>Number of valid low bytes for this
+              subHeader.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>idDelta</otfieldname>
+          <otfielddesc>See text below.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>idRangeOffset</otfieldname>
+          <otfielddesc>See text below.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The firstCode and entryCount values specify a subrange
+          that begins at firstCode and has a length equal to the value
+          of entryCount. This subrange stays within the 0-255 range of
+          the byte being mapped. Bytes outside of this subrange are
+          mapped to glyph index 0 (missing glyph). The offset of the
+          byte within this subrange is then used as index into a
+          corresponding subarray of glyphIndexArray. This subarray is
+          also of length entryCount. The value of the idRangeOffset is
+          the number of bytes past the actual location of the
+          idRangeOffset word where the glyphIndexArray element
+          corresponding to firstCode appears.</para>
+      <para>Finally, if the value obtained from the subarray is not
+          0 (which indicates the missing glyph), you should add
+          idDelta to it in order to get the glyphIndex. The value
+          idDelta permits the same subarray to be used for several
+          different subheaders. The idDelta arithmetic is modulo
+          65536.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>How about an intelligible description of the use of this
+        format? Assuming that it intends to describe the same
+        structure as the Apple True Type format, simply switching to
+        their version would already be a vast improvement.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <para>We do not represent explicitly the subHeaderKeys
+	array. Rather, we represent the subHeaders structure directly,
+	and collect the subHeaderKeys from which they are referenced
+	in the <sgmltag>subHeaderKeys</sgmltag> attribute. The first </para>
+      <para>The idRangeOffset field can be interpreted only when one
+	knows its location in the cmap subtable. Since this datum
+	disappears in our XML representation, the field
+	<sgmltag>idRangeOffset</sgmltag> is the
+	index of the first integer corresponding to the subHeader in
+	the <sgmltag>glyphIndexArray</sgmltag>.</para>
+      <para>If we are given only the mapping from code points to
+	glyphs, we have no way of knowing which code points are
+	represented on one byte, and which are represented in two
+	bytes. Therefore, this format contributes an attribute
+	<sgmltag>singleBytes</sgmltag> to record those. We need this
+	attribute only when we use the 'bunch of mappings'
+	representation; when we have all the details, the first
+	<sgmltag>subheader</sgmltag> element carries the single byte
+	code points.</para>
+      <code-fragment id="schema"><code-title>XML representation of format 2 cmap subtables</code-title>
+  cmapsubtable |=
+    attribute format { "2" },
+
+    ((element subheader {
+        attribute subHeaderKeys { text },
+        attribute firstCode { text },
+        attribute entryCount { text },
+        attribute idDelta { text },
+        attribute idRangeOffset { text }
+      }*,
+
+      element glyphIndex {
+        attribute v { text }
+      })
+    |
+     (attribute singleBytes { text },
+      element map {
+        attribute code { text },
+        attribute glyph { text }}*))
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <para>When we are given a bunch of simple mappings, we want to
+	build a fairly compact representation. Our strategy will not
+	necessarily yield the smallest representation, but it should
+	come pretty close. We start by building a 256 by 256 matrix of
+	mappings, each row corresponding to a high byte. We normalize
+	each row by computing a delta for it, such that the smallest
+	non-zero entry in the row is delta + 1, and this delta will be
+	the idDelta value for the row. Then find the smallest subset
+	of distinct rows, building the mapping from high byte to
+	row. We then trim each row, removing the initial and final
+	zeros (except for the first row, which apparently must be
+	completely represented).</para>
+      <code-fragment id="cmap.methods"><code-title>Method to compile a format 2 cmap</code-title>
+  private static class SubHeader {
+    int highByte;
+
+    int first;
+    int count;
+    int delta;
+    int glyphIndexArray;
+  }
+
+  private Block format2FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    String singleBytesAtt = t.getAttribute ("singleBytes");
+
+    if (singleBytesAtt != null) {
+      int[] singleBytes = parseIntList (singleBytesAtt);
+      Arrays.sort (singleBytes);
+
+      // initialize the map to 0s
+      int[][] map = new int [256][];
+      int[] singleMap = new int [256];
+      for (int r = 0; r &lt;= 0xff; r++) {
+        singleMap [r] = 0;
+        map [r] = new int [256];
+	for (int c = 0; c &lt;= 0xff; c++) {
+	  map [r][c] = 0; }}
+
+      // fill the map with the requested values
+      NodeList maps = t.getChildNodes ();
+      for (int i = 0; i &lt; maps.getLength (); i++) {
+        Element m = (Element) maps.item (i);
+        int charcode = Integer.decode (m.getAttribute ("code")).intValue ();
+        int glyphid = Integer.decode (m.getAttribute ("glyph")).intValue ();
+	if (charcode &lt;= 0xff &amp;&amp; Arrays.binarySearch (singleBytes, charcode) &gt;= 0) {
+	  singleMap [charcode] = glyphid; }
+        else {
+  	  map [charcode &gt;&gt; 8] [charcode &amp; 0xff] = glyphid; }}
+
+
+      // We need two special subHeaders:
+      // - the first (0) is for single byte characters
+      // - the second (1) is for those high bytes such that no character with
+      //   that high byte is mapped
+      // For the other high bytes, there is no good chance of sharing
+      // the subHeaders, as they are likely to differ either on idDelta
+      // (sharing the same glyphIndexArray fragment) or on idRangeOffset
+
+      int[] subHeaderKeys = new int [256];
+
+      Vector&lt;SubHeader&gt; subHeaders = new Vector&lt;SubHeader&gt; ();
+      Vector&lt;int[]&gt; glyphIndexArrays = new Vector&lt;int[]&gt; ();
+
+      { SubHeader sh = new SubHeader ();
+        sh.highByte = -1;
+        sh.first = 0;
+        sh.count = 256;
+        sh.delta = 0;
+        sh.glyphIndexArray = glyphIndexArrays.size ();
+	subHeaders.add (sh);
+
+	int[] gia = new int [256];
+	for (int singleByte = 0; singleByte &lt;= 0xff; singleByte++) {
+  	  gia [singleByte] = singleMap [singleByte]; }
+        glyphIndexArrays.add (gia); }
+
+      { SubHeader sh = new SubHeader ();
+        sh.highByte = -2;
+        sh.first = 0;
+        sh.count = 0;
+        sh.delta = 0;
+        sh.glyphIndexArray = glyphIndexArrays.size ();
+        subHeaders.add (sh);
+
+	int[] gia = new int [0];
+        glyphIndexArrays.add (gia); }
+
+      for (int firstByte = 0; firstByte &lt;= 0xff; firstByte++) {
+        if (Arrays.binarySearch (singleBytes, firstByte) &gt;= 0) {
+	  subHeaderKeys [firstByte] = 0; }
+	else {
+          int minNonNull = Integer.MAX_VALUE;
+	  for (int lowByte = 0; lowByte &lt;= 0xff; lowByte++) {
+            if (map [firstByte][lowByte] &gt; 0) {
+	      minNonNull = Math.min (map [firstByte][lowByte], minNonNull); }}
+
+	  if (minNonNull == Integer.MAX_VALUE) {
+	    // all entries to 0
+	    subHeaderKeys [firstByte] = 1; }
+	  else {
+            subHeaderKeys [firstByte] = subHeaders.size ();
+
+	    SubHeader sh = new SubHeader ();
+            sh.first = 0;
+            sh.count = 0;
+            sh.delta = minNonNull - 1;
+
+	    sh.first = 0;
+	    while (   sh.first &lt;= 0xff
+                   &amp;&amp; map [firstByte] [sh.first] == 0) {
+	      sh.first++; }
+            sh.count = 0x100 - sh.first;
+	    while (   sh.count &gt; 0
+                   &amp;&amp; map [firstByte] [sh.first + sh.count - 1] == 0) {
+	      sh.count--; }
+
+	    int[] gia = new int [sh.count];
+	    for (int lowByte = sh.first; lowByte &lt; sh.first + sh.count; lowByte++) {
+	      int gid = map [firstByte][lowByte];
+	      gia [lowByte - sh.first] = (gid == 0) ? 0 : (gid - sh.delta); }
+
+
+	    int pos = -1;
+            for (int i = 0; i &lt; glyphIndexArrays.size (); i++) {
+	      if (Arrays.equals (gia, glyphIndexArrays.elementAt (i))) {
+                pos = i;
+                break; }}
+
+	    if (pos == -1) {
+	      sh.glyphIndexArray = glyphIndexArrays.size ();
+	      glyphIndexArrays.add (gia); }
+	    else {
+              sh.glyphIndexArray = pos; }
+
+            subHeaders.add (sh); }}}
+
+      // compute the size of our block
+      int blockSize = 6 + 2*256 + 8*subHeaders.size ();
+      int[] giaOffsets = new int [glyphIndexArrays.size ()];
+      int kk = 0;
+      for (int[] gia : glyphIndexArrays) {
+        giaOffsets [kk++] = blockSize;
+        blockSize += 2 * gia.length; }
+
+      Block me = new Block (blockSize, 0);
+      me.setuint16 (0, 2);
+      me.setuint16 (2, blockSize);
+      me.setuint16 (4, 0);
+      int o = 6;
+      for (int r = 0; r &lt;= 0xff; r++) {
+        me.setuint16 (o, subHeaderKeys [r] * 8);
+	o += 2; }
+      for (SubHeader sh : subHeaders) {
+        me.setuint16 (o, sh.first);
+        o += 2;
+        me.setuint16 (o, sh.count);
+        o += 2;
+        me.setint16 (o, sh.delta);
+        o += 2;
+        me.setuint16 (o, giaOffsets [sh.glyphIndexArray] - o);
+        o += 2; }
+      for (int[] gia : glyphIndexArrays) {
+        for (int i = 0; i &lt; gia.length; i++) {
+          me.setuint16 (o, gia [i]);
+          o += 2; }}
+
+      return me; }
+
+    // the explicit representation
+    NodeList children = t.getChildNodes ();
+    int[] subHeaderKeys = new int [256];
+    int subHeadersCount = children.getLength () - 1;
+    SubHeader[] subHeaders = new SubHeader [subHeadersCount];
+    for (int c = 0; c &lt; subHeadersCount; c++) {
+      Element e = (Element) children.item (c);
+      SubHeader sh = new SubHeader ();
+      sh.first = Integer.decode (e.getAttribute ("firstCode")).intValue ();
+      sh.count = Integer.decode (e.getAttribute ("entryCount")).intValue ();
+      sh.delta = Integer.decode (e.getAttribute ("idDelta")).intValue ();
+      sh.glyphIndexArray = Integer.decode (e.getAttribute ("idRangeOffset")).intValue ();
+      subHeaders [c] = sh;
+
+      int[] mappedFrom = parseIntList (e.getAttribute ("subHeaderKeys"));
+      for (int i = 0; i &lt; mappedFrom.length; i++) {
+        subHeaderKeys [mappedFrom [i]] = c;}}
+
+    Element e = (Element) (children.item (subHeadersCount));
+    int[] glyphIndexArray = parseIntList (e.getAttribute ("v"));
+
+    int giaStart = 6 + 512 + 8*subHeadersCount;
+    int blockSize = giaStart + 2*glyphIndexArray.length;
+    Block me = new Block (blockSize, 0);
+    me.setuint16 (0, 2);
+    me.setuint16 (2, blockSize);
+    me.setuint16 (4, language);
+    int o = 6;
+    for (int i = 0; i &lt; 256; i++) {
+      me.setuint16 (o, subHeaderKeys [i] * 8);
+      o += 2; }
+    for (int c = 0; c &lt; subHeadersCount; c++) {
+      SubHeader sh = subHeaders [c];
+      me.setuint16 (o, sh.first);
+      o += 2;
+      me.setuint16 (o, sh.count);
+      o += 2;
+      me.setint16 (o, sh.delta);
+      o += 2;
+      me.setuint16 (o, giaStart + 2*sh.glyphIndexArray - o);
+      o += 2; }
+    for (int i = 0; i &lt; glyphIndexArray.length; i++) {
+      me.setuint16 (o, glyphIndexArray [i]);
+      o += 2; }
+
+    return me;
+  }
+
+
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <para>When we generate a simple mapping representation, we
+	also need to record which bytes are single bytes:</para>
+      <code-fragment id="cmap.decompile.format2.att"><code-title>Generate attributes for the format 2 cmap subtable at 'stOffset'</code-title>
+  if (! conf.preciseCmap) {
+    StringBuilder sb = new StringBuilder ();
+    for (int key = 0; key &lt; 256; key++) {
+      int subHeadersIndex = getuint16 (stOffset + 6 + 2*key) / 8;
+      if (subHeadersIndex == 0) {
+        sb.append (" 0x");
+        sb.append (Integer.toHexString (key)); }}
+    at.addAttribute ("", "singleBytes", "singleBytes", "CDATA", sb.toString ()); }
+</code-fragment>
+      <para>We have no real indication of where the glyphIndexArray
+        starts. For example, one could increase all the idRangeOffset
+        values by 10, increase the size of the glyphIndexArray by 10,
+        and shift all its values by 10 slots. Consequently, we also
+        have not real indication of the actual number of
+        subHeaders. All we know is that given a code point, the
+        computation of the corresponding glyphID will interpret the
+        content of the table appropriately; it is even possible
+        that a given byte will be interpreted as part of a subHeader
+        for one code point, and as part of the glyphIndexArray for
+        another code point! (although that would require a
+        non-straightforward font generator, which probably does not
+        exists at this point)</para>
+      <para>Our strategy to handle this is to do a symbolic
+	inteperpretation of the table (or equivalently, a dataflow
+	analyzis). First, we traverse the subHeaderKeys, recording the
+	indices of the subHeaders that are used; in fact, we even
+	build a map for subHeaders to the subHeaderKeys that point to
+	them:</para>
+      <code-fragment id="cmap.decompile.format2.elt.1"><code-title>Build a map from subHeaders to subHeaderKeys</code-title>
+  SortedMap&lt;Integer, SortedSet&lt;Integer&gt;&gt; subHeader2keys
+    = new TreeMap&lt;Integer, SortedSet&lt;Integer&gt;&gt; ();
+
+  for (int key = 0; key &lt; 256; key++) {
+    int subHeader = getuint16 (stOffset + 6 + 2*key) / 8;
+    SortedSet&lt;Integer&gt; keys = subHeader2keys.get (subHeader);
+    if (keys == null) {
+      keys = new TreeSet&lt;Integer&gt; ();
+      subHeader2keys.put (subHeader, keys); }
+    keys.add (key); }
+</code-fragment>
+      <para>Next, we traverse the subheaders, to find the offset of
+        the first byte that is used as a glyphIndexArray element, and
+        the index following the last byte used that way. Those offsets
+        are recorded as byte offsets from the start of the cmap
+        table (i.e, as indices in our 'data' array):</para>
+      <code-fragment id="cmap.decompile.format2.elt.2"><code-title>Find the boundaries of glyphIndexArray</code-title>
+   int minGlyphIndexOffset = stOffset + getuint16 (stOffset + 2);
+   int maxGlyphIndexOffset = stOffset;
+
+    for (int subHeader : subHeader2keys.keySet ()) {
+      int subHeaderOffset = stOffset + 6 + 512 + 8*subHeader;
+      int entryCount = getuint16 (subHeaderOffset + 2);
+      int idRangeOffset = getuint16 (subHeaderOffset + 6);
+      if (entryCount &gt; 0) {
+        int firstGlyphIndexOffset = subHeaderOffset + 6 + idRangeOffset;
+        int lastGlyphIndexOffset = firstGlyphIndexOffset + 2 * entryCount;
+
+        if (firstGlyphIndexOffset &lt; minGlyphIndexOffset) {
+          minGlyphIndexOffset = firstGlyphIndexOffset; }
+	if (maxGlyphIndexOffset &lt; lastGlyphIndexOffset) {
+	  maxGlyphIndexOffset = lastGlyphIndexOffset; }}}
+</code-fragment>
+      <para>With that, we can build the representations of the
+        subHeaders;</para>
+      <code-fragment id="cmap.decompile.format2.elt.3"><code-title>Generate elements for the subHeaders</code-title>
+  for (int subHeader : subHeader2keys.keySet ()) {
+    at = new AttributesImpl ();
+
+    { SortedSet&lt;Integer&gt; keys = subHeader2keys.get (subHeader);
+      StringBuilder sb = new StringBuilder ();
+      for (int key : keys) {
+        sb.append (" 0x");
+ 	  sb.append (Integer.toHexString (key)); }
+      at.addAttribute ("", "highBytes", "highBytes", "CDATA", sb.toString ()); }
+
+    int subHeaderOffset = stOffset + 6 + 512 + 8*subHeader;
+    int firstCode = getuint16 (subHeaderOffset);
+    int entryCount = getuint16 (subHeaderOffset + 2);
+    int idDelta = getuint16 (subHeaderOffset + 4);
+    int idRangeOffset = getuint16 (subHeaderOffset + 6);
+    int firstGlyphIndexOffset = subHeaderOffset + 6 + idRangeOffset;
+
+    at.addAttribute ("", "firstCode", "firstCode", "CDATA",
+                     "0x" + Integer.toHexString (firstCode));
+    at.addAttribute ("", "entryCount", "entryCount", "CDATA", "" + entryCount);
+    at.addAttribute ("", "idDelta", "idDelta", "CDATA", "" + idDelta);
+    at.addAttribute ("", "idRangeOffset", "idRangeOffset", "CDATA",
+                     "" + ((firstGlyphIndexOffset - minGlyphIndexOffset) / 2));
+
+    conf.ch.element ("subheader", at); }
+</code-fragment>
+      <para>And we can also build the representation of
+        glyphIndexArray:</para>
+      <code-fragment id="cmap.decompile.format2.elt.4"><code-title>Generate an element for glyphIndexArray</code-title>
+  { StringBuilder sb = new StringBuilder ();
+    for (int i = minGlyphIndexOffset; i &lt; maxGlyphIndexOffset; i += 2) {
+      sb.append (" ");
+      sb.append (getuint16 (i)); }
+    at = new AttributesImpl ();
+    at.addAttribute ("", "v", "v", "CDATA", sb.toString ());
+
+    conf.ch.element ("glyphIndex", at); }
+</code-fragment>
+      <para>We are ready to put everything together:</para>
+      <code-fragment id="cmap.decompile.format2.elt"><code-title>Generate elements for the format 2 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+    <code-include linkend="cmap.decompile.format2.elt.1"/>
+    <code-include linkend="cmap.decompile.format2.elt.2"/>
+    <code-include linkend="cmap.decompile.format2.elt.3"/>
+    <code-include linkend="cmap.decompile.format2.elt.4"/> }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <para>This cmap subtable format is really supporting two
+	operations: find the bytes that represent a character in the
+	input stream and convert those to a glyphID. The first part is
+	supported only though a sequential scan of the bytes, and so
+	amounts to deciding whether a first byte is representing a
+	character on its own, or is the high byte of a byte pair. We
+	do not really want to support the first part in our interface:
+	the client must already determine the boundaries of
+	characters, and assemble the bytes in code points.</para>
+      <para>This creates a little difficulty: consider the case
+	where we get at our interface a code point
+	<emphasis>c</emphasis> between 0x00 and 0xff. Was it the
+	result of a single byte <emphasis>c</emphasis> (in which case
+	we should index in subHeaderKeys with that value) or was it
+	the result of a two byte sequence 0x00 <emphasis>c</emphasis>
+	(in which case we should index subHeaderKeys with 0)?
+	Fortunately, we can inspect subHeaderKeys[c] to distinguish
+	the cases. The situation does not happen for code points above
+	0xff, as those are by necessity on two bytes.</para>
+      <para>It is worth noting that the confusion is unlikely in
+	practice, as the byte 0x00 is representing entirely a
+	character in essentially all one/two bytes encodings. However,
+	this is not implied by the cmap subtable format, so we need
+	to handle the situation.</para>
+      <para>The next observation is that we really have two indexing
+	operations at play: the first in subHeaderKeys, the second in
+	glyphIndexArray. For code points represented by a single byte,
+	that byte is used for both operations. Otherwise, the first
+	byte is used for the indexing, and the second byte is used for
+	the second indexing.</para>
+      <para>Combining all that, our strategy is to figure out the
+	two byte values used for the indexing operations, and then
+	perform them.</para>
+      <code-fragment id="cmap_format2"><code-title>Return glyph for 'charCode', using format 2 subtable at
+  'stOffset'</code-title>
+{ int headerIndexByte;
+  int glyphIndexArrayIndexByte;
+
+  { int highByte = (charCode &gt;&gt; 8) &amp; 0xff;
+    int lowByte = (charCode) &amp; 0xff;
+
+    if (highByte == 0 &amp;&amp; getuint16 (stOffset + 6 + 2*lowByte) == 0) {
+      // lowByte is a single byte character
+      headerIndexByte = lowByte; }
+    else {
+      headerIndexByte = highByte; }
+
+    glyphIndexArrayIndexByte = lowByte; }
+
+  int subHeaderKey = getuint16 (stOffset + 6 + 2*headerIndexByte) / 8;
+  int subHeaderOffset = stOffset + 518 + 8*subHeaderKey;
+  int firstCode = getuint16 (subHeaderOffset);
+  int entryCount = getuint16 (subHeaderOffset + 2);
+
+  if (   glyphIndexArrayIndexByte &lt; firstCode
+      || firstCode + entryCount &lt;= glyphIndexArrayIndexByte) {
+    return 0; }
+
+  int idDelta = getuint16 (subHeaderOffset + 4);
+  int idRange = getuint16 (subHeaderOffset + 6);
+  int glyphIndexOffset = subHeaderOffset + 6 + idRange;
+  int g = getuint16 (glyphIndexOffset + 2 * (glyphIndexArrayIndexByte - firstCode));
+
+  if (g == 0) {
+    return 0; }
+  else {
+    return (g + idDelta) % 0x10000; }
+}
+</code-fragment>
+      <para>We have less difficulty when enumerating the mappings,
+        as we do not have to reconcile with an outside operation, but
+        instead let us be driven by the cmap subtable content.</para>
+      <code-fragment id="cmap_format2_iterator"><code-title>Enumerate mappings in format 2 subtable at 'stOffset'</code-title>
+{ java.util.TreeMap&lt;Integer, Integer&gt; m
+      = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+  for (int firstByte = 0; firstByte &lt;= 0xff; firstByte++) {
+    int subHeaderIndex = getuint16 (stOffset + 6 + 2*firstByte) / 8;
+    int subHeaderOffset = stOffset + 518 + subHeaderIndex * 8;
+    int firstCode = getuint16 (subHeaderOffset);
+    int entryCount = getuint16 (subHeaderOffset + 2);
+    int idDelta = getuint16 (subHeaderOffset + 4);
+    int idRange = getuint16 (subHeaderOffset + 6);
+    int glyphIndexOffset = subHeaderOffset + 6 + idRange;
+
+    if (subHeaderIndex == 0) {
+      int g = getuint16 (glyphIndexOffset + 2 * (firstByte - firstCode));
+	if (g != 0) {
+        m.put (firstByte, (g + idDelta) % 0x10000); }}
+
+    else {
+      for (int secondByte = firstCode;
+           secondByte &lt; firstCode + entryCount;
+           secondByte++) {
+	int g = getuint16 (glyphIndexOffset + 2 * (secondByte - firstCode));
+        if (g != 0) {
+          m.put ((firstByte &lt;&lt; 8) + secondByte,
+                 (g + idDelta) % 0x10000); }}}}
+
+  return m; }
+</code-fragment>
+      <para>Since the inversion is non-trivial, and the meaning of
+        this format is so unclear, let's wait to implement this one.</para>
+      <code-fragment id="cmap_format2_inv"><code-title>Return a character that maps to 'glyphID', using format 2 subtable at 'stOffset'</code-title>
+{ return -1; }
+</code-fragment>
+      <code-fragment id="cmap_format2_inv2"><code-title>Fill 'v' with characters that map to 'glyphID', using format 2 subtable at 'stOffset'</code-title>
+  {}
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap2_font1: basic test</title>
+        <para>Let's start with a simple case:</para>
+        <aots:test-font id="cmap2_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="2" singleBytes="0x34 0x35 0x36">
+              <map code="0x34" glyph="17"/>
+              <map code="0x35" glyph="56"/>
+              <map code="0x36" glyph="12"/>
+              <map code="0x8432" glyph="20"/>
+              <map code="0x8433" glyph="21"/>
+              <map code="0x8434" glyph="22"/>
+              <map code="0x9232" glyph="23"/>
+              <map code="0x9233" glyph="24"/>
+              <map code="0x9234" glyph="25"/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap2_test1" font="cmap2_font1" platformID="3" encodingID="1" inputs="0,  1, 0x33, 0x34, 0x35, 0x36, 0x37, 0x8431, 0x8432, 0x8434, 0x9232, 0xffff" outputs="0,  0,    0,   17,   56,   12,    0,      0,     20,     22,     23, 0"/>
+      </section>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="validation">
+      <title>Validation</title>
+      <code-fragment id="validate_cmap_format2"><code-title>Validate cmap 2 subtable at stOffset</code-title>
+  if (! claim (stPrefix + " header", stOffset + 2, 4)) {
+    break; }
+
+  int stVersion = getuint16 (stOffset + 4);
+  if (stVersion &gt; 0) {
+    reportError ("cmap@" + stOffset + " table version (" + stVersion
+                 + ") not part of the specification"); }
+
+  int length = getuint16 (stOffset + 2);
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 4: Segment mapping to delta values</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This is the Microsoft standard character to glyph index
+          mapping table for fonts that support Unicode ranges other
+          than the range [U+D800 - U+DFFF] (defined as Surrogates
+          Area, in Unicode v 3.0) which is used for UCS-4
+          characters. If a font supports this character range (i.e. in
+          turn supports the UCS-4 characters) a subtable in this
+          format with a platform specific encoding ID 1 is yet needed,
+          in addition to a subtable in format 12 with a platform
+          specific encoding ID 10. Please see details on format 12
+          below, for fonts that support UCS-4 characters on
+          Windows.</para>
+      <para>This format is used when the character codes for the
+          characters represented by a font fall into several
+          contiguous ranges, possibly with holes in some or all of the
+          ranges (that is, some of the codes in a range may not have a
+          representation in the font). The format-dependent data is
+          divided into three parts, which must occur in the following
+          order:</para>
+      <orderedlist>
+        <listitem>
+          <para>A four-word header gives parameters for an optimized
+              search of the segment list;</para>
+        </listitem>
+        <listitem>
+          <para>Four parallel arrays describe the segments (one
+              segment for each contiguous range of codes);</para>
+        </listitem>
+        <listitem>
+          <para>A variable-length array of glyph IDs (unsigned
+              words).</para>
+        </listitem>
+      </orderedlist>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Format number is set to 4.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>This is the length in bytes of the
+              subtable.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>segCountX2</otfieldname>
+          <otfielddesc>2 x segCount.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>searchRange</otfieldname>
+          <otfielddesc>2 x (2**floor(log2(segCount)))</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>10</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>entrySelector</otfieldname>
+          <otfielddesc>log2(searchRange/2)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>rangeShift</otfieldname>
+          <otfielddesc>2 x segCount - searchRange</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>14</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>endCount [segCount]</otfieldname>
+          <otfielddesc>End characterCode for each segment,
+              last=0xFFFF.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>14+2i</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>reservedPad</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16+2i</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>startCount [segCount]</otfieldname>
+          <otfielddesc>Start character code for each
+              segment.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16+4i</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>idDelta [segCount]</otfieldname>
+          <otfielddesc>Delta for all character codes in
+              segment.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16+6i</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>idRangeOffset [segCount]</otfieldname>
+          <otfielddesc>Offsets into glyphIdArray or 0</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16+8i</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>glyphIdArray []</otfieldname>
+          <otfielddesc>Glyph index array (arbitrary length)
+            </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The number of segments is specified by segCount, which
+          is not explicitly in the header; however, all of the header
+          parameters are derived from it. The searchRange value is
+          twice the largest power of 2 that is less than or equal to
+          segCount. For example, if segCount=39, we have the
+          following:</para>
+      <informaltable>
+        <tgroup cols="3">
+          <colspec colwidth="10pc"/>
+          <colspec colwidth="10pc"/>
+          <colspec colwidth="10pc"/>
+          <tbody>
+            <row>
+              <entry>segCountX2</entry>
+              <entry>78</entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>searchRange</entry>
+              <entry>64</entry>
+              <entry>(2 * largest power of 2 &lt;=39)</entry>
+            </row>
+            <row>
+              <entry>entrySelector</entry>
+              <entry>5</entry>
+              <entry>log2 (32)</entry>
+            </row>
+            <row>
+              <entry>rangeShift</entry>
+              <entry>14</entry>
+              <entry>2 x 39 - 64</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>Each segment is described by a startCode and endCode,
+          along with an idDelta and an idRangeOffset, which are used
+          for mapping the character codes in the segment. The segments
+          are sorted in order of increasing endCode values, and the
+          segment values are specified in four parallel arrays. You
+          search for the first endCode that is greater than or equal
+          to the character code you want to map. If the corresponding
+          startCode is less than or equal to the character code, then
+          you use the corresponding idDelta and idRangeOffset to map
+          the character code to a glyph index (otherwise, the
+          missingGlyph is returned). For the search to terminate, the
+          final endCode value must be 0xFFFF. This segment need not
+          contain any valid mappings. (It can just map the single
+          character code 0xFFFF to missingGlyph). However, the segment
+          must be present.</para>
+      <para>If the idRangeOffset value for the segment is not 0, the
+          mapping of character codes relies on glyphIdArray. The
+          character code offset from startCode is added to the
+          idRangeOffset value. This sum is used as an offset from the
+          current location within idRangeOffset itself to index out
+          the correct glyphIdArray value. This obscure indexing trick
+          works because glyphIdArray immediately follows idRangeOffset
+          in the font file. The C expression that yields the glyph
+          index is:</para>
+      <literallayout>
+  *(idRangeOffset[i]/2
+    + (c - startCount[i])
+    + &amp;idRangeOffset[i])
+    </literallayout>
+      <para>The value c is the character code in question, and i is
+          the segment index in which c appears. If the value obtained
+          from the indexing operation is not 0 (which indicates
+          missingGlyph), idDelta[i] is added to it to get the glyph
+          index. The idDelta arithmetic is modulo 65536.</para>
+      <para>If the idRangeOffset is 0, the idDelta value is added
+          directly to the character code offset (i.e. idDelta[i] + c)
+          to get the corresponding glyph index. Again, the idDelta
+          arithmetic is modulo 65536.</para>
+      <para>As an example, the variant part of the table to map
+          characters 10-20, 30-90, and 153-480 onto a contiguous range
+          of glyph indices may look like this:</para>
+      <informaltable>
+        <tgroup cols="5">
+          <colspec colwidth="10pc"/>
+          <colspec colwidth="5pc"/>
+          <colspec colwidth="5pc"/>
+          <colspec colwidth="5pc"/>
+          <colspec colwidth="5pc"/>
+          <tbody>
+            <row>
+              <entry>segCountX2:</entry>
+              <entry>8</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>searchRange:</entry>
+              <entry>8</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>entrySelector:</entry>
+              <entry>4</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>rangeShift:</entry>
+              <entry>0</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>endCode:</entry>
+              <entry>20</entry>
+              <entry>90</entry>
+              <entry>480</entry>
+              <entry>0Xffff</entry>
+            </row>
+            <row>
+              <entry>reservedPad:</entry>
+              <entry>0</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>startCode:</entry>
+              <entry>10</entry>
+              <entry>30</entry>
+              <entry>153</entry>
+              <entry>0Xffff</entry>
+            </row>
+            <row>
+              <entry>idDelta:</entry>
+              <entry>-9</entry>
+              <entry>-18</entry>
+              <entry>-27</entry>
+              <entry>1</entry>
+            </row>
+            <row>
+              <entry>idRangeOffset:</entry>
+              <entry>0</entry>
+              <entry>0</entry>
+              <entry>0</entry>
+              <entry>0</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>This table performs the following mappings:</para>
+      <literallayout>
+10 -&gt; 10 - 9 = 1
+20 -&gt; 20 - 9 = 11
+30 -&gt; 30 - 18 = 12
+90 -&gt; 90 - 18 = 72
+...and so on.
+</literallayout>
+      <para>Note that the delta values could be reworked so as to
+          reorder the segments.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>The first sentence should probably be changed to
+        "... for fonts that support Unicode BMP characters".</para>
+      <para>In the table that describes the fields, it seems that
+          the fields startCount and endCount should instead be
+          startCode and endCode. These are better names, and are the
+          names used in the text.</para>
+      <para>In the example, the idDelta of the third range should
+          probably be -80, so that the character code 153 is mapped to
+          the glyphID 153-80 = 73.</para>
+      <para>The meaning of the last sentence escapes me. May be it
+        should be removed?</para>
+      <para>It seems a necessary property of this format that the
+          segments be disjoint, yet it is not mentionned
+          explicitly.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+  cmapsubtable |=
+    attribute format { "4" },
+
+    ((element segment {
+        attribute startCode { text },
+        attribute endCode { text },
+        attribute idDelta { text },
+        attribute idRangeOffset { text }}*,
+
+      element glyphIndex {
+        attribute v { text }})
+    |
+     (element map {
+        attribute code { text },
+        attribute glyph { text }}*))
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <para>We have three cases to consider: when the cmap is empty;
+          when it is described by <sgmltag>segment</sgmltag> elements;
+          and when it is described by <sgmltag>map</sgmltag>
+          elements.</para>
+      <code-fragment id="cmap.methods"><code-title>Method to compile a format 4 cmap</code-title>
+  private Block format4FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+    if (children.getLength () == 0) {
+      <code-include linkend="compileCmapFormat4.empty"/> }
+    else if ("segment".equals (((Element)children.item (0)).getTagName ())) {
+      <code-include linkend="compileCmapFormat4.segments"/> }
+    else {
+      <code-include linkend="compileCmapFormat4.maps"/> }
+  }
+</code-fragment>
+      <para>The empty cmap case is fairly straightforward:</para>
+      <code-fragment id="compileCmapFormat4.empty"><code-title>Generate empty format 4 cmap</code-title>
+{   int segCount = 1;
+    int segCountX2 = 2;
+    int searchRange = 1;
+    int entrySelector = 0;
+    int rangeShift = 1;
+
+    int length = 24;
+    Block me = new Block (length, 0);
+    me.setuint16 (0, 4);
+    me.setuint16 (2, length);
+    me.setuint16 (4, language);
+    me.setuint16 (6, segCountX2);
+    me.setuint16 (8, searchRange);
+    me.setuint16 (10, entrySelector);
+    me.setuint16 (12, rangeShift);
+
+    me.setuint16 (14, 0xffff);
+    me.setuint16 (16, 0); // reservedPad
+    me.setuint16 (18, 0xffff);
+    me.setint16  (20, 1);
+    me.setuint16 (22, 0);
+
+    return me; }
+</code-fragment>
+      <code-fragment id="compileCmapFormat4.maps"><code-title>Generate format 4 cmap from maps</code-title>
+{ int[] m = new int [0x10000];     // char -&gt; gid
+
+  for (int i = 0; i &lt; 0x10000; i++) {
+    m [i] = 0; }
+
+    NodeList maps = t.getChildNodes ();
+    for (int i = 0; i &lt; maps.getLength (); i++) {
+      Element e = (Element) maps.item (i);
+      int charcode = Integer.decode (e.getAttribute ("code")).intValue ();
+      int glyphid  = Integer.decode (e.getAttribute ("glyph")).intValue ();
+      String c = e.getAttribute ("count");
+      int count;
+      if (c.equals ("")) {
+         count = 1; }
+      else {
+         count = Integer.decode (c).intValue (); }
+
+      for (int j = charcode; j &lt; charcode + count; j++) {
+        m [j] = glyphid++; }}
+
+    int segCount = 0;
+    int glyphIdArraySize = 0;
+
+    class Segment {
+      int start;
+      int end;
+      boolean consecutive; }
+
+    Segment[] segments = new Segment [0x10000];
+
+    int current = 0;
+    while (current &lt; 0x10000) {
+      while (current &lt; 0x10000 &amp;&amp; m [current] == 0) {
+        current++; }
+
+      if (current == 0x10000) {
+        break; }
+
+      int first = current;
+      boolean consecutive = true;
+
+      current++;
+      while (current &lt; 0x10000 &amp;&amp; m [current] != 0) {
+        if (m[current] != m[current-1] + 1) {
+          consecutive = false; }
+        current++; }
+
+      segments [segCount] = new Segment ();
+      segments [segCount].start = first;
+      segments [segCount].end = current - 1;
+      segments [segCount].consecutive = consecutive;
+      if (! consecutive) {
+        glyphIdArraySize += current - first; }
+      segCount++; }
+
+    if (m [0xffff] == 0) {
+      segments [segCount] = new Segment ();
+      segments [segCount].start = 0xffff;
+      segments [segCount].end = 0xffff;
+      segments [segCount].consecutive = true;
+      segCount++; }
+
+    int segCountX2 = segCount * 2;
+    int searchRange = 1;
+    int entrySelector = -1;
+    while (searchRange &lt; segCount) {
+      searchRange *= 2;
+      entrySelector++; }
+    int rangeShift = 2 * segCount - searchRange;
+
+    int length = 16 + 8*segCount + glyphIdArraySize*2;
+    Block me = new Block (length, 0);
+    me.setuint16 (0, 4);
+    me.setuint16 (2, length);
+    me.setuint16 (4, language);
+    me.setuint16 (6, segCountX2);
+    me.setuint16 (8, searchRange);
+    me.setuint16 (10, entrySelector);
+    me.setuint16 (12, rangeShift);
+
+    int offset = 14;
+    int glyphIdArrayOffset = 16 + 8 * segCount;;
+
+    for (int i = 0; i &lt; segCount; i++) {
+      me.setuint16 (offset, segments [i].end);
+      me.setuint16 (offset + 2 + 2*segCount, segments [i].start);
+
+      if (segments [i].consecutive) {
+        int firstCode = segments [i].start;
+        me.setint16  (offset + 2 + 4*segCount,
+                      (m[firstCode] - firstCode) % 0x10000);
+        me.setuint16 (offset + 2 + 6*segCount, 0); }
+
+      else {
+        me.setint16  (offset + 2 + 4*segCount, 0);
+        me.setuint16 (offset + 2 + 6*segCount,
+                      glyphIdArrayOffset - 16 - 6*segCount - 2*i);
+        for (int j = segments [i].start; j &lt;= segments [i].end; j++) {
+          me.setuint16 (glyphIdArrayOffset, m [j]);
+          glyphIdArrayOffset += 2; }}
+
+      offset += 2; }
+
+    me.setuint16 (offset, 0); // reservedPad
+
+    return me; }
+</code-fragment>
+      <code-fragment id="compileCmapFormat4.segments"><code-title>Generate format 4 cmap from segments</code-title>
+{   NodeList segments = t.getChildNodes ();
+    int glyphIdArraySize = 0;
+    int lastEndCode = 0;
+
+    int segCount = segments.getLength () - 1; // omit "glyphIndex" element
+    Element glyphIndexElt = (Element) segments.item (segCount);
+    int[]  glyphIndexVals = parseIntList (glyphIndexElt.getAttribute ("v"));
+
+    int segCountX2 = segCount * 2;
+    int searchRange = 1;
+    int entrySelector = 0;
+    while (searchRange &lt; segCount) {
+      searchRange *= 2;
+      entrySelector++; }
+    searchRange *= 2;
+    int rangeShift = 2 * segCount - searchRange;
+
+    int length = 16 + 8*segCount + glyphIndexVals.length *2;
+    Block me = new Block (length, 0);
+    me.setuint16 (0, 4);
+    me.setuint16 (2, length);
+    me.setuint16 (4, language);
+    me.setuint16 (6, segCountX2);
+    me.setuint16 (8, searchRange);
+    me.setuint16 (10, entrySelector);
+    me.setuint16 (12, rangeShift);
+
+    int offset = 14;
+    int glyphIdArrayOffset = 0;
+
+    for (int i = 0; i &lt; segCount; i++) {
+      Element segment = (Element) segments.item (i);
+
+      int startCode = Integer.decode (segment.getAttribute ("startCode")).intValue ();
+      int endCode = Integer.decode (segment.getAttribute ("endCode")).intValue ();
+      int idDelta = Integer.decode (segment.getAttribute ("idDelta")).intValue ();
+      int idRangeOffset = Integer.decode (segment.getAttribute ("idRangeOffset")).intValue ();
+
+      me.setuint16 (offset, endCode);
+      me.setuint16 (offset + 2 + 2*segCount, startCode);
+      me.setint16 (offset + 2 + 4*segCount, idDelta);
+      me.setint16 (offset + 2 + 6*segCount, idRangeOffset);
+
+      offset += 2; }
+
+    me.setuint16 (offset, 0); // reservedPad
+    offset += 2;
+
+    offset += 6*segCount; // skip startCount, idDelta and idRangeOffset;
+
+    for (int i = 0; i &lt; glyphIndexVals.length; i++) {
+      me.setuint16 (offset, glyphIndexVals [i]);
+      offset += 2; }
+
+    return me;
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format4.elt"><code-title>Generate elements for the format 4 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+    int segCount = getuint16 (stOffset + 6) / 2;
+
+    for (int s = 0; s &lt; segCount; s++) {
+      int endCode = getuint16 (stOffset + 14 + 2*s);
+      int startCode = getuint16 (stOffset + 16 + 2*segCount + 2*s);
+      int idDelta = getuint16 (stOffset + 16 + 4*segCount + 2*s);
+      int idRangeOffset = getuint16 (stOffset + 16 + 6*segCount + 2*s);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "startCode", "startCode", "CDATA",
+    	                 "0x" + Integer.toHexString (startCode));
+      at.addAttribute ("", "endCode", "endCode", "CDATA",
+    	                 "0x" + Integer.toHexString (endCode));
+      at.addAttribute ("", "idDelta", "idDelta", "CDATA",
+    	                 "0x" + Integer.toHexString (idDelta));
+      at.addAttribute ("", "idRangeOffset", "idRangeOffset", "CDATA",
+    	                 "0x" + Integer.toHexString (idRangeOffset));
+      conf.ch.element ("segment", at); }
+
+
+    StringBuilder sb = new StringBuilder ();
+    int glyphIndexOffset = stOffset + 16 + 8*segCount;
+    int glyphIndexCount = (getuint16 (stOffset + 2) - (16 + 8*segCount)) / 2;
+    for (int i = 0; i &lt; glyphIndexCount; i++) {
+      sb.append (" ");
+      sb.append (getuint16 (glyphIndexOffset + 2*i)); }
+
+    at = new AttributesImpl ();
+    at.addAttribute ("", "v", "v", "CDATA", sb.toString ());
+
+    conf.ch.element ("glyphIndex", at); }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <para>It should be clear that many of the values in this table
+          are computed to be used in a very specific algorithm. On the
+          other hand, even is there are 64K ranges (the maximum), a
+          simple binary search will get us there in 16 steps. It seems
+          hardly worthwhile to recover the algorithm that takes best
+          advantage of those values.</para>
+      <para>Instead, we use a basic binary search. The invariant of
+          the loop is: if there is a segment with index s that covers
+          charCode, then min &lt;= s &lt;= max;. This is initially
+          true since min and max are the indices of the first and last
+          segment. Since the segments are disjoint and ordered it
+          remains true across an iteration of the loop. Finally, the
+          loop terminates since max - min is reduced at each
+          iteration.</para>
+      <code-fragment id="cmap_format4"><code-title>Return glyph for 'charCode', using format 4 subtable at 'stOffset'</code-title>
+  { int segCount = getuint16 (stOffset + 6) / 2;
+    int min = 0;
+    int max = segCount - 1;
+
+    while (min &lt;= max) {
+      int s = (min + max) / 2;
+      int startCount = getuint16 (stOffset + 16 + 2*segCount + 2*s);
+      int endCount = getuint16 (stOffset + 14 + 2*s);
+
+      if (charCode &lt; startCount) {
+        max = s - 1; }
+      else if (endCount &lt; charCode) {
+        min = s + 1; }
+      else {
+        <code-include linkend="compute_glyphid"/> }}
+
+    return 0; }
+</code-fragment>
+      <para>Once we have located the segment, we can find the glyph.
+          Note that in the C expression given in the specification,
+          idRangeOffset is a pointer to a 16 bit quantity; since we
+          deal in byte offsets, we need to multiply the increment to
+          that pointer by 2.</para>
+      <code-fragment id="compute_glyphid"><code-title>Return glyph for 'charCode' covered by range 's'</code-title>
+  int idRangeOffset = getuint16 (stOffset + 16 + 6*segCount + 2*s);
+  int idDelta = getint16 (stOffset + 16 + 4*segCount + 2*s);
+
+  if (idRangeOffset == 0) {
+    return (charCode + idDelta) &amp; 0xffff; }
+
+  int offset = stOffset + 16 + 6*segCount + 2*s
+                + idRangeOffset
+                + 2*(charCode - startCount);
+  int glyphIdArrayValue = getuint16 (offset);
+
+  if (glyphIdArrayValue == 0) {
+    return 0; }
+
+  return (glyphIdArrayValue + idDelta) &amp; 0xffff;
+</code-fragment>
+      <code-fragment id="cmap_format4_iterator"><code-title>Enumerate mappings in format 4 subtable at stOffset</code-title>
+  { java.util.TreeMap&lt;Integer, Integer&gt; m
+        = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    int segCount = getuint16 (stOffset + 6) / 2;
+    for (int s = 0; s &lt; segCount; s++) {
+
+      int startCount = getuint16 (stOffset + 16 + 2*segCount + 2*s);
+      int endCount = getuint16 (stOffset + 14 + 2*s);
+      int idRangeOffsetOffset = stOffset + 16 + 6*segCount + 2*s;
+      int idRangeOffset = getuint16 (idRangeOffsetOffset);
+      int idDelta = getint16 (stOffset + 16 + 4*segCount + 2*s);
+
+      for (int c = startCount; c &lt;= endCount; c++) {
+        if (idRangeOffset == 0) {
+          int glyphID = (c + idDelta) &amp; 0xffff;
+          if (glyphID != 0) {
+            if (from &lt;= c &amp;&amp; (c &lt;= to || to == -1)) {
+              m.put (c, glyphID); }}}
+        else {
+          int offset = stOffset + 16 + 6*segCount + 2*s
+                        + idRangeOffset
+                        + 2*(c - startCount);
+          /* offset = offset % 0x10000; */ /* why did we have that ? */
+          int glyphIdArrayValue = getuint16 (offset);
+
+          if (glyphIdArrayValue != 0) {
+            int glyphID = (glyphIdArrayValue + idDelta) &amp; 0xffff;
+            if (glyphID != 0) {
+              if (from &lt;= c &amp;&amp; (c &lt;= to || to == -1)) {
+                m.put (c, glyphID); }}}}}}
+
+     return m; }
+</code-fragment>
+      <code-fragment id="cmap_format4_inv"><code-title>Return character for 'glyphID', using format 4 subtable at stOffset</code-title>
+  { int segCount = getuint16 (stOffset + 6) / 2;
+
+    for (int s = 0; s &lt; segCount; s++) {
+      int startCount = getuint16 (stOffset + 16 + 2*segCount + 2*s);
+      int endCount = getuint16 (stOffset + 14 + 2*s);
+      int idRangeOffsetOffset = stOffset + 16 + 6*segCount + 2*s;
+      int idRangeOffset = getuint16 (idRangeOffsetOffset);
+      int idDelta = getint16 (stOffset + 16 + 4*segCount + 2*s);
+
+      if (idRangeOffset == 0) {
+        int charCode = (glyphID - idDelta) &amp; 0xffff;
+        if (startCount &lt;= charCode &amp;&amp; charCode &lt;= endCount) {
+          return charCode; }}
+      else {
+        int glyphOffset = idRangeOffsetOffset + idRangeOffset;
+        int lastGlyphOffset = glyphOffset + 2 * (endCount - startCount);
+        int charCode = startCount;
+
+        while (glyphOffset &lt;= lastGlyphOffset) {
+          if (glyphID == getuint16 (glyphOffset)) {
+            return charCode; }
+          charCode++;
+          glyphOffset += 2; }}}
+
+    return -1; }
+</code-fragment>
+      <code-fragment id="cmap_format4_inv2"><code-title>Fill 'v' with characters for 'glyphID', using format 4 subtable at stOffset</code-title>
+  { int segCount = getuint16 (stOffset + 6) / 2;
+
+    for (int s = 0; s &lt; segCount; s++) {
+      int startCount = getuint16 (stOffset + 16 + 2*segCount + 2*s);
+      int endCount = getuint16 (stOffset + 14 + 2*s);
+      int idRangeOffsetOffset = stOffset + 16 + 6*segCount + 2*s;
+      int idRangeOffset = getuint16 (idRangeOffsetOffset);
+      int idDelta = getint16 (stOffset + 16 + 4*segCount + 2*s);
+
+      if (idRangeOffset == 0) {
+        int charCode = (glyphID - idDelta) &amp; 0xffff;
+        if (startCount &lt;= charCode &amp;&amp; charCode &lt;= endCount) {
+          v.add (new Integer (charCode)); }}
+      else {
+        int glyphOffset = idRangeOffsetOffset + idRangeOffset;
+        int lastGlyphOffset = glyphOffset + 2 * (endCount - startCount);
+        int charCode = startCount;
+
+        while (glyphOffset &lt;= lastGlyphOffset) {
+          if (glyphID == getuint16 (glyphOffset)) {
+            v.add (new Integer (charCode)); }
+          charCode++;
+          glyphOffset += 2; }}}}
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap4_font1: basic test</title>
+        <para>Let’s start with a simple case:</para>
+        <aots:test-font id="cmap4_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="4">
+              <segment startCode="17" endCode="30" idDelta="23" idRangeOffset="0"/>
+              <segment startCode="200" endCode="210" idDelta="56" idRangeOffset="0"/>
+              <glyphIndex v=""/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap4_test1" font="cmap4_font1" platformID="3" encodingID="1" inputs="0,  1, 16, 17, 18, 30, 31, 199, 200, 205, 210, 211, 0xffff" outputs="0,  0,  0, 40, 41, 53,  0,   0, 256, 261, 266,   0,      0"/>
+      </section>
+      <section>
+        <title>cmap4_font2,3: boundary cases</title>
+        <para>The first boundary case is when the cmap is as empty
+          as possible, i.e. with a single segment for 0xffff. Since
+          the compiler takes care of adding such a segment, it means
+          no segments in the XML declaration:</para>
+        <aots:test-font id="cmap4_font2">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="4"/>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap4_test2" font="cmap4_font2" platformID="3" encodingID="1" inputs="0,  1, 16, 17, 18, 30, 31, 199, 200, 205, 210, 211, 0xffff" outputs="0,  0,  0,  0,  0,  0,  0,   0,   0,   0,   0,   0,      0"/>
+        <para>Of course, we can have a single segment for 0xffff,
+            but map it to something other than 0: </para>
+        <aots:test-font id="cmap4_font3">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="4">
+              <segment startCode="65535" endCode="65535" idDelta="-1" idRangeOffset="0"/>
+              <glyphIndex v=""/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap4_test3" font="cmap4_font3" platformID="3" encodingID="1" inputs="0,  1, 16, 17, 18, 30, 31, 199, 200, 205, 210, 211, 0xffff" outputs="0,  0,  0,  0,  0,  0,  0,   0,   0,   0,   0,   0, 0xfffe"/>
+        <para>Here is a test font specifically for the idDelta modulo
+          arithmethic:</para>
+        <aots:test-font id="cmap4_font4">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="4">
+              <segment startCode="100" endCode="1000" idDelta="-500" idRangeOffset="0"/>
+              <segment startCode="45000" endCode="45100" idDelta="-500" idRangeOffset="0"/>
+              <segment startCode="65000" endCode="65100" idDelta="500" idRangeOffset="0"/>
+              <glyphIndex v=""/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <para>Let's start with the second segment, which deals with
+          negative idDelta:</para>
+        <aots:cmap-test id="cmap4_test4a" font="cmap4_font4" platformID="3" encodingID="1" inputs="0,  44999, 45000, 45001, 45099, 45100, 45101" outputs="0,      0, 44500, 44501, 44599, 44600,     0"/>
+        <para>The third segment tests the modulo arithmetic by overflow:</para>
+        <aots:cmap-test id="cmap4_test4b" font="cmap4_font4" platformID="3" encodingID="1" inputs="0,  64999, 65000, 65001, 65035, 65036, 65037, 65100, 65101" outputs="0,      0, 65500, 65501, 65535,     0,     1,    64,     0"/>
+        <para>Finally, the first segment tests both negative idDelta
+          and modulo arithmetic by underflow:</para>
+        <aots:cmap-test id="cmap4_test4c" font="cmap4_font4" platformID="3" encodingID="1" inputs="0,  99,   100,  499, 500, 501, 1000, 1001" outputs="0,  0,  65136, 65535, 0,    1,  500,    0"/>
+      </section>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="validation">
+      <title>Validation</title>
+      <code-fragment id="validate_cmap_format4"><code-title>Validate cmap 4 subtable at stOffset</code-title>
+  if (! claim (stPrefix + " header", stOffset + 2, 12)) {
+    break; }
+
+  int stVersion = getuint16 (stOffset + 4);
+  if (stVersion &gt; 0) {
+    reportError ("cmap@" + stOffset + " table version (" + stVersion
+                 + ") not part of the specification"); }
+
+  int length = getuint16 (stOffset + 2);
+
+  int segCountX2 = getuint16 (stOffset + 6);
+  if (segCountX2 % 2 != 0) {
+    reportError ("cmap@" + stOffset + " segCountX2 is not even");
+    break; }
+  int segCount = segCountX2 / 2;
+
+  int searchRange = getuint16 (stOffset + 8);
+  // verify searchRange = 2 x (2 ^ (log2 (segCount)))
+
+  int entrySelector = getuint16 (stOffset + 10);
+  // verify entrySelector = log2 (searchRange/2)
+
+  int rangeShift = getuint16 (stOffset + 12);
+  if (rangeShift != segCountX2 - searchRange) {
+    reportError ("cmap@" + stOffset + " has wrong rangeShift value"); }
+
+  if (! claim (stPrefix + " data 1",
+                     stOffset + 14, segCount * 8 + 2)) {
+    break; }
+
+  int lastEndCount = -1;
+  int glyphIdSizeNeeded = 0;
+
+  for (int s = 0; s &lt; segCount; s++) {
+    int endCount = getuint16 (stOffset + 14 + 2*s);
+    int startCount = getuint16 (stOffset + 14 + 2*segCount + 2 + 2*s);
+
+    if (startCount &gt; endCount) {
+      reportError ("cmap@" + stOffset + ", range " + s
+                   + ", startCount&gt;endCount");
+      break; }
+
+    if (startCount &lt;= lastEndCount) {
+      reportError ("cmap@" + stOffset + ", range " + s
+                   + ", overlaps with previous range"); }
+    lastEndCount = endCount;
+
+    int rangeOffset = stOffset + 14 + 6*segCount + 2 + 2*s;
+    int range = getuint16 (rangeOffset);
+
+    if (range != 0) {
+      claim (stPrefix + " range " + s,
+                   rangeOffset + range, 2 * (endCount - startCount + 1)); }}
+
+  if (lastEndCount != 0xffff) {
+    reportError ("cmap@" + stOffset + ", last range does not end at 0xffff"); }
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 6: Trimmed table mapping </title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Format number is set to 6.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>This is the length in bytes of the
+              subtable.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>firstCode</otfieldname>
+          <otfielddesc>First character code of
+              subrange.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>entryCount</otfieldname>
+          <otfielddesc>Number of character codes in
+              subrange.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>10</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>glyphIdArray [entryCount]</otfieldname>
+          <otfielddesc>Array of glyph index values for character
+              codes in the range. </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The firstCode and entryCount values specify a subrange
+          (beginning at firstCode, length = entryCount) within the
+          range of possible character codes. Codes outside of this
+          subrange are mapped to glyph index 0. The offset of the code
+          (from the first code) within this subrange is used as index
+          to the glyphIdArray, which provides the glyph index
+          value.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>It is unclear whether the entryCount can be 0. We assume
+          it can and recommend to add a sentence to that
+          effect.</para>
+      <para>This format is very similar to format 0, in that there
+          is an explicit list of glyph indices for a contiguous range
+          of character code. However, there are two intersting
+          properties: the range can be bigger than 256; and more
+          importantly, the glyph indices are USHORT instead of
+          BYTE. So this format can be used for byte encodings to reach
+          glyphs other than the first 256 glyphs.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+  cmapsubtable |=
+    attribute format { "6" },
+
+    element map {
+      attribute code { text },
+      attribute glyph { text }
+    }*
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods">
+  private Block format6FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+    int firstCharCode = 0xffff;
+    int lastCharCode = 0;
+    java.util.Map&lt;Integer, Integer&gt; m
+          = new java.util.HashMap&lt;Integer, Integer&gt; ();
+
+    if (children.getLength () == 0) {
+      firstCharCode = 0;
+      lastCharCode = -1; }
+
+    else {
+      for (int i = 0; i &lt; children.getLength (); i++) {
+        Element map = (Element) children.item (i);
+        int charcode = Integer.decode (map.getAttribute ("code")).intValue ();
+        int glyphid = Integer.decode (map.getAttribute ("glyph")).intValue ();
+
+        if (i == 0) {
+          firstCharCode = charcode;
+          lastCharCode = charcode; }
+        else {
+          firstCharCode = Math.min (charcode, firstCharCode);
+          lastCharCode = Math.max (charcode, lastCharCode); }
+
+        if (m.put (charcode, glyphid) != null) {
+          warning ("duplicate charcode in cmap format6 (0x"
+                    + Integer.toHexString (charcode) + ")"); }}
+
+      for (int i = firstCharCode; i &lt;= lastCharCode; i++) {
+        if (! m.containsKey (i)) {
+          //warning ("no entry for charcode " + i + " in cmap format 6");
+          m.put (i, 0); }}}
+
+    int length = 10 + (lastCharCode - firstCharCode + 1)*2;
+    Block b = new Block (length, 0);
+
+    b.setuint16 (0, 6);
+    b.setuint16 (2, length);
+    b.setuint16 (4, language);
+    b.setuint16 (6, firstCharCode);
+    b.setuint16 (8, lastCharCode - firstCharCode + 1);
+    int offset = 10;
+    for (int i = firstCharCode; i &lt;= lastCharCode; i++) {
+      int glyphid = m.get (i);
+       b.setuint16 (offset, glyphid);
+       offset += 2; }
+
+    return b;
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format6.elt"><code-title>Generate elements for the format 6 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+
+    int firstCode = getuint16 (stOffset + 6);
+    int lastCode = firstCode + getuint16 (stOffset + 8) - 1;
+    for (int i = firstCode; i &lt;= lastCode; i++) {
+      int glyphID = getuint16 (stOffset + 10 + 2*(i - firstCode));
+      at = new AttributesImpl ();
+      at.addAttribute ("", "code", "code", "CDATA",
+                       "0x" + Integer.toHexString (i));
+      at.addAttribute ("", "glyph", "glyph", "CDATA", "" + glyphID);
+      conf.ch.element ("map", at); }}
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="cmap_format6"><code-title>Return glyph for 'charCode', using format 6 subtable at 'stOffset'</code-title>
+  { int firstCode = getuint16 (stOffset + 6);
+    int entryCount = getuint16 (stOffset + 8);
+
+    if (firstCode &lt;= charCode &amp;&amp; charCode &lt; firstCode + entryCount) {
+      return getuint16 (stOffset + 10 + (charCode-firstCode)*2); }
+    else {
+      return 0; }}
+</code-fragment>
+      <code-fragment id="cmap_format6_iterator"><code-title>Enumerate mappings in format 6 subtable at 'stOffset'</code-title>
+  { java.util.TreeMap&lt;Integer, Integer&gt; m
+      = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    int firstCode = getuint16 (stOffset + 6);
+    int entryCount = getuint16 (stOffset + 8);
+
+    for (int i = 0; i &lt; entryCount; i++) {
+      int code = firstCode + i;
+      if (from &lt;= code &amp;&amp; (code &lt;= to || to == -1)) {
+        m.put (code, getuint16 (stOffset + 10 + i*2)); }}
+
+    return m; }
+</code-fragment>
+      <code-fragment id="cmap_format6_inv"><code-title>Return character for 'glyphID', using format 6 subtable at stOffset</code-title>
+  { int firstCode = getuint16 (stOffset + 6);
+    int entryCount = getuint16 (stOffset + 8);
+
+    for (int i = 0; i &lt; entryCount; i++) {
+      if (getuint16 (stOffset + 6 + 2*i) == glyphID) {
+        return firstCode + i; }}
+
+    return -1; }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap6_font1: basic test</title>
+        <para>Let's start with a simple case:</para>
+        <aots:test-font id="cmap6_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="6">
+              <map code="34" glyph="17"/>
+              <map code="35" glyph="56"/>
+              <map code="36" glyph="12"/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap6_test1" font="cmap6_font1" platformID="3" encodingID="1" inputs="0,  1, 33, 34, 35, 36, 37, 0xffff" outputs="0,  0,  0, 17, 56, 12,  0,      0"/>
+      </section>
+      <section>
+        <title>cmap6_font2: boundary case entrycount=0 test</title>
+        <para>Here we test the case where entryCount is 0:</para>
+        <aots:test-font id="cmap6_font2">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="6"/>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap6_test2" font="cmap6_font2" platformID="3" encodingID="1" inputs="0,  1, 33, 34, 35, 36, 37, 0xffff" outputs="0,  0,  0,  0,  0,  0,  0,      0"/>
+      </section>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="validation">
+      <title>Validation</title>
+      <code-fragment id="validate_cmap_format6"><code-title>Validate cmap 6 subtable at stOffset</code-title>
+  if (! claim (stPrefix + " header", stOffset + 2, 8)) {
+    break; }
+
+  int stVersion = getuint16 (stOffset + 4);
+  if (stVersion &gt; 0) {
+    reportError ("cmap@" + stOffset + " table version (" + stVersion
+                 + ") not part of the specification"); }
+
+  int length = getuint16 (stOffset + 2);
+
+  int firstCode = getuint16 (stOffset + 6);
+  int entryCount = getuint16 (stOffset + 8);
+
+  if (length != 2*entryCount + 10) {
+    reportError ("cmap subtable at " + stOffset + " has wrong length"); }
+
+  claim (stPrefix + " glyphIdArray", stOffset + 10, 2*entryCount);
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Supporting 4-byte character codes</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>While the four existing <ottable>cmap</ottable> subtable formats which
+          currently exist have served us well, the introduction of the
+          Surrogates Area in Unicode 2.0 has stressed them past the
+          point of utility. This section specifies three formats,
+          format 8, 10 and 12; which directly support 4-byte character
+          codes. A major change introduced with these three formats is
+          a more pure 32-bit orientation. The <ottable>cmap</ottable> table version
+          number will continue to be 0x0000, for those fonts that make
+          use of these formats.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>A better formulation in the first sentence could be
+        "... the introduction of supplemental characters in Unicode
+        2.0..."</para>
+      <para>The semicolon after "12" should be changed to a
+        comma.</para>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 8: mixed 16-bit and 32-bit coverage</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Format 8 is a bit like format 2, in that it provides for
+          mixed-length character codes. If a font contains characters
+          from the Unicode Surrogates Area (U+D800-U+DFFF), which are
+          UCS-4 characters; it's likely that it will also include
+          other, regular 16-bit Unicodes as well. We therefore need a
+          format to map a mixture of 16-bit and 32-bit character
+          codes, just as format 2 allows a mixture of 8-bit and 16-bit
+          codes. A simplifying assumption is made: namely, that there
+          are no 32-bit character codes which share the same first 16
+          bits as any 16-bit character code. This means that the
+          determination as to whether a particular 16-bit value is a
+          standalone character code or the start of a 32-bit character
+          code can be made by looking at the 16-bit value directly,
+          with no further information required.</para>
+      <para>Here's the format 8 subtable format:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Subtable format; set to 8.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Reserved; set to 0</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>Byte length of this subtable (including the
+              header)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>is32 [8192]</otfieldname>
+          <otfielddesc>Tightly packed array of bits (8K bytes total)
+              indicating whether the particular 16-bit (index) value
+              is the start of a 32-bit character code
+                </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8204</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> nGroups</otfieldname>
+          <otfielddesc> Number of groupings which follow
+            </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Here follow the individual groups. Each group has the
+          following format:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> startCharCode</otfieldname>
+          <otfielddesc> First character code in this group; note
+              that if this group is for one or more 16-bit character
+              codes (which is determined from the is32 array), this
+              32-bit value will have the high 16-bits set to zero
+            </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> endCharCode</otfieldname>
+          <otfielddesc> Last character code in this group; same
+              condition as listed above for the startCharCode
+                </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> startGlyphID</otfieldname>
+          <otfielddesc> Glyph index corresponding to the starting
+              character code </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>A few notes here. The endCharCode is used, rather than a
+          count, because comparisons for group matching are usually
+          done on an existing character code, and having the
+          endCharCode be there explicitly saves the necessity of an
+          addition per group. Groups must be sorted by increasing
+          startCharCode. A group's endCharCode must be less than the
+          startCharCode of the following group, if any.</para>
+      <para>To determine if a particular word (cp) is the first half
+          of 32-bit code points, one can use an expression such as (
+          is32[ cp / 8 ] &amp; ( 1 &lt;&lt; ( 7 - ( cp % 8 ) ) ) ). If this is
+          non-zero, then the word is the first half of a 32-bit code
+          point.</para>
+      <para>0 is not a special value for the high word of a 32-bit
+          code point. A font may not have both a glyph for the code
+          point 0x0000 and glyphs for code points with a high word of
+          0x0000.</para>
+      <para>The presence of the packed array of bits indicating
+          whether a particular 16-bit value is the start of a 32-bit
+          character code is useful even when the font contains no
+          glyphs for a particular 16-bit start value. This is because
+          the system software often needs to know how many bytes ahead
+          the next character begins, even if the current character
+          maps to the missing glyph. By including this information
+          explicitly in this table, no "secret" knowledge needs to be
+          encoded into the OS.</para>
+      <para>Although this format might work advantageously on some
+          platforms for non-Unicode encodings, Microsoft does not
+          support it for Unicode encoded UCS-4 characters.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>First paragraph, second sentence, should be: "If a font
+          maps Unicode supplemental characters, it's likely to map
+          Unicode BMP characters as well."</para>
+      <para>For coherence with the other formats, the description of
+          the format field should be "Format number is set to 8" and
+          the description of the length field should be "This is the
+          length in bytes of the subtable."</para>
+      <para>This format is dubious and would probably best be
+          deprecated. If For Unicode encodings, it is useful only for
+          UTF-16 (the only version that has 16 bit code units), so
+          spending 8K bytes to is
+
+If the intent is really for a Unicode encodings,
+          then it is known </para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+  cmapsubtable |=
+    attribute format { "8" },
+    attribute singleWords { text },
+
+    ((element group {
+        attribute firstCode { text },
+        attribute lastCode { text },
+        attribute firstGlyph { text }}*)
+    |
+     (element map {
+        attribute code { text },
+        attribute glyph { text }}*))
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods">
+  private static class Format8Range implements Comparable&lt;Format8Range&gt; {
+    int firstCode;
+    int lastCode;
+    int firstGlyph;
+
+    public int compareTo (Format8Range o) {
+      if (firstCode &lt; o.firstCode) {
+        return -1; }
+      else if (firstCode &lt; o.firstCode) {
+        return 0; }
+      else {
+        return +1; }
+    }
+  }
+
+  private Block format8FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+
+    if (children.getLength () == 0) {
+      int blockSize = 12 + 8192 + 4;
+      Block me = new Block (blockSize, 0);
+      me.setuint16 (0, 8);
+      me.setuint16 (2, 0);
+      me.setuint32 (4, blockSize);
+      me.setuint32 (8, language);
+      // TODO deal with is32
+      me.setuint32 (12 + 8192, 0);
+      return me; }
+
+    else if ("group".equals (((Element) children.item (0)).getTagName ())) {
+      Format8Range[] ranges = new Format8Range [children.getLength ()];
+      for (int i = 0; i &lt; children.getLength (); i++) {
+        Element e = (Element) children.item (i);
+	Format8Range range = new Format8Range ();
+        range.firstCode = Integer.decode (e.getAttribute ("firstCode")).intValue ();
+	range.lastCode = Integer.decode (e.getAttribute ("lastCode")).intValue ();
+	range.firstGlyph = Integer.decode (e.getAttribute ("firstGlyph")).intValue ();
+	// should verify if there is already a range that overlap with this one
+	ranges [i] = range; }
+      Arrays.sort (ranges);
+
+      int blockSize = 12 + 8192 + 4 + 12*ranges.length;
+      Block me = new Block (blockSize, 0);
+      me.setuint16 (0, 8);
+      me.setuint16 (2, 0);
+      me.setuint32 (4, blockSize);
+      me.setuint32 (8, language);
+      // TODO deal with is32
+      me.setuint32 (12 + 8192, ranges.length);
+
+      int o = 12 + 8192 + 4;
+      for (int i = 0; i &lt; ranges.length; i++) {
+	me.setuint32 (o, ranges [i].firstCode);
+        o += 4;
+	me.setuint32 (o, ranges [i].lastCode);
+        o += 4;
+	me.setuint32 (o, ranges [i].firstGlyph);
+        o += 4; }
+
+      return me; }
+
+    else {
+      Vector&lt;Format8Range&gt; vRanges = new Vector&lt;Format8Range&gt; ();
+
+      for (int i = 0; i &lt; children.getLength (); i++) {
+        Element e = (Element) children.item (i);
+	int mapFrom = Integer.decode (e.getAttribute ("code")).intValue ();
+	int mapTo = Integer.decode (e.getAttribute ("glyph")).intValue ();
+
+	boolean inserted = false;
+	for (Format8Range r : vRanges) {
+          if (r.lastCode + 1 == mapFrom
+              &amp;&amp; r.firstGlyph + (r.lastCode - r.firstCode) + 1 == mapTo) {
+	    r.lastCode++;
+	    inserted = true;
+	    break; }}
+
+	if (! inserted) {
+	  Format8Range r = new Format8Range ();
+	  r.firstCode = mapFrom;
+	  r.lastCode = mapFrom;
+	  r.firstGlyph = mapTo;
+	  vRanges.add (r); }}
+
+      Format8Range[] aRanges = vRanges.toArray (new Format8Range [0]);
+      Arrays.sort (aRanges);
+
+      int blockSize = 12 + 8192 + 4 + 12*aRanges.length;
+      Block me = new Block (blockSize, 0);
+      me.setuint16 (0, 8);
+      me.setuint16 (2, 0);
+      me.setuint32 (4, blockSize);
+      me.setuint32 (8, language);
+      // TODO deal with is32
+      me.setuint32 (12 + 8192, aRanges.length);
+
+      int o = 12 + 8192 + 4;
+      for (int i = 0; i &lt; aRanges.length; i++) {
+	me.setuint32 (o, aRanges [i].firstCode);
+        o += 4;
+	me.setuint32 (o, aRanges [i].lastCode);
+        o += 4;
+	me.setuint32 (o, aRanges [i].firstGlyph);
+        o += 4; }
+
+      return me; }
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format8.att"><code-title>Generate attributes for the format 8 cmap subtable at 'stOffset'</code-title>
+  { StringBuilder sb = new StringBuilder ();
+    // TODO deal with is32
+    at.addAttribute ("", "singleWords", "singleWords", "CDATA", sb.toString ()); }
+</code-fragment>
+      <code-fragment id="cmap.decompile.format8.elt"><code-title>Generate elements for the format 8 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+    int nGroups = getuint32asint (stOffset + 8204,
+                                  "cmap subtable, format 8, nGroups is big");
+
+    for (int g = 0; g &lt; nGroups; g++) {
+
+      int startCharCode = getuint32asint (stOffset + 8208 + 12*g,
+                                          "cmap subtable, format 8, startCharCode is big");
+      int endCharCode = getuint32asint (stOffset + 8208 + 12*g + 4,
+                                        "cmap subtable, format 8, endCharCode is big");
+      int startGlyphID = getuint32asint (stOffset + 8208 + 12*g + 8,
+                                         "cmap subtable, format 8, startGlyphID is big");
+      at = new AttributesImpl ();
+      at.addAttribute ("", "firstCode", "firstCode", "CDATA",
+                       "0x" + Integer.toHexString (startCharCode));
+      at.addAttribute ("", "lastCode", "lastCode", "CDATA",
+                       "0x" + Integer.toHexString (endCharCode));
+      at.addAttribute ("", "firstGlyph", "firstGlyph", "CDATA", "" + startGlyphID);
+      conf.ch.element ("group", at); }}
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="cmap_format8"><code-title>Return glyph for 'charCode', using format 8 subtable at 'stOffset'</code-title>
+  { int nGroups = getuint32asint (stOffset + 8204,
+                                  "cmap subtable, format 8, nGroups is big");
+    int min = 0;
+    int max = nGroups - 1;
+
+    while (min &lt;= max) {
+      int s = (min + max) / 2;
+      int startCharCode = getuint32asint (stOffset + 8208 + 12*s,
+                                          "cmap subtable, format 8, startCharCode is big");
+      int endCharCode = getuint32asint (stOffset + 8208 + 12*s + 4,
+                                        "cmap subtable, format 8, endCharCode is big");
+
+      if (charCode &lt; startCharCode) {
+        max = s - 1; }
+      else if (endCharCode &lt; charCode) {
+        min = s + 1; }
+      else {
+        int startGlyphID = getuint32asint (stOffset + 8208 + 12*s + 8,
+                                           "cmap subtable, format 8, startGlyphID is big");
+        return charCode - startCharCode + startGlyphID; }}
+
+    return 0; }
+</code-fragment>
+      <code-fragment id="cmap_format8_iterator"><code-title>Enumerate mappings in format 8 subtable at 'stOffset'</code-title>
+  { java.util.TreeMap&lt;Integer, Integer&gt; m
+        = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    int nGroups = getuint32asint (stOffset + 8204,
+                                  "cmap subtable, format 8, nGroups is big");
+
+    for (int g = 0; g &lt; nGroups; g++) {
+
+      int startCharCode = getuint32asint (stOffset + 8208 + 12*g,
+                                          "cmap subtable, format 8, startCharCode is big");
+      int endCharCode = getuint32asint (stOffset + 8208 + 12*g + 4,
+                                        "cmap subtable, format 8, endCharCode is big");
+        int startGlyphID = getuint32asint (stOffset + 8208 + 12*g + 8,
+                                           "cmap subtable, format 8, startGlyphID is big");
+
+      for (int c = startCharCode; c &lt;= endCharCode; c++) {
+        if (from &lt;= c &amp;&amp; (c &lt;= to || to == -1)) {
+          m.put (c, startGlyphID + (endCharCode - startCharCode)); }}}
+
+     return m; }
+
+</code-fragment>
+      <code-fragment id="cmap_format8_inv"><code-title>Return character for 'glyphID', using format 8 subtable at stOffset</code-title>
+  { return -1; /* TODO */ }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap8_font1: basic test</title>
+        <para>Let's start with a simple case:</para>
+        <aots:test-font id="cmap8_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="8" singleWords="0x000x34 0x35 0x36">
+              <map code="0x34" glyph="17"/>
+              <map code="0x35" glyph="56"/>
+              <map code="0x36" glyph="12"/>
+              <map code="0x8432" glyph="20"/>
+              <map code="0x8433" glyph="21"/>
+              <map code="0x8434" glyph="22"/>
+              <map code="0x9232" glyph="23"/>
+              <map code="0x9233" glyph="24"/>
+              <map code="0x9234" glyph="25"/>
+              <map code="0x109423" glyph="26"/>
+              <map code="0x109424" glyph="27"/>
+              <map code="0x109425" glyph="32"/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap8_test1" font="cmap8_font1" platformID="3" encodingID="1" inputs="0,  1, 0x33, 0x34, 0x35, 0x36, 0x37, 0x8431, 0x8432, 0x8434, 0x9232, 0x109422, 0x109423, 0x109424, 0x109425, 0xffff" outputs="0,  0,    0,   17,   56,   12,    0,      0,     20,     22,     23,        0,       26,       27,       32,      0"/>
+      </section>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 10: Trimmed array</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Format 10 is a bit like format 6, in that it defines a
+        trimmed array for a tight range of 32-bit character
+        codes:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Subtable format; set to 10.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Reserved; set to 0</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>Byte length of this subtable (including the
+              header) </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> startCharCode</otfieldname>
+          <otfielddesc> First character code covered </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> numChars</otfieldname>
+          <otfielddesc> Number of character codes covered
+            </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>20</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname> glyphs []</otfieldname>
+          <otfielddesc> Array of glyph indices for the character
+              codes covered </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This format is not supported by Microsoft.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>For coherence with the other formats, the description of
+        the format field should be "Format number is set to 10" and the
+        description of the length field should be "This is the length
+        in bytes of the subtable."</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+  cmapsubtable |=
+    attribute format { "10" },
+
+    element map {
+      attribute code { text },
+      attribute glyph { text }
+    }*
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods">
+  private Block format10FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+    int firstCharCode = 0xffff;
+    int lastCharCode = 0;
+    java.util.Map&lt;Integer, Integer&gt; m
+          = new java.util.HashMap&lt;Integer, Integer&gt; ();
+
+    if (children.getLength () == 0) {
+      firstCharCode = 0;
+      lastCharCode = -1; }
+
+    else {
+      for (int i = 0; i &lt; children.getLength (); i++) {
+        Element map = (Element) children.item (i);
+        int charcode = Integer.decode (map.getAttribute ("code")).intValue ();
+        int glyphid = Integer.decode (map.getAttribute ("glyph")).intValue ();
+
+        if (i == 0) {
+          firstCharCode = charcode;
+          lastCharCode = charcode; }
+        else {
+          firstCharCode = Math.min (charcode, firstCharCode);
+          lastCharCode = Math.max (charcode, lastCharCode); }
+
+        if (m.put (charcode, glyphid) != null) {
+          warning ("duplicate charcode in cmap format6 (0x"
+                    + Integer.toHexString (charcode) + ")"); }}
+
+      for (int i = firstCharCode; i &lt;= lastCharCode; i++) {
+        if (! m.containsKey (i)) {
+          //warning ("no entry for charcode " + i + " in cmap format 6");
+          m.put (i, 0); }}}
+
+    int length = 20 + 2*(lastCharCode - firstCharCode + 1);
+    Block b = new Block (length, 0);
+
+    b.setuint16 (0, 10);
+    b.setuint16 (2, 0);
+    b.setuint32 (4, length);
+    b.setuint32 (8, language);
+    b.setuint32 (12, firstCharCode);
+    b.setuint32 (16, lastCharCode - firstCharCode + 1);
+    int offset = 20;
+    for (int i = firstCharCode; i &lt;= lastCharCode; i++) {
+      int glyphid = m.get (i);
+       b.setuint16 (offset, glyphid);
+       offset += 2; }
+
+    return b;
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format10.elt"><code-title>Generate elements for the format 10 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+
+    int firstCode = getuint32asint (stOffset + 12,
+                          "cmap subtable, format 10, firstCode too big");
+    int lastCode = firstCode + getuint32asint (stOffset + 16,
+                              "cmap subtable, format 10, entryCount too big") - 1;
+    for (int i = firstCode; i &lt;= lastCode; i++) {
+      int glyphID = getuint16 (stOffset + 20 + 2*(i - firstCode));
+      at = new AttributesImpl ();
+      at.addAttribute ("", "code", "code", "CDATA",
+                       "0x" + Integer.toHexString (i));
+      at.addAttribute ("", "glyph", "glyph", "CDATA", "" + glyphID);
+      conf.ch.element ("map", at); }}
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="cmap_format10"><code-title>Return glyph for 'charCode', using format 10 subtable at 'stOffset'</code-title>
+  { int firstCode = getuint32asint (stOffset + 12,
+                             "cmap subtable, format 10, firstCode too big");
+    int entryCount = getuint32asint (stOffset + 16,
+                             "cmap subtable, format 10, entryCount too big");
+
+    if (firstCode &lt;= charCode &amp;&amp; charCode &lt; firstCode + entryCount) {
+      return getuint16 (stOffset + 20 + 2*(charCode-firstCode)); }
+    else {
+      return 0; }}
+</code-fragment>
+      <code-fragment id="cmap_format10_iterator"><code-title>Enumerate mappings in format 10 subtable at 'stOffset'</code-title>
+  { java.util.TreeMap&lt;Integer, Integer&gt; m
+      = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    int firstCode = getuint32asint (stOffset + 12,
+                            "cmap subtable, format 10, firstCode too big");
+    int entryCount = getuint32asint (stOffset + 16,
+                            "cmap subtable, format 10, entryCount too big");
+
+    for (int i = 0; i &lt; entryCount; i++) {
+      int code = firstCode + i;
+      if (from &lt;= code &amp;&amp; (code &lt;= to || to == -1)) {
+        m.put (code, getuint16 (stOffset + 20 + 2*i)); }}
+
+    return m; }
+</code-fragment>
+      <code-fragment id="cmap_format10_inv"><code-title>Return character for 'glyphID', using format 10 subtable at stOffset</code-title>
+  { int firstCode = getuint32asint (stOffset + 12,
+                            "cmap subtable, format 10, firstCode too big");
+    int entryCount = getuint32asint (stOffset + 16,
+                            "cmap subtable, format 10, entryCount too big");
+
+    for (int i = 0; i &lt; entryCount; i++) {
+      if (getuint16 (stOffset + 20 + 2*i) == glyphID) {
+        return firstCode + i; }}
+
+    return -1; }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap10_font1: basic test</title>
+        <para>Let's start with a simple case:</para>
+        <aots:test-font id="cmap10_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="10">
+              <map code="0x109423" glyph="26"/>
+              <map code="0x109424" glyph="27"/>
+              <map code="0x109425" glyph="32"/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap10_test1" font="cmap10_font1" platformID="3" encodingID="1" inputs="0,  1, 0x9232, 0x109422, 0x109423, 0x109424, 0x109425, 0xffff" outputs="0,  0,      0,        0,       26,       27,       32,      0"/>
+      </section>
+      <section>
+        <title>cmap10_font2: boundary case entrycount=0 test</title>
+        <para>Here we test the case where entryCount is 0:</para>
+        <aots:test-font id="cmap10_font2">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="10"/>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap10_test2" font="cmap10_font2" platformID="3" encodingID="1" inputs="0,  1, 33, 34, 35, 36, 37, 0xffff" outputs="0,  0,  0,  0,  0,  0,  0,      0"/>
+      </section>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 12: Segmented coverage</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This is the Microsoft standard character to glyph index
+          mapping table for fonts supporting the UCS-4 characters in
+          the Unicode Surrogates Area (U+D800 - U+DFFF). It is a bit
+          like format 4, in that it defines segments for sparse
+          representation in 4-byte character space. Here's the
+          subtable format:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Subtable format; set to 12.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Reserved; set to 0</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>Byte length of this subtable (including the
+              header) </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>nGroups</otfieldname>
+          <otfielddesc>Number of groupings which follow
+            </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Fonts providing Unicode encoded UCS-4 character support
+          for Windows 2000 and later, need to have a subtable with
+          platform ID 3, platform specific encoding ID 1 in format 4;
+          and in addition, need to have a subtable for platform ID 3,
+          platform specific encoding ID 10 in format 12. Please note,
+          that the content of format 12 subtable, needs to be a super
+          set of the content in the format 4 subtable. The format 4
+          subtable needs to be in the cmap table to enable backward
+          compatibility needs.</para>
+      <para>Here follow the individual groups, each of which has the
+          following format:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>startCharCode</otfieldname>
+          <otfielddesc>First character code in this group
+            </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>endCharCode</otfieldname>
+          <otfielddesc>Last character code in this group
+            </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>startGlyphID</otfieldname>
+          <otfielddesc>Glyph index corresponding to the starting
+              character code </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Groups must be sorted by increasing startCharCode. A
+          group's endCharCode must be less than the startCharCode of
+          the following group, if any. The endCharCode is used, rather
+          than a count, because comparisons for group matching are
+          usually done on an existing character code, and having the
+          endCharCode be there explicitly saves the necessity of an
+          addition per group.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>First paragraph, first sentence should be reworded: "...
+          for fonts supporting Unicode supplemental characters."
+          Similarly, second paragraph, first sentence should be
+          reworded: "Fonts providing support for Unicode supplemental
+          characters..."</para>
+      <para>For coherence with the other formats, the description of
+          the format field should be "Format number is set to 12" and
+          the description of the length field should be "This is the
+          length in bytes of the subtable."</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+  cmapsubtable |=
+    attribute format { "12" },
+
+    ((element map {
+        attribute code { text },
+        attribute glyph { text },
+        attribute count { text }}*)
+
+    |(element map {
+        attribute code { text },
+        attribute glyph { text }}*))
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods">
+  private Block format12FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+    java.util.SortedMap&lt;Integer, Integer&gt; m
+          = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element map = (Element) children.item (i);
+      int charcode = Integer.decode (map.getAttribute ("code")).intValue ();
+      int glyphid = Integer.decode (map.getAttribute ("glyph")).intValue ();
+      String c = map.getAttribute ("count");
+      int count;
+      if (c.equals ("")) {
+         count = 1; }
+      else {
+         count = Integer.decode (c).intValue (); }
+
+      while (count &gt; 0) {
+        if (glyphid != 0) {
+          if (m.put (charcode, glyphid) != null) {
+            warning ("duplicate charcode in cmap format12 (0x"
+                       + Integer.toHexString (charcode) + ")"); }}
+        count--;
+        charcode++;
+        glyphid++; }}
+
+    // count the number of segments
+    int groups = 0;
+    int previousCp = -1;
+    int previousGid = -1;
+
+    for (Integer x : m.keySet ()) {
+      int cp = x.intValue ();
+      int gid = m.get (x);
+      if (previousCp + 1 != cp || previousGid + 1 != gid) {
+        groups++; }
+      previousCp = cp;
+      previousGid = gid; }
+
+
+    int length = 16 + 12*groups;
+    Block b = new Block (length, 0);
+
+    b.setuint16 (0, 12);
+    b.setuint16 (2, 0);
+    b.setuint32 (4, length);
+    b.setuint32 (8, language);
+    b.setuint32 (12, groups);
+
+    int offset = 16 - 12;
+    previousCp = -1;
+    previousGid = -1;
+
+    for (Integer x : m.keySet ()) {
+      int cp = x.intValue ();
+      int gid = m.get (x);
+      if (previousCp + 1 != cp || previousGid + 1 != gid) {
+        offset += 12;
+        b.setuint32 (offset, cp);
+        b.setuint32 (offset + 8, gid); }
+      b.setuint32 (offset + 4, cp);
+      previousCp = cp;
+      previousGid = gid; }
+
+    return b;
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format12.elt"><code-title>Generate elements for the format 12 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+
+    long nGroups = getuint32 (stOffset + 12);
+
+    for (int g = 0; g &lt; nGroups; g++) {
+      long startCharCode = getuint32 (stOffset + 16 + 12*g);
+      long endCharCode = getuint32 (stOffset + 16 + 12*g + 4);
+      long startGlyphID = getuint32 (stOffset + 16 + 12*g + 8);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "code", "code", "CDATA",
+                       "0x" + Long.toHexString (startCharCode));
+      at.addAttribute ("", "glyph", "glyph", "CDATA",
+                       "" + startGlyphID);
+      at.addAttribute ("", "count", "count", "CDATA",
+                       "" + (endCharCode - startCharCode + 1));
+      conf.ch.element ("map", at); }}
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="cmap_format12"><code-title>Return glyph for 'charCode', using format 12 subtable at
+     'stOffset'</code-title>
+{ int nGroups = (int)getuint32 (stOffset + 12);
+  int min = 0;
+  int max = nGroups - 1;
+  while (min &lt;= max) {
+    int s = (min + max) / 2;
+    int startCharCode = (int) getuint32 (stOffset + 16 + 12*s);
+    int endCharCode = (int) getuint32 (stOffset + 16 + 12*s + 4);
+
+    if (charCode &lt; startCharCode) {
+      max = s - 1; }
+    else if (endCharCode &lt; charCode) {
+      min = s + 1; }
+    else {
+      int startGlyphID = (int) getuint32 (stOffset + 16 + 12*s + 8);
+      return (startGlyphID + (charCode - startCharCode)); }}
+  return 0;
+}
+</code-fragment>
+      <code-fragment id="cmap_format12_iterator"><code-title>Enumerate mappings in format 12 subtable at stOffset</code-title>
+  { java.util.TreeMap&lt;Integer, Integer&gt; m
+        = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    int nGroups = (int)getuint32 (stOffset + 12);
+
+    for (int g = 0; g &lt; nGroups; g++) {
+
+      int startCode = (int)getuint32 (stOffset + 16 + 12*g);
+      int endCode = (int)getuint32 (stOffset + 16 + 12*g + 4);
+      int glyphID = (int)getuint32 (stOffset + 16 + 12*g + 8);
+
+      for (int c = startCode; c &lt;= endCode; c++) {
+        if (from &lt;= c &amp;&amp; (c &lt;= to || to == -1)) {
+          m.put (c, glyphID); }
+        glyphID++; }}
+
+     return m; }
+</code-fragment>
+      <code-fragment id="cmap_format12_inv"><code-title>Return character for 'glyphID', using format 12 subtable
+  at stOffset</code-title>
+{ int nGroups = (int) getuint32 (stOffset + 12);
+  for (int i = 0; i &lt; nGroups; i++) {
+    int startCharCode = (int) getuint32 (stOffset + 16 + 12*i);
+    int endCharCode = (int) getuint32 (stOffset + 16 + 12*i + 4);
+    int startGlyphID = (int) getuint32 (stOffset + 16 + 12*i + 8);
+
+    if (   glyphID &gt;= startGlyphID
+        &amp;&amp; (glyphID - startGlyphID) &lt;= (endCharCode - startCharCode)) {
+      return (startCharCode + (glyphID - startGlyphID)); }}
+
+  return -1;
+}
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap12_font1: basic test</title>
+        <para>Let’s start with a simple case:</para>
+        <aots:test-font id="cmap12_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="12">
+              <map code="0x101723" glyph="23" count="5"/>
+              <map code="0x102523" glyph="53" count="5"/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap12_test1" font="cmap12_font1" platformID="3" encodingID="1" inputs="0,  1, 16, 0x101723, 0x101724, 0x101727, 0x101728, 0x102522, 0x102523, 0x102527, 0x102528, 0xffff" outputs="0,  0,  0,       23,       24,       27,        0,        0,       53,       57,        0,      0"/>
+      </section>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 14: Unicode Variation Sequences</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Subtable format 14 specifies the Unicode Variation
+        Sequences (UVSes) supported by the font. A Variation Sequence,
+        according to the Unicode Standard, comprises a base character
+        followed by a variation selector; e.g. &lt;U+82A6,
+        U+E0101&gt;.</para>
+      <para>The subtable partitions the UVSes supported by the font
+        into two categories: “default” and
+        “non-default” UVSes. Given a UVS, if the glyph
+        obtained by looking up the base character of that sequence in
+        the Unicode cmap subtable (i.e. the UCS-4 or the BMP cmap
+        subtable) is the glyph to use for that sequence, then the
+        sequence is a “default” UVS; otherwise it is a
+        “non-defaultJ=f UVS, and the glyph to use for that
+        sequence is specified in the format 14 subtable itself.</para>
+      <para>The example below shows how a font vendor can use format
+        14 for a JIS-2004-aware font.</para>
+      <otformat>
+        <title>Format 14 header</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Subtable format; set to 14.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>Byte length of this subtable (including the
+              header) </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>numVarSelectorRecords</otfieldname>
+          <otfielddesc>Number of Variation Selector Records</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This is immediately followed by 'numVarSelectorRecords'
+        Variation Selector Records.</para>
+      <otformat>
+        <title>Variation Selector Record</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>UINT24</otfieldtype>
+          <otfieldname>varSelector</otfieldname>
+          <otfielddesc>Variation selector</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>3</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>defaultUVSOffset</otfieldname>
+          <otfielddesc>Offset to Default UVS Table. May be 0. </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>nonDefaultUVSOffset</otfieldname>
+          <otfielddesc>Offset to Non-Default UVS Table. May be 0.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The Variation Selector Records are sorted in increasing
+        order of 'varSelector'. No two records may have the same
+        'varSelector'. All offsets in a record are relative to the
+        beginning of the format 14 cmap subtable.</para>
+      <para>A Variation Selector Record and the data its offsets
+        point to specify those UVSes supported by the font for which
+        the variation selector is the 'varSelector' value of the
+        record. The base characters of the UVSes are stored in the
+        tables pointed to by the offsets. The UVSes are partitioned by
+        whether they are default or non-default UVSes.</para>
+      <para>Glyph IDs to be used for non-default UVSes are specified
+        in the Non-Default UVS table.</para>
+      <para>Default UVS Table</para>
+      <para>A Default UVS Table is simply a range-compressed list of
+        Unicode scalar values, representing the base characters of the
+        default UVSes which use the 'varSelector' of the associated
+        Variation Selector Record.</para>
+      <otformat>
+        <title>Default UVS Table header</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>numUnicodeValueRanges</otfieldname>
+          <otfielddesc>Number of ranges that follow</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This is immediately followed by 'numUnicodeValueRanges'
+        Unicode Value Ranges, each of which represents a contiguous
+        range of Unicode values.</para>
+      <otformat>
+        <title>Unicode Value Range</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>UINT24</otfieldtype>
+          <otfieldname>startUnicodeValue</otfieldname>
+          <otfielddesc>First value in this range</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>3</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>additionalCount</otfieldname>
+          <otfielddesc>Number of <emphasis>additional</emphasis>
+            values in this range</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>For example, the range U+4E4D...U+4E4F (3 values) will
+        set 'startUnicodeValue' to 0x004E4D and 'additionalCount' to
+        2. A singleton range will set 'additionalCount' to 0.</para>
+      <para>('startUnicodeValue' + 'additionalCount') must not
+        exceed 0xFFFFFF.</para>
+      <para>The Unicode Value Ranges are sorted in increasing order
+        of 'startUnicodeValue'. The ranges must not overlap; i.e.,
+        ('startUnicodeValue' + 'additionalCount') must be less than
+        the 'startUnicodeValue' of the following range (if
+        any).</para>
+      <para>Non-Default UVS Table</para>
+      <para>A Non-Default UVS Table is a list of pairs of Unicode
+        scalar values and glyph IDs. The Unicode values represent the
+        base characters of all non-default UVSes which use the
+        'varSelector' of the associated Variation Selector Record, and
+        the glyph IDs specify the glyph IDs to use for the
+        UVSes.</para>
+      <otformat>
+        <title>Non-Default UVS Table header</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>numUVSMappings</otfieldname>
+          <otfielddesc>Number of UVS Mappings that follow</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This is immediately followed by 'numUVSMappings' UVS
+        Mappings.</para>
+      <otformat>
+        <title>UVS Mapping</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>UINT24</otfieldtype>
+          <otfieldname>unicodeValue</otfieldname>
+          <otfielddesc>Base Unicode value of the UVS</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>3</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>glyphID</otfieldname>
+          <otfielddesc>Glyph ID of the UVS</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The UVS Mappings are sorted in increasing order of
+        'unicodeValue'. No two mappings in this table may have the
+        same 'unicodeValue' values.</para>
+      <para>Example</para>
+      <para>Here is an example of how a format 14 cmap subtable may
+        be used in a font that is aware of JIS-2004 variant
+        glyphs. The CIDs (character IDs) in this example refer to
+        those in the Adobe Character Collection 'Adobe-Japan1', and
+        may be assumed to be identical to the glyph IDs in the font in
+        our example.</para>
+      <para>JIS-2004 changed the default glyph variants for some of
+        its code points. For example:</para>
+      <para>JIS-90: U+82A6 -&gt; CID 1142</para>
+      <para>JIS-2004: U+82A6 -&gt; CID 7961</para>
+      <para>Both of these glyph variants are supported through the
+        use of UVSes, as the following examples from Unicode's UVS
+        registry show:</para>
+      <para>U+82A6 U+E0100 -&gt; CID 1142</para>
+      <para>U+82A6 U+E0101 -&gt; CID 7961</para>
+      <para>If the font wants to support the JIS-2004 variants by
+        default, it will:</para>
+      <itemizedlist>
+        <listitem>
+          <para>encode glyph ID 7961 at U+82A6 in the Unicode cmap
+            subtable,</para>
+        </listitem>
+        <listitem>
+          <para>specify &lt;U+82A6, U+E0101&gt; in the UVS cmap
+            subtable's Default UVS Table ('varSelector' will be
+            0x0E0101 and 'defaultUVSOffset' will point to data
+            containing a 0x0082A6 Unicode value)</para>
+        </listitem>
+        <listitem>
+          <para>specify &lt;U+82A6, U+E0100&gt; -&gt; glyph ID 1142 in the
+            UVS cmap subtable's Non-Default UVS Table ('varSelector'
+            will be 0x0E0100 and 'nonDefaultBaseUVOffset' will point
+            to data containing a 'unicodeValue' 0x82A6 and 'glyphID'
+            1142). </para>
+        </listitem>
+      </itemizedlist>
+      <para>If, however, the font wants to support the JIS-90
+        variants by default, it will:</para>
+      <itemizedlist>
+        <listitem>
+          <para>encode glyph ID 1142 at U+82A6 in the Unicode cmap
+            subtable,</para>
+          <para>specify &lt;U+82A6, U+E0100&gt; in the
+            UVS cmap subtable's Default UVS Table</para>
+        </listitem>
+        <listitem>
+          <para>specify &lt;U+82A6, U+E0101&gt; -&gt; glyph ID 7961 in the
+            UVS cmap subtables Non-Default UVS Table </para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+
+  defaultUVSTable =
+    element defaultMappings {
+      element range {
+        attribute start { text },
+        attribute additionalCount { text }}* }
+
+  standaloneDefaultUVS =
+    element defaultUVSTable { attribute id { text }, defaultUVSTable }
+
+  defaultUVSOffset = attribute defaultUVSTable { text } | defaultUVSTable
+
+
+  nonDefaultUVSTable =
+    element nonDefaultMappings {
+      element map {
+        attribute usv { text },
+        attribute gid  { text }}* }
+
+  standaloneNonDefaultUVS =
+    element nonDefaultUVSSubtable { attribute id { text }, nonDefaultUVSTable }
+
+  nonDefaultUVSOffset = attribute nonDefaultUVSTable { text } | nonDefaultUVSTable
+
+  cmapsubtable |=
+    attribute format { "14" },
+
+    element variation-selector {
+      attribute vs { text },
+      defaultUVSOffset,
+      nonDefaultUVSOffset }*
+
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods">
+  private Block format14FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+    int nbSelectors = children.getLength ();
+    int length = 10 + nbSelectors * 11;
+    java.util.SortedMap&lt;Integer, Integer&gt; m
+          = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+
+    Block me = new Block (length, nbSelectors * 2);
+    me.setuint16 (0, 14);
+    me.setuint32 (6, nbSelectors);
+    int totalLength = length;
+
+    for (int i = 0; i &lt; nbSelectors; i++) {
+      Element selector = (Element) children.item (i);
+      int vs = Integer.decode (selector.getAttribute ("vs")).intValue ();
+      int childPosition = 0;
+      NodeList c2 = selector.getChildNodes ();
+
+      me.setuint24 (10 + 11*i, vs);
+
+      if (   c2.getLength () &gt; childPosition
+          &amp;&amp; "defaultMappings".equals (((Element) c2.item (childPosition)).getTagName ())) {
+        NodeList ranges = ((Element) c2.item (0)).getChildNodes ();
+        int nbRanges = ranges.getLength ();
+        Block defaultUvsBlock = new Block (4 + 4 * nbRanges, 0);
+        totalLength += 4 + 4*nbRanges;
+        int o = 0;
+        defaultUvsBlock.setuint32 (o, nbRanges);
+        o += 4;
+        for (int r = 0; r &lt; nbRanges; r++) {
+          Element range = (Element) ranges.item (r);
+          defaultUvsBlock.setuint24 (o,
+            Integer.decode (range.getAttribute ("start")).intValue ());
+          o += 3;
+          defaultUvsBlock.setuint8 (o,
+            Integer.decode (range.getAttribute ("additionalCount")).intValue ());
+          o += 1; }
+        me.setBigOffset (10 + 11*i + 3, defaultUvsBlock);
+        childPosition = 1; }
+      else {
+        me.setBigOffset (10 + 11*i + 3, null); }
+
+      if (c2.getLength () &gt; childPosition) { /* nonDefaultUVS */
+        NodeList maps = ((Element) c2.item (childPosition)).getChildNodes ();
+        int nbMaps = maps.getLength ();
+        Block nonDefaultUvsBlock = new Block (4 + 5 * nbMaps, 0);
+        totalLength += 4 + 5*nbMaps;
+        int o = 0;
+        nonDefaultUvsBlock.setuint32 (o, nbMaps);
+        o += 4;
+        for (int mapping = 0; mapping &lt; nbMaps; mapping++) {
+          Element map = (Element) maps.item (mapping);
+          nonDefaultUvsBlock.setuint24 (o,
+            Integer.decode (map.getAttribute ("usv")).intValue ());
+          o += 3;
+          nonDefaultUvsBlock.setuint16 (o,
+            Integer.decode (map.getAttribute ("gid")).intValue ());
+          o += 2; }
+        me.setBigOffset (10 + 11*i + 7, nonDefaultUvsBlock); }
+      else {
+        me.setBigOffset (10 + 11*i + 7, null); }}
+
+   me.setuint32 (2, totalLength);
+   return me;
+}
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.methods">
+  public void defaultUVSTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+  }
+
+  public void defaultUVSTableOffsetToXML (DecompilerConfig conf, int offset,
+                                          int [] counts,
+                                          String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (false &amp;&amp; counts [offset] != 1) {
+      at.addAttribute ("", "defaultUsvTable", "defaultUsvTable", "CDATA",
+                       "defaultUsvTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      defaultUVSTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void defaultUSVTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (false &amp;&amp;  counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "defaultUsvTable_" + Integer.toHexString (offset));
+      defaultUVSTableToXMLEmit (conf, offset, counts, "defaultUVSTable", at);
+      counts [offset] = 0; }
+  }
+
+  protected void defaultUVSTableToXMLEmit (DecompilerConfig conf, int offset,
+                                           int[] counts,
+                                           String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+      long nbRanges = getuint32 (offset);
+      for (int i = 0; i &lt; nbRanges; i++) {
+        int start = getuint24 (offset + 4 + i * 4);
+        int additionalCount = getuint8 (offset + 4 + i * 4 + 3);
+        at = new AttributesImpl ();
+        at.addAttribute ("", "start", "start", "CDATA",
+                         "0x" + Integer.toHexString (start));
+        at.addAttribute ("", "additionalCount", "additionalCount", "CDATA",
+                         "" + additionalCount);
+        conf.ch.element ("range", at); }
+      conf.ch.endElement (element); }
+  }
+
+  public void nonDefaultUVSTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+  }
+
+  public void nonDefaultUVSTableOffsetToXML (DecompilerConfig conf, int offset,
+                                             int [] counts,
+                                             String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "nonDefaultUsv", "nonDefaultUsv", "CDATA",
+                       "nonDefaultUsvTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      nonDefaultUVSTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void nonDefaultUSVTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "nonDefaultUsvTable_" + Integer.toHexString (offset));
+      nonDefaultUVSTableToXMLEmit (conf, offset, counts,
+                                   "nonDefaultUVSTable", at);
+      counts [offset] = 0; }
+  }
+
+  protected void nonDefaultUVSTableToXMLEmit (DecompilerConfig conf, int offset,
+                                              int[] counts,
+                                              String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+
+    conf.ch.startElement (element, at); {
+      long nbMappings = getuint32 (offset);
+      for (int i = 0; i &lt; nbMappings; i++) {
+        int usv = getuint24 (offset + 4 + i * 5);
+        int gid = getuint16 (offset + 4 + i * 5 + 3);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "usv", "usv", "CDATA",
+                         "0x" + Integer.toHexString (usv));
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
+        conf.ch.element ("map", at); }
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+      <code-fragment id="cmap.decompile.format14.elt"><code-title>Generate elements for the format 14 cmap subtable at 'stOffset'</code-title>
+
+  long numVarSelectorRecords = getuint32 (stOffset + 6);
+
+  if (true || conf.preciseCmap) {
+    for (int i = 0; i &lt; numVarSelectorRecords; i++) {
+      int vs = getuint24 (stOffset + 10 + i * 11);
+      int defaultOffset = getLOffset (stOffset, 10 + i * 11 + 3);
+      int nonDefOffset = getLOffset (stOffset, + 10 + i * 11 + 7);
+      at = new AttributesImpl ();
+      at.addAttribute ("", "vs", "vs", "CDATA", "0x" + Integer.toHexString (vs));
+      conf.ch.startElement ("variation-selector", at); {
+        if (defaultOffset != 0) {
+          at = new AttributesImpl ();
+          defaultUVSTableOffsetToXML (conf, defaultOffset, counts, "defaultMappings", at);  }
+        if (nonDefOffset != 0) {
+          at = new AttributesImpl ();
+          nonDefaultUVSTableOffsetToXML (conf, nonDefOffset, counts, "nonDefaultMappings", at); }
+        conf.ch.endElement ("variation-selector"); }}}
+
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="cmap.methods"><code-title>UVS to glyph method</code-title>
+  public int uvs2glyph (int charCode, int variationSelector)
+    throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   0 == getuint16 (4 + 8*st)
+          &amp;&amp; 5 == getuint16 (4 + 8*st + 2)) {
+        int stOffset = getLOffset (0, 4 + 8*st + 4);
+
+        long numVarSelectorRecords = getuint32 (stOffset + 6);
+
+        for (int i = 0; i &lt; numVarSelectorRecords; i++) {
+          if (variationSelector == getuint24 (stOffset + 10 + 11*i)) {
+
+            int dOffset = getLOffset (stOffset, 10 + 11*i + 3);
+
+            if (dOffset != 0) {
+              long numUnicodeValueRanges = getuint32 (dOffset);
+
+              for (int j = 0; j &lt; numUnicodeValueRanges; j++) {
+                int start = getuint24 (dOffset + 4 + 4*j);
+                int additionalCount = getuint8 (dOffset + 4 + 4*j + 3);
+
+                if (   start &lt;= charCode
+                    &amp;&amp; charCode &lt;= start + additionalCount) {
+
+                  return unicodechar2glyph (charCode); }}}
+
+            int nOffset = getLOffset (stOffset, 10 + 11*i + 7);
+
+            if (nOffset != 0) {
+              long numMappings = getuint32 (nOffset);
+
+              for (int j = 0; j &lt; numMappings; j++) {
+                if (charCode == getuint24 (nOffset + 4 + 5*j)) {
+                  return getuint16 (nOffset + 4 + 5*j + 3); }}}}}}}
+
+    return 0;
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap14_font1: basic test</title>
+        <para>Let’s start with a simple case:</para>
+        <aots:test-font id="cmap14_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="0" encodingid="5" language="0" format="14">
+              <variation-selector vs="0xe0100">
+                <defaultMappings>
+                  <range start="0x4e00" additionalCount="0"/>
+                  <range start="0x4e03" additionalCount="3"/>
+                </defaultMappings>
+                <nonDefaultMappings>
+                  <map usv="0x4e10" gid="25"/>
+                  <map usv="0x4e11" gid="26"/>
+                </nonDefaultMappings>
+              </variation-selector>
+            </mapping>
+            <mapping platformid="3" encodingid="1" language="0" format="4">
+              <map code="0x4e00" glyph="10"/>
+              <map code="0x4e01" glyph="11"/>
+              <map code="0x4e02" glyph="12"/>
+              <map code="0x4e03" glyph="13"/>
+              <map code="0x4e04" glyph="14"/>
+              <map code="0x4e05" glyph="15"/>
+              <map code="0x4e06" glyph="16"/>
+              <map code="0x4e07" glyph="17"/>
+              <map code="0x4e08" glyph="18"/>
+              <map code="0x4e09" glyph="19"/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <para>Default mappings:</para>
+        <aots:cmap-uvs-test id="cmap14_test1a" font="cmap14_font1" inputs="0x4e00, 0xe0100, 0x4e03, 0xe0100, 0x4e04, 0xe0100" outputs="            10,              13,              14"/>
+        <para>Non default mappings:</para>
+        <aots:cmap-uvs-test id="cmap14_test1b" font="cmap14_font1" inputs="0x4e10, 0xe0100, 0x4e11, 0xe0100" outputs="            25,              26"/>
+        <para>Not supported:</para>
+        <aots:cmap-uvs-test id="cmap14_test1c" font="cmap14_font1" inputs="0x4e00, 0xe0101, 0x4e01, 0xe0100" outputs="             0,               0"/>
+      </section>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Various test fonts</title>
+    <!--____________________________________________________________________-->
+    <section role="test-suite">
+      <title>Test Suite</title>
+      <para>When using a font, a layout system can select to use one or
+	another cmap subtable. Here are some fonts to test that process, by
+	having various combinations of subtables.</para>
+      <aots:test-font id="cmap_subtableselection_font1">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="3" encodingid="10" language="0" format="0">
+            <map code="0x30" glyph="1"/>
+          </mapping>
+          <mapping platformid="0" encodingid="4" language="0" format="0">
+            <map code="0x30" glyph="2"/>
+          </mapping>
+          <mapping platformid="3" encodingid="1" language="0" format="0">
+            <map code="0x30" glyph="3"/>
+          </mapping>
+          <mapping platformid="0" encodingid="3" language="0" format="0">
+            <map code="0x30" glyph="4"/>
+          </mapping>
+          <mapping platformid="1" encodingid="0" language="0" format="0">
+            <map code="0x30" glyph="5"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+      <aots:test-font id="cmap_subtableselection_font2">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="0" encodingid="4" language="0" format="0">
+            <map code="0x30" glyph="2"/>
+          </mapping>
+          <mapping platformid="3" encodingid="1" language="0" format="0">
+            <map code="0x30" glyph="3"/>
+          </mapping>
+          <mapping platformid="0" encodingid="3" language="0" format="0">
+            <map code="0x30" glyph="4"/>
+          </mapping>
+          <mapping platformid="1" encodingid="0" language="0" format="0">
+            <map code="0x30" glyph="5"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+      <aots:test-font id="cmap_subtableselection_font3">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="3" encodingid="1" language="0" format="0">
+            <map code="0x30" glyph="3"/>
+          </mapping>
+          <mapping platformid="0" encodingid="3" language="0" format="0">
+            <map code="0x30" glyph="4"/>
+          </mapping>
+          <mapping platformid="1" encodingid="0" language="0" format="0">
+            <map code="0x30" glyph="5"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+      <aots:test-font id="cmap_subtableselection_font4">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="0" encodingid="3" language="0" format="0">
+            <map code="0x30" glyph="4"/>
+          </mapping>
+          <mapping platformid="1" encodingid="0" language="0" format="0">
+            <map code="0x30" glyph="5"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+      <aots:test-font id="cmap_subtableselection_font5">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="1" encodingid="0" language="0" format="0">
+            <map code="0x30" glyph="5"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+      <para>Another interesting area is composition: when given
+          a combining sequence and one of the characters in it cannot
+          be mapped, layout engines are supposed to find a precomposed
+          character equivalent to that sequence and see if it is mapped.
+	  This font maps a few characters which are interesting to test
+	  that area.</para>
+      <aots:test-font id="cmap_composition_font1">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="3" encodingid="10" language="0" format="12">
+            <map code="0x00e9" glyph="5" count="1"/>
+            <map code="0x1ec3" glyph="6" count="1"/>
+            <map code="0x1fad" glyph="7" count="1"/>
+            <map code="0x2adc" glyph="8" count="1"/>
+            <map code="0x1d163" glyph="9" count="1"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+    </section>
+  </section>
+</section>

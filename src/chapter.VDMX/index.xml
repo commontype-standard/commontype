@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.VDMX">
+  <title>Vertical Device Metrics</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The VDMX table relates to CommonType fonts with TrueType
+        outlines. Under Windows, the usWinAscent and usWinDescent
+        values from the <ottable>OS/2</ottable> table will be used to
+        determine the maximum black height for a font at any given
+        size. Windows calls this distance the Font Height. Because
+        TrueType instructions can lead to Font Heights that differ
+        from the actual scaled and rounded values, basing the Font
+        Height strictly on the yMax and yMin can result in "lost
+        pixels."  Windows will clip any pixels that extend above the
+        yMax or below the yMin. In order to avoid grid fitting the
+        entire font to determine the correct height, the VDMX table
+        has been defined.</para>
+      <para>The VDMX table consists of a header followed by
+          groupings of VDMX records:</para>
+      <otformat>
+        <title>VDMX Header</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>version</otfieldname>
+          <otfielddesc>Version number (0 or 1).</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numRecs</otfieldname>
+          <otfielddesc>Number of VDMX groups present</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numRatios</otfieldname>
+          <otfielddesc>Number of aspect ratio
+              groupings</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>Ratio</otfieldtype>
+          <otfieldname>ratRange [numRatios]</otfieldname>
+          <otfielddesc>Ratio ranges (see below for more
+              info)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>offset [numRatios]</otfieldname>
+          <otfielddesc>Offset from start of this table to the VDMX
+              group for this ratio range.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>Vdmx</otfieldtype>
+          <otfieldname>groups</otfieldname>
+          <otfielddesc>The actual VDMX groupings (documented below)
+                </otfielddesc>
+        </otfield>
+      </otformat>
+      <otformat>
+        <title>Ratio Record</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>bCharSet</otfieldname>
+          <otfielddesc>Character set (see below)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>1</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>xRatio</otfieldname>
+          <otfielddesc>Value to use for x-Ratio</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>yStartRatio</otfieldname>
+          <otfielddesc>Starting y-Ratio value</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>3</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>yEndRatio</otfieldname>
+          <otfielddesc>Ending y-ratio value</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Ratios are set up as follows:</para>
+      <informaltable>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <tbody>
+            <row>
+              <entry>For a 1:1 aspect ratio</entry>
+              <entry>Ratios.xRatio = 1; Ratios.yStartRatio = 1;
+                  Ratios.yEndRatio = 1;</entry>
+            </row>
+            <row>
+              <entry>For 1:1 through 2:1 ratio</entry>
+              <entry>Ratios.xRatio = 2; Ratios.yStartRatio = 1;
+                  Ratios.yEndRatio = 2;</entry>
+            </row>
+            <row>
+              <entry>For 1.33:1 ratio</entry>
+              <entry>Ratios.xRatio = 4; Ratios.yStartRatio = 3;
+                  Ratios.yEndRatio = 3;</entry>
+            </row>
+            <row>
+              <entry>For all aspect ratios</entry>
+              <entry>Ratio.xRatio = 0; Ratio.yStartRatio = 0;
+                  Ratio.yEndRatio = 0;</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>All values set to zero signal the default grouping to
+          use; if present, this must be the last Ratio group in the
+          table. Ratios of 2:2 are the same as 1:1.</para>
+      <para>Aspect ratios are matched against the target device by
+          normalizing the entire ratio range record based on the
+          current X resolution and performing a range check of Y
+          resolutions for each record after normalization. Once a
+          match is found, the search stops. If the 0,0,0 group is
+          encountered during the search, it is used (therefore if this
+          group is not at the end of the ratio groupings, no group
+          that follows it will be used). If there is not a match and
+          there is no 0,0,0 record, then there is no VDMX data for
+          that aspect ratio.</para>
+      <para>Note that range checks are conceptually performed as
+        follows:</para>
+      <para>(deviceXRatio == Ratio.xRatio) &amp;&amp; (deviceYRatio
+          &gt;= Ratio.yStartRatio) &amp;&amp; (deviceYRatio &lt;=
+          Ratio.yEndRatio)</para>
+      <para>Each ratio grouping refers to a specific VDMX record
+          group; there must be at least 1 VDMX group in the
+          table.</para>
+      <para>The bCharSet value is used to denote cases where the
+          VDMX group was computed based on a subset of the glyphs
+          present in the font file. The semantics of bCharSet is
+	  different based on the version of the VDMX table. It is
+	  recommended that VDMX version 1 be used. The currently
+	  defined values for character set are:</para>
+      <table>
+        <title>Character Set Values ’ Version 0</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <thead>
+            <row>
+              <entry>Value</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>0</entry>
+              <entry>No subset; the VDMX group applies to all glyphs
+                  in the font. This is used for symbol or dingbat
+                  fonts.</entry>
+            </row>
+            <row>
+              <entry>1</entry>
+              <entry>Windows ANSI subset; the VDMX group was
+                  computed using only the glyphs required to complete
+                  the Windows ANSI character set. Windows will ignore
+                  any VDMX entries that are not for the ANSI subset
+                  (i.e. ANSI_CHARSET)</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <table>
+        <title>Character Set Values ’ Version 1</title>
+        <tgroup cols="2">
+          <colspec colwidth="3cm"/>
+          <colspec colwidth="3cm"/>
+          <thead>
+            <row>
+              <entry>Value</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>0</entry>
+              <entry>No subset; the VDMX group applies to all glyphs
+                  in the font. If adding new character sets to
+		  existing font, add this flag and the groups necessary
+		  to support it. This should only be used in conjunction
+		  with ANSI_CHARSET.</entry>
+            </row>
+            <row>
+              <entry>1</entry>
+              <entry>No subset; the VDMX group applies to all glyphs
+                in the font. Used when creating a new font for
+                Windows. No need to support SYMBOL_CHARSET.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>VDMX groups immediately follow the table header. Each
+          set of records (there need only be one set) has the
+          following layout:</para>
+      <otformat>
+        <title>VDMX Group</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>recs</otfieldname>
+          <otfielddesc>Number of height records in this
+              group</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>startsz</otfieldname>
+          <otfielddesc>Starting yPelHeight</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>3</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>endsz</otfieldname>
+          <otfielddesc>Ending yPelHeight</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>vTable</otfieldtype>
+          <otfieldname>entry [recs]</otfieldname>
+          <otfielddesc>The VDMX records</otfielddesc>
+        </otfield>
+      </otformat>
+      <otformat>
+        <title>vTable Record</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>yPelHeight</otfieldname>
+          <otfielddesc>yPelHeight to which values apply</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>yMax</otfieldname>
+          <otfielddesc>Maximum value (in pels) for this yPelHeight</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>yMin</otfieldname>
+          <otfielddesc>Minimum value (in pels) for this yPelHeight</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This table must appear in sorted order (sorted by
+          yPelHeight), but need not be continous. It should have an
+          entry for every pel height where the yMax and yMin do not
+          scale linearly, where linearly scaled heights are defined
+          as:</para>
+      <para>Hinted yMax and yMin are identical to scaled/rounded
+          yMax and yMin</para>
+      <para>It is assumed that once yPelHeight reaches 255, all
+          heights will be linear, or at least close enough to linear
+          that it no longer matters. Please note that while the Ratios
+          structure can only support ppem sizes up to 255, the vTable
+          structure can support much larger pel heights (up to 65535).
+          The choice of SHORT and USHORT for vTable is dictated by the
+          requirement that yMax and yMin be signed values (and 127 to
+          -128 is too small a range) and the desire to word-align the
+          vTable elements.</para>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>??</code-title>
+VDMX =
+  element VDMX {
+    attribute version { text },
+    element ratio {
+      attribute bCharSet { text },
+      attribute xRatio  { text },
+      attribute yStartRatio { text },
+      attribute yEndRatio { text },
+      attribute groupIndex { text }}*,
+
+    element group {
+      attribute groupIndex { text },
+      attribute startsz { text },
+      attribute endsz { text },
+      element rec {
+        attribute yPelHeight { text },
+        attribute yMax { text },
+        attribute yMin { text }}* }*
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="vdmx.methods">
+  public void fromXML (Element vdmx)
+    throws InvalidFontException, UnsupportedFontException {
+
+    throw new UnsupportedFontException ("compilation of VDMX tables not supported");  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="vdmx.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    AttributesImpl at = new AttributesImpl ();
+    at.addAttribute ("", "version", "version", "CDATA", "" + getuint16 (0));
+
+    conf.ch.startElement ("VDMX", at); {
+      int offset;
+
+      int numRecs = getuint16 (2);
+      int numRatios = getuint16 (4);
+
+      for (int i = 0; i &lt; numRatios; i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "bCharSet", "bCharSet", "CDATA", "" + getuint8 (6 + i*4));
+        at.addAttribute ("", "xRatio", "xRatio", "CDATA", "" + getuint8 (6 + i*4 + 1));
+        at.addAttribute ("", "yStartRatio", "yStartRatio", "CDATA", "" + getuint8 (6 + i*4 + 2));
+        at.addAttribute ("", "yEndRatio", "yEndRatio", "CDATA", "" + getuint8 (6 + i*4 + 3));
+        at.addAttribute ("", "groupIndex", "groupIndex", "CDATA", "" + getuint16 (6 + numRatios*4 + 2*i));
+        conf.ch.element ("ratio", at); }
+
+      offset = 6 + numRatios * (4 + 2);
+
+      for (int i = 0; i &lt; numRecs; i++) {
+        int nbRecs = getuint16 (offset);
+        at = new AttributesImpl ();
+        at.addAttribute ("", "groupIndex", "groupIndex", "CDATA", "" + offset);
+        at.addAttribute ("", "startsz", "startsz", "CDATA", "" + getuint8 (offset + 2));
+        at.addAttribute ("", "endsz", "endsz", "CDATA", "" + getuint8 (offset + 3));
+
+        conf.ch.startElement ("group", at); {
+          offset += 4;
+          for (int j = 0; j &lt; nbRecs; j++) {
+            at = new AttributesImpl ();
+            at.addAttribute ("", "yPelHeight", "yPelHeight", "CDATA", "" + getuint16 (offset));
+            at.addAttribute ("", "yMax", "yMax", "CDATA", "" + getint16 (offset + 2));
+            at.addAttribute ("", "yMin", "yMin", "CDATA", "" + getint16 (offset + 4));
+            conf.ch.element ("rec", at);
+            offset += 6; }
+          conf.ch.endElement ("group"); }}
+
+      conf.ch.endElement ("VDMX"); }
+  }
+</code-fragment>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Vdmx"><code-title>Vdmx class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Vdmx extends Table {
+
+  public Vdmx () {
+    super (Tag.VDMX, null);
+  }
+
+  public Vdmx (Font font) {
+    super (Tag.VDMX, font);
+  }
+
+  <code-include linkend="vdmx.methods"/>
+}
+</code-fragment>
+    </section>
+  </section>
+</section>

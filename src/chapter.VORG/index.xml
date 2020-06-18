@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.VORG">
+  <title>VORG - Vertical Origin Table</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This table specifies the y coordinate of the vertical
+          origin of every glyph in the font.</para>
+      <para>This table may be optionally present only in CFF
+          CommonType fonts. If present in TrueType CommonType fonts it
+          must be ignored by font clients, just as any other
+          unrecognized table would be. This is because this table is
+          not needed for TrueType CommonType fonts: the Vertical Metrics
+          (<ottable>vmtx</ottable>) and Glyph Data
+          (<ottable>glyf</ottable>) tables in TrueType CommonType fonts
+          provide all the information necessary to accurately
+          calculate the y coordinate of a glyph's vertical origin. See
+          the "Vertical Origin and Advance Height" section in the
+          <ottable>vmtx</ottable> table specification for more
+          details.</para>
+      <para>This table was added to version 1.3 of the CommonType
+          specification. Note that the <ottable>vmtx</ottable> and
+          Vertical Header (<ottable>vhea</ottable>) tables continue to
+          be required for all CommonType fonts that support vertical
+          writing. Advance heights must continue to be obtained from
+          the <ottable>vmtx</ottable> table; that is the only place
+          they are stored.</para>
+      <para>If a <ottable>VORG</ottable> table is present in a CFF
+          CommonType font, a font client may choose to obtain the y
+          coordinate of a glyph’s vertical origin either:</para>
+      <itemizedlist>
+        <listitem>
+          <para>directly from the <ottable>VORG</ottable>, or:</para>
+        </listitem>
+        <listitem>
+          <para> by first calculating the top of the glyph's
+              bounding box from the CFF charstring data and then
+              adding to it the glyph's top side bearing from the
+              <ottable>vmtx</ottable> table.</para>
+        </listitem>
+      </itemizedlist>
+      <para>The former method offers the advantage of increased
+          accuracy and efficiency, since bounding box results
+          calculated from the CFF charstring as in the latter method
+          can differ depending on the rounding decisions and data
+          types of the bounding box algorithm. The latter method
+          provides compatibility for font clients who are either
+          unaware of or choose not to support the <ottable>VORG</ottable>.</para>
+      <para>Thus, the <ottable>VORG</ottable> doesn't add any new font metric values
+          per se; it simply improves accuracy and efficiency for CFF
+          CommonType font clients, since the intermediate step of
+          calculating bounding boxes from the CFF charstring is
+          rendered unnecessary.</para>
+      <para>See the section "CommonType CJK Font Guidelines" for more
+          information about constructing CJK (Chinese, Japanese, and
+          Korean) fonts.</para>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Vertical Origin Table Format</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>majorVersion</otfieldname>
+          <otfielddesc>Major version (starting at 1). Set to
+              1.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>minorVersion</otfieldname>
+          <otfielddesc>Minor version (starting at 0). Set to
+              0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>defaultVertOriginY</otfieldname>
+          <otfielddesc>The y coordinate of a glyph's vertical
+              origin, in the font's design coordinate system, to be
+              used if no entry is present for the glyph in the
+              vertOriginYMetrics array.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numVertOriginYMetrics</otfieldname>
+          <otfielddesc>Number of elements in the vertOriginYMetrics
+              array.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This is immediately followed by the vertOriginYMetrics
+          array (if numVertOriginYMetrics is non-zero), which has
+          numVertOriginYMetrics elements of the following
+          format:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>glyphIndex</otfieldname>
+          <otfielddesc> Glyph index.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>vertOriginY</otfieldname>
+          <otfielddesc>Y coordinate, in the font's design coordinate
+              system, of the vertical origin of glyph with index
+              glyphIndex.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This array must be sorted by increasing glyphIndex, and
+          must not have more than one element with the same
+          glyphIndex. In a size-optimized implementation, glyphs whose
+          vertical origin's y coordinate equals defaultVertOriginY
+          will not have an entry in this array.</para>
+      <para>If all glyphs in a font share the same
+          defaultVertOriginY value, the length of the <ottable>VORG</ottable> table
+          will be 8 bytes in a size-optimized implementation, since
+          the vertOriginYMetrics array will be absent.</para>
+      <para>Typically only the full-width Latin glyphs in an East
+          Asian font will have entries in the vertOriginYMetrics
+          array. Glyphs rotated for vertical writing, as used in the
+          Vertical Alternates and Rotation ('vrt2') feature, for
+          example, can take advantage of the default value if they are
+          designed appropriately.</para>
+      <para>In the following example of a complete <ottable>VORG</ottable> table for
+          a 1000-unit-em font, every glyph in the font is specified as
+          having a vertOriginY of 880 except for glyphs with glyph
+          indexes 10, 12, and 13:</para>
+      <literallayout><![CDATA[
+majorVersion         =1
+minorVersion         =0
+defaultVertOriginY   =880
+numVertOriginYMetrics=3
+--- vertOriginYMetrics[index]=(glyphIndex,vertOriginY)
+[0]=(10,889)
+[1]=(12,861)
+[2]=(13,849)
+]]></literallayout>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>??</code-title>
+VORG =
+  element VORG {
+    attribute major { "1" },
+    attribute minor { "0" },
+    attribute defaultVertOriginY { text },
+
+    element vMetric {
+      attribute gid { text },
+      attribute vertOriginY { text }
+    }*
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="VORG.methods">
+  public void fromXML (Element vorg)
+    throws InvalidFontException, UnsupportedFontException {
+
+    NodeList metrics = vorg.getChildNodes ();
+
+    Block me = new Block (2 + 2 + 2 + 2 + metrics.getLength () * 4, 0);
+
+    int offset = 0;
+
+    me.setuint16 (offset,
+                  Integer.decode (vorg.getAttribute ("major")).intValue ());
+    offset += 2;
+
+    me.setuint16 (offset,
+                  Integer.decode (vorg.getAttribute ("minor")).intValue ());
+    offset += 2;
+
+    me.setint16 (offset,
+                 Integer.decode (vorg.getAttribute ("defaultVertOriginY")).intValue ());
+    offset += 2;
+
+    me.setuint16 (offset, metrics.getLength ());
+    offset += 2;
+
+    for (int i = 0; i &lt; metrics.getLength (); i++) {
+      Element metric = (Element) metrics.item (i);
+      me.setuint16 (offset,
+                    Integer.decode (metric.getAttribute ("gid")).intValue ());
+      offset += 2;
+      me.setint16 (offset,
+                   Integer.decode (metric.getAttribute ("verOriginY")).intValue ());
+      offset += 2; }
+
+    data = me.serialize ();
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="VORG.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    int offset = 0;
+    AttributesImpl at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + getuint16 (offset));
+    offset += 2;
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + getuint16 (offset));
+    offset += 2;
+    at.addAttribute ("", "defaultVertOriginY", "defaultVertOriginY", "CDATA",
+                     "" + getint16 (offset));
+    offset += 2;
+
+    int numVertOriginYMetrics = getuint16 (offset);
+    offset += 2;
+
+    conf.ch.startElement ("VORG", at); {
+
+      for (int i = 0; i &lt; numVertOriginYMetrics; i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + getuint16 (offset));
+        offset += 2;
+        at.addAttribute ("", "vertOriginY", "vertOriginY", "CDATA",
+                         "" + getint16 (offset));
+        offset += 2;
+        conf.ch.element ("vMetric", at); }
+
+      conf.ch.endElement ("VORG"); }
+  }
+</code-fragment>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Vorg"><code-title>Vorg class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Vorg extends Table {
+
+  public Vorg () {
+    super (Tag.VORG, null);
+  }
+
+  public Vorg (Font font) {
+    super (Tag.VORG, font);
+  }
+
+  public int getVerticalOrigin (int glyphID) {
+    int numVertOriginYMetrics = getuint16 (6);
+
+    for (int i = 0; i &lt; numVertOriginYMetrics; i++) {
+      if (glyphID == getuint16 (8 + 4*i)) {
+        return getint16 (8 + 4*i + 2); }}
+
+    return getint16 (4);
+  }
+
+  <code-include linkend="VORG.methods"/>
+}
+</code-fragment>
+    </section>
+  </section>
+</section>

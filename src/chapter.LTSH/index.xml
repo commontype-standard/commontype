@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.LTSH">
+  <title>LTSH - Linear Threshold</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The <ottable>LTSH</ottable> table relates to CommonType
+        fonts containing TrueType outlines. There are noticeable
+        improvements to fonts on the screen when instructions are
+        carefully applied to the sidebearings. The gain in readability
+        is offset by the necessity for the OS to grid fit the glyphs
+        in order to find the actual advance width for the glyphs
+        (since instructions may be moving the sidebearing points). The
+        TrueType outline format already has two mechanisms to side
+        step the speed issues: the <ottable>hdmx</ottable> table,
+        where precomputed advance widths may be saved for selected
+        ppem sizes, and the 'vdmx' table, where precomputed vertical
+        advance widths may be saved for selected ppem sizes. The
+        <ottable>LTSH</ottable> table (Linear ThreSHold) is a second,
+        complementary method.</para>
+      <para>The LTSH table defines the point at which it is
+        reasonable to assume linearly scaled advance widths on a
+        glyph-by-glyph basis. This table should not be included unless
+        bit 4 of the "flags" field in the <ottable>head</ottable>
+        table is set. The criteria for linear scaling is:</para>
+      <itemizedlist>
+        <listitem>
+          <para>(ppem size is &gt;= 50) AND (difference between the
+              rounded linear width and the rounded instructed width
+              &lt;= 2% of the rounded linear width)</para>
+        </listitem>
+        <listitem>
+          <para>Linear width == Instructed width</para>
+        </listitem>
+      </itemizedlist>
+      <para>The LTSH table records the ppem for each glyph at which
+          the scaling becomes linear again, despite instructions
+          effecting the advance width. It is a requirement that, at
+          and above the recorded threshold size, the glyph remain
+          linear in its scaling (i.e., not legal to set threshold at
+          55 ppem if glyph becomes nonlinear again at 90 ppem). The
+          format for the table is:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>version</otfieldname>
+          <otfielddesc>Version number (starts at 0).</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numGlyphs</otfieldname>
+          <otfielddesc>Number of glyphs (from "numGlyphs" in <ottable>maxp</ottable>
+              table).</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>yPels [numGlyphs]</otfieldname>
+          <otfielddesc>The vertical pel height at which the glyph
+              can be assumed to scale linearly. On a per glyph
+              basis.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Note that glyphs which do not have instructions on their
+          sidebearings should have yPels = 1; i.e., always scales
+          linearly.</para>
+    </section>
+  </section>
+</section>

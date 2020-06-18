@@ -1,0 +1,2359 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.font_file">
+  <title>The CommonType Font File</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Introduction</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>An CommonType font file contains data, in table format,
+          that comprises either a TrueType or a PostScript outline
+          font. Rasterizers use combinations of data from the tables
+          contained in the font to render the TrueType or PostScript
+          glyph outlines. Some of this supporting data is used no
+          matter which outline format is used; some of the supporting
+          data is specific to either TrueType or PostScript.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <para>Here is the scrap that collects all the definitions for
+	  our Relax NG grammar:</para>
+      <code-fragment file="CommonType.rnc" method="text"><code-title>CommonType Relax NG Schema</code-title>
+
+##_____________________________________________________________________________
+##
+##  Copyright 2000-2016 Adobe Systems Incorporated. All Rights Reserved.
+##
+##  Licensed under the Apache License, Version 2.0 (the "License");
+##  you may not use these files except in compliance with the License.
+##  You may obtain a copy of the License at
+##
+##   http://www.apache.org/licenses/LICENSE-2.0
+##
+##  Unless required by applicable law or agreed to in writing, software
+##  distributed under the License is distributed on an "AS IS" BASIS,
+##  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##  See the License for the specific language governing permissions and
+##  limitations under the License.
+##_____________________________________________________________________________
+
+start =
+  element font {
+    attribute name { text }?,
+    base-font?,
+    (BASE?
+     &amp; CFF?
+     &amp; glyf?
+     &amp; DSIG?
+     &amp; GDEF?
+     &amp; GPOS?
+     &amp; GSUB?
+     &amp; OS2?
+     &amp; cmap?
+     &amp; head?
+     &amp; hhea?
+     &amp; hmtx?
+     &amp; hdmx?
+     &amp; VDMX?
+     &amp; vhea?
+     &amp; vmtx?
+     &amp; maxp?
+     &amp; name?
+     &amp; post?
+     &amp; VORG?)
+  }
+
+  base-font =
+    element base-font {
+      attribute name { text }
+    }
+
+  yesOrNo = "yes" | "no"
+
+  <code-include linkend="schema"/>
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <para>The compiler is really a simple shell that parses an XML
+          document, passes it to the <varname>fromXML</varname> method
+          of a <varname>Font</varname> object to build an internal
+          representation of the font, and then invokes the
+          <varname>toBinary</varname> method of that object to create
+          an actual font file.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Compiler"><code-title>Compiler class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.io.File;
+import java.net.URL;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Text;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXParseException;
+
+import com.thaiopensource.validate.ValidationDriver;
+import com.thaiopensource.validate.rng.CompactSchemaReader;
+
+
+public class Compiler implements org.xml.sax.ErrorHandler {
+
+  private boolean isWhiteSpace (String s) {
+    boolean result = true;
+    for (int i = 0; i &lt; s.length (); i++) {
+      char c = s.charAt (i);
+      if (c != ' ' &amp;&amp; c != '\t' &amp;&amp; c != '\n') {
+	result = false;
+        break; }}
+    return result;
+  }
+
+  private void removeWhiteSpace (Node n) {
+    NodeList nl = n.getChildNodes ();
+    int nbChildren = nl.getLength ();
+    for (int i = 0; i &lt; nbChildren; i++) {
+      removeWhiteSpace (nl.item (i)); }
+    for (int i = 0; i &lt; nbChildren; i++) {
+      if (nl.item (i).getNodeType () == Node.TEXT_NODE) {
+	Text t = (Text) nl.item (i);
+        if (isWhiteSpace (t.getData ())) {
+	  n.removeChild (t);
+	  nbChildren--; }}}
+  }
+
+  private Document parse (String inputFilename)
+      throws Exception {
+    inputFilename = new File (inputFilename).getAbsolutePath ();
+
+    javax.xml.parsers.DocumentBuilderFactory dbf
+      = javax.xml.parsers.DocumentBuilderFactory.newInstance ();
+    dbf.setValidating (false);
+    dbf.setIgnoringComments (true);
+    dbf.setIgnoringElementContentWhitespace (true);
+    javax.xml.parsers.DocumentBuilder db = dbf.newDocumentBuilder ();
+
+    return  db.parse (new InputSource (inputFilename));
+  }
+
+  private boolean validate (Document font, String filename)
+     throws Exception {
+    ValidationDriver vd = new ValidationDriver (CompactSchemaReader.getInstance ());
+    if (! vd.loadSchema (new InputSource (Compiler.class.getResource ("CommonType.rnc").toString ()))) {
+        throw new Exception ("failed to load schema"); }
+
+    return vd.validate (vd.fileInputSource (filename));
+  }
+
+
+  public void error (SAXParseException e) {
+    System.err.println ("Parse error: " + e);
+  }
+
+  public void fatalError (SAXParseException e) {
+    System.err.println ("Parse fatal error: " + e);
+  }
+
+  public void warning (SAXParseException e) {
+    System.err.println ("Parse warning: " + e);
+  }
+
+  private void compile (URL base, Element font, boolean fixDerivedValues, String outfile)
+      throws Exception {
+    Font f = new Font ();
+    f.fromXML (base, font);
+
+    if (fixDerivedValues) {
+      f.maxp.fixValuesDerivedFromGlyf ();
+      f.hhea.fixDerivedValues (); }
+
+    f.toBinary (outfile);
+  }
+
+  private void doMain (String args[]) throws Exception {
+    String out = "";
+    boolean fixDerivedValues = false;
+
+    for (int i = 0; i &lt; args.length; i++) {
+      if (args[i].equals ("-o")) {
+        i++;
+        out = args[i]; }
+
+      else if (args[i].equals ("-fixderivedvalues")) {
+        fixDerivedValues = true; }
+
+      else {
+        File f = new File (args[i]);
+        Document doc = parse (args [i]);
+
+	boolean valid = validate (doc, args[i]);
+	if (valid) {
+  	  removeWhiteSpace (doc);
+	  compile (f.getAbsoluteFile().toURL (),
+	           doc.getDocumentElement (),
+                   fixDerivedValues,
+                   out); }}}
+  }
+
+  public static void main (String args[]) throws Exception {
+    new Compiler ().doMain (args);
+  }
+}
+</code-fragment>
+      <para>A number of CommonType tables are made of blocks of data
+          that point to one another. For example, a cmap table has a
+          header block, which points to blocks for the various
+          subtables. To facilitate the creation of these tables
+          blocks, we have a class, named <varname>Block</varname>. The
+          main methods are to set fields in blocks
+          (<varname>setint16</varname>, <varname>setuint32</varname>,
+          etc), to make one block point to another one
+          (<varname>setOffset</varname>,
+          <varname>setBigOffset</varname>), and finally to serialize
+          all the blocks that make up a table
+          (<varname>serialize</varname>).</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Block"><code-title>Block class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Vector;
+
+  public class Block {
+    public byte [] content;
+    Block [] references;
+    int [] referencePositions;
+    boolean [] referenceBig;
+    int currentReference = 0;
+    int globalOffset = -1;
+
+    public Block (int size, int referenceCount) {
+      content = new byte [size];
+      references = new Block [referenceCount];
+      referencePositions = new int [referenceCount];
+      referenceBig = new boolean [referenceCount];
+    }
+
+    public void setFixed (int offset, int major, int minor) {
+      setuint16 (offset, major);
+      setuint16 (offset + 2, minor);
+    }
+
+    public void setOffset (int offset, Block target) {
+      referenceBig [currentReference] = false;
+      referencePositions [currentReference] = offset;
+      references [currentReference++] = target;
+      setuint16 (offset, 0);
+    }
+
+    public void setBigOffset (int offset, Block target) {
+      referenceBig [currentReference] = true;
+      referencePositions [currentReference] = offset;
+      references [currentReference++] = target;
+      setuint32 (offset, 0x1234567);
+    }
+
+    public void setuint8 (int offset, int value) {
+      content [offset] = (byte) value;
+    }
+
+    public void setint8 (int offset, int value) {
+      content [offset] = (byte) value;
+    }
+
+    public void setuint16 (int offset, int value) {
+      content [offset] = (byte) ((value &gt;&gt; 8) &amp; 0xff);
+      content [offset+1] = (byte) (value &amp; 0xff);
+    }
+
+    public void setFWord(int offset, int value) {
+      setuint16 (offset, value);
+    }
+
+    public void setuFWord (int offset, int value) {
+      setuint16 (offset, value);
+    }
+
+    public void setuint24 (int offset, int value) {
+      content [offset]   = (byte) ((value &gt;&gt; 16) &amp; 0xff);
+      content [offset+1] = (byte) ((value &gt;&gt;  8) &amp; 0xff);
+      content [offset+2] = (byte) (value         &amp; 0xff);
+    }
+
+    public void setuint32 (int offset, int value) {
+      content [offset]   = (byte) ((value &gt;&gt; 24) &amp; 0xff);
+      content [offset+1] = (byte) ((value &gt;&gt; 16) &amp; 0xff);
+      content [offset+2] = (byte) ((value &gt;&gt;  8) &amp; 0xff);
+      content [offset+3] = (byte) (value         &amp; 0xff);
+    }
+
+    public void setint32 (int offset, int value) {
+      setuint32 (offset, value);
+    }
+
+    public void setint16 (int offset, int value) {
+      content [offset] = (byte)((value &gt;&gt; 8) &amp; 0xff);
+      content [offset+1] = (byte)(value &amp; 0xff);
+    }
+
+    public void setTag (int offset, String tag) {
+      String t = tag + "    ";
+      setuint8 (offset+0, t.charAt (0));
+      setuint8 (offset+1, t.charAt (1));
+      setuint8 (offset+2, t.charAt (2));
+      setuint8 (offset+3, t.charAt (3));
+    }
+
+    public void setLONGDATETIME (int offset, long date) {
+      content [offset+0] = (byte) ((date &gt;&gt; 56) &amp; 0xff);
+      content [offset+1] = (byte) ((date &gt;&gt; 48) &amp; 0xff);
+      content [offset+2] = (byte) ((date &gt;&gt; 40) &amp; 0xff);
+      content [offset+3] = (byte) ((date &gt;&gt; 32) &amp; 0xff);
+      content [offset+4] = (byte) ((date &gt;&gt; 24) &amp; 0xff);
+      content [offset+5] = (byte) ((date &gt;&gt; 16) &amp; 0xff);
+      content [offset+6] = (byte) ((date &gt;&gt;  8) &amp; 0xff);
+      content [offset+7] = (byte) ((date      ) &amp; 0xff);
+    }
+
+    public void setValue (int offset, Value value) {
+      setValue (offset, value.format, value);
+    }
+
+    public void setValue (int offset, int valueFormat, Value value) {
+      if (value == null) {
+        value = new Value (); }
+      if ((valueFormat &amp; 0x001) != 0) {
+        setint16 (offset, value.xPlacement);
+        offset += 2; }
+      if ((valueFormat &amp; 0x002) != 0) {
+        setint16 (offset,value.yPlacement);
+        offset += 2; }
+      if ((valueFormat &amp; 0x004) != 0) {
+        setint16 (offset, value.xAdvance);
+        offset += 2; }
+      if ((valueFormat &amp; 0x008) != 0) {
+        setint16 (offset, value.yAdvance);
+        offset += 2; }
+      return;
+    }
+
+    public void setGlyphID (int offset, int glyphID) {
+      setuint16 (offset, glyphID);
+    }
+
+
+
+    protected boolean visited = false;
+
+    private void fillBlocks (Vector&lt;Block&gt; blocks, int depth) {
+
+      if (visited) {
+        return; }
+
+      visited = true;
+
+      depth++;
+//      System.err.println ("block of size " + this.content.length + " at depth " + depth);
+
+      blocks.add (this);
+      for (int i = 0; i &lt; references.length; i++) {
+        if (references [i] != null) {
+          references[i].fillBlocks (blocks, depth); }}
+    }
+
+    public byte[] serialize () {
+      if (references.length == 0) {
+         // a single block, we already have it
+         return content; }
+
+      // collect all the blocks pointed directly or indirectly by this one
+      Vector&lt;Block&gt; blocks= new Vector&lt;Block&gt; ();
+      fillBlocks (blocks, 0);
+
+      // compute the total size
+      int totalSize = 0;
+      for (Block b : blocks) {
+        totalSize += b.content.length; }
+
+      // System.err.println ("----------");
+      // for (Block b : blocks) {
+      //   System.err.println (" " + b.content.length + "  0x" + Integer.toHexString (b.content.length)); }
+
+      byte [] data = new byte [totalSize];
+
+      while (blocks.size () &gt; 0) {
+
+        //find a block with no unresolved children
+        Block toPos = null;
+
+        Iterator it = blocks.iterator ();
+        while (toPos == null &amp;&amp; it.hasNext ()) {
+          Block t = (Block) it.next ();
+          boolean hasDependency = false;
+          for (int i = 0; i &lt; t.references.length; i++) {
+            if (   t.references [i] != null
+                &amp;&amp; t.references [i].globalOffset == -1) {
+              hasDependency = true;
+              break; }}
+          if (! hasDependency) {
+            toPos = t; }}
+
+        // put toPos at the end
+        totalSize -= toPos.content.length;
+        toPos.globalOffset = totalSize;
+
+        //System.out.println ("Setting " + toPos + " at " + toPos.globalOffset);
+
+        // resolve references
+        for (int p = 0; p &lt; toPos.references.length; p++) {
+          int offset = toPos.references [p] == null ? 0 :
+                          toPos.references [p].globalOffset - toPos.globalOffset;
+          if (toPos.referenceBig [p]) {
+            toPos.setuint32 (toPos.referencePositions [p], offset); }
+          else {
+	    if (offset &gt; 0xffff) {
+	      System.err.println ("cannot arrange block (offset="
+	                          + Integer.toHexString (offset)); }
+            toPos.setuint16 (toPos.referencePositions [p], offset); }}
+
+        // copy in result table
+        System.arraycopy (toPos.content, 0,
+                          data, toPos.globalOffset,
+                          toPos.content.length);
+
+        blocks.remove (toPos); }
+
+      return data;
+    }
+
+
+    public void dump () {
+      System.out.println ("block " + this + ", size='" + content.length + "'");
+
+      System.out.print ("  content: ");
+      for (int i = 0; i &lt; content.length; i++) {
+        System.out.print (Integer.toHexString (content[i]) + " "); }
+      System.out.println ("");
+
+      System.out.print ("  references: ");
+      for (int i = 0; i &lt; references.length; i++) {
+        System.out.print ("" + referencePositions [i] + "/" + references[i]
+      + " "); }
+      System.out.println ("");
+    }
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <para>When decompiling a font, we do have a number of choices,
+	such as whether the XML reflects the exact formats used in the
+	font, or whether is provides the most readable view of the
+	font. This and other parameters are captured in a DecompilerConfig
+	object:</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="DecompilerConfig"><code-title/>
+package com.adobe.aots.CommonType;
+
+import java.io.File;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
+import java.net.URL;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.sax.SAXSource;
+import javax.xml.transform.sax.SAXTransformerFactory;
+import javax.xml.transform.sax.TransformerHandler;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.transform.stream.StreamResult;
+
+public class DecompilerConfig extends org.xml.sax.helpers.DefaultHandler {
+  public ContentHandlerPlus ch;
+
+  public boolean preciseCoverageFormat;
+  public boolean preciseClassDefFormat;
+  public boolean preciseCmap;
+
+  public enum PointersAreShown { never, asNeeded, always };
+  public PointersAreShown pointers;
+
+  public enum Gid { byNumber, byName};
+  public Gid gid;
+  public String[] glyphNames;
+  protected java.util.Map&lt;String, String&gt; userGlyphNames = null;
+
+
+  DecompilerConfig () {
+    makeReadable ();
+  }
+
+  public void makeReadable () {
+    preciseCoverageFormat = false;
+    preciseClassDefFormat = false;
+    preciseCmap = false;
+    pointers = PointersAreShown.never;
+    gid = Gid.byNumber;
+  }
+
+  public void makeExact () {
+    preciseCoverageFormat = true;
+    preciseClassDefFormat = true;
+    preciseCmap = true;
+    pointers = PointersAreShown.asNeeded;
+    gid = Gid.byNumber;
+  }
+
+  public void sendOutputTo (javax.xml.transform.Result result)
+      throws javax.xml.transform.TransformerConfigurationException {
+
+    TransformerFactory tfactory = TransformerFactory.newInstance ();
+    if (!tfactory.getFeature (SAXSource.FEATURE)) {
+      System.err.println ("SAXSource.FEATURE not supported"); }
+
+    SAXTransformerFactory sfactory = (SAXTransformerFactory) tfactory;
+
+    TransformerHandler handler = sfactory.newTransformerHandler ();
+
+//    handler.setResult (new StreamResult (System.out));
+    handler.setResult (result);
+
+    Transformer transformer = handler.getTransformer ();
+    transformer.setOutputProperty (OutputKeys.INDENT, "yes");
+    transformer.setOutputProperty (OutputKeys.STANDALONE, "yes");
+
+    ch = new ContentHandlerPlus (handler);
+  }
+
+
+
+  public void startElement (String namespaceURI, String localName, String qName,
+                            org.xml.sax.Attributes atts)
+      throws org.xml.sax.SAXException {
+    if (localName.equals ("glyph")) {
+      userGlyphNames.put (atts.getValue ("id"), atts.getValue ("name")); }
+  }
+
+  public void parseGlyphNames (String filename)
+      throws javax.xml.parsers.ParserConfigurationException,
+             org.xml.sax.SAXException,
+             java.io.IOException {
+    userGlyphNames = new java.util.HashMap&lt;String, String&gt; ();
+
+    javax.xml.parsers.SAXParserFactory spf
+      = javax.xml.parsers.SAXParserFactory.newInstance ();
+    spf.setNamespaceAware (true);
+    javax.xml.parsers.SAXParser sp = spf.newSAXParser ();
+    sp.parse (filename, this);
+  }
+
+  public void incorporateUserGlyphNames (int nGlyphs) {
+    if (userGlyphNames == null) {
+      return; }
+
+    if (glyphNames == null) {
+      glyphNames = new String [nGlyphs]; }
+
+    for (String g : userGlyphNames.keySet ()) {
+      int gid = Integer.parseInt (g);
+      glyphNames [gid] = userGlyphNames.get (g); }
+  }
+
+
+}
+</code-fragment>
+      <para>The decompiler is really a simple shell that creates a
+          <varname>Font</varname>, calls its
+          <varname>fromBinary</varname> method to initializes it with
+          the content of an existing font, calls its
+          <varname>toXML</varname> method to create the XML
+          representation and serializes it.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Decompiler"><code-title>Decompiler class</code-title>
+package com.adobe.aots.CommonType;
+
+
+import java.io.File;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
+import java.net.URL;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+import org.w3c.dom.Element;
+
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.dom.DOMResult;
+import javax.xml.transform.sax.SAXSource;
+import javax.xml.transform.sax.SAXTransformerFactory;
+import javax.xml.transform.sax.TransformerHandler;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.transform.stream.StreamResult;
+
+public class Decompiler {
+
+  public static void main (String args[]) throws Exception {
+
+    try {
+      long [] tags = null;
+      int ttcIndex = -1;
+      boolean roundtrip = false;
+      OutputStream output = System.out;
+      DecompilerConfig conf = new DecompilerConfig ();
+      URL base = null;
+
+      for (int i = 0; i &lt; args.length; i++) {
+        if ("-ttc".equals (args [i])) {
+          i++;
+          ttcIndex = Integer.parseInt (args [i]); }
+
+        else if ("-t".equals (args [i])) {
+          i++;
+  	  tags = Tag.string2tags (args [i]); }
+
+        else if ("-exact".equals (args [i])) {
+	  conf.makeExact (); }
+
+	else if ("-readable".equals (args [i])) {
+          conf.makeReadable (); }
+
+	else if ("-pointers=never".equals (args [i])) {
+	  conf.pointers = DecompilerConfig.PointersAreShown.never; }
+
+	else if ("-pointers=asneeded".equals (args [i])) {
+	  conf.pointers = DecompilerConfig.PointersAreShown.asNeeded; }
+
+	else if ("-pointers=always".equals (args [i])) {
+	  conf.pointers = DecompilerConfig.PointersAreShown.always; }
+
+        else if ("-gid=names".equals (args[i])) {
+	  conf.gid = DecompilerConfig.Gid.byName; }
+
+        else if ("-gid=numbers".equals (args [i])) {
+	  conf.gid = DecompilerConfig.Gid.byNumber; }
+
+        else if (args [i].startsWith ("-gid=")) {
+	  conf.gid = DecompilerConfig.Gid.byName;
+          conf.parseGlyphNames (args [i].substring (5)); }
+
+	else if ("-coverages=exact".equals (args [i])) {
+	  conf.preciseCoverageFormat = true; }
+
+	else if ("-coverages=readable".equals (args [i])) {
+	  conf.preciseCoverageFormat = false; }
+
+	else if ("-classdefs=exact".equals (args [i])) {
+	  conf.preciseClassDefFormat = true; }
+
+	else if ("-classdefs=readable".equals (args [i])) {
+	  conf.preciseClassDefFormat = false; }
+
+	else if ("-roundtrip".equals (args [i])) {
+	  roundtrip = true; }
+
+	else if ("-b".equals (args [i])) {
+	  i++;
+	  base = new File (args [i]).toURL (); }
+
+        else if ("-o".equals (args [i])) {
+	  i++;
+          output = new FileOutputStream (args [i]); }
+
+	else if ("-h".equals (args [i])
+	         || "--help".equals (args)
+		 || "-u".equals (args)) {
+	  i++;
+	  System.out.println ("Decompiler [options] fontfile\n"
++ "\n"
++ "-t&lt;table&gt;[,&lt;table&gt;]    decompile selected tables\n"
++ "-exact                 show the font content exactly\n"
++ "-readable              show the font content readably\n"
++ "-pointers=never        inline all blocks\n"
++ "-pointers=asneeded     inline blocks with a single reference\n"
++ "-pointers=always       never inline blocks\n"
++ "-coverages=exact       show the coverages exactly\n"
++ "-coverages=readable    show the coverages readably\n"
++ "-classdefs=exact       show the class definitions exactly\n"
++ "-classdefs=readably    show the class definitions readably\n"
++ "-gid=names             show gids by their name\n"
++ "-gid=numbers           show gids by their numbers"); }
+
+        else if (args [i].startsWith ("-")) {
+	  i++;
+	  System.out.println ("invalid option: " + args [i]);
+	  System.out.println ("-h for help"); }
+
+        else {
+          URL source = new File (args [i]).getAbsoluteFile().toURL ();
+          Font font = new Font ();
+          if (ttcIndex == -1) {
+            font.fromBinary (source); }
+          else {
+            font.fromBinary (source, ttcIndex); }
+
+          if (! roundtrip) {
+            conf.sendOutputTo (new StreamResult (output));
+            conf.ch.startDocument (); {
+              font.toXML (conf, tags, base != null ? base : source);
+              conf.ch.endDocument (); }}
+
+          else {
+            DOMResult stage1 = new DOMResult ();
+            conf.sendOutputTo (stage1);
+            conf.ch.startDocument (); {
+              font.toXML (conf, tags, source);
+              conf.ch.endDocument (); }
+
+            Font f2 = new Font ();
+            f2.fromXML (null, (Element)stage1.getNode ().getFirstChild ());
+	    f2.toBinary (output); }
+          output.close (); }}}
+
+    catch (Exception e) {
+      System.err.println ("Exception: " + e.getMessage ());
+      e.printStackTrace ();
+      System.exit (1); }
+  }
+}
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Filenames</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>CommonType fonts may have the extension .OTF or .TTF,
+          depending on the kind of outlines in the font and the
+          creator's desire for compatibility on systems without native
+          CommonType support.</para>
+      <itemizedlist>
+        <listitem>
+          <para>In all cases, fonts with only CFF data (no TrueType
+              outlines) always have an .OTF extension.</para>
+        </listitem>
+        <listitem>
+          <para>Fonts containing TrueType outlines may have either
+              .OTF or .TTF, depending on the desire for backward
+              compatibility on older systems or with previous versions
+              of the font. TrueType Collection fonts should have a
+              .TTC extension whether or not the fonts have CommonType
+              layout tables present.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Data Types</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The following data types are used in the CommonType font
+        file. All CommonType fonts use Motorola-style byte ordering (Big
+        Endian):</para>
+      <informaltable>
+        <tgroup cols="2">
+          <colspec colwidth="8pc"/>
+          <colspec colwidth="22pc"/>
+          <thead>
+            <row>
+              <entry>Data Type</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>BYTE</entry>
+              <entry>8-bit unsigned integer.</entry>
+            </row>
+            <row>
+              <entry>CHAR</entry>
+              <entry>8-bit signed integer.</entry>
+            </row>
+            <row>
+              <entry>USHORT</entry>
+              <entry>16-bit unsigned integer.</entry>
+            </row>
+            <row>
+              <entry>SHORT</entry>
+              <entry>16-bit signed integer.</entry>
+            </row>
+            <row>
+              <entry>UINT24</entry>
+              <entry>24-bit signed integer.</entry>
+            </row>
+            <row>
+              <entry>ULONG</entry>
+              <entry>32-bit unsigned integer.</entry>
+            </row>
+            <row>
+              <entry>LONG</entry>
+              <entry>32-bit signed integer.</entry>
+            </row>
+            <row>
+              <entry>Fixed</entry>
+              <entry>32-bit signed fixed-point number (16.16)</entry>
+            </row>
+            <row>
+              <entry>FUNIT</entry>
+              <entry>Smallest measurable distance in the em space.</entry>
+            </row>
+            <row>
+              <entry>FWORD</entry>
+              <entry>16-bit signed integer (SHORT) that describes a
+		  quantity in FUnits.</entry>
+            </row>
+            <row>
+              <entry>UFWORD</entry>
+              <entry>16-bit unsigned integer (USHORT) that describes
+		  a quantity in FUnits.</entry>
+            </row>
+            <row>
+              <entry>F2DOT14</entry>
+              <entry>16-bit signed fixed number with the low 14 bits of
+            fraction (2.14).</entry>
+            </row>
+            <row>
+              <entry>LONGDATETIME</entry>
+              <entry>Date represented in number of seconds since 12:00
+            midnight, January 1, 1904. The value is represented as a
+            signed 64-bit integer.</entry>
+            </row>
+            <row>
+              <entry>Tag</entry>
+              <entry>Array of four uint8s (length = 32 bits) used to
+            identify a script, language system, feature, or
+            baseline</entry>
+            </row>
+            <row>
+              <entry>GlyphID</entry>
+              <entry>Glyph index number, same as uint16 (length = 16
+                bits)</entry>
+            </row>
+            <row>
+              <entry>Offset</entry>
+              <entry> Offset to a table, same as uint16 (length = 16
+            bits), NULL offset = 0x0000</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>The F2DOT14 format consists of a signed, 2's
+        complement mantissa and an unsigned fraction. To compute the
+        actual value, take the mantissa and add the fraction. Examples
+        of 2.14 values are:</para>
+      <informaltable>
+        <tgroup cols="4">
+          <colspec colwidth="7.5pc"/>
+          <colspec colwidth="7.5pc"/>
+          <colspec colwidth="7.5pc"/>
+          <colspec colwidth="7.5pc"/>
+          <thead>
+            <row>
+              <entry>Decimal Value</entry>
+              <entry>Hex Value</entry>
+              <entry>Mantissa</entry>
+              <entry>Fraction</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1.999939</entry>
+              <entry>0x7fff</entry>
+              <entry>1</entry>
+              <entry>16383/16384</entry>
+            </row>
+            <row>
+              <entry>1.75</entry>
+              <entry>0x7000</entry>
+              <entry>1</entry>
+              <entry>12288/16384</entry>
+            </row>
+            <row>
+              <entry>0.000061</entry>
+              <entry>0x0001</entry>
+              <entry>0</entry>
+              <entry>1/16384</entry>
+            </row>
+            <row>
+              <entry>0.0</entry>
+              <entry>0x0000</entry>
+              <entry>0</entry>
+              <entry>0/16384</entry>
+            </row>
+            <row>
+              <entry>-0.000061</entry>
+              <entry>0xffff</entry>
+              <entry>-1</entry>
+              <entry>16383/16384</entry>
+            </row>
+            <row>
+              <entry>-2.0</entry>
+              <entry>0x8000</entry>
+              <entry>-2</entry>
+              <entry>0/16384</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>A number of synonyms are used for throughout the
+          specification. They should be documented, and may be even
+          replace the type above, as their names are more useful:</para>
+      <informaltable>
+        <tgroup cols="2">
+          <colspec colwidth="15pc"/>
+          <colspec colwidth="15pc"/>
+          <tbody>
+            <row>
+              <entry>uint8</entry>
+              <entry>BYTE</entry>
+            </row>
+            <row>
+              <entry>int8</entry>
+              <entry>CHAR</entry>
+            </row>
+            <row>
+              <entry>uint16</entry>
+              <entry>USHORT</entry>
+            </row>
+            <row>
+              <entry>int16</entry>
+              <entry>SHORT</entry>
+            </row>
+            <row>
+              <entry>uint32</entry>
+              <entry>ULONG</entry>
+            </row>
+            <row>
+              <entry>int32</entry>
+              <entry>LONG</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <para>Note that some of the offsets are of type 'Offset' and
+        are 16 bit quantities, while other offsets are of type 'ULONG'
+        and are 32 bit quantities. Since we represent a table in an
+        array, we are limited to Java-int offsets, so we have to
+        verify ULONG offsets.</para>
+      <code-fragment id="table.methods"><code-title>Data Access routines</code-title>
+  protected final int getuint8 (int offset) {
+    int x = data [offset];
+    if (x &lt; 0) {
+      x += 256; }
+    return x;
+  }
+
+  protected final int getint8 (int offset) {
+    return data [offset];
+  }
+
+  protected final void setuint8 (int offset, int v) {
+    data [offset] = (byte) (v &amp; 0xff);
+  }
+
+  protected final int getuint16 (int offset) {
+    int b1 = ((int)(getuint8 (offset    ))) &lt;&lt;  8;
+    int b2 = ((int)(getuint8 (offset + 1)));
+    return (b1 | b2);
+  }
+
+  protected final void setuint16 (int offset, int v) {
+    data [offset]   = (byte) ((v &gt;&gt; 8) &amp; 0xff);
+    data [offset+1] = (byte) ((v     ) &amp; 0xff);
+  }
+
+  protected final void setint16 (int offset, int v) {
+    setuint16 (offset, v); }
+
+  protected final int getuint24 (int offset) {
+    int b1 = ((int)(getuint8 (offset    ))) &lt;&lt; 16;
+    int b2 = ((int)(getuint8 (offset + 1))) &lt;&lt;  8;
+    int b3 = ((int)(getuint8 (offset + 2)));
+    return (b1 | b2 | b3);
+  }
+
+  protected final int getGlyphID (int offset) {
+    return getuint16 (offset);
+  }
+
+  protected final int getint16 (int offset) {
+    int x = ((int)data [offset]) * 256;
+    return x + getuint8 (offset + 1);
+  }
+
+  protected final int getOffset (int offset) {
+    return getuint16 (offset);
+  }
+
+  protected final int getOffset (int base, int offset) {
+    if (getOffset (base + offset) != 0) {
+      return base + getOffset (base + offset); }
+    else {
+      return 0; }
+  }
+
+  protected final long getuint32 (int offset) {
+    long b1 = ((long)(getuint8 (offset    ))) &lt;&lt; 24;
+    long b2 = ((long)(getuint8 (offset + 1))) &lt;&lt; 16;
+    long b3 = ((long)(getuint8 (offset + 2))) &lt;&lt;  8;
+    long b4 = ((long)(getuint8 (offset + 3)));
+    return (b1 | b2 | b3 | b4);
+  }
+
+  protected final int getint32 (int offset) {
+    int x = ((int)data [offset]) * 256;
+    x = (x + getuint8 (offset + 1)) * 256;
+    x = (x + getuint8 (offset + 2)) * 256;
+    return x + getuint8 (offset + 3);
+  }
+
+  protected final void setuint32 (int offset, int value) {
+    data [offset]   = (byte) ((value &gt;&gt; 24) &amp; 0xff);
+    data [offset+1] = (byte) ((value &gt;&gt; 16) &amp; 0xff);
+    data [offset+2] = (byte) ((value &gt;&gt;  8) &amp; 0xff);
+    data [offset+3] = (byte) (value         &amp; 0xff);
+  }
+
+  protected final void setint32 (int offset, int value) {
+    data [offset]   = (byte) ((value &gt;&gt; 24) &amp; 0xff);
+    data [offset+1] = (byte) ((value &gt;&gt; 16) &amp; 0xff);
+    data [offset+2] = (byte) ((value &gt;&gt;  8) &amp; 0xff);
+    data [offset+3] = (byte) (value         &amp; 0xff);
+  }
+
+  protected final int getLOffset (int offset) {
+    long o = getuint32 (offset);
+    if (o &gt; Integer.MAX_VALUE) {
+      System.out.println ("Offset too big!"); }
+    return (int) o;
+  }
+
+  protected final int getLOffset (int base, int offset) {
+    if (getLOffset (base + offset) != 0) {
+      return base + getLOffset (base + offset); }
+    else {
+      return 0; }
+  }
+
+  protected final int[] getFixed (int offset) {
+    int[] result = new int[2];
+    result[0] = getuint16 (offset);
+    result[1] = getuint16 (offset + 2);
+    return result;
+  }
+
+  protected final void setFixed (int offset, int major, int minor) {
+    setuint16 (offset, major);
+    setuint16 (offset + 2, minor);
+  }
+
+  protected final int getFWord (int offset) {
+    return getint16 (offset);
+  }
+
+  protected final int getuFWord (int offset) {
+    return getuint16 (offset);
+  }
+
+  protected final long getLONGDATETIME (int offset) {
+    long x = getint32 (offset) &lt;&lt; 32;
+    x += getuint32 (offset + 4);
+    return x;
+  }
+
+  public void setLONGDATETIME (int offset, long date) {
+    data [offset+0] = (byte) ((date &gt;&gt; 56) &amp; 0xff);
+    data [offset+1] = (byte) ((date &gt;&gt; 48) &amp; 0xff);
+    data [offset+2] = (byte) ((date &gt;&gt; 40) &amp; 0xff);
+    data [offset+3] = (byte) ((date &gt;&gt; 32) &amp; 0xff);
+    data [offset+4] = (byte) ((date &gt;&gt; 24) &amp; 0xff);
+    data [offset+5] = (byte) ((date &gt;&gt; 16) &amp; 0xff);
+    data [offset+6] = (byte) ((date &gt;&gt;  8) &amp; 0xff);
+    data [offset+7] = (byte) ((date      ) &amp; 0xff);
+  }
+
+  /** return the uint32 at <code>offset</code> in the table
+   * as an int.
+   * @param offset the offset of the uint32
+   * @param exceptionMsg the detail message for the exception, if thrown
+   * @throws  UnsupportedFontException if the value
+   * cannot be represented in an int.
+   */
+  protected final int getuint32asint (int offset, String exceptionMsg)
+      throws UnsupportedFontException {
+    if (getuint8 (offset) &gt; 0x7f) {
+      throw new UnsupportedFontException (exceptionMsg); }
+    return (int) getuint32 (offset);
+  }
+</code-fragment>
+      <para>Here is a class in which we collect common tag
+          values:</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Tag">
+package com.adobe.aots.CommonType;
+
+public class Tag {
+  static public final long ttcf = 0x74746366;
+
+  static public final long BASE = 0x42415345;
+  static public final long CFF  = 0x43464620;
+  static public final long DSIG = 0x44534947;
+  static public final long GDEF = 0x47444546;
+  static public final long GPOS = 0x47504f53;
+  static public final long GSUB = 0x47535542;
+  static public final long VORG = 0x564f5247;
+  static public final long cmap = 0x636d6170;
+  static public final long cvt  = 0x63767420;
+  static public final long head = 0x68656164;
+  static public final long hhea = 0x68686561;
+  static public final long hdmx = 0x68646d78;
+  static public final long hmtx = 0x686d7478;
+  static public final long vhea = 0x76686561;
+  static public final long vmtx = 0x766d7478;
+  static public final long fpgm = 0x6670676d;
+  static public final long glyf = 0x676c7966;
+  static public final long loca = 0x6c6f6361;
+  static public final long maxp = 0x6d617870;
+  static public final long name = 0x6e616d65;
+  static public final long os2  = 0x4f532f32;   // OS/2
+  static public final long post = 0x706f7374;
+  static public final long prep = 0x70726570;
+  static public final long VDMX = 0x56444d58;
+
+  // script tags
+
+  static public final long arab = 0x61726162;
+  static public final long armn = 0x61726d6e;
+  static public final long beng = 0x62656e67;
+  static public final long bopo = 0x626f706f;
+  static public final long brai = 0x62726169;
+  static public final long byzm = 0x62797a6d;
+  static public final long cans = 0x63616e73;
+  static public final long cher = 0x63686572;
+  static public final long hani = 0x68616e69;
+  static public final long cyrl = 0x6379726c;
+  static public final long deva = 0x64657661;
+  static public final long ethi = 0x65746869;
+  static public final long geor = 0x67656f72;
+  static public final long grek = 0x6772656b;
+  static public final long gujr = 0x67756a72;
+  static public final long guru = 0x67757277;
+  static public final long jamo = 0x6a6a6d6f;
+  static public final long hang = 0x68616e67;
+  static public final long hebr = 0x68656272;
+  static public final long knda = 0x6b6e6461;
+  static public final long latn = 0x6c61746e;
+  static public final long mlym = 0x6d6c796d;
+  static public final long mymr = 0x6d796d72;
+  static public final long telu = 0x74656c75;
+  static public final long thai = 0x74686169;
+
+
+  static public final long ARA  = 0x41524120;
+  static public final long BEN  = 0x42454e20;
+  static public final long BRM  = 0x42524d20;
+  static public final long ELL  = 0x454c4c20;
+  static public final long ENG  = 0x454e4720;
+  static public final long GAE  = 0x47414520;
+  static public final long GUJ  = 0x47554a20;
+  static public final long HIN  = 0x48494e20;
+  static public final long HYE  = 0x48594520;
+  static public final long IWR  = 0x49575220;
+  static public final long JAN  = 0x4a414e20;
+  static public final long KAN  = 0x4b414e20;
+  static public final long KOR  = 0x4b4f5220;
+  static public final long MAL  = 0x4d414c20;
+  static public final long MAR  = 0x4d415220;
+  static public final long MLR  = 0x4d4c5220;
+  static public final long PAL  = 0x50414c20;
+  static public final long PAN  = 0x50414e20;
+  static public final long PTG  = 0x50544720;
+  static public final long ROM  = 0x524f4d20;
+  static public final long RUS  = 0x52555320;
+  static public final long SAN  = 0x53414e20;
+  static public final long TEL  = 0x54454c20;
+  static public final long THA  = 0x54484120;
+  static public final long TUR  = 0x54555220;
+  static public final long VIT  = 0x56495420;
+  static public final long ZHS  = 0x5a485320;
+  static public final long ZHT  = 0x5a485420;
+
+  static public final long abvm = 0x6162766d;
+  static public final long abvs = 0x61627673;
+  static public final long akhn = 0x616b686e;
+  static public final long blwf = 0x626c7766;
+  static public final long blwm = 0x626c776d;
+  static public final long blws = 0x626c7773;
+  static public final long calt = 0x63616c74;
+  static public final long ccmp = 0x63636d70;
+  static public final long clig = 0x636c6967;
+  static public final long cswh = 0x63737768;
+  static public final long curs = 0x63757273;
+  static public final long dist = 0x64697374;
+  static public final long dlig = 0x646c6967;
+  static public final long dnom = 0x646e6f6d;
+  static public final long fina = 0x66696e61;
+  static public final long frac = 0x66726163;
+  static public final long half = 0x68616c66;
+  static public final long haln = 0x68616c6e;
+  static public final long init = 0x696e6974;
+  static public final long isol = 0x69736f6c;
+  static public final long kern = 0x6b65726e;
+  static public final long liga = 0x6c696761;
+  static public final long locl = 0x6c6f636c;
+  static public final long mark = 0x6d61726b;
+  static public final long medi = 0x6d656469;
+  static public final long mkmk = 0x6d6b6d6b;
+  static public final long mset = 0x6d736574;
+  static public final long nukt = 0x6e756b74;
+  static public final long numr = 0x6e756d72;
+  static public final long onum = 0x6f6e756d;
+  static public final long pnum = 0x706e756d;
+  static public final long pres = 0x70726573;
+  static public final long pstf = 0x70737466;
+  static public final long psts = 0x70737473;
+  static public final long rlig = 0x726c6967;
+  static public final long rphf = 0x72706866;
+  static public final long size = 0x73697a65;
+  static public final long subs = 0x73756273;
+  static public final long sups = 0x73757073;
+  static public final long vatu = 0x76617475;
+
+  public static String tag2string (long tag) {
+    char[] chars = new char[4];
+    for (int i = 3; i &gt;= 0; i--) {
+      chars [i] = (char)(tag &amp; 0xff);
+      if (chars [i] == 0x0) {
+        chars [i] = 0x20; }
+      tag = tag &gt;&gt; 8; }
+    return new String (chars);
+  }
+
+  public static long string2tag (String s) {
+    String t = s + "    ";
+    long result = 0;
+    for (int i = 0; i &lt; 4; i++) {
+      result = (result &lt;&lt; 8) + t.charAt (i); }
+    return result;
+  }
+
+  public static long[] string2tags (String s) {
+    String[] tags = s.split (",");
+    long[] result = new long [tags.length];
+    for (int i = 0; i &lt; result.length; i++) {
+      result [i] = string2tag (tags[i].trim ()); }
+    return result;
+  }
+}
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Version Numbers</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Most tables have version numbers, and the version number
+	  for the entire font is contained in the Table
+	  Directory. Note that there are two different table version
+	  number types, each with its own numbering scheme. USHORT
+	  version numbers always start at zero (0). Fixed version
+	  numbers always start at one (1.0 or 0x00010000), except
+	  where noted (<ottable>EBDT</ottable>,
+	  <ottable>EBLC</ottable> and <ottable>EBSC</ottable>
+	  tables).</para>
+      <para>Implementations reading tables must include code to
+        check version numbers so that if and when the format and
+        therefore the version number changes, older implementations
+        will reject newer versions gracefully, if the changes are
+        incompatible.</para>
+      <para>When a Fixed number is used as a version, the upper 16
+        bits comprise a major version number, and the lower 16 bits a
+        minor. Tables with non-zero minor version numbers always
+        specify the literal value of the version number since the
+        normal representation of Fixed numbers is not necessarily
+        followed. For example, the version number of
+        <ottable>maxp</ottable> table version 0.5 is 0x00005000, and
+        that of <ottable>vhea</ottable> table version 1.1 is
+        0x00011000. If an implementation understands a major version
+        number, then it can safely proceed reading the table. The
+        minor version number indicates extensions to the format that
+        are undetectable by implementations that do not support
+        them.</para>
+      <para>The only exception to this is the Offset Table's sfnt
+        version. This serves solely to identify whether the CommonType
+        font contains TrueType outlines (a value of 1.0) or CFF data
+        (the tag 'OTTO'), as described in the section below,
+        <link linkend="organization">Organization of an CommonType
+        font</link>.</para>
+      <para>When a USHORT number is used to indicate version, it
+        should be treated as though it were a minor version number;
+        i.e., all format changes are compatible extensions.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="version_subroutines"><code-title>Procedures to verify versions</code-title>
+
+  private void verifyFixedVersion (byte[] data, int offset, int major, int minor)
+    throws UnsupportedVersionException {
+    int actualMajor = getuint16 (data, offset);
+    int actualMinor = getuint16 (data, offset+2);
+
+    if (major != actualMajor || actualMinor &lt; minor) {
+      System.out.println ("major = " + major + "/" + actualMajor
+                          + " minor = " + minor + "/" + actualMinor);
+      throw new UnsupportedVersionException (); }
+  }
+
+  private void verifyUSHORTVersion (byte[] data, int offset, int minor)
+    throws UnsupportedVersionException {
+    int actualMinor = getuint16 (data, offset);
+    if (actualMinor &lt; minor) {
+      System.out.println ( " minor = " + minor + "/" + actualMinor);
+      throw new UnsupportedVersionException (); }
+  }
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment" id="organization">
+    <title>Organization of an CommonType Font</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>A key characteristic of the CommonType format is the
+        TrueType sfnt "wrapper", which provides organization for a
+        collection of tables in a general and extensible
+        manner.</para>
+      <para>The CommonType font file begins with the Offset Table. If
+	  the font file contains only one font, the Offset Table will
+	  begin at byte 0 of the file. If the font file is a TrueType
+	  collection, the beginning point of the Offset Table for each
+	  font is indicated in the TTCHeader.</para>
+      <otformat>
+        <title>Offset Table</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>Fixed</otfieldtype>
+          <otfieldname>sfnt version</otfieldname>
+          <otfielddesc>0x00010000 for version 1.0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numTables</otfieldname>
+          <otfielddesc>Number of tables.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>searchRange</otfieldname>
+          <otfielddesc>(Maximum power of 2 &lt;= numTables) x
+              16.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>entrySelector</otfieldname>
+          <otfielddesc>Log2(maximum power of 2 &lt;=
+              numTables).</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>10</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>rangeShift</otfieldname>
+          <otfielddesc>NumTables x 16-searchRange.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>CommonType fonts that contain TrueType outlines should use
+          the value of 1.0 for the sfnt version. CommonType fonts
+          containing CFF data should use the tag 'OTTO' as the sfnt
+          version number.</para>
+      <para>Note: The Apple specification for TrueType fonts allows
+	  for 'true' and 'typ1' for sfnt version. These version tags
+	  should not be used for fonts which contain CommonType
+	  tables.</para>
+      <para>The Offset Table is followed immediately by the Table
+          Directory entries. Entries in the Table Directory must be
+          sorted in ascending order by tag. Offset values in the Table
+          Directory are measured from the start of the font
+          file.</para>
+      <otformat>
+        <title>Table Directory</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>tag</otfieldname>
+          <otfielddesc>4 -byte identifier.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>checkSum</otfieldname>
+          <otfielddesc>CheckSum for this table.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>offset</otfieldname>
+          <otfielddesc>Offset from beginning of TrueType font
+              file.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>Length of this table.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The Table Directory makes it possible for a given font
+        to contain only those tables it actually needs. As a result
+        there is no standard value for numTables.</para>
+      <para>Tags are the names given to tables in the CommonType font
+        file. All tag names consist of four characters. Names with
+        less than four letters are allowed if followed by the
+        necessary trailing spaces. All tag names defined within a font
+        (e.g., table names, feature tags, language tags) must be built
+        from printing characters represented by ASCII values
+        32-126</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>For clarity, is may be worth to add "or 'OTTO'" to the
+          description of the field snft version in the first
+          table. I realize that the paragraph following the table
+          makes that clear, but users of the specification familiar
+          with it are likely to look at the tables only.</para>
+      <para>The type of the tag field in the second table should
+          probably be 'Tag'.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="table.methods"><code-title>Compilation methods</code-title>
+  public Element getTarget (Element e, String tagMustBe) {
+    return getTarget (e);
+  }
+
+  public Element getTarget (Element e) {
+    String targetName = e.getAttribute ("target");
+    Element target = e.getOwnerDocument ().getElementById (targetName);
+    if (target == null) {
+      warning ("cannot find element with id '" + targetName + "'"); }
+    return target;
+  }
+
+  public int getIndex (Element e) {
+    return Integer.parseInt (getTarget (e).getAttribute ("index"));
+  }
+
+  public int[] getGlyphs (String s) {
+
+    return parseGlyphList (s);
+  }
+
+  public int countGlyphs (String s) {
+    return getGlyphs (s).length;
+  }
+
+  public static int parseOneInt (String s) {
+    int radix = 10;
+    int start = 0;
+
+    if (   s.length() &gt;= 2
+        &amp;&amp; s.charAt (0) == '0'
+        &amp;&amp; s.charAt (1) == 'x') {
+      start += 2;
+      radix = 16; }
+
+    return Integer.parseInt (s.substring (start), radix);
+  }
+
+  public static int[] parseIntList (String s) {
+    int i;
+    int len = s.length ();
+    int count = 0;
+
+    i = 0;
+    while (i &lt; len) {
+      while (i &lt; len &amp;&amp; s.charAt (i) == ' ') {
+        i++; }
+      if (i == len) {
+        break; }
+      int j = i;
+      while (i &lt; len &amp;&amp; s.charAt (i) != ' ') {
+        i++; }
+      String x = s.substring (j, i);
+      int column = x.indexOf (':');
+      if (column != -1) {
+        int v1 = parseOneInt (x.substring (0, column));
+	int v2 = parseOneInt (x.substring (column + 1));
+        count += v2 - v1 + 1; }
+      else {
+        count++; }}
+
+    int[] list = new int [count];
+
+    i = 0;
+    count = 0;
+    while (i &lt; len) {
+      while (i &lt; len &amp;&amp; s.charAt (i) == ' ') {
+        i++; }
+      if (i == len) {
+        break; }
+      int start = i;
+      while (i &lt; len &amp;&amp; s.charAt (i) != ' ') {
+        i++; }
+
+      String x = s.substring (start, i);
+      int column = x.indexOf (':');
+      if (column != -1) {
+        int v1 = parseOneInt (x.substring (0, column));
+	int v2 = parseOneInt (x.substring (column + 1));
+        for (int k = v1; k &lt;= v2; k++) {
+          list [count++] = k; }}
+      else {
+        list [count++] = parseOneInt (x); }}
+
+    return list;
+  }
+
+
+  public int parseOneGlyph (String s) {
+    if (font.post != null) {
+      int gid = font.post.getGid (s);
+      if (gid != -1) {
+        return gid; }}
+
+    if (   s.length() &gt;= 2
+        &amp;&amp; s.charAt (0) == '0'
+        &amp;&amp; s.charAt (1) == 'x') {
+      return Integer.parseInt (s.substring (2), 16); }
+
+    return Integer.parseInt (s);
+  }
+
+  public int[] parseGlyphList (String s) {
+    int i;
+    int len = s.length ();
+    int count = 0;
+
+    i = 0;
+    while (i &lt; len) {
+      while (i &lt; len &amp;&amp; s.charAt (i) == ' ') {
+        i++; }
+      if (i == len) {
+        break; }
+      int j = i;
+      while (i &lt; len &amp;&amp; s.charAt (i) != ' ') {
+        i++; }
+      String x = s.substring (j, i);
+      int column = x.indexOf (':');
+      if (column != -1) {
+        int v1 = parseOneGlyph (x.substring (0, column));
+	int v2 = parseOneGlyph (x.substring (column + 1));
+        count += v2 - v1 + 1; }
+      else {
+        count++; }}
+
+    int[] list = new int [count];
+
+    i = 0;
+    count = 0;
+    while (i &lt; len) {
+      while (i &lt; len &amp;&amp; s.charAt (i) == ' ') {
+        i++; }
+      if (i == len) {
+        break; }
+      int start = i;
+      while (i &lt; len &amp;&amp; s.charAt (i) != ' ') {
+        i++; }
+
+      String x = s.substring (start, i);
+      int column = x.indexOf (':');
+      if (column != -1) {
+        int v1 = parseOneGlyph (x.substring (0, column));
+	int v2 = parseOneGlyph (x.substring (column + 1));
+        for (int k = v1; k &lt;= v2; k++) {
+          list [count++] = k; }}
+      else {
+        list [count++] = parseOneGlyph (x); }}
+
+    return list;
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="table.methods"><code-title>Decompilation methods</code-title>
+  protected String glyphToXML (DecompilerConfig conf, int gid) {
+    if (conf.glyphNames != null) {
+      return conf.glyphNames [gid]; }
+    else {
+      return "" + gid; }
+  }
+
+  protected void glyphToXML (DecompilerConfig conf, StringBuilder s, int gid) {
+    if (s.length () != 0) {
+      s.append (' '); }
+    if (conf.glyphNames != null) {
+      s.append (conf.glyphNames [gid]); }
+    else {
+      s.append (gid); }
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <para>Each table type is implemented as a class; all those
+          classes derive from the class Table. Note that we record the
+          font to which a table belong when creating it; this allows
+          one table to access other tables when performing some
+          operation (such as GSUB using GDEF).</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Table">
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+import java.io.InputStream;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public abstract class Table {
+  protected long tag;
+  protected Font font;
+
+  public Table (long tag) {
+    this.tag = tag;
+    this.font = null;
+  }
+
+  public Table (long tag, Font font) {
+    this.tag = tag;
+    this.font = font;
+  }
+
+  public long getTag () {
+    return tag;
+  }
+  <code-include linkend="table.methods"/>
+}
+</code-fragment>
+      <code-fragment id="schema">
+  unknownTable =
+    element unknownTable {
+      attribute tag { text },
+      text
+    }
+</code-fragment>
+      <code-fragment package="com.adobe.aots.CommonType" class="UnknownTable">
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+public class UnknownTable extends Table {
+  public UnknownTable (long tag, Font font) {
+    super (tag, font);
+  }
+
+  public void fromXML (Element e)
+    throws InvalidFontException, UnsupportedFontException {
+
+    // TODO: recover the content
+  }
+
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException,
+             InvalidFontException,
+             UnsupportedFontException {
+
+    AttributesImpl at = new AttributesImpl ();
+    at.addAttribute ("", "tag", "tag", "CDATA", Tag.tag2string (tag));
+
+    conf.ch.startElement ("unknownTable", at); {
+       // TODO: dump the content of the table
+       conf.ch.endElement ("unknownTable"); }
+  }
+}
+</code-fragment>
+      <para>Each subclass of Table will essentially hold an internal
+          representation of the table, and provide methods to access
+          the data in the table, or may be apply that data (e.g. GSUB
+          and GPOS).</para>
+      <para>The internal representation can be built from two
+          sources: from an actual font file or from an XML
+          representation of the font; this is achieved by the
+          fromBinary and fromXML methods. Similarly, the internal
+          representation can be expressed as either a fragment of a
+          font, or in XML; this is achieved by the toBinary and toXML
+          methods.</para>
+      <para>In many cases, the internal representation is actually
+          the binary form of the table, and a couple of methods are
+          trivial. The Table class provides an implementation for that
+          case.</para>
+      <code-fragment id="table.methods"><code-title>Import/export methods</code-title>
+  public byte[] data;
+
+  public int fromBinary (InputStream in, int length)
+      throws IOException, InvalidFontException {
+    data = new byte [length];
+    return in.read (data);
+  }
+
+  public byte[] toBinary () {
+    return data;
+  }
+
+  abstract public void fromXML (Element e)
+    throws InvalidFontException, UnsupportedFontException;
+
+  abstract public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException,
+             InvalidFontException,
+             UnsupportedFontException;
+</code-fragment>
+      <para>Technically, the header is not a table, but it is
+        convenient for our purposes to pretend so.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Header"><code-title>Header class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.Iterator;
+import java.io.InputStream;
+import java.io.IOException;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Header extends Table {
+
+  public Header () {
+    super (0, null);
+  }
+
+  public Header (Font font) {
+    super (0, font);
+  }
+
+  <code-include linkend="header.methods"/>
+
+  public void toXML (DecompilerConfig conf) {
+     // never called
+  }
+  public void fromXML (Element cmap)
+      throws InvalidFontException, UnsupportedFontException {
+     // never called
+  }
+}
+</code-fragment>
+      <para>The fromBinary method has a slightly different
+          signature: the header contains its own size, which is not
+          generally true for the other tables.</para>
+      <code-fragment id="header.methods"><code-title>Header.fromBinary</code-title>
+  public int fromBinary (InputStream in)
+      throws IOException, InvalidFontException {
+    byte top[] = new byte[12];
+    int curOffset = in.read (top);
+
+    data = top;
+
+    if (getuint32 (0) == Tag.ttcf) {
+      return fromTTCBinary2 (in, 0, curOffset, top); }
+
+    int numTables = getuint16 (4);
+
+    data = new byte [curOffset + numTables*16];
+    System.arraycopy (top, 0, data, 0, curOffset);
+    int m = in.read (data, curOffset, numTables*16);
+
+    return curOffset + m;
+  }
+
+  public int fromTTCBinary (InputStream in, int ttcIndex)
+       throws IOException, InvalidFontException {
+
+    int curOffset = 0;
+
+    byte top[] = new byte [12];
+    curOffset += in.read (top);
+
+    data = top;
+
+    return fromTTCBinary2 (in, ttcIndex, curOffset, top);
+  }
+
+  public int fromTTCBinary2 (InputStream in, int ttcIndex, int curOffset, byte[] top)
+       throws IOException, InvalidFontException {
+
+    long tag = getuint32 (0);
+    if (tag != Tag.ttcf) {
+      throw new InvalidFontException ("invalid TTCTag"); }
+
+    long version = getuint32 (4);
+    long ttcCount = getuint32 (8);
+    int ttcHeaderSize = 0;
+
+    if (version == 0x00010000) {
+      ttcHeaderSize = 12 + 4 * (int)(ttcCount); }
+    else if (version == 0x00020000) {
+      ttcHeaderSize = 24 + 4 * (int)(ttcCount); }
+    else {
+      throw new InvalidFontException ("invalid TTHeader version"); }
+
+    if (ttcIndex &gt;= ttcCount) {
+      throw new InvalidFontException ("no such font (ttcIndex=" +
+                   ttcIndex + ", ttcCount=" + ttcCount + ")"); }
+
+    data = new byte [ttcHeaderSize];
+    System.arraycopy (top, 0, data, 0, 12);
+    curOffset += in.read (data, 12, ttcHeaderSize - 12);
+
+    long offsetTableOffset = getuint32 (12 + ttcIndex * 4);
+
+    while (curOffset != offsetTableOffset) {
+      curOffset += in.skip (offsetTableOffset - curOffset); }
+
+    curOffset += fromBinary (in);
+
+    return curOffset;
+  }
+</code-fragment>
+      <para>Often, we will need to iterate over the tables. Here is
+          a helper class to describe a table:</para>
+      <code-fragment id="header.methods"><code-title>Helper class TableDesc</code-title>
+  public class TableDesc {
+    public long tag;
+    public int offset;
+    public int length;
+  };
+
+  public class TableDescByTag extends TableDesc implements Comparable {
+    public int compareTo (Object o) {
+      TableDesc td = (TableDesc) o;
+      if (this.tag &gt; td.tag) {
+        return 1; }
+      else if (this.tag == td.tag) {
+        return 0; }
+      else {
+        return -1; }}
+  };
+
+  public class TableDescByOffset extends TableDesc implements Comparable {
+    public int compareTo (Object o) {
+      TableDesc td = (TableDesc) o;
+      if (this.offset &gt; td.offset) {
+        return 1; }
+      else if (this.offset == td.offset) {
+        return 0; }
+      else {
+        return -1; }}
+  };
+</code-fragment>
+      <para>And here is an iterator given an array of
+          TableDesc:</para>
+      <code-fragment id="header.methods"><code-title>Helper class TableIterator</code-title>
+  private class TablesIterator implements Iterator {
+    private TableDesc[] tds;
+    private int current;
+
+    public TablesIterator (TableDesc[] tds) {
+      this.current = 0;
+      this.tds = tds;
+    }
+
+    public boolean hasNext () {
+      return current &lt; tds.length;
+    }
+
+    public Object next () {
+      return tds [current++];
+    }
+
+    public void remove () {
+    }
+  };
+</code-fragment>
+      <para>Our first iterator returns the tables by increasing tag
+          values.</para>
+      <code-fragment id="header.methods"><code-title>Helper class TableDesc</code-title>
+  public Iterator tablesByTag () {
+    TableDesc[] tds = new TableDesc [getuint16 (4)];
+    for (int i = 0; i &lt; tds.length; i++) {
+      tds [i] = new TableDescByTag ();
+      tds [i].tag    = getuint32   (12 + 16*i);
+      tds [i].offset = getLOffset (12 + 16*i + 8);
+      tds [i].length = getLOffset (12 + 16*i + 12); }
+
+    java.util.Arrays.sort (tds);
+
+    return new TablesIterator (tds);
+  }
+
+  public Iterator tablesByOffset () {
+    TableDesc[] tds = new TableDesc [getuint16 (4)];
+    for (int i = 0; i &lt; tds.length; i++) {
+      tds [i] = new TableDescByOffset ();
+      tds [i].tag    = getuint32   (12 + 16*i);
+      tds [i].offset = getLOffset (12 + 16*i + 8);
+      tds [i].length = getLOffset (12 + 16*i + 12); }
+
+    java.util.Arrays.sort (tds);
+
+    return new TablesIterator (tds);
+  }
+</code-fragment>
+      <code-fragment id="table.methods">
+  protected void warning (String msg) {
+    System.out.println ("Warning: " + msg);
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="validation">
+      <title>Validation</title>
+      <para>When validating a table, we want to make sure that there
+          is are no "dead" pieces in it, and that we don't have
+          pointers in the middle. Here are some helper methods:</para>
+      <code-fragment id="table.methods"><code-title> </code-title>
+  class Range {
+    public String s;
+    public int from;
+    public int size;
+    public boolean exclusive;
+
+    public Range (String s, int from, int size, boolean exclusive) {
+      this.s = s;
+      this.from = from;
+      this.size = size;
+      this.exclusive = exclusive;
+    }};
+
+  private int nbRanges = 0;
+  private Range[] ranges = null;
+
+  public boolean claim (String s, int from, int size) {
+    return claim (s, from, size, true);
+  }
+
+  public boolean claim (String s, int from, int size, boolean exclusive) {
+    if (data.length &lt; from + size) {
+      System.out.println ("cannot claim " + size + " bytes from 0x"
+                          + Integer.toHexString (from) + " for " + s);
+      return false; }
+
+    if (ranges == null) {
+      ranges = new Range [100]; }
+
+    if (nbRanges == ranges.length) {
+      Range[] temp = new Range [nbRanges + 100];
+      System.arraycopy (ranges, 0, temp, 0, nbRanges);
+      ranges = temp; }
+
+    ranges [nbRanges++] = new Range (s, from, size, exclusive);
+
+    return true;
+  }
+
+  public void reportError (String s) {
+    System.out.println ("Error: " + s);
+  }
+
+  public void reportMistake (String s) {
+    System.out.println ("Mistake: " + s);
+  }
+
+  public void reportWarning (String s) {
+    System.out.println ("Warning: " + s);
+  }
+
+  public void report () {
+    String[] mask = new String [data.length];
+    boolean[] exclusive = new boolean [data.length];
+
+    for (int b = 0; b &lt; mask.length; b++) {
+      mask [b] = null; }
+
+    for (int r = 0; r &lt; nbRanges; r++) {
+      for (int b = ranges [r].from; b &lt; ranges [r].from + ranges [r].size; b++) {
+
+        if (mask [b] != null) {
+          if (exclusive [b] || ranges[r].exclusive) {
+            System.out.println ("byte 0x" + Integer.toHexString (b)
+                                + " claimed by both '"
+                                + mask[b] + "' and '" + ranges[r].s); }}
+        else {
+          mask [b] = ranges [r].s;
+          exclusive [b] = ranges [r].exclusive; }}}
+
+    for (int b = 0; b &lt; mask.length; b++) {
+      if (mask[b] == null) {
+        System.out.println ("byte 0x" + Integer.toHexString (b)
+                            + " not claimed"); }}
+  }
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Calculating Checksums</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Table checksums are the unsigned sum of the longs of a
+        given table. In C, the following function can be used to
+        determine a checksum:</para>
+      <literallayout>
+ULONG
+CalcTableChecksum(ULONG *Table, ULONG Length)
+{
+ULONG Sum = 0L;
+ULONG *Endptr = Table+((Length+3) &amp; ~3) / sizeof(ULONG);
+
+while (Table &lt; EndPtr)
+        Sum += *Table++;
+return Sum;
+}
+</literallayout>
+      <blockquote>
+        <para>Note: This function implies that the length of a table
+          must be a multiple of four bytes. In fact, a font is not
+          considered structurally proper without the correct padding.
+          All tables must begin on four byte boundries, and any
+          remaining space between tables is padded with zeros. The
+          length of all tables should be recorded in the table
+          directory with their actual length (not their padded
+          length).</para>
+      </blockquote>
+      <para>To calculate the checkSum for the <ottable>head</ottable>
+          table which itself includes the checkSumAdjustment entry for
+          the entire font, do the following:</para>
+      <orderedlist>
+        <listitem>
+          <para>Set the checkSumAdjustment to 0.</para>
+        </listitem>
+        <listitem>
+          <para>Calculate the checksum for all the tables including
+              the <ottable>head</ottable> table and enter that value
+              into the table directory.</para>
+        </listitem>
+        <listitem>
+          <para>Calculate the checksum for the entire font.</para>
+        </listitem>
+        <listitem>
+          <para>Subtract that value from the hex value B1B0AFBA.</para>
+        </listitem>
+        <listitem>
+          <para>Store the result in checkSumAdjustment.</para>
+        </listitem>
+      </orderedlist>
+      <para>The checkSum for the head table which includes the
+          checkSumAdjustment entry for the entire font is now
+          incorrect. That is not a problem. Do not change it. An
+          application attempting to verify that the <ottable>head</ottable> table has
+          not changed should calculate the checkSum for that table by
+          not including the checkSumAdjustment value, and compare the
+          result with the entry in the table directory.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <para>Here is a method to compile the checksum of a byte
+          sequence:</para>
+      <code-fragment id="font.methods"><code-title>Checksum method</code-title>
+  private long checksum (byte[] data) {
+    long checksum = 0;
+    int i = 0;
+    while (i &lt; data.length) {
+      int b1 = data [i++] &amp; 0xff;
+
+      int b2 = 0;
+      if (i &lt; data.length) {
+        b2 = data [i++] &amp; 0xff; }
+
+      int b3 = 0;
+      if (i &lt; data.length) {
+        b3 = data [i++] &amp; 0xff; }
+
+      int b4 = 0;
+      if (i &lt; data.length) {
+        b4 = data [i++] &amp; 0xff; }
+
+      int word = b1 &lt;&lt; 24 | b2 &lt;&lt;16 | b3 &lt;&lt; 8 | b4;
+      checksum = (checksum + word) &amp; 0xffffffffL; }
+
+    return checksum;
+  }
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>TrueType Collections</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>A TrueType Collection (TTC) is a means of delivering
+        multiple CommonType fonts in a single file structure. TrueType
+        Collections are most useful when the fonts to be delivered
+        together share many glyphs in common. By allowing multiple
+        fonts to share glyph sets, TTCs can result in a significant
+        saving of file space.</para>
+      <para>For example, a group of Japanese fonts may each have
+        their own designs for the kana glyphs, but share identical
+        designs for the kanji. With ordinary CommonType font files, the
+        only way to include the common kanji glyphs is to copy their
+        glyph data into each font. Since the kanji represent much more
+        data than the kana, this results in a great deal of wasteful
+        duplication of glyph data. TTCs were defined to solve this
+        problem.</para>
+      <para>The CFF rasterizer does not currently support TTC
+        files.</para>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>The TTC File Structure</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>A TrueType Collection file consists of a single TTC
+	  Header table, one or more Offset Tables with Table
+	  Directories, and a number of CommonType tables. The TTC Header
+	  must be located at the beginning of the TTC file.</para>
+      <para>Each CommonType table in a TTC file is referenced through
+	  the Offset Table and Table Directories of each font which
+	  uses that table. Some of the CommonType tables must appear multiple
+	  times, once for each font included in the TTC; while other
+	  tables should be shared by multiple fonts in the TTC.</para>
+      <para>As an example, consider a TTC file which combines two
+          Japanese fonts (Font1 and Font2). The fonts have different
+          kana designs (Kana1 and Kana2) but use the same design for
+          kanji. The TTC file contains a single
+          <ottable>glyf</ottable> table which includes both designs of
+          kana together with the kanji; both fonts' Table Directories
+          point to this <ottable>glyf</ottable> table. But each font's
+          Table Directory points to a different
+          <ottable>cmap</ottable> table, which identifies the glyph
+          set to use. Font1's <ottable>cmap</ottable> table points to
+          the Kana1 region of the <ottable>loca</ottable> and
+          <ottable>glyf</ottable> tables for kana glyphs, and to the
+          kanji region for the kanji. Font2's <ottable>cmap</ottable>
+          table points to the Kana2 region of the
+          <ottable>loca</ottable> and <ottable>glyf</ottable> tables
+          for kana glyphs, and to the same kanji region for the
+          kanji.</para>
+      <para>The tables that should have a unique copy per font are
+          those that are used by the system in identifying the font
+          and its character mapping, including
+          <ottable>cmap</ottable>, <ottable>name</ottable>, and
+          <ottable>OS/2</ottable>. The tables that should be shared by
+          fonts in the TTC are those that define glyph and instruction
+          data or use glyph indices to access data:
+          <ottable>glyf</ottable>, <ottable>loca</ottable>,
+          <ottable>hmtx</ottable>, <ottable>hdmx</ottable>,
+          <ottable>LTSH</ottable>, <ottable>cvt </ottable>,
+          <ottable>fpgm</ottable>, <ottable>prep</ottable>,
+          <ottable>EBLC</ottable>, <ottable>EBDT</ottable>,
+          <ottable>EBSC</ottable>, <ottable>maxp</ottable>, and so
+          on. In practice, any tables which have identical data for
+          two or more fonts may be shared.</para>
+      <para>A tool is available from Microsoft to help build .TTC
+          files. The process involves paying close attention the issue
+          of glyph renumbering in a font and the side effects that can
+          result, in the <ottable>cmap</ottable> table and elsewhere.
+          The fonts to be merged must also have compatible TrueType
+          instructions-that is, their preprograms, function
+          definitions, and control values must not conflict.</para>
+      <para>TrueType Collection files use the filename suffix
+        .TTC.</para>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>TTC Header</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>There are two versions of the TTC Header: Version 1.0
+        has been used for TTC files without digital
+        signatures. Version 2.0 can be used for TTC files with or
+        without digital signatures ’ if there's no signature, then
+        the last three fields of the version 2.0 header are left
+        null</para>
+      <para>If a digital signature is used, the DSIG table for the
+        file must be the last table in the TTC file. Signatures in a
+        TTC file are expected to be Format 1 signatures</para>
+      <para>The purpose of the TTC Header table is to locate the
+        different Offset Tables within a TTC file. The TTC Header
+        is located at the beginning of the TTC file (offset = 0). It
+        consists of an identification tag, a version number, a count
+        of the number of CommonType fonts (Table Directories) in the
+        file, and an array of offsets to each Offset Table.</para>
+      <otformat>
+        <title>TTC Header Version 1.0</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>TAG</otfieldtype>
+          <otfieldname>TTCTag</otfieldname>
+          <otfielddesc>TrueType Collection ID string:
+              'ttcf'</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>Version</otfieldname>
+          <otfielddesc>Version of the TTC Header (1.0),
+              0x00010000</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>numFonts</otfieldname>
+          <otfielddesc>Number of fonts in the TTC</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>OffsetTable [numFonts]</otfieldname>
+          <otfielddesc>Array of offsets to Offset Table for each
+	      font from the beginning of the file</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>ulDsigTag</otfieldname>
+          <otfielddesc>Tag indicating that a DSIG table exists. This
+              tag should equal 0x44534947 (<ottable>DSIG</ottable>)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>20</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>ulDsigLength</otfieldname>
+          <otfielddesc>The length (in bytes) of the DSIG
+              table</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>24</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>ulDsigOffset</otfieldname>
+          <otfielddesc>The offset (in bytes) of the DSIG table from
+              the beginning of the TTC file</otfielddesc>
+        </otfield>
+      </otformat>
+      <otformat>
+        <title>TTC Header Version 2.0</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>TAG</otfieldtype>
+          <otfieldname>TTCTag</otfieldname>
+          <otfielddesc>TrueType Collection ID string:
+              'ttcf'</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>Version</otfieldname>
+          <otfielddesc>Version of the TTC Header (2.0),
+              0x00020000</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>numFonts</otfieldname>
+          <otfielddesc>Number of fonts in TTC</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>OffsetTable [numFonts]</otfieldname>
+          <otfielddesc>Array of offsets to Offset Table for each
+	      font from the beginning of the file</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>ulDsigTag</otfieldname>
+          <otfielddesc>Tag
+            indicating that a DSIG table exists, 0x44534947
+            (<ottable>DSIG</ottable>) (null if no
+            signature)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>20</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>ulDsigLength</otfieldname>
+          <otfielddesc>The length (in bytes) of the DSIG table (null
+              if no signature)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>24</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>ulDsigOffset</otfieldname>
+          <otfielddesc>The offset (in bytes) of the DSIG table from
+              the beginning of the TTC file (null if no
+              signature)</otfielddesc>
+        </otfield>
+      </otformat>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>The type of the TTCTag field in both format should
+          probably be 'Tag' instead of 'TAG'.</para>
+      <para>The value of the Version field in both tables seems to
+          be wrong; it's missing a 0 at the end.</para>
+      <para>The description of the difference between version 1.0
+          and version 2.0 seems to contradict the content of the
+          version 1.0 table. If a version 1.0 table is for files
+          without a digital signature, what is the meaning of the
+          fields ulDsigTag, ulDsigLength and ulDsigOffset?</para>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Font Tables</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>  The rasterizer has a much easier time traversing
+        tables if they are padded so that each table begins on a
+        4-byte boundary. It is highly recommended that all tables be
+        long-aligned and padded with zeroes.</para>
+    </section>
+  </section>
+</section>

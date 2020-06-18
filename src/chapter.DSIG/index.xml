@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.DSIG">
+  <title>DSIG - Digital Signature Table</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The DSIG table contains the digital signature of the
+          CommonType font. Signature formats are widely documented and
+          rely on a key pair architecture. Software developers, or
+          publishers posting material on the Internet, create
+          signatures using a private key. Operating systems or
+          applications authenticate the signature using a public
+          key.</para>
+      <para>The W3C and major software and operating system
+          developers have specified security standards that describe
+          signature formats, specify secure collections of web
+          objects, and recommend authentication architecture. CommonType
+          fonts with signatures will support these standards.</para>
+      <para>CommonType fonts offer many security features:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Operating systems and browsing applications can
+              identify the source and integrity of font files before
+              using them,</para>
+        </listitem>
+        <listitem>
+          <para>Font developers can specify embedding restrictions
+              in CommonType fonts, and these restrictions cannot be
+              altered in a font signed by the developer. </para>
+        </listitem>
+      </itemizedlist>
+      <para>The enforcement of signatures is an administrative
+          policy, enabled by the operating system. Windows will soon
+          require installed software components, including fonts, to
+          be signed. Internet browsers will also give users and
+          administrators the ability to screen out unsigned objects
+          obtained on-line, including web pages, fonts, graphics, and
+          software components.</para>
+      <para>Anyone can obtain identity certificates and encryption
+          keys from a certifying agency, such as Verisign or GTE's
+          Cybertrust, free or at a very low cost.</para>
+      <para>The DSIG table is organized as follows. The first
+          portion of the table is the header:</para>
+      <otformat>
+        <title>DSIG Header</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>ulVersion</otfieldname>
+          <otfielddesc>Version number of the DSIG
+              table (0x00000001)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>usNumSigs</otfieldname>
+          <otfielddesc>Number of signatures in the
+              table</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>usFlag</otfieldname>
+          <otfielddesc>
+            <para>permission flags</para>
+            <para>Bit 0: cannot be resigned</para>
+            <para>Bit 1-7: Reserved (Set to 0)</para>
+          </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The version of the DSIG table is expressed as a ULONG,
+	  beginning at 0. The version of the DSIG table currently used
+	  is version 1 (0x00000001).</para>
+      <para>Permission bit 0 allows a party signing the font to
+	  prevent any other parties from also signing the font
+	  (counter-signatures). If this bit is set to zero (0) the
+	  font may have a signature applied over the existing digital
+	  signature(s). A party who wants to ensure that their
+	  signature is the last signature can set this bit.</para>
+      <para>The DSIG header information is followed by entries for each
+          of the signatures in the table specifying format and offset
+          information:</para>
+      <otformat>
+        <title>Format/Offset Table</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>ulFormat</otfieldname>
+          <otfielddesc>format of the signature</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>ulLength</otfieldname>
+          <otfielddesc>Length of signature in bytes</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>ulOffset</otfieldname>
+          <otfielddesc>Offset to the signature block from the
+              beginning of the table</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This information is then followed by one or more
+          signature blocks:</para>
+      <otformat>
+        <title>Signature Block</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>usReserved1</otfieldname>
+          <otfielddesc>Reserved for later use; 0 for
+              now</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>usReserved2</otfieldname>
+          <otfielddesc>Reserved for later use; 0 for
+              now</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>cbSignature</otfieldname>
+          <otfielddesc>Length (in bytes) of the PKCS#7 packet in
+              pbSignature</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>BYTE[]</otfieldtype>
+          <otfieldname>bSignature</otfieldname>
+          <otfielddesc>PKCS#7 packet</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The format identifier specifies both the format of the
+          signature object, as well as the hashing algorithm used to
+          create and authenticate the signature. Currently only one
+          format is defined, but at least one other format will soon
+          be defined to handle subsetting scenarios. Format 1 supports
+          PKCS#7 signatures with X.509 certificates and
+          counter-signatures, as these signatures have been
+          standardized for use by the W3C with the participation of
+          numerous software developers.</para>
+      <para>For more information about PKCS#7 signatures, see <ulink url="ftp://ftp.rsa.com/pub/pkcs/ascii/pkcs-7.asc">ftp://ftp.rsa.com/pub/pkcs/ascii/pkcs-7.asc</ulink>.</para>
+      <para>For more information about counter-signatures, see
+          <ulink url="ftp://ftp.rsa.com/pub/pkcs/ascii/pkcs-9.asc">ftp://ftp.rsa.com/pub/pkcs/ascii/pkcs-9.asc</ulink>.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>It is unclear what is measured by the field ulLength in
+	a Format/Offset table: it is the length of the Signature Block
+	table, or the length of the bSignature array in that table? In
+	either case, this seems to be a redundant value, and its
+	correlation to the cbSignature field should be noted. Looking
+	at Adobe fonts, it seems that we interpreted it as the length
+	of the signature block.</para>
+      <para>The Format/Offset Table is a misnommer. This is actually
+	a <emphasis>record</emphasis>, not a
+	<emphasis>table</emphasis>, since it is not
+	pointed. Similarly, the DSIG header should be augmented by an
+	array of those records.</para>
+      <para>The reference point of the ulOffset field in the
+        Format/Offset is unclear. It is from the beginning of the DSIG
+        table, or from the beginning of the Format/Offset record (thus
+        being inconsistent with the layout tables)? Looking at Adobe
+        fonts, it seems that we interpreted it as the relative to the
+        beginning of the DSIG table.</para>
+      <para>The Signature Block is a misnommer. This is actually a
+	<emphasis>table</emphasis>, not a <emphasis>block</emphasis>.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="zzzxml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+  DSIG =
+    element DSIG {
+      attribute version { "1" },
+      attribute flags { text },
+      element signature {
+        attribute format { text },
+        text
+      }*
+    }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="dsig.methods">
+  public void fromXML (Element table)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Map&lt;Element, Block&gt; blockCache = new HashMap&lt;Element, Block&gt; ();
+
+    NodeList children = table.getChildNodes ();
+
+    Block me = new Block (8 + children.getLength () * 12, children.getLength ());
+    me.setuint32 (0, 1);
+    me.setuint16 (4, children.getLength ());
+    me.setuint16 (6, Integer.parseInt (table.getAttribute ("flags")));
+
+    int offset = 8;
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element s = (Element) children.item (i);
+      byte [] data = decodeBinaryFromXML (s.getFirstChild ().getNodeValue ());
+      Block signatureBlock = new Block (data.length, 0);
+      for (int j = 0; j &lt; data.length; j++) {
+        signatureBlock.setuint8 (j, data [j]); }
+
+      me.setuint32 (offset, Integer.parseInt (s.getAttribute ("format")));
+      me.setuint32 (offset + 4, signatureBlock.content.length);
+      me.setBigOffset (offset + 8, signatureBlock); }
+
+    data = me.serialize ();
+  }
+
+  byte[] decodeBinaryFromXML (String s) {
+    ByteBuffer bb = new ByteBuffer (256);
+
+    char[] ch = s.toCharArray ();
+
+    int i = 0;
+    while (i &lt; ch.length) {
+      if ('%' == ch [i]) {
+        i++;
+        int b = Integer.parseInt (new String (ch, i, 2), 16);
+        i += 2;
+        bb.addCard8 (b); }
+
+      else {
+        i++; }}
+
+    return bb.toArray ();
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="dsig.methods"><code-title>Decompile a DSIG table</code-title>
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    AttributesImpl at = new AttributesImpl ();
+    at.addAttribute ("", "version", "version", "CDATA", "" + getuint32 (0));
+    at.addAttribute ("", "flags", "flags", "CDATA", "" + getuint16 (6));
+
+    conf.ch.startElement ("DSIG", at); {
+      for (int i = 0; i &lt; getuint16 (4); i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "format", "format", "CDATA",
+                         "" + getuint32 (8 + 12*i));
+        conf.ch.startElement ("signature", at); {
+          int offset = (int)getuint32 (8 + 12*i + 8);
+          conf.ch.characters (toXML (offset,
+                              (int)getuint32 (8 + 12*i + 4)));
+          conf.ch.endElement ("signature"); }}
+      conf.ch.endElement ("DSIG"); }
+  }
+
+  public String toXML (int offset, int length) {
+    StringBuilder s = new StringBuilder ();
+    char[] digits = {'0', '1', '2', '3', '4', '5', '6', '7',
+                     '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+    for (int i = offset; i &lt; offset + length; i++) {
+      s.append ('%');
+      s.append (digits [(data[i] &gt;&gt;4) &amp; 0xf]);
+      s.append (digits [data[i]       &amp; 0xf]);
+      s.append (' '); }
+
+    return s.toString ();
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Dsig"><code-title>DSIG Class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Dsig extends Table {
+
+  public Dsig () {
+    super (Tag.DSIG, null);
+  }
+
+  public Dsig (Font font) {
+    super (Tag.DSIG, font);
+  }
+
+  <code-include linkend="dsig.methods"/>
+
+  public int[] getTableVersion () {
+    return getFixed (0);
+  }
+}
+</code-fragment>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 1: For whole fonts, with either TrueType outlines
+        and/or CFF data</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>PKCS#7 or PKCS#9. The signed content digest is created
+          as follows:</para>
+      <itemizedlist>
+        <listitem>
+          <para>If there is an existing DSIG table in the
+              font,</para>
+          <itemizedlist>
+            <listitem>
+              <para>Remove DSIG table from font.</para>
+              <para>Remove DSIG table entry from sfnt Table
+                  Directory.</para>
+              <para>Adjust table offsets as necessary.</para>
+              <para>Zero out the file checksum in the head
+                  table.</para>
+              <para>Add the usFlag (reserved, set at 1 for now) to
+                  the stream of bytes</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>Hash the full stream of bytes using a secure one-way
+              hash (such as MD5) to create the content digest.</para>
+        </listitem>
+        <listitem>
+          <para>Create the PKCS#7 signature block using the content
+              digest.</para>
+        </listitem>
+        <listitem>
+          <para>Create a new DSIG table containing the signature
+              block.</para>
+        </listitem>
+        <listitem>
+          <para>Add the DSIG table to the font, adjusting table
+              offsets as necessary.</para>
+        </listitem>
+        <listitem>
+          <para>Add a DSIG table entry to the sfnt Table
+              Directory.</para>
+        </listitem>
+        <listitem>
+          <para>Recalculate the checksum in the head table.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Prior to signing a font file, ensure that all the
+          following attributes are true.</para>
+      <itemizedlist>
+        <listitem>
+          <para>The magic number in the head table is
+              correct.</para>
+        </listitem>
+        <listitem>
+          <para>Given the number of tables value in the offset
+              table, the other values in the offset table are
+              consistent.</para>
+        </listitem>
+        <listitem>
+          <para>The tags of the tables are ordered alphabetically
+              and there are no duplicate tags.</para>
+        </listitem>
+        <listitem>
+          <para>The offset of each table is a multiple of 4. (That
+              is, tables are long word aligned.)</para>
+        </listitem>
+        <listitem>
+          <para>The first actual table in the file comes immediately
+              after the directory of tables.</para>
+        </listitem>
+        <listitem>
+          <para>If the tables are sorted by offset, then for all
+              tables i (where index 0 means the the table with the
+              smallest offset), Offset[i] + Length[i] &lt;= Offset[i+1]
+              and Offset[i] + Length[i] &gt;= Offset[i+1] - 3. In other
+              words, the tables do not overlap, and there are at most
+              3 bytes of padding between tables.</para>
+        </listitem>
+        <listitem>
+          <para>The pad bytes between tables are all zeros.</para>
+        </listitem>
+        <listitem>
+          <para>The offset of the last table in the file plus its
+              length is not greater than the size of the file.</para>
+        </listitem>
+        <listitem>
+          <para>The checksums of all tables are correct.</para>
+        </listitem>
+        <listitem>
+          <para>The head table's checkSumAdjustment field is
+              correct.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Signatures for TrueType Collections</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The <ottable>DSIG</ottable> table for a TrueType
+	  Collection (TTC) must be the last table in the TTC file. The
+	  offset and checksum to the table is put in the TTCHeader
+	  (version 2). Signatures of TTC files are expected to be
+	  Format 1 signatures.</para>
+      <para>The signature of a TTC file applies to the entire file,
+	  not to the individual fonts contained within the
+	  TTC. Signing the TTC file ensures that other contents are
+	  not added to the TTC.</para>
+      <para>Individual fonts included in a TrueType collection
+	  should not be individually signed as the process of making
+	  the TTC could invalidate the signature on the font.</para>
+    </section>
+  </section>
+</section>

@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.vhea">
+  <title>vhea - Vertical Header Table</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Overview</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>The vertical header table (tag name:
+        <ottable>vhea</ottable>) contains information needed for
+        vertical fonts. The glyphs of vertical fonts are written
+        either top to bottom or bottom to top. This table contains
+        information that is general to the font as a
+        whole. Information that pertains to specific glyphs is given
+        in the vertical metrics table (tag name:
+        <ottable>vmtx</ottable>) described separately. The formats of
+        these tables are similar to those for horizontal metrics (hhea
+        and hmtx).</para>
+      <para>Data in the vertical header table must be consistent
+          with data that appears in the vertical metrics table. The
+          advance height and top sidebearing values in the vertical
+          metrics table must correspond with the maximum advance
+          height and minimum bottom sidebearing values in the vertical
+          header table.</para>
+      <para>See the section "CommonType CJK Font Guidelines" for more
+          information about constructing CJK (Chinese, Japanese, and
+          Korean) fonts.</para>
+      <para>The difference between version 1.0 and version 1.1 is
+	  the name and definition of: <itemizedlist><listitem><para>ascender becomes vertTypoAscender</para></listitem><listitem><para>descender becomes vertTypoDescender</para></listitem><listitem><para>lineGap becomes vertTypoLineGap</para></listitem></itemizedlist></para>
+      <para>The vertical header table format follows: Vertical
+          Header Table</para>
+      <otformat>
+        <title>Version 1.0</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>Fixed</otfieldtype>
+          <otfieldname>version</otfieldname>
+          <otfielddesc>Version number of the vertical header table;
+              0x0001000 for version 1.0</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>ascent</otfieldname>
+          <otfielddesc>Distance in FUnits from the centerline to the
+	      previous line’ descent.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>descent</otfieldname>
+          <otfielddesc>Distance in FUnits from the centerline to
+	      the next line’s ascent.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>lineGap</otfieldname>
+          <otfielddesc>Reserved; set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>10</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>advanceHeightMax</otfieldname>
+          <otfielddesc>The maximum advance height measurement
+	      — in FUnits — found in the font. This value
+	      must be consistent with the entries in the vertical metrics
+              table.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>minTop</otfieldname>
+          <otfielddesc>The minimum top sidebearing measurement found
+              in the font, in FUnits. This value must be consistent
+              with the entries in the vertical metrics
+              table.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>14</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>minBottom</otfieldname>
+          <otfielddesc>The minimum bottom sidebearing measurement
+              found in the font, in FUnits. This value must be
+              consistent with the entries in the vertical metrics
+              table. </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>yMaxExtent</otfieldname>
+          <otfielddesc>Defined as yMaxExtent=minTopSideBearing +
+              (yMax - yMin)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>18</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>caretSlopeRise</otfieldname>
+          <otfielddesc>The value of the caretSlopeRise field divided
+              by the value of the caretSlopeRun Field determines the
+              slope of the caret. A value of 0 for the rise and a
+              value of 1 for the run specifies a horizontal caret. A
+              value of 1 for the rise and a value of 0 for the run
+              specifies a vertical caret. Intermediate values are
+              desirable for fonts whose glyphs are oblique or italic.
+              For a vertical font, a horizontal caret is
+              best.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>20</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>caretSlopeRun</otfieldname>
+          <otfielddesc>See the caretSlopeRise field. Value=1 for
+              nonslanted vertical fonts.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>22</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>caretOffset</otfieldname>
+          <otfielddesc>The amount by which the highlight on a
+              slanted glyph needs to be shifted away from the glyph in
+              order to produce the best appearance. Set value equal to
+              0 for nonslanted fonts.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>24</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>26</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>28</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>30</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>32</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>metricDataFormat</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>34</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numOfLongVerMetrics</otfieldname>
+          <otfielddesc>Number of advance heights in the vertical
+              metrics table.</otfielddesc>
+        </otfield>
+      </otformat>
+      <otformat>
+        <title>Version 1.1</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>Fixed</otfieldtype>
+          <otfieldname>version</otfieldname>
+          <otfielddesc>Version number of the vertical header table;
+              0x00011000 for version 1.1. Note the representation of a
+              non-zero fractional part, in Fixed
+              numbers.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>vertTypoAscender</otfieldname>
+          <otfielddesc>The vertical typographic ascender for this
+              font. It is the distance in FUnits from the ideographic
+              em-box center baseline for the vertical axis to the
+              right of the ideographic em-box and is usually set to
+              (head.unitsPerEm)/2. For example, a font with an em of
+              1000 fUnits will set this field to 500. See the baseline
+              section of the CommonType Tag Registry for a description
+              of the ideographic em-box. </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>vertTypoDescender</otfieldname>
+          <otfielddesc>The vertical typographic descender for this
+              font. It is the distance in FUnits from the ideographic
+              em-box center baseline for the horizontal axis to the
+              left of the ideographic em-box and is usually set to
+              (head.unitsPerEm)/2. For example, a font with an em of
+              1000 fUnits will set this field to 500.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>vertTypoLineGap</otfieldname>
+          <otfielddesc>The vertical typographic gap for this font.
+              An application can determine the recommended line
+              spacing for single spaced vertical text for an CommonType
+              font by the following expression: ideo embox width +
+              vhea.vertTypoLineGap </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>10</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>advanceHeightMax</otfieldname>
+          <otfielddesc>The maximum advance height measurement -in
+              FUnits found in the font. This value must be consistent
+              with the entries in the vertical metrics
+              table.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>minTopSideBearing</otfieldname>
+          <otfielddesc>The minimum top sidebearing measurement found
+              in the font, in FUnits. This value must be consistent
+              with the entries in the vertical metrics
+              table.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>14</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>minBottomSideBearing</otfieldname>
+          <otfielddesc>The minimum bottom sidebearing measurement
+              found in the font, in FUnits. This value must be
+              consistent with the entries in the vertical metrics
+              table. </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>yMaxExtent</otfieldname>
+          <otfielddesc>Defined as yMaxExtent=minTopSideBearing +
+              (yMax - yMin)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>18</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>caretSlopeRise</otfieldname>
+          <otfielddesc>The value of the caretSlopeRise field divided
+              by the value of the caretSlopeRun Field determines the
+              slope of the caret. A value of 0 for the rise and a
+              value of 1 for the run specifies a horizontal caret. A
+              value of 1 for the rise and a value of 0 for the run
+              specifies a vertical caret. Intermediate values are
+              desirable for fonts whose glyphs are oblique or italic.
+              For a vertical font, a horizontal caret is
+              best.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>20</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>caretSlopeRun</otfieldname>
+          <otfielddesc>See the caretSlopeRise field. Value=1 for
+              nonslanted vertical fonts.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>22</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>caretOffset</otfieldname>
+          <otfielddesc>The amount by which the highlight on a
+              slanted glyph needs to be shifted away from the glyph in
+              order to produce the best appearance. Set value equal to
+              0 for nonslanted fonts.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>24</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>26</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>28</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>30</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>32</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>metricDataFormat</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>34</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>numOfLongVerMetrics</otfieldname>
+          <otfielddesc>Number of advance heights in the vertical
+              metrics table.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Vertical Header Table Example</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0/4</otfieldoffs>
+          <otfieldtype>0x00011000</otfieldtype>
+          <otfieldname>version</otfieldname>
+          <otfielddesc>Version number of the vertical header table,
+              in fixed-point format, is 1.1 </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4/2</otfieldoffs>
+          <otfieldtype>1024</otfieldtype>
+          <otfieldname>vertTypoAscender</otfieldname>
+          <otfielddesc>Half the em-square height.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6/2</otfieldoffs>
+          <otfieldtype>-1024</otfieldtype>
+          <otfieldname>vertTypoDescender</otfieldname>
+          <otfielddesc>Minus half the em-square
+              height.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8/2</otfieldoffs>
+          <otfieldtype>0</otfieldtype>
+          <otfieldname>vertTypoLineGap</otfieldname>
+          <otfielddesc>Typographic line gap is 0
+              FUnits.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>10/2</otfieldoffs>
+          <otfieldtype>2079</otfieldtype>
+          <otfieldname>advanceHeightMax</otfieldname>
+          <otfielddesc>The maximum advance height measurement found
+              in the font is 2079 FUnits.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12/2</otfieldoffs>
+          <otfieldtype>-342</otfieldtype>
+          <otfieldname>minTopSideBearing</otfieldname>
+          <otfielddesc>The minimum top sidebearing measurement found
+              in the font is -342 FUnits.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>14/2</otfieldoffs>
+          <otfieldtype>-333</otfieldtype>
+          <otfieldname>minBottomSideBearing</otfieldname>
+          <otfielddesc>The minimum bottom sidebearing measurement
+              found in the font is -333 FUnits.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16/2</otfieldoffs>
+          <otfieldtype>2036</otfieldtype>
+          <otfieldname>yMaxExtent</otfieldname>
+          <otfielddesc>minTopSideBearing +
+              (yMax-yMin)=2036.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>18/2</otfieldoffs>
+          <otfieldtype>0</otfieldtype>
+          <otfieldname>caretSlopeRise</otfieldname>
+          <otfielddesc>The caret slope rise of 0 and a caret slope
+              run of 1 indicate a horizontal caret for a vertical
+              font.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>20/2</otfieldoffs>
+          <otfieldtype>1</otfieldtype>
+          <otfieldname>caretSlopeRun</otfieldname>
+          <otfielddesc>The caret slope rise of 0 and a caret slope
+              run of 1 indicate a horizontal caret for a vertical
+              font.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>22/2</otfieldoffs>
+          <otfieldtype>0</otfieldtype>
+          <otfieldname>caretOffset</otfieldname>
+          <otfielddesc>Value set to 0 for nonslanted
+              fonts.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>24/4</otfieldoffs>
+          <otfieldtype>0</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>26/2</otfieldoffs>
+          <otfieldtype>0</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>28/2</otfieldoffs>
+          <otfieldtype>0</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>30/2</otfieldoffs>
+          <otfieldtype>0</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>32/2</otfieldoffs>
+          <otfieldtype>0</otfieldtype>
+          <otfieldname>metricDataFormat</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>34/2</otfieldoffs>
+          <otfieldtype>258</otfieldtype>
+          <otfieldname>numOfLongVerMetrics</otfieldname>
+          <otfielddesc>Number of advance heights in the vertical
+              metrics table is 258.</otfielddesc>
+        </otfield>
+      </otformat>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>??</code-title>
+vhea =
+  element vhea {
+    attribute major { text },
+    attribute minor { text },
+    element typo {
+      attribute ascender  { text },
+      attribute descender { text },
+      attribute lineGap   { text }
+    },
+    element advanceHeightMax {
+      attribute v { text }
+    },
+    element minTopSideBearing {
+      attribute v { text }
+    },
+    element minBottomSideBearing {
+      attribute v { text }
+    },
+    element yMaxExtent {
+      attribute v { text }
+    },
+    element caret {
+      attribute slopeRise { text },
+      attribute slopeRun { text },
+      attribute offset { text }
+    },
+    element numberOfVMetrics {
+      attribute v { text }
+    }
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="vhea.methods">
+  public void fromXML (Element vhea)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me = new Block (36, 0);
+
+    me.setFixed (0,
+                 Integer.decode (vhea.getAttribute ("major")).intValue (),
+                 Integer.decode (vhea.getAttribute ("minor")).intValue ());
+
+    NodeList children = vhea.getChildNodes ();
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element e = (Element) children.item (i);
+
+      if ("typo".equals (e.getTagName ())) {
+        me.setFWord (4, Integer.decode (e.getAttribute ("ascender")).intValue());
+        me.setFWord (6, Integer.decode (e.getAttribute ("descender")).intValue());
+        me.setFWord (8, Integer.decode (e.getAttribute ("lineGap")).intValue()); }
+
+      if ("advanceHeightMax".equals (e.getTagName ())) {
+        me.setuFWord (10, Integer.decode (e.getAttribute ("v")).intValue()); }
+
+      if ("minTopSideBearing".equals (e.getTagName ())) {
+        me.setFWord (12, Integer.decode (e.getAttribute ("v")).intValue()); }
+
+      if ("minBottomSideBearing".equals (e.getTagName ())) {
+        me.setFWord (14, Integer.decode (e.getAttribute ("v")).intValue()); }
+
+      if ("yMaxExtent".equals (e.getTagName ())) {
+        me.setFWord (16, Integer.decode (e.getAttribute ("v")).intValue()); }
+
+      if ("caret".equals (e.getTagName ())) {
+        me.setint16 (18, Integer.decode (e.getAttribute ("slopeRise")).intValue());
+        me.setint16 (20, Integer.decode (e.getAttribute ("slopeRun")).intValue());
+        me.setint16 (22, Integer.decode (e.getAttribute ("offset")).intValue()); }
+
+      if ("numberOfVMetrics".equals (e.getTagName ())) {
+        me.setint16 (34, Integer.decode (e.getAttribute ("v")).intValue()); }}
+
+    me.setint16 (24, 0);
+    me.setint16 (26, 0);
+    me.setint16 (28, 0);
+    me.setint16 (30, 0);
+    me.setint16 (32, 0);
+
+    data = me.serialize ();
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="vhea.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    AttributesImpl at;
+
+    int [] version = getFixed (0);
+    at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
+    conf.ch.startElement ("vhea", at); {
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "ascender", "ascent", "CDATA", "" + getFWord (4));
+      at.addAttribute ("", "descender", "descent", "CDATA", "" + getFWord (6));
+      at.addAttribute ("", "lineGap", "lineGap", "CDATA", "" +  getFWord (8));
+      conf.ch.element ("typo", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getuFWord (10) );
+      conf.ch.element ("advanceHeightMax", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getFWord (12) );
+      conf.ch.element ("minTopSideBearing", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getFWord (14) );
+      conf.ch.element ("minBottomSideBearing", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getFWord (16) );
+      conf.ch.element ("yMaxExtent", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "slopeRise", "slopeRise", "CDATA", "" +  getint16 (18) );
+      at.addAttribute ("", "slopeRun", "slopeRun", "CDATA", "" +  getint16 (20) );
+      at.addAttribute ("", "offset", "offset", "CDATA", "" +  getint16 (22) );
+      conf.ch.element ("caret", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getNumberOfVMetrics ());
+      conf.ch.element ("numberOfVMetrics", at);
+
+      conf.ch.endElement ("vhea"); }
+  }
+</code-fragment>
+    </section>
+    <!--________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <para>Here is the class definition for <ottable>vhea</ottable>
+          tables:</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Vhea"><code-title>Vhea class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Vhea extends Table {
+
+  public Vhea () {
+    super (Tag.vhea, null);
+  }
+
+  public Vhea (Font font) {
+    super (Tag.vhea, font);
+  }
+
+  <code-include linkend="vhea.methods"/>
+}
+</code-fragment>
+      <para>We have simple accessor functions:</para>
+      <code-fragment id="vhea.methods"><code-title>Vhea class</code-title>
+  public int getNumberOfVMetrics () {
+    return getuint16 (34);
+  }
+
+  public void setNumberOfVMetrics (int n) {
+    setuint16 (34, n);
+  }
+</code-fragment>
+    </section>
+  </section>
+</section>

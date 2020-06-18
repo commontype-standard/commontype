@@ -12,28 +12,28 @@ all::
 clean::
 	rm -fr html docbook
 
-htmls: html/opentype.html html/cff.html html/type2.html
+htmls: html/commontype.html html/cff.html html/type2.html
 
-gh-pages:
-	git checkout gh-pages
-	git merge reformat -m "Merge reformat"
+publish:
+	git checkout master
+	git merge source -m "Merge source"
 	make mdhtml
 	git commit -m "Rebuild" *.md
 	git push
-	git checkout reformat
+	git checkout source
 
-docbooks: docbook/opentype.docbook docbook/cff.docbook docbook/type2.docbook
+docbooks: docbook/commontype.docbook docbook/cff.docbook docbook/type2.docbook
 
-# markdown: docbook/opentype.docbook
+# markdown: docbook/commontype.docbook
 # 	mkdir -p markdown
-# 	pandoc --from docbook --to gfm --section-divs $< > markdown/opentype.md
-# 	gcsplit --prefix='aots' --suffix-format='%03d.md' markdown/opentype.md "/^# /" "{*}"
+# 	pandoc --from docbook --to gfm --section-divs $< > markdown/commontype.md
+# 	gcsplit --prefix='aots' --suffix-format='%03d.md' markdown/commontype.md "/^# /" "{*}"
 
-docbook/opentype.docbook : src/opentype.xml xsl/aots2docbook.xsl
+docbook/commontype.docbook : src/commontype.xml xsl/aots2docbook.xsl
 	mkdir -p docbook
-	$(xslt) -s:src/opentype.xml -xsl:xsl/aots2docbook.xsl -o:docbook/opentype.docbook fontdir=../tests/ tracedir=../tests/
+	$(xslt) -s:src/commontype.xml -xi -xsl:xsl/aots2docbook.xsl -o:docbook/commontype.docbook fontdir=../tests/ tracedir=../tests/
 
-mdhtml : docbook/opentype.docbook
+mdhtml : docbook/commontype.docbook
 	xsltproc \
 		--path "$(DB) $(DB)/xhtml" \
 		--stringparam chunk.section.depth 0 \
@@ -42,7 +42,7 @@ mdhtml : docbook/opentype.docbook
 		--stringparam chunker.standalone 1 \
 		--stringparam chunker.output.omit-xml-declaration yes \
 		--stringparam use.id.as.filename 1 \
-		 xsl/mychunk.xsl docbook/opentype.docbook
+		 xsl/mychunk.xsl docbook/commontype.docbook
 	perl src/build-navigation.pl
 	rename -f 's/.html/.md/' *.html
 

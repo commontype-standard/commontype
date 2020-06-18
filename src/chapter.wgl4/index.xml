@@ -1,0 +1,4679 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.wgl4">
+  <title>WGL4.0 Character Set</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Characters</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <informaltable>
+        <tgroup cols="5">
+          <thead>
+            <row>
+              <entry>Unicode</entry>
+              <entry>Postscript Name</entry>
+              <entry>Descriptive Name</entry>
+              <entry>MacChar</entry>
+              <entry>MacIndex</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry/>
+              <entry>.notdef</entry>
+              <entry/>
+              <entry/>
+              <entry>0</entry>
+            </row>
+            <row>
+              <entry/>
+              <entry/>
+              <entry/>
+              <entry>0x0</entry>
+              <entry>1</entry>
+            </row>
+            <row>
+              <entry/>
+              <entry/>
+              <entry/>
+              <entry>0xd</entry>
+              <entry>2</entry>
+            </row>
+            <row>
+              <entry>U+0020</entry>
+              <entry>space</entry>
+              <entry>space</entry>
+              <entry>0x20</entry>
+              <entry>3</entry>
+            </row>
+            <row>
+              <entry>U+0021</entry>
+              <entry>exclam</entry>
+              <entry>exclamation mark</entry>
+              <entry>0x21</entry>
+              <entry>4</entry>
+            </row>
+            <row>
+              <entry>U+0022</entry>
+              <entry>quotedbl</entry>
+              <entry>quotation mark</entry>
+              <entry>0x22</entry>
+              <entry>5</entry>
+            </row>
+            <row>
+              <entry>U+0023</entry>
+              <entry>numbersign</entry>
+              <entry>number sign</entry>
+              <entry>0x23</entry>
+              <entry>6</entry>
+            </row>
+            <row>
+              <entry>U+0024</entry>
+              <entry>dollar</entry>
+              <entry>dollar sign</entry>
+              <entry>0x24</entry>
+              <entry>7</entry>
+            </row>
+            <row>
+              <entry>U+0025</entry>
+              <entry>percent</entry>
+              <entry>percent sign</entry>
+              <entry>0x25</entry>
+              <entry>8</entry>
+            </row>
+            <row>
+              <entry>U+0026</entry>
+              <entry>ampersand</entry>
+              <entry>ampersand</entry>
+              <entry>0x26</entry>
+              <entry>9</entry>
+            </row>
+            <row>
+              <entry>U+0027</entry>
+              <entry>quotesingle</entry>
+              <entry>apostrophe</entry>
+              <entry>0x27</entry>
+              <entry>10</entry>
+            </row>
+            <row>
+              <entry>U+0028</entry>
+              <entry>parenleft</entry>
+              <entry>left parenthesis </entry>
+              <entry>0x28</entry>
+              <entry>11</entry>
+            </row>
+            <row>
+              <entry>U+0029</entry>
+              <entry>parenright</entry>
+              <entry>right parenthesis</entry>
+              <entry>0x29</entry>
+              <entry>12</entry>
+            </row>
+            <row>
+              <entry>U+002a</entry>
+              <entry>asterisk</entry>
+              <entry>asterisk</entry>
+              <entry>0x2a</entry>
+              <entry>13</entry>
+            </row>
+            <row>
+              <entry>U+002b</entry>
+              <entry>plus</entry>
+              <entry>plus sign</entry>
+              <entry>0x2b</entry>
+              <entry>14</entry>
+            </row>
+            <row>
+              <entry>U+002c</entry>
+              <entry>comma</entry>
+              <entry>comma</entry>
+              <entry>0x2c</entry>
+              <entry>15</entry>
+            </row>
+            <row>
+              <entry>U+002d</entry>
+              <entry>hyphen</entry>
+              <entry>hyphen-minus</entry>
+              <entry>0x2d</entry>
+              <entry>16</entry>
+            </row>
+            <row>
+              <entry>U+002e</entry>
+              <entry>period</entry>
+              <entry>period</entry>
+              <entry>0x2e</entry>
+              <entry>17</entry>
+            </row>
+            <row>
+              <entry>U+002f</entry>
+              <entry>slash</entry>
+              <entry>slash</entry>
+              <entry>0x2f</entry>
+              <entry>18</entry>
+            </row>
+            <row>
+              <entry>U+0030</entry>
+              <entry>zero</entry>
+              <entry>digit zero</entry>
+              <entry>0x30</entry>
+              <entry>19</entry>
+            </row>
+            <row>
+              <entry>U+0031</entry>
+              <entry>one</entry>
+              <entry>digit one</entry>
+              <entry>0x31</entry>
+              <entry>20</entry>
+            </row>
+            <row>
+              <entry>U+0032</entry>
+              <entry>two</entry>
+              <entry>digit two</entry>
+              <entry>0x32</entry>
+              <entry>21</entry>
+            </row>
+            <row>
+              <entry>U+0033</entry>
+              <entry>three</entry>
+              <entry>digit three</entry>
+              <entry>0x33</entry>
+              <entry>22</entry>
+            </row>
+            <row>
+              <entry>U+0034</entry>
+              <entry>four</entry>
+              <entry>digit four</entry>
+              <entry>0x34</entry>
+              <entry>23</entry>
+            </row>
+            <row>
+              <entry>U+0035</entry>
+              <entry>five</entry>
+              <entry>digit five</entry>
+              <entry>0x35</entry>
+              <entry>24</entry>
+            </row>
+            <row>
+              <entry>U+0036</entry>
+              <entry>six</entry>
+              <entry>digit six</entry>
+              <entry>0x36</entry>
+              <entry>25</entry>
+            </row>
+            <row>
+              <entry>U+0037</entry>
+              <entry>seven</entry>
+              <entry>digit seven</entry>
+              <entry>0x37</entry>
+              <entry>26</entry>
+            </row>
+            <row>
+              <entry>U+0038</entry>
+              <entry>eight</entry>
+              <entry>digit eight</entry>
+              <entry>0x38</entry>
+              <entry>27</entry>
+            </row>
+            <row>
+              <entry>U+0039</entry>
+              <entry>nine</entry>
+              <entry>digit nine</entry>
+              <entry>0x39</entry>
+              <entry>28</entry>
+            </row>
+            <row>
+              <entry>U+003a</entry>
+              <entry>colon</entry>
+              <entry>colon</entry>
+              <entry>0x3a</entry>
+              <entry>29</entry>
+            </row>
+            <row>
+              <entry>U+003b</entry>
+              <entry>semicolon</entry>
+              <entry>semicolon</entry>
+              <entry>0x3b</entry>
+              <entry>30</entry>
+            </row>
+            <row>
+              <entry>U+003c</entry>
+              <entry>less</entry>
+              <entry>less-than sign</entry>
+              <entry>0x3c</entry>
+              <entry>31</entry>
+            </row>
+            <row>
+              <entry>U+003d</entry>
+              <entry>equal</entry>
+              <entry>equals sign</entry>
+              <entry>0x3d</entry>
+              <entry>32</entry>
+            </row>
+            <row>
+              <entry>U+003e</entry>
+              <entry>greater</entry>
+              <entry>greater-than sign</entry>
+              <entry>0x3e</entry>
+              <entry>33</entry>
+            </row>
+            <row>
+              <entry>U+003f</entry>
+              <entry>question</entry>
+              <entry>question mark</entry>
+              <entry>0x3f</entry>
+              <entry>34</entry>
+            </row>
+            <row>
+              <entry>U+0040</entry>
+              <entry>at</entry>
+              <entry>commercial at</entry>
+              <entry>0x40</entry>
+              <entry>35</entry>
+            </row>
+            <row>
+              <entry>U+0041</entry>
+              <entry>A</entry>
+              <entry>latin capital letter a</entry>
+              <entry>0x41</entry>
+              <entry>36</entry>
+            </row>
+            <row>
+              <entry>U+0042</entry>
+              <entry>B</entry>
+              <entry>latin capital letter b</entry>
+              <entry>0x42</entry>
+              <entry>37</entry>
+            </row>
+            <row>
+              <entry>U+0043</entry>
+              <entry>C</entry>
+              <entry>latin capital letter c</entry>
+              <entry>0x43</entry>
+              <entry>38</entry>
+            </row>
+            <row>
+              <entry>U+0044</entry>
+              <entry>D</entry>
+              <entry>latin capital letter d</entry>
+              <entry>0x44</entry>
+              <entry>39</entry>
+            </row>
+            <row>
+              <entry>U+0045</entry>
+              <entry>E</entry>
+              <entry>latin capital letter e</entry>
+              <entry>0x45</entry>
+              <entry>40</entry>
+            </row>
+            <row>
+              <entry>U+0046</entry>
+              <entry>F</entry>
+              <entry>latin capital letter f</entry>
+              <entry>0x46</entry>
+              <entry>41</entry>
+            </row>
+            <row>
+              <entry>U+0047</entry>
+              <entry>G</entry>
+              <entry>latin capital letter g</entry>
+              <entry>0x47</entry>
+              <entry>42</entry>
+            </row>
+            <row>
+              <entry>U+0048</entry>
+              <entry>H</entry>
+              <entry>latin capital letter h</entry>
+              <entry>0x48</entry>
+              <entry>43</entry>
+            </row>
+            <row>
+              <entry>U+0049</entry>
+              <entry>I</entry>
+              <entry>latin capital letter i</entry>
+              <entry>0x49</entry>
+              <entry>44</entry>
+            </row>
+            <row>
+              <entry>U+004a</entry>
+              <entry>J</entry>
+              <entry>latin capital letter j</entry>
+              <entry>0x4a</entry>
+              <entry>45</entry>
+            </row>
+            <row>
+              <entry>U+004b</entry>
+              <entry>K</entry>
+              <entry>latin capital letter k</entry>
+              <entry>0x4b</entry>
+              <entry>46</entry>
+            </row>
+            <row>
+              <entry>U+004c</entry>
+              <entry>L</entry>
+              <entry>latin capital letter l</entry>
+              <entry>0x4c</entry>
+              <entry>47</entry>
+            </row>
+            <row>
+              <entry>U+004d </entry>
+              <entry/>
+              <entry>latin capital letter m</entry>
+              <entry>0x4d </entry>
+              <entry>48</entry>
+            </row>
+            <row>
+              <entry>U+004e</entry>
+              <entry>N</entry>
+              <entry>latin capital letter n</entry>
+              <entry>0x4e</entry>
+              <entry>49</entry>
+            </row>
+            <row>
+              <entry>U+004f</entry>
+              <entry>O</entry>
+              <entry>latin capital letter o</entry>
+              <entry>0x4f</entry>
+              <entry>50</entry>
+            </row>
+            <row>
+              <entry>U+0050</entry>
+              <entry>P</entry>
+              <entry>latin capital letter p</entry>
+              <entry>0x50</entry>
+              <entry>51</entry>
+            </row>
+            <row>
+              <entry>U+0051</entry>
+              <entry>Q</entry>
+              <entry>latin capital letter q</entry>
+              <entry>0x51</entry>
+              <entry>52</entry>
+            </row>
+            <row>
+              <entry>U+0052</entry>
+              <entry>R</entry>
+              <entry>latin capital letter r</entry>
+              <entry>0x52</entry>
+              <entry>53</entry>
+            </row>
+            <row>
+              <entry>U+0053</entry>
+              <entry>S</entry>
+              <entry>latin capital letter s</entry>
+              <entry>0x53</entry>
+              <entry>54</entry>
+            </row>
+            <row>
+              <entry>U+0054</entry>
+              <entry>T</entry>
+              <entry>latin capital letter t</entry>
+              <entry>0x54</entry>
+              <entry>55</entry>
+            </row>
+            <row>
+              <entry>U+0055</entry>
+              <entry>U</entry>
+              <entry>latin capital letter u</entry>
+              <entry>0x55</entry>
+              <entry>56</entry>
+            </row>
+            <row>
+              <entry>U+0056</entry>
+              <entry>V</entry>
+              <entry>latin capital letter v</entry>
+              <entry>0x56</entry>
+              <entry>57</entry>
+            </row>
+            <row>
+              <entry>U+0057</entry>
+              <entry>W</entry>
+              <entry>latin capital letter w</entry>
+              <entry>0x57</entry>
+              <entry>58</entry>
+            </row>
+            <row>
+              <entry>U+0058</entry>
+              <entry>X</entry>
+              <entry>latin capital letter x</entry>
+              <entry>0x58</entry>
+              <entry>59</entry>
+            </row>
+            <row>
+              <entry>U+0059</entry>
+              <entry>Y</entry>
+              <entry>latin capital letter y</entry>
+              <entry>0x59</entry>
+              <entry>60</entry>
+            </row>
+            <row>
+              <entry>U+005a</entry>
+              <entry>Z</entry>
+              <entry>latin capital letter z</entry>
+              <entry>0x5a</entry>
+              <entry>61</entry>
+            </row>
+            <row>
+              <entry>U+005b</entry>
+              <entry>bracketleft</entry>
+              <entry>left square bracket</entry>
+              <entry>0x5b</entry>
+              <entry>62</entry>
+            </row>
+            <row>
+              <entry>U+005c</entry>
+              <entry>backslash</entry>
+              <entry>backslash</entry>
+              <entry>0x5c</entry>
+              <entry>63</entry>
+            </row>
+            <row>
+              <entry>U+005d</entry>
+              <entry>bracketright</entry>
+              <entry>right square bracket</entry>
+              <entry>0x5d</entry>
+              <entry>64</entry>
+            </row>
+            <row>
+              <entry>U+005e</entry>
+              <entry>asciicircum</entry>
+              <entry>circumflex accent</entry>
+              <entry>0x5e</entry>
+              <entry>65</entry>
+            </row>
+            <row>
+              <entry>U+005f</entry>
+              <entry>underscore</entry>
+              <entry>underline</entry>
+              <entry>0x5f</entry>
+              <entry>66</entry>
+            </row>
+            <row>
+              <entry>U+0060</entry>
+              <entry>grave</entry>
+              <entry>grave accent</entry>
+              <entry>0x60</entry>
+              <entry>67</entry>
+            </row>
+            <row>
+              <entry>U+0061</entry>
+              <entry>a</entry>
+              <entry>latin small letter a</entry>
+              <entry>0x61</entry>
+              <entry>68</entry>
+            </row>
+            <row>
+              <entry>U+0062</entry>
+              <entry>b</entry>
+              <entry>latin small letter b</entry>
+              <entry>0x62</entry>
+              <entry>69</entry>
+            </row>
+            <row>
+              <entry>U+0063</entry>
+              <entry>c</entry>
+              <entry>latin small letter c</entry>
+              <entry>0x63</entry>
+              <entry>70</entry>
+            </row>
+            <row>
+              <entry>U+0064</entry>
+              <entry>d</entry>
+              <entry>latin small letter d</entry>
+              <entry>0x64</entry>
+              <entry>71</entry>
+            </row>
+            <row>
+              <entry>U+0065</entry>
+              <entry>e</entry>
+              <entry>latin small letter e</entry>
+              <entry>0x65</entry>
+              <entry>72</entry>
+            </row>
+            <row>
+              <entry>U+0066</entry>
+              <entry>f</entry>
+              <entry>latin small letter f</entry>
+              <entry>0x66</entry>
+              <entry>73</entry>
+            </row>
+            <row>
+              <entry>U+0067</entry>
+              <entry>g</entry>
+              <entry>latin small letter g</entry>
+              <entry>0x67</entry>
+              <entry>74</entry>
+            </row>
+            <row>
+              <entry>U+0068</entry>
+              <entry>h</entry>
+              <entry>latin small letter h</entry>
+              <entry>0x68</entry>
+              <entry>75</entry>
+            </row>
+            <row>
+              <entry>U+0069</entry>
+              <entry>i</entry>
+              <entry>latin small letter i</entry>
+              <entry>0x69</entry>
+              <entry>76</entry>
+            </row>
+            <row>
+              <entry>U+006a</entry>
+              <entry>j</entry>
+              <entry>latin small letter j</entry>
+              <entry>0x6a</entry>
+              <entry>77</entry>
+            </row>
+            <row>
+              <entry>U+006b</entry>
+              <entry>k</entry>
+              <entry>latin small letter k</entry>
+              <entry>0x6b</entry>
+              <entry>78</entry>
+            </row>
+            <row>
+              <entry>U+006c</entry>
+              <entry>l</entry>
+              <entry>latin small letter l</entry>
+              <entry>0x6c</entry>
+              <entry>79</entry>
+            </row>
+            <row>
+              <entry>U+006d </entry>
+              <entry/>
+              <entry>latin small letter m</entry>
+              <entry>0x6d </entry>
+              <entry>80</entry>
+            </row>
+            <row>
+              <entry>U+006e</entry>
+              <entry>n</entry>
+              <entry>latin small letter n</entry>
+              <entry>0x6e</entry>
+              <entry>81</entry>
+            </row>
+            <row>
+              <entry>U+006f</entry>
+              <entry>o</entry>
+              <entry>latin small letter o</entry>
+              <entry>0x6f</entry>
+              <entry>82</entry>
+            </row>
+            <row>
+              <entry>U+0070</entry>
+              <entry>p</entry>
+              <entry>latin small letter p</entry>
+              <entry>0x70</entry>
+              <entry>83</entry>
+            </row>
+            <row>
+              <entry>U+0071</entry>
+              <entry>q</entry>
+              <entry>latin small letter q</entry>
+              <entry>0x71</entry>
+              <entry>84</entry>
+            </row>
+            <row>
+              <entry>U+0072</entry>
+              <entry>r</entry>
+              <entry>latin small letter r</entry>
+              <entry>0x72</entry>
+              <entry>85</entry>
+            </row>
+            <row>
+              <entry>U+0073</entry>
+              <entry>s</entry>
+              <entry>latin small letter s</entry>
+              <entry>0x73</entry>
+              <entry>86</entry>
+            </row>
+            <row>
+              <entry>U+0074</entry>
+              <entry>t</entry>
+              <entry>latin small letter t</entry>
+              <entry>0x74</entry>
+              <entry>87</entry>
+            </row>
+            <row>
+              <entry>U+0075</entry>
+              <entry>u</entry>
+              <entry>latin small letter u</entry>
+              <entry>0x75</entry>
+              <entry>88</entry>
+            </row>
+            <row>
+              <entry>U+0076</entry>
+              <entry>v</entry>
+              <entry>latin small letter v</entry>
+              <entry>0x76</entry>
+              <entry>89</entry>
+            </row>
+            <row>
+              <entry>U+0077</entry>
+              <entry>w</entry>
+              <entry>latin small letter w</entry>
+              <entry>0x77</entry>
+              <entry>90</entry>
+            </row>
+            <row>
+              <entry>U+0078</entry>
+              <entry>x</entry>
+              <entry>latin small letter x</entry>
+              <entry>0x78</entry>
+              <entry>91</entry>
+            </row>
+            <row>
+              <entry>U+0079</entry>
+              <entry>y</entry>
+              <entry>latin small letter y</entry>
+              <entry>0x79</entry>
+              <entry>92</entry>
+            </row>
+            <row>
+              <entry>U+007a</entry>
+              <entry>z</entry>
+              <entry>latin small letter z</entry>
+              <entry>0x7a</entry>
+              <entry>93</entry>
+            </row>
+            <row>
+              <entry>U+007b</entry>
+              <entry>braceleft</entry>
+              <entry>left curly bracket</entry>
+              <entry>0x7b</entry>
+              <entry>94</entry>
+            </row>
+            <row>
+              <entry>U+007c</entry>
+              <entry>bar</entry>
+              <entry>vertical line</entry>
+              <entry>0x7c</entry>
+              <entry>95</entry>
+            </row>
+            <row>
+              <entry>U+007d</entry>
+              <entry>braceright</entry>
+              <entry>right curly bracket</entry>
+              <entry>0x7d</entry>
+              <entry>96</entry>
+            </row>
+            <row>
+              <entry>U+007e</entry>
+              <entry>asciitilde</entry>
+              <entry>tilde</entry>
+              <entry>0x7e</entry>
+              <entry>97</entry>
+            </row>
+            <row>
+              <entry>U+00a0</entry>
+              <entry>space
+		  <footnote id="f1"><para>This glyph name is also used for another
+		      Unicode value listed in this document. If a
+		      separate design for this glyph is desired, it
+		      may be given a uni&lt;CODE&gt; glyph name, where
+		      &lt;CODE&gt; is a 4-digit uppercase hexadecimal
+		      number that indicates the Unicode value.</para><para>For example, if different designs are
+		      desired for MICRO SIGN (U+00B5) and GREEK SMALL
+		      LETTER MU (U+03BC), then glyph "mu" should be
+		      designed as MICRO SIGN and glyph "uni03BC" should
+		      be designed as GREEK SMALL LETTER MU.</para><para>Refer to the Adobe document 'Unicode and Glyph Names'
+		      for more details.</para></footnote></entry>
+              <entry>no-break space</entry>
+              <entry>0xca</entry>
+              <entry>172</entry>
+            </row>
+            <row>
+              <entry>U+00a1</entry>
+              <entry>exclamdown </entry>
+              <entry>inverted exclamation mark</entry>
+              <entry>0xc1</entry>
+              <entry>163</entry>
+            </row>
+            <row>
+              <entry>U+00a2</entry>
+              <entry>cent</entry>
+              <entry>cent sign</entry>
+              <entry>xa2</entry>
+              <entry>132</entry>
+            </row>
+            <row>
+              <entry>U+00a3</entry>
+              <entry>sterling</entry>
+              <entry>pound sign</entry>
+              <entry>xa3</entry>
+              <entry>133</entry>
+            </row>
+            <row>
+              <entry>U+00a4</entry>
+              <entry>currency</entry>
+              <entry>currency sign</entry>
+              <entry>xdb</entry>
+              <entry>189</entry>
+            </row>
+            <row>
+              <entry>U+00a5</entry>
+              <entry>yen</entry>
+              <entry>yen sign</entry>
+              <entry>xb4</entry>
+              <entry>150</entry>
+            </row>
+            <row>
+              <entry>U+00a6</entry>
+              <entry>brokenbar</entry>
+              <entry>broken bar</entry>
+              <entry/>
+              <entry>232</entry>
+            </row>
+            <row>
+              <entry>U+00a7</entry>
+              <entry>section</entry>
+              <entry>section sign</entry>
+              <entry>0xa4</entry>
+              <entry>134</entry>
+            </row>
+            <row>
+              <entry>U+00a8</entry>
+              <entry>diaeresis</entry>
+              <entry>diaeresis</entry>
+              <entry>0xac</entry>
+              <entry>142</entry>
+            </row>
+            <row>
+              <entry>U+00a9</entry>
+              <entry>copyright</entry>
+              <entry>copyright sign</entry>
+              <entry>0xa9</entry>
+              <entry>139</entry>
+            </row>
+            <row>
+              <entry>U+00aa</entry>
+              <entry>ordfeminine</entry>
+              <entry>feminine ordinal indicator</entry>
+              <entry>0xbb</entry>
+              <entry>157</entry>
+            </row>
+            <row>
+              <entry>U+00ab</entry>
+              <entry>guillemotleft</entry>
+              <entry>left guillemet</entry>
+              <entry>0xc7</entry>
+              <entry>169</entry>
+            </row>
+            <row>
+              <entry>U+00ac</entry>
+              <entry>logicalnot</entry>
+              <entry>not sign</entry>
+              <entry>0xc2</entry>
+              <entry>164</entry>
+            </row>
+            <row>
+              <entry>U+00ad</entry>
+              <entry>hyphen<footnoteref linkend="f1"/></entry>
+              <entry>soft hyphen</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+00ae</entry>
+              <entry>registered</entry>
+              <entry>registered trade mark sign</entry>
+              <entry>0xa8</entry>
+              <entry>138</entry>
+            </row>
+            <row>
+              <entry>U+00af</entry>
+              <entry>macro</entry>
+              <entry>macron, overline</entry>
+              <entry>0xf8</entry>
+              <entry>218</entry>
+            </row>
+            <row>
+              <entry>U+00b0</entry>
+              <entry>degree</entry>
+              <entry>degree sign</entry>
+              <entry>0xa1</entry>
+              <entry>131</entry>
+            </row>
+            <row>
+              <entry>U+00b1</entry>
+              <entry>plusminus</entry>
+              <entry>plus-minus sign</entry>
+              <entry>0xb1</entry>
+              <entry>147</entry>
+            </row>
+            <row>
+              <entry>U+00b2</entry>
+              <entry>twosuperior</entry>
+              <entry>superscript two</entry>
+              <entry/>
+              <entry>242</entry>
+            </row>
+            <row>
+              <entry>U+00b3</entry>
+              <entry>threesuperior</entry>
+              <entry>superscript three</entry>
+              <entry/>
+              <entry>243</entry>
+            </row>
+            <row>
+              <entry>U+00b4</entry>
+              <entry>acute</entry>
+              <entry>acute accent</entry>
+              <entry>0xab</entry>
+              <entry>141</entry>
+            </row>
+            <row>
+              <entry>U+00b5</entry>
+              <entry>mu</entry>
+              <entry>micro sign</entry>
+              <entry>0xb5</entry>
+              <entry>151</entry>
+            </row>
+            <row>
+              <entry>U+00b6</entry>
+              <entry>paragraph</entry>
+              <entry>paragraph sign</entry>
+              <entry>0xa6</entry>
+              <entry>136</entry>
+            </row>
+            <row>
+              <entry>U+00b7</entry>
+              <entry>periodcentered</entry>
+              <entry>middle dot, kana conjonctive</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+00b8</entry>
+              <entry>cedilla</entry>
+              <entry>cedilla</entry>
+              <entry>0xfc</entry>
+              <entry>222</entry>
+            </row>
+            <row>
+              <entry>U+00b9</entry>
+              <entry>onesuperior</entry>
+              <entry>superscript one</entry>
+              <entry/>
+              <entry>241</entry>
+            </row>
+            <row>
+              <entry>U+00ba</entry>
+              <entry>ordmasculine</entry>
+              <entry>masculine ordinal indicator</entry>
+              <entry>0xbc</entry>
+              <entry>158</entry>
+            </row>
+            <row>
+              <entry>U+00bb</entry>
+              <entry>guillemotright</entry>
+              <entry>right guillemet</entry>
+              <entry>0xc8</entry>
+              <entry>170</entry>
+            </row>
+            <row>
+              <entry>U+00bc</entry>
+              <entry>onequarter</entry>
+              <entry>vulgar fraction one quarter</entry>
+              <entry/>
+              <entry>245</entry>
+            </row>
+            <row>
+              <entry>U+00bd</entry>
+              <entry>onehalf</entry>
+              <entry>vulgar fraction one half</entry>
+              <entry/>
+              <entry>244</entry>
+            </row>
+            <row>
+              <entry>U+00be</entry>
+              <entry>threequarters</entry>
+              <entry>vulgar fraction three quarters</entry>
+              <entry/>
+              <entry>246</entry>
+            </row>
+            <row>
+              <entry>U+00bf</entry>
+              <entry>questiondown</entry>
+              <entry>inverted question mark</entry>
+              <entry>0xc0</entry>
+              <entry>162</entry>
+            </row>
+            <row>
+              <entry>U+00c0</entry>
+              <entry>Agrave</entry>
+              <entry>latin capital letter a with grave accent</entry>
+              <entry>0xcb</entry>
+              <entry>173</entry>
+            </row>
+            <row>
+              <entry>U+00c1</entry>
+              <entry>Aacute</entry>
+              <entry>latin capital letter a with acute accent</entry>
+              <entry>0xe7</entry>
+              <entry>201</entry>
+            </row>
+            <row>
+              <entry>U+00c2</entry>
+              <entry>Acircumflex</entry>
+              <entry>latin capital letter a with circumflex accent</entry>
+              <entry>0xe5</entry>
+              <entry>199</entry>
+            </row>
+            <row>
+              <entry>U+00c3</entry>
+              <entry>Atilde</entry>
+              <entry>latin capital letter a with tilde</entry>
+              <entry>0xcc</entry>
+              <entry>174</entry>
+            </row>
+            <row>
+              <entry>U+00c4</entry>
+              <entry>Adieresis</entry>
+              <entry>latin capital letter a with diaeresis</entry>
+              <entry>0x80</entry>
+              <entry>98</entry>
+            </row>
+            <row>
+              <entry>U+00c5</entry>
+              <entry>Aring</entry>
+              <entry>latin capital letter a with ring above</entry>
+              <entry>0x81</entry>
+              <entry>99</entry>
+            </row>
+            <row>
+              <entry>U+00c6</entry>
+              <entry>AE</entry>
+              <entry>latin capital letter a with e</entry>
+              <entry>0xae</entry>
+              <entry>144</entry>
+            </row>
+            <row>
+              <entry>U+00c7</entry>
+              <entry>Ccedilla</entry>
+              <entry>latin capital letter c with cedilla</entry>
+              <entry>0x82</entry>
+              <entry>100</entry>
+            </row>
+            <row>
+              <entry>U+00c8</entry>
+              <entry>Egrave</entry>
+              <entry>latin capital letter e with grave accent</entry>
+              <entry>0xe9</entry>
+              <entry>203</entry>
+            </row>
+            <row>
+              <entry>U+00c9</entry>
+              <entry>Eacute</entry>
+              <entry>latin capital letter e with acute accent</entry>
+              <entry>0x83</entry>
+              <entry>101</entry>
+            </row>
+            <row>
+              <entry>U+00ca</entry>
+              <entry>Ecircumflex</entry>
+              <entry>latin capital letter e with circumflex accent</entry>
+              <entry>0xe6</entry>
+              <entry>200</entry>
+            </row>
+            <row>
+              <entry>U+00cb</entry>
+              <entry>Edieresis</entry>
+              <entry>latin capital letter e with diaeresis</entry>
+              <entry>0xe8</entry>
+              <entry>202</entry>
+            </row>
+            <row>
+              <entry>U+00cc</entry>
+              <entry>Igrave</entry>
+              <entry>latin capital letter i with grave accent</entry>
+              <entry>0xed</entry>
+              <entry>207</entry>
+            </row>
+            <row>
+              <entry>U+00cd</entry>
+              <entry>Iacute</entry>
+              <entry>latin capital letter i with acute accent</entry>
+              <entry>0xea</entry>
+              <entry>204</entry>
+            </row>
+            <row>
+              <entry>U+00ce</entry>
+              <entry>Icircumflex</entry>
+              <entry>latin capital letter i with circumflex accent</entry>
+              <entry>0xeb</entry>
+              <entry>205</entry>
+            </row>
+            <row>
+              <entry>U+00cf</entry>
+              <entry>Idieresis</entry>
+              <entry>latin capital letter i with diaeresis</entry>
+              <entry>0xec</entry>
+              <entry>206</entry>
+            </row>
+            <row>
+              <entry>U+00d0</entry>
+              <entry>Eth</entry>
+              <entry>latin capital letter eth</entry>
+              <entry/>
+              <entry>233</entry>
+            </row>
+            <row>
+              <entry>U+00d1</entry>
+              <entry>Ntilde</entry>
+              <entry>latin capital letter n with tilde</entry>
+              <entry>0x84</entry>
+              <entry>102</entry>
+            </row>
+            <row>
+              <entry>U+00d2</entry>
+              <entry>Ograve</entry>
+              <entry>latin capital letter o with grave accent</entry>
+              <entry>0xf1</entry>
+              <entry>211</entry>
+            </row>
+            <row>
+              <entry>U+00d3</entry>
+              <entry>Oacute</entry>
+              <entry>latin capital letter o with acute accent</entry>
+              <entry>0eex</entry>
+              <entry>208</entry>
+            </row>
+            <row>
+              <entry>U+00d4</entry>
+              <entry>Ocircumflex</entry>
+              <entry>latin capital letter o with circumflex accent</entry>
+              <entry>0xef</entry>
+              <entry>209</entry>
+            </row>
+            <row>
+              <entry>U+00d5</entry>
+              <entry>Otilde</entry>
+              <entry>latin capital letter o with tilde</entry>
+              <entry>0xcd</entry>
+              <entry>175</entry>
+            </row>
+            <row>
+              <entry>U+00d6</entry>
+              <entry>Odieresis</entry>
+              <entry>latin capital letter o with diaeresis</entry>
+              <entry>0x85</entry>
+              <entry>103</entry>
+            </row>
+            <row>
+              <entry>U+00d7</entry>
+              <entry>multiply </entry>
+              <entry>multiplication sign</entry>
+              <entry/>
+              <entry>240</entry>
+            </row>
+            <row>
+              <entry>U+00d8</entry>
+              <entry>Oslash</entry>
+              <entry>latin capital letter o with oblique stroke</entry>
+              <entry>0xaf</entry>
+              <entry>145</entry>
+            </row>
+            <row>
+              <entry>U+00d9</entry>
+              <entry>Ugrave</entry>
+              <entry>latin capital letter u with grave accent</entry>
+              <entry>0xf4</entry>
+              <entry>214</entry>
+            </row>
+            <row>
+              <entry>U+00da</entry>
+              <entry>Uacute</entry>
+              <entry>latin capital letter u with acute accent</entry>
+              <entry>0xf2</entry>
+              <entry>212</entry>
+            </row>
+            <row>
+              <entry>U+00db</entry>
+              <entry>Ucircumflex </entry>
+              <entry>latin capital letter u with circumflex accent</entry>
+              <entry>0xf3</entry>
+              <entry>213</entry>
+            </row>
+            <row>
+              <entry>U+00dc</entry>
+              <entry>Udieresis </entry>
+              <entry>latin capital letter u with diaeresis</entry>
+              <entry>0x86</entry>
+              <entry>104</entry>
+            </row>
+            <row>
+              <entry>U+00dd</entry>
+              <entry>Yacute </entry>
+              <entry>latin capital letter y with acute accent</entry>
+              <entry/>
+              <entry>235</entry>
+            </row>
+            <row>
+              <entry>U+00de</entry>
+              <entry>Thorn </entry>
+              <entry>latin capital letter thorn</entry>
+              <entry/>
+              <entry>237</entry>
+            </row>
+            <row>
+              <entry>U+00df</entry>
+              <entry>germandbls </entry>
+              <entry>latin small letter sharp s</entry>
+              <entry>0xa7</entry>
+              <entry>137</entry>
+            </row>
+            <row>
+              <entry>U+00e0</entry>
+              <entry>agrave </entry>
+              <entry>latin small letter a with grave accent</entry>
+              <entry>0x88</entry>
+              <entry>106</entry>
+            </row>
+            <row>
+              <entry>U+00e1</entry>
+              <entry>aacute </entry>
+              <entry>latin small letter a with acute accent</entry>
+              <entry>0x87</entry>
+              <entry>105</entry>
+            </row>
+            <row>
+              <entry>U+00e2</entry>
+              <entry>acircumflex </entry>
+              <entry>latin small letter a with circumflex accent</entry>
+              <entry>0x89</entry>
+              <entry>107</entry>
+            </row>
+            <row>
+              <entry>U+00e3</entry>
+              <entry>atilde </entry>
+              <entry>latin small letter a with tilde</entry>
+              <entry>0x8b</entry>
+              <entry>109</entry>
+            </row>
+            <row>
+              <entry>U+00e4</entry>
+              <entry>adieresis </entry>
+              <entry>latin small letter a with diaeresis</entry>
+              <entry>0x8a</entry>
+              <entry>108</entry>
+            </row>
+            <row>
+              <entry>U+00e5</entry>
+              <entry>aring </entry>
+              <entry>latin small letter a with ring above</entry>
+              <entry>0x8c</entry>
+              <entry>110</entry>
+            </row>
+            <row>
+              <entry>U+00e6</entry>
+              <entry>ae </entry>
+              <entry>latin small letter a with e</entry>
+              <entry>0xbe</entry>
+              <entry>160</entry>
+            </row>
+            <row>
+              <entry>U+00e7</entry>
+              <entry>ccedilla </entry>
+              <entry>latin small letter c with cedilla</entry>
+              <entry>0x8d</entry>
+              <entry>111</entry>
+            </row>
+            <row>
+              <entry>U+00e8</entry>
+              <entry>egrave </entry>
+              <entry>latin small letter e with grave accent</entry>
+              <entry>0x8f</entry>
+              <entry>113</entry>
+            </row>
+            <row>
+              <entry>U+00e9</entry>
+              <entry>eacute </entry>
+              <entry>latin small letter e with acute accent</entry>
+              <entry>0x8e</entry>
+              <entry>112</entry>
+            </row>
+            <row>
+              <entry>U+00ea</entry>
+              <entry>ecircumflex </entry>
+              <entry>latin small letter e with circumflex accent</entry>
+              <entry>0x90</entry>
+              <entry>114</entry>
+            </row>
+            <row>
+              <entry>U+00eb</entry>
+              <entry>edieresis </entry>
+              <entry>latin small letter e with diaeresis</entry>
+              <entry>0x91</entry>
+              <entry>115</entry>
+            </row>
+            <row>
+              <entry>U+00ec</entry>
+              <entry>igrave </entry>
+              <entry>latin small letter i with grave accent</entry>
+              <entry>0x93</entry>
+              <entry>117</entry>
+            </row>
+            <row>
+              <entry>U+00ed</entry>
+              <entry>iacute </entry>
+              <entry>latin small letter i with acute accent</entry>
+              <entry>0x92</entry>
+              <entry>116</entry>
+            </row>
+            <row>
+              <entry>U+00ee</entry>
+              <entry>icircumflex </entry>
+              <entry>latin small letter i with circumflex accent</entry>
+              <entry>0x94</entry>
+              <entry>118</entry>
+            </row>
+            <row>
+              <entry>U+00ef</entry>
+              <entry>idieresis </entry>
+              <entry>latin small letter i with diaeresis</entry>
+              <entry>0x95</entry>
+              <entry>119</entry>
+            </row>
+            <row>
+              <entry>U+00f0</entry>
+              <entry>eth </entry>
+              <entry>latin small letter eth</entry>
+              <entry/>
+              <entry>234</entry>
+            </row>
+            <row>
+              <entry>U+00f1</entry>
+              <entry>ntilde </entry>
+              <entry>latin small letter n with tilde</entry>
+              <entry>0x96</entry>
+              <entry>120</entry>
+            </row>
+            <row>
+              <entry>U+00f2</entry>
+              <entry>ograve </entry>
+              <entry>latin small letter o with grave accent</entry>
+              <entry>0x98</entry>
+              <entry>122</entry>
+            </row>
+            <row>
+              <entry>U+00f3</entry>
+              <entry>oacute </entry>
+              <entry>latin small letter o with acute accent</entry>
+              <entry>0x97</entry>
+              <entry>121</entry>
+            </row>
+            <row>
+              <entry>U+00f4</entry>
+              <entry>ocircumflex </entry>
+              <entry>latin small letter o with circumflex accent</entry>
+              <entry>0x99</entry>
+              <entry>123</entry>
+            </row>
+            <row>
+              <entry>U+00f5</entry>
+              <entry>otilde </entry>
+              <entry>latin small letter o with tilde</entry>
+              <entry>0x9b</entry>
+              <entry>125</entry>
+            </row>
+            <row>
+              <entry>U+00f6</entry>
+              <entry>odieresis </entry>
+              <entry>latin small letter o with diaeresis</entry>
+              <entry>0x9a</entry>
+              <entry>124</entry>
+            </row>
+            <row>
+              <entry>U+00f7</entry>
+              <entry>divide </entry>
+              <entry>division sign</entry>
+              <entry>0xd6</entry>
+              <entry>184</entry>
+            </row>
+            <row>
+              <entry>U+00f8</entry>
+              <entry>oslash </entry>
+              <entry>latin small letter o with oblique stroke</entry>
+              <entry>0xbf</entry>
+              <entry>161</entry>
+            </row>
+            <row>
+              <entry>U+00f9</entry>
+              <entry>ugrave </entry>
+              <entry>latin small letter u with grave accent</entry>
+              <entry>0x9d</entry>
+              <entry>127</entry>
+            </row>
+            <row>
+              <entry>U+00fa</entry>
+              <entry>uacute </entry>
+              <entry>latin small letter u with acute accent</entry>
+              <entry>0x9c</entry>
+              <entry>126</entry>
+            </row>
+            <row>
+              <entry>U+00fb</entry>
+              <entry>ucircumflex </entry>
+              <entry>latin small letter u with circumflex accent</entry>
+              <entry>0x9e</entry>
+              <entry>128</entry>
+            </row>
+            <row>
+              <entry>U+00fc</entry>
+              <entry>udieresis </entry>
+              <entry>latin small letter u with diaeresis</entry>
+              <entry>0x9f</entry>
+              <entry>129</entry>
+            </row>
+            <row>
+              <entry>U+00fd</entry>
+              <entry>yacute </entry>
+              <entry>latin small letter y with acute accent</entry>
+              <entry/>
+              <entry>236</entry>
+            </row>
+            <row>
+              <entry>U+00fe</entry>
+              <entry>thorn </entry>
+              <entry>latin small letter thorn</entry>
+              <entry/>
+              <entry>238</entry>
+            </row>
+            <row>
+              <entry>U+00ff</entry>
+              <entry>ydieresis </entry>
+              <entry>latin small letter y with diaeresis</entry>
+              <entry>0xd8</entry>
+              <entry>186</entry>
+            </row>
+            <row>
+              <entry>U+0100</entry>
+              <entry>Amacron </entry>
+              <entry>latin capital letter a with macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0101</entry>
+              <entry>amacron </entry>
+              <entry>latin small letter a with macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0102</entry>
+              <entry>Abreve </entry>
+              <entry>latin capital letter a with breve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0103</entry>
+              <entry>abreve </entry>
+              <entry>latin small letter a with breve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0104</entry>
+              <entry>Aogonek </entry>
+              <entry>latin capital letter a with ogonek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0105</entry>
+              <entry>aogonek </entry>
+              <entry>latin small letter a with ogonek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0106</entry>
+              <entry>Cacute </entry>
+              <entry>latin capital letter c with acute accent</entry>
+              <entry/>
+              <entry>253</entry>
+            </row>
+            <row>
+              <entry>U+0107</entry>
+              <entry>cacute </entry>
+              <entry>latin small letter c with acute accent</entry>
+              <entry/>
+              <entry>254</entry>
+            </row>
+            <row>
+              <entry>U+0108</entry>
+              <entry>Ccircumflex </entry>
+              <entry>latin capital letter c with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0109</entry>
+              <entry>ccircumflex </entry>
+              <entry>latin small letter c with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+010a</entry>
+              <entry>Cdotaccent </entry>
+              <entry>latin capital letter c with dot above</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+010b</entry>
+              <entry>cdotaccent </entry>
+              <entry>latin small letter c with dot above</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+010c</entry>
+              <entry>Ccaron </entry>
+              <entry>latin capital letter c with caron</entry>
+              <entry/>
+              <entry>255</entry>
+            </row>
+            <row>
+              <entry>U+010d</entry>
+              <entry>ccaron </entry>
+              <entry>latin small letter c with caron</entry>
+              <entry/>
+              <entry>256</entry>
+            </row>
+            <row>
+              <entry>U+010e</entry>
+              <entry>Dcaron </entry>
+              <entry>latin capital letter d with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+010f</entry>
+              <entry>dcaron </entry>
+              <entry>latin small letter d with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0110</entry>
+              <entry>Dcroat </entry>
+              <entry>latin capital letter d with stroke</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0111</entry>
+              <entry>dcroat </entry>
+              <entry>latin small letter d with stroke</entry>
+              <entry/>
+              <entry>257</entry>
+            </row>
+            <row>
+              <entry>U+0112</entry>
+              <entry>Emacron </entry>
+              <entry>latin capital letter e with macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0113</entry>
+              <entry>emacron </entry>
+              <entry>latin small letter e with macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0114</entry>
+              <entry>Ebreve </entry>
+              <entry>latin capital letter e with breve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0115</entry>
+              <entry>ebreve </entry>
+              <entry>latin small letter e with breve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0116</entry>
+              <entry>Edotaccent</entry>
+              <entry>latin capital letter e with dot above</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0117</entry>
+              <entry>edotaccent</entry>
+              <entry>latin small letter e with dot above</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0118</entry>
+              <entry>Eogonek </entry>
+              <entry>latin capital letter e with ogenek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0119</entry>
+              <entry>eogonek </entry>
+              <entry>latin small letter e with ogenek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+011a</entry>
+              <entry>Ecaron </entry>
+              <entry>latin capital letter e with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+011b</entry>
+              <entry>ecaron </entry>
+              <entry>latin small letter e with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+011c</entry>
+              <entry>Gcircumflex </entry>
+              <entry>latin capital letter g with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+011d</entry>
+              <entry>gcircumflex </entry>
+              <entry>latin small letter g with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+011e</entry>
+              <entry>Gbreve </entry>
+              <entry>latin capital letter g with breve</entry>
+              <entry/>
+              <entry>248</entry>
+            </row>
+            <row>
+              <entry>U+011f</entry>
+              <entry>gbreve </entry>
+              <entry>latin small letter g with breve</entry>
+              <entry/>
+              <entry>249</entry>
+            </row>
+            <row>
+              <entry>U+0120</entry>
+              <entry>Gdotaccent</entry>
+              <entry>latin capital letter g with dot above</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0121</entry>
+              <entry>gdotaccent</entry>
+              <entry>latin small letter g with dot above</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0122</entry>
+              <entry>Gcommaaccent</entry>
+              <entry>latin capital letter g with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0123</entry>
+              <entry>gcommaaccent</entry>
+              <entry>latin small letter g with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0124</entry>
+              <entry>Hcircumflex </entry>
+              <entry>latin capital letter h with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0125</entry>
+              <entry>hcircumflex </entry>
+              <entry>latin small letter h with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0126</entry>
+              <entry>Hbar </entry>
+              <entry>latin capital letter h with stroke</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0127</entry>
+              <entry>hbar </entry>
+              <entry>latin small letter h with stroke</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0128</entry>
+              <entry>Itilde </entry>
+              <entry>latin capital letter i with tilde</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0129</entry>
+              <entry>itilde </entry>
+              <entry>latin small letter i with tilde</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+012a</entry>
+              <entry>Imacron </entry>
+              <entry>latin capital letter i with macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+012b</entry>
+              <entry>imacron </entry>
+              <entry>latin small letter i with macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+012c</entry>
+              <entry>Ibreve </entry>
+              <entry>latin capital letter i with breve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+012d</entry>
+              <entry>ibreve </entry>
+              <entry>latin small letter i with breve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+012e</entry>
+              <entry>Iogonek </entry>
+              <entry>latin capital letter i with ogonek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+012f</entry>
+              <entry>iogonek </entry>
+              <entry>latin small letter i with ogonek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0130</entry>
+              <entry>Idotaccent</entry>
+              <entry>latin capital letter i with dot above</entry>
+              <entry/>
+              <entry>250</entry>
+            </row>
+            <row>
+              <entry>U+0131</entry>
+              <entry>dotlessi </entry>
+              <entry>latin small letter i without dot above</entry>
+              <entry>0xf5</entry>
+              <entry>215</entry>
+            </row>
+            <row>
+              <entry>U+0132</entry>
+              <entry>IJ </entry>
+              <entry>latin capital ligature ij</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0133</entry>
+              <entry>ij </entry>
+              <entry>latin small ligature ij</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0134</entry>
+              <entry>Jcircumflex </entry>
+              <entry>latin capital letter j with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0135</entry>
+              <entry>jcircumflex </entry>
+              <entry>latin small letter j with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0136</entry>
+              <entry>Kcommaaccent</entry>
+              <entry>latin capital letter k with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0137</entry>
+              <entry>kcommaaccent</entry>
+              <entry>latin small letter k with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0138</entry>
+              <entry>kgreenlandic </entry>
+              <entry>latin small letter kra</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0139</entry>
+              <entry>Lacute </entry>
+              <entry>latin capital letter l with acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+013a</entry>
+              <entry>lacute </entry>
+              <entry>latin small letter l with acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+013b</entry>
+              <entry>Lcommaaccent</entry>
+              <entry>latin capital letter l with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+013c</entry>
+              <entry>lcommaaccent </entry>
+              <entry>latin small letter l with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+013d</entry>
+              <entry>Lcaron </entry>
+              <entry>latin capital letter l with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+013e</entry>
+              <entry>lcaron </entry>
+              <entry>latin small letter l with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+013f</entry>
+              <entry>Ldot </entry>
+              <entry>latin capital letter l with middle dot</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0140</entry>
+              <entry>ldot </entry>
+              <entry>latin small letter l with middle dot</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0141</entry>
+              <entry>Lslash </entry>
+              <entry>latin capital letter l with stroke</entry>
+              <entry/>
+              <entry>226</entry>
+            </row>
+            <row>
+              <entry>U+0142</entry>
+              <entry>lslash </entry>
+              <entry>latin small letter l with stroke</entry>
+              <entry/>
+              <entry>227</entry>
+            </row>
+            <row>
+              <entry>U+0143</entry>
+              <entry>Nacute </entry>
+              <entry>latin capital letter n with acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0144</entry>
+              <entry>nacute </entry>
+              <entry>latin small letter n with acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0145</entry>
+              <entry>Ncommaaccent</entry>
+              <entry>latin capital letter n with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0146</entry>
+              <entry>ncommaaccent </entry>
+              <entry>latin small letter n with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0147</entry>
+              <entry>Ncaron </entry>
+              <entry>latin capital letter n with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0148</entry>
+              <entry>ncaron </entry>
+              <entry>latin small letter n with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0149</entry>
+              <entry>napostrophe </entry>
+              <entry>latin small letter n preceded by apostrophe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+014a</entry>
+              <entry>Eng </entry>
+              <entry>latin capital letter eng</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+014b</entry>
+              <entry>eng </entry>
+              <entry>latin small letter eng</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+014c</entry>
+              <entry>Omacron </entry>
+              <entry>latin capital letter o with macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+014d</entry>
+              <entry>omacron </entry>
+              <entry>latin small letter o with macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+014e</entry>
+              <entry>Obreve </entry>
+              <entry>latin capital letter o with breve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+014f</entry>
+              <entry>obreve </entry>
+              <entry>latin small letter o with breve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0150</entry>
+              <entry>Ohungarumlaut</entry>
+              <entry>latin capital letter o with double acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0151</entry>
+              <entry>ohungarumlaut </entry>
+              <entry>latin small letter o with double acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0152</entry>
+              <entry>OE </entry>
+              <entry>latin capital ligature o with e</entry>
+              <entry>0xce</entry>
+              <entry>176</entry>
+            </row>
+            <row>
+              <entry>U+0153</entry>
+              <entry>oe </entry>
+              <entry>latin small ligature o with e</entry>
+              <entry>0xcf</entry>
+              <entry>177</entry>
+            </row>
+            <row>
+              <entry>U+0154</entry>
+              <entry>Racute </entry>
+              <entry>latin capital letter r with acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0155</entry>
+              <entry>racute </entry>
+              <entry>latin small letter r with acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0156</entry>
+              <entry>Rcommaaccent </entry>
+              <entry>latin capital letter r with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0157</entry>
+              <entry>rcommaaccent </entry>
+              <entry>latin small letter r with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0158</entry>
+              <entry>Rcaron </entry>
+              <entry>latin capital letter r with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0159</entry>
+              <entry>rcaron </entry>
+              <entry>latin small letter r with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+015a</entry>
+              <entry>Sacute </entry>
+              <entry>latin capital letter s with acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+015b</entry>
+              <entry>sacute </entry>
+              <entry>latin small letter s with acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+015c</entry>
+              <entry>Scircumflex </entry>
+              <entry>latin capital letter s with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+015d</entry>
+              <entry>scircumflex </entry>
+              <entry>latin small letter s with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+015e</entry>
+              <entry>Scedilla </entry>
+              <entry>latin capital letter s with cedilla</entry>
+              <entry/>
+              <entry>251</entry>
+            </row>
+            <row>
+              <entry>U+015f</entry>
+              <entry>scedilla </entry>
+              <entry>latin small letter s with cedilla</entry>
+              <entry/>
+              <entry>252</entry>
+            </row>
+            <row>
+              <entry>U+0160</entry>
+              <entry>Scaron </entry>
+              <entry>latin capital letter s with hacek</entry>
+              <entry/>
+              <entry>228</entry>
+            </row>
+            <row>
+              <entry>U+0161</entry>
+              <entry>scaron </entry>
+              <entry>latin small letter s with hacek</entry>
+              <entry/>
+              <entry>229</entry>
+            </row>
+            <row>
+              <entry>U+0162</entry>
+              <entry>Tcommaaccent<footnoteref linkend="f1"/></entry>
+              <entry>latin capital letter t with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0163</entry>
+              <entry>tcommaaccent<footnoteref linkend="f1"/> </entry>
+              <entry>latin small letter t with cedilla</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0164</entry>
+              <entry>Tcaron </entry>
+              <entry>latin capital letter t with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0165</entry>
+              <entry>tcaron </entry>
+              <entry>latin small letter t with hacek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0166</entry>
+              <entry>Tbar </entry>
+              <entry>latin capital letter t with stroke</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0167</entry>
+              <entry>tbar </entry>
+              <entry>latin small letter t with stroke</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0168</entry>
+              <entry>Utilde </entry>
+              <entry>latin capital letter u with tilde</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0169</entry>
+              <entry>utilde </entry>
+              <entry>latin small letter u with tilde</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+016a</entry>
+              <entry>Umacron </entry>
+              <entry>latin capital letter u with macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+016b</entry>
+              <entry>umacron </entry>
+              <entry>latin small letter u with macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+016c</entry>
+              <entry>Ubreve </entry>
+              <entry>latin capital letter u with breve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+016d</entry>
+              <entry>ubreve </entry>
+              <entry>latin small letter u with breve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+016e</entry>
+              <entry>Uring </entry>
+              <entry>latin capital letter u with ring above</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+016f</entry>
+              <entry>uring </entry>
+              <entry>latin small letter u with ring above</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0170</entry>
+              <entry>Uhungarumlaut </entry>
+              <entry>latin capital letter u with double acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0171</entry>
+              <entry>uhungarumlaut </entry>
+              <entry>latin small letter u with double acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0172</entry>
+              <entry>Uogonek </entry>
+              <entry>latin capital letter u with ogonek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0173</entry>
+              <entry>uogonek </entry>
+              <entry>latin small letter u with ogonek</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0174</entry>
+              <entry>Wcircumflex </entry>
+              <entry>latin capital letter w with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0175</entry>
+              <entry>wcircumflex </entry>
+              <entry>latin cmall letter w with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0176</entry>
+              <entry>Ycircumflex </entry>
+              <entry>latin capital letter y with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0177</entry>
+              <entry>ycircumflex </entry>
+              <entry>latin small letter y with circumflex</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0178</entry>
+              <entry>Ydieresis </entry>
+              <entry>latin capital letter y with diaeresis</entry>
+              <entry>0xd9</entry>
+              <entry>187</entry>
+            </row>
+            <row>
+              <entry>U+0179</entry>
+              <entry>Zacute </entry>
+              <entry>latin capital letter z with acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+017a</entry>
+              <entry>zacute </entry>
+              <entry>latin small letter z with acute accent</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+017b</entry>
+              <entry>Zdotaccent</entry>
+              <entry>latin capital letter z with dot above</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+017c</entry>
+              <entry>zdotaccent</entry>
+              <entry>latin small letter z with dot above</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+017d</entry>
+              <entry>Zcaron </entry>
+              <entry>latin capital letter z with hacek</entry>
+              <entry/>
+              <entry>230</entry>
+            </row>
+            <row>
+              <entry>U+017e</entry>
+              <entry>zcaron </entry>
+              <entry>latin small letter z with hacek</entry>
+              <entry/>
+              <entry>231</entry>
+            </row>
+            <row>
+              <entry>U+017f</entry>
+              <entry>longs </entry>
+              <entry>latin small letter long s</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0192</entry>
+              <entry>florin </entry>
+              <entry>latin small letter script f,florin sign</entry>
+              <entry>0xc4</entry>
+              <entry>166</entry>
+            </row>
+            <row>
+              <entry>U+01fa</entry>
+              <entry>Aringacute </entry>
+              <entry>latin capital letter a with ring above and acute</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+01fb</entry>
+              <entry>aringacute </entry>
+              <entry>latin small letter a with ring above and acute</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+01fc</entry>
+              <entry>AEacute </entry>
+              <entry>latin capital ligature ae with acute</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+01fd</entry>
+              <entry>aeacute </entry>
+              <entry>latin small ligature ae with acute</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+01fe</entry>
+              <entry>Oslashacute </entry>
+              <entry>latin capital letter o with stroke and acute</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+01ff</entry>
+              <entry>oslashacute </entry>
+              <entry>latin small letter o with stroke and acute</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+02c6</entry>
+              <entry>circumflex </entry>
+              <entry>nonspacing circumflex accent</entry>
+              <entry>0xf6</entry>
+              <entry>216</entry>
+            </row>
+            <row>
+              <entry>U+02c7</entry>
+              <entry>caron </entry>
+              <entry>modifier letter hacek</entry>
+              <entry>0xff</entry>
+              <entry>225</entry>
+            </row>
+            <row>
+              <entry>U+02c9</entry>
+              <entry>macron<footnoteref linkend="f1"/> </entry>
+              <entry>modifier letter macron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+02d8</entry>
+              <entry>breve </entry>
+              <entry>breve</entry>
+              <entry>0xf9</entry>
+              <entry>219</entry>
+            </row>
+            <row>
+              <entry>U+02d9</entry>
+              <entry>dotaccent </entry>
+              <entry>dot above</entry>
+              <entry>0xfa</entry>
+              <entry>220</entry>
+            </row>
+            <row>
+              <entry>U+02da</entry>
+              <entry>ring </entry>
+              <entry>ring above</entry>
+              <entry>0xfb</entry>
+              <entry>221</entry>
+            </row>
+            <row>
+              <entry>U+02db</entry>
+              <entry>ogonek </entry>
+              <entry>ogonek</entry>
+              <entry>0xfe</entry>
+              <entry>224</entry>
+            </row>
+            <row>
+              <entry>U+02dc</entry>
+              <entry>tilde</entry>
+              <entry>nonspacing tilde </entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+02dd</entry>
+              <entry>hungarumlaut </entry>
+              <entry>modifier letter double prime</entry>
+              <entry>0xfd</entry>
+              <entry>223</entry>
+            </row>
+            <row>
+              <entry>U+0384</entry>
+              <entry>tonos </entry>
+              <entry>greek tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0385</entry>
+              <entry>dieresistonos </entry>
+              <entry>greek dialytika tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0386</entry>
+              <entry>Alphatonos </entry>
+              <entry>greek capital letter alpha with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0387</entry>
+              <entry>anoteleia </entry>
+              <entry>greek ano teleia</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0388</entry>
+              <entry>Epsilontonos </entry>
+              <entry>greek capital letter epsilon with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0389</entry>
+              <entry>Etatonos </entry>
+              <entry>greek capital letter eta with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+038a</entry>
+              <entry>Iotatonos </entry>
+              <entry>greek capital letter iota with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+038c</entry>
+              <entry>Omicrontonos </entry>
+              <entry>greek capital letter omicron with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+038e</entry>
+              <entry>Upsilontonos </entry>
+              <entry>greek capital letter upsilon with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+038f</entry>
+              <entry>Omegatonos </entry>
+              <entry>greek capital letter omega with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0390</entry>
+              <entry>iotadieresistonos </entry>
+              <entry>greek small letter iota with dialytika and tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0391</entry>
+              <entry>Alpha </entry>
+              <entry>greek capital letter alpha</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0392</entry>
+              <entry>Beta </entry>
+              <entry>greek capital letter beta</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0393</entry>
+              <entry>Gamma </entry>
+              <entry>greek capital letter gamma</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0394</entry>
+              <entry>Delta<footnoteref linkend="f1"/> </entry>
+              <entry>greek capital letter delta</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0395</entry>
+              <entry>Epsilon </entry>
+              <entry>greek capital letter epsilon</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0396</entry>
+              <entry>Zeta </entry>
+              <entry>greek capital letter zeta</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0397</entry>
+              <entry>Eta </entry>
+              <entry>greek capital letter eta</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0398</entry>
+              <entry>Theta </entry>
+              <entry>greek capital letter theta</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0399</entry>
+              <entry>Iota </entry>
+              <entry>greek capital letter iota</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+039a</entry>
+              <entry>Kappa </entry>
+              <entry>greek capital letter kappa</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+039b</entry>
+              <entry>Lambda </entry>
+              <entry>greek capital letter lamda</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+039c</entry>
+              <entry>Mu </entry>
+              <entry>greek capital letter mu</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+039d</entry>
+              <entry>Nu </entry>
+              <entry>greek capital letter nu</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+039e</entry>
+              <entry>Xi </entry>
+              <entry>greek capital letter xi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+039f</entry>
+              <entry>Omicron </entry>
+              <entry>greek capital letter omicron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03a0</entry>
+              <entry>Pi </entry>
+              <entry>greek capital letter pi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03a1</entry>
+              <entry>Rho </entry>
+              <entry>greek capital letter rho</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03a3</entry>
+              <entry>Sigma </entry>
+              <entry>greek capital letter sigma</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03a4</entry>
+              <entry>Tau </entry>
+              <entry>greek capital letter tau</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03a5</entry>
+              <entry>Upsilon </entry>
+              <entry>greek capital letter upsilon</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03a6</entry>
+              <entry>Phi </entry>
+              <entry>greek capital letter phi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03a7</entry>
+              <entry>Chi </entry>
+              <entry>greek capital letter chi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03a8</entry>
+              <entry>Psi </entry>
+              <entry>greek capital letter psi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03a9</entry>
+              <entry>Omega<footnoteref linkend="f1"/></entry>
+              <entry>greek capital letter omega</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03aa</entry>
+              <entry>Iotadieresis </entry>
+              <entry>greek capital letter iota with dialytika</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03ab</entry>
+              <entry>Upsilondieresis </entry>
+              <entry>greek capital letter upsilon with dialytika</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03ac</entry>
+              <entry>alphatonos </entry>
+              <entry>greek small letter alpha with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03ad</entry>
+              <entry>epsilontonos </entry>
+              <entry>greek small letter epsilon with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03ae</entry>
+              <entry>etatonos </entry>
+              <entry>greek small letter eta with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03af</entry>
+              <entry>iotatonos </entry>
+              <entry>greek small letter iota with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03b0</entry>
+              <entry>upsilondieresistonos </entry>
+              <entry>greek small letter upsilon with dialytika and tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03b1</entry>
+              <entry>alpha </entry>
+              <entry>greek small letter alpha</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03b2</entry>
+              <entry>beta </entry>
+              <entry>greek small letter beta</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03b3</entry>
+              <entry>gamma </entry>
+              <entry>greek small letter gamma</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03b4</entry>
+              <entry>delta </entry>
+              <entry>greek small letter delta</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03b5</entry>
+              <entry>epsilon </entry>
+              <entry>greek small letter epsilon</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03b6</entry>
+              <entry>zeta </entry>
+              <entry>greek small letter zeta</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03b7</entry>
+              <entry>eta </entry>
+              <entry>greek small letter eta</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03b8</entry>
+              <entry>theta </entry>
+              <entry>greek small letter theta</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03b9</entry>
+              <entry>iota </entry>
+              <entry>greek small letter iota</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03ba</entry>
+              <entry>kappa </entry>
+              <entry>greek small letter kappa</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03bb</entry>
+              <entry>lambda </entry>
+              <entry>greek small letter lamda</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03bc</entry>
+              <entry>mu<footnoteref linkend="f1"/> </entry>
+              <entry>greek small letter mu</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03bd</entry>
+              <entry>nu </entry>
+              <entry>greek small letter nu</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03be</entry>
+              <entry>xi </entry>
+              <entry>greek small letter xi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03bf</entry>
+              <entry>omicron </entry>
+              <entry>greek small letter omicron</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03c0</entry>
+              <entry>pi </entry>
+              <entry>greek small letter pi</entry>
+              <entry>0xb9</entry>
+              <entry>155</entry>
+            </row>
+            <row>
+              <entry>U+03c1</entry>
+              <entry>rho </entry>
+              <entry>greek small letter rho</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03c2</entry>
+              <entry>sigma1 </entry>
+              <entry>greek small letter final sigma</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03c3</entry>
+              <entry>sigma </entry>
+              <entry>greek small letter sigma</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03c4</entry>
+              <entry>tau </entry>
+              <entry>greek small letter tau</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03c5</entry>
+              <entry>upsilon </entry>
+              <entry>greek small letter upsilon</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03c6</entry>
+              <entry>phi </entry>
+              <entry>greek small letter phi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03c7</entry>
+              <entry>chi </entry>
+              <entry>greek small letter chi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03c8</entry>
+              <entry>psi </entry>
+              <entry>greek small letter psi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03c9</entry>
+              <entry>omega </entry>
+              <entry>greek small letter omega</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03ca</entry>
+              <entry>iotadieresis </entry>
+              <entry>greek small letter iota with dialytika</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03cb</entry>
+              <entry>upsilondieresis </entry>
+              <entry>greek small letter upsilon with dialytika</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03cc</entry>
+              <entry>omicrontonos </entry>
+              <entry>greek small letter omicron with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03cd</entry>
+              <entry>upsilontonos </entry>
+              <entry>greek small letter upsilon with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+03ce</entry>
+              <entry>omegatonos </entry>
+              <entry>greek small letter omega with tonos</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0401</entry>
+              <entry>afii10023 </entry>
+              <entry>cyrillic capital letter io</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0402</entry>
+              <entry>afii10051 </entry>
+              <entry>cyrillic capital letter dje</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0403</entry>
+              <entry>afii10052 </entry>
+              <entry>cyrillic capital letter gje</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0404</entry>
+              <entry>afii10053 </entry>
+              <entry>cyrillic capital letter ukrainian ie</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0405</entry>
+              <entry>afii10054 </entry>
+              <entry>cyrillic capital letter dze</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0406</entry>
+              <entry>afii10055 </entry>
+              <entry>cyrillic capital letter byelorussian-ukrainian i</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0407</entry>
+              <entry>afii10056 </entry>
+              <entry>cyrillic capital letter yi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0408</entry>
+              <entry>afii10057 </entry>
+              <entry>cyrillic capital letter je</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0409</entry>
+              <entry>afii10058 </entry>
+              <entry>cyrillic capital letter lje</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+040a</entry>
+              <entry>afii10059 </entry>
+              <entry>cyrillic capital letter nje</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+040b</entry>
+              <entry>afii10060 </entry>
+              <entry>cyrillic capital letter tshe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+040c</entry>
+              <entry>afii10061 </entry>
+              <entry>cyrillic capital letter kje</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+040e</entry>
+              <entry>afii10062 </entry>
+              <entry>cyrillic capital letter short u</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+040f</entry>
+              <entry>afii10145 </entry>
+              <entry>cyrillic capital letter dzhe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0410</entry>
+              <entry>afii10017 </entry>
+              <entry>cyrillic capital letter a</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0411</entry>
+              <entry>afii10018 </entry>
+              <entry>cyrillic capital letter be</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0412</entry>
+              <entry>afii10019 </entry>
+              <entry>cyrillic capital letter ve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0413</entry>
+              <entry>afii10020 </entry>
+              <entry>cyrillic capital letter ghe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0414</entry>
+              <entry>afii10021 </entry>
+              <entry>cyrillic capital letter de</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0415</entry>
+              <entry>afii10022 </entry>
+              <entry>cyrillic capital letter ie</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0416</entry>
+              <entry>afii10024 </entry>
+              <entry>cyrillic capital letter zhe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0417</entry>
+              <entry>afii10025 </entry>
+              <entry>cyrillic capital letter ze</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0418</entry>
+              <entry>afii10026 </entry>
+              <entry>cyrillic capital letter i</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0419</entry>
+              <entry>afii10027 </entry>
+              <entry>cyrillic capital letter short i</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+041a</entry>
+              <entry>afii10028 </entry>
+              <entry>cyrillic capital letter ka</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+041b</entry>
+              <entry>afii10029 </entry>
+              <entry>cyrillic capital letter el</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+041c</entry>
+              <entry>afii10030 </entry>
+              <entry>cyrillic capital letter em</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+041d</entry>
+              <entry>afii10031 </entry>
+              <entry>cyrillic capital letter en</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+041e</entry>
+              <entry>afii10032 </entry>
+              <entry>cyrillic capital letter o</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+041f</entry>
+              <entry>afii10033 </entry>
+              <entry>cyrillic capital letter pe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0420</entry>
+              <entry>afii10034 </entry>
+              <entry>cyrillic capital letter er</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0421</entry>
+              <entry>afii10035 </entry>
+              <entry>cyrillic capital letter es</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0422</entry>
+              <entry>afii10036 </entry>
+              <entry>cyrillic capital letter te</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0423</entry>
+              <entry>afii10037 </entry>
+              <entry>cyrillic capital letter u</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0424</entry>
+              <entry>afii10038 </entry>
+              <entry>cyrillic capital letter ef</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0425</entry>
+              <entry>afii10039 </entry>
+              <entry>cyrillic capital letter ha</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0426</entry>
+              <entry>afii10040 </entry>
+              <entry>cyrillic capital letter tse</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0427</entry>
+              <entry>afii10041 </entry>
+              <entry>cyrillic capital letter che</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0428</entry>
+              <entry>afii10042 </entry>
+              <entry>cyrillic capital letter sha</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0429</entry>
+              <entry>afii10043 </entry>
+              <entry>cyrillic capital letter shcha</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+042a</entry>
+              <entry>afii10044 </entry>
+              <entry>cyrillic capital letter hard sign</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+042b</entry>
+              <entry>afii10045 </entry>
+              <entry>cyrillic capital letter yeru</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+042c</entry>
+              <entry>afii10046 </entry>
+              <entry>cyrillic capital letter soft sign</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+042d</entry>
+              <entry>afii10047 </entry>
+              <entry>cyrillic capital letter e</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+042e</entry>
+              <entry>afii10048 </entry>
+              <entry>cyrillic capital letter yu</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+042f</entry>
+              <entry>afii10049 </entry>
+              <entry>cyrillic capital letter ya</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0430</entry>
+              <entry>afii10065 </entry>
+              <entry>cyrillic small letter a</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0431</entry>
+              <entry>afii10066 </entry>
+              <entry>cyrillic small letter be</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0432</entry>
+              <entry>afii10067 </entry>
+              <entry>cyrillic small letter ve</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0433</entry>
+              <entry>afii10068 </entry>
+              <entry>cyrillic small letter ghe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0434</entry>
+              <entry>afii10069 </entry>
+              <entry>cyrillic small letter de</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0435</entry>
+              <entry>afii10070 </entry>
+              <entry>cyrillic small letter ie</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0436</entry>
+              <entry>afii10072 </entry>
+              <entry>cyrillic small letter zhe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0437</entry>
+              <entry>afii10073 </entry>
+              <entry>cyrillic small letter ze</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0438</entry>
+              <entry>afii10074 </entry>
+              <entry>cyrillic small letter i</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0439</entry>
+              <entry>afii10075 </entry>
+              <entry>cyrillic small letter short i</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+043a</entry>
+              <entry>afii10076 </entry>
+              <entry>cyrillic small letter ka</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+043b</entry>
+              <entry>afii10077 </entry>
+              <entry>cyrillic small letter el</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+043c</entry>
+              <entry>afii10078 </entry>
+              <entry>cyrillic small letter em</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+043d</entry>
+              <entry>afii10079 </entry>
+              <entry>cyrillic small letter en</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+043e</entry>
+              <entry>afii10080 </entry>
+              <entry>cyrillic small letter o</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+043f</entry>
+              <entry>afii10081 </entry>
+              <entry>cyrillic small letter pe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0440</entry>
+              <entry>afii10082 </entry>
+              <entry>cyrillic small letter er</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0441</entry>
+              <entry>afii10083 </entry>
+              <entry>cyrillic small letter es</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0442</entry>
+              <entry>afii10084 </entry>
+              <entry>cyrillic small letter te</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0443</entry>
+              <entry>afii10085 </entry>
+              <entry>cyrillic small letter u</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0444</entry>
+              <entry>afii10086 </entry>
+              <entry>cyrillic small letter ef</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0445</entry>
+              <entry>afii10087 </entry>
+              <entry>cyrillic small letter ha</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0446</entry>
+              <entry>afii10088 </entry>
+              <entry>cyrillic small letter tse</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0447</entry>
+              <entry>afii10089 </entry>
+              <entry>cyrillic small letter che</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0448</entry>
+              <entry>afii10090 </entry>
+              <entry>cyrillic small letter sha</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0449</entry>
+              <entry>afii10091 </entry>
+              <entry>cyrillic small letter shcha</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+044a</entry>
+              <entry>afii10092 </entry>
+              <entry>cyrillic small letter hard sign</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+044b</entry>
+              <entry>afii10093 </entry>
+              <entry>cyrillic small letter yeru</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+044c</entry>
+              <entry>afii10094 </entry>
+              <entry>cyrillic small letter soft sign</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+044d</entry>
+              <entry>afii10095 </entry>
+              <entry>cyrillic small letter e</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+044e</entry>
+              <entry>afii10096 </entry>
+              <entry>cyrillic small letter yu</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+044f</entry>
+              <entry>afii10097 </entry>
+              <entry>cyrillic small letter ya</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0451</entry>
+              <entry>afii10071 </entry>
+              <entry>cyrillic small letter io</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0452</entry>
+              <entry>afii10099 </entry>
+              <entry>cyrillic small letter dje</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0453</entry>
+              <entry>afii10100 </entry>
+              <entry>cyrillic small letter gje</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0454</entry>
+              <entry>afii10101 </entry>
+              <entry>cyrillic small letter ukrainian ie</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0455</entry>
+              <entry>afii10102 </entry>
+              <entry>cyrillic small letter dze</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0456</entry>
+              <entry>afii10103 </entry>
+              <entry>cyrillic small letter byelorussian-ukrainian i</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0457</entry>
+              <entry>afii10104 </entry>
+              <entry>cyrillic small letter yi</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0458</entry>
+              <entry>afii10105 </entry>
+              <entry>cyrillic small letter je</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0459</entry>
+              <entry>afii10106 </entry>
+              <entry>cyrillic small letter lje</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+045a</entry>
+              <entry>afii10107 </entry>
+              <entry>cyrillic small letter nje</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+045b</entry>
+              <entry>afii10108 </entry>
+              <entry>cyrillic small letter tshe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+045c</entry>
+              <entry>afii10109 </entry>
+              <entry>cyrillic small letter kje</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+045e</entry>
+              <entry>afii10110 </entry>
+              <entry>cyrillic small letter short u</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+045f</entry>
+              <entry>afii10193 </entry>
+              <entry>cyrillic small letter dzhe</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0490</entry>
+              <entry>afii10050 </entry>
+              <entry>cyrillic capital letter ghe with upturn</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+0491</entry>
+              <entry>afii10098 </entry>
+              <entry>cyrillic small letter ghe with upturn</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+1e80</entry>
+              <entry>Wgrave </entry>
+              <entry>latin capital letter w with grave</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+1e81</entry>
+              <entry>wgrave </entry>
+              <entry>latin small letter w with grave</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+1e82</entry>
+              <entry>Wacute </entry>
+              <entry>latin capital letter w with acute</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+1e83</entry>
+              <entry>wacute </entry>
+              <entry>latin small letter w with acute</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+1e84</entry>
+              <entry>Wdieresis </entry>
+              <entry>latin capital letter w with diaeresis</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+1e85</entry>
+              <entry>wdieresis </entry>
+              <entry>latin small letter w with diaeresis</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+1ef2</entry>
+              <entry>Ygrave </entry>
+              <entry>latin capital letter y with grave</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+1ef3</entry>
+              <entry>ygrave </entry>
+              <entry>latin small letter y with grave</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2013</entry>
+              <entry>endash </entry>
+              <entry>en dash</entry>
+              <entry>0xd0</entry>
+              <entry>178</entry>
+            </row>
+            <row>
+              <entry>U+2014</entry>
+              <entry>emdash </entry>
+              <entry>em dash</entry>
+              <entry>0xd1</entry>
+              <entry>179</entry>
+            </row>
+            <row>
+              <entry>U+2015</entry>
+              <entry>afii00208 </entry>
+              <entry>horizontal bar</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2017</entry>
+              <entry>underscoredbl </entry>
+              <entry>double low line</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2018</entry>
+              <entry>quoteleft </entry>
+              <entry>left single quotation mark</entry>
+              <entry>0xd4</entry>
+              <entry>182</entry>
+            </row>
+            <row>
+              <entry>U+2019</entry>
+              <entry>quoteright </entry>
+              <entry>right single quotation mark</entry>
+              <entry>0xd5</entry>
+              <entry>183</entry>
+            </row>
+            <row>
+              <entry>U+201a</entry>
+              <entry>quotesinglbase </entry>
+              <entry>single low-9 quotation mark</entry>
+              <entry>0xe2</entry>
+              <entry>196</entry>
+            </row>
+            <row>
+              <entry>U+201b</entry>
+              <entry>quotereversed </entry>
+              <entry>single high-reversed-9 quotation mark</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+201c</entry>
+              <entry>quotedblleft </entry>
+              <entry>left double quotation mark</entry>
+              <entry>0xd2</entry>
+              <entry>180</entry>
+            </row>
+            <row>
+              <entry>U+201d</entry>
+              <entry>quotedblright </entry>
+              <entry>right double quotation mark</entry>
+              <entry>0xd3</entry>
+              <entry>181</entry>
+            </row>
+            <row>
+              <entry>U+201e</entry>
+              <entry>quotedblbase </entry>
+              <entry>double low-9 quotation mark</entry>
+              <entry>0xe3</entry>
+              <entry>197</entry>
+            </row>
+            <row>
+              <entry>U+2020</entry>
+              <entry>dagger </entry>
+              <entry>dagger</entry>
+              <entry>0xa0</entry>
+              <entry>130</entry>
+            </row>
+            <row>
+              <entry>U+2021</entry>
+              <entry>daggerdbl </entry>
+              <entry>double dagger</entry>
+              <entry>0xe0</entry>
+              <entry>194</entry>
+            </row>
+            <row>
+              <entry>U+2022</entry>
+              <entry>bullet </entry>
+              <entry>bullet</entry>
+              <entry>0xa5</entry>
+              <entry>135</entry>
+            </row>
+            <row>
+              <entry>U+2026</entry>
+              <entry>ellipsis </entry>
+              <entry>horizontal ellipsis</entry>
+              <entry>0xc9</entry>
+              <entry>171</entry>
+            </row>
+            <row>
+              <entry>U+2030</entry>
+              <entry>perthousand </entry>
+              <entry>per mille sign</entry>
+              <entry>0xe4</entry>
+              <entry>198</entry>
+            </row>
+            <row>
+              <entry>U+2032</entry>
+              <entry>minute </entry>
+              <entry>prime</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2033</entry>
+              <entry>second </entry>
+              <entry>double prime</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2039</entry>
+              <entry>guilsinglleft </entry>
+              <entry>single left-pointing angle quotation mark</entry>
+              <entry>0xdc</entry>
+              <entry>190</entry>
+            </row>
+            <row>
+              <entry>U+203a</entry>
+              <entry>guilsinglright </entry>
+              <entry>single right-pointing angle quotation mark</entry>
+              <entry>0xdd</entry>
+              <entry>191</entry>
+            </row>
+            <row>
+              <entry>U+203c</entry>
+              <entry>exclamdbl </entry>
+              <entry>double exclamation mark</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+203e</entry>
+              <entry>uni203E</entry>
+              <entry>overline</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2044</entry>
+              <entry>fraction </entry>
+              <entry>fraction slash</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+207f</entry>
+              <entry>nsuperior </entry>
+              <entry>superscript latin small letter n</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+20a3</entry>
+              <entry>franc </entry>
+              <entry>french franc sign</entry>
+              <entry/>
+              <entry>247</entry>
+            </row>
+            <row>
+              <entry>U+20a4</entry>
+              <entry>lira</entry>
+              <entry>l</entry>
+              <entry>ira sign</entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+20a7</entry>
+              <entry>peseta </entry>
+              <entry>peseta sign</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+20ac</entry>
+              <entry>Euro </entry>
+              <entry>euro currency symbol</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2105</entry>
+              <entry>afii61248 </entry>
+              <entry>care of</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2113</entry>
+              <entry>afii61289 </entry>
+              <entry>script small l</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2116</entry>
+              <entry>afii61352 </entry>
+              <entry>numero sign</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2122</entry>
+              <entry>trademark </entry>
+              <entry>trademark sign</entry>
+              <entry>0xaa</entry>
+              <entry>140</entry>
+            </row>
+            <row>
+              <entry>U+2126</entry>
+              <entry>Omega</entry>
+              <entry>ohm sign</entry>
+              <entry>0xbd</entry>
+              <entry>159</entry>
+            </row>
+            <row>
+              <entry>U+212e</entry>
+              <entry>estimated </entry>
+              <entry>estimated symbol</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+215b</entry>
+              <entry>oneeighth </entry>
+              <entry>vulgar fraction one eighth</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+215c</entry>
+              <entry>threeeighths </entry>
+              <entry>vulgar fraction three eighths</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+215d</entry>
+              <entry>fiveeighths </entry>
+              <entry>vulgar fraction five eighths</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+215e</entry>
+              <entry>seveneighths </entry>
+              <entry>vulgar fraction seven eighths</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2190</entry>
+              <entry>arrowleft </entry>
+              <entry>leftwards arrow</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2191</entry>
+              <entry>arrowup </entry>
+              <entry>upwards arrow</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2192</entry>
+              <entry>arrowright </entry>
+              <entry>rightwards arrow</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2193</entry>
+              <entry>arrowdown</entry>
+              <entry>downwards arrow</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2194</entry>
+              <entry>arrowboth </entry>
+              <entry>left right arrow</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2195</entry>
+              <entry>arrowupdn </entry>
+              <entry>up down arrow</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+21a8</entry>
+              <entry>arrowupdnbse<footnote id="f2"><para>This is an optional glyph</para></footnote></entry>
+              <entry>up down arrow with base</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2202</entry>
+              <entry>partialdiff </entry>
+              <entry>partial differential</entry>
+              <entry>0xb6</entry>
+              <entry>152</entry>
+            </row>
+            <row>
+              <entry>U+2206</entry>
+              <entry>Delta </entry>
+              <entry>increment</entry>
+              <entry>0xc6</entry>
+              <entry>168</entry>
+            </row>
+            <row>
+              <entry>U+220f</entry>
+              <entry>product </entry>
+              <entry>n-ary product</entry>
+              <entry>0xb8</entry>
+              <entry>154</entry>
+            </row>
+            <row>
+              <entry>U+2211</entry>
+              <entry>summation </entry>
+              <entry>n-ary summation</entry>
+              <entry>0xb7</entry>
+              <entry>153</entry>
+            </row>
+            <row>
+              <entry>U+2212</entry>
+              <entry>minus </entry>
+              <entry>minus sign</entry>
+              <entry/>
+              <entry>239</entry>
+            </row>
+            <row>
+              <entry>U+2215</entry>
+              <entry>fraction<footnoteref linkend="f1"/></entry>
+              <entry>division slash</entry>
+              <entry>0xda</entry>
+              <entry>188</entry>
+            </row>
+            <row>
+              <entry>U+2219</entry>
+              <entry>periodcentered<footnoteref linkend="f1"/></entry>
+              <entry>bullet operator</entry>
+              <entry>0xe1</entry>
+              <entry>195</entry>
+            </row>
+            <row>
+              <entry>U+221a</entry>
+              <entry>radical </entry>
+              <entry>square root</entry>
+              <entry>0xc3</entry>
+              <entry>165</entry>
+            </row>
+            <row>
+              <entry>U+221e</entry>
+              <entry>infinity </entry>
+              <entry>infinity</entry>
+              <entry>0xb0</entry>
+              <entry>146</entry>
+            </row>
+            <row>
+              <entry>U+221f</entry>
+              <entry>orthogonal </entry>
+              <entry>right angle</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2229</entry>
+              <entry>intersection </entry>
+              <entry>intersection</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+222b</entry>
+              <entry>integral </entry>
+              <entry>integral</entry>
+              <entry>0xba</entry>
+              <entry>156</entry>
+            </row>
+            <row>
+              <entry>U+2248</entry>
+              <entry>approxequal </entry>
+              <entry>almost equal to</entry>
+              <entry>0xc5</entry>
+              <entry>167</entry>
+            </row>
+            <row>
+              <entry>U+2260</entry>
+              <entry>notequal </entry>
+              <entry>not equal to</entry>
+              <entry>0xad</entry>
+              <entry>143</entry>
+            </row>
+            <row>
+              <entry>U+2261</entry>
+              <entry>equivalence </entry>
+              <entry>identical to</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2264</entry>
+              <entry>lessequal </entry>
+              <entry>less-than or equal to</entry>
+              <entry>0xb2</entry>
+              <entry>148</entry>
+            </row>
+            <row>
+              <entry>U+2265</entry>
+              <entry>greaterequal </entry>
+              <entry>greater-than or equal to</entry>
+              <entry>0xb3</entry>
+              <entry>149</entry>
+            </row>
+            <row>
+              <entry>U+2302</entry>
+              <entry>house<footnoteref linkend="f2"/></entry>
+              <entry>house</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2310</entry>
+              <entry>revlogicalnot<footnoteref linkend="f2"/> </entry>
+              <entry>reversed not sign</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2320</entry>
+              <entry>integraltp<footnoteref linkend="f2"/></entry>
+              <entry>top half integral</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2321</entry>
+              <entry>integralbt<footnoteref linkend="f2"/></entry>
+              <entry>bottom half integral</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2500</entry>
+              <entry>SF100000 </entry>
+              <entry>box drawings light horizontal</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2502</entry>
+              <entry>SF110000 </entry>
+              <entry>box drawings light vertical</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+250c</entry>
+              <entry>SF010000 </entry>
+              <entry>box drawings light down and right</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2510</entry>
+              <entry>SF030000 </entry>
+              <entry>box drawings light down and left</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2514</entry>
+              <entry>SF020000 </entry>
+              <entry>box drawings light up and right</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2518</entry>
+              <entry>SF040000 </entry>
+              <entry>box drawings light up and left</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+251c</entry>
+              <entry>SF080000 </entry>
+              <entry>box drawings light vertical and right</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2524</entry>
+              <entry>SF090000 </entry>
+              <entry>box drawings light vertical and left</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+252c</entry>
+              <entry>SF060000 </entry>
+              <entry>box drawings light down and horizontal</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2534</entry>
+              <entry>SF070000 </entry>
+              <entry>box drawings light up and horizontal</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+253c</entry>
+              <entry>SF050000 </entry>
+              <entry>box drawings light vertical and horizontal</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2550</entry>
+              <entry>SF430000 </entry>
+              <entry>box drawings double horizontal</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2551</entry>
+              <entry>SF240000 </entry>
+              <entry>box drawings double vertical</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2552</entry>
+              <entry>SF510000 </entry>
+              <entry>box drawings down single and right double</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2553</entry>
+              <entry>SF520000 </entry>
+              <entry>box drawings down double and right single</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2554</entry>
+              <entry>SF390000 </entry>
+              <entry>box drawings double down and right</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2555</entry>
+              <entry>SF220000 </entry>
+              <entry>box drawings down single and left double</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2556</entry>
+              <entry>SF210000 </entry>
+              <entry>box drawings down double and left single</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2557</entry>
+              <entry>SF250000 </entry>
+              <entry>box drawings double down and left</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2558</entry>
+              <entry>SF500000 </entry>
+              <entry>box drawings up single and right double</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2559</entry>
+              <entry>SF490000 </entry>
+              <entry>box drawings up double and right single</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+255a</entry>
+              <entry>SF380000 </entry>
+              <entry>box drawings double up and right</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+255b</entry>
+              <entry>SF280000 </entry>
+              <entry>box drawings up single and left double</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+255c</entry>
+              <entry>SF270000 </entry>
+              <entry>box drawings up double and left single</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+255d</entry>
+              <entry>SF260000 </entry>
+              <entry>box drawings double up and left</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+255e</entry>
+              <entry>SF360000 </entry>
+              <entry>box drawings vertical single and right double</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+255f</entry>
+              <entry>SF370000 </entry>
+              <entry>box drawings vertical double and right single</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2560</entry>
+              <entry>SF420000 </entry>
+              <entry>box drawings double vertical and right</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2561</entry>
+              <entry>SF190000 </entry>
+              <entry>box drawings vertical single and left double</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2562</entry>
+              <entry>SF200000 </entry>
+              <entry>box drawings vertical double and left single</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2563</entry>
+              <entry>SF230000 </entry>
+              <entry>box drawings double vertical and left</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2564</entry>
+              <entry>SF470000 </entry>
+              <entry>box drawings down single and horizontal double</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2565</entry>
+              <entry>SF480000 </entry>
+              <entry>box drawings down double and horizontal single</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2566</entry>
+              <entry>SF410000 </entry>
+              <entry>box drawings double down and horizontal</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2567</entry>
+              <entry>SF450000 </entry>
+              <entry>box drawings up single and horizontal double</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2568</entry>
+              <entry>SF460000 </entry>
+              <entry>box drawings up double and horizontal single</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2569</entry>
+              <entry>SF400000 </entry>
+              <entry>box drawings double up and horizontal</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+256a</entry>
+              <entry>SF540000 </entry>
+              <entry>box drawings vertical single and horizontal double</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+256b</entry>
+              <entry>SF530000 </entry>
+              <entry>box drawings vertical double and horizontal single</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+256c</entry>
+              <entry>SF440000 </entry>
+              <entry>box drawings double vertical and horizontal</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2580</entry>
+              <entry>upblock<footnoteref linkend="f2"/></entry>
+              <entry>upper half block</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2584</entry>
+              <entry>dnblock </entry>
+              <entry>lower half block</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2588</entry>
+              <entry>block </entry>
+              <entry>full block</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+258c</entry>
+              <entry>lfblock </entry>
+              <entry>left half block</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2590</entry>
+              <entry>rtblock<footnoteref linkend="f2"/></entry>
+              <entry>right half block</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2591</entry>
+              <entry>ltshade<footnoteref linkend="f2"/></entry>
+              <entry>light shade</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2592</entry>
+              <entry>shade </entry>
+              <entry>medium shade</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2593</entry>
+              <entry>dkshade </entry>
+              <entry>dark shade</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25a0</entry>
+              <entry>filledbox </entry>
+              <entry>black square</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25a1</entry>
+              <entry>H22073 </entry>
+              <entry>white square</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25aa</entry>
+              <entry>H18543 </entry>
+              <entry>black small square</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25ab</entry>
+              <entry>H18551 </entry>
+              <entry>white small square</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25ac</entry>
+              <entry>filledrect<footnoteref linkend="f2"/></entry>
+              <entry>black rectangle</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25b2</entry>
+              <entry>triagup </entry>
+              <entry>black up-pointing triangle</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25ba</entry>
+              <entry>triagrt<footnoteref linkend="f2"/></entry>
+              <entry>black right-pointing pointer</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25bc</entry>
+              <entry>triagdn </entry>
+              <entry>black down-pointing triangle</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25c4</entry>
+              <entry>triaglf<footnoteref linkend="f2"/></entry>
+              <entry>black left-pointing pointer</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25ca</entry>
+              <entry>lozenge </entry>
+              <entry>lozenge</entry>
+              <entry>0xd7</entry>
+              <entry>185</entry>
+            </row>
+            <row>
+              <entry>U+25cb</entry>
+              <entry>circle </entry>
+              <entry>white circle</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25cf</entry>
+              <entry>H18533 </entry>
+              <entry>black circle</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25d8</entry>
+              <entry>invbullet<footnoteref linkend="f2"/></entry>
+              <entry>inverse bullet</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25d9</entry>
+              <entry>invcircle<footnoteref linkend="f2"/></entry>
+              <entry>inverse white circle</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+25e6</entry>
+              <entry>openbullet </entry>
+              <entry>white bullet</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+263a</entry>
+              <entry>smileface<footnoteref linkend="f2"/></entry>
+              <entry>white smiling face</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+263b</entry>
+              <entry>invsmileface<footnoteref linkend="f2"/></entry>
+              <entry>black smiling face</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+263c</entry>
+              <entry>sun<footnoteref linkend="f2"/></entry>
+              <entry>white sun with rays</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2640</entry>
+              <entry>female </entry>
+              <entry>female sign</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2642</entry>
+              <entry>male </entry>
+              <entry>male sign</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2660</entry>
+              <entry>spade </entry>
+              <entry>black spade suit</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2663</entry>
+              <entry>club </entry>
+              <entry>black club suit</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2665</entry>
+              <entry>heart </entry>
+              <entry>black heart suit</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+2666</entry>
+              <entry>diamond<footnoteref linkend="f2"/></entry>
+              <entry>black diamond suit</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+266a</entry>
+              <entry>musicalnote </entry>
+              <entry>eighth note</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+266b</entry>
+              <entry>musicalnotedbl<footnoteref linkend="f2"/></entry>
+              <entry>beamed eighth notes</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>U+f001</entry>
+              <entry>fi </entry>
+              <entry>fi ligature</entry>
+              <entry>0xde</entry>
+              <entry>192</entry>
+            </row>
+            <row>
+              <entry>U+f002</entry>
+              <entry>fl </entry>
+              <entry>fl ligature</entry>
+              <entry>0xdf</entry>
+              <entry>193</entry>
+            </row>
+            <row>
+              <entry>U+fb01</entry>
+              <entry>fi </entry>
+              <entry>fi ligature</entry>
+              <entry>0xde</entry>
+              <entry>192</entry>
+            </row>
+            <row>
+              <entry>U+fb02</entry>
+              <entry>fl </entry>
+              <entry>fl ligature</entry>
+              <entry>0xdf</entry>
+              <entry>193</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Note about the Euro Currency Symbol</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para> The euro is the name given to the proposed single
+	currency of the European Union. According to the European
+	Commission the euro will exist as a currency from 1 January
+	1999 but will only gradually move into general use, with the
+	introduction of coins and notes in 2002.</para>
+      <para>According to the information posted on the official euro
+	Web site, about thirty draft designs were drawn up internally
+	by the European Commission. Of these members of the general
+	public assessed ten, narrowing the shortlist to two
+	designs. Jacques Santer, president of the European Commission,
+	and Yves-Thibault de Silguy, the European commissioner in
+	charge of the euro chose the final design.</para>
+      <para>The euro symbol as it appears in Courier New, Times New
+	Roman and Arial. Microsoft and other vendors have chosen to
+	make instances of the euro symbol font and style specific - so
+	the design of the symbol takes on the characteristics of the
+	font in which it resides.</para>
+      <para>Traditionally numerals and currency symbols are the same
+	width for any given font. This helps values line up properly
+	in tabular applications like spreadsheets. To make the euro
+	symbol the correct width for Arial and Times New Roman it had
+	to be condensed.</para>
+      <para>To access the symbol in Microsoft Word 97, a user
+	selects 'Symbol..' from the 'Insert' menu. Word also lets
+	users set up a keyboard shortcut to access any available
+	symbol.</para>
+      <para>The Unicode assignment of the euro symbol is 20AC. The
+	symbol will be added to the following codepages at position
+	'0x80'; 1250 Eastern European, 1252 Western, 1253 Greek, 1254
+	Turkish and 1257 Baltic. In 1251 Cyrillic the symbol will be
+	added at position '0x88'.</para>
+      <para>For detailed information about the euro, links to what
+	other people are are doing with it, please see our
+	comprehensive frequently asked questions page.</para>
+      <informalfigure>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../../neweuro.gif"/>
+          </imageobject>
+        </mediaobject>
+      </informalfigure>
+    </section>
+  </section>
+</section>

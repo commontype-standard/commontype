@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.ttinst">
+  <title>The TrueType instruction set</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Introduction</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>When TrueType glyph outlines are rasterized, they are
+	hinted using instructions contained in the font file. The
+	TrueType instruction set provides a powerful means of
+	controlling glyph outlines at all or specific sizes and
+	resolutions. Instructions are crucial for legible fonts at
+	screen resolutions. The following Word documents discuss
+	hinting and the TrueType instruction set in detail. These
+	documents are currently being converted to HTML format.</para>
+      <itemizedlist>
+        <listitem>
+          <para>Instructing TrueType Glyphs [Microsoft Word format]</para>
+        </listitem>
+        <listitem>
+          <para>The TrueType Instruction Set, Part 1 [Microsoft Word
+	    format]</para>
+        </listitem>
+        <listitem>
+          <para>The TrueType Instruction Set, Part 2 [Microsoft Word
+	    format]</para>
+        </listitem>
+        <listitem>
+          <para>Graphics State Summary [Microsoft Word format]</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+</section>

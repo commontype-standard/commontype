@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section id="chapter.head">
+  <title>head - Font Header</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Introduction</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This table gives global information about the font. The
+          bounding box values should be computed using
+          <emphasis>only</emphasis> glyphs that have contours. Glyphs
+          with no contours should be ignored for the purposes of these
+          calculations.</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>Fixed</otfieldtype>
+          <otfieldname>Table version number</otfieldname>
+          <otfielddesc>0x00010000 for version 1.0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>Fixed</otfieldtype>
+          <otfieldname>fontRevision</otfieldname>
+          <otfielddesc>Set by font manufacturer.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>checkSumAdjustment</otfieldname>
+          <otfielddesc>To compute: set it to 0, sum the entire font
+              as ULONG, then store 0xB1B0AFBA - sum.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>magicNumber</otfieldname>
+          <otfielddesc>Set to 0x5F0F3CF5.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>20</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>flags</otfieldname>
+          <otfielddesc>
+            <simplelist>
+              <member>Bit 0: baseline for font at y=0;</member>
+              <member>Bit 1: left sidebearing at x=0;</member>
+              <member>Bit 2: instructions may depend on point
+                  size;</member>
+              <member>Bit 3: force ppem to integer values for all internal
+                  scaler math; may use fractional ppem sizes if this bit is
+                  clear;</member>
+              <member>Bit 4: instructions may alter advance width (the
+                  advance widths might not scale linearly);</member>
+              <member>Bits 5-10: These should be set according to
+                  <ulink url="http://developer.apple.com/fonts/TTRefMan/RM06/Chap6head.html">Apple's specification</ulink>. However, they are not
+                  implemented in CommonType.</member>
+              <member>Bit 11: font data is 'lossless,' as a result of
+                  having been compressed and decompressed with the Agfa
+                  MicroType Express engine.</member>
+              <member>Bit 12: font converted (produce compatible
+                  metrics).</member>
+              <member>Bit 13: Font optimized for ClearType.</member>
+              <member>Bit 14: Reserved, set to 0.</member>
+              <member>Bit 15: Reserved, set to 0.</member>
+            </simplelist>
+          </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>22</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>unitsPerEm</otfieldname>
+          <otfielddesc>Valid range is from 16 to
+              16384. This value should be a power of 2 for fonts that
+            have TrueType outlines.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>24</otfieldoffs>
+          <otfieldtype>LONGDATETIME</otfieldtype>
+          <otfieldname>created</otfieldname>
+          <otfielddesc>Number of seconds since 12:00 midnight,
+              January 1, 1904. 64-bit integer.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>32</otfieldoffs>
+          <otfieldtype>LONGDATETIME</otfieldtype>
+          <otfieldname>modified</otfieldname>
+          <otfielddesc>Number of seconds since 12:00 midnight,
+              January 1, 1904. 64-bit integer.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>40</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>xMin</otfieldname>
+          <otfielddesc>For all glyph bounding boxes.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>42</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>yMin</otfieldname>
+          <otfielddesc>For all glyph bounding boxes.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>44</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>xMax</otfieldname>
+          <otfielddesc>For all glyph bounding boxes.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>46</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>yMax</otfieldname>
+          <otfielddesc>For all glyph bounding boxes.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>48</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>macStyle</otfieldname>
+          <otfielddesc>
+            <simplelist>
+              <member>Bit 0: Bold (if set to 1);</member>
+              <member>Bit 1: Italic (if set to 1)</member>
+              <member>Bit 2: Underline (if set to 1)</member>
+              <member>Bit 3: Outline (if set to 1)</member>
+              <member>Bit 4: Shadow (if set to 1)</member>
+              <member>Bit 5: Condensed (if set to 1)</member>
+              <member>Bit 6: Extended (if set to 1)</member>
+              <member>Bits 7-15: Reserved (set to 0)</member>
+            </simplelist>
+          </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>50</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>lowestRecPPEM</otfieldname>
+          <otfielddesc>Smallest readable size in
+              pixels.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>52</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>fontDirectionHint</otfieldname>
+          <otfielddesc>
+            <simplelist>
+              <member>0: Fully mixed directional
+                      glyphs;</member>
+              <member>1: Only strongly left to right;</member>
+              <member>2: Like 1 but also contains
+                      neutrals;</member>
+              <member>-1: Only strongly right to left;</member>
+              <member>-2: Like -1 but also contains
+                      neutrals<footnote><para>A neutral character has no inherent
+                          directionality; it is not a character with
+                          zero (0) width. Spaces and punctuation are
+                          examples of neutral characters. Non-neutral
+                          characters are those with inherent
+                          directionality. For example, Roman letters
+                          (left-to-right) and Arabic
+                          letters(right-to-left) have directionality.
+                          In a "normal" Roman font where spaces and
+                          punctuation are present, the font direction
+                          hints should be set to two (2).</para></footnote>.</member>
+            </simplelist>
+          </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>54</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>indexToLocFormat</otfieldname>
+          <otfielddesc>0 for short offsets, 1 for
+              long.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>56</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>glyphDataFormat</otfieldname>
+          <otfielddesc>0 for current format.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para/>
+      <para>Note that macStyle bits must agree with the
+          <ottable>OS/2</ottable> table fsSelection bits. The
+          fsSelection bits are used over the macStyle bits in
+          Microsoft Windows. The PANOSE values and
+          <ottable>post</ottable> table values are ignored for
+          determining bold or italic fonts.</para>
+      <para>For historical reasons, the fontRevision value contained
+          in this table is not used by Windows to determine the
+          version of a font. Instead, Windows evaluates the version
+          string (id 5) in the <ottable>name</ottable> table.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>It seems that Table version number is set to 'OTTO' for
+          CFF based fonts.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema">
+head =
+  element head {
+    attribute major { text },
+    attribute minor { text },
+    element fontRevision {
+      attribute major { text },
+      attribute minor { text }
+    },
+    element flags {
+      attribute baseline_at_0 { yesOrNo },
+      attribute lsb_at_0 { yesOrNo },
+      attribute instructions_vary_with_point_size { yesOrNo },
+      attribute use_integral_ppem { yesOrNo },
+      attribute instructions_alter_advance_width { yesOrNo },
+      attribute lossless { yesOrNo },
+      attribute converted { yesOrNo },
+      attribute optimized_for_cleartype { yesOrNo }
+    },
+    element unitsPerEm {
+      attribute v { text }
+    },
+    element dates {
+      attribute created { text },
+      attribute modified { text }
+    },
+    element bbox {
+      attribute xMin { text },
+      attribute yMin { text },
+      attribute xMax { text },
+      attribute yMax { text }
+    },
+    element macStyle {
+      attribute bold { yesOrNo },
+      attribute italic { yesOrNo }
+    },
+    element lowestRecPPEM {
+      attribute v { text }
+    },
+    element fontDirectionHint {
+      attribute v { text }
+    },
+    element indexToLocFormat {
+      attribute v { text }
+    }
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="head.methods">
+  public void fromXML (Element head)
+      throws InvalidFontException, UnsupportedFontException {
+
+    data = new byte [54];
+
+    { int major = Integer.decode (head.getAttribute ("major")).intValue ();
+      int minor = Integer.decode (head.getAttribute ("minor")).intValue ();
+      setTableVersion (major, minor); }
+
+    NodeList children = head.getChildNodes ();
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element e = (Element) children.item (i);
+
+      if ("fontRevision".equals (e.getTagName ())) {
+        int major = Integer.decode (e.getAttribute ("major")).intValue ();
+        int minor = Integer.decode (e.getAttribute ("minor")).intValue ();
+        setFontRevision (major, minor); }
+
+      else if ("flags".equals (e.getTagName ())) {
+        Flags flags = new Flags ();
+        flags.baseline_at_0
+           = "yes".equals (e.getAttribute ("baseline_at_0"));
+        flags.lsb_at_0
+           = "yes".equals (e.getAttribute ("lsb_at_0"));
+        flags.instructions_vary_with_point_size
+           = "yes".equals (e.getAttribute ("instructions_vary_with_point_size"));
+        flags.use_integral_ppem
+           = "yes".equals (e.getAttribute ("use_integral_ppem"));
+        flags.instructions_alter_advance_width
+           = "yes".equals (e.getAttribute ("instructions_alter_advance_width"));
+        flags.lossless
+           = "yes".equals (e.getAttribute ("lossless"));
+        flags.converted
+           = "yes".equals (e.getAttribute ("converted"));
+        flags.optimized_for_cleartype
+           = "yes".equals (e.getAttribute ("optimized_for_cleartype"));
+        setFlags (flags); }
+
+      else if ("unitsPerEm".equals (e.getTagName ())) {
+        int upem = Integer.decode (e.getAttribute ("v")).intValue ();
+        setUnitsPerEm (upem); }
+
+      else if ("dates".equals (e.getTagName ())) {
+        java.text.DateFormat df
+          = java.text.DateFormat.getDateTimeInstance (java.text.DateFormat.LONG,
+                                                      java.text.DateFormat.LONG);
+        try {
+          java.util.Date created = df.parse (e.getAttribute ("created"));
+          setCreated (created); }
+        catch (java.text.ParseException ex) {
+          throw new InvalidFontException ("incorrect date/time for head.created"); }
+
+        try {
+	  java.util.Date modified = df.parse (e.getAttribute ("modified"));
+	  setModified (modified); }
+        catch (java.text.ParseException ex) {
+          throw new InvalidFontException ("incorrect date/time for head.modified"); }}
+
+
+      else if ("bbox".equals (e.getTagName ())) {
+        Bbox b = new Bbox ();
+        b.xMin = Integer.decode (e.getAttribute ("xMin")).intValue ();
+        b.yMin = Integer.decode (e.getAttribute ("yMin")).intValue ();
+        b.xMax = Integer.decode (e.getAttribute ("xMax")).intValue ();
+        b.yMax = Integer.decode (e.getAttribute ("yMax")).intValue ();
+        setBbox (b); }
+
+      else if ("macStyle".equals (e.getTagName ())) {
+        MacStyle macStyle = new MacStyle ();
+        macStyle.bold = "yes".equals (e.getAttribute ("bold"));
+        macStyle.italic = "yes".equals (e.getAttribute ("italic"));
+        setMacStyle (macStyle); }
+
+      else if ("lowestRecPPEM".equals (e.getTagName ())) {
+        int rpem = Integer.decode (e.getAttribute ("v")).intValue ();
+        setLowestRecPPEM (rpem); }
+
+      else if ("fontDirectionHint".equals (e.getTagName ())) {
+        int hint = Integer.decode (e.getAttribute ("v")).intValue ();
+        setFontDirectionHint (hint); }
+
+      else if ("indexToLocFormat".equals (e.getTagName ())) {
+        int o = Integer.decode (e.getAttribute ("v")).intValue ();
+        setIndexToLocFormat (o); }}
+
+      setuint32 (12, 0x5f0f3cf5); // magicNumber
+//    setint16 (52, 0); // glyphDataFormat
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="head.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    AttributesImpl at;
+
+    int [] version = getTableVersion ();
+    at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
+    conf.ch.startElement ("head", at); {
+
+      int [] fontRevision = getFontRevision ();
+      at = new AttributesImpl ();
+      at.addAttribute ("", "major", "major", "CDATA", "" + fontRevision [0]);
+      at.addAttribute ("", "minor", "minor", "CDATA", "" + fontRevision [1]);
+      conf.ch.element ("fontRevision", at);
+
+      Flags flags = getFlags ();
+      at = new AttributesImpl ();
+      at.addAttribute ("", "baseline_at_0", "baseline_at_0", "CDATA",
+                       flags.baseline_at_0 ? "yes" : "no");
+      at.addAttribute ("", "lsb_at_0", "lsb_at_0", "CDATA",
+                       flags.lsb_at_0 ? "yes" : "no");
+      at.addAttribute ("", "instructions_vary_with_point_size", "instructions_vary_with_point_size", "CDATA",
+                       flags.instructions_vary_with_point_size ? "yes" : "no");
+      at.addAttribute ("", "use_integral_ppem", "use_integral_ppem", "CDATA",
+                       flags.use_integral_ppem ? "yes" : "no");
+      at.addAttribute ("", "instructions_alter_advance_width", "instructions_alter_advance_width", "CDATA",
+                       flags.instructions_alter_advance_width ? "yes" : "no");
+      at.addAttribute ("", "lossless", "lossless", "CDATA",
+                       flags.lossless ? "yes" : "no");
+      at.addAttribute ("", "converted", "converted", "CDATA",
+                       flags.converted ? "yes" : "no");
+      at.addAttribute ("", "optimized_for_cleartype", "optimized_for_cleartype", "CDATA",
+                       flags.optimized_for_cleartype? "yes" : "no");
+      conf.ch.element ("flags", at);
+
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getUnitsPerEm ());
+      conf.ch.element  ("unitsPerEm", at);
+
+      at = new AttributesImpl ();
+      java.text.DateFormat df
+         = java.text.DateFormat.getDateTimeInstance (java.text.DateFormat.LONG,
+                                                     java.text.DateFormat.LONG);
+      at.addAttribute ("", "created", "created", "CDATA",
+                       df.format (getCreated ()));
+      at.addAttribute ("", "modified", "modified", "CDATA",
+                       df.format (getModified ()));
+      conf.ch.element ("dates", at);
+
+      at = new AttributesImpl ();
+      Bbox b = getBbox ();
+      at.addAttribute ("", "xMin", "xMin", "CDATA", "" + b.xMin);
+      at.addAttribute ("", "yMin", "yMin", "CDATA", "" + b.yMin);
+      at.addAttribute ("", "xMax", "xMax", "CDATA", "" + b.xMax);
+      at.addAttribute ("", "yMax", "yMax", "CDATA", "" + b.yMax);
+      conf.ch.element ("bbox", at);
+
+      MacStyle macStyle = getMacStyle ();
+      at = new AttributesImpl ();
+      at.addAttribute ("", "bold", "bold", "CDATA",
+                       macStyle.bold ? "yes" : "no");
+      at.addAttribute ("", "italic", "italic", "CDATA",
+                       macStyle.italic ? "yes" : "no");
+      conf.ch.element ("macStyle", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getLowestRecPPEM ());
+      conf.ch.element ("lowestRecPPEM", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getFontDirectionHint ());
+      conf.ch.element ("fontDirectionHint", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getIndexToLocFormat ());
+      conf.ch.element ("indexToLocFormat", at);
+
+// TODO
+//      at = new AttributesImpl ();
+//      at.addAttribute ("", "v", "v", "CDATA", "" + getGlyphDataFormat ());
+//      conf.ch.element ("glyphDataFormat", at);
+
+      conf.ch.endElement ("head"); }
+  }
+</code-fragment>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="implementation">
+      <title>Implementation</title>
+      <para>Here is the class that represents the head
+          table:</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Head"><code-title>Head class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.Attributes;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Head extends Table {
+
+  public Head () {
+    super (Tag.head, null);
+  }
+
+  public Head (Font font) {
+    super (Tag.head, font);
+  }
+
+  static public final long Version_OTTO = 0x4f54544f;
+  static public final long Version_1_0  = 0x00010000;
+
+  static public final long magicNumber = 0x5F0F3CF5;
+
+  public class Flags {
+    boolean baseline_at_0;
+    boolean lsb_at_0;
+    boolean instructions_vary_with_point_size;
+    boolean use_integral_ppem;
+    boolean instructions_alter_advance_width;
+    boolean lossless;
+    boolean converted;
+    boolean optimized_for_cleartype;
+
+    public void fromBinary (int n) {
+      baseline_at_0                        = ((n &amp; 0x0001) != 0);
+      lsb_at_0                             = ((n &amp; 0x0002) != 0);
+      instructions_vary_with_point_size    = ((n &amp; 0x0004) != 0);
+      use_integral_ppem                    = ((n &amp; 0x0008) != 0);
+      instructions_alter_advance_width     = ((n &amp; 0x0010) != 0);
+      lossless                             = ((n &amp; 0x0800) != 0);
+      converted                            = ((n &amp; 0x1000) != 0);
+      optimized_for_cleartype              = ((n &amp; 0x2000) != 0);
+    }
+
+    public int toBinary () {
+      int bin = 0;
+      if (baseline_at_0)                          { bin |= 0x0001; }
+      if (lsb_at_0)                               { bin |= 0x0002; }
+      if (instructions_vary_with_point_size)      { bin |= 0x0004; }
+      if (use_integral_ppem)                      { bin |= 0x0008; }
+      if (instructions_alter_advance_width)       { bin |= 0x0010; }
+      if (lossless)                               { bin |= 0x0800; }
+      if (converted)                              { bin |= 0x1000; }
+      if (optimized_for_cleartype)                { bin |= 0x2000; }
+      return bin;
+    }
+
+    public Attributes toXML () {
+      org.xml.sax.helpers.AttributesImpl at;
+      at = new org.xml.sax.helpers.AttributesImpl ();
+      if (baseline_at_0) {
+        at.addAttribute ("head",
+                         "baseline_at_0",
+                         "baseline_at_0",
+                         "CDATA", "yes"); }
+      if (lsb_at_0) {
+        at.addAttribute ("",
+                         "lsb_at_0",
+                         "lsb_at_0",
+                         "CDATA", "yes"); }
+      if (instructions_vary_with_point_size) {
+        at.addAttribute ("",
+                         "instructions_vary_with_point_size",
+                         "instructions_vary_with_point_size",
+                         "CDATA", "yes"); }
+      if (use_integral_ppem) {
+        at.addAttribute ("",
+                         "use_integral_ppem",
+                         "use_integral_ppem",
+                         "CDATA", "yes"); }
+      if (instructions_alter_advance_width) {
+        at.addAttribute ("",
+                         "instructions_alter_advance_width",
+                         "instructions_alter_advance_width",
+                         "CDATA", "yes"); }
+      if (lossless) {
+        at.addAttribute ("",
+                         "lossless",
+                         "lossless",
+                         "CDATA", "yes"); }
+      if (converted) {
+        at.addAttribute ("",
+                         "converted",
+                         "converted",
+                         "CDATA", "yes"); }
+      if (optimized_for_cleartype) {
+        at.addAttribute ("",
+                         "optimized_for_cleartype",
+                         "optimized_for_cleartype",
+                         "CDATA", "yes"); }
+      return at;
+    }
+  }
+
+  public class MacStyle {
+    boolean bold;
+    boolean italic;
+
+    public void fromBinary (int n) {
+      bold                        = ((n &amp; 0x0001) != 0);
+      italic                      = ((n &amp; 0x0002) != 0);
+    }
+
+    public int toBinary () {
+      int bin = 0;
+      if (bold)                           { bin |= 0x0001; }
+      if (italic)                         { bin |= 0x0002; }
+      return bin;
+    }
+
+    public Attributes toXML () {
+      org.xml.sax.helpers.AttributesImpl at;
+      at = new org.xml.sax.helpers.AttributesImpl ();
+      if (bold) {
+        at.addAttribute ("",
+                         "bold",
+                         "bold",
+                         "CDATA", "yes"); }
+      if (italic) {
+        at.addAttribute ("",
+                         "italic",
+                         "italic",
+                         "CDATA", "yes"); }
+      return at;
+    }
+  }
+
+  <code-include linkend="head.methods"/>
+
+  public int[] getTableVersion () {
+    return getFixed (0);
+  }
+
+  public void setTableVersion (int major, int minor) {
+    setFixed (0, major, minor);
+  }
+
+  public int[] getFontRevision () {
+    return getFixed (4);
+  }
+
+  public void setFontRevision (int major, int minor) {
+    setFixed (4, major, minor);
+  }
+
+  public void clearChecksumAdjust () {
+    setuint32 (8, 0);
+  }
+
+  public void setChecksumAdjust (long l) {
+    setuint32 (8, (int)l);
+  }
+
+  public Flags getFlags () {
+    Flags result = new Flags ();
+    result.fromBinary (getuint16 (16));
+    return result;
+  }
+
+  public void setFlags (Flags flags) {
+    setuint16 (16, flags.toBinary ());
+  }
+
+  public int getUnitsPerEm () {
+    return getuint16 (18);
+  }
+
+  public void setUnitsPerEm (int u) {
+    setuint16 (18, u);
+  }
+
+  static final java.util.GregorianCalendar baseForDates
+       = new java.util.GregorianCalendar (1904, 0, 1, 0, 0, 0);
+
+  public java.util.Date getCreated () {
+    return new java.util.Date (baseForDates.getTime ().getTime ()
+                               +  getLONGDATETIME (20) * 1000);
+  }
+
+  public void setCreated (java.util.Date d) {
+   setLONGDATETIME (20, (d.getTime () - baseForDates.getTime ().getTime ()) / 1000);
+  }
+
+  public java.util.Date getModified () {
+    return new java.util.Date (baseForDates.getTime ().getTime ()
+                               +  getLONGDATETIME (28) * 1000);
+  }
+
+  public void setModified (java.util.Date d) {
+    setLONGDATETIME (28, (d.getTime () - baseForDates.getTime ().getTime ()) / 1000);
+  }
+
+  static public class Bbox {
+    public int xMin;
+    public int yMin;
+    public int xMax;
+    public int yMax; };
+
+  public Bbox getBbox () {
+    Bbox b = new Bbox ();
+    b.xMin = getint16 (36);
+    b.yMin = getint16 (38);
+    b.xMax = getint16 (40);
+    b.yMax = getint16 (42);
+    return b;
+  }
+
+  public void setBbox (Bbox b) {
+    setint16 (36, b.xMin);
+    setint16 (38, b.yMin);
+    setint16 (40, b.xMax);
+    setint16 (42, b.yMax);
+  }
+
+  public MacStyle getMacStyle () {
+    MacStyle result = new MacStyle ();
+    result.fromBinary (getuint16 (44));
+    return result;
+  }
+
+  public void setMacStyle (MacStyle flags) {
+    setuint16 (44, flags.toBinary ());
+  }
+
+  public int getLowestRecPPEM () {
+    return getuint16 (46);
+  }
+
+  public void setLowestRecPPEM (int n) {
+    setuint16 (46, n);
+  }
+
+  public int getFontDirectionHint () {
+    return getint16 (48);
+  }
+
+  public void setFontDirectionHint (int n) {
+    setint16 (48, n);
+  }
+
+  public int getIndexToLocFormat () {
+    return getint16 (50);
+  }
+
+  public void setIndexToLocFormat (int n) {
+    setint16 (50, n);
+  }
+
+  public int getGlyphDataFormat () {
+    return getint16 (52);
+  }
+
+  public void setGlyphDataFormat (int n) {
+    setint16 (52, n);
+  }
+}
+</code-fragment>
+    </section>
+  </section>
+</section>

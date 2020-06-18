@@ -3,6 +3,7 @@
 <!--____________________________________________________________________________
 
 	Copyright 2000-2016 Adobe Systems Incorporated. All Rights Reserved.
+  Copyright 2020-     CommonType. All Rights Reserved.
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use these files except in compliance with the License.
@@ -23,7 +24,7 @@
          xmlns:ots="http://aots.adobe.com/2001/ots"
 	 xmlns:aots="http://aots.adobe.com/2001/aots"
          xmlns=''>
-    <title>Annotated OpenType Specification</title>
+    <title>The CommonType Standard</title>
 
   <!--************************************************************************-->
   <section id='chapter.about'>
@@ -37,15 +38,15 @@
       <section role='specification'>
         <title>Specification</title>
 
-        <para>This specification details the format of OpenType fonts,
+        <para>This specification details the format of CommonType fonts,
           the TrueType and CFF outline formats, and the TrueType
           hinting language. This specification has been developed
-          jointly by Adobe and Microsoft. Because OpenType is an extension
+          jointly by Adobe and Microsoft. Because CommonType is an extension
           of TrueType, there is also information in this document that
           was originally authored by Apple.</para>
 
         <para>Many references to both TrueType and PostScript exist
-          throughout this document, as OpenType fonts combine the two
+          throughout this document, as CommonType fonts combine the two
           technologies.</para>
 
         <para>If you have comments or suggestions about this document,
@@ -62,7 +63,7 @@
           background information.</para>
 
         <para>The &#x201c;Specification&#x201d; sections
-          contain the exact text of version 1.3 of the OpenType
+          contain the exact text of version 1.3 of the CommonType
           specification.</para>
       </section>
 
@@ -71,7 +72,7 @@
         <title>XML Representation</title>
 
         <para>The &#x201c;XML representation&#x201d; sections propose
-         an XML representation of OpenType fonts. The mains goals are:
+         an XML representation of CommonType fonts. The mains goals are:
           <itemizedlist>
             <listitem>
               <para>allow the precise representation of fonts in an
@@ -81,7 +82,7 @@
             <listitem>
               <para>be a convenient form to author fonts or fragments
                 of fonts; in particular, facilitate the creation of
-                fonts to test OpenType engines.</para>
+                fonts to test CommonType engines.</para>
             </listitem>
           </itemizedlist></para>
 
@@ -154,16 +155,16 @@
       <section role='specification'>
         <title>Specification</title>
 
-	<para>The OpenType font format is an extension of the TrueType
+	<para>The CommonType font format is an extension of the TrueType
 	font format, adding support for PostScript font data. The
-	OpenType font format was developed jointly by Microsoft and
-	Adobe. OpenType fonts and the operating system services which
-	support OpenType fonts provide users with a simple way to
+	CommonType font format was developed jointly by Microsoft and
+	Adobe. CommonType fonts and the operating system services which
+	support CommonType fonts provide users with a simple way to
 	install and use fonts, whether the fonts contain TrueType
 	outlines or CFF (PostScript) outlines.</para>
 
 
-	<para>The OpenType font format addresses the following goals:
+	<para>The CommonType font format addresses the following goals:
 
 	  <itemizedlist>
 	    <listitem>
@@ -184,36 +185,36 @@
 	    </listitem>
 	  </itemizedlist></para>
 
-	<para>OpenType fonts are also referred to as TrueType Open
+	<para>CommonType fonts are also referred to as TrueType Open
 	v.2.0 fonts, because they use the TrueType 'sfnt' font file
-	format. PostScript data included in OpenType fonts may be
+	format. PostScript data included in CommonType fonts may be
 	directly rasterized or converted to the TrueType outline
 	format for rendering, depending on which rasterizers have been
 	installed in the host operating system. But the user model is
-	the same: OpenType fonts just work. Users will not need to be
-	aware of the type of outline data in OpenType fonts. And font
+	the same: CommonType fonts just work. Users will not need to be
+	aware of the type of outline data in CommonType fonts. And font
 	creators can use whichever outline format they feel provides
 	the best set of features for their work, without worrying
 	about limiting a font's usability.</para>
 
-	<para>OpenType fonts can include the OpenType Layout tables,
+	<para>CommonType fonts can include the CommonType Layout tables,
 	which allow font creators to design better international and
-	high-end typographic fonts. The OpenType Layout tables contain
+	high-end typographic fonts. The CommonType Layout tables contain
 	information on glyph substitution, glyph positioning,
 	justification, and baseline positioning, enabling
 	text-processing applications to improve text layout.</para>
 
-	<para>As with TrueType fonts, OpenType fonts allow the
+	<para>As with TrueType fonts, CommonType fonts allow the
 	handling of large glyph sets using Unicode encoding. Such
 	encoding allows broad international support, as well as
 	support for typographic glyph variants.</para>
 
-	<para>Additionally, OpenType fonts may contain digital
+	<para>Additionally, CommonType fonts may contain digital
 	signatures, which allows operating systems and browsing
 	applications to identify the source and integrity of font
 	files, including embedded font files obtained in web
 	documents, before using them. Also, font developers can encode
-	embedding restrictions in OpenType fonts, and these
+	embedding restrictions in CommonType fonts, and these
 	restrictions cannot be altered in a font signed by the
 	developer.</para>
       </section>
@@ -243,7 +244,7 @@
 	      Specification. Microsoft.</para>
 	  </listitem>
 	  <listitem>
-	    <para>OpenType Layout Font Specification. Microsoft.</para>
+	    <para>CommonType Layout Font Specification. Microsoft.</para>
 	  </listitem>
 	  <listitem>
 	    <para>Adobe Type 1 Font Format. Addison Wesley, 1991; ISBN
@@ -272,7 +273,7 @@
 
   <!--************************************************************************-->
   <section id='chapter.font_file'>
-    <title>The OpenType Font File</title>
+    <title>The CommonType Font File</title>
 
     <!--======================================================================-->
     <section role='fragment'>
@@ -282,7 +283,7 @@
       <section role='specification'>
         <title>Specification</title>
 
-        <para>An OpenType font file contains data, in table format,
+        <para>An CommonType font file contains data, in table format,
           that comprises either a TrueType or a PostScript outline
           font. Rasterizers use combinations of data from the tables
           contained in the font to render the TrueType or PostScript
@@ -298,8 +299,8 @@
 	<para>Here is the scrap that collects all the definitions for
 	  our Relax NG grammar:</para>
 
-<code-fragment file='opentype.rnc' method='text'>
-  <code-title>OpenType Relax NG Schema</code-title>
+<code-fragment file='CommonType.rnc' method='text'>
+  <code-title>CommonType Relax NG Schema</code-title>
 
 ##_____________________________________________________________________________
 ##
@@ -366,9 +367,9 @@ start =
           <varname>toBinary</varname> method of that object to create
           an actual font file.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Compiler'>
+<code-fragment package='com.adobe.aots.CommonType' class='Compiler'>
   <code-title>Compiler class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.io.File;
 import java.net.URL;
@@ -428,7 +429,7 @@ public class Compiler implements org.xml.sax.ErrorHandler {
   private boolean validate (Document font, String filename)
      throws Exception {
     ValidationDriver vd = new ValidationDriver (CompactSchemaReader.getInstance ());
-    if (! vd.loadSchema (new InputSource (Compiler.class.getResource ("opentype.rnc").toString ()))) {
+    if (! vd.loadSchema (new InputSource (Compiler.class.getResource ("CommonType.rnc").toString ()))) {
         throw new Exception ("failed to load schema"); }
 
     return vd.validate (vd.fileInputSource (filename));
@@ -490,7 +491,7 @@ public class Compiler implements org.xml.sax.ErrorHandler {
 }
 </code-fragment>
 
-        <para>A number of OpenType tables are made of blocks of data
+        <para>A number of CommonType tables are made of blocks of data
           that point to one another. For example, a cmap table has a
           header block, which points to blocks for the various
           subtables. To facilitate the creation of these tables
@@ -503,9 +504,9 @@ public class Compiler implements org.xml.sax.ErrorHandler {
           all the blocks that make up a table
           (<varname>serialize</varname>).</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Block'>
+<code-fragment package='com.adobe.aots.CommonType' class='Block'>
   <code-title>Block class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -747,9 +748,9 @@ import java.util.Vector;
 	font. This and other parameters are captured in a DecompilerConfig
 	object:</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='DecompilerConfig'>
+<code-fragment package='com.adobe.aots.CommonType' class='DecompilerConfig'>
   <code-title></code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.io.File;
 import java.io.OutputStream;
@@ -869,9 +870,9 @@ public class DecompilerConfig extends org.xml.sax.helpers.DefaultHandler {
           <varname>toXML</varname> method to create the XML
           representation and serializes it.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Decompiler'>
+<code-fragment package='com.adobe.aots.CommonType' class='Decompiler'>
   <code-title>Decompiler class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 
 import java.io.File;
@@ -1030,10 +1031,10 @@ public class Decompiler {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>OpenType fonts may have the extension .OTF or .TTF,
+        <para>CommonType fonts may have the extension .OTF or .TTF,
           depending on the kind of outlines in the font and the
           creator's desire for compatibility on systems without native
-          OpenType support.</para>
+          CommonType support.</para>
 
         <itemizedlist>
           <listitem>
@@ -1045,7 +1046,7 @@ public class Decompiler {
               .OTF or .TTF, depending on the desire for backward
               compatibility on older systems or with previous versions
               of the font. TrueType Collection fonts should have a
-              .TTC extension whether or not the fonts have OpenType
+              .TTC extension whether or not the fonts have CommonType
               layout tables present.</para>
           </listitem>
         </itemizedlist>
@@ -1061,8 +1062,8 @@ public class Decompiler {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>The following data types are used in the OpenType font
-        file. All OpenType fonts use Motorola-style byte ordering (Big
+        <para>The following data types are used in the CommonType font
+        file. All CommonType fonts use Motorola-style byte ordering (Big
         Endian):</para>
 
         <informaltable>
@@ -1422,8 +1423,8 @@ public class Decompiler {
         <para>Here is a class in which we collect common tag
           values:</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Tag'>
-package com.adobe.aots.opentype;
+<code-fragment package='com.adobe.aots.CommonType' class='Tag'>
+package com.adobe.aots.CommonType;
 
 public class Tag {
   static public final long ttcf = 0x74746366;
@@ -1622,10 +1623,10 @@ public class Tag {
         them.</para>
 
         <para>The only exception to this is the Offset Table's sfnt
-        version. This serves solely to identify whether the OpenType
+        version. This serves solely to identify whether the CommonType
         font contains TrueType outlines (a value of 1.0) or CFF data
         (the tag 'OTTO'), as described in the section below,
-        <link linkend="organization">Organization of an OpenType
+        <link linkend="organization">Organization of an CommonType
         font</link>.</para>
 
         <para>When a USHORT number is used to indicate version, it
@@ -1666,18 +1667,18 @@ public class Tag {
 
     <!--======================================================================-->
     <section role='fragment' id='organization'>
-      <title>Organization of an OpenType Font</title>
+      <title>Organization of an CommonType Font</title>
 
       <!--____________________________________________________________________-->
       <section role='specification'>
         <title>Specification</title>
 
-        <para>A key characteristic of the OpenType format is the
+        <para>A key characteristic of the CommonType format is the
         TrueType sfnt "wrapper", which provides organization for a
         collection of tables in a general and extensible
         manner.</para>
 
-        <para>The OpenType font file begins with the Offset Table. If
+        <para>The CommonType font file begins with the Offset Table. If
 	  the font file contains only one font, the Offset Table will
 	  begin at byte 0 of the file. If the font file is a TrueType
 	  collection, the beginning point of the Offset Table for each
@@ -1719,14 +1720,14 @@ public class Tag {
           </otfield>
         </otformat>
 
-        <para>OpenType fonts that contain TrueType outlines should use
-          the value of 1.0 for the sfnt version. OpenType fonts
+        <para>CommonType fonts that contain TrueType outlines should use
+          the value of 1.0 for the sfnt version. CommonType fonts
           containing CFF data should use the tag 'OTTO' as the sfnt
           version number.</para>
 
 	<para>Note: The Apple specification for TrueType fonts allows
 	  for 'true' and 'typ1' for sfnt version. These version tags
-	  should not be used for fonts which contain OpenType
+	  should not be used for fonts which contain CommonType
 	  tables.</para>
 
         <para>The Offset Table is followed immediately by the Table
@@ -1768,7 +1769,7 @@ public class Tag {
         to contain only those tables it actually needs. As a result
         there is no standard value for numTables.</para>
 
-        <para>Tags are the names given to tables in the OpenType font
+        <para>Tags are the names given to tables in the CommonType font
         file. All tag names consist of four characters. Names with
         less than four letters are allowed if followed by the
         necessary trailing spaces. All tag names defined within a font
@@ -1986,8 +1987,8 @@ public class Tag {
           one table to access other tables when performing some
           operation (such as GSUB using GDEF).</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Table'>
-package com.adobe.aots.opentype;
+<code-fragment package='com.adobe.aots.CommonType' class='Table'>
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -2030,8 +2031,8 @@ public abstract class Table {
     }
 </code-fragment>
 
-<code-fragment package='com.adobe.aots.opentype' class='UnknownTable'>
-package com.adobe.aots.opentype;
+<code-fragment package='com.adobe.aots.CommonType' class='UnknownTable'>
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -2108,9 +2109,9 @@ public class UnknownTable extends Table {
         <para>Technically, the header is not a table, but it is
         convenient for our purposes to pretend so.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Header'>
+<code-fragment package='com.adobe.aots.CommonType' class='Header'>
   <code-title>Header class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.Iterator;
 import java.io.InputStream;
@@ -2529,7 +2530,7 @@ return Sum;
         <title>Specification</title>
 
         <para>A TrueType Collection (TTC) is a means of delivering
-        multiple OpenType fonts in a single file structure. TrueType
+        multiple CommonType fonts in a single file structure. TrueType
         Collections are most useful when the fonts to be delivered
         together share many glyphs in common. By allowing multiple
         fonts to share glyph sets, TTCs can result in a significant
@@ -2537,7 +2538,7 @@ return Sum;
 
         <para>For example, a group of Japanese fonts may each have
         their own designs for the kana glyphs, but share identical
-        designs for the kanji. With ordinary OpenType font files, the
+        designs for the kanji. With ordinary CommonType font files, the
         only way to include the common kanji glyphs is to copy their
         glyph data into each font. Since the kanji represent much more
         data than the kana, this results in a great deal of wasteful
@@ -2561,12 +2562,12 @@ return Sum;
 
         <para>A TrueType Collection file consists of a single TTC
 	  Header table, one or more Offset Tables with Table
-	  Directories, and a number of OpenType tables. The TTC Header
+	  Directories, and a number of CommonType tables. The TTC Header
 	  must be located at the beginning of the TTC file.</para>
 
-        <para>Each OpenType table in a TTC file is referenced through
+        <para>Each CommonType table in a TTC file is referenced through
 	  the Offset Table and Table Directories of each font which
-	  uses that table. Some of the OpenType tables must appear multiple
+	  uses that table. Some of the CommonType tables must appear multiple
 	  times, once for each font included in the TTC; while other
 	  tables should be shared by multiple fonts in the TTC.</para>
 
@@ -2641,7 +2642,7 @@ return Sum;
         different Offset Tables within a TTC file. The TTC Header
         is located at the beginning of the TTC file (offset = 0). It
         consists of an identification tag, a version number, a count
-        of the number of OpenType fonts (Table Directories) in the
+        of the number of CommonType fonts (Table Directories) in the
         file, and an array of offsets to each Offset Table.</para>
 
         <otformat>
@@ -2790,19 +2791,19 @@ return Sum;
   </section>
 
   <!--************************************************************************-->
-  <section id='chapter.opentype_tables'>
-    <title>OpenType Tables</title>
+  <section id='chapter.CommonType_tables'>
+    <title>CommonType Tables</title>
 
     <!--======================================================================-->
     <section role='fragment'>
-      <title>OpenType Tables</title>
+      <title>CommonType Tables</title>
 
       <!--____________________________________________________________________-->
       <section role='specification'>
         <title>Specification</title>
 
         <para>Whether TrueType or PostScript outlines are used in an
-        OpenType font, the following tables are required for the font
+        CommonType font, the following tables are required for the font
         to function correctly:</para>
 
         <table>
@@ -2853,7 +2854,7 @@ return Sum;
           </tgroup>
         </table>
 
-        <para>For OpenType fonts based on TrueType outlines, the
+        <para>For CommonType fonts based on TrueType outlines, the
         following tables are used:</para>
 
 
@@ -2926,7 +2927,7 @@ return Sum;
 
 
 
-        <para>Multiple Master support in OpenType, has been
+        <para>Multiple Master support in CommonType, has been
           discontinued as of version 1.3 of the specification. The
           'fvar', 'MMSD', 'MMFX' tables have hence been
           removed.</para>
@@ -2973,16 +2974,16 @@ return Sum;
         </table>
 
         <para>For information on common table formats, please see
-          <link linkend="common_tables">OpenType Layout Common Table
+          <link linkend="common_tables">CommonType Layout Common Table
             Formats</link>.</para>
 
-        <para>OpenType fonts may also contain bitmaps of glyphs, in
+        <para>CommonType fonts may also contain bitmaps of glyphs, in
           addition to outlines. Hand-tuned bitmaps are especially
-          useful in OpenType fonts for representing complex glyphs at
+          useful in CommonType fonts for representing complex glyphs at
           very small sizes. If a bitmap for a particular size is
           provided in a font, it will be used by the system instead of
           the outline when rendering the glyph. (Note: ATM does not
-          currently support hinted bitmaps in OpenType fonts.)</para>
+          currently support hinted bitmaps in CommonType fonts.)</para>
 
         <table>
           <title>Tables Related to Bitmap Glyphs</title>
@@ -3014,7 +3015,7 @@ return Sum;
 
 
         <table>
-          <title>Other OpenType Tables</title>
+          <title>Other CommonType Tables</title>
 
           <tgroup cols='2'>
             <colspec colwidth="6pc"/>
@@ -3073,10 +3074,10 @@ return Sum;
 
         <para>The sentence that introduces the tables related to
         PostScript outlines should probably be better phrased: "For
-        OpenType fonts based on PostScript outlines, the following
+        CommonType fonts based on PostScript outlines, the following
         tables are used:" It parallels the sentence for TT outlines.</para>
 
-        <para>The sentence that points to the "OpenType Layout Common
+        <para>The sentence that points to the "CommonType Layout Common
         Table Formats" should probably be moved to the paragraph that
         introduces the Advanced Typographic Tables. Currently, it is
         between the paragraph that introduces bitmap related tables
@@ -3604,10 +3605,10 @@ return Sum;
         <para>Here is the class representing a <ottable>cmap</ottable>
           table.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Cmap'>
+<code-fragment package='com.adobe.aots.CommonType' class='Cmap'>
   <code-title>Cmap class</code-title>
 
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.Iterator;
 import java.util.SortedSet;
@@ -3949,9 +3950,9 @@ static public Index WinUnicode10 = new Index (3, 10);
         <para>Our test framework is simply to convert a sequence of
           characters to a sequence of glyphs.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='CmapTester'>
+<code-fragment package='com.adobe.aots.CommonType' class='CmapTester'>
   <code-title>CmapTest class</code-title>
-  package com.adobe.aots.opentype;
+  package com.adobe.aots.CommonType;
 
   <code-include linkend='test_imports'/>
 
@@ -4025,9 +4026,9 @@ static public Index WinUnicode10 = new Index (3, 10);
 </code-fragment>
 
 
-<code-fragment package='com.adobe.aots.opentype' class='CmapUVSTester'>
+<code-fragment package='com.adobe.aots.CommonType' class='CmapUVSTester'>
   <code-title>CmapUVSTest class</code-title>
-  package com.adobe.aots.opentype;
+  package com.adobe.aots.CommonType;
 
   <code-include linkend='test_imports'/>
 
@@ -4256,7 +4257,7 @@ static public Index WinUnicode10 = new Index (3, 10);
 
         <para>If a platform ID 4 (custom), encoding ID 0-255 (OTF
           Windows NT compatibility mapping) <ottable>cmap</ottable>
-          encoding is present in an OpenType font with CFF outlines,
+          encoding is present in an CommonType font with CFF outlines,
           then the OTF font driver in Windows NT will: (a) superimpose
           the glyphs encoded at character codes 0-255 in the encoding
           on the corresponding Windows ANSI (code page 1252) Unicode
@@ -8411,7 +8412,7 @@ If the intent is really for a Unicode encodings,
                 <member>Bits 5-10: These should be set according to
                   <ulink
                     url="http://developer.apple.com/fonts/TTRefMan/RM06/Chap6head.html">Apple's specification</ulink>. However, they are not
-                  implemented in OpenType.</member>
+                  implemented in CommonType.</member>
                 <member>Bit 11: font data is 'lossless,' as a result of
                   having been compressed and decompressed with the Agfa
                   MicroType Express engine.</member>
@@ -8813,9 +8814,9 @@ head =
         <para>Here is the class that represents the head
           table:</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Head'>
+<code-fragment package='com.adobe.aots.CommonType' class='Head'>
   <code-title>Head class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -9383,9 +9384,9 @@ hhea =
         <para>Here is the class definition for <ottable>hhea</ottable>
           tables:</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Hhea'>
+<code-fragment package='com.adobe.aots.CommonType' class='Hhea'>
   <code-title>Hhea class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -9564,7 +9565,7 @@ typedef struct  _longHorMetric {
           </otfield>
         </otformat>
 
-        <para>In CFF OpenType fonts, every glyph's advanceWidth as
+        <para>In CFF CommonType fonts, every glyph's advanceWidth as
           recorded in the <ottable>hmtx</ottable> table must be identical to its x
           width in the <ottable>CFF</ottable> table.</para>
 
@@ -9730,9 +9731,9 @@ hmtx =
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Hmtx'>
+<code-fragment package='com.adobe.aots.CommonType' class='Hmtx'>
   <code-title>Hmtx class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -9790,7 +9791,7 @@ public class Hmtx extends Table {
           font. Fonts with CFF data must use Version 0.5 of this
           table, specifying only the numGlyphs field. Fonts with
           TrueType outlines must use Version 1.0 of this table, where
-          all data is required. Both formats of OpenType require a
+          all data is required. Both formats of CommonType require a
           <ottable>maxp</ottable> table because a number of
           applications call the Windows GetFontData( ) API on the
           <ottable>maxp</ottable> table to determine the number of
@@ -10152,9 +10153,9 @@ maxp |=
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Maxp'>
+<code-fragment package='com.adobe.aots.CommonType' class='Maxp'>
   <code-title>Maxp class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -10287,13 +10288,13 @@ public class Maxp extends Table {
         <title>Specification</title>
 
         <para>The naming table allows multilingual strings to be
-          associated with the OpenType font file. These strings can
+          associated with the CommonType font file. These strings can
           represent copyright notices, font names, family names, style
           names, and so on. To keep this table short, the font
           manufacturer may wish to make a limited set of entries in
           some small set of languages; later, the font can be
           "localized" and the strings translated or added. Other parts
-          of the OpenType font file that require these strings can
+          of the CommonType font file that require these strings can
           then refer to them simply by their index number. Clients
           that need a particular string can look it up by its platform
           ID, character encoding ID, language ID and name ID. Note
@@ -10456,7 +10457,7 @@ public class Maxp extends Table {
         </table>
 
         <para>Note that platform ID 2 (ISO) has been deprecated as of
-          OpenType Specification v1.3. It was intended to represent
+          CommonType Specification v1.3. It was intended to represent
           ISO/IEC 10646, as opposed to Unicode; both standards have
           identical character code assignments.</para>
 
@@ -11747,7 +11748,7 @@ public class Maxp extends Table {
 		  font is "Regular" as indicated in string 2, then use
 		  only the family name contained in string 1. An
 		  exception to the above definition of Full font name
-		  is for Microsoft platform strings for CFF OpenType
+		  is for Microsoft platform strings for CFF CommonType
 		  fonts: in this case, the Full font name string must
 		  be identical to the PostScript FontName in the CFF
 		  Name INDEX. </entry>
@@ -11775,9 +11776,9 @@ public class Maxp extends Table {
 		  <para>Postscript name for the font; Name ID 6
                     specifies a string which is used to invoke a
                     PostScript language font that corresponds to this
-                    OpenType font. If no name ID 6 is present, then
+                    CommonType font. If no name ID 6 is present, then
                     there is no defined method for invoking this font
-                    on a PostScript interpreter.</para> <para>OpenType
+                    on a PostScript interpreter.</para> <para>CommonType
                     fonts which include a name with name ID of 6 shall
                     include these two names with name ID 6, and
                     characteristics as follows:</para> <para>a.
@@ -11793,7 +11794,7 @@ public class Maxp extends Table {
                     printable ASCII subset, codes 33 through 126,
                     except for the 10 characters: '[', ']', '(', ')',
                     '{', '}', '&lt;', '>', '/', '%'.</para> <para>In
-                    CFF OpenType fonts, these two name strings, when
+                    CFF CommonType fonts, these two name strings, when
                     translated to ASCII, must also be identical to the
                     font name as stored in the CFF's Name
                     INDEX.</para> <para>The term "PostScript Name"
@@ -11811,7 +11812,7 @@ public class Maxp extends Table {
                     used with the "composefont" invocation. This
                     PostScript Name is then the name of a PostScript
                     language CIDFont resource which corresponds to the
-                    glyphs of the OpenType font. This name is valid to
+                    glyphs of the CommonType font. This name is valid to
                     pass, with an appropriate PostScript language CMap
                     reference, and an instance name, to the PostScript
                     language "composefont" operator.</para> <para>If
@@ -11822,14 +11823,14 @@ public class Maxp extends Table {
                     the context of a PostScript interpreter. This
                     PostScript Name is then the name of a PostScript
                     language Font resource which corresponds to the
-                    glyphs of the OpenType font. This name is valid to
+                    glyphs of the CommonType font. This name is valid to
                     pass to the PostScript language "findfont"
                     operator. Note that this does
                     <emphasis>not</emphasis> necessarily imply that
                     the resulting font dictionary accepts an /Encoding
                     array, such as when the font referenced is a Type
                     0 PostScript font.</para> <para>Note that this
-                    specification applies only to data fork OpenType
+                    specification applies only to data fork CommonType
                     fonts. Macintosh resource-fork TrueType and other
                     Macintosh sfnt-wrapped fonts supply the PostScript
                     font name to be used with the "findfont"
@@ -11839,7 +11840,7 @@ public class Maxp extends Table {
                     choose to ignore the default usage when
                     appropriate. For example, PostScript printers
                     whose version is earlier than 2015 cannot process
-                    CID font resources, and a CJK OpenType/CFF-CID
+                    CID font resources, and a CJK CommonType/CFF-CID
                     font can be downloaded only as a set of Type 1
                     PostScript fonts. Legacy CJK TrueType fonts, which
                     do not have a name ID 20, may still be most
@@ -11964,7 +11965,7 @@ public class Maxp extends Table {
                     through 126, except for the 10 characters: '[',
                     ']', '(', ')', '{', '}', '&lt;', '>', '/',
                     '%'.</para> <para>Note that this specification
-                    applies only to data fork OpenType fonts.
+                    applies only to data fork CommonType fonts.
                     Macintosh resource-fork TrueType and other
                     Macintosh sfnt-wrapped fonts supply the PostScript
                     font name to be used with the "findfont"
@@ -11973,7 +11974,7 @@ public class Maxp extends Table {
                     style-mapping table.</para> <para>Note that a
                     particular Name ID 20 string always corresponds to
                     a particular Macintosh cmap subtable. However,
-                    some host OpenType/TTF fonts also contain a post
+                    some host CommonType/TTF fonts also contain a post
                     table, format 4, which provides a mapping from
                     glyph ID to encoding value, and also corresponds
                     to a particular Macintosh cmap subtable.
@@ -12272,7 +12273,7 @@ public class Maxp extends Table {
         <para>4. The complete, hopefully unique, human readable name
           of the font. This name is used by Windows. <emphasis>Times
           New Roman Bold</emphasis>. (If this were the Microsoft
-          platform string for a CFF OpenType font, then the value
+          platform string for a CFF CommonType font, then the value
           would be <emphasis>TimesNewRoman-Bold</emphasis>, as
           described in the definition of name ID 4 above.)</para>
 
@@ -12330,7 +12331,7 @@ public class Maxp extends Table {
           the font in the context of a PostScript interpreter.</para>
 
         <para>The following is an example of only name IDs 6 and 20 in
-          the CFF OpenType Japanese font Kozuka Mincho Std Regular
+          the CFF CommonType Japanese font Kozuka Mincho Std Regular
           (other name IDs are also present in this font):</para>
 
         <para>6. PostScript name:
@@ -12511,9 +12512,9 @@ name =
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Name'>
+<code-fragment package='com.adobe.aots.CommonType' class='Name'>
   <code-title>Name class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -12737,9 +12738,9 @@ public class Name extends Table {
         <para>The following piece of code creates a very basic name
         table. We use it for our test fonts.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='NameBuilder'>
+<code-fragment package='com.adobe.aots.CommonType' class='NameBuilder'>
   <code-title>NameBuilder class</code-title>
-  package com.adobe.aots.opentype;
+  package com.adobe.aots.CommonType;
 
   public class NameBuilder {
     private static void writeUSHORT (int n)
@@ -12805,7 +12806,7 @@ public class Name extends Table {
         <title>Specification</title>
 
         <para>The OS/2 table consists of a set of metrics that are
-          required in OpenType fonts. The fourth version of the OS/2
+          required in CommonType fonts. The fourth version of the OS/2
           table (version 3) follows:</para>
 
         <otformat>
@@ -13044,7 +13045,7 @@ public class Name extends Table {
           of the precise contents and layout for the OS/2 table. The
           version number for this layout is three (3). Versions zero
           (0, TrueType rev 1.5), one (1, TrueType rev 1.66) and two
-          (2, OpenType rev 1.2) have been used previously.</para>
+          (2, CommonType rev 1.2) have been used previously.</para>
 
         <bridgehead>xAvgCharWidth</bridgehead>
 
@@ -13240,9 +13241,9 @@ public class Name extends Table {
           application. Embedding licensing rights are granted by the
           vendor of the font.</para>
 
-        <para>The OpenType Font Embedding DLL Specification and DLL
+        <para>The CommonType Font Embedding DLL Specification and DLL
           release notes describe the APIs used to implement support
-          for OpenType font embedding and loading.
+          for CommonType font embedding and loading.
           <emphasis>Applications that implement support for font
             embedding, either through use of the Font Embedding DLL or
             through other means, must not embed fonts which are not
@@ -14439,7 +14440,7 @@ public class Name extends Table {
           of units per em. The goal is to free applications from
           Macintosh or Windows-specific metrics which are constrained
           by backward compatability requirements (see chapter,
-          "Recommendations for OpenType Fonts"). These new metrics, when
+          "Recommendations for CommonType Fonts"). These new metrics, when
           combined with the character design widths, will allow
           applications to lay out documents in a typographically
           correct and portable fashion. These metrics will be exposed
@@ -14471,7 +14472,7 @@ public class Name extends Table {
         <para>However, if a developer desires to provide appropriate
           default line spacing using this field, for those
           applications that continue to use this field for doing so
-          (against OpenType recommendations), then the value should be
+          (against CommonType recommendations), then the value should be
           set appropriately. In such a case, it may result in some
           glyph bitmaps being clipped.</para>
 
@@ -14499,7 +14500,7 @@ public class Name extends Table {
         <para>However, if a developer desires to provide appropriate
           default line spacing using this field, for those
           applications that continue to use this field for doing so
-          (against OpenType recommendations), then the value should be
+          (against CommonType recommendations), then the value should be
           set appropriately. In such a case, it may result in some
           glyph bitmaps being clipped. </para>
 
@@ -14832,7 +14833,7 @@ public class Name extends Table {
         <title>Specification</title>
 
         <para>The OS/2 table consists of a set of metrics that are
-          required in OpenType fonts. The fourth version of the OS/2
+          required in CommonType fonts. The fourth version of the OS/2
           table (version 3) follows:</para>
 
         <otformat>
@@ -15404,9 +15405,9 @@ public class Name extends Table {
           application. Embedding licensing rights are granted by the
           vendor of the font.</para>
 
-        <para>The OpenType Font Embedding DLL Specification and DLL
+        <para>The CommonType Font Embedding DLL Specification and DLL
           release notes describe the APIs used to implement support
-          for OpenType font embedding and loading.
+          for CommonType font embedding and loading.
           <emphasis>Applications that implement support for font
             embedding, either through use of the Font Embedding DLL or
             through other means, must not embed fonts which are not
@@ -16535,7 +16536,7 @@ public class Name extends Table {
         <para>However, if a developer desires to provide appropriate
           default line spacing using this field, for those
           applications that continue to use this field for doing so
-          (against OpenType recommendations), then the value should be
+          (against CommonType recommendations), then the value should be
           set appropriately. In such a case, it may result in some
           glyph bitmaps being clipped.</para>
 
@@ -16563,7 +16564,7 @@ public class Name extends Table {
         <para>However, if a developer desires to provide appropriate
           default line spacing using this field, for those
           applications that continue to use this field for doing so
-          (against OpenType recommendations), then the value should be
+          (against CommonType recommendations), then the value should be
           set appropriately. In such a case, it may result in some
           glyph bitmaps being clipped. </para>
 
@@ -18110,9 +18111,9 @@ os2_upperOpticalPointSize =
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='OS2'>
+<code-fragment package='com.adobe.aots.CommonType' class='OS2'>
   <code-title>OS2 class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -20269,7 +20270,7 @@ public class OS2 extends Table {
         <title>Specification</title>
 
         <para>This table contains additional information needed to use
-        TrueType or OpenType fonts on PostScript printers.  This
+        TrueType or CommonType fonts on PostScript printers.  This
         includes data for the FontInfo dictionary entry and the
         PostScript names of all the glyphs. For more information about
         PostScript names, see the Adobe document <ulink
@@ -20277,8 +20278,8 @@ public class OS2 extends Table {
         and Glyph Names</ulink>.</para>
 
         <para>Versions 1.0, 2.0, and 2.5 refer to TrueType fonts and
-          OpenType fonts with TrueType data. OpenType fonts with
-          TrueType data may also use Version 3.0. OpenType fonts with
+          CommonType fonts with TrueType data. CommonType fonts with
+          TrueType data may also use Version 3.0. CommonType fonts with
           CFF data use Version 3.0 only.</para>
 
         <para>The table begins as follows:</para>
@@ -20338,35 +20339,35 @@ public class OS2 extends Table {
             <otfieldoffs>16</otfieldoffs>
             <otfieldtype>ULONG</otfieldtype>
             <otfieldname>minMemType42</otfieldname>
-            <otfielddesc>Minimum memory usage when an OpenType font is
+            <otfielddesc>Minimum memory usage when an CommonType font is
               downloaded.</otfielddesc>
           </otfield>
           <otfield>
             <otfieldoffs>20</otfieldoffs>
             <otfieldtype>ULONG</otfieldtype>
             <otfieldname>maxMemType42</otfieldname>
-            <otfielddesc>Maximum memory usage when an OpenType font is
+            <otfielddesc>Maximum memory usage when an CommonType font is
               downloaded.</otfielddesc>
           </otfield>
           <otfield>
             <otfieldoffs>24</otfieldoffs>
             <otfieldtype>ULONG</otfieldtype>
             <otfieldname>minMemType1</otfieldname>
-            <otfielddesc>Minimum memory usage when an OpenType font is
+            <otfielddesc>Minimum memory usage when an CommonType font is
               downloaded as a Type 1 font.</otfielddesc>
           </otfield>
           <otfield>
             <otfieldoffs>28</otfieldoffs>
             <otfieldtype>ULONG</otfieldtype>
             <otfieldname>maxMemType1</otfieldname>
-            <otfielddesc>Maximum memory usage when an OpenType font is
+            <otfielddesc>Maximum memory usage when an CommonType font is
               downloaded as a Type 1 font.</otfielddesc>
           </otfield>
         </otformat>
 
         <para>The last four entries in the table are present because
           PostScript drivers can do better memory management if the
-          virtual memory (VM) requirements of a downloadable OpenType
+          virtual memory (VM) requirements of a downloadable CommonType
           font are known before the font is downloaded. This
           information should be supplied if known. If it is not known,
           set the value to zero. The driver will still work but will
@@ -20447,7 +20448,7 @@ public class OS2 extends Table {
         <bridgehead>Version 2.5</bridgehead>
 
         <para>This version of the <ottable>post</ottable> table has
-          been deprecated as of OpenType Specification v1.3.</para>
+          been deprecated as of CommonType Specification v1.3.</para>
 
         <para>This version provides a space saving table for
           TrueType-based fonts which contain a pure subset of, or a
@@ -20486,7 +20487,7 @@ public class OS2 extends Table {
 
         <bridgehead>Version 3.0</bridgehead>
 
-        <para>This version is used by OpenType fonts with TrueType or
+        <para>This version is used by CommonType fonts with TrueType or
           CFF data. The version makes it possible to create a special
           font that is not burdened with a large
           <ottable>post</ottable> table set of glyph names.</para>
@@ -20734,9 +20735,9 @@ post_common =
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Post'>
+<code-fragment package='com.adobe.aots.CommonType' class='Post'>
   <code-title>Post class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -21360,9 +21361,9 @@ glyph_attributes =
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Glyf'>
+<code-fragment package='com.adobe.aots.CommonType' class='Glyf'>
   <code-title>Glyf class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -21941,9 +21942,9 @@ simple_glyph =
 
 <para>This class receives descriptions of the lines and curves of contours and computes their bounding box.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='TTBoundingBox'>
+<code-fragment package='com.adobe.aots.CommonType' class='TTBoundingBox'>
   <code-title>Type2Bounding class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 public class TTBoundingBox {
   public BoundingBox bb;
@@ -22833,9 +22834,9 @@ component_scale |=
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Loca'>
+<code-fragment package='com.adobe.aots.CommonType' class='Loca'>
   <code-title>Loca class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -22941,7 +22942,7 @@ public class Loca extends Table {
         <para>Existing TrueType fonts use a glyph index to specify and
           access glyphs within a font, e.g. to index the loca table
           and thereby access glyph data in the glyf table. This
-          concept is retained in OpenType PostScript fonts except
+          concept is retained in CommonType PostScript fonts except
           that glyph data is accessed through the CharStrings INDEX of
           the <ottable>CFF</ottable> table.</para>
 
@@ -22952,19 +22953,19 @@ public class Loca extends Table {
         <title>Annotation</title>
 
         <para>The CFF specification was developed independantly of the
-          OpenType specification and is also meant to be used in other
+          CommonType specification and is also meant to be used in other
           contexts. Because of that, some CFF FontSets are not legal
           CFF tables. These restrictions should be part of the
-          OpenType specification and are mentioned here:</para>
+          CommonType specification and are mentioned here:</para>
 
         <para>It is unclear whether the deletion mechanism of CFF
           FontSets (by setting the first byte of a font name to 0) is
           allowed.  Given the intended use, it is not clear that such
-          a mechanism is useful in OpenType fonts, and we assume that
+          a mechanism is useful in CommonType fonts, and we assume that
           it is not allowed.</para>
 
         <para>It is unclear which font in a CFF FontSet should be used
-          in the context of an OpenType font. One possibility is to
+          in the context of an CommonType font. One possibility is to
           impose that the CFF FontSet contain only one font, with the
           side effect of ruling out synthetic fonts. Another
           possibility is to use the first font in the FontSet. Yet
@@ -22973,7 +22974,7 @@ public class Loca extends Table {
           that the first possibility is actually the desired one.</para>
 
         <para>It is not clear whether the name stored in the Name INDEX
-          must be equal to some entry in the OpenType
+          must be equal to some entry in the CommonType
           <ottable>name</ottable> table.</para>
 
         <para>While the Top DICT must define (explicitly or
@@ -22983,7 +22984,7 @@ public class Loca extends Table {
           font content.</para>
 
         <para>Since Multiple Master technology is not part of
-          OpenType, the Top DICT must not contain the operators
+          CommonType, the Top DICT must not contain the operators
           BaseFontName and BaseFontBlend.</para>
       </section>
 
@@ -23041,9 +23042,9 @@ public class Loca extends Table {
         <para>Of course, we have a class to represent a CFF Table
           structure:</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='CFF'>
+<code-fragment package='com.adobe.aots.CommonType' class='CFF'>
   <code-title>CFF class</code-title>
-  package com.adobe.aots.opentype;
+  package com.adobe.aots.CommonType;
 
   import com.adobe.aots.util.ContentHandlerPlus;
 
@@ -23192,7 +23193,7 @@ public class Loca extends Table {
 
   <!--************************************************************************-->
   <section id='chapter.advanced'>
-    <title>Advanced Typographic Extensions &#x2013; OpenType Layout</title>
+    <title>Advanced Typographic Extensions &#x2013; CommonType Layout</title>
 
 
     <!--======================================================================-->
@@ -23203,71 +23204,71 @@ public class Loca extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-	<para>The Advanced Typographic tables (OpenType Layout tables)
+	<para>The Advanced Typographic tables (CommonType Layout tables)
 	  extend the functionality of fonts with either TrueType or CFF
-	outlines. OpenType Layout fonts contain additional information
+	outlines. CommonType Layout fonts contain additional information
 	that extends the capabilities of the fonts to support
 	high-quality international typography:
 
 	  <itemizedlist>
 	    <listitem>
-	      <para>OpenType Layout fonts allow a rich mapping between
+	      <para>CommonType Layout fonts allow a rich mapping between
 		characters and glyphs, which supports ligatures,
 		positional forms, alternates, and other
 		substitutions.</para>
 	    </listitem>
 	    <listitem>
-	      <para>OpenType Layout fonts include information to
+	      <para>CommonType Layout fonts include information to
 		support features for two-dimensional positioning and
 		glyph attachment.</para>
 	    </listitem>
 	    <listitem>
-	      <para>OpenType Layout fonts contain explicit script and
+	      <para>CommonType Layout fonts contain explicit script and
 		language information, so a text-processing application
 		can adjust its behavior accordingly.</para>
 	    </listitem>
 	    <listitem>
-	      <para>OpenType Layout fonts have an open format that
+	      <para>CommonType Layout fonts have an open format that
 		allows font developers to define their own
 		typographical features.</para>
 	    </listitem>
 	  </itemizedlist></para>
 
 	<para>This overview introduces the power and flexibility of
-	  the OpenType Layout font model. The OpenType Layout tables
+	  the CommonType Layout font model. The CommonType Layout tables
 	  are described in more detail in the "Font File Tables"
-	  section of the OpenType specification.</para>
+	  section of the CommonType specification.</para>
 
-	<para>OpenType Layout Common Table Formats are documented in
-	  the chapter "OpenType Layout Common Table Formats".</para>
+	<para>CommonType Layout Common Table Formats are documented in
+	  the chapter "CommonType Layout Common Table Formats".</para>
 
-	<para>Registered OpenType Layout Tags for scripts, languages,
-	  and baselines, are documented in the chapter "OpenType
+	<para>Registered CommonType Layout Tags for scripts, languages,
+	  and baselines, are documented in the chapter "CommonType
 	  Layout Registered Features". </para>
       </section>
     </section>
 
     <!--======================================================================-->
     <section role='fragment'>
-      <title>OpenType Layout at a Glance</title>
+      <title>CommonType Layout at a Glance</title>
 
       <!--____________________________________________________________________-->
       <section role='specification'>
         <title>Specification</title>
 
 
-	<para>OpenType Layout addresses complex typographical issues
+	<para>CommonType Layout addresses complex typographical issues
 	  that especially affect people using text-processing
 	  applications in multi-lingual and non-Latin
 	  environments.</para>
 
-	<para>OpenType Layout fonts may contain alternative forms of
+	<para>CommonType Layout fonts may contain alternative forms of
 	  characters and mechanisms for accessing them. For example,
 	  in Arabic, the shape of a character often varies with the
 	  character's position in a word. As shown here, the ha
 	  character will take any of four shapes, depending on whether
 	  it stands alone or whether it falls at the beginning,
-	  middle, or end of a word. OpenType Layout helps a
+	  middle, or end of a word. CommonType Layout helps a
 	  text-processing application determine which variant to
 	  substitute when composing text. </para>
 
@@ -23281,7 +23282,7 @@ public class Loca extends Table {
           </mediaobject>
         </figure>
 
-	<para> Similarly, OpenType Layout helps an application use the
+	<para> Similarly, CommonType Layout helps an application use the
 	  correct forms of characters when text is positioned
 	  vertically instead of horizontally, such as with Kanji. For
 	  example, Kanji uses alternative forms of parentheses when
@@ -23297,7 +23298,7 @@ public class Loca extends Table {
           </mediaobject>
         </figure>
 
-	<para> The OpenType Layout font format also supports the
+	<para> The CommonType Layout font format also supports the
 	  composition and decomposition of ligatures. For example,
 	  English, French, and other languages based on Latin can
 	  substitute a single ligature, such as "fi", for its
@@ -23327,14 +23328,14 @@ public class Loca extends Table {
           </mediaobject>
         </figure>
 
-	<para>Glyph substitution is just one way OpenType Layout
+	<para>Glyph substitution is just one way CommonType Layout
 	  extends font capabilities. Using precise X and Y coordinates
-	  for positioning glyphs, OpenType Layout fonts also can
+	  for positioning glyphs, CommonType Layout fonts also can
 	  identify points for attaching one glyph to another to create
 	  cursive text and glyphs that need diacritical or other
 	  special marks.</para>
 
-	<para>OpenType Layout fonts also may contain baseline
+	<para>CommonType Layout fonts also may contain baseline
 	  information that specifies how to position glyphs
 	  horizontally or vertically. Because baselines may vary from
 	  one script (set of characters) to another, this information
@@ -23355,7 +23356,7 @@ public class Loca extends Table {
 
     <!--======================================================================-->
     <section role='fragment'>
-      <title>TrueType versus OpenType Layout</title>
+      <title>TrueType versus CommonType Layout</title>
 
       <!--____________________________________________________________________-->
       <section role='specification'>
@@ -23363,18 +23364,18 @@ public class Loca extends Table {
 
 	<para>A TrueType font is a collection of several tables that
 	  contain different types of data: glyph outlines, metrics,
-	  bitmaps, mapping information, and much more. OpenType Layout
+	  bitmaps, mapping information, and much more. CommonType Layout
 	  fonts contain all this basic information, plus additional
 	  tables containing information for advanced
 	  typography.</para>
 
 	<para>Text-processing applications - referred to as "clients"
-	  of OpenType Layout - can retrieve and parse the information
-	  in OpenType Layout tables. So, for example, a
+	  of CommonType Layout - can retrieve and parse the information
+	  in CommonType Layout tables. So, for example, a
 	  text-processing client can choose the correct character
 	  shapes and space them properly.</para>
 
-	<para>As much as possible, the tables of OpenType Layout
+	<para>As much as possible, the tables of CommonType Layout
 	  define only the information that is specific to the font
 	  layout. The tables do not try to encode information that
 	  remains constant within the conventions of a particular
@@ -23388,13 +23389,13 @@ public class Loca extends Table {
 
     <!--======================================================================-->
     <section role='fragment'>
-      <title>OpenType Layout Terminology</title>
+      <title>CommonType Layout Terminology</title>
 
       <!--____________________________________________________________________-->
       <section role='specification'>
         <title>Specification</title>
 
-	<para>The OpenType Layout model is organized around glyphs,
+	<para>The CommonType Layout model is organized around glyphs,
 	  scripts, language systems, and features</para>
 
 	<bridgehead>Characters versus glyphs</bridgehead>
@@ -23415,7 +23416,7 @@ public class Loca extends Table {
 	  with a single ligature glyph. Conversely, the same character
 	  might take different forms at the beginning, middle, or end
 	  of a word, so a font would need several different glyphs to
-	  represent a single character. OpenType Layout fonts contain
+	  represent a single character. CommonType Layout fonts contain
 	  a table that provides a client with information about
 	  possible glyph substitutions.</para>
 
@@ -23434,7 +23435,7 @@ public class Loca extends Table {
 	<para>A script is composed of a group of related characters,
 	  which may be used by one or more languages. Latin, Arabic,
 	  and Thai are examples of scripts. A font may use a single
-	  script, or it may use many scripts. Within an OpenType
+	  script, or it may use many scripts. Within an CommonType
 	  Layout font, scripts are identified by unique 4-byte
 	  tags.</para>
 
@@ -23484,11 +23485,11 @@ public class Loca extends Table {
 	  have a "mark" feature. A font that supports substitution of
 	  vertical glyphs will have a "vert" feature.</para>
 
-	<para>The OpenType Layout feature model provides great
+	<para>The CommonType Layout feature model provides great
 	  flexibility to font developers because features do not have
 	  to be predefined by Microsoft Corporation. Instead, font
 	  developers can work with application developers to determine
-	  useful features for fonts, add such features to OpenType
+	  useful features for fonts, add such features to CommonType
 	  Layout fonts, and enable client applications to support such
 	  features.</para>
 
@@ -23503,9 +23504,9 @@ public class Loca extends Table {
           </mediaobject>
         </figure>
 
-	<bridgehead>OpenType Layout tables</bridgehead>
+	<bridgehead>CommonType Layout tables</bridgehead>
 
-	<para>OpenType Layout comprises five new tables: GSUB, GPOS,
+	<para>CommonType Layout comprises five new tables: GSUB, GPOS,
 	  BASE, JSTF, and GDEF. These tables and their formats are
 	  discussed in detail in the chapters that follow this
 	  overview.</para>
@@ -23533,13 +23534,13 @@ public class Loca extends Table {
 	  ligature glyph).</para>
 
 	<para>Common Table Formats: Several common table formats are
-	  used by the OpenType Layout tables.</para>
+	  used by the CommonType Layout tables.</para>
       </section>
     </section>
 
     <!--======================================================================-->
     <section role='fragment'>
-      <title>Text processing with OpenType Layout fonts</title>
+      <title>Text processing with CommonType Layout fonts</title>
 
       <!--____________________________________________________________________-->
       <section role='specification'>
@@ -23547,7 +23548,7 @@ public class Loca extends Table {
 
 	<para>A text-processing client follows a standard process to
 	  convert the string of characters entered by a user into
-	  positioned glyphs. To produce text with OpenType Layout
+	  positioned glyphs. To produce text with CommonType Layout
 	  fonts:</para>
 
 	<orderedlist>
@@ -23612,9 +23613,9 @@ public class Loca extends Table {
 	  that structure. We capture here this connection in the form
 	  of an interface:</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='GlyphRun'>
+<code-fragment package='com.adobe.aots.CommonType' class='GlyphRun'>
   <code-title>GlyphRun interface</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 public interface GlyphRun {
   <code-include linkend='glyphrun.methods'/>
@@ -23693,14 +23694,14 @@ public interface GlyphRun {
       <section role='implementation'>
         <title>Implementation</title>
 
-	<para>For the purpose of testing our OpenType implementation,
+	<para>For the purpose of testing our CommonType implementation,
 	  here is a very simple implementation of the GlyphRun
 	  interface:</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='GlyphRunImpl'>
+<code-fragment package='com.adobe.aots.CommonType' class='GlyphRunImpl'>
   <code-title>TestGlyphrun Class</code-title>
 
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 public class GlyphRunImpl implements GlyphRun {
   protected int[] glyphs;
@@ -23838,25 +23839,25 @@ public class GlyphRunImpl implements GlyphRun {
 
     <!--======================================================================-->
     <section role='fragment'>
-      <title>OpenType Layout fonts in Windows 95</title>
+      <title>CommonType Layout fonts in Windows 95</title>
 
       <!--____________________________________________________________________-->
       <section role='specification'>
         <title>Specification</title>
 
 	<para>The core system fonts in the Middle East and Far East
-	  versions of Windows 95 are OpenType Layout fonts. These
-	  fonts demonstrate aspects of OpenType Layout's
+	  versions of Windows 95 are CommonType Layout fonts. These
+	  fonts demonstrate aspects of CommonType Layout's
 	  versatility.</para>
 
 
 	<bridgehead>Middle East Windows 95</bridgehead>
 
-	<para>Middle East Windows 95 uses several Arabic OpenType
+	<para>Middle East Windows 95 uses several Arabic CommonType
 	  Layout fonts: fixed regular weight, proportional regular
 	  weight, fixed bold, and proportional bold. These fonts take
 	  advantage of many glyph substitution features available in
-	  OpenType Layout, namely simple substitution (one-to-one
+	  CommonType Layout, namely simple substitution (one-to-one
 	  contextual), ligature substitution (many-to-one), and mark
 	  set substitutions. In Middle East Windows 95, the operating
 	  system itself handles glyph substitution, using data in the
@@ -23865,10 +23866,10 @@ public class GlyphRunImpl implements GlyphRun {
 
 	<bridgehead>Far East Windows 95</bridgehead>
 
-	<para>Far East Windows 95 also uses several OpenType Layout
+	<para>Far East Windows 95 also uses several CommonType Layout
 	  fonts: fixed serif, proportional serif, fixed sans serif,
 	  and proportional sans serif. The Japanese fonts take
-	  advantage of a subset of OpenType Layout features, including
+	  advantage of a subset of CommonType Layout features, including
 	  vertical glyph substitution and baseline positioning. As
 	  with Middle East Windows 95, the operating system in Far
 	  East Windows 95 will handle glyph substitution, using data
@@ -23881,7 +23882,7 @@ public class GlyphRunImpl implements GlyphRun {
 
   <!--************************************************************************-->
   <section id='chapter.common_tables' web:index='yes'>
-    <title>OpenType Layout Common Table Formats</title>
+    <title>CommonType Layout Common Table Formats</title>
 
     <!--======================================================================-->
     <section role='fragment'>
@@ -23891,7 +23892,7 @@ public class GlyphRunImpl implements GlyphRun {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>OpenType Layout consists of five tables: the Glyph
+        <para>CommonType Layout consists of five tables: the Glyph
           Substitution table (<ottable>GSUB</ottable>), the Glyph
           Positioning table (<ottable>GPOS</ottable>), the Baseline
           table (<ottable>BASE</ottable>), the Justification table
@@ -23900,16 +23901,16 @@ public class GlyphRunImpl implements GlyphRun {
           data formats.</para>
 
         <para>This chapter explains the conventions used in all
-          OpenType Layout tables, and it describes the common table
+          CommonType Layout tables, and it describes the common table
           formats. Separate chapters provide complete details about
           the <ottable>GSUB</ottable>, <ottable>GPOS</ottable>,
           <ottable>BASE</ottable>, <ottable>JSTF</ottable>, and
           <ottable>GDEF</ottable> tables.</para>
 
-        <para>The OpenType Layout tables provide typographic
+        <para>The CommonType Layout tables provide typographic
           information for properly positioning and substituting
           glyphs, operations that are required for accurate typography
-          in many language environments. OpenType Layout data is
+          in many language environments. CommonType Layout data is
           organized by script, language system, typographic feature,
           and lookup.</para>
 
@@ -23919,7 +23920,7 @@ public class GlyphRunImpl implements GlyphRun {
           script-Latin-is used to write English, French, German, and
           many other languages. In contrast, three scripts-Hiragana,
           Katakana, and Kanji-are used to write Japanese. With
-          OpenType Layout, multiple scripts may be supported by a
+          CommonType Layout, multiple scripts may be supported by a
           single font.</para>
 
         <figure>
@@ -23937,7 +23938,7 @@ public class GlyphRunImpl implements GlyphRun {
           language. For example, the eszet ligature is used in the
           German language system, but not in French or English (see
           Figure 2b). And the Arabic script contains different glyphs
-          for writing the Farsi and Urdu languages. In OpenType
+          for writing the Farsi and Urdu languages. In CommonType
           Layout, language systems are defined within scripts.</para>
 
         <figure>
@@ -24012,7 +24013,7 @@ public class GlyphRunImpl implements GlyphRun {
         <para>When a subtable is pointed from multiple places, we just
         describe it in its one element, which has the same name as the
         subtable. This element will typically be a direct child of the
-        element representing the OpenType table. It has an
+        element representing the CommonType table. It has an
         <sgmltag>id</sgmltag> attribute, to allow the various places
         that point to the subtable to refer to it:</para>
 
@@ -24105,9 +24106,9 @@ public class GlyphRunImpl implements GlyphRun {
           them, and LookupTable for <ottable>GSUB</ottable> and
           <ottable>GPOS</ottable>.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='LayoutTable'>
+<code-fragment package='com.adobe.aots.CommonType' class='LayoutTable'>
   <code-title>LayoutTable class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.TreeSet;
 import java.util.SortedSet;
@@ -24131,9 +24132,9 @@ public abstract class LayoutTable extends Table {
 }
 </code-fragment>
 
-<code-fragment package='com.adobe.aots.opentype' class='LookupTableListener'>
+<code-fragment package='com.adobe.aots.CommonType' class='LookupTableListener'>
   <code-title>LookupTableListener interface</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.net.URL;
 
@@ -24163,9 +24164,9 @@ public interface LookupTableListener {
 
 
 
-<code-fragment package='com.adobe.aots.opentype' class='TextLookupTableListener'>
+<code-fragment package='com.adobe.aots.CommonType' class='TextLookupTableListener'>
   <code-title>TextLookupTableListener class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.net.URL;
 
@@ -24258,9 +24259,9 @@ public class TextLookupTableListener implements LookupTableListener {
 }
 </code-fragment>
 
-<code-fragment package='com.adobe.aots.opentype' class='SVGLookupTableListener'>
+<code-fragment package='com.adobe.aots.CommonType' class='SVGLookupTableListener'>
   <code-title>SVGLookupTableListener class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.net.URL;
 
@@ -24555,9 +24556,9 @@ public class SVGLookupTableListener implements LookupTableListener {
 }
 </code-fragment>
 
-<code-fragment package='com.adobe.aots.opentype' class='LookupTable'>
+<code-fragment package='com.adobe.aots.CommonType' class='LookupTable'>
   <code-title>LookupTable class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.TreeSet;
 import java.util.SortedSet;
@@ -24623,7 +24624,7 @@ public abstract class LookupTable extends LayoutTable {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>Two OpenType Layout tables, <ottable>GSUB</ottable> and
+        <para>Two CommonType Layout tables, <ottable>GSUB</ottable> and
           <ottable>GPOS</ottable>, use the same data formats to
           describe the typographic functions of glyphs and the
           languages and scripts that they support: a ScriptList table,
@@ -24672,7 +24673,7 @@ public abstract class LookupTable extends LayoutTable {
           specify the glyphs to be substituted and the context in
           which a substitution occurs, and a <ottable>GPOS</ottable>
           lookup might specify glyph position adjustments for kerning.
-          OpenType Layout has seven types of <ottable>GSUB</ottable>
+          CommonType Layout has seven types of <ottable>GSUB</ottable>
           lookups (described in the <ottable>GSUB</ottable> chapter)
           and nine types of <ottable>GPOS</ottable> lookups (described
           in the <ottable>GPOS</ottable> chapter).</para>
@@ -24694,7 +24695,7 @@ public abstract class LookupTable extends LayoutTable {
           described in this chapter, to adjust scaled contour glyph
           coordinates for particular output sizes and
           resolutions. This chapter also describes the data types used
-          in OpenType Layout. Sample tables and lists that illustrate
+          in CommonType Layout. Sample tables and lists that illustrate
           the common data formats are supplied at the end of this
           chapter.</para>
 
@@ -24758,7 +24759,7 @@ public abstract class LookupTable extends LayoutTable {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>OpenType Layout fonts may contain one or more groups of
+        <para>CommonType Layout fonts may contain one or more groups of
           glyphs used to render various scripts, which are enumerated
           in a ScriptList table. Both the <ottable>GSUB</ottable> and
           <ottable>GPOS</ottable> tables define Script List tables
@@ -25383,7 +25384,7 @@ public abstract class LookupTable extends LayoutTable {
         <para>Only one feature index value can be tagged as the
           ReqFeatureIndex. This is not a functional limitation,
           however, because the feature and lookup definitions in
-          OpenType Layout are structured so that one feature table can
+          CommonType Layout are structured so that one feature table can
           reference many glyph substitution and positioning
           lookups. When no required features are defined, then the
           ReqFeatureIndex is set to 0xFFFF.</para>
@@ -25624,13 +25625,13 @@ public abstract class LookupTable extends LayoutTable {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>Features define the functionality of an OpenType Layout
+        <para>Features define the functionality of an CommonType Layout
           font and they are named to convey meaning to the
           text-processing client. Consider a feature named "liga" to
           create ligatures. Because of its name, the client knows what
           the feature does and can decide whether to apply it. For
           more information, see the <ulink
-            url="http://www.microsoft.com/typography/otspec/TTOREG.htm">OpenType
+            url="http://www.microsoft.com/typography/otspec/TTOREG.htm">CommonType
             Layout Registered Features</ulink> chapter. Font
           developers can use these features, as well as create their
           own.</para>
@@ -25667,7 +25668,7 @@ public abstract class LookupTable extends LayoutTable {
           types and subtables, see the the <ottable>GSUB</ottable> and
           <ottable>GPOS</ottable> chapters of this document.)</para>
 
-        <para>OpenType Layout features define information that is
+        <para>CommonType Layout features define information that is
           specific to the layout of the glyphs in a font. They do not
           encode information that is constant within the conventions
           of a particular language or the typography of a particular
@@ -25939,7 +25940,7 @@ public abstract class LookupTable extends LayoutTable {
 
         <para>The format of the Feature Parameters table is specific
           to a particular feature, and must be specified in the
-          feature's entry in the Feature Tags section of the OpenType
+          feature's entry in the Feature Tags section of the CommonType
           Layout Tag Registry. The length of the Feature Parameters
           table must be implicitly or explicitly specified in the
           Feature Parameters table itself. The FeatureParams field in
@@ -27599,8 +27600,8 @@ public abstract class LookupTable extends LayoutTable {
       <section role='compiler'>
         <title>Compiler</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='CoverageTableBlock'>
-package com.adobe.aots.opentype;
+<code-fragment package='com.adobe.aots.CommonType' class='CoverageTableBlock'>
+package com.adobe.aots.CommonType;
 
 public class CoverageTableBlock extends Block {
   public CoverageTableBlock (int size, int referenceCount) {
@@ -28315,7 +28316,7 @@ public class CoverageTableBlock extends Block {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>In OpenType Layout, index values identify glyphs. For
+        <para>In CommonType Layout, index values identify glyphs. For
           efficiency and ease of representation, a font developer can
           group glyph indices to form glyph classes. Class assignments
           vary in meaning from one lookup subtable to another. For
@@ -28374,8 +28375,8 @@ public class CoverageTableBlock extends Block {
       <section role='compiler'>
         <title>Compiler</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='ClassdefTableBlock'>
-package com.adobe.aots.opentype;
+<code-fragment package='com.adobe.aots.CommonType' class='ClassdefTableBlock'>
+package com.adobe.aots.CommonType;
 
 public class ClassdefTableBlock extends Block {
     public ClassdefTableBlock (int size, int referenceCount) {
@@ -29660,7 +29661,7 @@ public class ClassdefTableBlock extends Block {
           glyphs. To access and display the proper glyphs for the Urdu
           numerals, users of the text-processing client must enter the
           character codes for the Farsi numerals. Then the
-          text-processing client uses a required OpenType Layout glyph
+          text-processing client uses a required CommonType Layout glyph
           substitution feature, defined in the Urdu LangSys table, to
           access the correct Urdu glyphs for the 4, 6, and 7
           numerals.</para>
@@ -30855,7 +30856,7 @@ public class ClassdefTableBlock extends Block {
           shrink from the script's default baseline position. Each
           baseline can have unique coordinates. This contrasts with
           TrueType 1.0, which implies a single, fixed baseline for all
-          scripts in a font. With the OpenType Layout tables, each
+          scripts in a font. With the CommonType Layout tables, each
           script can be aligned independently, although more than one
           script may use the same baseline values.</para>
 
@@ -31104,9 +31105,9 @@ public class ClassdefTableBlock extends Block {
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Base'>
+<code-fragment package='com.adobe.aots.CommonType' class='Base'>
   <code-title>BASE Class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -31326,14 +31327,14 @@ public class Base extends LayoutTable {
           direction. Each baseline is identified with a 4-byte
           baseline tag. The <link
             linkend="ttoreg_basetags">Baseline Tags</link>
-          section of the OpenType Tag Registry lists currently
+          section of the CommonType Tag Registry lists currently
           registered baseline tags. The BaseTagList can define any
           number of baselines, and it may include baseline tags for
           scripts supported in other fonts.</para>
 
         <para>Each script in the BaseScriptList table must designate
           one of these BaseTagList baselines as its default, which the
-          OpenType Layout Services use to align all glyphs in the
+          CommonType Layout Services use to align all glyphs in the
           script. Even though the BaseScriptList and the BaseTagList
           are defined independently of one another, the BaseTagList
           typically includes a tag for each different default baseline
@@ -31687,7 +31688,7 @@ public class Base extends LayoutTable {
           extent values for the script. (For details, see the MinMax
           table description below.) If a language system or feature
           defined in the font has no effect on the script's default
-          min/max extents, the OpenType Layout Services will use the
+          min/max extents, the CommonType Layout Services will use the
           default script values.</para>
         <para>Sometimes language-specific overrides for min/max
           extents are needed to properly render the glyphs in a
@@ -34678,9 +34679,9 @@ public class Base extends LayoutTable {
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Gdef'>
+<code-fragment package='com.adobe.aots.CommonType' class='Gdef'>
   <code-title>GDEF Class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -36391,7 +36392,7 @@ public class Gdef extends LayoutTable {
 
         <para>With the <ottable>GPOS</ottable> table, a font developer
           can define a complete set of positioning adjustment features
-          in an OpenType font. <ottable>GPOS</ottable> data,
+          in an CommonType font. <ottable>GPOS</ottable> data,
           organized by script and language system, is easy for a
           text-processing client to use to position glyphs.</para>
 
@@ -36434,9 +36435,9 @@ public class Gdef extends LayoutTable {
           adjust the glyphs in each pair, and cannot adjust contexts
           of more than two glyphs.</para>
 
-        <para>Positioning Glyphs with OpenType</para>
+        <para>Positioning Glyphs with CommonType</para>
 
-        <para>OpenType fonts allow excellent control and flexibility
+        <para>CommonType fonts allow excellent control and flexibility
           for positioning a single glyph and for positioning multiple
           glyphs in relation to one another. By using both X and Y
           values that the <ottable>GPOS</ottable> table defines for
@@ -36451,7 +36452,7 @@ public class Gdef extends LayoutTable {
           specify adjustments at 51 pixels per em (ppem) that do not
           occur at 50 ppem.</para>
 
-        <para>X and Y values specified in OpenType fonts for placement
+        <para>X and Y values specified in CommonType fonts for placement
           operations are always within the typical Cartesian
           coordinate system (origin at the baseline of the left side),
           regardless of the writing direction. Additionally, all
@@ -36501,7 +36502,7 @@ public class Gdef extends LayoutTable {
         <para>Attachment points also are useful for connecting
           cursive-style glyphs. Glyphs in cursive fonts can be
           designed to attach or overlap when rendered. Alternatively,
-          the font developer can use OpenType to create a cursive
+          the font developer can use CommonType to create a cursive
           attachment feature and define explicit exit and entry
           attachment points for each glyph (see Figure 4d).</para>
 
@@ -36899,9 +36900,9 @@ public class Gdef extends LayoutTable {
 	<para>Here is a program to extract the size parameters of a
 	font.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='SizeParams'>
+<code-fragment package='com.adobe.aots.CommonType' class='SizeParams'>
   <code-title>SizeParams class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.io.File;
 import java.net.URL;
@@ -37167,9 +37168,9 @@ public class SizeParams {
           <ottable>GPOS</ottable> table and provides the approriate
           operations.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Gpos'>
+<code-fragment package='com.adobe.aots.CommonType' class='Gpos'>
   <code-title>GPOS Class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -37258,10 +37259,10 @@ public class Gpos extends LookupTable {
       <section role='test-suite'>
         <title>Test Suite</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='GposTester'>
+<code-fragment package='com.adobe.aots.CommonType' class='GposTester'>
   <code-title>GposTester class</code-title>
 
-  package com.adobe.aots.opentype;
+  package com.adobe.aots.CommonType;
 
   <code-include linkend='test_imports'/>
 
@@ -44255,7 +44256,7 @@ Lookahead sequence                           0   1   2   3
           subtables are set in the usual way, i.e. relative to the
           extension subtables themselves</para>
 
-        <para>When an OpenType layout engine encounters a LookupType 9
+        <para>When an CommonType layout engine encounters a LookupType 9
           Lookup table, it shall:</para>
 
         <itemizedlist>
@@ -44718,8 +44719,8 @@ Lookahead sequence                           0   1   2   3
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Value'>
-package com.adobe.aots.opentype;
+<code-fragment package='com.adobe.aots.CommonType' class='Value'>
+package com.adobe.aots.CommonType;
 
   public class Value {
     public int format;
@@ -44739,9 +44740,9 @@ package com.adobe.aots.opentype;
 </code-fragment>
 
 
-<code-fragment package='com.adobe.aots.opentype' class='ValueRecord'>
+<code-fragment package='com.adobe.aots.CommonType' class='ValueRecord'>
   <code-title>ValueRecord class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -48752,13 +48753,13 @@ public class ValueRecord {
 
     <!--======================================================================-->
     <section role='fragment'>
-      <title>Substituting Glyphs with OpenType</title>
+      <title>Substituting Glyphs with CommonType</title>
 
       <!--____________________________________________________________________-->
       <section role='specification'>
         <title>Specification</title>
 
-        <para>The OpenType <ottable>GSUB</ottable> table fully
+        <para>The CommonType <ottable>GSUB</ottable> table fully
           supports glyph substitution. To access glyph substitutes,
           <ottable>GSUB</ottable> maps from the glyph index or indices
           defined in a cmap table to the glyph index or indices of the
@@ -49355,9 +49356,9 @@ GSUB =
           <ottable>GSUB</ottable> table and provides the appropriate
           operations.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Gsub'>
+<code-fragment package='com.adobe.aots.CommonType' class='Gsub'>
   <code-title>GSUB Class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -49449,9 +49450,9 @@ public class Gsub extends LookupTable {
           transformations is to apply a set of features to a glyphrun
           tagged with a script and a language.</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='GsubTester'>
+<code-fragment package='com.adobe.aots.CommonType' class='GsubTester'>
   <code-title>GsubTest class</code-title>
-  package com.adobe.aots.opentype;
+  package com.adobe.aots.CommonType;
 
   <code-include linkend='test_imports'/>
 
@@ -52865,7 +52866,7 @@ public class Gsub extends LookupTable {
 	  clear. It is certainly desired that any glyph covered by
 	  the contextual substitution LookupFlag be invisible to the
 	  sublookups; what is unclear is whether this is achieved by
-	  constraining legal fonts, or whether OpenType engines have
+	  constraining legal fonts, or whether CommonType engines have
 	  to enforce that behavior. Here is a font that does have
 	  consistent LookupFlag, and it should behave properly with
 	  all layout engines.</para>
@@ -53757,7 +53758,7 @@ public class Gsub extends LookupTable {
 	  clear. It is certainly desired that any glyph covered by
 	  the contextual substitution LookupFlag be invisible to the
 	  sublookups; what is unclear is whether this is achieved by
-	  constraining legal fonts, or whether OpenType engines have
+	  constraining legal fonts, or whether CommonType engines have
 	  to enforce that behavior. Here is a font that does have
 	  consistent LookupFlag, and it should behave properly with
 	  all layout engines.</para>
@@ -54325,7 +54326,7 @@ public class Gsub extends LookupTable {
 	  clear. It is certainly desired that any glyph covered by
 	  the contextual substitution LookupFlag be invisible to the
 	  sublookups; what is unclear is whether this is achieved by
-	  constraining legal fonts, or whether OpenType engines have
+	  constraining legal fonts, or whether CommonType engines have
 	  to enforce that behavior. Here is a font that does have
 	  consistent LookupFlag, and it should behave properly with
 	  all layout engines.</para>
@@ -57483,7 +57484,7 @@ Lookahead sequence -                   0  1  2  3
           subtables are set in the usual way, i.e. relative to the
           extension subtables themselves.</para>
 
-        <para>When an OpenType layout engine encounters a LookupType 7
+        <para>When an CommonType layout engine encounters a LookupType 7
           Lookup table, it shall:</para>
 
         <itemizedlist>
@@ -61607,13 +61608,13 @@ Lookahead sequence -                   0  1  2  3
         <title>Specification</title>
 
         <para>Three tables are used to embed bitmaps in
-          OpenType fonts. They are the <ottable>EBLC</ottable>
+          CommonType fonts. They are the <ottable>EBLC</ottable>
           table for embedded bitmap locators, the
           <ottable>EBDT</ottable> table for embedded bitmap data, and
           the <ottable>EBSC</ottable> table for embedded bitmap
           scaling information.</para>
 
-        <para>OpenType embedded bitmaps are also called 'sbits' (for
+        <para>CommonType embedded bitmaps are also called 'sbits' (for
           "scaler bitmaps"). A set of bitmaps for a face at a given
           size is called a strike.</para>
 
@@ -62089,11 +62090,11 @@ Lookahead sequence -                   0  1  2  3
       <section role='specification'>
         <title>Specification</title>
 
-        <para>Three tables are used to embed bitmaps in OpenType
+        <para>Three tables are used to embed bitmaps in CommonType
           fonts. They are the <ottable>EBLC</ottable> table for embedded bitmap
           locators, the 'EBDT' table for embedded bitmap data, and the
           <ottable>EBSC</ottable> table for embedded bitmap scaling information.
-          OpenType embedded bitmaps are called 'sbits' (for "scaler
+          CommonType embedded bitmaps are called 'sbits' (for "scaler
           bitmaps"). A set of bitmaps for a face at a given size is
           called a strike.</para>
 
@@ -62111,7 +62112,7 @@ Lookahead sequence -                   0  1  2  3
           (Apple Advanced Typography) 'bloc' table.</para>
 
         <para>The <ottable>EBLC</ottable> table begins with a header containing the
-          table version and number of strikes. An OpenType font may
+          table version and number of strikes. An CommonType font may
           have one or more strikes embedded in the 'EBDT'
           table.</para>
 
@@ -62943,7 +62944,7 @@ Lookahead sequence -                   0  1  2  3
         <title>Specification</title>
 
         <para>The DSIG table contains the digital signature of the
-          OpenType font. Signature formats are widely documented and
+          CommonType font. Signature formats are widely documented and
           rely on a key pair architecture. Software developers, or
           publishers posting material on the Internet, create
           signatures using a private key. Operating systems or
@@ -62952,9 +62953,9 @@ Lookahead sequence -                   0  1  2  3
         <para>The W3C and major software and operating system
           developers have specified security standards that describe
           signature formats, specify secure collections of web
-          objects, and recommend authentication architecture. OpenType
+          objects, and recommend authentication architecture. CommonType
           fonts with signatures will support these standards.</para>
-        <para>OpenType fonts offer many security features:</para>
+        <para>CommonType fonts offer many security features:</para>
         <itemizedlist>
           <listitem>
             <para>Operating systems and browsing applications can
@@ -62963,7 +62964,7 @@ Lookahead sequence -                   0  1  2  3
           </listitem>
           <listitem>
             <para>Font developers can specify embedding restrictions
-              in OpenType fonts, and these restrictions cannot be
+              in CommonType fonts, and these restrictions cannot be
               altered in a font signed by the developer. </para>
           </listitem>
         </itemizedlist>
@@ -63245,9 +63246,9 @@ Lookahead sequence -                   0  1  2  3
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Dsig'>
+<code-fragment package='com.adobe.aots.CommonType' class='Dsig'>
   <code-title>DSIG Class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -63618,7 +63619,7 @@ public class Dsig extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>The hdmx table relates to OpenType fonts with TrueType
+        <para>The hdmx table relates to CommonType fonts with TrueType
           outlines. The Horizontal Device Metrics table stores integer
           advance widths scaled to particular pixel sizes. This allows
           the font manager to build integer width tables without
@@ -63833,9 +63834,9 @@ hdmx =
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Hdmx'>
+<code-fragment package='com.adobe.aots.CommonType' class='Hdmx'>
   <code-title>Hdmx class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -63884,10 +63885,10 @@ public class Hdmx extends Table {
         <para>The kerning table contains the values that control the
         intercharacter spacing for the glyphs in a font. There is
         currently no system level support for kerning (other than
-        returning the kern pairs and kern values). OpenType fonts
+        returning the kern pairs and kern values). CommonType fonts
         containing CFF outlines are not supported by the
         <ottable>kern</ottable> table and must use the
-        <ottable>GPOS</ottable> OpenType Layout table.</para>
+        <ottable>GPOS</ottable> CommonType Layout table.</para>
 
         <para>Each subtable varies in format, and can contain
         information for vertical or horizontal text, and can contain
@@ -63900,7 +63901,7 @@ public class Hdmx extends Table {
         values should usually be placed last, so that they can be used
         to limit the total effect of other subtables.</para>
 
-        <para>The kerning table in the OpenType font file has a
+        <para>The kerning table in the CommonType font file has a
         header, which contains the format number and the number of
         subtables present, and the subtables themselves.</para>
 
@@ -64278,7 +64279,7 @@ public class Hdmx extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>The <ottable>LTSH</ottable> table relates to OpenType
+        <para>The <ottable>LTSH</ottable> table relates to CommonType
         fonts containing TrueType outlines. There are noticeable
         improvements to fonts on the screen when instructions are
         carefully applied to the sidebearings. The gain in readability
@@ -64362,7 +64363,7 @@ public class Hdmx extends Table {
         <title>Specification</title>
 
         <para>The <ottable>PCLT</ottable> table is strongly
-          discouraged for OpenType fonts with TrueType outlines. Extra
+          discouraged for CommonType fonts with TrueType outlines. Extra
           information on many of these fields can be found in the HP
           PCL 5 Printer Language Technical Reference Manual available
           from Hewlett-Packard Boise Printer Division.</para>
@@ -65346,7 +65347,7 @@ public class Hdmx extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>The VDMX table relates to OpenType fonts with TrueType
+        <para>The VDMX table relates to CommonType fonts with TrueType
         outlines. Under Windows, the usWinAscent and usWinDescent
         values from the <ottable>OS/2</ottable> table will be used to
         determine the maximum black height for a font at any given
@@ -65730,9 +65731,9 @@ VDMX =
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Vdmx'>
+<code-fragment package='com.adobe.aots.CommonType' class='Vdmx'>
   <code-title>Vdmx class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -65788,7 +65789,7 @@ public class Vdmx extends Table {
           height and minimum bottom sidebearing values in the vertical
           header table.</para>
 
-        <para>See the section "OpenType CJK Font Guidelines" for more
+        <para>See the section "CommonType CJK Font Guidelines" for more
           information about constructing CJK (Chinese, Japanese, and
           Korean) fonts.</para>
 
@@ -65961,7 +65962,7 @@ public class Vdmx extends Table {
               right of the ideographic em-box and is usually set to
               (head.unitsPerEm)/2. For example, a font with an em of
               1000 fUnits will set this field to 500. See the baseline
-              section of the OpenType Tag Registry for a description
+              section of the CommonType Tag Registry for a description
               of the ideographic em-box. </otfielddesc>
           </otfield>
           <otfield>
@@ -65981,7 +65982,7 @@ public class Vdmx extends Table {
             <otfieldname>vertTypoLineGap</otfieldname>
             <otfielddesc>The vertical typographic gap for this font.
               An application can determine the recommended line
-              spacing for single spaced vertical text for an OpenType
+              spacing for single spaced vertical text for an CommonType
               font by the following expression: ideo embox width +
               vhea.vertTypoLineGap </otfielddesc>
           </otfield>
@@ -66362,9 +66363,9 @@ vhea =
         <para>Here is the class definition for <ottable>vhea</ottable>
           tables:</para>
 
-<code-fragment package='com.adobe.aots.opentype' class='Vhea'>
+<code-fragment package='com.adobe.aots.CommonType' class='Vhea'>
   <code-title>Vhea class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -66434,14 +66435,14 @@ public class Vhea extends Table {
           </mediaobject>
         </figure>
 
-        <para>OpenType vertical fonts require both a vertical
+        <para>CommonType vertical fonts require both a vertical
           header table (<ottable>vhea</ottable>) and the vertical metrics table
           discussed below. The vertical header table contains
           information that is general to the font as a whole. The
           vertical metrics table contains information that pertains to
           specific glyphs. The formats of these tables are similar to
           those for horizontal metrics (hhea and hmtx).</para>
-        <para>See the section "OpenType CJK Font Guidelines" for more
+        <para>See the section "CommonType CJK Font Guidelines" for more
           information about constructing CJK (Chinese, Japanese, and
           Korean) fonts.</para>
       </section>
@@ -66461,19 +66462,19 @@ public class Vhea extends Table {
           (recorded in the <ottable>vmtx</ottable> table) and the top (i.e. maximum y)
           of the glyph&#x2019;s bounding box.</para>
 
-        <para>TrueType OpenType fonts contain glyph bounding box
+        <para>TrueType CommonType fonts contain glyph bounding box
           information in the Glyph Data (<ottable>glyf</ottable>)
-          table. CFF OpenType fonts do not contain glyph bounding box
+          table. CFF CommonType fonts do not contain glyph bounding box
           information, and so for these fonts the top of the glyph's
           bounding box must be calculated from the charstring data in
           the Compact Font Format (<ottable>CFF</ottable>) table.</para>
 
-        <para>OpenType 1.3 introduced the optional Vertical Origin
-          (<ottable>VORG</ottable>) table for CFF OpenType fonts,
+        <para>CommonType 1.3 introduced the optional Vertical Origin
+          (<ottable>VORG</ottable>) table for CFF CommonType fonts,
           which records the y coordinate of glyphs' vertical origins
           directly, thus obviating the need to calculate bounding
           boxes as an intermediate step. This improves accuracy and
-          efficiency for CFF OpenType clients.</para>
+          efficiency for CFF CommonType clients.</para>
 
         <para>The x coordinate of a glyph's vertical origin is not
           specified in the <ottable>vmtx</ottable> table. Vertical writing
@@ -66486,7 +66487,7 @@ public class Vhea extends Table {
           coordinate of the glyph&#x2019;s vertical origin and advances
           downwards. Its endpoint is at the y coordinate of the
           vertical origin of the next glyph in the run, by default.
-          Metric-adjustment OpenType layout features such as Vertical
+          Metric-adjustment CommonType layout features such as Vertical
           Kerning ('vkrn') could modify the vertical advances in a
           manner similar to kerning in horizontal mode.</para>
       </section>
@@ -66669,9 +66670,9 @@ vmtx =
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Vmtx'>
+<code-fragment package='com.adobe.aots.CommonType' class='Vmtx'>
   <code-title>Vmtx class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -66730,28 +66731,28 @@ public class Vmtx extends Table {
           origin of every glyph in the font.</para>
 
         <para>This table may be optionally present only in CFF
-          OpenType fonts. If present in TrueType OpenType fonts it
+          CommonType fonts. If present in TrueType CommonType fonts it
           must be ignored by font clients, just as any other
           unrecognized table would be. This is because this table is
-          not needed for TrueType OpenType fonts: the Vertical Metrics
+          not needed for TrueType CommonType fonts: the Vertical Metrics
           (<ottable>vmtx</ottable>) and Glyph Data
-          (<ottable>glyf</ottable>) tables in TrueType OpenType fonts
+          (<ottable>glyf</ottable>) tables in TrueType CommonType fonts
           provide all the information necessary to accurately
           calculate the y coordinate of a glyph's vertical origin. See
           the "Vertical Origin and Advance Height" section in the
           <ottable>vmtx</ottable> table specification for more
           details.</para>
 
-        <para>This table was added to version 1.3 of the OpenType
+        <para>This table was added to version 1.3 of the CommonType
           specification. Note that the <ottable>vmtx</ottable> and
           Vertical Header (<ottable>vhea</ottable>) tables continue to
-          be required for all OpenType fonts that support vertical
+          be required for all CommonType fonts that support vertical
           writing. Advance heights must continue to be obtained from
           the <ottable>vmtx</ottable> table; that is the only place
           they are stored.</para>
 
         <para>If a <ottable>VORG</ottable> table is present in a CFF
-          OpenType font, a font client may choose to obtain the y
+          CommonType font, a font client may choose to obtain the y
           coordinate of a glyph&#x2019;s vertical origin either:</para>
 
         <itemizedlist>
@@ -66775,10 +66776,10 @@ public class Vmtx extends Table {
           unaware of or choose not to support the <ottable>VORG</ottable>.</para>
         <para>Thus, the <ottable>VORG</ottable> doesn't add any new font metric values
           per se; it simply improves accuracy and efficiency for CFF
-          OpenType font clients, since the intermediate step of
+          CommonType font clients, since the intermediate step of
           calculating bounding boxes from the CFF charstring is
           rendered unnecessary.</para>
-        <para>See the section "OpenType CJK Font Guidelines" for more
+        <para>See the section "CommonType CJK Font Guidelines" for more
           information about constructing CJK (Chinese, Japanese, and
           Korean) fonts.</para>
       </section>
@@ -66987,9 +66988,9 @@ VORG =
       <section role='implementation'>
         <title>Implementation</title>
 
-<code-fragment package='com.adobe.aots.opentype' class='Vorg'>
+<code-fragment package='com.adobe.aots.CommonType' class='Vorg'>
   <code-title>Vorg class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -67027,7 +67028,7 @@ public class Vorg extends Table {
 
   <!--************************************************************************-->
   <section id='chapter.recommendations'>
-    <title>Recommendations for OpenType Fonts</title>
+    <title>Recommendations for CommonType Fonts</title>
 
     <!--======================================================================-->
     <section role='fragment'>
@@ -67038,7 +67039,7 @@ public class Vorg extends Table {
         <title>Specification</title>
 
         <para>This chapter outlines recommendations for creating
-          OpenType fonts.</para>
+          CommonType fonts.</para>
       </section>
     </section>
 
@@ -67050,7 +67051,7 @@ public class Vorg extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>All OpenType fonts use Motorola-style byte ordering (Big
+        <para>All CommonType fonts use Motorola-style byte ordering (Big
           Endian).</para>
 
       </section>
@@ -67064,8 +67065,8 @@ public class Vorg extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>OpenType fonts that contain TrueType outlines should use
-          the value of 1.0 for the sfnt version. OpenType fonts
+        <para>CommonType fonts that contain TrueType outlines should use
+          the value of 1.0 for the sfnt version. CommonType fonts
           containing CFF data should use the tag 'OTTO' as the sfnt
           version number.</para>
       </section>
@@ -67093,9 +67094,9 @@ public class Vorg extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>OpenType fonts may have the extension .OTF, .TTF, or .TTC,
+        <para>CommonType fonts may have the extension .OTF, .TTF, or .TTC,
           depending on the type of outlines in the font and the
-	  presence of OpenType layout tables.</para>
+	  presence of CommonType layout tables.</para>
 
         <itemizedlist>
           <listitem>
@@ -67104,12 +67105,12 @@ public class Vorg extends Table {
           </listitem>
           <listitem>
             <para>Fonts containing TrueType outlines that have
-            OpenType layout tables should use the .OTF extension when
+            CommonType layout tables should use the .OTF extension when
             backward compatibility is not an issue. Fonts without
-            OpenType layout tables, or fonts that have backward
+            CommonType layout tables, or fonts that have backward
             compatibility issues should use the .TTF
             extension. TrueType Collection fonts should have a .TTC
-            extension whether or not the fonts have OpenType layout
+            extension whether or not the fonts have CommonType layout
             tables present.</para>
 	  </listitem>
         </itemizedlist>
@@ -67352,7 +67353,7 @@ public class Vorg extends Table {
           this optimization, using a tool provided by Microsoft, prior
           to finalizing and adding a digital signature to the font.
           This is necessary for the creator's signature to remain
-          valid in embedded OpenType fonts.</para>
+          valid in embedded CommonType fonts.</para>
       </section>
     </section>
 
@@ -67364,7 +67365,7 @@ public class Vorg extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>This table improves the performance of OpenType fonts
+        <para>This table improves the performance of CommonType fonts
           with TrueType outlines. This table is not necessary at all
           unless instructions are used to control the "phantom
           points," and should be omitted if bit 2 of the flags field
@@ -67441,7 +67442,7 @@ public class Vorg extends Table {
         <title>Specification</title>
 
         <para>All data required. It is suggested that monospaced fonts
-          have three entries in the numberOfHMetrics field. OpenType
+          have three entries in the numberOfHMetrics field. CommonType
           fonts that include CFF data must set numberOfHMetrics equal
           to the number of glyphs in the font and therefore cannot use
           the "repeat last width" optimization normally available
@@ -67462,7 +67463,7 @@ public class Vorg extends Table {
           of kern values by class); nor multiple tables (only the
           first format 0 table found will be used) nor coverage bits 0
           through 4 (i.e. assumes horizontal data, kerning values, no
-          cross stream, and override). OpenType fonts containing CFF
+          cross stream, and override). CommonType fonts containing CFF
           data do not support the <ottable>kern</ottable> table and should therefore
           specify kerning data using the <ottable>GPOS</ottable> table
           (LookupType=2).</para>
@@ -67499,7 +67500,7 @@ public class Vorg extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>This table improves the performance of OpenType fonts
+        <para>This table improves the performance of CommonType fonts
           with TrueType outlines. The table should be used if bit 2 or
           4 of flags in <ottable>head</ottable> is set.</para>
       </section>
@@ -67559,7 +67560,7 @@ public class Vorg extends Table {
           manufacturer, designer, description, URL of the vendor, and
           URL of the designer. URL's must contain the protocol of the
           site: for example, http:// or mailto: or ftp://. The
-          OpenType font properties extension can enumerate this
+          CommonType font properties extension can enumerate this
           information to the users.</para>
 
         <para>The Subfamily string in the 'name' table should be used
@@ -67606,7 +67607,7 @@ public class Vorg extends Table {
           of (sTypoAscender - sTypoDescender) is recommended to equal
           one em.</para>
 
-	<para>While the OpenType specification allows
+	<para>While the CommonType specification allows
           for CJK (Chinese, Japanese, and Korean) fonts'
           sTypoDescender and sTypoAscender fields to specify metrics
           different from the HorizAxis.ideo and HorizAxis.idtp
@@ -67620,7 +67621,7 @@ public class Vorg extends Table {
           ideographic em-box values in the <ottable>BASE</ottable>
           table describe the same bottom and top edges as the
           sTypoDescender and sTypoAscender fields. See the sections
-          "OpenType CJK Font Guidelines" and "Ideographic Em-Box" for
+          "CommonType CJK Font Guidelines" and "Ideographic Em-Box" for
           more details.</para>
 
 	<para>For Western fonts, the Ascender
@@ -67656,7 +67657,7 @@ public class Vorg extends Table {
         <title>Specification</title>
 
         <para>All information required, although the VM Usage fields
-          may be set to zero. OpenType fonts containing CFF outlines
+          may be set to zero. CommonType fonts containing CFF outlines
           use only format 3.0 of the <ottable>post</ottable> table. Glyph names must be
           assigned as described in the Adobe document "Unicode and
           Glyph Names," which specifies glyph naming conventions for
@@ -67689,7 +67690,7 @@ public class Vorg extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>This table improves the performance of OpenType fonts
+        <para>This table improves the performance of CommonType fonts
           with TrueType outlines. It Should be present if hints cause
           the font to scale non-linearly. If not present, the font is
           assumed to scale linearly. Clipping may occur if values in
@@ -67705,7 +67706,7 @@ public class Vorg extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>OpenType fonts with TrueType outlines are more efficient
+        <para>CommonType fonts with TrueType outlines are more efficient
           in the Windows operating system when the tables are ordered
           as follows (from first to last):</para>
 
@@ -67713,7 +67714,7 @@ public class Vorg extends Table {
           fpgm, prep, cvt, loca, <ottable>glyf</ottable>, kern, name,
           post, gasp, PCLT, DSIG</para>
 
-        <para>The initial loading of an OpenType font containing CFF
+        <para>The initial loading of an CommonType font containing CFF
           data will be more efficiently handled if the following sfnt
           table ordering is used within the body of the sfnt (listed
           from first to last):</para>
@@ -67852,7 +67853,7 @@ public class Vorg extends Table {
 
         <para>The suggested Baseline to Baseline Distance (BTBD) is
           computed differently for Windows and the Macintosh, and it
-          is based on different OpenType metrics. However, if the
+          is based on different CommonType metrics. However, if the
           recommendations below are followed, the BTBD will be the
           same for both Windows and the Mac.</para>
 
@@ -67869,7 +67870,7 @@ public class Vorg extends Table {
             <thead>
               <row>
                 <entry>Windows Metric</entry>
-                <entry>OpenType Metric</entry>
+                <entry>CommonType Metric</entry>
               </row>
             </thead>
             <tbody>
@@ -67925,7 +67926,7 @@ public class Vorg extends Table {
             <thead>
               <row>
                 <entry>Macintosh Metric</entry>
-                <entry>OpenType Metric</entry>
+                <entry>CommonType Metric</entry>
               </row>
             </thead>
             <tbody>
@@ -68013,14 +68014,14 @@ public class Vorg extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-        <para>Three tables are used to embed bitmaps in OpenType
+        <para>Three tables are used to embed bitmaps in CommonType
           fonts. They are the <ottable>EBLC</ottable> table for
           embedded bitmap locators, the <ottable>EBDT</ottable> table
           for embedded bitmap data, and the <ottable>EBSC</ottable>
-          table for embedded bitmap scaling information.  OpenType
+          table for embedded bitmap scaling information.  CommonType
           embedded bitmaps are also called 'sbits'.</para>
 
-	<para>The behavior of sbits within an OpenType font is essentially
+	<para>The behavior of sbits within an CommonType font is essentially
           transparent to the client. A client need not be aware
           whether the bitmap returned by the rasterizer comes from an
           sbit or from a scan-converted outline.</para>
@@ -68032,7 +68033,7 @@ public class Vorg extends Table {
 
         <para>'Sbit only' fonts, that is fonts with embedded bitmaps
           but without outline data, are permitted. Care must be taken
-          to ensure that all required OpenType tables except
+          to ensure that all required CommonType tables except
           <ottable>glyf</ottable> and <ottable>loca</ottable> are
           present in such a font. Obviously, such fonts will only be
           able to return glyphs and sizes for which sbits are
@@ -68054,21 +68055,21 @@ public class Vorg extends Table {
 
     <!--======================================================================-->
     <section role='fragment'>
-      <title>OpenType CJK Font Guidelines</title>
+      <title>CommonType CJK Font Guidelines</title>
 
       <!--____________________________________________________________________-->
       <section role='specification'>
         <title>Specification</title>
 
         <para>This section provides a checklist of links to various
-          CJK-related sections of the OpenType specification. Some
+          CJK-related sections of the CommonType specification. Some
           items are requirements; others, recommendations:</para>
 
         <itemizedlist>
           <listitem>
-            <para>The ideographic em-box of an OpenType font will be
+            <para>The ideographic em-box of an CommonType font will be
               determined as described in the section "Ideographic
-              Em-Box" in the Baseline Tags section of the OpenType
+              Em-Box" in the Baseline Tags section of the CommonType
               Layout Tag Registry. Also see the description for
               OS/2.sTypoAscender and OS/2.sTypoDescender, and the
               <ottable>BASE</ottable> table recommendation section
@@ -68079,32 +68080,32 @@ public class Vorg extends Table {
               ideographic character face (ICF) metrics, which
               applications can use for accurate text alignment. This
               is described in the section "Ideographic Character Face"
-              in the Baseline Tags section of the OpenType Layout Tag
+              in the Baseline Tags section of the CommonType Layout Tag
               Registry.</para>
           </listitem>
           <listitem>
-            <para>All OpenType fonts that are used for vertical
+            <para>All CommonType fonts that are used for vertical
               writing must include a Vertical Header
               (<ottable>vhea</ottable>) table and a Vertical Metrics
-              (<ottable>vmtx</ottable>) table. CFF OpenType fonts that
+              (<ottable>vmtx</ottable>) table. CFF CommonType fonts that
               are used for vertical writing may also include,
               optionally, a Vertical Origin (<ottable>VORG</ottable>)
               table for precise vertical origin information.</para>
           </listitem>
           <listitem>
-            <para>If an OpenType font with CFF outlines is to be used
+            <para>If an CommonType font with CFF outlines is to be used
               for vertical writing, Adobe Type Manager/NT 4.1 and the
               Windows 2000 OTF driver require that a Vertical Rotation
               ('vrt2') feature be present in the Glyph Substitution
               (<ottable>GSUB</ottable>) table. See the Feature Tags
-              section of the OpenType Layout Tag Registry for a
+              section of the CommonType Layout Tag Registry for a
               description of and further requirements for this
               feature.</para>
           </listitem>
           <listitem>
-            <para>See the Feature Tags section of the OpenType Layout
+            <para>See the Feature Tags section of the CommonType Layout
               Tag Registry for descriptions of currently registered
-              OpenType layout features, such as Alternate Half Widths
+              CommonType layout features, such as Alternate Half Widths
               ('halt') and Traditional Forms ('trad'), that can be
               specified in the font.</para>
           </listitem>
@@ -68115,7 +68116,7 @@ public class Vorg extends Table {
 
   <!--************************************************************************-->
   <section id='chapter.tags_registry' web:index='yes'>
-    <title>OpenType Layout tag registry</title>
+    <title>CommonType Layout tag registry</title>
 
     <!--======================================================================-->
     <section role='fragment'>
@@ -68125,14 +68126,14 @@ public class Vorg extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-	<para>The tag registry defines the OpenType Layout tags that
-	  Microsoft supports. OpenType Layout tags are 4-byte
+	<para>The tag registry defines the CommonType Layout tags that
+	  Microsoft supports. CommonType Layout tags are 4-byte
 	  character strings that identify the scripts, language
-	  systems, features and baselines in a OpenType Layout
+	  systems, features and baselines in a CommonType Layout
 	  font. The registry establishes conventions for naming and
 	  using these tags. Registered tags have a specific meaning
 	  and convey precise information to developers and
-	  text-processing clients of OpenType Layout. Microsoft
+	  text-processing clients of CommonType Layout. Microsoft
 	  encourages font developers to use registered tags to assure
 	  compatibility and ease of use across fonts, applications,
 	  and operating systems. Microsoft will supply a list of
@@ -68162,7 +68163,7 @@ public class Vorg extends Table {
         <title>Specification</title>
 
 	<para>Script tags identify the scripts represented in a
-	  OpenType Layout font. Script tags are defined by Microsoft
+	  CommonType Layout font. Script tags are defined by Microsoft
 	  Typography and correspond to the contiguous character code
 	  ranges in Unicode.</para>
 
@@ -68365,7 +68366,7 @@ public class Vorg extends Table {
         <title>Specification</title>
 
 	<para>Language system tags identify the language systems
-	  supported in a OpenType Layout font. Microsoft uses the
+	  supported in a CommonType Layout font. Microsoft uses the
 	  standard language system tag names defined in the Windows
 	  Natural Language Support API document (called NLSAPI.doc),
 	  in Appendix A: Locales and Language ID's. This document is
@@ -69908,7 +69909,7 @@ public class Vorg extends Table {
       <section role='specification'>
         <title>Specification</title>
 
-	<para>This section defines the standard OpenType Layout
+	<para>This section defines the standard CommonType Layout
 	  baseline tags that Microsoft supports. A registered baseline
 	  tag has a specific meaning when used in the horizontal
 	  writing direction (used in the <ottable>BASE</ottable> table's HorizAxis
@@ -70095,11 +70096,11 @@ Else:
 	      ideographs in a CJK font to be exactly one em, thus it
 	      is strongly recommended that VertAxis.idtp, if present,
 	      be set to head.unitsPerEm. (The idtp baseline tag was
-	      introduced in OpenType 1.3.)</para>
+	      introduced in CommonType 1.3.)</para>
 	    </listitem>
 
 	    <listitem>
-	      <para>While the OpenType specification allows for CJK
+	      <para>While the CommonType specification allows for CJK
 		fonts' OS/2.sTypoDescender and OS/2.sTypoAscender
 		fields to specify metrics different from the
 		HorizAxis.ideo and HorizAxis.idtp in the <ottable>BASE</ottable> table,
@@ -70129,7 +70130,7 @@ Else:
 	    </listitem>
 	  </orderedlist></para>
 
-	  <para>See the section "OpenType CJK Font Guidelines"
+	  <para>See the section "CommonType CJK Font Guidelines"
 	    for more information about constructing CJK
 	    fonts.</para>
 
@@ -70155,7 +70156,7 @@ Else:
 	represents the ratio of the length of an ICF box edge to the
 	length of an ideographic em-box edge, and is conceptualized as
 	a square centered within the ideographic em-box. However, in
-	OpenType, the ICF box's left, bottom, right, and top edges are
+	CommonType, the ICF box's left, bottom, right, and top edges are
 	specified as the VertAxis.icfb, HorizAxis.icfb, VertAxis.icft,
 	and HorizAxis.icft baselines, respectively, thus giving font
 	designers the flexibility to specify a non-square and/or
@@ -70267,7 +70268,7 @@ HorizAxis.icfb = -94.
 	values. That is, for fonts based on a square ideographic
 	em-box, the ICF box should be a centered square.</para>
 
-	<para>See the section "OpenType CJK Font Guidelines" for more
+	<para>See the section "CommonType CJK Font Guidelines" for more
 	  information about constructing CJK fonts.</para>
       </section>
     </section>
@@ -70284,11 +70285,11 @@ HorizAxis.icfb = -94.
 	in a font to render a script or language. For example, an
 	Arabic font might have a feature for substituting initial
 	glyph forms, and a Kanji font might have a feature for
-	positioning glyphs vertically. All OpenType Layout features
+	positioning glyphs vertically. All CommonType Layout features
 	define data for glyph substitution, glyph positioning, or
 	both.</para>
 
-	<para>Each OpenType Layout feature has a feature tag that
+	<para>Each CommonType Layout feature has a feature tag that
 	identifies its typographic function and effects. By examining
 	a feature's tag, a text-processing client can determine what a
 	feature does and decide whether to implement it. All tags are
@@ -70324,7 +70325,7 @@ HorizAxis.icfb = -94.
 	same tag for a private feature.</para>
 
 	<para>This version of the Tag Registry describes all the
-	OpenType Layout features Microsoft has developed to date. It
+	CommonType Layout features Microsoft has developed to date. It
 	also includes details that identify the lookups that Microsoft
 	uses to implement each feature. Lookup information is provided
 	for reference purposes only; the set of lookups used to
@@ -74603,7 +74604,7 @@ HorizAxis.icfb = -94.
 	<para>UI suggestion: This feature should be active by default
 	when vertical writing mode is on if the vrt2 feature is not
 	present. See the vrt2 feature description for more details,
-	and a discussion of vertical writing in OpenType.</para>
+	and a discussion of vertical writing in CommonType.</para>
 
 	<para>Script/language sensitivity: Applies only to scripts
 	with vertical writing capability.</para>
@@ -74811,7 +74812,7 @@ HorizAxis.icfb = -94.
 	of the glyphs covered in the vert table.</para>
 
 	<para>ATM/NT 4.1 and the Windows 2000 OTF driver impose the
-	following requirements for an OpenType font with CFF outlines
+	following requirements for an CommonType font with CFF outlines
 	to be used for vertical writing: the vrt2 feature must be
 	present in the GSUB table, it must comprises a single lookup
 	of LookupType 1 and LookupFlag 0, and the lookup must have a
@@ -74908,7 +74909,7 @@ HorizAxis.icfb = -94.
 
   <!--************************************************************************-->
   <section id='chapter.proposed_features'>
-    <title>Proposed OpenType features</title>
+    <title>Proposed CommonType features</title>
 
     <!--======================================================================-->
     <section role='fragment'>
@@ -74920,7 +74921,7 @@ HorizAxis.icfb = -94.
 
 	<para>Proposals for new features are posted here for
 	review. If you have questions, comments or concerns regarding
-	any of the proposals listed please post them to the OpenType
+	any of the proposals listed please post them to the CommonType
 	discussion mailing list.</para>
       </section>
     </section>
@@ -74988,8 +74989,8 @@ HorizAxis.icfb = -94.
 	  post it here for review. After a further period of review the
 	  status of the proposal will be updated to indicate if the
 	  proposed feature has been accepted or rejected. Accepted
-	  proposals will be added to the OpenType registered features
-	  list when the OpenType specification is next updated.</para>
+	  proposals will be added to the CommonType registered features
+	  list when the CommonType specification is next updated.</para>
       </section>
     </section>
   </section>
@@ -75006,12 +75007,12 @@ HorizAxis.icfb = -94.
       <section role='specification'>
         <title>Specification</title>
 
-	<para>OpenType fonts are an extension of the TrueType Font
+	<para>CommonType fonts are an extension of the TrueType Font
 	File format.</para>
 
 
 	<para>This chapter introduces the basic concepts needed to
-	create and instruct a TrueType font, or an OpenType font that
+	create and instruct a TrueType font, or an CommonType font that
 	contains TrueType outline data. It begins with an overview of
 	the steps involved in taking a design from paper to the
 	creation of a bitmap that can be sent to an output device and
@@ -81838,9 +81839,9 @@ HorizAxis.icfb = -94.
 
 	<para>Released April, 2001.</para>
 
-	<para>Multiple Master support in OpenType, discontinued. The
+	<para>Multiple Master support in CommonType, discontinued. The
 	  following tables pertaining to it have been removed from this
-	  version of the OpenType specification: 'fvar', 'MMSD',
+	  version of the CommonType specification: 'fvar', 'MMSD',
 	  'MMFX'.</para>
 
 	<para>base.htm
@@ -81991,7 +81992,7 @@ HorizAxis.icfb = -94.
 	  <itemizedlist>
 	    <listitem>
 	      <para>Corrected the link "Common Table Formats" to read
-		"OpenType Common Table Formats"; throughout table.</para>
+		"CommonType Common Table Formats"; throughout table.</para>
 	    </listitem>
 	    <listitem>
 	      <para>Table Organization: Updated the image. Added links for
@@ -82031,10 +82032,10 @@ HorizAxis.icfb = -94.
 	  <itemizedlist>
 	    <listitem>
 	      <para>Corrected the link "Common Table Formats" to read
-		"OpenType Common Table Formats"; throughout table.</para>
+		"CommonType Common Table Formats"; throughout table.</para>
 	    </listitem>
 	    <listitem>
-	      <para>Substituting Glyphs with OpenType: Types of lookups
+	      <para>Substituting Glyphs with CommonType: Types of lookups
 		corrected to six. Added an explanation to the ligature
 		substitution section, to clarify the location occupied by a
 		ligature glyph when it replaces a sequence of glyphs. Missing
@@ -82089,7 +82090,7 @@ HorizAxis.icfb = -94.
 	  <itemizedlist>
 	    <listitem>
 	      <para>Added a note that the advanceWidth for each glyph in CFF
-		OpenType fonts must match its x width in the CFF table.</para>
+		CommonType fonts must match its x width in the CFF table.</para>
 	    </listitem>
 	  </itemizedlist></para>
 
@@ -82231,11 +82232,11 @@ HorizAxis.icfb = -94.
 		MMFX tables.</para>
 	    </listitem>
 	    <listitem>
-	      <para>Advanced Typographic Tables: Added a link to OpenType
+	      <para>Advanced Typographic Tables: Added a link to CommonType
 		Layout Common Table Formats.</para>
 	    </listitem>
 	    <listitem>
-	      <para>Other OpenType Tables: the VORG table name to the
+	      <para>Other CommonType Tables: the VORG table name to the
 	      list.</para>
 	    </listitem>
 	  </itemizedlist></para>
@@ -82278,7 +82279,7 @@ HorizAxis.icfb = -94.
 	    </listitem>
 	    <listitem>
 	      <para><ottable>hhead</ottable> Table: Removed sentence
-		which incorrectly stated that OpenType fonts that
+		which incorrectly stated that CommonType fonts that
 		include CFF data must set numberOfHMetrics equal to
 		the number of glyphs in the font.</para>
 	    </listitem>
@@ -82292,7 +82293,7 @@ HorizAxis.icfb = -94.
 	    </listitem>
 	    <listitem>
 	      <para>General Recommendations: Updated the table
-		ordering list for OpenType fonts containing CFF data
+		ordering list for CommonType fonts containing CFF data
 		by adding the <ottable>maxp</ottable> table; and,
 		removing the 'fvar' and 'MMSD' tables.</para>
 	    </listitem>
@@ -82302,7 +82303,7 @@ HorizAxis.icfb = -94.
 		sTypoLineGap.</para>
 	    </listitem>
 	    <listitem>
-	      <para>OpenType CJK Font Guidelines: This new section
+	      <para>CommonType CJK Font Guidelines: This new section
 		added.</para>
 	    </listitem>
 	  </itemizedlist></para>
@@ -82311,12 +82312,12 @@ HorizAxis.icfb = -94.
 	  <itemizedlist>
 	    <listitem>
 	      <para>Introduction: Removed 'MMSD' reference. Expanded the
-		brief description of the content of Registered OpenType Layout
-		Tags to reflect all OpenType tags: scripts, languages,
+		brief description of the content of Registered CommonType Layout
+		Tags to reflect all CommonType tags: scripts, languages,
 		baselines, features.</para>
 	    </listitem>
 	    <listitem>
-	      <para>How Multiple Master OpenType Fonts Use OpenType Layout
+	      <para>How Multiple Master CommonType Fonts Use CommonType Layout
 		Tables: This section removed.</para>
 	    </listitem>
 	  </itemizedlist></para>
@@ -82395,7 +82396,7 @@ HorizAxis.icfb = -94.
 	<para>vorg.htm
 	  <itemizedlist>
 	    <listitem>
-	      <para>This new table added. This is needed by CFF OpenType
+	      <para>This new table added. This is needed by CFF CommonType
 		fonts to locate the origin of vertical glyphs.</para>
 	    </listitem>
 	  </itemizedlist></para>
@@ -82707,7 +82708,7 @@ HorizAxis.icfb = -94.
 
   <!--************************************************************************-->
   <section id='chapter.discussion_forum'>
-    <title>OpenType discussion forum</title>
+    <title>CommonType discussion forum</title>
 
     <!--======================================================================-->
     <section role='fragment'>
@@ -82719,28 +82720,28 @@ HorizAxis.icfb = -94.
 
 	<para>An e-mail based discussion forum has been set up
 	  specifically to help people working on the development of
-	  OpenType fonts and associated technologies.</para>
+	  CommonType fonts and associated technologies.</para>
 
 	<itemizedlist>
 	  <listitem>
-	    <para>To subscribe to the OpenType Mailing List, send
-	      e-mail to: opentype-subscribe@topica.com</para>
+	    <para>To subscribe to the CommonType Mailing List, send
+	      e-mail to: CommonType-subscribe@topica.com</para>
 	  </listitem>
 	  <listitem>
 	    <para>To post a message to the list, send e-mail to:
-	    opentype@topica.com</para>
+	    CommonType@topica.com</para>
 	  </listitem>
 	  <listitem>
 	    <para>To remove yourself from this mailing list, send
-	    e-mail to: opentype-unsubscribe@topica.com</para>
+	    e-mail to: CommonType-unsubscribe@topica.com</para>
 	  </listitem>
 	  <listitem>
 	    <para>To get a list of archives available, browse to:
-	    http://topica.com/lists/opentype/read</para>
+	    http://topica.com/lists/CommonType/read</para>
 	  </listitem>
 	  <listitem>
 	    <para>For more help with mailing list commands, browse to:
-	    http://topica.com/lists/opentype/</para>
+	    http://topica.com/lists/CommonType/</para>
 	  </listitem>
 	</itemizedlist>
 
@@ -83003,9 +83004,9 @@ public class ContentHandlerPlus implements org.xml.sax.ContentHandler {
 </code-fragment>
 
 
-<code-fragment package='com.adobe.aots.opentype' class='InvalidFontException'>
+<code-fragment package='com.adobe.aots.CommonType' class='InvalidFontException'>
   <code-title>Invalid Font Exception</code-title>
-  package com.adobe.aots.opentype;
+  package com.adobe.aots.CommonType;
 
   public class InvalidFontException extends Exception {
 
@@ -83021,9 +83022,9 @@ public class ContentHandlerPlus implements org.xml.sax.ContentHandler {
   }
 </code-fragment>
 
-<code-fragment package='com.adobe.aots.opentype' class='UnsupportedFontException'>
+<code-fragment package='com.adobe.aots.CommonType' class='UnsupportedFontException'>
   <code-title>Unsupported Font Exception</code-title>
-  package com.adobe.aots.opentype;
+  package com.adobe.aots.CommonType;
 
   public class UnsupportedFontException extends Exception {
 
@@ -83040,9 +83041,9 @@ public class ContentHandlerPlus implements org.xml.sax.ContentHandler {
 </code-fragment>
 
 
-<code-fragment package='com.adobe.aots.opentype' class='Font'>
+<code-fragment package='com.adobe.aots.CommonType' class='Font'>
   <code-title>Font class</code-title>
-package com.adobe.aots.opentype;
+package com.adobe.aots.CommonType;
 
 import java.util.Iterator;
 

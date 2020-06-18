@@ -65,9 +65,11 @@
 
 <!-- hack to preserve role attributes -->
 <xsl:template match="*" mode="html.lang.attribute">
-  <xsl:attribute name="role">
-    <xsl:value-of select="@role"/>
-  </xsl:attribute>
+  <xsl:if test="@role">
+    <xsl:attribute name="role">
+      <xsl:value-of select="@role"/>
+    </xsl:attribute>
+  </xsl:if>
   <!-- match the attribute name to the output type -->
   <xsl:choose>
     <xsl:when test="@lang and $stylesheet.result.type = 'html'">

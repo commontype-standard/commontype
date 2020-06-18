@@ -15,7 +15,7 @@ url: http://commontype-standard.github.io/
 baseurl: ""
 
 head_scripts:
-    - https://hypothes.is/embed.js
+    - https://cdn.hypothes.is/hypothesis
 
 titles_from_headings:
   enabled:     true

@@ -22,7 +22,7 @@ titles_from_headings:
   strip_title: true
 
 search: true
-search_provided: algolia
+search_provider: algolia
 algolia:
   application_id: H51BAY08M4
   index_name: commontype

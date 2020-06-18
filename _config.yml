@@ -27,6 +27,8 @@ algolia:
   application_id: H51BAY08M4
   index_name: commontype
   search_only_api_key: 4e79b841a1b7bdb129969ba555656043
+  extensions_to_index:
+    - md
 
 
 markdown: kramdown

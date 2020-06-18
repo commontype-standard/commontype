@@ -6,3 +6,5 @@ jars/aots.jar
 docbook/
 _site/
 markdown/
+chapter*.md
+index.md

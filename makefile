@@ -14,13 +14,13 @@ clean::
 
 htmls: html/commontype.html html/cff.html html/type2.html
 
-gh-pages:
-	git checkout gh-pages
-	git merge reformat -m "Merge reformat"
+publish:
+	git checkout master
+	git merge source -m "Merge source"
 	make mdhtml
 	git commit -m "Rebuild" *.md
 	git push
-	git checkout reformat
+	git checkout source
 
 docbooks: docbook/commontype.docbook docbook/cff.docbook docbook/type2.docbook
 

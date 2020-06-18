@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<section id="chapter.about">
+<section id="section.about" xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>About this specification</title>
   <!--======================================================================-->
   <section role="fragment">
@@ -9,15 +9,21 @@
       <title>Specification</title>
       <para>This specification details the format of CommonType fonts,
           the TrueType and CFF outline formats, and the TrueType
-          hinting language. This specification has been developed
-          jointly by Adobe and Microsoft. Because CommonType is an extension
-          of TrueType, there is also information in this document that
-          was originally authored by Apple.</para>
+          hinting language. This document derives from Adobe's
+          <link xlink:href="https://github.com/adobe-type-tools/aots">Annotated
+          OpenType Specification</link>, a libre-licensed edition of the
+          OpenType Specification version 1.4. The OpenType Specification was
+          developed jointly by Adobe and Microsoft. Because OpenType is
+          itself an extension of TrueType, there is also information in
+          this document that was originally authored by Apple.</para>
       <para>Many references to both TrueType and PostScript exist
           throughout this document, as CommonType fonts combine the two
           technologies.</para>
       <para>If you have comments or suggestions about this document,
-          please send mail to the Microsoft Typography Group.</para>
+          please create an annotation by selecting the text on the page and
+          pressing the "annotate" button. If you find errors or inaccuracies
+          in this document, please <link xlink:href="https://github.com/commontype-standard/commontype-standard.github.io/issues/new">file
+          an issue</link>.</para>
     </section>
     <!--____________________________________________________________________-->
     <section role="annotation">

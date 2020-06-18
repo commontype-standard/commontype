@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<section id="chapter.overview">
+<chapter id="chapter.overview" xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>Overview</title>
   <!--======================================================================-->
   <section role="fragment">
     <title>Introduction</title>
     <!--____________________________________________________________________-->
     <section role="specification">
-      <title>Specification</title>
       <para>The CommonType font format is an extension of the TrueType
 	font format, adding support for PostScript font data. The
-	CommonType font format was developed jointly by Microsoft and
-	Adobe. CommonType fonts and the operating system services which
+	CommonType font format is derived from the OpenType font format
+  developed jointly by Microsoft and Adobe. CommonType fonts and the
+  operating system services which
 	support CommonType fonts provide users with a simple way to
 	install and use fonts, whether the fonts contain TrueType
 	outlines or CFF (PostScript) outlines.</para>
       <para>The CommonType font format addresses the following goals:
 
-	  <itemizedlist><listitem><para>broader multi-platform support</para></listitem><listitem><para>better support for international character sets</para></listitem><listitem><para>better protection for font data</para></listitem><listitem><para>smaller file sizes to make font distribution more
-	      efficient</para></listitem><listitem><para>broader support for advanced typographic control</para></listitem></itemizedlist></para>
+	  <itemizedlist>
+      <listitem><para>broader multi-platform support</para></listitem>
+      <listitem><para>better support for international character sets</para></listitem>
+      <listitem><para>better protection for font data</para></listitem>
+      <listitem><para>smaller file sizes to make font distribution more
+	      efficient</para></listitem>
+        <listitem><para>broader support for advanced typographic control</para></listitem></itemizedlist>
+      </para>
       <para>CommonType fonts are also referred to as TrueType Open
-	v.2.0 fonts, because they use the TrueType 'sfnt' font file
+	v.2.0 fonts, because they use the TrueType <literal>sfnt</literal> font file
 	format. PostScript data included in CommonType fonts may be
 	directly rasterized or converted to the TrueType outline
 	format for rendering, depending on which rasterizers have been
@@ -54,45 +60,40 @@
     <title>Related documentation</title>
     <!--____________________________________________________________________-->
     <section role="specification">
-      <title>Specification</title>
-      <para>The following documents may be consulter for further
+      <para>The following documents may be consulted for further
 	information:</para>
       <itemizedlist>
         <listitem>
-          <para>Adobe Technical Note #5176: "The Compact Font Format
+          <para><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5176.CFF.pdf">Adobe Technical Note #5176</link>: "The Compact Font Format
 	      Specification."</para>
         </listitem>
         <listitem>
-          <para>Adobe Technical Note #5177: "Type 2 Charstring Format."</para>
+          <para><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5177.Type2.pdf">Adobe Technical Note #5177</link>: "Type 2 Charstring Format."</para>
         </listitem>
         <listitem>
-          <para>TrueType 1.0 Font Files, Technical
-	      Specification. Microsoft.</para>
-        </listitem>
-        <listitem>
-          <para>CommonType Layout Font Specification. Microsoft.</para>
+          <para><link xlink:href="https://docs.microsoft.com/en-us/typography/opentype/spec/">The OpenType Specification</link>. Microsoft.</para>
         </listitem>
         <listitem>
           <para>Adobe Type 1 Font Format. Addison Wesley, 1991; ISBN
 	      0-201-57044-0.</para>
         </listitem>
         <listitem>
-          <para>Adobe Technical Note #5015: "The Type 1 Font Format
+          <para><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5015.Type1_Supp.pdf">Adobe Technical Note #5015</link>: "The Type 1 Font Format
 	      Supplement." This document contains all updates to the
 	      Type 1 format.</para>
         </listitem>
         <listitem>
-          <para>Adobe Technical Note #5087: "Multiple Master Font
+          <para><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/postscript/pdfs/5087.MM_Fond.pdf">Adobe Technical Note #5087</link>: "Multiple Master Font
 	      Programs for the Macintosh."</para>
         </listitem>
         <listitem>
-          <para>Adobe Technical Note #5088 "Font Naming Issues."
+          <para><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5088.FontNames.pdf">Adobe Technical Note #5088</link>: "Font Naming Issues."
 	      This document discusses general font name issues. </para>
         </listitem>
         <listitem>
-          <para>Adobe's Unicode and Glyph Names guide.</para>
+          <para>The <link xlink:href="https://github.com/adobe-type-tools/agl-specification">Adobe Glyph List Specification</link>.</para>
         </listitem>
       </itemizedlist>
     </section>
   </section>
-</section>
+</chapter>

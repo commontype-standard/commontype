@@ -5,6 +5,7 @@ JAVA=java
 CSPLIT = gcsplit
 DB = $(shell brew --prefix docbook-xsl)/docbook-xsl/
 
+SPECFILES= $(shell find src/chapter* -name '*xml')
 xslt = $(JAVA) -jar jars/saxon9he.jar
 
 all::
@@ -29,7 +30,7 @@ docbooks: docbook/commontype.docbook docbook/cff.docbook docbook/type2.docbook
 # 	pandoc --from docbook --to gfm --section-divs $< > markdown/commontype.md
 # 	gcsplit --prefix='aots' --suffix-format='%03d.md' markdown/commontype.md "/^# /" "{*}"
 
-docbook/commontype.docbook : src/commontype.xml xsl/aots2docbook.xsl
+docbook/commontype.docbook : src/commontype.xml xsl/aots2docbook.xsl $(SPECFILES)
 	mkdir -p docbook
 	$(xslt) -s:src/commontype.xml -xi -xsl:xsl/aots2docbook.xsl -o:docbook/commontype.docbook fontdir=../tests/ tracedir=../tests/
 

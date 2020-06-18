@@ -3,7 +3,7 @@ use warnings; use strict; use File::Slurp;
 mkdir "_data";
 open OUT, ">_data/navigation.yml" or die $!;
 print OUT "chapters:\n";
-open IN, "docbook/opentype.docbook" or die $!;
+open IN, "docbook/commontype.docbook" or die $!;
 my $last_url;
 while (<IN>) {
     next unless /chapter|title/;

@@ -19,7 +19,13 @@ const search = instantsearch({
 
 const hitTemplate = function(hit) {
   const url = hit.url;
-  const title = hit._highlightResult.title.value;
+  if (!hit._highlightResult) return;
+  var title;
+  if (hit._highlightResult.title) {
+    title = hit._highlightResult.title.value;
+  } else {
+    title = hit.headings.join(" | ");
+  }
   const content = hit._highlightResult.html.value;
 
   return `
@@ -43,6 +49,9 @@ search.addWidget(
 search.addWidget(
   instantsearch.widgets.hits({
     container: '.search-hits',
+    templates: {
+          item: hitTemplate
+    }
   })
 );
 

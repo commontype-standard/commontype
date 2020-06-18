@@ -20,6 +20,9 @@ head_scripts:
 titles_from_headings:
   enabled:     true
   strip_title: true
+
+search: true
+
 markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes@4.19.3"
 plugins:

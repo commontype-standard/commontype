@@ -5,19 +5,40 @@
 @charset "utf-8";
 
 $paragraph-indent: true;
+$header-sans-serif  : "Palanquin", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+
+$global-font-family :"Roboto", Georgia, Times, serif;
+$header-font-family : $header-sans-serif;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+h2, h3 { margin-top: 10px; }
 
 div[role=annotation] {
 	border: 1px solid #ddd;
 	background: #eee;
 	padding: 5px;
-	h3 {
-		margin-top: 10px;
-	}
 }
 
 table { border: none; }
 
 .page__content { text-align: justify; }
+
+.page__content p {
+	padding-bottom: 0.5rem;
+	font-size: 0.9em;
+	line-height: 1.5em;
+}
+
+.nav__sub-title {
+	text-transform: none;
+	border-bottom: none;
+}
+
+.nav__items {
+	background: #f3f3f3;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 15px;
+}

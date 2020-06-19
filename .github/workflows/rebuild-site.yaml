@@ -22,19 +22,19 @@ jobs:
       uses: devmasx/merge-branch@v1.1.0
       with:
         type: now
-        target_branch: 'source'
+        target_branch: 'master'
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: Rebuild site
       run: make mdhtml DB=/usr/share/xml/docbook/stylesheet/docbook-xsl/
 
-    # - name: Commit changes
-    #   uses: EndBug/add-and-commit@v4
-    #   with:
-    #     author_name: 
-    #     author_email: mail@example.com
-    #     message: "Your commit message"
-    #     add: "*.md"
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v4
+      with:
+        author_name: Rebuild Bot
+        author_email: github@github.com
+        message: "Rebuild site"
+        add: "*.md"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

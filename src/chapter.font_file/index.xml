@@ -429,7 +429,7 @@ return Sum;
           <glossterm>font consumer</glossterm> attempting to verify that
           the <ottable>head</ottable> table has not changed should
           calculate the checkSum for that table by assuming the
-          <vername>checkSumAdjustment</vername> value is zero before
+          <varname>checkSumAdjustment</varname> value is zero before
           comparing the result with the entry in the
           <emphasis>Table Directory</emphasis>.</para>
     </section>

@@ -11,6 +11,13 @@ defaults:
       sidebar:
         nav: "chapters"
 
+exclude:
+    - src
+    - docbook
+    - harfbuzz
+    - jars
+    - xsl
+
 url: http://commontype-standard.github.io/
 baseurl: ""
 

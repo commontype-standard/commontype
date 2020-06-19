@@ -16,7 +16,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install dependencies
-      run: sudo apt-get install xsltproc rename docbook-xsl
+      run: sudo apt-get install xsltproc rename docbook-xsl libfile-slurp-perl
 
     - name: Merge
       uses: devmasx/merge-branch@v1.1.0

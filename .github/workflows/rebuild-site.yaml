@@ -36,5 +36,6 @@ jobs:
         author_email: github@github.com
         message: "Rebuild site"
         add: "*.md"
+        ref: "master"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -54,14 +54,14 @@
           <otfieldoffs>4</otfieldoffs>
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>ascent</otfieldname>
-          <otfielddesc>Distance in FUnits from the centerline to the
+          <otfielddesc>Distance in <glossterm>font unit</glossterm>s from the centerline to the
 	      previous line’ descent.</otfielddesc>
         </otfield>
         <otfield>
           <otfieldoffs>6</otfieldoffs>
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>descent</otfieldname>
-          <otfielddesc>Distance in FUnits from the centerline to
+          <otfielddesc>Distance in <glossterm>font unit</glossterm>s from the centerline to
 	      the next line’s ascent.</otfielddesc>
         </otfield>
         <otfield>
@@ -75,7 +75,7 @@
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>advanceHeightMax</otfieldname>
           <otfielddesc>The maximum advance height measurement
-	      — in FUnits — found in the font. This value
+	      — in <glossterm>font unit</glossterm>s — found in the font. This value
 	      must be consistent with the entries in the vertical metrics
               table.</otfielddesc>
         </otfield>
@@ -84,7 +84,7 @@
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>minTop</otfieldname>
           <otfielddesc>The minimum top sidebearing measurement found
-              in the font, in FUnits. This value must be consistent
+              in the font, in <glossterm>font unit</glossterm>s. This value must be consistent
               with the entries in the vertical metrics
               table.</otfielddesc>
         </otfield>
@@ -93,7 +93,7 @@
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>minBottom</otfieldname>
           <otfielddesc>The minimum bottom sidebearing measurement
-              found in the font, in FUnits. This value must be
+              found in the font, in <glossterm>font unit</glossterm>s. This value must be
               consistent with the entries in the vertical metrics
               table. </otfielddesc>
         </otfield>
@@ -188,7 +188,7 @@
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>vertTypoAscender</otfieldname>
           <otfielddesc>The vertical typographic ascender for this
-              font. It is the distance in FUnits from the ideographic
+              font. It is the distance in <glossterm>font unit</glossterm>s from the ideographic
               em-box center baseline for the vertical axis to the
               right of the ideographic em-box and is usually set to
               (head.unitsPerEm)/2. For example, a font with an em of
@@ -201,7 +201,7 @@
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>vertTypoDescender</otfieldname>
           <otfielddesc>The vertical typographic descender for this
-              font. It is the distance in FUnits from the ideographic
+              font. It is the distance in <glossterm>font unit</glossterm>s from the ideographic
               em-box center baseline for the horizontal axis to the
               left of the ideographic em-box and is usually set to
               (head.unitsPerEm)/2. For example, a font with an em of
@@ -222,7 +222,7 @@
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>advanceHeightMax</otfieldname>
           <otfielddesc>The maximum advance height measurement -in
-              FUnits found in the font. This value must be consistent
+              <glossterm>font unit</glossterm>s found in the font. This value must be consistent
               with the entries in the vertical metrics
               table.</otfielddesc>
         </otfield>
@@ -231,7 +231,7 @@
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>minTopSideBearing</otfieldname>
           <otfielddesc>The minimum top sidebearing measurement found
-              in the font, in FUnits. This value must be consistent
+              in the font, in <glossterm>font unit</glossterm>s. This value must be consistent
               with the entries in the vertical metrics
               table.</otfielddesc>
         </otfield>
@@ -240,7 +240,7 @@
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>minBottomSideBearing</otfieldname>
           <otfielddesc>The minimum bottom sidebearing measurement
-              found in the font, in FUnits. This value must be
+              found in the font, in <glossterm>font unit</glossterm>s. This value must be
               consistent with the entries in the vertical metrics
               table. </otfielddesc>
         </otfield>
@@ -346,28 +346,28 @@
           <otfieldtype>0</otfieldtype>
           <otfieldname>vertTypoLineGap</otfieldname>
           <otfielddesc>Typographic line gap is 0
-              FUnits.</otfielddesc>
+              <glossterm>font unit</glossterm>s.</otfielddesc>
         </otfield>
         <otfield>
           <otfieldoffs>10/2</otfieldoffs>
           <otfieldtype>2079</otfieldtype>
           <otfieldname>advanceHeightMax</otfieldname>
           <otfielddesc>The maximum advance height measurement found
-              in the font is 2079 FUnits.</otfielddesc>
+              in the font is 2079 <glossterm>font unit</glossterm>s.</otfielddesc>
         </otfield>
         <otfield>
           <otfieldoffs>12/2</otfieldoffs>
           <otfieldtype>-342</otfieldtype>
           <otfieldname>minTopSideBearing</otfieldname>
           <otfielddesc>The minimum top sidebearing measurement found
-              in the font is -342 FUnits.</otfielddesc>
+              in the font is -342 <glossterm>font unit</glossterm>s.</otfielddesc>
         </otfield>
         <otfield>
           <otfieldoffs>14/2</otfieldoffs>
           <otfieldtype>-333</otfieldtype>
           <otfieldname>minBottomSideBearing</otfieldname>
           <otfielddesc>The minimum bottom sidebearing measurement
-              found in the font is -333 FUnits.</otfielddesc>
+              found in the font is -333 <glossterm>font unit</glossterm>s.</otfielddesc>
         </otfield>
         <otfield>
           <otfieldoffs>16/2</otfieldoffs>

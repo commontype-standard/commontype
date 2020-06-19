@@ -155,13 +155,13 @@
         </tgroup>
       </informaltable>
       <bridgehead>Pitch</bridgehead>
-      <para>The width of the space in FUnits (FUnits are described
+      <para>The width of the space in <glossterm>font unit</glossterm>s (<glossterm>font unit</glossterm>s are described
           by the unitsPerEm field of the <ottable>head</ottable> table). Monospace
           fonts derive the width of all characters from this
           field.</para>
       <bridgehead>xHeight</bridgehead>
       <para>The height of the optical line describing the height of
-          the lowercase x in FUnits. This might not be the same as the
+          the lowercase x in <glossterm>font unit</glossterm>s. This might not be the same as the
           measured height of the lowercase x.</para>
       <bridgehead>Style</bridgehead>
       <para>The most significant 6 bits are reserved. The 5 next
@@ -377,7 +377,7 @@
       </table>
       <bridgehead>CapHeight</bridgehead>
       <para>The height of the optical line describing the top of the
-          uppercase H in FUnits. This might not be the same as the
+          uppercase H in <glossterm>font unit</glossterm>s. This might not be the same as the
           measured height of the uppercase H. </para>
       <bridgehead>SymbolSet</bridgehead>
       <para>The most significant 11 bits are the value of the symbol

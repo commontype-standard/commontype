@@ -296,7 +296,7 @@ if (flags &amp; WE_HAVE_INSTR){
           of points and the bit ROUND_XY_TO_GRID is set to 1, the
           values are rounded to those of the closest grid lines before
           they are added to the glyph. X and Y offsets are described
-          in FUnits.</para>
+          in <glossterm>font unit</glossterm>s.</para>
       <para>If the bit WE_HAVE_A_SCALE is set, the scale value is
           read in 2.14 format-the value can be between -2 to almost
           +2. The glyph will be scaled by this value before

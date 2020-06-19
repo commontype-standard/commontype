@@ -200,12 +200,12 @@
           one entry with platformID/encodingID (0, 3), and from
           another entry with (3, 1).</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/xml-representation-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/compiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/decompiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/implementation-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/test-suite-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/validation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment" id="cmap_cust">
@@ -330,12 +330,12 @@
           glyphIdArray contains length - 6 entries (but no more than
           256).</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/xml-representation-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/compiler-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/decompiler-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/implementation-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/test-suite-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/validation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-2.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -459,12 +459,12 @@
         structure as the Apple True Type format, simply switching to
         their version would already be a vast improvement.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/xml-representation-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/compiler-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/decompiler-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/implementation-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/test-suite-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/validation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-3.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -762,12 +762,12 @@
           segments be disjoint, yet it is not mentionned
           explicitly.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/xml-representation-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/compiler-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/decompiler-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/implementation-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/test-suite-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/validation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-4.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -841,12 +841,12 @@
           BYTE. So this format can be used for byte encodings to reach
           glyphs other than the first 256 glyphs.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/xml-representation-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/compiler-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/decompiler-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/implementation-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/test-suite-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/validation-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-5.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1016,11 +1016,11 @@
 If the intent is really for a Unicode encodings,
           then it is known </para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/xml-representation-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/compiler-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/decompiler-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/implementation-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/test-suite-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-6.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1090,11 +1090,11 @@ If the intent is really for a Unicode encodings,
         description of the length field should be "This is the length
         in bytes of the subtable."</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/xml-representation-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/compiler-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/decompiler-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/implementation-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/test-suite-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-7.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1199,11 +1199,11 @@ If the intent is really for a Unicode encodings,
           the description of the length field should be "This is the
           length in bytes of the subtable."</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/xml-representation-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/compiler-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/decompiler-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/implementation-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/test-suite-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-8.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1415,15 +1415,15 @@ If the intent is really for a Unicode encodings,
         </listitem>
       </itemizedlist>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/xml-representation-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/compiler-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/decompiler-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/implementation-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/test-suite-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-9.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
     <title>Various test fonts</title>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/test-suite-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-10.xml"/>
   </section>
 </section>

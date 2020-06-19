@@ -217,9 +217,9 @@
           <emphasis>require</emphasis> any glyph names to be stored as
           Pascal strings.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.post/xml-representation-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.post/compiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.post/decompiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.post/implementation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-1.xml"/>
   </section>
 </section>

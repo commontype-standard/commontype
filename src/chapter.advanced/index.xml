@@ -418,7 +418,7 @@ public interface GlyphRun {
   public void move (int g, int x, int y);
 </code-fragment>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.advanced/implementation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">

@@ -17,7 +17,7 @@ htmls: html/commontype.html html/cff.html html/type2.html
 
 publish:
 	git checkout master
-	git merge source -m "Merge source"
+	git merge --strategy-option theirs source -m "Merge source"
 	make mdhtml
 	git commit -m "Rebuild" *.md
 	git push

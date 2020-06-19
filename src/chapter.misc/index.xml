@@ -4,11 +4,11 @@
   <!--======================================================================-->
   <section role="fragment">
     <title>Code to sort out</title>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.misc/implementation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
     <title>Test Font Fragments</title>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.misc/test-suite-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-1.xml"/>
   </section>
 </section>

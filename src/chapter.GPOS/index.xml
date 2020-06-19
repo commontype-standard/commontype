@@ -396,8 +396,8 @@
           MarkArrays. For easy reference, the shared tables are
           described at the end of this chapter.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -449,11 +449,11 @@
       <title>Annotation</title>
       <para>Nothing to note.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -476,10 +476,10 @@
       <title>Annotation</title>
       <para>None</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-3.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -550,11 +550,11 @@
       <para>The action of this subtable is to adjust the glyph
 	  matched by C by {ValueFormat, Value}.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-2.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -661,11 +661,11 @@
 	  matched by C by {ValueFormat, Value [Coverage[g]]}, where g
 	  is the glyph id of the matched glyph.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-3.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -689,10 +689,10 @@
           identifies glyphs individually by index (Format 1), or one
           that identifies glyphs by class (Format 2).</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-6.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -877,11 +877,11 @@
 	  I<subscript>1</subscript> by {ValueFormat2,
 	  r.Value2}.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-4.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1083,11 +1083,11 @@
 	the glyph matched by I<subscript>1</subscript> by
 	{ValueFormat2, r.Value2}.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-5.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1198,11 +1198,11 @@
       <para>[All this is obviously wrong, but I need more work to
 	  figure out how this lookup type really works.]</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-6.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1461,11 +1461,11 @@
 	  with the anchor BaseArray.BaseRecord [BaseCoverage
 	  [b]].BaseAnchor [MarkArray.MarkRecord[m].Class] of b.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-10.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-10.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-7.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1766,11 +1766,11 @@
 	  [MarkArray.MarkRecord[m].Class] of b. It is up to the client
 	  to determine to which component the mark should be attached.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-11.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-10.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-10.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-11.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-11.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-11.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-8.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1955,11 +1955,11 @@
 	  with the anchor Mark2Array.Mark2Record [Mark2Coverage
 	  [m2]].Mark2Anchor [Mark1Array.MarkRecord[m].Class] of m2.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-12.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-11.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-11.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-12.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-12.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-11.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-11.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-12.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-9.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1983,10 +1983,10 @@
       <para>All ContextPos subtables specify positioning data in a
           PosLookupRecord. A description of that record follows.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-13.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-12.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-12.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-13.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-13.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-12.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-12.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-13.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2024,10 +2024,10 @@
         </otfield>
       </otformat>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-14.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-13.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-13.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-14.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-14.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-13.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-13.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-14.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2238,11 +2238,11 @@
       <para>A PosRule table does not directly modify the glyph
 	  run. Instead, it invokes other lookups at the current position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-15.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-14.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-14.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-15.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-15.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-14.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-14.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-15.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-10.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2479,10 +2479,10 @@
       <para>A SubClassRule table does not directly modify the glyph
 	run. Instead, it invokes other lookups at the current position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-16.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-15.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-15.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-16.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-16.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-15.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-15.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-16.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2602,10 +2602,10 @@
       <para>This table does not directly modify the glyph
 	  run. Instead, it invokes other lookups at the current position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-17.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-16.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-16.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-17.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-17.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-16.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-16.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-17.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2671,10 +2671,10 @@ Lookahead sequence                           0   1   2   3
 	  as position <emphasis>i + InputGlyphCount +
 	  LookaheadGlyphCount - 1</emphasis>.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-18.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-17.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-17.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-18.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-18.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-17.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-17.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-18.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2849,10 +2849,10 @@ Lookahead sequence                           0   1   2   3
 	  run. Instead, it invokes other lookups at the current
 	  position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-19.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-18.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-18.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-19.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-19.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-18.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-18.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-19.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -3056,10 +3056,10 @@ Lookahead sequence                           0   1   2   3
 	  run. Instead, it invokes other lookups at the current
 	  position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-20.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-19.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-19.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-20.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-20.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-19.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-19.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-20.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -3211,10 +3211,10 @@ Lookahead sequence                           0   1   2   3
       <para>This table does not directly modify the glyph
 	  run. Instead, it invokes other lookups at the current position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-21.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-20.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-20.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-21.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-21.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-20.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-20.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-21.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -3281,11 +3281,11 @@ Lookahead sequence                           0   1   2   3
       <para>This subtable does not match a pattern by itself, nor
 	  does it have an action by itself.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-22.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-21.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-21.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-22.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/test-suite-11.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-22.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-21.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-21.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-22.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-11.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -3501,9 +3501,9 @@ Lookahead sequence                           0   1   2   3
       <title>Annotation</title>
       <para>None</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-23.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-22.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-23.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-23.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-22.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-23.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -3521,10 +3521,10 @@ Lookahead sequence                           0   1   2   3
         refine the location of the anchor point using contour points
         (Format 2) or Device tables (Format 3).</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-24.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-23.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-22.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/implementation-24.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-24.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-23.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-22.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-24.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -3563,9 +3563,9 @@ Lookahead sequence                           0   1   2   3
         </otfield>
       </otformat>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-25.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-24.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-23.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-25.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-24.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-23.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -3615,9 +3615,9 @@ Lookahead sequence                           0   1   2   3
         </otfield>
       </otformat>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-26.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-25.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-24.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-26.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-25.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-24.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -3678,9 +3678,9 @@ Lookahead sequence                           0   1   2   3
         </otfield>
       </otformat>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/xml-representation-27.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/compiler-26.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/decompiler-25.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-27.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-26.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-25.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">

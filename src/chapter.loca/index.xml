@@ -60,8 +60,8 @@
       <para>We assume that 'indexToLoc' should be replaced by 'loca'
 	  and 'glyphData' should be replaced by 'glyph'.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.loca/compiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.loca/decompiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.loca/implementation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-1.xml"/>
   </section>
 </section>

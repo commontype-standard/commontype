@@ -391,7 +391,7 @@
       <para>Last sentence: the occurrence of 'five' should be
           replaced by 'seven'.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -444,12 +444,12 @@
       <para>There is a typo in the first sentence "... to a three
           tables:..."</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/validation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -470,11 +470,11 @@
       <title>Annotation</title>
       <para>None.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/validation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-2.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -547,12 +547,12 @@
 	  matched by C; if the id of that glyph is g, then the
 	  replacement glyph has id (g+DeltaGlyphId) % 0xffff.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/validation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-3.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -629,12 +629,12 @@
 	  matched by C by the corresponding glyph in the Substitute
 	  array.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/validation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-4.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -739,11 +739,11 @@
 	  corresponding Sequence table, in the order in which they
 	  appear in that array.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-5.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-4.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -855,11 +855,11 @@
 	  the client indicates which of those glyphs is used is not
 	  specified.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-5.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1037,11 +1037,11 @@
       <para>The action of this Ligature table is to replace the entire
 	  input sequence by the glyph t.LigGlyph.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-7.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-6.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1140,10 +1140,10 @@
         it’s also used in type 6. Recommendation: restore it in
         its own section.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-8.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1400,11 +1400,11 @@
       <para>A SubRule table does not directly modify the glyph
 	run. Instead, it invokes other lookups at the current position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-10.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-9.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-7.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1680,11 +1680,11 @@
       <para>A SubClassRule table does not directly modify the glyph
 	run. Instead, it invokes other lookups at the current position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-11.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-10.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-10.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-10.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-11.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-8.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1819,11 +1819,11 @@
       <para>This table does not directly modify the glyph
 	  run. Instead, it invokes other lookups at the current position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-12.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-11.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-11.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-11.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-12.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-11.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-11.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-11.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-9.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1860,10 +1860,10 @@
 	  as position <emphasis>i + InputGlyphCount +
 	  LookaheadGlyphCount - 1</emphasis>.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-13.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-12.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-12.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-12.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-13.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-12.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-12.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-12.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2189,11 +2189,11 @@ Lookahead sequence -                   0  1  2  3
 	  run. Instead, it invokes other lookups at the current
 	  position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-14.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-13.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-13.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-13.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-10.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-14.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-13.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-13.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-13.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-10.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2513,11 +2513,11 @@ Lookahead sequence -                   0  1  2  3
 	  run. Instead, it invokes other lookups at the current
 	  position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-15.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-14.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-14.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-14.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-11.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-15.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-14.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-14.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-14.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-11.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2670,11 +2670,11 @@ Lookahead sequence -                   0  1  2  3
       <para>This table does not directly modify the glyph
 	  run. Instead, it invokes other lookups at the current position.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-16.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-15.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-15.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-15.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-12.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-16.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-15.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-15.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-15.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-12.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2741,11 +2741,11 @@ Lookahead sequence -                   0  1  2  3
       <para>This subtable does not match a pattern by itself, nor
 	  does it have an action by itself.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-17.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-16.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-16.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-16.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/test-suite-13.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-17.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-16.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-16.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-16.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-13.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -2891,10 +2891,10 @@ Lookahead sequence -                   0  1  2  3
       <para>As noted earlier, the description of a SubstLookupRecord
           should be moved back in this section.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/xml-representation-18.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/compiler-17.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/decompiler-17.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/implementation-17.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-18.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-17.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-17.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-17.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">

@@ -27,10 +27,7 @@ jobs:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: Rebuild site
-      run: make mdhtml
-      env:
-        CSPLIT: csplit
-        DB: /usr/share/xml/docbook/stylesheet/docbook-xsl/
+      run: make mdhtml DB=/usr/share/xml/docbook/stylesheet/docbook-xsl/
 
     # - name: Commit changes
     #   uses: EndBug/add-and-commit@v4

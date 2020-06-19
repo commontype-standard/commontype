@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gpos.methods">
+  public void fromXML (Element gpos)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Map&lt;Element, Block&gt; blockCache = new HashMap&lt;Element, Block&gt; ();
+    NodeList l = gpos.getChildNodes ();
+
+    Block me = new Block (10, 3);
+    me.setFixed (0, 1, 0);
+
+    Map&lt;String, Integer&gt; lookupIndices = new HashMap&lt;String, Integer&gt; ();
+    Block b1 = lookupListTableFromXML ((Element) l.item (2),
+                                       gpos, blockCache,
+                                       lookupIndices);
+
+    Map  &lt;String, Integer&gt;featureIndices = new HashMap &lt;String, Integer&gt; ();
+    Block b2 = featureListTableFromXML ((Element) l.item (1),
+                                        gpos, blockCache,
+                                        lookupIndices, featureIndices);
+
+    Block b3 = scriptListTableFromXML ((Element) l.item (0),
+                                       gpos, blockCache,
+                                       featureIndices);
+
+    me.setOffset (4, b3);
+    me.setOffset (6, b2);
+    me.setOffset (8, b1);
+    data = me.serialize ();
+  }
+</code-fragment>
+    </section>
+    

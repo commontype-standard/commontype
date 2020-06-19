@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="lookuptable.methods">
+  public Block featureParamsTableFromXML (Element t)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me;
+    return null;
+  }
+
+  public Block featureTableFromXML (Element t, Element table,
+                                    Map&lt;Element, Block&gt; blockCache,
+                                    Map&lt;String, Integer&gt; lookupIndices)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+       t = resolveXMLid (table, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    NodeList lookups = t.getChildNodes ();
+    int lookupCount = lookups.getLength ();
+
+    Block me = new Block (4 + 2 * lookupCount, 1);
+    blockCache.put (t, me);
+
+    me.setOffset (0, null);
+    me.setuint16 (2, lookupCount);
+    for (int i = 0; i &lt; lookupCount; i++) {
+      Element lookup = (Element) lookups.item (i);
+      String lookupName = lookup.getAttribute ("name");
+      Integer ii = lookupIndices.get (lookupName);
+      if (ii == null) {
+        warning ("cannot resolve '" + lookupName + "'"); }
+      else {
+        me.setuint16 (4 + 2 * i, ii.intValue ()); }}
+
+    return me;
+  }
+
+/* feature params? */
+
+</code-fragment>
+    </section>
+    

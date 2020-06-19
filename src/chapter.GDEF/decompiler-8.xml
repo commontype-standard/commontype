@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="caretValueTableToXMLCount.cases">
+  case 3: {
+    deviceTableToXMLCount (getOffset (offset, 4), counts);
+    break; }
+</code-fragment>
+      <code-fragment id="caretValueTableToXML.cases">
+  case 3: {
+    deviceTableToXML (conf, getOffset (offset, 4), counts);
+    break; }
+</code-fragment>
+      <code-fragment id="caretValueTableToXMLEmit.cases">
+  case 3: {
+    at.addAttribute ("", "coord", "coord", "CDATA", "" + getint16 (offset + 2));
+    conf.ch.startElement (element, at); {
+      deviceTableOffsetToXML (conf, getOffset (offset, 4), counts,
+                              "deviceTable", new AttributesImpl ());
+      conf.ch.endElement (element); }
+    break; }
+</code-fragment>
+    </section>
+  

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>We have a class that represents a
+          <ottable>GSUB</ottable> table and provides the appropriate
+          operations.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Gsub"><code-title>GSUB Class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Gsub extends LookupTable {
+
+  <code-include linkend="gsub_globals_1"/>
+
+  public Gsub () {
+    super (Tag.GSUB, null);
+  }
+
+  public Gsub (Font font) {
+    super (Tag.GSUB, font);
+  }
+
+  public int[] getTableVersion () {
+    return getFixed (0);
+  }
+
+  <code-include linkend="gsub.methods" title="GSUB methods"/>
+}
+</code-fragment>
+      <para>The base class of Gsub defines a number of abstract
+          methods to access the ScriptList, the FeatureList and the
+          LookupList:</para>
+      <code-fragment id="gsub.methods"><code-title>Methods to find ScriptList, FeatureList and LookupList</code-title>
+  int getScriptListOffset () {
+    return getOffset (4);
+  }
+
+  int getFeatureListOffset () {
+    return getOffset (6);
+  }
+
+  int getLookupListOffset () {
+    return getOffset (8);
+  }
+</code-fragment>
+      <para>The most basic operation is to apply a given lookup
+          subtable to a given position in a glyph run. This method
+          returns -1 if the subtable does not apply (i.e. its context
+          pattern does not match the glyph run), or the position of
+          first glyph following context pattern match.</para>
+      <code-fragment id="gsub.methods"><code-title>Method to apply a GSUB subtable to a glyph</code-title>
+  public LookupResult applyLookupSubtable (int lookupIndex, int lookupType, int lookupFlag,
+                                int stOffset, GlyphRun gr, int curGlyph)
+    throws InvalidFontException {
+
+    switch (lookupType) {
+      case 1: { <code-include linkend="gsub_1"/> }
+      case 2: { <code-include linkend="gsub_2"/> }
+      case 3: { <code-include linkend="gsub_3"/> }
+      case 4: { <code-include linkend="gsub_4"/> }
+      case 5: { return applyContextualLookupSubtable
+                    (lookupIndex, lookupType, lookupFlag,
+		     stOffset, gr, curGlyph); }
+      case 6: { return applyChainingContextualLookupSubtable
+                    (lookupIndex, lookupType, lookupFlag,
+		     stOffset, gr, curGlyph); }
+      case 7: { return applyExtensionLookupSubtable
+                    (lookupIndex, lookupType, lookupFlag,
+		     stOffset, gr, curGlyph); }
+      default: {
+        throw new InvalidFontException ("GSUB -" + lookupType + "-"); }}
+  }
+</code-fragment>
+    </section>
+    

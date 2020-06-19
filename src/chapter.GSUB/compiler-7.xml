@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gsub.methods">
+  private Block ligatureSubstFormat1FromXML (Element subtable, Element table,
+                                             Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me;
+
+    CoverageTableBlock coverage = null;
+    Element firstChild = (Element) subtable.getFirstChild ();
+
+    if (   (firstChild != null)
+        &amp;&amp; (! "subst".equals (firstChild.getTagName ()))) {
+      coverage = coverageFromXML (firstChild, table, blockCache);
+      subtable.removeChild (firstChild); }
+
+    NodeList substs = subtable.getChildNodes ();
+    int substsCount = substs.getLength ();
+
+    int [][] in  = new int [substsCount] [];
+    int []   out = new int [substsCount];
+
+    for (int i = 0; i &lt; substsCount; i++) {
+      Element subst = (Element) substs.item (i);
+      in [i] = getGlyphs (subst.getAttribute ("in"));
+      out [i] = parseOneGlyph (subst.getAttribute ("out")); }
+
+    if (coverage == null) {
+      int [] coveredGlyphs = new int [substsCount];
+      int count = 0;
+      for (int i = 0; i &lt; substsCount; i++) {
+         int glyph = in [i][0];
+         boolean addIt = true;
+         for (int j = 0; j &lt; count; j++) {
+           if (glyph == coveredGlyphs [j]) {
+             addIt = false;
+             break; }}
+         if (addIt) {
+           coveredGlyphs [count++] = glyph; }}
+      coverage = coverageFromGlyphs (coveredGlyphs, count); }
+
+
+    me = new Block (6 + 2 * coverage.glyphs.length,
+                    1 + coverage.glyphs.length);
+    me.setuint16 (0, 1);
+    me.setOffset (2, coverage);
+    me.setuint16 (4, coverage.glyphs.length);
+
+    for (int g = 0; g &lt; coverage.glyphs.length; g++) {
+      // count the number of subst that start with coverage.glyphs [g]
+      int nodeCount = 0;
+
+      for (int j = 0; j &lt; in.length; j++) {
+        if (in [j][0] == coverage.glyphs [g]) {
+          nodeCount++; }}
+
+      Block ligatureSetTable = new Block (2 + 2*nodeCount, nodeCount);
+      int zz = 0;
+      ligatureSetTable.setuint16 (0, nodeCount);
+      me.setOffset (6 + 2*g, ligatureSetTable);
+
+      for (int j = 0; j &lt; in.length; j++) {
+        if (in [j][0] == coverage.glyphs [g]) {
+
+          Block ligatureTable = new Block (4 + 2 *(in[j].length - 1), 0);
+          ligatureTable.setGlyphID (0, out [j]);
+          ligatureTable.setuint16  (2, in [j].length);
+          for (int k = 1; k &lt; in [j].length; k++) {
+            ligatureTable.setGlyphID (4 + 2*(k-1), in [j][k]); }
+
+          ligatureSetTable.setOffset (2 + 2*zz, ligatureTable);
+          zz++; }}}
+
+    return me;
+  }
+
+</code-fragment>
+    </section>
+    

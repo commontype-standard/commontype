@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>GDEF</code-title>
+  GDEF =
+    element GDEF {
+      attribute major { "1" },
+      attribute minor { "0" },
+      element glyphClassDef      { classDefTableOffset }?,
+      element attachList         { attachListTableOffset }?,
+      element ligCaretList       { ligCaretListTableOffset }?,
+      element markAttachClassDef { classDefTableOffset }?,
+
+      (  standaloneClassDefTable
+       | standaloneAttachListTable
+       | standaloneLigCaretListTable
+       | standaloneLigGlyphTable
+       | standaloneCaretValueTable
+       | standaloneCoverageTable
+       | standaloneDeviceTable)*
+    }
+</code-fragment>
+    </section>
+    

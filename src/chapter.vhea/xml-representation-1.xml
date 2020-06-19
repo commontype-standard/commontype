@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>??</code-title>
+vhea =
+  element vhea {
+    attribute major { text },
+    attribute minor { text },
+    element typo {
+      attribute ascender  { text },
+      attribute descender { text },
+      attribute lineGap   { text }
+    },
+    element advanceHeightMax {
+      attribute v { text }
+    },
+    element minTopSideBearing {
+      attribute v { text }
+    },
+    element minBottomSideBearing {
+      attribute v { text }
+    },
+    element yMaxExtent {
+      attribute v { text }
+    },
+    element caret {
+      attribute slopeRise { text },
+      attribute slopeRun { text },
+      attribute offset { text }
+    },
+    element numberOfVMetrics {
+      attribute v { text }
+    }
+  }
+</code-fragment>
+    </section>
+    

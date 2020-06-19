@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>gpos1_1_simple</title>
+        <para>In this series, we have a simple adjustment of one of
+            the Value fields.</para>
+        <para>Our first test adjusts the xPlacement of glyphs 18 and 20 by
+            -200.</para>
+        <aots:test-font id="gpos1_1_simple_f1">
+          <base-font name="base.otf"/>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="1">
+                <singlePos format="1">
+                  <coverage format="any" glyphs="18 20"/>
+                  <value xPlacement="-200"/>
+                </singlePos>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos1_1_simple_t1" font="gpos1_1_simple_f1" inputs="17,   18,   19,   20,   21" xdeltas=" 0, -200,    0, -200,    0" ydeltas=" 0,    0,    0,    0,    0"/>
+        <para>Next, we adjust the yPlacement of glyphs 18 and 20 by
+            -200.</para>
+        <aots:test-font id="gpos1_1_simple_f2">
+          <base-font name="base.otf"/>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="1">
+                <singlePos format="1">
+                  <coverage glyphs="18 20" format="any"/>
+                  <value yPlacement="-200"/>
+                </singlePos>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos1_1_simple_t2" font="gpos1_1_simple_f2" inputs="17,   18,   19,   20,   21" xdeltas=" 0,    0,    0,    0,    0" ydeltas=" 0, -200,    0, -200,    0"/>
+        <para>Next, we adjust the xAdvance of glyphs 18 and 20 by -200.</para>
+        <aots:test-font id="gpos1_1_simple_f3">
+          <base-font name="base.otf"/>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="1">
+                <singlePos format="1">
+                  <coverage glyphs="18 20" format="any"/>
+                  <value xAdvance="-200"/>
+                </singlePos>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos1_1_simple_t3" font="gpos1_1_simple_f3" inputs="17,   18,    19,   20,   21" xdeltas=" 0,    0,  -200, -200, -400" ydeltas=" 0,    0,     0,    0,    0">
+          <para>Next, we adjust the yAdvance of glyphs 18 and 20 by -200.</para>
+          <aots:test-font id="gpos1_1_simple_f4">
+            <base-font name="base.otf"/>
+            <GPOS major="1" minor="0">
+              <code-include linkend="testfonts.gpos.scripts_features"/>
+              <lookupList>
+                <lookup id="lookup.test" type="1">
+                  <singlePos format="1">
+                    <coverage glyphs="18 20" format="any"/>
+                    <value yAdvance="-200"/>
+                  </singlePos>
+                </lookup>
+              </lookupList>
+            </GPOS>
+          </aots:test-font>
+          <aots:gpos-test id="gpos1_1_simple_t4" font="gpos1_1_simple_f4" inputs="17,   18,    19,   20,   21" xdeltas=" 0,    0,     0,    0,    0" ydeltas=" 0,    0,  -200, -200, -400"/>
+        </aots:gpos-test>
+      </section>
+      <section>
+        <title>gpos1_1_lookupflag</title>
+        <para>This test case exercises LookupFlag. The trick
+	    to have a glyph which is both in the collection defined by
+	    LookupFlag and transformed. Since LookupFlag takes
+	    precedence over Coverage, the glyph should not be
+	    transformed. In addition, looking at the step by step
+	    execution of the lookup over the glyphrun, one should see
+	    that there is a single lookup application for this glyph
+	    and the next glyph (which is transformed). While the font
+	    may seem at first improperly built, it could be that the
+	    Coverage is shared with another table.</para>
+        <aots:test-font id="gpos1_1_lookupflag_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="18"/>
+            </glyphClassDef>
+          </GDEF>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" ignoreBaseGlyphs="yes" type="1">
+                <singlePos format="1">
+                  <coverage glyphs="18 20" format="any"/>
+                  <value xPlacement="-300"/>
+                </singlePos>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos1_1_lookupflag_t1" font="gpos1_1_lookupflag_f1" inputs="17,   18,   19,   20,   21" xdeltas=" 0,    0,    0, -300,    0" ydeltas=" 0,    0,    0,    0,    0"/>
+      </section>
+    </section>
+  

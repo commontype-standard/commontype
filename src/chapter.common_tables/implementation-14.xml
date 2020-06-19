@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="sub_classIndex1"><code-title>Find class in format 1 and return it</code-title>
+  { int startGlyph = getuint16 (offset + 2);
+    int glyphCount = getuint16 (offset + 4);
+
+    if (startGlyph &lt;= glyph &amp;&amp; glyph &lt; startGlyph + glyphCount) {
+      return getuint16 (offset + 6 + (glyph - startGlyph)*2); }
+
+    return 0; }
+</code-fragment>
+    </section>
+    

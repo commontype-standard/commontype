@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <para>FeatureRecords are referenced by indices. As we fill the
+          FeatureList table, we also remember the index of a
+          FeatureRecord by storing it in the
+          <sgmltag>attribute</sgmltag> index. This method must be
+          called before indices are needed.</para>
+      <code-fragment id="lookuptable.methods">
+  public Block featureListTableFromXML (Element t, Element table,
+                                        Map&lt;Element, Block&gt; blockCache,
+					Map&lt;String, Integer&gt; lookupIndices,
+                                        Map&lt;String, Integer&gt; featureIndices)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    NodeList features = t.getChildNodes ();
+    int featureCount = features.getLength ();
+
+    Block me = new Block (2 + 6 * featureCount, featureCount);
+    me.setuint16 (0, featureCount);
+
+    for (int i= 0; i &lt; featureCount; i++) {
+      Element feature = (Element) features.item (i);
+      featureIndices.put (feature.getAttribute ("id"), i);
+      me.setTag (2 + 6 * i, feature.getAttribute ("tag"));
+      me.setOffset (2 + 6 * i + 4,
+                    featureTableFromXML (feature, table, blockCache,
+                                         lookupIndices)); }
+
+    return me;
+  }
+</code-fragment>
+    </section>
+    

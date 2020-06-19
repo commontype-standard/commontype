@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>We start with a procedure that performs the matching for
+          a single ligature. When this procedure is called, it is
+          known that the glyph run matched
+          L<subscript>0</subscript> and that L<subscript>0</subscript>
+          is at <varname>inPos</varname>. If the glyph run does not
+          match the rest of the ligature, then this procedure returns
+          null. Otherwise, it returns an array of the glyph run
+          positions that where matched, i.e. the positions of
+          L<subscript>0</subscript>, L<subscript>1</subscript>,
+          …</para>
+      <para>Note that the organization of this procedure matches the
+          organization of the subtable: L<subscript>0</subscript> is
+          recorded in the Coverage of the subtable, and
+          L<subscript>1</subscript>, … are recorded in a
+          Ligature table; essentially this procedure takes care of one
+          Ligature table.</para>
+      <code-fragment id="gsub.methods"><code-title>Procedure to match one GSUB 4 ligature</code-title>
+
+  int[] matchOneLigature (GlyphRun gr, int inPos, int ligatureOffset,
+                          int lookupIndex, int lookupFlag)
+      throws InvalidFontException {
+
+    int compCount = getuint16 (ligatureOffset + 2);
+    int [] matchedPositions = new int [compCount];
+    matchedPositions [0] = inPos;
+    inPos++;
+
+    for (int i = 1; i &lt; compCount; i++) {
+
+      while (lookupFlagCovers (lookupFlag, gr.glyphAt (inPos))) {
+        inPos++; }
+
+      if (gr.glyphAt (inPos) != getGlyphID (ligatureOffset + 4 + 2*(i-1))) {
+        return null; }
+
+      matchedPositions [i] = inPos;
+      inPos++; }
+
+    return matchedPositions;
+  }
+</code-fragment>
+      <para>With that in place, we can now implement the full
+    subtable.</para>
+      <code-fragment id="gsub_4"><code-title>Execute GSUB 4 subtable and return</code-title>
+  { int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int inPos = curGlyph;
+
+    int ci = getCoverageIndex (gr.glyphAt (inPos), coverageOffset);
+    if (ci == -1) {
+      return lookupNotApplied; }
+
+    int ligatureSetOffset = stOffset + getOffset (stOffset + 6 + 2*ci);
+    int ligatureCount = getuint16 (ligatureSetOffset);
+
+    for (int l = 0; l &lt; ligatureCount; l++) {
+      int ligatureOffset
+        = ligatureSetOffset + getOffset (ligatureSetOffset + 2 + 2*l);
+
+      int [] matchedPositions
+        = matchOneLigature (gr, inPos, ligatureOffset,
+                            lookupIndex, lookupFlag);
+
+      if (   matchedPositions != null
+          &amp;&amp; gr.isLookupApplied (lookupIndex, curGlyph,
+                                 matchedPositions [matchedPositions.length-1])) {
+        int nextPosition = matchedPositions [matchedPositions.length - 1] + 1;
+        int newGlyphId = getGlyphID (ligatureOffset);
+        if (listener != null) {
+          int[] oldGlyphIds = new int [matchedPositions.length];
+          for (int i = 0; i &lt; matchedPositions.length; i++) {
+            oldGlyphIds [i] = gr.glyphAt (matchedPositions [i]); }
+          listener.replace (oldGlyphIds, newGlyphId);
+          listener.applyingSubtable (lookupIndex, gr, curGlyph,
+                                     "GSUB", ligatureOffset); }
+        gr.replace (matchedPositions, newGlyphId);
+        nextPosition = nextPosition - matchedPositions.length + 1;
+        return new LookupResult (true, nextPosition,
+                                 -(matchedPositions.length -1)); }}
+
+    return lookupNotApplied; }
+</code-fragment>
+    </section>
+    

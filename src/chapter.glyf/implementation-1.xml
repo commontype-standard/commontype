@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Glyf"><code-title>Glyf class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Glyf extends Table {
+
+  public Glyf () {
+    super (Tag.glyf);
+  }
+
+  public Glyf (Font font) {
+    super (Tag.glyf, font);
+  }
+
+  <code-include linkend="glyf.methods"/>
+}
+</code-fragment>
+      <para>For a given glyph with id g, loca[g] = loca[g+1] indicates
+an empty outline. Similarly loca[g] = sizeof(glyph) for the last glyph.
+This function identifies those situations.</para>
+      <code-fragment id="glyf.methods"><code-title>Empty glyf detection</code-title>
+  public boolean isEmpty (int gid) {
+    int offset = (int) font.loca.getGlyphLocation (gid);
+
+    if (gid == font.maxp.getNumGlyphs ()) {
+      return offset &gt;= data.length; }
+    else {
+      return offset == (int) font.loca.getGlyphLocation (gid + 1); }
+  }
+</code-fragment>
+      <para>Here is a method to return the bounding box of a glyph given the
+	  offset to glyph header:</para>
+      <code-fragment id="glyf.methods"><code-title>Glyf methods</code-title>
+  public boolean isComposite (int gid) {
+    if (isEmpty (gid)) {
+      return false; }
+
+    int offset = (int) font.loca.getGlyphLocation (gid);
+    return getint16 (offset) &lt; 0;
+  }
+
+  public BoundingBox getGlyfBoundingBox (int gid) {
+    BoundingBox b = new BoundingBox ();
+
+    if (isEmpty (gid)) {
+      return b; }
+
+    int offset = (int)font.loca.getGlyphLocation (gid);
+    b.xmin = getint16 (offset + 2);
+    b.ymin = getint16 (offset + 4);
+    b.xmax = getint16 (offset + 6);
+    b.ymax = getint16 (offset + 8);
+    return b;
+  }
+</code-fragment>
+      <para>And a method to return the bounding box of the contours of a glyph:</para>
+      <code-fragment id="glyf.methods"><code-title>Glyf methods</code-title>
+  public BoundingBox getContoursBoundingBox (int gid) {
+
+    if (isEmpty (gid)) {
+      return new BoundingBox (); }
+
+    int offset = (int) font.loca.getGlyphLocation (gid);
+    int nbContours = getint16 (offset);
+
+    offset += 10;
+
+    if (nbContours &lt; 0) {
+      return getCompositeGlyphContoursBoundingBox (offset); }
+    else {
+      return getSimpleGlyphContoursBoundingBox (offset, nbContours); }
+  }
+</code-fragment>
+    </section>
+  

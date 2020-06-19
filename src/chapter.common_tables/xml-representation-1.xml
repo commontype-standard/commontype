@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>The layout tables heavily use subtables, that is blocks
+	of data that points one to the other. In general, the shape of
+	this graph of blocks is mostly a tree, but it is possible for
+	a subtable to be referenced from multiple subtables. A typical
+	example is that of a coverage, which may be used in multiple
+	lookup subtables.</para>
+      <para>We are using a consistent approach to represent those
+	subtables and the pointers between them. The rest of this
+	section describes this approach, and illustrates it with (a
+	simplified version of) coverage subtables.</para>
+      <para>We have one definition with the same name as the
+	table. This definition contains the attributes and elements
+	that represent the content of the table. A typical example
+	is:</para>
+      <literallayout>
+  coverageTable =
+    ... attributes and elements representing the content of a coverage table
+</literallayout>
+      <para>When a subtable is pointed from multiple places, we just
+        describe it in its one element, which has the same name as the
+        subtable. This element will typically be a direct child of the
+        element representing the CommonType table. It has an
+        <sgmltag>id</sgmltag> attribute, to allow the various places
+        that point to the subtable to refer to it:</para>
+      <literallayout>
+  standaloneCoverageTable =
+    element coverageTable { attribute id { text}, coverageTable }
+</literallayout>
+      <para>Whenever a subtable points to another, the former
+        contains an offset to the latter. If there is a single pointer
+        to the latter, we just include its representation
+        “in-line”; otherwise, we use the
+        <sgmltag>name</sgmltag> attribute to refer to the standalone
+        table. This is supported by a declaration of the style:</para>
+      <literallayout>
+  coverageTableOffset = attribute name { text } | coverageTable
+</literallayout>
+      <para>In a subtable that references coverages, such as a
+	MarkToMark subtable which contains two references to
+	coverage subtables, we would then use something like:</para>
+      <literallayout>
+  markToMarkTable =
+    ...
+    element mark1Coverage { coverageTableOfset }
+    element mark2Coverage { coverageTableOfset }
+    ...
+</literallayout>
+      <para>This allows the following font contents::</para>
+      <literallayout>
+  &lt;coverageTable id='c' format='2'&gt;
+    &lt;range start='10' end='20'/&gt;
+    &lt;range start='30' end='40'/&gt;
+  &lt;/coverageTable&gt;
+
+  &lt;markToMarkTable id='m'&gt;
+    ...
+    &lt;mark1Coverage name='c'/&gt;
+
+    &lt;mark2Coverage format='2'&gt;
+      &lt;range start='50' end='60'/&gt;
+      &lt;range start='70' end='80'/&gt;
+    &lt;/mark2Coverage&gt;
+    ...
+  &lt;/markToMarkTable&gt;
+</literallayout>
+      <para>Often, the content of a subtable can take one of a few
+        formats. For those cases, we have a bunch of definitions
+        combined as choices, with the attribute <sgmltag>format</sgmltag>
+        used to distinguish them:</para>
+      <literallayout>
+  coverageTable |=
+    attribute format { "1" }
+    ... attributes and elements for a format 1 coverage table
+
+  coverageTable |=
+    attribute format { "2" }
+    ... attributes and elements for a format 2 coverage table
+</literallayout>
+      <para>furthermore, we often will create an "abstract"
+	  representation, which captures the essence of the subtable,
+	  but does not imply a choice of format. In that case, we use
+	  have one more <sgmltag>define</sgmltag> and we use the value
+	  <sgmltag>any</sgmltag> for the format.</para>
+      <literallayout>
+  coverageTable |=
+    attribute format { "any" }
+    ... attributes and elements for a coverage in any format
+</literallayout>
+    </section>
+    

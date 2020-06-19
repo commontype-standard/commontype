@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>baseValuesTable</code-title>
+  baseValuesTable =
+    attribute defaultIndex { text },
+
+    element baseCoord { baseCoordTableOffset }*
+
+  standaloneBaseValuesTable =
+    element baseValuesTable { attribute id { text }, baseValuesTable }
+
+  baseValuesTableOffset = attribute name { text } | baseValuesTable
+</code-fragment>
+    </section>
+    

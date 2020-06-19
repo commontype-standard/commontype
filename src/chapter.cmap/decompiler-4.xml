@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format4.elt"><code-title>Generate elements for the format 4 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+    int segCount = getuint16 (stOffset + 6) / 2;
+
+    for (int s = 0; s &lt; segCount; s++) {
+      int endCode = getuint16 (stOffset + 14 + 2*s);
+      int startCode = getuint16 (stOffset + 16 + 2*segCount + 2*s);
+      int idDelta = getuint16 (stOffset + 16 + 4*segCount + 2*s);
+      int idRangeOffset = getuint16 (stOffset + 16 + 6*segCount + 2*s);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "startCode", "startCode", "CDATA",
+    	                 "0x" + Integer.toHexString (startCode));
+      at.addAttribute ("", "endCode", "endCode", "CDATA",
+    	                 "0x" + Integer.toHexString (endCode));
+      at.addAttribute ("", "idDelta", "idDelta", "CDATA",
+    	                 "0x" + Integer.toHexString (idDelta));
+      at.addAttribute ("", "idRangeOffset", "idRangeOffset", "CDATA",
+    	                 "0x" + Integer.toHexString (idRangeOffset));
+      conf.ch.element ("segment", at); }
+
+
+    StringBuilder sb = new StringBuilder ();
+    int glyphIndexOffset = stOffset + 16 + 8*segCount;
+    int glyphIndexCount = (getuint16 (stOffset + 2) - (16 + 8*segCount)) / 2;
+    for (int i = 0; i &lt; glyphIndexCount; i++) {
+      sb.append (" ");
+      sb.append (getuint16 (glyphIndexOffset + 2*i)); }
+
+    at = new AttributesImpl ();
+    at.addAttribute ("", "v", "v", "CDATA", sb.toString ());
+
+    conf.ch.element ("glyphIndex", at); }
+</code-fragment>
+    </section>
+    

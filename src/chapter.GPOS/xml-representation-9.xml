@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>cursiveAttachmentTable</code-title>
+  cursiveAttachmentTable =
+    attribute format { "1" },
+    element coverage { coverageTableOffset }?,
+    element entryExit {
+      attribute glyphID { text },
+      element entry { anchorTableOffset }?,
+      element exit  { anchorTableOffset }?
+    }*
+
+  standaloneCursiveAttachmentTable =
+    element cursiveAttachmentTable { attribute id { text }, cursiveAttachmentTable }
+  cursiveAttachmentTableOffset = attribute name { text } | cursiveAttachmentTable
+</code-fragment>
+    </section>
+    

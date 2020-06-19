@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Chaining contextual substitution format 1 type</code-title>
+  chainingContextualTable |=
+    attribute format { "1" },
+    element coverage { coverageTableOffset }?,
+    element pattern {
+      attribute back { text },
+      attribute in { text },
+      attribute ahead { text },
+      subLookups
+    }*
+</code-fragment>
+    </section>
+    

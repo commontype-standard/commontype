@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Chaning contextual substitution format 3 type</code-title>
+  chainingContextualTable |=
+    attribute format { "3" },
+    element backCoverages {
+      element coverage { coverageTableOffset }*
+    },
+    element inCoverages {
+      element coverage { coverageTableOffset }*
+    },
+    element aheadCoverages {
+      element coverage { coverageTableOffset }*
+    },
+    subLookups
+</code-fragment>
+    </section>
+    

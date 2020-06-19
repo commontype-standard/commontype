@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="dsig.methods">
+  public void fromXML (Element table)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Map&lt;Element, Block&gt; blockCache = new HashMap&lt;Element, Block&gt; ();
+
+    NodeList children = table.getChildNodes ();
+
+    Block me = new Block (8 + children.getLength () * 12, children.getLength ());
+    me.setuint32 (0, 1);
+    me.setuint16 (4, children.getLength ());
+    me.setuint16 (6, Integer.parseInt (table.getAttribute ("flags")));
+
+    int offset = 8;
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element s = (Element) children.item (i);
+      byte [] data = decodeBinaryFromXML (s.getFirstChild ().getNodeValue ());
+      Block signatureBlock = new Block (data.length, 0);
+      for (int j = 0; j &lt; data.length; j++) {
+        signatureBlock.setuint8 (j, data [j]); }
+
+      me.setuint32 (offset, Integer.parseInt (s.getAttribute ("format")));
+      me.setuint32 (offset + 4, signatureBlock.content.length);
+      me.setBigOffset (offset + 8, signatureBlock); }
+
+    data = me.serialize ();
+  }
+
+  byte[] decodeBinaryFromXML (String s) {
+    ByteBuffer bb = new ByteBuffer (256);
+
+    char[] ch = s.toCharArray ();
+
+    int i = 0;
+    while (i &lt; ch.length) {
+      if ('%' == ch [i]) {
+        i++;
+        int b = Integer.parseInt (new String (ch, i, 2), 16);
+        i += 2;
+        bb.addCard8 (b); }
+
+      else {
+        i++; }}
+
+    return bb.toArray ();
+  }
+</code-fragment>
+    </section>
+    

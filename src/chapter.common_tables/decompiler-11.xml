@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="layouttable.methods">
+  public void classDefTableToXMLCount (int offset, int[] counts) {
+    counts [offset]++;
+  }
+
+  public void classDefTableOffsetToXML (DecompilerConfig conf, int offset,
+                                        int[] counts,
+                                        String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "classDefTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      classDefTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void classDefTableToXML (DecompilerConfig conf, int offset,
+                                  int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "classDefTable_" + Integer.toHexString (offset));
+      classDefTableToXMLEmit (conf, offset, counts, "classDefTable", at);
+      counts [offset] = 0; }
+  }
+
+  public void classDefTableToXMLEmit (DecompilerConfig conf, int offset,
+                                      int[] counts,
+                                      String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    switch (getuint16 (offset)) {
+      <code-include linkend="LayoutTable.classDefTableToXMLEmit.cases"/>
+      default: {
+        throw new InvalidFontException ("illegal classdef format at offset "
+                                        + offset + ": " + getuint16 (offset)); }}
+  }
+</code-fragment>
+    </section>
+    

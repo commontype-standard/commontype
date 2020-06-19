@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="LayoutTable.classDefTableToXMLEmit.cases">
+  case 2: {
+    int classRangeCount = getuint16 (offset + 2);
+
+    if (conf.preciseClassDefFormat) {
+      at.addAttribute ("", "format", "format", "CDATA", "2");
+      conf.ch.startElement (element, at); {
+        int o = offset + 4;
+        for (int r = 0; r &lt; classRangeCount; r++) {
+          at = new AttributesImpl ();
+          at.addAttribute ("", "start", "start", "CDATA", "" + getGlyphID (o));
+          at.addAttribute ("", "end", "end", "CDATA", "" + getGlyphID (o + 2));
+          at.addAttribute ("", "class", "class", "CDATA",
+                           "" + getuint16 (o + 4));
+          conf.ch.element ("range", at);
+          o += 6; }
+
+        conf.ch.endElement (element); }}
+
+    else {
+      at.addAttribute ("", "format", "format", "CDATA", "any");
+      conf.ch.startElement (element, at); {
+
+        int lastClass = 0;
+        for (int r = 0; r &lt; classRangeCount; r++) {
+          int thisClass = getuint16 (offset + 4 + 6*r + 4);
+          if (thisClass &gt; lastClass) {
+            lastClass = thisClass; }}
+
+// TODO: need to combine ranges; e.g. if
+//    {range start='1' end='10' class=2'}
+//    {range start='11' end='20' class='2'}
+// generate a single range "1:20"
+// probably involves having a method to return the glyphs in a class
+// also need to combine with a seperate method to form the
+// text representation of a list of glyphs, so that names can be emitted.
+
+        StringBuilder sb = new StringBuilder ();
+        for (int c = 1; c &lt;= lastClass; c++) {
+          for (int r = 0; r &lt; classRangeCount; r++) {
+            if (getuint16 (offset + 4 + 6*r + 4) == c) {
+              int start = getGlyphID (offset + 4 + 6*r);
+              int stop = getGlyphID (offset + 4 + 6*r + 2);
+              if (conf.glyphNames != null) {
+	        for (int i = start; i &lt; stop + 1; i++) {
+                  glyphToXML (conf, sb, i); }}
+              else {
+                sb.append (" ");
+		sb.append (start);
+		if (start != stop) {
+		  sb.append (":");
+		  sb.append (stop); }}}}
+          if (sb.length () != 0) {
+            at = new AttributesImpl ();
+            at.addAttribute ("", "classID", "classID", "CDATA", "" + c);
+            at.addAttribute ("", "glyphs", "glyphs", "CDATA", sb.toString ());
+            sb.setLength (0);
+            conf.ch.element ("class", at); }}
+
+        conf.ch.endElement (element); }}
+
+    break; }
+</code-fragment>
+    </section>
+    

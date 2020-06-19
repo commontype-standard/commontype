@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>GPOS</code-title>
+  GPOS =
+    element GPOS {
+      attribute major { "1" },
+      attribute minor { "0" },
+      element scriptList { scriptListTableOffset },
+      element featureList { featureListTableOffset },
+      element lookupList { GPOSlookupListTableOffset },
+
+      (  standaloneScriptListTable
+       | standaloneScriptTable
+       | standaloneLangSysTable
+       | standaloneFeatureListTable
+       | standaloneFeatureTable
+       | standaloneGPOSLookupListTable
+       | standaloneGPOSLookupTable
+       | standaloneSinglePosTable
+       | standalonePairPosTable
+       | standaloneCursiveAttachmentTable
+       | standaloneMarkToBaseAttachmentTable
+       | standaloneMarkToLigatureAttachmentTable
+       | standaloneMarkToMarkAttachmentTable
+       | standaloneContextualTable
+       | standaloneChainingContextualTable
+       | standaloneExtensionTable
+       | standaloneAnchorTable
+       | standaloneCoverageTable
+       | standaloneClassDefTable
+       | standaloneDeviceTable
+       | standalonePairSetTable)*
+    }
+</code-fragment>
+    </section>
+    

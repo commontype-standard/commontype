@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="lookuptable.methods">
+  public void chainingLookupToXMLCount (int stOffset, int[] counts) {
+
+    switch (getuint16 (stOffset)) {
+      case 1: { <code-include linkend="chainingLookup.toXMLCount_1"/>; break; }
+      case 2: { <code-include linkend="chainingLookup.toXMLCount_2"/>; break; }
+      case 3: { <code-include linkend="chainingLookup.toXMLCount_3"/>; break; }}
+  }
+
+  public void chainingLookupToXML (DecompilerConfig conf,
+                                   int stOffset, int[] counts)
+     throws org.xml.sax.SAXException, InvalidFontException {
+
+    switch (getuint16 (stOffset)) {
+      case 1: { <code-include linkend="chainingLookup.toXML_1"/>; break; }
+      case 2: { <code-include linkend="chainingLookup.toXML_2"/>; break; }
+      case 3: { <code-include linkend="chainingLookup.toXML_3"/>; break; }}
+  }
+
+  public void chainingLookupToXMLEmit (DecompilerConfig conf,
+                                       int stOffset, int[] counts)
+     throws org.xml.sax.SAXException, InvalidFontException {
+
+    AttributesImpl at;
+
+    switch (getuint16 (stOffset)) {
+      case 1: { <code-include linkend="chainingLookup.toXMLEmit_1"/>; break; }
+      case 2: { <code-include linkend="chainingLookup.toXMLEmit_2"/>; break; }
+      case 3: { <code-include linkend="chainingLookup.toXMLEmit_3"/>; break; }}
+  }
+</code-fragment>
+    </section>
+    

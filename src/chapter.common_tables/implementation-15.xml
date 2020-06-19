@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="sub_classIndex2"><code-title>Find class index in format 2 and return it</code-title>
+  { int rangeCount = getuint16 (offset + 2);
+
+    int min = 0;
+    int max = rangeCount - 1;
+
+    while (min &lt;= max) {
+      int mid = (min + max) / 2;
+      int start = getuint16 (offset + 4 + mid*6);
+      int stop = getuint16 (offset + 4 + mid*6 + 2);
+
+      if (glyph &lt; start) {
+        max = mid - 1; }
+      else if (stop &lt; glyph) {
+        min = mid + 1; }
+      else {
+        return getuint16 (offset + 4 + mid*6 + 4); }}
+
+    return 0; }
+</code-fragment>
+    </section>
+    

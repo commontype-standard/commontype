@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="chainingLookup.toXMLCount_3">
+  int o = stOffset + 2;
+
+  int backCount = getuint16 (o);
+  o += 2;
+  for (int c = 0; c &lt; backCount; c++) {
+    coverageTableToXMLCount (stOffset + getOffset (o), counts);
+    o += 2; }
+
+  int inCount = getuint16 (o);
+  o += 2;
+  for (int c = 0; c &lt; inCount; c++) {
+    coverageTableToXMLCount (stOffset + getOffset (o), counts);
+    o += 2; }
+
+  int aheadCount = getuint16 (o);
+  o += 2;
+  for (int c = 0; c &lt; aheadCount; c++) {
+    coverageTableToXMLCount (stOffset + getOffset (o), counts);
+    o += 2; }
+</code-fragment>
+      <code-fragment id="chainingLookup.toXML_3">
+    int o = stOffset + 2;
+
+    int backCount = getuint16 (o);
+    o += 2;
+    for (int c = 0; c &lt; backCount; c++) {
+      coverageTableToXML (conf, stOffset + getOffset (o), counts);
+      o += 2; }
+
+    int inCount = getuint16 (o);
+    o += 2;
+    for (int c = 0; c &lt; inCount; c++) {
+      coverageTableToXML (conf, stOffset + getOffset (o), counts);
+      o += 2; }
+
+    int aheadCount = getuint16 (o);
+    o += 2;
+    for (int c = 0; c &lt; aheadCount; c++) {
+      coverageTableToXML (conf, stOffset + getOffset (o), counts);
+      o += 2; }
+</code-fragment>
+      <code-fragment id="chainingLookup.toXMLEmit_3">
+    int o = stOffset + 2;
+
+    conf.ch.startElement ("backCoverages", new AttributesImpl ()); {
+      int backCount = getuint16 (o);
+      o += 2;
+      o += (backCount - 1) * 2;
+      for (int c = 0; c &lt; backCount; c++) {
+        at = new AttributesImpl ();
+        coverageTableOffsetToXML (conf, stOffset + getOffset (o), counts,
+                                  "coverage", at);
+        o -= 2; }
+      o += (backCount + 1) * 2;
+      conf.ch.endElement ("backCoverages"); }
+
+    conf.ch.startElement ("inCoverages", new AttributesImpl ()); {
+      int inCount = getuint16 (o);
+      o += 2;
+      for (int c = 0; c &lt; inCount; c++) {
+        at = new AttributesImpl ();
+        coverageTableOffsetToXML (conf, stOffset + getOffset (o), counts,
+                                  "coverage", at);
+        o += 2; }
+      conf.ch.endElement ("inCoverages"); }
+
+    conf.ch.startElement ("aheadCoverages", new AttributesImpl ()); {
+      int aheadCount = getuint16 (o);
+      o += 2;
+      for (int c = 0; c &lt; aheadCount; c++) {
+        at = new AttributesImpl ();
+        coverageTableOffsetToXML (conf, stOffset + getOffset (o), counts,
+                                  "coverage", at);
+        o += 2; }
+      conf.ch.endElement ("aheadCoverages"); }
+
+    int posCount = getuint16 (o);
+    o += 2;
+    subLookupsToXML (conf, posCount, o);
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>chaining2_simple</title>
+        <para>A simple test to start.</para>
+        <code-fragment id="chaining2.classes">
+          <coverage format="any" glyphs="20:26"/>
+          <backClassDef format="any">
+            <class classID="20" glyphs="20"/>
+            <class classID="21" glyphs="21"/>
+            <class classID="22" glyphs="22"/>
+            <class classID="23" glyphs="23"/>
+            <class classID="24" glyphs="24"/>
+            <class classID="25" glyphs="25"/>
+            <class classID="26" glyphs="26"/>
+          </backClassDef>
+          <inClassDef format="any">
+            <class classID="20" glyphs="20"/>
+            <class classID="21" glyphs="21"/>
+            <class classID="22" glyphs="22"/>
+            <class classID="23" glyphs="23"/>
+            <class classID="24" glyphs="24"/>
+            <class classID="25" glyphs="25"/>
+            <class classID="26" glyphs="26"/>
+          </inClassDef>
+          <aheadClassDef format="any">
+            <class classID="20" glyphs="20"/>
+            <class classID="21" glyphs="21"/>
+            <class classID="22" glyphs="22"/>
+            <class classID="23" glyphs="23"/>
+            <class classID="24" glyphs="24"/>
+            <class classID="25" glyphs="25"/>
+            <class classID="26" glyphs="26"/>
+          </aheadClassDef>
+        </code-fragment>
+        <aots:context-test-font id="chaining2_simple_f1">
+          <lookup id="lookup.test" type="chainingContextual">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="20" in="21 22" ahead="23">
+                <apply pos="0" lookup="lookup.single"/>
+                <apply pos="1" lookup="lookup.single"/>
+              </pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <aots:context-test id="chaining2_simple_t1" font="chaining2_simple_f1" inputs="00,  20,   21,   22,   23,   00" outputs="00,  20,   61,   62,   23,   00" xdeltas="0,    0,   20,   20,    0,    0" ydeltas="0,    0,    0,    0,    0,    0"/>
+        <para>Our next set of tests verifies partial matches. It
+            uses slightly more complicated pattern: 20 21 : 22 23 24 :
+            25 26, with a standard sublookup applied on 22.</para>
+        <aots:context-test-font id="chaining2_simple_f2">
+          <lookup id="lookup.test" type="chainingContextual">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="20 21" in="22 23 24" ahead="25 26">
+                <apply pos="0" lookup="lookup.single"/>
+              </pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <para>First, let’s verify that the substitution works:</para>
+        <aots:context-test id="chaining2_simple_t2" font="chaining2_simple_f2" inputs="00, 20,  21,  22,  23,  24,  25,  26,  00" outputs="00, 20,  21,  62,  23,  24,  25,  26,  00" xdeltas="0,   0,   0,  20,   0,   0,   0,   0,   0" ydeltas="0,   0,   0,   0,   0,   0,   0,   0,   0"/>
+        <para>Partial match on the lookahead:</para>
+        <aots:context-test id="chaining2_simple_t3" font="chaining2_simple_f2" inputs="00, 20,  21,  22,  23,  24,  25,  00,  00" outputs="00, 20,  21,  22,  23,  24,  25,  00,  00" xdeltas="0,   0,   0,   0,   0,   0,   0,   0,   0" ydeltas="0,   0,   0,   0,   0,   0,   0,   0,   0"/>
+        <para>Not enough for the lookahead:</para>
+        <aots:context-test id="chaining2_simple_t4" font="chaining2_simple_f2" inputs="00, 20,  21,  22,  23,  24,  25" outputs="00, 20,  21,  22,  23,  24,  25" xdeltas="0,   0,   0,   0,   0,   0,   0" ydeltas="0,   0,   0,   0,   0,   0,   0"/>
+        <para>No glyphs at all for lookahead:</para>
+        <aots:context-test id="chaining2_simple_t5" font="chaining2_simple_f2" inputs="00, 20,  21,  22,  23,  24" outputs="00, 20,  21,  22,  23,  24" xdeltas="0,   0,   0,   0,   0,   0" ydeltas="0,   0,   0,   0,   0,   0"/>
+        <para>Partial match on backtrack:</para>
+        <aots:context-test id="chaining2_simple_t6" font="chaining2_simple_f2" inputs="00, 00,  21,  22,  23,  24,  25,  26,  00" outputs="00, 00,  21,  22,  23,  24,  25,  26,  00" xdeltas="0,   0,   0,   0,   0,   0,   0,   0,   0" ydeltas="0,   0,   0,   0,   0,   0,   0,   0,   0"/>
+        <para>Not enough for the backtrack:</para>
+        <aots:context-test id="chaining2_simple_t7" font="chaining2_simple_f2" inputs=" 21,  22,  23,  24,  25,  26,  00" outputs=" 21,  22,  23,  24,  25,  26,  00" xdeltas="  0,   0,   0,   0,   0,   0,   0" ydeltas="  0,   0,   0,   0,   0,   0,   0"/>
+        <para>No glyphs for backtrack at all:</para>
+        <aots:context-test id="chaining2_simple_t8" font="chaining2_simple_f2" inputs="22,  23,  24,  25,  26,  00" outputs="22,  23,  24,  25,  26,  00" xdeltas=" 0,   0,   0,   0,   0,   0" ydeltas=" 0,   0,   0,   0,   0,   0"/>
+        <para>Partial match on the input:</para>
+        <aots:context-test id="chaining2_simple_t9" font="chaining2_simple_f2" inputs="00, 20,  21,  22,  00,  24,  25,  26,  00" outputs="00, 20,  21,  22,  00,  24,  25,  26,  00" xdeltas="0,   0,   0,   0,   0,   0,   0,   0,   0" ydeltas="0,   0,   0,   0,   0,   0,   0,   0,   0"/>
+        <para>Not enough glyphs for the input:</para>
+        <aots:context-test id="chaining2_simple_t10" font="chaining2_simple_f2" inputs="00, 20,  21,  22,  23" outputs="00, 20,  21,  22,  23" xdeltas="0,   0,   0,   0,   0" ydeltas="0,   0,   0,   0,   0"/>
+        <para>Only the first glyph of input matches:</para>
+        <aots:context-test id="chaining2_simple_t11" font="chaining2_simple_f2" inputs="00, 20,  21,  22" outputs="00, 20,  21,  22" xdeltas="0,   0,   0,   0," ydeltas="0,   0,   0,   0,"/>
+      </section>
+      <section>
+        <title>chaining2_next_glyph</title>
+        <para>The next test makes sure that after a match, the next
+          glyph being processed follows the input part of the pattern
+          match, not the lookahead part. To do this, we extend the
+          coverage of the lookup to include glyph 23, and add a
+          ChainSubRule that matches glyph 23 alone.</para>
+        <aots:context-test-font id="chaining2_next_glyph_f1">
+          <lookup id="lookup.test" type="chainingContextual">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="20" in="21 22" ahead="23">
+                <apply pos="0" lookup="lookup.single"/>
+                <apply pos="1" lookup="lookup.single"/>
+              </pattern>
+              <pattern back="" in="23" ahead="">
+                <apply pos="0" lookup="lookup.single"/>
+              </pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <aots:context-test id="chaining2_next_glyph_t1" font="chaining2_next_glyph_f1" inputs="00,  20,   21,   22,   23,   00" outputs="00,  20,   61,   62,   63,   00" xdeltas="0,    0,   20,   20,   20,    0" ydeltas="0,    0,    0,    0,    0,    0"/>
+      </section>
+      <section>
+        <title>chaining2_boundary</title>
+        <para>Next, we test the boundary case of SubstCount equal to 0.</para>
+        <aots:context-test-font id="chaining2_boundary_f1">
+          <lookup id="lookup.test" type="chainingContextual">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="20" in="21 22" ahead="23">
+	</pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <aots:context-test id="chaining2_boundary_t1" font="chaining2_boundary_f1" inputs="00,  20,   21,   22,   23,   00" outputs="00,  20,   21,   22,   23,   00" xdeltas="0,    0,    0,    0,    0,    0" ydeltas="0,    0,    0,    0,    0,    0"/>
+        <para>Boundary case: InputGlyphCount is 1.</para>
+        <aots:context-test-font id="chaining2_boundary_f2">
+          <lookup id="lookup.test" type="chainingContextual">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="20" in="21" ahead="22 23">
+                <apply pos="0" lookup="lookup.single"/>
+              </pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <aots:context-test id="chaining2_boundary_t2" font="chaining2_boundary_f2" inputs="00,  20,   21,   22,   23,   00" outputs="00,  20,   61,   22,   23,   00" xdeltas="0,    0,   20,    0,    0,    0" ydeltas="0,    0,    0,    0,    0,    0"/>
+        <para>Boundary case: BacktrackGlyphCount is 0.</para>
+        <aots:context-test-font id="chaining2_boundary_f3">
+          <lookup id="lookup.test" type="chainingContextual">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="" in="21" ahead="22 23">
+                <apply pos="0" lookup="lookup.single"/>
+              </pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <aots:context-test id="chaining2_boundary_t3" font="chaining2_boundary_f3" inputs="00,  20,   21,   22,   23,   00" outputs="00,  20,   61,   22,   23,   00" xdeltas="0,    0,   20,    0,    0,    0" ydeltas="0,    0,    0,    0,    0,    0"/>
+        <para>Boundary case: AheadGlyphCount is 0.</para>
+        <aots:context-test-font id="chaining2_boundary_f4">
+          <lookup id="lookup.test" type="chainingContextual">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="20 21" in="22" ahead="">
+                <apply pos="0" lookup="lookup.single"/>
+              </pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <aots:context-test id="chaining2_boundary_t4" font="chaining2_boundary_f4" inputs="00,  20,   21,   22,   23,   00" outputs="00,  20,   21,   62,   23,   00" xdeltas="0,    0,    0,   20,    0,    0" ydeltas="0,    0,    0,    0,    0,    0"/>
+      </section>
+      <section>
+        <title>chaining2_multiple_subrules</title>
+        <para>This next two tests ensure that the ChainSubRules of a
+            ChainSubRuleSet are applied in order. In the first test,
+            the first context pattern is 20 : 21 22 : 23 24
+	    and the second is 20 : 21 22 : 23.</para>
+        <aots:context-test-font id="chaining2_multiple_subrules_f1">
+          <lookup id="lookup.test" type="chainingContextual">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="20" in="21 22" ahead="23 24">
+                <apply pos="0" lookup="lookup.single"/>
+              </pattern>
+              <pattern back="20" in="21 22" ahead="23">
+                <apply pos="1" lookup="lookup.single"/>
+              </pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <aots:context-test id="chaining2_multiple_subrules_t1" font="chaining2_multiple_subrules_f1" inputs="00,  20,  21,  22,  23,  24,  00,  20,  21,  22,  23,  00" outputs="00,  20,  61,  22,  23,  24,  00,  20,  21,  62,  23,  00" xdeltas=" 0,   0,  20,   0,   0,   0,   0,   0,   0,  20,   0,   0" ydeltas=" 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0"/>
+        <para>Next, we invert the order of two ChainSubRules:</para>
+        <aots:context-test-font id="chaining2_multiple_subrules_f2">
+          <lookup id="lookup.test" type="chainingContextual">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="20" in="21 22" ahead="23">
+                <apply pos="1" lookup="lookup.single"/>
+              </pattern>
+              <pattern back="20" in="21 22" ahead="23 24">
+                <apply pos="0" lookup="lookup.single"/>
+              </pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <aots:context-test id="chaining2_multiple_subrules_t2" font="chaining2_multiple_subrules_f2" inputs="00,  20,  21,  22,  23,  24,  00,  20,  21,  22,  23,  00" outputs="00,  20,  21,  62,  23,  24,  00,  20,  21,  62,  23,  00" xdeltas=" 0,   0,   0,  20,   0,   0,   0,   0,   0,  20,   0,   0" ydeltas=" 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0"/>
+      </section>
+      <section>
+        <title>chaining2_successive</title>
+        <para>In this test, we verify the case described in the
+            SubstLookupRecord section. The matched sequence is 18 19 20
+            21. Glyphs 19 and 20 are replaced by glyph 23 and glyph 21 is
+            replaced by glyph 24. The difficult part is that the lookup that
+            replaces 21 by 24 is applied at position 2, which is counted after
+            the ligature substitution is applied.</para>
+        <aots:context-test-font id="chaining2_successive_f1">
+          <lookup id="lookup.test" type="chainingContextual">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="25" in="20 21 22 23" ahead="24">
+                <apply pos="1" lookup="lookup.double"/>
+                <apply pos="2" lookup="lookup.single"/>
+              </pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <aots:context-test id="chaining2_successive_t1" font="chaining2_successive_f1" inputs="00,  25,  20,   21,   22,   23,   24,  00" outputs="00,  25,  20,   61,         63,   24,  00" xdeltas="0,    0,   0,   20,   20,    0,    0,   0" ydeltas="0,    0,   0,    0,    0,    0,    0,   0"/>
+      </section>
+      <section>
+        <title>chaining2_lookupflag</title>
+        <para>Our next test case involves LookupFlag. The input
+	  sequence is 18 : 19 20 : 21, and at each position the
+	  glyphID is increased by 4. Glyph 26 is covered by
+	  lookupFlag.</para>
+        <aots:context-test-font id="chaining2_lookupflag_f1">
+          <lookup id="lookup.test" type="chainingContextual" ignoreMarks="yes">
+            <chainingContextual format="2">
+              <code-include linkend="chaining2.classes"/>
+              <pattern back="20 21" in="22 23 24" ahead="25 26">
+                <apply pos="1" lookup="lookup.single"/>
+              </pattern>
+            </chainingContextual>
+          </lookup>
+        </aots:context-test-font>
+        <aots:context-test id="chaining2_lookupflag_t1" font="chaining2_lookupflag_f1" inputs="00, 20, 90, 21, 91, 22, 92, 23, 93, 94, 24, 90, 25, 91, 26, 00" outputs="00, 20, 90, 21, 91, 22, 92, 63, 93, 94, 24, 90, 25, 91, 26, 00" xdeltas=" 0,  0,  0,  0,  0,  0,  0, 20,  0,  0,  0,  0,  0,  0,  0,  0" ydeltas=" 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0"/>
+      </section>
+    </section>
+  

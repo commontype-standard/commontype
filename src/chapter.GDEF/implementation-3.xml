@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="gdef.methods"><code-title>Method to compute the Mark Attachment class of a glyph</code-title>
+  public int getMarkAttachClass (int glyph)
+    throws InvalidFontException {
+
+    int markAttachOffset = getuint16 (10);
+
+    if (markAttachOffset != 0) {
+      return classIndex (glyph, markAttachOffset); }
+    else {
+      return 0; }
+  }
+</code-fragment>
+    </section>
+  

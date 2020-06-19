@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>classDefTable, format 2</code-title>
+  classDefTable |=
+    attribute format { "2" },
+    element range {
+      attribute start { text },
+      attribute end   { text },
+      attribute class { text }
+    }*
+</code-fragment>
+    </section>
+    

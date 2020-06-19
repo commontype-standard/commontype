@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="name.methods">
+  static private void enterName (Block b, int offset, int nameID,
+                                int stringSize, int stringOffset) {
+    b.setuint16 (offset,    3);
+    b.setuint16 (offset+2,  1);
+    b.setuint16 (offset+4,  1033);
+    b.setuint16 (offset+6,  nameID);
+    b.setuint16 (offset+8,  stringSize*2);
+    b.setuint16 (offset+10, stringOffset*2);
+  }
+
+  static public byte[] buildNameTable (String s)
+      throws Exception {
+    int nbEntries = 6;
+    String storage = s + "-RegularVersion1.0";
+    int blockSize = 6 + 12*nbEntries + 2*storage.length ();
+    if (blockSize % 4 != 0) {
+      blockSize = ((blockSize / 4) + 1) * 4; }
+    Block b = new Block (blockSize, 0);
+
+    b.setuint16 (0, 0);
+    b.setuint16 (2, nbEntries);
+    b.setuint16 (4, 6 + 12*nbEntries);
+
+    enterName (b,  6, 1, s.length (), 0);
+    enterName (b, 18, 2, 7, s.length () + 1);
+    enterName (b, 30, 3, s.length (), 0);
+    enterName (b, 42, 4, s.length () + 8, 0);
+    enterName (b, 54, 5, 10, s.length () + 8);
+    enterName (b, 66, 6, s.length () + 8, 0);
+
+    for (int i = 0; i &lt; storage.length(); i++) {
+      b.setuint16 (78 + 2*i, storage.charAt (i)); }
+
+    return b.serialize ();
+  }
+
+
+  public void fromXML (Element name)
+      throws InvalidFontException, UnsupportedFontException {
+    NodeList nl = name.getChildNodes ();
+
+    entries = new java.util.ArrayList &lt;Entry&gt; ();
+
+    for (int i = 0; i &lt; nl.getLength (); i++) {
+      Element oneName = (Element) nl.item (i);
+
+      Entry e = new Entry ();
+      e.platformID = Integer.decode (oneName.getAttribute ("platformID")).intValue ();
+      e.encodingID = Integer.decode (oneName.getAttribute ("encodingID")).intValue ();
+      e.languageID = Integer.decode (oneName.getAttribute ("languageID")).intValue ();
+      e.nameID = Integer.decode (oneName.getAttribute ("nameID")).intValue ();
+
+      String charset = getCharset (e.platformID, e.encodingID);
+
+      try {
+        e.s = oneName.getAttribute ("v").getBytes (charset); }
+
+      catch (java.io.UnsupportedEncodingException ex) {
+        System.err.println ("cannot convert name entry '"
+                            + oneName.getAttribute ("v") + "' to charset '"
+                            + charset + "'");
+        e.s = new byte[] {}; }
+
+      entries.add (e); }
+
+    dataReady = false;
+    expandedReady = true;
+  }
+</code-fragment>
+    </section>
+    

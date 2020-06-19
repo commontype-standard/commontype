@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Relax Schema for glyf table</code-title>
+simple_glyph =
+  element simple_glyph {
+    glyph_attributes,
+    element contour {
+      element point {
+        attribute on_curve { yesOrNo },
+        attribute x { text },
+        attribute y { text } }+ } +,
+
+    element instructions {
+      attribute opcodes { text }} ?
+  }
+</code-fragment>
+    </section>
+    

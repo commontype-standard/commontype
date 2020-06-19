@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <para>The “Decompiler” sections are the source
+        code for a decompiler that converts from the actual font files
+        to their XML representation.</para>
+    </section>
+    

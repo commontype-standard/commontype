@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>In many cases, we do not care to specify the format
+	  which should be used to represent a multiple substitution, but instead
+	  would prefer the compiler to figure out the best
+	  representation.:</para>
+      <code-fragment id="schema"><code-title>MultipleSubst type</code-title>
+  multipleSubstTable |=
+    attribute format { "1" },
+    element coverage { coverageTableOffset }?,
+    element subst {
+      attribute in { text },
+      attribute out { text }
+    }*
+
+  standaloneMultipleSubstTable =
+    element multipleSubstTable { attribute id { text }, multipleSubstTable }
+
+  multipleSubstTableOffset = attribute name { text } | multipleSubstTable
+</code-fragment>
+    </section>
+    

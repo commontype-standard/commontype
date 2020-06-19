@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+  minMaxTable =
+    element minCoord { baseCoordTableOffset }?,
+    element maxCoord { baseCoordTableOffset }?,
+    element featMinMax { featMinMaxRecord }*
+
+  featMinMaxRecord =
+    attribute v { text },
+
+    element minCoord { baseCoordTableOffset }?,
+    element maxCoord { baseCoordTableOffset }?
+
+  standaloneMinMaxTable =
+    element minMaxTable { attribute id { text }, minMaxTable }
+
+  minMaxTableOffset = attribute name { text } | minMaxTable
+</code-fragment>
+    </section>
+    

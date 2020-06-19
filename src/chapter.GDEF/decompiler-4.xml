@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gdef.methods">
+  public void ligGlyphTableToXMLCount (int offset, int[] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    int caretCount = getuint16 (offset);
+    for (int c = 0; c &lt; caretCount; c++) {
+      int caretValueOffset = getOffset (offset, 2 + 2*c);
+      if (caretValueOffset != 0) {
+        caretValueTableToXMLCount (caretValueOffset, counts); }}
+  }
+
+  public void ligGlyphTableOffsetToXML (DecompilerConfig conf, int offset,
+                                            int[] counts,
+                                            String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "attachListTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      ligGlyphTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void ligGlyphTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "ligGlyphTable_" + Integer.toHexString (offset));
+      ligGlyphTableToXMLEmit (conf, offset, counts, "ligGlyphTable", at);
+      counts [offset] = 0; }
+
+    int caretCount = getuint16 (offset);
+    for (int c = 0; c &lt; caretCount; c++) {
+      int caretValueOffset = getOffset (offset, 2 + 2*c);
+      if (caretValueOffset != 0) {
+        caretValueTableToXML (conf, caretValueOffset, counts); }}
+  }
+
+  public void ligGlyphTableToXMLEmit (DecompilerConfig conf, int offset,
+                                        int[] counts,
+                                        String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+
+    conf.ch.startElement (element, at); {
+      int caretCount = getuint16 (offset);
+
+      for (int c = 0; c &lt; caretCount; c++) {
+        int caretValueOffset = getOffset (offset, 2 + 2*c);
+        if (caretValueOffset != 0) {
+          at = new AttributesImpl ();
+          caretValueTableOffsetToXML (conf, caretValueOffset, counts,
+                                      "caretValue", at); }}
+
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+  

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="vdmx.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    AttributesImpl at = new AttributesImpl ();
+    at.addAttribute ("", "version", "version", "CDATA", "" + getuint16 (0));
+
+    conf.ch.startElement ("VDMX", at); {
+      int offset;
+
+      int numRecs = getuint16 (2);
+      int numRatios = getuint16 (4);
+
+      for (int i = 0; i &lt; numRatios; i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "bCharSet", "bCharSet", "CDATA", "" + getuint8 (6 + i*4));
+        at.addAttribute ("", "xRatio", "xRatio", "CDATA", "" + getuint8 (6 + i*4 + 1));
+        at.addAttribute ("", "yStartRatio", "yStartRatio", "CDATA", "" + getuint8 (6 + i*4 + 2));
+        at.addAttribute ("", "yEndRatio", "yEndRatio", "CDATA", "" + getuint8 (6 + i*4 + 3));
+        at.addAttribute ("", "groupIndex", "groupIndex", "CDATA", "" + getuint16 (6 + numRatios*4 + 2*i));
+        conf.ch.element ("ratio", at); }
+
+      offset = 6 + numRatios * (4 + 2);
+
+      for (int i = 0; i &lt; numRecs; i++) {
+        int nbRecs = getuint16 (offset);
+        at = new AttributesImpl ();
+        at.addAttribute ("", "groupIndex", "groupIndex", "CDATA", "" + offset);
+        at.addAttribute ("", "startsz", "startsz", "CDATA", "" + getuint8 (offset + 2));
+        at.addAttribute ("", "endsz", "endsz", "CDATA", "" + getuint8 (offset + 3));
+
+        conf.ch.startElement ("group", at); {
+          offset += 4;
+          for (int j = 0; j &lt; nbRecs; j++) {
+            at = new AttributesImpl ();
+            at.addAttribute ("", "yPelHeight", "yPelHeight", "CDATA", "" + getuint16 (offset));
+            at.addAttribute ("", "yMax", "yMax", "CDATA", "" + getint16 (offset + 2));
+            at.addAttribute ("", "yMin", "yMin", "CDATA", "" + getint16 (offset + 4));
+            conf.ch.element ("rec", at);
+            offset += 6; }
+          conf.ch.endElement ("group"); }}
+
+      conf.ch.endElement ("VDMX"); }
+  }
+</code-fragment>
+    </section>
+    

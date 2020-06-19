@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="base.methods">
+  public Block baseScriptTableFromXML (Element t, Element table,
+                                       Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    Element child;
+
+    Block baseValuesBlock = null;
+    child = (Element) t.getFirstChild ();
+    if (child != null
+        &amp;&amp; "baseValues".equals (child.getTagName())) {
+      baseValuesBlock = baseValuesTableFromXML (child,
+                                                table, blockCache);
+      t.removeChild (child); }
+
+    Block defaultMinMaxBlock = null;
+    child = (Element) table.getFirstChild ();
+    if (child != null
+        &amp;&amp;"defaultMinMax".equals (child.getTagName ())) {
+      defaultMinMaxBlock = minMaxTableFromXML (child,
+                                               table, blockCache);
+      t.removeChild (child); }
+
+    NodeList children = t.getChildNodes ();
+    int nbChildren = children.getLength ();
+
+    Block me = new Block (6 + 2*nbChildren, 2 + nbChildren);
+    me.setOffset (0, baseValuesBlock);
+    me.setOffset (2, defaultMinMaxBlock);
+    me.setuint16 (4, nbChildren);
+
+    int offset = 6;
+    for (int i = 0; i &lt; nbChildren; i++) {
+      child = (Element) children.item (i);
+      me.setTag (offset, child.getAttribute ("tag"));
+      me.setOffset (offset + 4, minMaxTableFromXML ((Element) child.getFirstChild (),
+                                                    table, blockCache)); }
+
+    blockCache.put (t, me);
+    return me;
+  }
+</code-fragment>
+    </section>
+    

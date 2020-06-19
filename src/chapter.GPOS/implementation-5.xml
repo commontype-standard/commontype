@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>The context pattern for this subtable format is C,
+          where C is the collection of glyphs covered by
+          Coverage.</para>
+      <code-fragment id="gpos_1_2"><code-title>Execute GPOS 1/2 subtable and return</code-title>
+  { int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int inPos = curGlyph;
+
+    int ci = getCoverageIndex (gr.glyphAt (inPos), coverageOffset);
+    if (ci == -1) {
+      return lookupNotApplied; }
+
+    if (! gr.isLookupApplied (lookupIndex, curGlyph, inPos)) {
+      return lookupNotApplied; }
+
+    int valueFormat = getuint16 (stOffset + 4);
+    int valueRecordOffset = stOffset + 8 + ValueRecord.getSize (valueFormat) * ci;
+    ValueRecord vr = new ValueRecord().fromBinary (this, valueRecordOffset, valueFormat);
+
+    if (listener != null) {
+      listener.adjust (vr, valueFormat);
+      listener.applyingSubtable (lookupIndex, gr, curGlyph, "GPOS", stOffset); }
+
+    gr.adjustPlacementAndAdvance (inPos, vr);
+
+    return new LookupResult (true, inPos + 1, 0); }
+</code-fragment>
+    </section>
+    

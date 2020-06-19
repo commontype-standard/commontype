@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gpos.toXMLCount_5">
+  int classCount = getuint16 (stOffset + 6);
+
+  int ligatureArrayOffset = stOffset + getOffset (stOffset + 10);
+  int ligatureCount = getuint16 (ligatureArrayOffset);
+  int o = ligatureArrayOffset + 2;
+
+  for (int i = 0; i &lt; ligatureCount; i++) {
+    int ligatureAttachOffset = ligatureArrayOffset + getOffset (o);
+    o += 2;
+    int componentCount = getuint16 (ligatureAttachOffset);
+    int oo = ligatureAttachOffset + 2;
+    for (int comp = 0; comp &lt; componentCount; comp++) {
+      for (int c = 0; c &lt; classCount; c++) {
+        anchorTableToXMLCount (ligatureAttachOffset + getOffset (oo), counts);
+        oo += 2; }}}
+
+  int markArrayOffset = stOffset + getOffset (stOffset + 8);
+  int markCount = getuint16 (markArrayOffset);
+  o = markArrayOffset + 2;
+  for (int i = 0; i &lt; markCount; i++) {
+    o += 2;
+    anchorTableToXMLCount (markArrayOffset + getOffset (o), counts);
+    o += 2; }
+</code-fragment>
+      <code-fragment id="gpos.toXML_5">
+    int classCount = getuint16 (stOffset + 6);
+
+    int ligatureArrayOffset = stOffset + getOffset (stOffset + 10);
+    int ligatureCount = getuint16 (ligatureArrayOffset);
+    int o = ligatureArrayOffset + 2;
+
+    for (int i = 0; i &lt; ligatureCount; i++) {
+      int ligatureAttachOffset = ligatureArrayOffset + getOffset (o);
+      o += 2;
+      int componentCount = getuint16 (ligatureAttachOffset);
+      int oo = ligatureAttachOffset + 2;
+      for (int comp = 0; comp &lt; componentCount; comp++) {
+        for (int c = 0; c &lt; classCount; c++) {
+          anchorTableToXML (conf, ligatureAttachOffset + getOffset (oo), counts);
+          oo += 2; }}}
+
+    int markArrayOffset = stOffset + getOffset (stOffset + 8);
+    int markCount = getuint16 (markArrayOffset);
+    o = markArrayOffset + 2;
+    for (int i = 0; i &lt; markCount; i++) {
+      o += 2;
+      anchorTableToXML (conf, markArrayOffset + getOffset (o), counts);
+      o += 2; }
+</code-fragment>
+      <code-fragment id="gpos.toXMLEmit_5">
+    int classCount = getuint16 (stOffset + 6);
+
+    int[] ligatureGlyphs = getCoveredGlyphs (stOffset + getOffset (stOffset + 4));
+    int ligatureArrayOffset = stOffset + getOffset (stOffset + 10);
+    int ligatureCount = getuint16 (ligatureArrayOffset);
+    int o = ligatureArrayOffset + 2;
+    for (int i = 0; i &lt; ligatureCount; i++) {
+      at = new AttributesImpl ();
+      at.addAttribute ("", "glyphID", "glyphID", "CDATA", "" + ligatureGlyphs[i]);
+      conf.ch.startElement ("ligGlyph", at); {
+        int ligatureAttachOffset = ligatureArrayOffset + getOffset (o);
+        o += 2;
+        int componentCount = getuint16 (ligatureAttachOffset);
+        int oo = ligatureAttachOffset + 2;
+        for (int comp = 0; comp &lt; componentCount; comp++) {
+          at = new AttributesImpl ();
+          at.addAttribute ("", "comp", "comp", "CDATA", "" + comp);
+          conf.ch.startElement ("ligComponent", at); {
+            for (int c = 0; c &lt; classCount; c++) {
+              at = new AttributesImpl ();
+              at.addAttribute ("", "class", "class", "CDATA", "" + c);
+              anchorTableOffsetToXML (conf, ligatureAttachOffset + getOffset (oo),
+                                      counts, "ligAnchor", at);
+              oo += 2; }
+            conf.ch.endElement ("ligComponent"); }}
+        conf.ch.endElement ("ligGlyph"); }}
+
+
+    int[] markGlyphs = getCoveredGlyphs (stOffset + getOffset (stOffset + 2));
+    int markArrayOffset = stOffset + getOffset (stOffset + 8);
+    int markCount = getuint16 (markArrayOffset);
+    o = markArrayOffset + 2;
+    for (int i = 0; i &lt; markCount; i++) {
+      int markClass = getuint16 (o);
+      o += 2;
+      at = new AttributesImpl ();
+      at.addAttribute ("", "glyphID", "glyphID", "CDATA", "" + markGlyphs[i]);
+      at.addAttribute ("", "class", "class", "CDTA", "" + markClass);
+      anchorTableOffsetToXML (conf, markArrayOffset + getOffset (o), counts,
+                              "markGlyphAnchor", at);
+      o += 2; }
+</code-fragment>
+    </section>
+    

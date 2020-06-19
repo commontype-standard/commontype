@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <para>When using a font, a layout system can select to use one or
+	another cmap subtable. Here are some fonts to test that process, by
+	having various combinations of subtables.</para>
+      <aots:test-font id="cmap_subtableselection_font1">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="3" encodingid="10" language="0" format="0">
+            <map code="0x30" glyph="1"/>
+          </mapping>
+          <mapping platformid="0" encodingid="4" language="0" format="0">
+            <map code="0x30" glyph="2"/>
+          </mapping>
+          <mapping platformid="3" encodingid="1" language="0" format="0">
+            <map code="0x30" glyph="3"/>
+          </mapping>
+          <mapping platformid="0" encodingid="3" language="0" format="0">
+            <map code="0x30" glyph="4"/>
+          </mapping>
+          <mapping platformid="1" encodingid="0" language="0" format="0">
+            <map code="0x30" glyph="5"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+      <aots:test-font id="cmap_subtableselection_font2">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="0" encodingid="4" language="0" format="0">
+            <map code="0x30" glyph="2"/>
+          </mapping>
+          <mapping platformid="3" encodingid="1" language="0" format="0">
+            <map code="0x30" glyph="3"/>
+          </mapping>
+          <mapping platformid="0" encodingid="3" language="0" format="0">
+            <map code="0x30" glyph="4"/>
+          </mapping>
+          <mapping platformid="1" encodingid="0" language="0" format="0">
+            <map code="0x30" glyph="5"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+      <aots:test-font id="cmap_subtableselection_font3">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="3" encodingid="1" language="0" format="0">
+            <map code="0x30" glyph="3"/>
+          </mapping>
+          <mapping platformid="0" encodingid="3" language="0" format="0">
+            <map code="0x30" glyph="4"/>
+          </mapping>
+          <mapping platformid="1" encodingid="0" language="0" format="0">
+            <map code="0x30" glyph="5"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+      <aots:test-font id="cmap_subtableselection_font4">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="0" encodingid="3" language="0" format="0">
+            <map code="0x30" glyph="4"/>
+          </mapping>
+          <mapping platformid="1" encodingid="0" language="0" format="0">
+            <map code="0x30" glyph="5"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+      <aots:test-font id="cmap_subtableselection_font5">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="1" encodingid="0" language="0" format="0">
+            <map code="0x30" glyph="5"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+      <para>Another interesting area is composition: when given
+          a combining sequence and one of the characters in it cannot
+          be mapped, layout engines are supposed to find a precomposed
+          character equivalent to that sequence and see if it is mapped.
+	  This font maps a few characters which are interesting to test
+	  that area.</para>
+      <aots:test-font id="cmap_composition_font1">
+        <base-font name="base.otf"/>
+        <cmap version="0">
+          <mapping platformid="3" encodingid="10" language="0" format="12">
+            <map code="0x00e9" glyph="5" count="1"/>
+            <map code="0x1ec3" glyph="6" count="1"/>
+            <map code="0x1fad" glyph="7" count="1"/>
+            <map code="0x2adc" glyph="8" count="1"/>
+            <map code="0x1d163" glyph="9" count="1"/>
+          </mapping>
+        </cmap>
+      </aots:test-font>
+    </section>
+  

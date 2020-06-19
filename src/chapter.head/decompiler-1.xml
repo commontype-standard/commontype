@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="head.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    AttributesImpl at;
+
+    int [] version = getTableVersion ();
+    at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
+    conf.ch.startElement ("head", at); {
+
+      int [] fontRevision = getFontRevision ();
+      at = new AttributesImpl ();
+      at.addAttribute ("", "major", "major", "CDATA", "" + fontRevision [0]);
+      at.addAttribute ("", "minor", "minor", "CDATA", "" + fontRevision [1]);
+      conf.ch.element ("fontRevision", at);
+
+      Flags flags = getFlags ();
+      at = new AttributesImpl ();
+      at.addAttribute ("", "baseline_at_0", "baseline_at_0", "CDATA",
+                       flags.baseline_at_0 ? "yes" : "no");
+      at.addAttribute ("", "lsb_at_0", "lsb_at_0", "CDATA",
+                       flags.lsb_at_0 ? "yes" : "no");
+      at.addAttribute ("", "instructions_vary_with_point_size", "instructions_vary_with_point_size", "CDATA",
+                       flags.instructions_vary_with_point_size ? "yes" : "no");
+      at.addAttribute ("", "use_integral_ppem", "use_integral_ppem", "CDATA",
+                       flags.use_integral_ppem ? "yes" : "no");
+      at.addAttribute ("", "instructions_alter_advance_width", "instructions_alter_advance_width", "CDATA",
+                       flags.instructions_alter_advance_width ? "yes" : "no");
+      at.addAttribute ("", "lossless", "lossless", "CDATA",
+                       flags.lossless ? "yes" : "no");
+      at.addAttribute ("", "converted", "converted", "CDATA",
+                       flags.converted ? "yes" : "no");
+      at.addAttribute ("", "optimized_for_cleartype", "optimized_for_cleartype", "CDATA",
+                       flags.optimized_for_cleartype? "yes" : "no");
+      conf.ch.element ("flags", at);
+
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getUnitsPerEm ());
+      conf.ch.element  ("unitsPerEm", at);
+
+      at = new AttributesImpl ();
+      java.text.DateFormat df
+         = java.text.DateFormat.getDateTimeInstance (java.text.DateFormat.LONG,
+                                                     java.text.DateFormat.LONG);
+      at.addAttribute ("", "created", "created", "CDATA",
+                       df.format (getCreated ()));
+      at.addAttribute ("", "modified", "modified", "CDATA",
+                       df.format (getModified ()));
+      conf.ch.element ("dates", at);
+
+      at = new AttributesImpl ();
+      Bbox b = getBbox ();
+      at.addAttribute ("", "xMin", "xMin", "CDATA", "" + b.xMin);
+      at.addAttribute ("", "yMin", "yMin", "CDATA", "" + b.yMin);
+      at.addAttribute ("", "xMax", "xMax", "CDATA", "" + b.xMax);
+      at.addAttribute ("", "yMax", "yMax", "CDATA", "" + b.yMax);
+      conf.ch.element ("bbox", at);
+
+      MacStyle macStyle = getMacStyle ();
+      at = new AttributesImpl ();
+      at.addAttribute ("", "bold", "bold", "CDATA",
+                       macStyle.bold ? "yes" : "no");
+      at.addAttribute ("", "italic", "italic", "CDATA",
+                       macStyle.italic ? "yes" : "no");
+      conf.ch.element ("macStyle", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getLowestRecPPEM ());
+      conf.ch.element ("lowestRecPPEM", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getFontDirectionHint ());
+      conf.ch.element ("fontDirectionHint", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getIndexToLocFormat ());
+      conf.ch.element ("indexToLocFormat", at);
+
+// TODO
+//      at = new AttributesImpl ();
+//      at.addAttribute ("", "v", "v", "CDATA", "" + getGlyphDataFormat ());
+//      conf.ch.element ("glyphDataFormat", at);
+
+      conf.ch.endElement ("head"); }
+  }
+</code-fragment>
+    </section>
+    

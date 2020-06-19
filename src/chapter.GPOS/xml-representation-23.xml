@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>valueRecord</code-title>
+  valueRecord =
+    attribute xPlacement { text }?,
+    attribute yPlacement { text }?,
+    attribute xAdvance { text }?,
+    attribute yAdvance { text }?
+</code-fragment>
+    </section>
+    

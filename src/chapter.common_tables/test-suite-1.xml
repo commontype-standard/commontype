@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Implementation Test</title>
+      <section>
+        <title>LookupFlag</title>
+        <para>Testing the behavior of lookupFlag on every single
+	  type of lookup would be an enormous tasks. In fact, it is
+	  likely that the behaviour of lookupFlag is implemented in
+	  our place (like our <function>lookupFlagCovers</function>
+	  method above) and is used everywhere. So all our testing is
+	  done using the simplest lookup type that is convenient to
+	  reach the behaviour, LigatureSubstitutions.</para>
+        <para>Let’s start by making sure that those work
+	  reasonably well:</para>
+        <aots:test-font id="lookupflag_ignore_base_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="24 25"/>
+            </glyphClassDef>
+          </GDEF>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4" ignoreBaseGlyphs="yes">
+                <ligatureSubst format="1">
+                  <coverage glyphs="18" format="any"/>
+                  <subst in="18 19 20" out="23"/>
+                </ligatureSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <para>First, let’s make sure we get the ligating
+          behaviour even when no glyphs have to be skipped:</para>
+        <aots:gsub-test id="lookupflag_ignore_base_t1" font="lookupflag_ignore_base_f1" inputs="17, 18, 19, 20, 21" outputs="17, 23,         21"/>
+        <para>Let’s skip a few glyphs:</para>
+        <aots:gsub-test id="lookupflag_ignore_base_t2" font="lookupflag_ignore_base_f1" inputs="17, 18, 24, 24, 19, 25, 20, 21" outputs="17, 23, 24, 24,     25,     21"/>
+        <para>Let’s try ignoring ligatures:</para>
+        <aots:test-font id="lookupflag_ignore_ligatures_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="24 25"/>
+              <class classID="2" glyphs="26 27"/>
+              <class classID="3" glyphs="28 29"/>
+            </glyphClassDef>
+          </GDEF>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4" ignoreLigatures="yes">
+                <ligatureSubst format="1">
+                  <coverage glyphs="18" format="any"/>
+                  <subst in="18 19 20" out="23"/>
+                </ligatureSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="lookupflag_ignore_ligatures_t1" font="lookupflag_ignore_ligatures_f1" inputs="17, 18, 26, 27, 19, 27, 20, 21" outputs="17, 23, 26, 27,     27,     21"/>
+        <para>Let’s not skip some glyphs in the other classes:</para>
+        <aots:gsub-test id="lookupflag_ignore_ligatures_t2" font="lookupflag_ignore_ligatures_f1" inputs="17, 18, 26, 24, 19, 27, 20, 21" outputs="17, 18, 26, 24, 19, 27, 20, 21"/>
+        <para>... including in class 0, which is always a bit special:</para>
+        <aots:gsub-test id="lookupflag_ignore_ligatures_t3" font="lookupflag_ignore_ligatures_f1" inputs="17, 18, 26, 42, 19, 27, 20, 21" outputs="17, 18, 26, 42, 19, 27, 20, 21"/>
+        <para>Let’s try ignoring marks:</para>
+        <aots:test-font id="lookupflag_ignore_marks_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="24 25"/>
+              <class classID="2" glyphs="26 27"/>
+              <class classID="3" glyphs="28 29"/>
+            </glyphClassDef>
+          </GDEF>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4" ignoreMarks="yes">
+                <ligatureSubst format="1">
+                  <coverage glyphs="18" format="any"/>
+                  <subst in="18 19 20" out="23"/>
+                </ligatureSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="lookupflag_ignore_marks_t1" font="lookupflag_ignore_marks_f1" inputs="17, 18, 28, 29, 19, 29, 20, 21" outputs="17, 23, 28, 29,     29,     21"/>
+        <para>Let’s try ignoring marks by their attachment
+	  class. Remember the discussion about base glyphs in the
+	  annotations. Glyphs 10...15 are base glyphs, 20...24 are marks of one
+	  class, and 25...29 are marks of another class. We want to
+	  ligate 11, 13 and 26 into 15.</para>
+        <aots:test-font id="lookupflag_ignore_attach_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="10 11 12 13 14 "/>
+              <class classID="2" glyphs="15"/>
+              <class classID="3" glyphs="20 21 22 23 24 25 26 27 28 29"/>
+            </glyphClassDef>
+            <markAttachClassDef format="any">
+              <class classID="1" glyphs="20 21 22 23 24"/>
+              <class classID="2" glyphs="25 26 27 28"/>
+            </markAttachClassDef>
+          </GDEF>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4" markAttachmentType="2">
+                <ligatureSubst format="1">
+                  <coverage glyphs="11" format="any"/>
+                  <subst in="11 13 26" out="15"/>
+                </ligatureSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <para>First, let’s make sure the ligature works.</para>
+        <aots:gsub-test id="lookupflag_ignore_attach_t1" font="lookupflag_ignore_attach_f1" inputs="10, 11, 13, 26, 10" outputs="10, 15,         10"/>
+        <para>Let”s inject class 0 and 1 marks, which should be
+	  skipped.</para>
+        <aots:gsub-test id="lookupflag_ignore_attach_t2" font="lookupflag_ignore_attach_f1" inputs="10, 11, 21, 13, 22, 23, 29, 26, 10" outputs="10, 15, 21,     22, 23, 29,     10"/>
+        <para>Let’s inject class 2 marks, which should
+	  prevent the ligature</para>
+        <aots:gsub-test id="lookupflag_ignore_attach_t3" font="lookupflag_ignore_attach_f1" inputs="10, 11, 21, 13, 22, 27, 26, 10" outputs="10, 11, 21, 13, 22, 27, 26, 10"/>
+        <aots:gsub-test id="lookupflag_ignore_attach_t4" font="lookupflag_ignore_attach_f1" inputs="10, 11, 27, 13, 22, 23, 26, 10" outputs="10, 11, 27, 13, 22, 23, 26, 10"/>
+        <para>So do other base</para>
+        <aots:gsub-test id="lookupflag_ignore_attach_t5" font="lookupflag_ignore_attach_f1" inputs="10, 11, 27, 13, 14, 23, 26, 10" outputs="10, 11, 27, 13, 14, 23, 26, 10"/>
+        <para>And of course, we have combinations!</para>
+        <aots:test-font id="lookupflag_ignore_combination_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="24 25 26"/>
+              <class classID="2" glyphs="27 28 29"/>
+              <class classID="3" glyphs="30 31 32"/>
+            </glyphClassDef>
+            <markAttachClassDef format="any">
+              <class classID="1" glyphs="25 28 31 34"/>
+              <class classID="2" glyphs="26 29 32 35"/>
+            </markAttachClassDef>
+          </GDEF>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4" ignoreBaseGlyphs="yes" markAttachmentType="2">
+                <ligatureSubst format="1">
+                  <coverage glyphs="18" format="any"/>
+                  <subst in="18 19 20" out="23"/>
+                </ligatureSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="lookupflag_ignore_combination_t1" font="lookupflag_ignore_combination_f1" inputs="17, 18, 26, 19, 20, 21" outputs="17, 23, 26,        21"/>
+        <aots:gsub-test id="lookupflag_ignore_combination_t2" font="lookupflag_ignore_combination_f1" inputs="17, 18, 26, 19, 24, 30, 31, 20, 21" outputs="17, 23, 26,     24, 30, 31,     21"/>
+        <aots:gsub-test id="lookupflag_ignore_combination_t3" font="lookupflag_ignore_combination_f1" inputs="17, 18, 26, 19, 24, 30, 32, 20, 21" outputs="17, 18, 26, 19, 24, 30, 32, 20, 21"/>
+      </section>
+    </section>
+  

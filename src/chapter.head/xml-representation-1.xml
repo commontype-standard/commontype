@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema">
+head =
+  element head {
+    attribute major { text },
+    attribute minor { text },
+    element fontRevision {
+      attribute major { text },
+      attribute minor { text }
+    },
+    element flags {
+      attribute baseline_at_0 { yesOrNo },
+      attribute lsb_at_0 { yesOrNo },
+      attribute instructions_vary_with_point_size { yesOrNo },
+      attribute use_integral_ppem { yesOrNo },
+      attribute instructions_alter_advance_width { yesOrNo },
+      attribute lossless { yesOrNo },
+      attribute converted { yesOrNo },
+      attribute optimized_for_cleartype { yesOrNo }
+    },
+    element unitsPerEm {
+      attribute v { text }
+    },
+    element dates {
+      attribute created { text },
+      attribute modified { text }
+    },
+    element bbox {
+      attribute xMin { text },
+      attribute yMin { text },
+      attribute xMax { text },
+      attribute yMax { text }
+    },
+    element macStyle {
+      attribute bold { yesOrNo },
+      attribute italic { yesOrNo }
+    },
+    element lowestRecPPEM {
+      attribute v { text }
+    },
+    element fontDirectionHint {
+      attribute v { text }
+    },
+    element indexToLocFormat {
+      attribute v { text }
+    }
+  }
+</code-fragment>
+    </section>
+    

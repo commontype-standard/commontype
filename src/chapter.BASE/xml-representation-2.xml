@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>axisTable</code-title>
+  axisTable =
+    element baseTagList    { baseTagListTableOffset }?,
+    element baseScriptList { baseScriptListTableOffset }
+
+  standaloneAxisTable =
+    element axisTable { attribute id { text }, axisTable }
+
+  axisTableOffset = attribute name { text } | axisTable
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>scriptListTable</code-title>
+  scriptListTable =
+    element script {
+      attribute tag { text },
+      scriptTableOffset
+    }*
+
+  standaloneScriptListTable =
+    element scriptListTable { attribute id { text }, scriptListTable }
+
+  scriptListTableOffset = attribute name { text } | scriptListTable
+</code-fragment>
+    </section>
+    

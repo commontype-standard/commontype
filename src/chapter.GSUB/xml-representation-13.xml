@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>In many cases, we do not care to specify the format
+	  which should be used to represent a chaining contextual
+	  substitution, but instead would prefer the compiler to
+	  figure out the best representation.:</para>
+      <code-fragment id="schema"><code-title>ChainingContextualSubst type</code-title>
+  chainingContextualTable |=
+    attribute format { "any" },
+    element subst {
+      attribute in { text },
+      attribute out { text },
+      subLookups
+    }*
+
+  standaloneChainingContextualTable =
+    element chainingContextualTable {
+      attribute id { text },
+      chainingContextualTable
+    }
+
+  chainingContextualTableOffset = attribute name { text }
+    | chainingContextualTable
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="test-suite">
+      <title>Test Suite</title>
+      <para>Our test framework for <ottable>GSUB</ottable>
+          transformations is to apply a set of features to a glyphrun
+          tagged with a script and a language.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="GsubTester"><code-title>GsubTest class</code-title>
+  package com.adobe.aots.CommonType;
+
+  <code-include linkend="test_imports"/>
+
+  public class GsubTester {
+
+    <code-include linkend="test_methods"/>
+
+    public static void main (String[] args) {
+      try {
+        String testName = "anonymousTest";
+	URL fontURL = null;
+	Font font = null;
+	long script = Tag.string2tag ("latn");
+	long language = Tag.string2tag ("DFLT");
+	long[] features = null;
+        int[] inputs = null;
+	int[] expected = null;
+	int traceDepth = 3;
+	String svgTraceOutput = null;
+	String textTraceOutput = null;
+
+        for (int i = 0; i &lt; args.length; i++) {
+          if ("-testname".equals (args [i])) {
+	    i++;
+	    testName = args [i]; }
+
+	  if ("-font".equals (args [i])) {
+	    i++;
+	    fontURL = new File (args [i]).getAbsoluteFile ().toURL ();
+	    font = new Font ();
+	    font.fromBinary (fontURL); }
+
+	  if ("-script".equals (args [i])) {
+	    i++;
+	    script = Tag.string2tag (args [i]); }
+
+	  if ("-language".equals (args [i])) {
+	    i++;
+	    language = Tag.string2tag (args [i]); }
+
+	  if ("-features".equals (args [i])) {
+	    i++;
+	    features = Tag.string2tags (args [i]); }
+
+	  if ("-glyphs".equals (args [i])) {
+	    i++;
+	    inputs = parseIntList (args [i]); }
+
+	  if ("-expected".equals (args [i])) {
+	    i++;
+	    expected = parseIntList (args [i]); }
+
+	  if ("-tracedepth".equals (args [i])) {
+	    i++;
+	    traceDepth = Integer.parseInt (args [i]); }
+
+	  if ("-trace=svg".equals (args [i])) {
+	    i++;
+	    svgTraceOutput = args [i]; }
+
+	  if ("-trace=text".equals (args [i])) {
+	    i++;
+	    textTraceOutput = args [i]; }}
+
+        LookupTableListener listener = null;
+        if (svgTraceOutput != null) {
+          SVGLookupTableListener l = new SVGLookupTableListener (traceDepth);
+          java.io.PrintStream out
+            = new java.io.PrintStream (new java.io.FileOutputStream (svgTraceOutput));
+          l.init (font, fontURL, out, false, false);
+          font.gsub.setLookupTableListener (l);
+          listener = l; }
+        else if (textTraceOutput != null) {
+          LookupTableListener l = new TextLookupTableListener (traceDepth);
+          java.io.PrintStream out
+            = new java.io.PrintStream (new java.io.FileOutputStream (textTraceOutput));
+          l.init (font, fontURL, out, false);
+          font.gsub.setLookupTableListener (l);
+          listener = l; }
+
+        GlyphRunImpl gr = new GlyphRunImpl ();
+        gr.glyphs = inputs;
+        gr.totGlyphs = inputs.length;
+
+        font.gsub.applyFeatures (script, language, features, gr);
+
+        if (listener != null) {
+          listener.shutdown (); }
+
+        if (expected != null) {
+          boolean pass = compareIntLists (expected, gr.glyphs, gr.glyphCount ()) ;
+          if (pass == false) {
+            System.err.print ("Wanted: ");
+            for (int i = 0; i &lt; expected.length; i++) {
+              System.err.print (" " + expected [i]); }
+            System.err.println ();
+            System.err.print ("Actual: ");
+            for (int i = 0; i &lt; gr.glyphCount (); i++) {
+              System.err.print (" " + gr.glyphs [i]); }
+            System.err.println (); }
+
+          reportStatus (testName, pass); }}
+
+      catch (Exception e) {
+        System.out.println ("Exception: " + e.getMessage ());
+        e.printStackTrace (); }
+    }
+  }
+</code-fragment>
+    </section>
+    

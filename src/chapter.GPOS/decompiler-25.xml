@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="LayoutTable.anchorTableToXMLCount.cases">
+  case 3: {
+    if (getOffset (offset + 6) != 0) {
+      deviceTableToXMLCount (getOffset (offset, 8), counts); }
+    if (getOffset (offset + 8) != 0) {
+      deviceTableToXMLCount (getOffset (offset, 10), counts); }
+    break; }
+</code-fragment>
+      <code-fragment id="LayoutTable.anchorTableToXML.cases">
+  case 3: {
+    if (getOffset (offset + 6) != 0) {
+      deviceTableToXML (conf, getOffset (offset, 6), counts); }
+    if (getOffset (offset + 8) != 0) {
+      deviceTableToXML (conf, getOffset (offset, 8), counts); }
+    break; }
+</code-fragment>
+      <code-fragment id="LayoutTable.anchorTableToXMLEmit.cases">
+  case 3: {
+    int x = getint16 (offset + 2);
+    at.addAttribute ("", "x", "x", "CDATA", "" + x);
+
+    int y = getint16 (offset + 4);
+    at.addAttribute ("", "y", "y", "CDATA", "" + y);
+
+    conf.ch.startElement (element, at); {
+      if (getOffset (offset + 6) != 0) {
+        at = new AttributesImpl ();
+        deviceTableOffsetToXML (conf, getOffset (offset, 6),
+                                counts, "xDeviceTable", at); }
+
+      if (getOffset (offset + 8) != 0) {
+        at = new AttributesImpl ();
+        deviceTableOffsetToXML (conf, getOffset (offset, 8),
+                                counts, "yDeviceTable", at); }
+
+      conf.ch.endElement (element); }
+    break; }
+</code-fragment>
+    </section>
+  

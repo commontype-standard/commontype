@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Name"><code-title>Name class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Name extends Table {
+
+  public Name () {
+    super (Tag.name, null);
+  }
+
+  public Name (Font font) {
+    super (Tag.name, font);
+  }
+
+  private boolean dataReady = false;
+  private boolean expandedReady = false;
+
+  public class Entry {
+    public int platformID;
+    public int encodingID;
+    public int languageID;
+    public int nameID;
+    public byte[] s; }
+
+  public java.util.ArrayList &lt;Entry&gt; entries = null;
+
+  public int fromBinary (java.io.InputStream in, int length)
+      throws java.io.IOException, InvalidFontException {
+    super.fromBinary (in, length);
+    dataReady = true;
+    expandedReady = false;
+    return length;
+  }
+
+  public byte[] toBinary () {
+    makeDataReady ();
+    return data;
+  }
+
+  public void makeDataReady () {
+    if (dataReady) {
+      return; }
+
+    int nbRecords = entries.size ();
+    int storageSize = 0;
+    for (int i = 0; i &lt; nbRecords; i++) {
+      storageSize += entries.get (i).s.length; }
+
+    Block b = new Block (6 + 12 * nbRecords + storageSize, 0);
+    b.setuint16 (0, 0);
+    b.setuint16 (2, nbRecords);
+    b.setuint16 (4, 6 + 12 * nbRecords);
+
+    int offset = 6;
+    int storageOffset = 0;
+    for (int i = 0; i &lt; nbRecords; i++) {
+      Entry e = entries.get (i);
+      b.setuint16 (offset, e.platformID);
+      b.setuint16 (offset + 2, e.encodingID);
+      b.setuint16 (offset + 4, e.languageID);
+      b.setuint16 (offset + 6, e.nameID);
+      b.setuint16 (offset + 8, e.s.length);
+      b.setuint16 (offset + 10, storageOffset);
+      offset += 12;
+      storageOffset += e.s.length; }
+
+    for (int i = 0; i &lt; nbRecords; i++) {
+      Entry e = entries.get (i);
+      for (int j = 0; j &lt; e.s.length; j++) {
+        b.setuint8 (offset++, e.s[j]); }}
+
+    data = b.serialize ();
+    dataReady = true;
+  }
+
+  public void makeExpandedReady () {
+  }
+
+
+
+
+  public String getCharset (int platformID, int encodingID) {
+         if (platformID == 3 &amp;&amp; encodingID ==  1) { return "UTF-16BE"; }
+    else if (platformID == 3 &amp;&amp; encodingID ==  0) { return "UTF-16BE"; }
+    else if (platformID == 3 &amp;&amp; encodingID == 10) { return "UTF-16BE"; }
+    else if (platformID == 1 &amp;&amp; encodingID ==  0) { return "MacRoman"; }
+    else if (platformID == 1 &amp;&amp; encodingID ==  1) { return "Shift_JIS"; }
+    else if (platformID == 1 )                            { return "MacRoman"; }
+    else if (platformID == 0)                             { return "UTF-16BE"; }
+    else {                                                  return null; }
+  }
+
+  public String getName (int languageID, int nameID) {
+
+    try {
+      return getName (3, 1, languageID, nameID); }
+    catch (java.io.UnsupportedEncodingException e) {
+      // 3, 1 -&gt; UTF-16BE, which must be supported
+      return null; }
+  }
+
+  public String getName (int platformID, int encodingID,
+                         int languageID, int nameID)
+      throws java.io.UnsupportedEncodingException {
+    String charset = getCharset (platformID, encodingID);
+
+    if (charset == null) {
+      throw new java.io.UnsupportedEncodingException (); }
+
+    int nameRecordsNumber = getuint16 (2);
+    int stringStorageOffset = getuint16 (4);
+
+    for (int i = 0; i &lt; nameRecordsNumber; i++) {
+       if (   getuint16 (6 + 12*i + 0) == platformID
+           &amp;&amp; getuint16 (6 + 12*i + 2) == encodingID
+           &amp;&amp; (   -1 == languageID
+                       || getuint16 (6 + 12*i + 4) == languageID)
+           &amp;&amp; getuint16 (6 + 12*i + 6) == nameID) {
+         int stringLength = getuint16 (6 + 12*i + 8);
+         int stringOffset = stringStorageOffset + getuint16 (6 + 12*i + 10);
+
+         return new String (data, stringOffset, stringLength, charset); }}
+
+    return null;
+  }
+
+
+
+  public class Representation {
+    public int platformID;
+    public int encodingID;
+    public int languageID;
+
+    public Representation (int platformID, int encodingID, int languageID) {
+      this.platformID = platformID;
+      this.encodingID = encodingID;
+      this.languageID = languageID;
+    }
+  }
+
+  public Representation[] getRepresentations (int nameID) {
+   int nameRecordsNumber = getuint16 (2);
+
+   int reps = 0;
+   for (int i = 0; i &lt; nameRecordsNumber; i++) {
+      if (getuint16 (6 + 12*i + 6) == nameID) {
+        reps++; }}
+
+   Representation[] r = new Representation [reps];
+   reps = 0;
+
+   for (int i = 0; i &lt; nameRecordsNumber; i++) {
+      if (getuint16 (6 + 12*i + 6) == nameID) {
+        r [reps++] = new Representation (getuint16 (6 + 12*i + 0),
+                                         getuint16 (6 + 12*i + 2),
+                                         getuint16 (6 + 12*i + 4)); }}
+
+   return r;
+  }
+
+  public boolean checkOrder () {
+    int nameRecordsNumber = getuint16 (2);
+
+    int platformID = -1;
+    int encodingID = -1;
+    int languageID = -1;
+    int nameID = -1;
+
+    for (int i = 0; i &lt; nameRecordsNumber; i++) {
+      int k;
+      k = getuint16 (6 + 12*i + 0);
+      if (k &gt; platformID) {
+        platformID = getuint16 (6 + 12*i + 0);
+        encodingID = getuint16 (6 + 12*i + 2);
+        languageID = getuint16 (6 + 12*i + 4);
+        nameID     = getuint16 (6 + 12*i + 6); }
+      else if (k &lt; platformID) {
+        // System.out.println ("-- platformID " + k);
+        return false; }
+      else {
+        k = getuint16 (6 + 12*i + 2);
+        if (k &gt; encodingID) {
+          encodingID = getuint16 (6 + 12*i + 2);
+          languageID = getuint16 (6 + 12*i + 4);
+          nameID     = getuint16 (6 + 12*i + 6); }
+        else if (k &lt; encodingID) {
+          // System.out.println ("-- encodingID " + platformID + " " + k);
+          return false; }
+        else {
+          k = getuint16 (6 + 12*i + 4);
+          if (k &gt; languageID) {
+            languageID = getuint16 (6 + 12*i + 4);
+            nameID     = getuint16 (6 + 12*i + 6); }
+          else if (k &lt; languageID) {
+            //System.out.println ("-- languageID " + platformID + " " + encodingID + " " + k);
+            return false; }
+          else {
+            k = getuint16 (6 + 12*i + 6);
+            if (k &gt; nameID) {
+              nameID = getuint16 (6 + 12*i + 6); }
+            else {
+              // System.out.println ("-- nameID " + platformID + " " + encodingID + " " + languageID + "  " + k);
+              return false; }}}}}
+
+    return true;
+  }
+
+  <code-include linkend="name.methods"/>
+}
+</code-fragment>
+    </section>
+    

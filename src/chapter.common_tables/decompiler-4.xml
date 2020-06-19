@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="lookuptable.methods">
+  public void featureListTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    for (int i = 0; i &lt; getuint16 (offset); i++) {
+       featureTableToXMLCount (getOffset (offset, 2 + 6*i + 4), counts); }
+  }
+
+  public void featureListTableOffsetToXML (DecompilerConfig conf, int offset,
+                                      int [] counts,
+                                       String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "featureListTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      featureListTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void featureListTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "featureListTable_" + Integer.toHexString (offset));
+      featureListTableToXMLEmit (conf, offset, counts,
+                                "featureListTable", at);
+      counts [offset] = 0; }
+
+    for (int i = 0; i &lt; getuint16 (offset); i++) {
+      featureTableToXML (conf,
+                         getOffset (offset, 2 + 6*i + 4),
+	 	         counts); }
+  }
+
+  public void featureListTableToXMLEmit (DecompilerConfig conf, int offset,
+                                        int[] counts,
+					String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+
+      for (int i = 0; i &lt; getuint16 (offset); i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "id", "id", "CDATA",
+                         "feature_" + i);
+        at.addAttribute ("", "tag", "tag", "CDATA",
+                         Tag.tag2string (getuint32 (offset + 2 + 6*i)));
+
+        featureTableOffsetToXML (conf, getOffset (offset, 2 + 6*i + 4),
+                                 counts, "feature", at); }
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+    

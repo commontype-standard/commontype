@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="base.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    int [] counts = new int [data.length];
+    for (int i = 0; i &lt; counts.length; i++) {
+      counts [i] = 0; }
+
+    // phase 1
+    if (getOffset (4) != 0) {
+      axisTableToXMLCount (getOffset (4), counts); }
+    if (getOffset (6) != 0) {
+      axisTableToXMLCount (getOffset (6), counts); }
+
+    if (conf.pointers == DecompilerConfig.PointersAreShown.never) {
+      for (int i = 0; i &lt; counts.length; i++) {
+        counts [i] = 1; }}
+    if (conf.pointers == DecompilerConfig.PointersAreShown.always) {
+      for (int i = 0; i &lt; counts.length; i++) {
+        counts [i] = 2; }}
+
+    AttributesImpl at;
+
+    int [] version = getTableVersion ();
+    at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
+
+    conf.ch.startElement ("BASE", at); {
+
+      // phase 2
+
+      if (getOffset (4) != 0) {
+        axisTableOffsetToXML (conf, getOffset (4), counts,
+                              "horizontalAxis", new AttributesImpl ()); }
+      if (getOffset (6) != 0) {
+        axisTableOffsetToXML (conf, getOffset (6), counts,
+                              "verticalAxis", new AttributesImpl ()); }
+
+      // phase 3
+      if (getOffset (4) != 0) {
+        axisTableToXML (conf, getOffset (4), counts); }
+      if (getOffset (6) != 0) {
+        axisTableToXML (conf, getOffset (6), counts); }
+
+      conf.ch.endElement ("BASE"); }
+  }
+</code-fragment>
+    </section>
+    

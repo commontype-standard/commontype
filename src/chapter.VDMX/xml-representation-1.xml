@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>??</code-title>
+VDMX =
+  element VDMX {
+    attribute version { text },
+    element ratio {
+      attribute bCharSet { text },
+      attribute xRatio  { text },
+      attribute yStartRatio { text },
+      attribute yEndRatio { text },
+      attribute groupIndex { text }}*,
+
+    element group {
+      attribute groupIndex { text },
+      attribute startsz { text },
+      attribute endsz { text },
+      element rec {
+        attribute yPelHeight { text },
+        attribute yMax { text },
+        attribute yMin { text }}* }*
+  }
+</code-fragment>
+    </section>
+    

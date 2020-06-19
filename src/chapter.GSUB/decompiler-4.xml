@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gsub.toXMLCount_1_2">
+  coverageTableToXMLCount (stOffset + getOffset (stOffset + 2), counts);
+</code-fragment>
+      <code-fragment id="gsub.toXML_1_2">
+  coverageTableToXML (conf, stOffset + getOffset (stOffset + 2), counts);
+</code-fragment>
+      <code-fragment id="gsub.toXMLEmit_1_2">
+    int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int glyphCount = getuint16 (stOffset + 4);
+
+    int [] glyphs = getCoveredGlyphs (coverageOffset);
+
+    for (int i = 0; i &lt; glyphCount; i++) {
+      at = new AttributesImpl ();
+      at.addAttribute ("", "in", "in", "CDATA",
+                       glyphToXML (conf, glyphs [i]));
+      at.addAttribute ("", "out", "out", "CDATA",
+                       glyphToXML (conf, getuint16 (stOffset + 6 + 2*i)));
+      conf.ch.element ("subst", at); }
+</code-fragment>
+    </section>
+    

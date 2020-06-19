@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>It should be clear that many of the values in this table
+          are computed to be used in a very specific algorithm. On the
+          other hand, even is there are 64K ranges (the maximum), a
+          simple binary search will get us there in 16 steps. It seems
+          hardly worthwhile to recover the algorithm that takes best
+          advantage of those values.</para>
+      <para>Instead, we use a basic binary search. The invariant of
+          the loop is: if there is a segment with index s that covers
+          charCode, then min &lt;= s &lt;= max;. This is initially
+          true since min and max are the indices of the first and last
+          segment. Since the segments are disjoint and ordered it
+          remains true across an iteration of the loop. Finally, the
+          loop terminates since max - min is reduced at each
+          iteration.</para>
+      <code-fragment id="cmap_format4"><code-title>Return glyph for 'charCode', using format 4 subtable at 'stOffset'</code-title>
+  { int segCount = getuint16 (stOffset + 6) / 2;
+    int min = 0;
+    int max = segCount - 1;
+
+    while (min &lt;= max) {
+      int s = (min + max) / 2;
+      int startCount = getuint16 (stOffset + 16 + 2*segCount + 2*s);
+      int endCount = getuint16 (stOffset + 14 + 2*s);
+
+      if (charCode &lt; startCount) {
+        max = s - 1; }
+      else if (endCount &lt; charCode) {
+        min = s + 1; }
+      else {
+        <code-include linkend="compute_glyphid"/> }}
+
+    return 0; }
+</code-fragment>
+      <para>Once we have located the segment, we can find the glyph.
+          Note that in the C expression given in the specification,
+          idRangeOffset is a pointer to a 16 bit quantity; since we
+          deal in byte offsets, we need to multiply the increment to
+          that pointer by 2.</para>
+      <code-fragment id="compute_glyphid"><code-title>Return glyph for 'charCode' covered by range 's'</code-title>
+  int idRangeOffset = getuint16 (stOffset + 16 + 6*segCount + 2*s);
+  int idDelta = getint16 (stOffset + 16 + 4*segCount + 2*s);
+
+  if (idRangeOffset == 0) {
+    return (charCode + idDelta) &amp; 0xffff; }
+
+  int offset = stOffset + 16 + 6*segCount + 2*s
+                + idRangeOffset
+                + 2*(charCode - startCount);
+  int glyphIdArrayValue = getuint16 (offset);
+
+  if (glyphIdArrayValue == 0) {
+    return 0; }
+
+  return (glyphIdArrayValue + idDelta) &amp; 0xffff;
+</code-fragment>
+      <code-fragment id="cmap_format4_iterator"><code-title>Enumerate mappings in format 4 subtable at stOffset</code-title>
+  { java.util.TreeMap&lt;Integer, Integer&gt; m
+        = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    int segCount = getuint16 (stOffset + 6) / 2;
+    for (int s = 0; s &lt; segCount; s++) {
+
+      int startCount = getuint16 (stOffset + 16 + 2*segCount + 2*s);
+      int endCount = getuint16 (stOffset + 14 + 2*s);
+      int idRangeOffsetOffset = stOffset + 16 + 6*segCount + 2*s;
+      int idRangeOffset = getuint16 (idRangeOffsetOffset);
+      int idDelta = getint16 (stOffset + 16 + 4*segCount + 2*s);
+
+      for (int c = startCount; c &lt;= endCount; c++) {
+        if (idRangeOffset == 0) {
+          int glyphID = (c + idDelta) &amp; 0xffff;
+          if (glyphID != 0) {
+            if (from &lt;= c &amp;&amp; (c &lt;= to || to == -1)) {
+              m.put (c, glyphID); }}}
+        else {
+          int offset = stOffset + 16 + 6*segCount + 2*s
+                        + idRangeOffset
+                        + 2*(c - startCount);
+          /* offset = offset % 0x10000; */ /* why did we have that ? */
+          int glyphIdArrayValue = getuint16 (offset);
+
+          if (glyphIdArrayValue != 0) {
+            int glyphID = (glyphIdArrayValue + idDelta) &amp; 0xffff;
+            if (glyphID != 0) {
+              if (from &lt;= c &amp;&amp; (c &lt;= to || to == -1)) {
+                m.put (c, glyphID); }}}}}}
+
+     return m; }
+</code-fragment>
+      <code-fragment id="cmap_format4_inv"><code-title>Return character for 'glyphID', using format 4 subtable at stOffset</code-title>
+  { int segCount = getuint16 (stOffset + 6) / 2;
+
+    for (int s = 0; s &lt; segCount; s++) {
+      int startCount = getuint16 (stOffset + 16 + 2*segCount + 2*s);
+      int endCount = getuint16 (stOffset + 14 + 2*s);
+      int idRangeOffsetOffset = stOffset + 16 + 6*segCount + 2*s;
+      int idRangeOffset = getuint16 (idRangeOffsetOffset);
+      int idDelta = getint16 (stOffset + 16 + 4*segCount + 2*s);
+
+      if (idRangeOffset == 0) {
+        int charCode = (glyphID - idDelta) &amp; 0xffff;
+        if (startCount &lt;= charCode &amp;&amp; charCode &lt;= endCount) {
+          return charCode; }}
+      else {
+        int glyphOffset = idRangeOffsetOffset + idRangeOffset;
+        int lastGlyphOffset = glyphOffset + 2 * (endCount - startCount);
+        int charCode = startCount;
+
+        while (glyphOffset &lt;= lastGlyphOffset) {
+          if (glyphID == getuint16 (glyphOffset)) {
+            return charCode; }
+          charCode++;
+          glyphOffset += 2; }}}
+
+    return -1; }
+</code-fragment>
+      <code-fragment id="cmap_format4_inv2"><code-title>Fill 'v' with characters for 'glyphID', using format 4 subtable at stOffset</code-title>
+  { int segCount = getuint16 (stOffset + 6) / 2;
+
+    for (int s = 0; s &lt; segCount; s++) {
+      int startCount = getuint16 (stOffset + 16 + 2*segCount + 2*s);
+      int endCount = getuint16 (stOffset + 14 + 2*s);
+      int idRangeOffsetOffset = stOffset + 16 + 6*segCount + 2*s;
+      int idRangeOffset = getuint16 (idRangeOffsetOffset);
+      int idDelta = getint16 (stOffset + 16 + 4*segCount + 2*s);
+
+      if (idRangeOffset == 0) {
+        int charCode = (glyphID - idDelta) &amp; 0xffff;
+        if (startCount &lt;= charCode &amp;&amp; charCode &lt;= endCount) {
+          v.add (new Integer (charCode)); }}
+      else {
+        int glyphOffset = idRangeOffsetOffset + idRangeOffset;
+        int lastGlyphOffset = glyphOffset + 2 * (endCount - startCount);
+        int charCode = startCount;
+
+        while (glyphOffset &lt;= lastGlyphOffset) {
+          if (glyphID == getuint16 (glyphOffset)) {
+            v.add (new Integer (charCode)); }
+          charCode++;
+          glyphOffset += 2; }}}}
+</code-fragment>
+    </section>
+    

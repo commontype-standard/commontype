@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cff.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    try {
+      makeFontsetRight (); }
+    catch (InvalidFontException e) {}
+
+    conf.ch.startElement ("CFF"); {
+      fontset.toXML (conf.ch);
+      conf.ch.endElement ("CFF"); }
+  }
+</code-fragment>
+    </section>
+    

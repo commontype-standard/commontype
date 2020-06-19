@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="glyf.methods"><code-title>Decompilation methods</code-title>
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+      int numGlyphs = font.maxp.getNumGlyphs ();
+
+      conf.ch.startElement ("glyf");
+
+      for (int gid = 0; gid &lt; numGlyphs; gid++) {
+        AttributesImpl at = new AttributesImpl ();
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
+
+        if (isEmpty (gid)) {
+          conf.ch.element ("empty_glyph", at);
+          continue; }
+
+        int offset = (int) font.loca.getGlyphLocation (gid);
+        int nbContours = getint16 (offset);
+
+        at.addAttribute ("", "xMin", "xMin", "CDATA", "" + getint16 (offset + 2));
+        at.addAttribute ("", "yMin", "yMin", "CDATA", "" + getint16 (offset + 4));
+        at.addAttribute ("", "xMax", "xMax", "CDATA", "" + getint16 (offset + 6));
+        at.addAttribute ("", "yMax", "yMax", "CDATA", "" + getint16 (offset + 8));
+
+        offset += 10;
+
+        if (nbContours &lt; 0) {
+          conf.ch.startElement ("composite_glyph", at);
+          compositeGlyphToXML (conf, offset);
+          conf.ch.endElement ("composite_glyph"); }
+
+        else {
+          conf.ch.startElement ("simple_glyph", at);
+          simpleGlyphToXML (conf, offset, nbContours);
+          conf.ch.endElement ("simple_glyph"); }}
+
+      conf.ch.endElement ("glyf");
+  }
+</code-fragment>
+    </section>
+    

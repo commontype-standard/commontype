@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gsub.methods">
+  private Block singleSubstFormat2FromXML (Element subtable, Element table,
+                                           Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me;
+
+    CoverageTableBlock coverage;
+    Element firstChild = (Element) subtable.getFirstChild ();
+
+    if (firstChild == null) {
+      coverage = emptyCoverage (); }
+    else if (! "coverage".equals (firstChild.getTagName ())) {
+      coverage = coverageFromXML (subtable.getChildNodes (), "in"); }
+    else {
+      coverage = coverageFromXML (firstChild, table, blockCache);
+      subtable.removeChild (firstChild); }
+
+    int[] replacement = new int [coverage.glyphs.length];
+    for (int i = 0; i &lt; replacement.length; i++) {
+      replacement [i] = -1; }
+
+    NodeList children = subtable.getChildNodes ();
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element subst = (Element) children.item (i);
+      int[] in = getGlyphs (subst.getAttribute ("in"));
+      int[] out = getGlyphs (subst.getAttribute ("out"));
+
+      if (in.length != 1) {
+        warning ("subst in singleSubstFormat2 must have 'in' attribute "
+                 + " with exactly 1 glyph"); }
+      if (out.length != 1) {
+        warning ("subst in singleSubstFormat2 must have 'out' attribute "
+                 + " with exactly 1 glyph"); }
+
+      boolean covered = false;
+      for (int j = 0; j &lt; coverage.glyphs.length; j++) {
+        if (in [0] == coverage.glyphs [j]) {
+          replacement [j] = out [0];
+          covered = true;
+          break; }}
+
+      if (covered == false) {
+        warning ("in glyph '" + in [0]
+                 + "' must be covered in singleSubstFormat2"); }}
+
+    for (int j = 0; j &lt; replacement.length; j++) {
+      if (replacement [j] == -1) {
+        warning ("covered glyph " + coverage.glyphs [j]
+                 + " not replaced in singleSubstFormat1"); }}
+
+    me = new Block (6 + 2 * coverage.glyphs.length, 1);
+    me.setuint16 (0, 2);
+    me.setOffset (2, coverage);
+    me.setint16  (4, coverage.glyphs.length);
+
+
+    for (int i = 0; i &lt; replacement.length; i++) {
+      me.setGlyphID (6 + 2*i, replacement [i]); }
+
+    return me;
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="gpos_3"><code-title>Execute GPOS 3 subtable and return</code-title>
+  { int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int firstPos = curGlyph;
+
+    int firstCoverageIndex = getCoverageIndex (gr.glyphAt (firstPos), coverageOffset);
+    if (firstCoverageIndex == -1) {
+      return lookupNotApplied; }
+
+    int secondPos = curGlyph + 1;
+    int secondGlyphID = gr.glyphAt (secondPos);
+
+    while (secondGlyphID != -1
+           &amp;&amp; (   lookupFlagCovers (lookupFlag, secondGlyphID))) {
+      secondPos++;
+      secondGlyphID = gr.glyphAt (secondPos); }
+
+    if (secondGlyphID == -1) {
+      return lookupNotApplied; }
+
+    int secondCoverageIndex = getCoverageIndex (secondGlyphID, coverageOffset);
+    if (secondCoverageIndex == -1) {
+      return lookupNotApplied; }
+
+    int firstAnchorOffset
+         = getOffset (stOffset + 6 + firstCoverageIndex * 4 + 2);
+    int secondAnchorOffset
+         = getOffset (stOffset + 6 + secondCoverageIndex * 4);
+
+    if (firstAnchorOffset == 0 || secondAnchorOffset == 0) {
+       return lookupNotApplied; }
+
+    int[] newPos = mergeAnchors (gr,
+                                 firstPos, stOffset + firstAnchorOffset,
+                                 secondPos, stOffset + secondAnchorOffset);
+
+    if (listener != null) {
+      listener.move (newPos [0], newPos [1]);
+      listener.applyingSubtable (lookupIndex, gr, firstPos, "GPOS", stOffset); }
+
+    return new LookupResult (true, firstPos + 1, 0); }
+</code-fragment>
+    </section>
+    

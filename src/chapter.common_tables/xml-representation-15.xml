@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>deviceTable</code-title>
+  deviceTable =
+    attribute startSize    { text },
+    attribute endSize      { text },
+    attribute deltaFormat  { text },
+    attribute values       { text }
+
+  standaloneDeviceTable =
+    element deviceTable { attribute id { text }, deviceTable }
+
+  deviceTableOffset = attribute name { text } | deviceTable
+</code-fragment>
+    </section>
+    

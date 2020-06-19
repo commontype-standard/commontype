@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <para>When we are given a bunch of simple mappings, we want to
+	build a fairly compact representation. Our strategy will not
+	necessarily yield the smallest representation, but it should
+	come pretty close. We start by building a 256 by 256 matrix of
+	mappings, each row corresponding to a high byte. We normalize
+	each row by computing a delta for it, such that the smallest
+	non-zero entry in the row is delta + 1, and this delta will be
+	the idDelta value for the row. Then find the smallest subset
+	of distinct rows, building the mapping from high byte to
+	row. We then trim each row, removing the initial and final
+	zeros (except for the first row, which apparently must be
+	completely represented).</para>
+      <code-fragment id="cmap.methods"><code-title>Method to compile a format 2 cmap</code-title>
+  private static class SubHeader {
+    int highByte;
+
+    int first;
+    int count;
+    int delta;
+    int glyphIndexArray;
+  }
+
+  private Block format2FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    String singleBytesAtt = t.getAttribute ("singleBytes");
+
+    if (singleBytesAtt != null) {
+      int[] singleBytes = parseIntList (singleBytesAtt);
+      Arrays.sort (singleBytes);
+
+      // initialize the map to 0s
+      int[][] map = new int [256][];
+      int[] singleMap = new int [256];
+      for (int r = 0; r &lt;= 0xff; r++) {
+        singleMap [r] = 0;
+        map [r] = new int [256];
+	for (int c = 0; c &lt;= 0xff; c++) {
+	  map [r][c] = 0; }}
+
+      // fill the map with the requested values
+      NodeList maps = t.getChildNodes ();
+      for (int i = 0; i &lt; maps.getLength (); i++) {
+        Element m = (Element) maps.item (i);
+        int charcode = Integer.decode (m.getAttribute ("code")).intValue ();
+        int glyphid = Integer.decode (m.getAttribute ("glyph")).intValue ();
+	if (charcode &lt;= 0xff &amp;&amp; Arrays.binarySearch (singleBytes, charcode) &gt;= 0) {
+	  singleMap [charcode] = glyphid; }
+        else {
+  	  map [charcode &gt;&gt; 8] [charcode &amp; 0xff] = glyphid; }}
+
+
+      // We need two special subHeaders:
+      // - the first (0) is for single byte characters
+      // - the second (1) is for those high bytes such that no character with
+      //   that high byte is mapped
+      // For the other high bytes, there is no good chance of sharing
+      // the subHeaders, as they are likely to differ either on idDelta
+      // (sharing the same glyphIndexArray fragment) or on idRangeOffset
+
+      int[] subHeaderKeys = new int [256];
+
+      Vector&lt;SubHeader&gt; subHeaders = new Vector&lt;SubHeader&gt; ();
+      Vector&lt;int[]&gt; glyphIndexArrays = new Vector&lt;int[]&gt; ();
+
+      { SubHeader sh = new SubHeader ();
+        sh.highByte = -1;
+        sh.first = 0;
+        sh.count = 256;
+        sh.delta = 0;
+        sh.glyphIndexArray = glyphIndexArrays.size ();
+	subHeaders.add (sh);
+
+	int[] gia = new int [256];
+	for (int singleByte = 0; singleByte &lt;= 0xff; singleByte++) {
+  	  gia [singleByte] = singleMap [singleByte]; }
+        glyphIndexArrays.add (gia); }
+
+      { SubHeader sh = new SubHeader ();
+        sh.highByte = -2;
+        sh.first = 0;
+        sh.count = 0;
+        sh.delta = 0;
+        sh.glyphIndexArray = glyphIndexArrays.size ();
+        subHeaders.add (sh);
+
+	int[] gia = new int [0];
+        glyphIndexArrays.add (gia); }
+
+      for (int firstByte = 0; firstByte &lt;= 0xff; firstByte++) {
+        if (Arrays.binarySearch (singleBytes, firstByte) &gt;= 0) {
+	  subHeaderKeys [firstByte] = 0; }
+	else {
+          int minNonNull = Integer.MAX_VALUE;
+	  for (int lowByte = 0; lowByte &lt;= 0xff; lowByte++) {
+            if (map [firstByte][lowByte] &gt; 0) {
+	      minNonNull = Math.min (map [firstByte][lowByte], minNonNull); }}
+
+	  if (minNonNull == Integer.MAX_VALUE) {
+	    // all entries to 0
+	    subHeaderKeys [firstByte] = 1; }
+	  else {
+            subHeaderKeys [firstByte] = subHeaders.size ();
+
+	    SubHeader sh = new SubHeader ();
+            sh.first = 0;
+            sh.count = 0;
+            sh.delta = minNonNull - 1;
+
+	    sh.first = 0;
+	    while (   sh.first &lt;= 0xff
+                   &amp;&amp; map [firstByte] [sh.first] == 0) {
+	      sh.first++; }
+            sh.count = 0x100 - sh.first;
+	    while (   sh.count &gt; 0
+                   &amp;&amp; map [firstByte] [sh.first + sh.count - 1] == 0) {
+	      sh.count--; }
+
+	    int[] gia = new int [sh.count];
+	    for (int lowByte = sh.first; lowByte &lt; sh.first + sh.count; lowByte++) {
+	      int gid = map [firstByte][lowByte];
+	      gia [lowByte - sh.first] = (gid == 0) ? 0 : (gid - sh.delta); }
+
+
+	    int pos = -1;
+            for (int i = 0; i &lt; glyphIndexArrays.size (); i++) {
+	      if (Arrays.equals (gia, glyphIndexArrays.elementAt (i))) {
+                pos = i;
+                break; }}
+
+	    if (pos == -1) {
+	      sh.glyphIndexArray = glyphIndexArrays.size ();
+	      glyphIndexArrays.add (gia); }
+	    else {
+              sh.glyphIndexArray = pos; }
+
+            subHeaders.add (sh); }}}
+
+      // compute the size of our block
+      int blockSize = 6 + 2*256 + 8*subHeaders.size ();
+      int[] giaOffsets = new int [glyphIndexArrays.size ()];
+      int kk = 0;
+      for (int[] gia : glyphIndexArrays) {
+        giaOffsets [kk++] = blockSize;
+        blockSize += 2 * gia.length; }
+
+      Block me = new Block (blockSize, 0);
+      me.setuint16 (0, 2);
+      me.setuint16 (2, blockSize);
+      me.setuint16 (4, 0);
+      int o = 6;
+      for (int r = 0; r &lt;= 0xff; r++) {
+        me.setuint16 (o, subHeaderKeys [r] * 8);
+	o += 2; }
+      for (SubHeader sh : subHeaders) {
+        me.setuint16 (o, sh.first);
+        o += 2;
+        me.setuint16 (o, sh.count);
+        o += 2;
+        me.setint16 (o, sh.delta);
+        o += 2;
+        me.setuint16 (o, giaOffsets [sh.glyphIndexArray] - o);
+        o += 2; }
+      for (int[] gia : glyphIndexArrays) {
+        for (int i = 0; i &lt; gia.length; i++) {
+          me.setuint16 (o, gia [i]);
+          o += 2; }}
+
+      return me; }
+
+    // the explicit representation
+    NodeList children = t.getChildNodes ();
+    int[] subHeaderKeys = new int [256];
+    int subHeadersCount = children.getLength () - 1;
+    SubHeader[] subHeaders = new SubHeader [subHeadersCount];
+    for (int c = 0; c &lt; subHeadersCount; c++) {
+      Element e = (Element) children.item (c);
+      SubHeader sh = new SubHeader ();
+      sh.first = Integer.decode (e.getAttribute ("firstCode")).intValue ();
+      sh.count = Integer.decode (e.getAttribute ("entryCount")).intValue ();
+      sh.delta = Integer.decode (e.getAttribute ("idDelta")).intValue ();
+      sh.glyphIndexArray = Integer.decode (e.getAttribute ("idRangeOffset")).intValue ();
+      subHeaders [c] = sh;
+
+      int[] mappedFrom = parseIntList (e.getAttribute ("subHeaderKeys"));
+      for (int i = 0; i &lt; mappedFrom.length; i++) {
+        subHeaderKeys [mappedFrom [i]] = c;}}
+
+    Element e = (Element) (children.item (subHeadersCount));
+    int[] glyphIndexArray = parseIntList (e.getAttribute ("v"));
+
+    int giaStart = 6 + 512 + 8*subHeadersCount;
+    int blockSize = giaStart + 2*glyphIndexArray.length;
+    Block me = new Block (blockSize, 0);
+    me.setuint16 (0, 2);
+    me.setuint16 (2, blockSize);
+    me.setuint16 (4, language);
+    int o = 6;
+    for (int i = 0; i &lt; 256; i++) {
+      me.setuint16 (o, subHeaderKeys [i] * 8);
+      o += 2; }
+    for (int c = 0; c &lt; subHeadersCount; c++) {
+      SubHeader sh = subHeaders [c];
+      me.setuint16 (o, sh.first);
+      o += 2;
+      me.setuint16 (o, sh.count);
+      o += 2;
+      me.setint16 (o, sh.delta);
+      o += 2;
+      me.setuint16 (o, giaStart + 2*sh.glyphIndexArray - o);
+      o += 2; }
+    for (int i = 0; i &lt; glyphIndexArray.length; i++) {
+      me.setuint16 (o, glyphIndexArray [i]);
+      o += 2; }
+
+    return me;
+  }
+
+
+</code-fragment>
+    </section>
+    

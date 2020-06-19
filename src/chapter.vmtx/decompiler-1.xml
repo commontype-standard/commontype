@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="vmtx.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    AttributesImpl at;
+
+    conf.ch.startElement ("vmtx"); {
+      int offset = 0;
+      int gid = 0;
+      int numberOfVMetrics = font.vhea.getNumberOfVMetrics ();
+      int numTsb = font.maxp.getNumGlyphs () - numberOfVMetrics;
+
+      for (int i = 0; i &lt; numberOfVMetrics; i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
+        gid++;
+        at.addAttribute ("", "adv", "adv", "CDATA", "" + getint16 (offset));
+        offset += 2;
+        at.addAttribute ("", "tsb", "tsb", "CDATA", "" + getint16 (offset));
+        offset += 2;
+        conf.ch.element ("vMetric", at); }
+
+      for (int i = 0; i &lt; numTsb; i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
+        gid++;
+        at.addAttribute ("", "tsb", "tsb", "CDATA", "" + getint16 (offset));
+        offset += 2;
+        conf.ch.element ("tsb", at); }
+
+      conf.ch.endElement ("vmtx"); }
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>GSUB lookup types</code-title>
+  GSUBlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "1" | "singleSubst" },
+    element singleSubst { singleSubstTableOffset }*
+
+  GSUBlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "2" | "multipleSubst" },
+    element multipleSubst { multipleSubstTableOffset }*
+
+  GSUBlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "3" | "alternateSubst" },
+    element alternateSubst { alternateSubstTableOffset }*
+
+  GSUBlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "4" | "ligatureSubst" },
+    element ligatureSubst { ligatureSubstTableOffset }*
+
+  GSUBlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "5" | "contextual" },
+    element contextual { contextualTableOffset }*
+
+  GSUBlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "6" | "chainingContextual" },
+    element chainingContextual { chainingContextualTableOffset }*
+
+  GSUBlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "7" | "extensionSubst" },
+    element extensionSubst { extensionTableOffset }*
+</code-fragment>
+    </section>
+  

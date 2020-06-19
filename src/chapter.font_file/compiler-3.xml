@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="table.methods"><code-title>Decompilation methods</code-title>
+  protected String glyphToXML (DecompilerConfig conf, int gid) {
+    if (conf.glyphNames != null) {
+      return conf.glyphNames [gid]; }
+    else {
+      return "" + gid; }
+  }
+
+  protected void glyphToXML (DecompilerConfig conf, StringBuilder s, int gid) {
+    if (s.length () != 0) {
+      s.append (' '); }
+    if (conf.glyphNames != null) {
+      s.append (conf.glyphNames [gid]); }
+    else {
+      s.append (gid); }
+  }
+</code-fragment>
+    </section>
+    

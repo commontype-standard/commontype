@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Relax Schema for glyf table</code-title>
+glyf =
+  element glyf {
+    ( simple_glyph | empty_glyph | composite_glyph )*
+  }
+
+empty_glyph =
+  element empty_glyph {
+    attribute gid { text } }
+
+glyph_attributes =
+  attribute gid { text },
+  attribute xMin { text },
+  attribute yMin { text },
+  attribute xMax { text },
+  attribute yMax { text }
+
+</code-fragment>
+    </section>
+    

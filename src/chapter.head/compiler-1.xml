@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="head.methods">
+  public void fromXML (Element head)
+      throws InvalidFontException, UnsupportedFontException {
+
+    data = new byte [54];
+
+    { int major = Integer.decode (head.getAttribute ("major")).intValue ();
+      int minor = Integer.decode (head.getAttribute ("minor")).intValue ();
+      setTableVersion (major, minor); }
+
+    NodeList children = head.getChildNodes ();
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element e = (Element) children.item (i);
+
+      if ("fontRevision".equals (e.getTagName ())) {
+        int major = Integer.decode (e.getAttribute ("major")).intValue ();
+        int minor = Integer.decode (e.getAttribute ("minor")).intValue ();
+        setFontRevision (major, minor); }
+
+      else if ("flags".equals (e.getTagName ())) {
+        Flags flags = new Flags ();
+        flags.baseline_at_0
+           = "yes".equals (e.getAttribute ("baseline_at_0"));
+        flags.lsb_at_0
+           = "yes".equals (e.getAttribute ("lsb_at_0"));
+        flags.instructions_vary_with_point_size
+           = "yes".equals (e.getAttribute ("instructions_vary_with_point_size"));
+        flags.use_integral_ppem
+           = "yes".equals (e.getAttribute ("use_integral_ppem"));
+        flags.instructions_alter_advance_width
+           = "yes".equals (e.getAttribute ("instructions_alter_advance_width"));
+        flags.lossless
+           = "yes".equals (e.getAttribute ("lossless"));
+        flags.converted
+           = "yes".equals (e.getAttribute ("converted"));
+        flags.optimized_for_cleartype
+           = "yes".equals (e.getAttribute ("optimized_for_cleartype"));
+        setFlags (flags); }
+
+      else if ("unitsPerEm".equals (e.getTagName ())) {
+        int upem = Integer.decode (e.getAttribute ("v")).intValue ();
+        setUnitsPerEm (upem); }
+
+      else if ("dates".equals (e.getTagName ())) {
+        java.text.DateFormat df
+          = java.text.DateFormat.getDateTimeInstance (java.text.DateFormat.LONG,
+                                                      java.text.DateFormat.LONG);
+        try {
+          java.util.Date created = df.parse (e.getAttribute ("created"));
+          setCreated (created); }
+        catch (java.text.ParseException ex) {
+          throw new InvalidFontException ("incorrect date/time for head.created"); }
+
+        try {
+	  java.util.Date modified = df.parse (e.getAttribute ("modified"));
+	  setModified (modified); }
+        catch (java.text.ParseException ex) {
+          throw new InvalidFontException ("incorrect date/time for head.modified"); }}
+
+
+      else if ("bbox".equals (e.getTagName ())) {
+        Bbox b = new Bbox ();
+        b.xMin = Integer.decode (e.getAttribute ("xMin")).intValue ();
+        b.yMin = Integer.decode (e.getAttribute ("yMin")).intValue ();
+        b.xMax = Integer.decode (e.getAttribute ("xMax")).intValue ();
+        b.yMax = Integer.decode (e.getAttribute ("yMax")).intValue ();
+        setBbox (b); }
+
+      else if ("macStyle".equals (e.getTagName ())) {
+        MacStyle macStyle = new MacStyle ();
+        macStyle.bold = "yes".equals (e.getAttribute ("bold"));
+        macStyle.italic = "yes".equals (e.getAttribute ("italic"));
+        setMacStyle (macStyle); }
+
+      else if ("lowestRecPPEM".equals (e.getTagName ())) {
+        int rpem = Integer.decode (e.getAttribute ("v")).intValue ();
+        setLowestRecPPEM (rpem); }
+
+      else if ("fontDirectionHint".equals (e.getTagName ())) {
+        int hint = Integer.decode (e.getAttribute ("v")).intValue ();
+        setFontDirectionHint (hint); }
+
+      else if ("indexToLocFormat".equals (e.getTagName ())) {
+        int o = Integer.decode (e.getAttribute ("v")).intValue ();
+        setIndexToLocFormat (o); }}
+
+      setuint32 (12, 0x5f0f3cf5); // magicNumber
+//    setint16 (52, 0); // glyphDataFormat
+  }
+</code-fragment>
+    </section>
+    

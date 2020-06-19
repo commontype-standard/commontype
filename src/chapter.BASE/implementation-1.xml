@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Base"><code-title>BASE Class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Base extends LayoutTable {
+
+  public Base () {
+    super (Tag.BASE, null);
+  }
+
+  public Base (Font font) {
+    super (Tag.BASE, font);
+  }
+
+  <code-include linkend="base.methods"/>
+
+  public int[] getTableVersion () {
+    return getFixed (0);
+  }
+
+}
+</code-fragment>
+    </section>
+  

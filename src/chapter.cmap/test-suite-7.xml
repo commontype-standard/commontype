@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap10_font1: basic test</title>
+        <para>Let's start with a simple case:</para>
+        <aots:test-font id="cmap10_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="10">
+              <map code="0x109423" glyph="26"/>
+              <map code="0x109424" glyph="27"/>
+              <map code="0x109425" glyph="32"/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap10_test1" font="cmap10_font1" platformID="3" encodingID="1" inputs="0,  1, 0x9232, 0x109422, 0x109423, 0x109424, 0x109425, 0xffff" outputs="0,  0,      0,        0,       26,       27,       32,      0"/>
+      </section>
+      <section>
+        <title>cmap10_font2: boundary case entrycount=0 test</title>
+        <para>Here we test the case where entryCount is 0:</para>
+        <aots:test-font id="cmap10_font2">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="10"/>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap10_test2" font="cmap10_font2" platformID="3" encodingID="1" inputs="0,  1, 33, 34, 35, 36, 37, 0xffff" outputs="0,  0,  0,  0,  0,  0,  0,      0"/>
+      </section>
+    </section>
+  

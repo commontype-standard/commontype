@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="base.methods">
+  public void baseValuesTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    for (int i = 0; i &lt; getuint16 (offset + 2); i++) {
+      baseCoordTableToXMLCount (getOffset (offset, 4 + 2*i), counts); }
+  }
+
+  public void baseValuesTableOffsetToXML (DecompilerConfig conf, int offset,
+                                          int [] counts,
+                                          String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "baseValuesTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      baseValuesTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void baseValuesTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "baseValuesTable_" + Integer.toHexString (offset));
+      baseValuesTableToXMLEmit (conf, offset, counts,
+                                "baseValuesTable", at);
+      counts [offset] = 0; }
+
+    for (int i = 0; i &lt; getuint16 (offset + 2); i++) {
+      baseCoordTableToXML (conf,
+                           getOffset (offset, 4 + 2*i),
+			   counts); }
+  }
+
+  public void baseValuesTableToXMLEmit (DecompilerConfig conf, int offset,
+                                        int[] counts,
+                                        String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    at.addAttribute ("", "defaultIndex", "defaultIndex", "CDATA",
+                     "" + getuint16 (offset));
+    conf.ch.startElement (element, at); {
+      for (int i = 0; i &lt; getuint16 (offset + 2); i++) {
+        at = new AttributesImpl ();
+        baseCoordTableOffsetToXML (conf, getOffset (offset, 4 + 2*i),
+                                   counts, "baseCoord", at); }
+
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+  

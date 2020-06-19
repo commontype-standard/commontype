@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>subLookups</code-title>
+  subLookups =
+    element apply {
+      attribute pos { text },
+      attribute lookup { text }
+    }*
+</code-fragment>
+    </section>
+    

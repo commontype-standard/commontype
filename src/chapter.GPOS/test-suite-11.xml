@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>gpos9_font1: basic tests</title>
+        <para>In this series, we have a simple adjustment of one of
+            the Value fields.</para>
+        <para>Our first test adjusts the xPlacement of glyphs 18 and 20 by
+            -200.</para>
+        <aots:test-font id="gpos9_font1">
+          <base-font name="base.otf"/>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="9">
+                <extensionPos format="1">
+                  <ext type="1" name="singlepos"/>
+                </extensionPos>
+              </lookup>
+            </lookupList>
+            <singlePosTable id="singlepos" format="1">
+              <coverage glyphs="18 20" format="any"/>
+              <value xPlacement="-200"/>
+            </singlePosTable>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos9_test1" font="gpos9_font1" inputs="17,   18,   19,   20,   21" xdeltas=" 0, -200,    0, -200,    0" ydeltas=" 0,    0,    0,    0,    0"/>
+        <para>Let’s have multiple subtables.</para>
+        <aots:test-font id="gpos9_font2">
+          <base-font name="base.otf"/>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="9">
+                <extensionPos format="1">
+                  <ext type="1" name="singlepos"/>
+                </extensionPos>
+                <extensionPos format="1">
+                  <ext type="1" name="singlepos2"/>
+                </extensionPos>
+              </lookup>
+            </lookupList>
+            <singlePosTable id="singlepos" format="1">
+              <coverage glyphs="18 20" format="any"/>
+              <value xPlacement="-200"/>
+            </singlePosTable>
+            <singlePosTable id="singlepos2" format="1">
+              <coverage glyphs="19 21" format="any"/>
+              <value xPlacement="-300"/>
+            </singlePosTable>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos9_test2" font="gpos9_font2" inputs="17,   18,   19,   20,   21,   17" xdeltas=" 0, -200, -300, -200, -300,    0" ydeltas=" 0,    0,    0,    0,    0,    0"/>
+      </section>
+    </section>
+  

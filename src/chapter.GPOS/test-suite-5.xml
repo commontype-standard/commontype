@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>gpos2_2_font1: basic tests</title>
+        <para>Here is a simple test to start with:</para>
+        <aots:test-font id="gpos2_2_font1">
+          <base-font name="base.otf"/>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="2">
+                <pairPos format="2">
+                  <coverage glyphs="18" format="any"/>
+                  <classdef format="any">
+                    <class classID="1" glyphs="18"/>
+                  </classdef>
+                  <classdef format="any">
+                    <class classID="1" glyphs="19"/>
+                  </classdef>
+                  <pos2 in="1 1">
+                    <value1 xPlacement="-200"/>
+                    <value2 yPlacement="-100"/>
+                  </pos2>
+                </pairPos>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos2_2_test1a" font="gpos2_2_font1" inputs="17,   18,   19,   17,   18,   20" xdeltas=" 0, -200,    0,    0,    0,    0" ydeltas=" 0,    0, -100,    0,    0,    0"/>
+      </section>
+      <section>
+        <title>LookupFlag</title>
+        <para>Our second test exercises LookupFlag, which captures
+          glyph 18:</para>
+        <aots:test-font id="gpos2_2_font2">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="18"/>
+            </glyphClassDef>
+          </GDEF>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" ignoreBaseGlyphs="yes" type="2">
+                <pairPos format="2">
+                  <coverage glyphs="19" format="any"/>
+                  <classdef format="any">
+                    <class classID="1" glyphs="19"/>
+                  </classdef>
+                  <classdef format="any">
+                    <class classID="1" glyphs="20"/>
+                  </classdef>
+                  <pos2 in="1 1">
+                    <value1 xPlacement="-200"/>
+                    <value2 yPlacement="-100"/>
+                  </pos2>
+                </pairPos>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos2_2_test2" font="gpos2_2_font2" inputs="17,   19,   20,   17,   19,   18,   20,    17" xdeltas=" 0, -200,    0,    0, -200,    0,    0,     0" ydeltas=" 0,    0, -100,    0,    0,    0, -100,     0"/>
+        <para>Here, we verify that the xAdvance is correctly applied
+          to the glyphs captured by LookupFlag.</para>
+        <aots:test-font id="gpos2_2_font3">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="18"/>
+            </glyphClassDef>
+          </GDEF>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" ignoreBaseGlyphs="yes" type="2">
+                <pairPos format="2">
+                  <coverage glyphs="19" format="any"/>
+                  <classdef format="any">
+                    <class classID="1" glyphs="19"/>
+                  </classdef>
+                  <classdef format="any">
+                    <class classID="1" glyphs="20"/>
+                  </classdef>
+                  <pos2 in="1 1">
+                    <value1 xAdvance="-200"/>
+                    <value2 yPlacement="-100"/>
+                  </pos2>
+                </pairPos>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos2_2_test3" font="gpos2_2_font3" inputs="17,   19,   20,   17,   19,   18,  20,    17" xdeltas=" 0,    0, -200, -200, -200, -400, -400,  -400" ydeltas=" 0,    0, -100,    0,    0,    0, -100,    0"/>
+      </section>
+      <section>
+        <title>gpos2_2_font4,5: next glyph to process</title>
+        <para>Our next test verifies that the proper glyph is
+          processed after a type 2 lookup is applied. The lookup
+          matches the sequence 18 18, and both glyphs have a non-null
+          ValueFormat. Given the sequence 18 18 18 18, only the first
+          and third glyphs should be moved.</para>
+        <aots:test-font id="gpos2_2_font4">
+          <base-font name="base.otf"/>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="2">
+                <pairPos format="2">
+                  <coverage glyphs="18" format="any"/>
+                  <classdef format="any">
+                    <class classID="1" glyphs="18"/>
+                  </classdef>
+                  <classdef format="any">
+                    <class classID="1" glyphs="18"/>
+                  </classdef>
+                  <pos2 in="1 1">
+                    <value1 xPlacement="-100"/>
+                    <value2 yPlacement="-100"/>
+                  </pos2>
+                </pairPos>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos2_2_test4" font="gpos2_2_font4" inputs="  18,   18,   18,   18" xdeltas="-100,    0, -100,    0" ydeltas="   0, -100,    0, -100"/>
+        <para>Here we test the special case where ValueFormat2 is 0,
+            in which case the next glyph to process is the second
+            glyph.</para>
+        <aots:test-font id="gpos2_2_font5">
+          <base-font name="base.otf"/>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="2">
+                <pairPos format="2">
+                  <coverage glyphs="18" format="any"/>
+                  <classdef format="any">
+                    <class classID="1" glyphs="18"/>
+                  </classdef>
+                  <classdef format="any">
+                    <class classID="1" glyphs="18"/>
+                  </classdef>
+                  <pos2 in="1 1">
+                    <value1 xPlacement="-100"/>
+                    <value2/>
+                  </pos2>
+                </pairPos>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos2_2_test5" font="gpos2_2_font5" inputs="  18,   18,   18,   18" xdeltas="-100, -100, -100,    0" ydeltas="   0,    0,    0,    0"/>
+      </section>
+    </section>
+  

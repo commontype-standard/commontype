@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Both subtable formats start with the same field, the uint16
+          PosFormat, so that we can distinguish them.</para>
+      <code-fragment id="gpos_1"><code-title>Execute GPOS 1 subtable and return</code-title>
+  { int posFormat = getuint16 (stOffset);
+    switch (posFormat) {
+      case 1: { <code-include linkend="gpos_1_1"/> }
+      case 2: { <code-include linkend="gpos_1_2"/> }
+      default:
+        throw new InvalidFontException ("GPOS 1/-" + posFormat + "-"); }}
+</code-fragment>
+    </section>
+  

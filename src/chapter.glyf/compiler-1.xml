@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="glyf.methods"><code-title>Compilation methods</code-title>
+  public void fromXML (Element glyf)
+      throws InvalidFontException, UnsupportedFontException {
+
+      NodeList l = glyf.getChildNodes ();
+
+      int glyfSize = 0;
+
+      Block glyphs [] = new Block [l.getLength ()];
+
+      for (int gid = 0; gid &lt; l.getLength (); gid++) {
+        Element e = (Element) l.item (gid);
+        if ("simple_glyph".equals (e.getTagName ())) {
+          glyphs [gid] = simpleGlyphFromXML (e); }
+        else if ("composite_glyph".equals (e.getTagName ())) {
+          glyphs [gid] = compositeGlyphFromXML (e); }
+        else if ("empty_glyph".equals (e.getTagName ())) {
+          glyphs [gid] = new Block (0, 0); }
+        glyfSize += glyphs [gid].content.length; }
+
+      data = new byte [glyfSize];
+
+      boolean shortLoca;
+
+      if (font.loca == null) {
+        font.loca = new Loca (font);
+        font.tables.put (Tag.loca, font.loca); }
+
+      if (glyfSize / 2 &lt; 65536) {
+        shortLoca = true;
+        font.head.setIndexToLocFormat (0);
+        font.loca.data = new byte [(l.getLength () + 1) * 2]; }
+      else {
+        shortLoca = false;
+        font.head.setIndexToLocFormat (1);
+        font.loca.data = new byte [(l.getLength () + 1) * 4]; }
+
+      int offset = 0;
+
+      for (int gid = 0; gid &lt; l.getLength (); gid++) {
+        Element e = (Element) l.item (gid);
+
+        if (shortLoca) {
+          font.loca.setuint16 (2 * gid, offset / 2); }
+        else {
+          font.loca.setuint32 (4 * gid, offset); }
+
+        int s = glyphs [gid].content.length;
+        System.arraycopy (glyphs [gid].content, 0,
+                         data, offset, s);
+        offset += s; }
+
+      if (shortLoca) {
+        font.loca.setuint16 (2 * l.getLength (), offset / 2); }
+      else {
+        font.loca.setuint32 (4 * l.getLength (), offset); }
+  }
+</code-fragment>
+    </section>
+    

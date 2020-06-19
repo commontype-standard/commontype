@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gsub.methods">
+  private Block alternateSubstFormat1FromXML (Element subtable, Element table,
+                                              Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me;
+
+    CoverageTableBlock coverage;
+    Element firstChild = (Element) subtable.getFirstChild ();
+
+    if (firstChild == null) {
+      coverage = emptyCoverage (); }
+    else if ("subst".equals (firstChild.getTagName ())) {
+      coverage = coverageFromXML (subtable.getChildNodes (), "in"); }
+    else {
+      coverage = coverageFromXML (firstChild, table, blockCache);
+      subtable.removeChild (firstChild); }
+
+
+    int[][] alternates = new int [coverage.glyphs.length][];
+    for (int i = 0; i &lt; alternates.length; i++) {
+      alternates [i] = new int [0]; }
+
+    NodeList children = subtable.getChildNodes ();
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element subst = (Element) children.item (i);
+      int[] in = getGlyphs (subst.getAttribute ("in"));
+      int[] out = getGlyphs (subst.getAttribute ("out"));
+
+      if (in.length != 1) {
+        warning ("subst in alternateSubstFormat1 must have 'in' attribute "
+                 + " with exactly 1 glyph"); }
+
+      if (out.length == 0) {
+        warning ("subst in alternateSubstFormat1 must have 'out' attribute "
+                 + " with at least 1 glyph"); }
+
+      boolean covered = false;
+      for (int j = 0; j &lt; coverage.glyphs.length; j++) {
+        if (in [0] == coverage.glyphs [j]) {
+          alternates [j] = out;
+          covered = true;
+          break; }}
+
+      if (covered == false) {
+        warning ("in glyph '" + in [0]
+                 + "' must be covered in alternateSubstFormat1"); }}
+
+    me = new Block (6 + 2 * coverage.glyphs.length, 1 + coverage.glyphs.length);
+    me.setuint16 (0, 1);
+    me.setOffset (2, coverage);
+    me.setint16  (4, coverage.glyphs.length);
+
+    for (int i = 0; i &lt; coverage.glyphs.length; i++) {
+      Block alternateSetTable = new Block (2 + 2 * alternates [i].length, 0);
+      alternateSetTable.setuint16 (0, alternates [i].length);
+      for (int g = 0; g &lt; alternates [i].length; g++) {
+        alternateSetTable.setGlyphID (2 + 2*g, alternates [i][g]); }
+      me.setOffset (6 + 2*i, alternateSetTable); }
+
+    return me;
+  }
+</code-fragment>
+    </section>
+    

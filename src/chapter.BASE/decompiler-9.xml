@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="baseCoordTableToXMLEmit.cases">
+  case 1: {
+    at.addAttribute ("", "coord", "coord", "CDATA", "" + getint16 (offset + 2));
+    conf.ch.element (element, at);
+    break; }
+</code-fragment>
+    </section>
+  

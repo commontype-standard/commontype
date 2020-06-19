@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Relax Schema for glyf table</code-title>
+composite_glyph =
+  element composite_glyph {
+    glyph_attributes,
+    element component {
+      attribute flags { text },
+      attribute gid { text },
+      attribute arg1 { text },
+      attribute arg2 { text },
+      component_scale? } +,
+
+    element instructions {
+      attribute opcodes { text }} ?
+  }
+
+component_scale |=
+   attribute scale { text ? }
+
+component_scale |=
+   attribute xscale { text ? },
+   attribute yscale { text ? }
+
+component_scale |=
+   attribute xscale { text ? },
+   attribute scale01 { text ? },
+   attribute scale10 { text ? },
+   attribute yscale { text ? }
+
+</code-fragment>
+    </section>
+    

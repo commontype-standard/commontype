@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="chainingLookup.toXMLCount_1">
+  /* nothing */
+</code-fragment>
+      <code-fragment id="chainingLookup.toXML_1">
+  /* nothing */
+</code-fragment>
+      <code-fragment id="chainingLookup.toXMLEmit_1">
+    int ruleSetCount = getuint16 (stOffset + 4);
+    int[] coveredGlyphs = getCoveredGlyphs (stOffset + getOffset (stOffset + 2));
+
+    for (int ruleSet = 0; ruleSet &lt; ruleSetCount; ruleSet++) {
+      int ruleSetOffset = stOffset + getOffset (stOffset + 6 + 2*ruleSet);
+      int ruleCount = getuint16 (ruleSetOffset);
+
+      for (int rule = 0; rule &lt; ruleCount; rule++) {
+        int o = ruleSetOffset + getOffset (ruleSetOffset + 2 + 2*rule);
+        at = new AttributesImpl ();
+
+        { int backGlyphCount = getuint16 (o);
+          o += 2;
+          o += (backGlyphCount - 1) * 2;
+          StringBuilder s = new StringBuilder ();
+          for (int g = 0; g &lt; backGlyphCount; g++) {
+            glyphToXML (conf, s, getuint16 (o));
+            o -= 2; }
+          o += (backGlyphCount + 1) * 2;
+          at.addAttribute ("", "back", "back", "CDATA", s.toString ()); }
+
+        { int inGlyphCount = getuint16 (o);
+          o += 2;
+          StringBuilder s = new StringBuilder ();
+          glyphToXML (conf, s, coveredGlyphs [ruleSet]);
+          for (int g = 0; g &lt; inGlyphCount - 1; g++) {
+            glyphToXML (conf, s, getuint16 (o));
+            o += 2; }
+          at.addAttribute ("", "in", "in", "CDATA", s.toString ()); }
+
+        { int aheadGlyphCount = getuint16 (o);
+          o += 2;
+	  StringBuilder s = new StringBuilder ();
+          for (int g = 0; g &lt; aheadGlyphCount; g++) {
+	    glyphToXML (conf, s, getuint16 (o));
+            o += 2; }
+          at.addAttribute ("", "ahead", "ahead", "CDATA", s.toString ()); }
+
+        conf.ch.startElement ("pattern", at); {
+          int subCount = getuint16 (o);
+          o += 2;
+          subLookupsToXML (conf, subCount, o);
+          conf.ch.endElement ("pattern"); }}}
+</code-fragment>
+    </section>
+    

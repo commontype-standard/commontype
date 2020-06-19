@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>We use a binary search on the RangeRecords to find the
+          coverage index of a glyph. The loop invariant is that a
+          glyph is covered iff the index of the RangeRecord in which
+          it occurs is between min and max (included).</para>
+      <code-fragment id="LayoutTable_getCoverageIndex2"><code-title>Return the coverage index for a format 2 Coverage table</code-title>
+  { int min = 0;
+    int max = getuint16 (coverageOffset + 2) - 1;
+
+    while (min &lt;= max) {
+      int mid = (min + max) / 2;
+      int start = getGlyphID (coverageOffset + 4 + 6*mid);
+      int stop = getGlyphID (coverageOffset + 4 + 6*mid + 2);
+
+      if (glyphID &lt; start) {
+        max = mid - 1; }
+      else if (stop &lt; glyphID) {
+        min = mid + 1; }
+      else {
+        return getuint16 (coverageOffset + 4 + 6*mid + 4)
+                 + (glyphID - start); }}
+
+    return -1; }
+</code-fragment>
+      <para>We can compute the number of covered glyphs by first
+          computing the coverage index of the last covered
+          glyph.</para>
+      <code-fragment id="LayoutTable_getCoveredGlyphs2"><code-title>Return the glyphs covered by a format 2 Coverage table</code-title>
+  { int rangeCount = getuint16 (coverageOffset + 2);
+
+    int lastRangeStart = getGlyphID (coverageOffset + 4 + 6*(rangeCount-1));
+    int lastRangeEnd = getGlyphID (coverageOffset + 4 + 6*(rangeCount-1) + 2);
+    int lastRangeStartCI = getuint16 (coverageOffset + 4 + 6*(rangeCount-1) + 4);
+    int glyphCount = lastRangeStartCI + (lastRangeEnd - lastRangeStart) + 1;
+
+    int[] glyphs = new int [glyphCount];
+
+    for (int r = 0; r &lt; rangeCount; r++) {
+      int start = getGlyphID (coverageOffset + 4 + 6*r);
+      int stop = getGlyphID (coverageOffset + 4 + 6*r + 2);
+      int ci = getuint16 (coverageOffset + 4 + 6*r + 4);
+      for (int g = start; g &lt;= stop; g++) {
+        glyphs [ci] = g;
+        ci++; }}
+
+    return glyphs; }
+</code-fragment>
+    </section>
+  

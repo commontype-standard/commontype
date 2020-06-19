@@ -146,7 +146,8 @@
             <row>
               <entry>2</entry>
               <entry>ISO [deprecated]</entry>
-              <entry><link linkend="name_enc2">ISO
+              <entry>
+                <link linkend="name_enc2">ISO
                     encoding</link> [deprecated]</entry>
               <entry>None</entry>
             </row>
@@ -530,9 +531,12 @@
               <entry>Greek</entry>
               <entry>(0408; ELL)</entry>
               <entry>1253</entry>
-              <entry>737 or 869<footnote><para>737 is default, but 869 (IBM Greek) will be
+              <entry>737 or 869<footnote>
+                  <para>737 is default, but 869 (IBM Greek) will be
                       available at setup time through the selection of
-                      a bogus Greek locale in Custom Setup.</para></footnote></entry>
+                      a bogus Greek locale in Custom Setup.</para>
+                </footnote>
+              </entry>
             </row>
             <row>
               <entry>Hungarian</entry>
@@ -1944,13 +1948,17 @@
           strings.</para>
       <para>Examples of how these strings might be defined:</para>
       <para>0. The copyright string from the font vendor. <emphasis>©
-          Copyright the Monotype Corporation plc, 1990</emphasis></para>
+          Copyright the Monotype Corporation plc, 1990</emphasis>
+      </para>
       <para>1. The name the user sees. <emphasis>Times New
-            Roman</emphasis></para>
-      <para>2. The name of the style. <emphasis>Bold</emphasis></para>
+            Roman</emphasis>
+      </para>
+      <para>2. The name of the style. <emphasis>Bold</emphasis>
+      </para>
       <para>3. A unique identifier that applications can store to
           identify the font being used. Monotype: <emphasis>Times New Roman
-          Bold:1990</emphasis></para>
+          Bold:1990</emphasis>
+      </para>
       <para>4. The complete, hopefully unique, human readable name
           of the font. This name is used by Windows. <emphasis>Times
           New Roman Bold</emphasis>. (If this were the Microsoft
@@ -1958,26 +1966,36 @@
           would be <emphasis>TimesNewRoman-Bold</emphasis>, as
           described in the definition of name ID 4 above.)</para>
       <para>5. Release and version information from the font vendor.
-          <emphasis>Version 1.00 June 1, 1990, initial release</emphasis></para>
+          <emphasis>Version 1.00 June 1, 1990, initial release</emphasis>
+      </para>
       <para>6. The name the font will be known by on a PostScript
-          printer. <emphasis>TimesNewRoman-Bold</emphasis></para>
+          printer. <emphasis>TimesNewRoman-Bold</emphasis>
+      </para>
       <para>7. Trademark string. <emphasis>Times New Roman is a registered
-          trademark of the Monotype Corporation.</emphasis></para>
+          trademark of the Monotype Corporation.</emphasis>
+      </para>
       <para>8. Manufacturer. <emphasis>Monotype Corporation
-        plc</emphasis></para>
-      <para>9. Designer. <emphasis>Stanley Morison</emphasis></para>
+        plc</emphasis>
+      </para>
+      <para>9. Designer. <emphasis>Stanley Morison</emphasis>
+      </para>
       <para>10. Description. <emphasis>Designed in 1932 for the Times of
           London newspaper. Excellent readability and a narrow overall
-          width, allowing more words per line than most fonts.</emphasis></para>
+          width, allowing more words per line than most fonts.</emphasis>
+      </para>
       <para>11. URL of Vendor.
-          <emphasis>http://www.monotype.com</emphasis></para>
+          <emphasis>http://www.monotype.com</emphasis>
+      </para>
       <para>12. URL of Designer.
-          <emphasis>http://www.monotype.com</emphasis></para>
+          <emphasis>http://www.monotype.com</emphasis>
+      </para>
       <para>13. License Description. <emphasis>This font may be installed on
           all of your machines and printers, but you may not sell or
-          give these fonts to anyone else.</emphasis></para>
+          give these fonts to anyone else.</emphasis>
+      </para>
       <para>14. License Info URL.
-          <emphasis>http://www.monotype.com/license/</emphasis></para>
+          <emphasis>http://www.monotype.com/license/</emphasis>
+      </para>
       <para>15. Reserved. Set to zero.</para>
       <para>16. Preferred Family. No name string
           present, since it is the same as name ID 1 (Font Family
@@ -1989,7 +2007,8 @@
           present, since it is the same as name ID 4 (Full
           name).</para>
       <para>19. Sample text. <emphasis>The quick brown fox jumps over the lazy
-          dog.</emphasis></para>
+          dog.</emphasis>
+      </para>
       <para>20. PostScript CID findfont name. No name string
           present. Thus, the PostScript Name defined by name ID 6
           should be used with the "findfont" invocation for locating
@@ -2021,417 +2040,10 @@
       <para>In the example, string 19 is not set in italic like the
         other strings.</para>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="xml-representation">
-      <title>XML Representation</title>
-      <code-fragment id="schema"><code-title>name table</code-title>
-name =
-  element name {
-    element name-record {
-      attribute platformID { text },
-      attribute encodingID { text },
-      attribute languageID { text },
-      attribute nameID { text },
-      attribute v { text }
-    }*
-  }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="compiler">
-      <title>Compiler</title>
-      <code-fragment id="name.methods">
-  static private void enterName (Block b, int offset, int nameID,
-                                int stringSize, int stringOffset) {
-    b.setuint16 (offset,    3);
-    b.setuint16 (offset+2,  1);
-    b.setuint16 (offset+4,  1033);
-    b.setuint16 (offset+6,  nameID);
-    b.setuint16 (offset+8,  stringSize*2);
-    b.setuint16 (offset+10, stringOffset*2);
-  }
-
-  static public byte[] buildNameTable (String s)
-      throws Exception {
-    int nbEntries = 6;
-    String storage = s + "-RegularVersion1.0";
-    int blockSize = 6 + 12*nbEntries + 2*storage.length ();
-    if (blockSize % 4 != 0) {
-      blockSize = ((blockSize / 4) + 1) * 4; }
-    Block b = new Block (blockSize, 0);
-
-    b.setuint16 (0, 0);
-    b.setuint16 (2, nbEntries);
-    b.setuint16 (4, 6 + 12*nbEntries);
-
-    enterName (b,  6, 1, s.length (), 0);
-    enterName (b, 18, 2, 7, s.length () + 1);
-    enterName (b, 30, 3, s.length (), 0);
-    enterName (b, 42, 4, s.length () + 8, 0);
-    enterName (b, 54, 5, 10, s.length () + 8);
-    enterName (b, 66, 6, s.length () + 8, 0);
-
-    for (int i = 0; i &lt; storage.length(); i++) {
-      b.setuint16 (78 + 2*i, storage.charAt (i)); }
-
-    return b.serialize ();
-  }
-
-
-  public void fromXML (Element name)
-      throws InvalidFontException, UnsupportedFontException {
-    NodeList nl = name.getChildNodes ();
-
-    entries = new java.util.ArrayList &lt;Entry&gt; ();
-
-    for (int i = 0; i &lt; nl.getLength (); i++) {
-      Element oneName = (Element) nl.item (i);
-
-      Entry e = new Entry ();
-      e.platformID = Integer.decode (oneName.getAttribute ("platformID")).intValue ();
-      e.encodingID = Integer.decode (oneName.getAttribute ("encodingID")).intValue ();
-      e.languageID = Integer.decode (oneName.getAttribute ("languageID")).intValue ();
-      e.nameID = Integer.decode (oneName.getAttribute ("nameID")).intValue ();
-
-      String charset = getCharset (e.platformID, e.encodingID);
-
-      try {
-        e.s = oneName.getAttribute ("v").getBytes (charset); }
-
-      catch (java.io.UnsupportedEncodingException ex) {
-        System.err.println ("cannot convert name entry '"
-                            + oneName.getAttribute ("v") + "' to charset '"
-                            + charset + "'");
-        e.s = new byte[] {}; }
-
-      entries.add (e); }
-
-    dataReady = false;
-    expandedReady = true;
-  }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="decompiler">
-      <title>Decompiler</title>
-      <code-fragment id="name.methods">
-  public void toXML (DecompilerConfig conf)
-      throws org.xml.sax.SAXException, UnsupportedFontException {
-
-    AttributesImpl at;
-
-    at = new AttributesImpl ();
-    conf.ch.startElement ("name", at); {
-      int stringOffset = getuint16 (4);
-      for (int i = 0; i &lt; getuint16 (2); i++) {
-        int platformID = getuint16 (6 + 12*i);
-        int encodingID = getuint16 (6 + 12*i + 2);
-        int languageID = getuint16 (6 + 12*i + 4);
-        int nameID     = getuint16 (6 + 12*i + 6);
-        int length     = getuint16 (6 + 12*i + 8);
-        int offset     = getuint16 (6 + 12*i + 10);
-
-        at = new AttributesImpl ();
-        at.addAttribute ("", "platformID", "platformID", "CDATA",
-	                 "" + platformID);
-        at.addAttribute ("", "encodingID", "encodingID", "CDATA",
-	                 "" + encodingID);
-        at.addAttribute ("", "languageID", "languageID", "CDATA",
-	                 "" + languageID);
-        at.addAttribute ("", "nameID", "nameID", "CDATA",
-	                 "" + nameID);
-
-        String charset = getCharset (platformID, encodingID);
-	if (charset == null) {
-          throw new UnsupportedFontException ("name: unsupported encoding ("
-                                + platformID + "/" + encodingID + ")"); }
-
-        try {
-          String v = new String (data, stringOffset + offset, length, charset);
-          at.addAttribute ("", "v", "v", "CDATA", v); }
-        catch (java.io.UnsupportedEncodingException e) {
-          throw new UnsupportedFontException ("name: unsupported encoding ("
-                                + platformID + "/" + encodingID + ")"); }
-
-        conf.ch.element ("name-record", at); }
-      conf.ch.endElement ("name"); }
-  }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="implementation">
-      <title>Implementation</title>
-      <code-fragment package="com.adobe.aots.CommonType" class="Name"><code-title>Name class</code-title>
-package com.adobe.aots.CommonType;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import org.xml.sax.helpers.AttributesImpl;
-
-import com.adobe.aots.util.ContentHandlerPlus;
-
-public class Name extends Table {
-
-  public Name () {
-    super (Tag.name, null);
-  }
-
-  public Name (Font font) {
-    super (Tag.name, font);
-  }
-
-  private boolean dataReady = false;
-  private boolean expandedReady = false;
-
-  public class Entry {
-    public int platformID;
-    public int encodingID;
-    public int languageID;
-    public int nameID;
-    public byte[] s; }
-
-  public java.util.ArrayList &lt;Entry&gt; entries = null;
-
-  public int fromBinary (java.io.InputStream in, int length)
-      throws java.io.IOException, InvalidFontException {
-    super.fromBinary (in, length);
-    dataReady = true;
-    expandedReady = false;
-    return length;
-  }
-
-  public byte[] toBinary () {
-    makeDataReady ();
-    return data;
-  }
-
-  public void makeDataReady () {
-    if (dataReady) {
-      return; }
-
-    int nbRecords = entries.size ();
-    int storageSize = 0;
-    for (int i = 0; i &lt; nbRecords; i++) {
-      storageSize += entries.get (i).s.length; }
-
-    Block b = new Block (6 + 12 * nbRecords + storageSize, 0);
-    b.setuint16 (0, 0);
-    b.setuint16 (2, nbRecords);
-    b.setuint16 (4, 6 + 12 * nbRecords);
-
-    int offset = 6;
-    int storageOffset = 0;
-    for (int i = 0; i &lt; nbRecords; i++) {
-      Entry e = entries.get (i);
-      b.setuint16 (offset, e.platformID);
-      b.setuint16 (offset + 2, e.encodingID);
-      b.setuint16 (offset + 4, e.languageID);
-      b.setuint16 (offset + 6, e.nameID);
-      b.setuint16 (offset + 8, e.s.length);
-      b.setuint16 (offset + 10, storageOffset);
-      offset += 12;
-      storageOffset += e.s.length; }
-
-    for (int i = 0; i &lt; nbRecords; i++) {
-      Entry e = entries.get (i);
-      for (int j = 0; j &lt; e.s.length; j++) {
-        b.setuint8 (offset++, e.s[j]); }}
-
-    data = b.serialize ();
-    dataReady = true;
-  }
-
-  public void makeExpandedReady () {
-  }
-
-
-
-
-  public String getCharset (int platformID, int encodingID) {
-         if (platformID == 3 &amp;&amp; encodingID ==  1) { return "UTF-16BE"; }
-    else if (platformID == 3 &amp;&amp; encodingID ==  0) { return "UTF-16BE"; }
-    else if (platformID == 3 &amp;&amp; encodingID == 10) { return "UTF-16BE"; }
-    else if (platformID == 1 &amp;&amp; encodingID ==  0) { return "MacRoman"; }
-    else if (platformID == 1 &amp;&amp; encodingID ==  1) { return "Shift_JIS"; }
-    else if (platformID == 1 )                            { return "MacRoman"; }
-    else if (platformID == 0)                             { return "UTF-16BE"; }
-    else {                                                  return null; }
-  }
-
-  public String getName (int languageID, int nameID) {
-
-    try {
-      return getName (3, 1, languageID, nameID); }
-    catch (java.io.UnsupportedEncodingException e) {
-      // 3, 1 -&gt; UTF-16BE, which must be supported
-      return null; }
-  }
-
-  public String getName (int platformID, int encodingID,
-                         int languageID, int nameID)
-      throws java.io.UnsupportedEncodingException {
-    String charset = getCharset (platformID, encodingID);
-
-    if (charset == null) {
-      throw new java.io.UnsupportedEncodingException (); }
-
-    int nameRecordsNumber = getuint16 (2);
-    int stringStorageOffset = getuint16 (4);
-
-    for (int i = 0; i &lt; nameRecordsNumber; i++) {
-       if (   getuint16 (6 + 12*i + 0) == platformID
-           &amp;&amp; getuint16 (6 + 12*i + 2) == encodingID
-           &amp;&amp; (   -1 == languageID
-                       || getuint16 (6 + 12*i + 4) == languageID)
-           &amp;&amp; getuint16 (6 + 12*i + 6) == nameID) {
-         int stringLength = getuint16 (6 + 12*i + 8);
-         int stringOffset = stringStorageOffset + getuint16 (6 + 12*i + 10);
-
-         return new String (data, stringOffset, stringLength, charset); }}
-
-    return null;
-  }
-
-
-
-  public class Representation {
-    public int platformID;
-    public int encodingID;
-    public int languageID;
-
-    public Representation (int platformID, int encodingID, int languageID) {
-      this.platformID = platformID;
-      this.encodingID = encodingID;
-      this.languageID = languageID;
-    }
-  }
-
-  public Representation[] getRepresentations (int nameID) {
-   int nameRecordsNumber = getuint16 (2);
-
-   int reps = 0;
-   for (int i = 0; i &lt; nameRecordsNumber; i++) {
-      if (getuint16 (6 + 12*i + 6) == nameID) {
-        reps++; }}
-
-   Representation[] r = new Representation [reps];
-   reps = 0;
-
-   for (int i = 0; i &lt; nameRecordsNumber; i++) {
-      if (getuint16 (6 + 12*i + 6) == nameID) {
-        r [reps++] = new Representation (getuint16 (6 + 12*i + 0),
-                                         getuint16 (6 + 12*i + 2),
-                                         getuint16 (6 + 12*i + 4)); }}
-
-   return r;
-  }
-
-  public boolean checkOrder () {
-    int nameRecordsNumber = getuint16 (2);
-
-    int platformID = -1;
-    int encodingID = -1;
-    int languageID = -1;
-    int nameID = -1;
-
-    for (int i = 0; i &lt; nameRecordsNumber; i++) {
-      int k;
-      k = getuint16 (6 + 12*i + 0);
-      if (k &gt; platformID) {
-        platformID = getuint16 (6 + 12*i + 0);
-        encodingID = getuint16 (6 + 12*i + 2);
-        languageID = getuint16 (6 + 12*i + 4);
-        nameID     = getuint16 (6 + 12*i + 6); }
-      else if (k &lt; platformID) {
-        // System.out.println ("-- platformID " + k);
-        return false; }
-      else {
-        k = getuint16 (6 + 12*i + 2);
-        if (k &gt; encodingID) {
-          encodingID = getuint16 (6 + 12*i + 2);
-          languageID = getuint16 (6 + 12*i + 4);
-          nameID     = getuint16 (6 + 12*i + 6); }
-        else if (k &lt; encodingID) {
-          // System.out.println ("-- encodingID " + platformID + " " + k);
-          return false; }
-        else {
-          k = getuint16 (6 + 12*i + 4);
-          if (k &gt; languageID) {
-            languageID = getuint16 (6 + 12*i + 4);
-            nameID     = getuint16 (6 + 12*i + 6); }
-          else if (k &lt; languageID) {
-            //System.out.println ("-- languageID " + platformID + " " + encodingID + " " + k);
-            return false; }
-          else {
-            k = getuint16 (6 + 12*i + 6);
-            if (k &gt; nameID) {
-              nameID = getuint16 (6 + 12*i + 6); }
-            else {
-              // System.out.println ("-- nameID " + platformID + " " + encodingID + " " + languageID + "  " + k);
-              return false; }}}}}
-
-    return true;
-  }
-
-  <code-include linkend="name.methods"/>
-}
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="test-suite">
-      <title>Test Suite</title>
-      <para>The following piece of code creates a very basic name
-        table. We use it for our test fonts.</para>
-      <code-fragment package="com.adobe.aots.CommonType" class="NameBuilder"><code-title>NameBuilder class</code-title>
-  package com.adobe.aots.CommonType;
-
-  public class NameBuilder {
-    private static void writeUSHORT (int n)
-        throws java.io.IOException {
-      byte[] data = new byte[2];
-      data [1] =  (byte)( n       &amp; 0xff);
-      data [0] =  (byte)((n &gt;&gt; 8) &amp; 0xff);
-      System.out.write (data);
-    }
-
-    private static String storage = "";
-
-
-    private static void writeNameRecord (int nameID, String s)
-        throws java.io.IOException {
-      writeUSHORT (3);
-      writeUSHORT (1);
-      writeUSHORT (1033);
-      writeUSHORT (nameID);
-      writeUSHORT (s.length () * 2);
-      writeUSHORT (storage.length () * 2);
-      storage = storage + s;
-    }
-
-    public static void main (String[] args) {
-      try {
-        int entries = 6;
-        writeUSHORT (0);
-        writeUSHORT (entries);
-        writeUSHORT (6 + 12*entries);
-
-        writeNameRecord (1, args[0]);
-        writeNameRecord (2, "Regular");
-        writeNameRecord (3, args[0]);
-        writeNameRecord (4, args[0] + "-Regular");
-        writeNameRecord (5, "Version 1.00");
-        writeNameRecord (6, args[0] + "-Regular");
-
-        for (int i = 0; i &lt; storage.length(); i++) {
-          writeUSHORT (storage.charAt (i)); }}
-
-      catch (Exception e) {
-       System.out.println ("Exception: " + e.getMessage ());
-       e.printStackTrace (); }
-    }
-  }
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.name/xml-representation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.name/compiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.name/decompiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.name/implementation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.name/test-suite-1.xml"/>
   </section>
 </section>

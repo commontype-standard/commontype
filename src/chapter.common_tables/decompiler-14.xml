@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="layouttable.methods">
+  public void deviceTableToXMLCount (int offset, int[] counts) {
+    counts [offset]++;
+  }
+
+  public void deviceTableOffsetToXML (DecompilerConfig conf, int offset,
+                                      int[] counts,
+                                      String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "deviceTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      deviceTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void deviceTableToXML (DecompilerConfig conf, int offset,
+                                int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "deviceTable_" + Integer.toHexString (offset));
+      deviceTableToXMLEmit (conf, offset, counts, "deviceTable", at);
+      counts [offset] = 0; }
+  }
+
+  public void deviceTableToXMLEmit (DecompilerConfig conf, int offset,
+                                    int[] counts,
+                                    String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    int startSize = getuint16 (offset);
+    int endSize = getuint16 (offset + 2);
+    int format = getuint16 (offset + 4);
+
+    at.addAttribute ("", "startSize", "startSize", "CDATA", "" + startSize);
+    at.addAttribute ("", "endSize", "endSize", "CDATA", "" + endSize);
+    at.addAttribute ("", "deltaFormat", "deltaFormat", "CDATA", "" + format);
+
+    StringBuilder s = new StringBuilder ();
+
+    int[] bitsPerValue  = {0, 2,   4,   8};
+    int[] bitMask       = {0, 0x3, 0xf, 0xff};
+    int[] maxValue      = {0, 1,   7,   127};
+
+    offset += 6;
+    int bitsLeft = 0;
+    int word = 0;
+
+    for (int i = startSize; i &lt;= endSize; i++) {
+      if (bitsLeft == 0) {
+        word = getuint16 (offset);
+        bitsLeft = 16;
+        offset += 2; }
+
+      int value = (word &gt;&gt; (bitsLeft - bitsPerValue [format])) &amp; bitMask [format];
+      if (value &gt; maxValue [format]) {
+        value -= (bitMask [format] + 1); }
+
+      bitsLeft -= bitsPerValue [format];
+
+      s.append (" " + value); }
+    at.addAttribute ("", "values", "values", "CDATA", s.toString ());
+
+    conf.ch.element (element, at);
+  }
+</code-fragment>
+    </section>
+  

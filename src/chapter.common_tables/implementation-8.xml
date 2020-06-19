@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Since there is no a-priori reason that all tables that
+          contain LookupList tables put them at the same place (or put
+          pointers to them at the same place), we need an abstract
+          method to get the offset of the LookupList table.</para>
+      <code-fragment id="lookuptable.methods"><code-title>Method to get the offset of LookupList</code-title>
+  abstract int getLookupListOffset ();
+</code-fragment>
+      <para>We can then find the offset of a Lookup.</para>
+      <code-fragment id="lookuptable.methods"><code-title>Method to get the offset of a Lookup</code-title>
+  int getLookupOffset (int lookupIndex) {
+    int lookupListOffset = getLookupListOffset ();
+    return lookupListOffset + getOffset (lookupListOffset + 2 + 2*lookupIndex);
+  }
+</code-fragment>
+    </section>
+  

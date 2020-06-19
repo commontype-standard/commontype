@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods">
+  private static class Format8Range implements Comparable&lt;Format8Range&gt; {
+    int firstCode;
+    int lastCode;
+    int firstGlyph;
+
+    public int compareTo (Format8Range o) {
+      if (firstCode &lt; o.firstCode) {
+        return -1; }
+      else if (firstCode &lt; o.firstCode) {
+        return 0; }
+      else {
+        return +1; }
+    }
+  }
+
+  private Block format8FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+
+    if (children.getLength () == 0) {
+      int blockSize = 12 + 8192 + 4;
+      Block me = new Block (blockSize, 0);
+      me.setuint16 (0, 8);
+      me.setuint16 (2, 0);
+      me.setuint32 (4, blockSize);
+      me.setuint32 (8, language);
+      // TODO deal with is32
+      me.setuint32 (12 + 8192, 0);
+      return me; }
+
+    else if ("group".equals (((Element) children.item (0)).getTagName ())) {
+      Format8Range[] ranges = new Format8Range [children.getLength ()];
+      for (int i = 0; i &lt; children.getLength (); i++) {
+        Element e = (Element) children.item (i);
+	Format8Range range = new Format8Range ();
+        range.firstCode = Integer.decode (e.getAttribute ("firstCode")).intValue ();
+	range.lastCode = Integer.decode (e.getAttribute ("lastCode")).intValue ();
+	range.firstGlyph = Integer.decode (e.getAttribute ("firstGlyph")).intValue ();
+	// should verify if there is already a range that overlap with this one
+	ranges [i] = range; }
+      Arrays.sort (ranges);
+
+      int blockSize = 12 + 8192 + 4 + 12*ranges.length;
+      Block me = new Block (blockSize, 0);
+      me.setuint16 (0, 8);
+      me.setuint16 (2, 0);
+      me.setuint32 (4, blockSize);
+      me.setuint32 (8, language);
+      // TODO deal with is32
+      me.setuint32 (12 + 8192, ranges.length);
+
+      int o = 12 + 8192 + 4;
+      for (int i = 0; i &lt; ranges.length; i++) {
+	me.setuint32 (o, ranges [i].firstCode);
+        o += 4;
+	me.setuint32 (o, ranges [i].lastCode);
+        o += 4;
+	me.setuint32 (o, ranges [i].firstGlyph);
+        o += 4; }
+
+      return me; }
+
+    else {
+      Vector&lt;Format8Range&gt; vRanges = new Vector&lt;Format8Range&gt; ();
+
+      for (int i = 0; i &lt; children.getLength (); i++) {
+        Element e = (Element) children.item (i);
+	int mapFrom = Integer.decode (e.getAttribute ("code")).intValue ();
+	int mapTo = Integer.decode (e.getAttribute ("glyph")).intValue ();
+
+	boolean inserted = false;
+	for (Format8Range r : vRanges) {
+          if (r.lastCode + 1 == mapFrom
+              &amp;&amp; r.firstGlyph + (r.lastCode - r.firstCode) + 1 == mapTo) {
+	    r.lastCode++;
+	    inserted = true;
+	    break; }}
+
+	if (! inserted) {
+	  Format8Range r = new Format8Range ();
+	  r.firstCode = mapFrom;
+	  r.lastCode = mapFrom;
+	  r.firstGlyph = mapTo;
+	  vRanges.add (r); }}
+
+      Format8Range[] aRanges = vRanges.toArray (new Format8Range [0]);
+      Arrays.sort (aRanges);
+
+      int blockSize = 12 + 8192 + 4 + 12*aRanges.length;
+      Block me = new Block (blockSize, 0);
+      me.setuint16 (0, 8);
+      me.setuint16 (2, 0);
+      me.setuint32 (4, blockSize);
+      me.setuint32 (8, language);
+      // TODO deal with is32
+      me.setuint32 (12 + 8192, aRanges.length);
+
+      int o = 12 + 8192 + 4;
+      for (int i = 0; i &lt; aRanges.length; i++) {
+	me.setuint32 (o, aRanges [i].firstCode);
+        o += 4;
+	me.setuint32 (o, aRanges [i].lastCode);
+        o += 4;
+	me.setuint32 (o, aRanges [i].firstGlyph);
+        o += 4; }
+
+      return me; }
+  }
+</code-fragment>
+    </section>
+    

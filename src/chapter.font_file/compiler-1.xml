@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <para>The compiler is really a simple shell that parses an XML
+          document, passes it to the <varname>fromXML</varname> method
+          of a <varname>Font</varname> object to build an internal
+          representation of the font, and then invokes the
+          <varname>toBinary</varname> method of that object to create
+          an actual font file.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Compiler"><code-title>Compiler class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.io.File;
+import java.net.URL;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Text;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXParseException;
+
+import com.thaiopensource.validate.ValidationDriver;
+import com.thaiopensource.validate.rng.CompactSchemaReader;
+
+
+public class Compiler implements org.xml.sax.ErrorHandler {
+
+  private boolean isWhiteSpace (String s) {
+    boolean result = true;
+    for (int i = 0; i &lt; s.length (); i++) {
+      char c = s.charAt (i);
+      if (c != ' ' &amp;&amp; c != '\t' &amp;&amp; c != '\n') {
+	result = false;
+        break; }}
+    return result;
+  }
+
+  private void removeWhiteSpace (Node n) {
+    NodeList nl = n.getChildNodes ();
+    int nbChildren = nl.getLength ();
+    for (int i = 0; i &lt; nbChildren; i++) {
+      removeWhiteSpace (nl.item (i)); }
+    for (int i = 0; i &lt; nbChildren; i++) {
+      if (nl.item (i).getNodeType () == Node.TEXT_NODE) {
+	Text t = (Text) nl.item (i);
+        if (isWhiteSpace (t.getData ())) {
+	  n.removeChild (t);
+	  nbChildren--; }}}
+  }
+
+  private Document parse (String inputFilename)
+      throws Exception {
+    inputFilename = new File (inputFilename).getAbsolutePath ();
+
+    javax.xml.parsers.DocumentBuilderFactory dbf
+      = javax.xml.parsers.DocumentBuilderFactory.newInstance ();
+    dbf.setValidating (false);
+    dbf.setIgnoringComments (true);
+    dbf.setIgnoringElementContentWhitespace (true);
+    javax.xml.parsers.DocumentBuilder db = dbf.newDocumentBuilder ();
+
+    return  db.parse (new InputSource (inputFilename));
+  }
+
+  private boolean validate (Document font, String filename)
+     throws Exception {
+    ValidationDriver vd = new ValidationDriver (CompactSchemaReader.getInstance ());
+    if (! vd.loadSchema (new InputSource (Compiler.class.getResource ("CommonType.rnc").toString ()))) {
+        throw new Exception ("failed to load schema"); }
+
+    return vd.validate (vd.fileInputSource (filename));
+  }
+
+
+  public void error (SAXParseException e) {
+    System.err.println ("Parse error: " + e);
+  }
+
+  public void fatalError (SAXParseException e) {
+    System.err.println ("Parse fatal error: " + e);
+  }
+
+  public void warning (SAXParseException e) {
+    System.err.println ("Parse warning: " + e);
+  }
+
+  private void compile (URL base, Element font, boolean fixDerivedValues, String outfile)
+      throws Exception {
+    Font f = new Font ();
+    f.fromXML (base, font);
+
+    if (fixDerivedValues) {
+      f.maxp.fixValuesDerivedFromGlyf ();
+      f.hhea.fixDerivedValues (); }
+
+    f.toBinary (outfile);
+  }
+
+  private void doMain (String args[]) throws Exception {
+    String out = "";
+    boolean fixDerivedValues = false;
+
+    for (int i = 0; i &lt; args.length; i++) {
+      if (args[i].equals ("-o")) {
+        i++;
+        out = args[i]; }
+
+      else if (args[i].equals ("-fixderivedvalues")) {
+        fixDerivedValues = true; }
+
+      else {
+        File f = new File (args[i]);
+        Document doc = parse (args [i]);
+
+	boolean valid = validate (doc, args[i]);
+	if (valid) {
+  	  removeWhiteSpace (doc);
+	  compile (f.getAbsoluteFile().toURL (),
+	           doc.getDocumentElement (),
+                   fixDerivedValues,
+                   out); }}}
+  }
+
+  public static void main (String args[]) throws Exception {
+    new Compiler ().doMain (args);
+  }
+}
+</code-fragment>
+      <para>A number of CommonType tables are made of blocks of data
+          that point to one another. For example, a cmap table has a
+          header block, which points to blocks for the various
+          subtables. To facilitate the creation of these tables
+          blocks, we have a class, named <varname>Block</varname>. The
+          main methods are to set fields in blocks
+          (<varname>setint16</varname>, <varname>setuint32</varname>,
+          etc), to make one block point to another one
+          (<varname>setOffset</varname>,
+          <varname>setBigOffset</varname>), and finally to serialize
+          all the blocks that make up a table
+          (<varname>serialize</varname>).</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Block"><code-title>Block class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Vector;
+
+  public class Block {
+    public byte [] content;
+    Block [] references;
+    int [] referencePositions;
+    boolean [] referenceBig;
+    int currentReference = 0;
+    int globalOffset = -1;
+
+    public Block (int size, int referenceCount) {
+      content = new byte [size];
+      references = new Block [referenceCount];
+      referencePositions = new int [referenceCount];
+      referenceBig = new boolean [referenceCount];
+    }
+
+    public void setFixed (int offset, int major, int minor) {
+      setuint16 (offset, major);
+      setuint16 (offset + 2, minor);
+    }
+
+    public void setOffset (int offset, Block target) {
+      referenceBig [currentReference] = false;
+      referencePositions [currentReference] = offset;
+      references [currentReference++] = target;
+      setuint16 (offset, 0);
+    }
+
+    public void setBigOffset (int offset, Block target) {
+      referenceBig [currentReference] = true;
+      referencePositions [currentReference] = offset;
+      references [currentReference++] = target;
+      setuint32 (offset, 0x1234567);
+    }
+
+    public void setuint8 (int offset, int value) {
+      content [offset] = (byte) value;
+    }
+
+    public void setint8 (int offset, int value) {
+      content [offset] = (byte) value;
+    }
+
+    public void setuint16 (int offset, int value) {
+      content [offset] = (byte) ((value &gt;&gt; 8) &amp; 0xff);
+      content [offset+1] = (byte) (value &amp; 0xff);
+    }
+
+    public void setFWord(int offset, int value) {
+      setuint16 (offset, value);
+    }
+
+    public void setuFWord (int offset, int value) {
+      setuint16 (offset, value);
+    }
+
+    public void setuint24 (int offset, int value) {
+      content [offset]   = (byte) ((value &gt;&gt; 16) &amp; 0xff);
+      content [offset+1] = (byte) ((value &gt;&gt;  8) &amp; 0xff);
+      content [offset+2] = (byte) (value         &amp; 0xff);
+    }
+
+    public void setuint32 (int offset, int value) {
+      content [offset]   = (byte) ((value &gt;&gt; 24) &amp; 0xff);
+      content [offset+1] = (byte) ((value &gt;&gt; 16) &amp; 0xff);
+      content [offset+2] = (byte) ((value &gt;&gt;  8) &amp; 0xff);
+      content [offset+3] = (byte) (value         &amp; 0xff);
+    }
+
+    public void setint32 (int offset, int value) {
+      setuint32 (offset, value);
+    }
+
+    public void setint16 (int offset, int value) {
+      content [offset] = (byte)((value &gt;&gt; 8) &amp; 0xff);
+      content [offset+1] = (byte)(value &amp; 0xff);
+    }
+
+    public void setTag (int offset, String tag) {
+      String t = tag + "    ";
+      setuint8 (offset+0, t.charAt (0));
+      setuint8 (offset+1, t.charAt (1));
+      setuint8 (offset+2, t.charAt (2));
+      setuint8 (offset+3, t.charAt (3));
+    }
+
+    public void setLONGDATETIME (int offset, long date) {
+      content [offset+0] = (byte) ((date &gt;&gt; 56) &amp; 0xff);
+      content [offset+1] = (byte) ((date &gt;&gt; 48) &amp; 0xff);
+      content [offset+2] = (byte) ((date &gt;&gt; 40) &amp; 0xff);
+      content [offset+3] = (byte) ((date &gt;&gt; 32) &amp; 0xff);
+      content [offset+4] = (byte) ((date &gt;&gt; 24) &amp; 0xff);
+      content [offset+5] = (byte) ((date &gt;&gt; 16) &amp; 0xff);
+      content [offset+6] = (byte) ((date &gt;&gt;  8) &amp; 0xff);
+      content [offset+7] = (byte) ((date      ) &amp; 0xff);
+    }
+
+    public void setValue (int offset, Value value) {
+      setValue (offset, value.format, value);
+    }
+
+    public void setValue (int offset, int valueFormat, Value value) {
+      if (value == null) {
+        value = new Value (); }
+      if ((valueFormat &amp; 0x001) != 0) {
+        setint16 (offset, value.xPlacement);
+        offset += 2; }
+      if ((valueFormat &amp; 0x002) != 0) {
+        setint16 (offset,value.yPlacement);
+        offset += 2; }
+      if ((valueFormat &amp; 0x004) != 0) {
+        setint16 (offset, value.xAdvance);
+        offset += 2; }
+      if ((valueFormat &amp; 0x008) != 0) {
+        setint16 (offset, value.yAdvance);
+        offset += 2; }
+      return;
+    }
+
+    public void setGlyphID (int offset, int glyphID) {
+      setuint16 (offset, glyphID);
+    }
+
+
+
+    protected boolean visited = false;
+
+    private void fillBlocks (Vector&lt;Block&gt; blocks, int depth) {
+
+      if (visited) {
+        return; }
+
+      visited = true;
+
+      depth++;
+//      System.err.println ("block of size " + this.content.length + " at depth " + depth);
+
+      blocks.add (this);
+      for (int i = 0; i &lt; references.length; i++) {
+        if (references [i] != null) {
+          references[i].fillBlocks (blocks, depth); }}
+    }
+
+    public byte[] serialize () {
+      if (references.length == 0) {
+         // a single block, we already have it
+         return content; }
+
+      // collect all the blocks pointed directly or indirectly by this one
+      Vector&lt;Block&gt; blocks= new Vector&lt;Block&gt; ();
+      fillBlocks (blocks, 0);
+
+      // compute the total size
+      int totalSize = 0;
+      for (Block b : blocks) {
+        totalSize += b.content.length; }
+
+      // System.err.println ("----------");
+      // for (Block b : blocks) {
+      //   System.err.println (" " + b.content.length + "  0x" + Integer.toHexString (b.content.length)); }
+
+      byte [] data = new byte [totalSize];
+
+      while (blocks.size () &gt; 0) {
+
+        //find a block with no unresolved children
+        Block toPos = null;
+
+        Iterator it = blocks.iterator ();
+        while (toPos == null &amp;&amp; it.hasNext ()) {
+          Block t = (Block) it.next ();
+          boolean hasDependency = false;
+          for (int i = 0; i &lt; t.references.length; i++) {
+            if (   t.references [i] != null
+                &amp;&amp; t.references [i].globalOffset == -1) {
+              hasDependency = true;
+              break; }}
+          if (! hasDependency) {
+            toPos = t; }}
+
+        // put toPos at the end
+        totalSize -= toPos.content.length;
+        toPos.globalOffset = totalSize;
+
+        //System.out.println ("Setting " + toPos + " at " + toPos.globalOffset);
+
+        // resolve references
+        for (int p = 0; p &lt; toPos.references.length; p++) {
+          int offset = toPos.references [p] == null ? 0 :
+                          toPos.references [p].globalOffset - toPos.globalOffset;
+          if (toPos.referenceBig [p]) {
+            toPos.setuint32 (toPos.referencePositions [p], offset); }
+          else {
+	    if (offset &gt; 0xffff) {
+	      System.err.println ("cannot arrange block (offset="
+	                          + Integer.toHexString (offset)); }
+            toPos.setuint16 (toPos.referencePositions [p], offset); }}
+
+        // copy in result table
+        System.arraycopy (toPos.content, 0,
+                          data, toPos.globalOffset,
+                          toPos.content.length);
+
+        blocks.remove (toPos); }
+
+      return data;
+    }
+
+
+    public void dump () {
+      System.out.println ("block " + this + ", size='" + content.length + "'");
+
+      System.out.print ("  content: ");
+      for (int i = 0; i &lt; content.length; i++) {
+        System.out.print (Integer.toHexString (content[i]) + " "); }
+      System.out.println ("");
+
+      System.out.print ("  references: ");
+      for (int i = 0; i &lt; references.length; i++) {
+        System.out.print ("" + referencePositions [i] + "/" + references[i]
+      + " "); }
+      System.out.println ("");
+    }
+  }
+</code-fragment>
+    </section>
+    

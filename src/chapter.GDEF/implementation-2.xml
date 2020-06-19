@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="gdef.methods"><code-title>Method to compute the GDEF class of a glyph</code-title>
+  public int getGlyphClass (int glyph)
+    throws InvalidFontException {
+
+    int glyphClassOffset = getuint16 (4);
+    return classIndex (glyph, glyphClassOffset);
+  }
+</code-fragment>
+    </section>
+  

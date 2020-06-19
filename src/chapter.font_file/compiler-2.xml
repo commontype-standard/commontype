@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="table.methods"><code-title>Compilation methods</code-title>
+  public Element getTarget (Element e, String tagMustBe) {
+    return getTarget (e);
+  }
+
+  public Element getTarget (Element e) {
+    String targetName = e.getAttribute ("target");
+    Element target = e.getOwnerDocument ().getElementById (targetName);
+    if (target == null) {
+      warning ("cannot find element with id '" + targetName + "'"); }
+    return target;
+  }
+
+  public int getIndex (Element e) {
+    return Integer.parseInt (getTarget (e).getAttribute ("index"));
+  }
+
+  public int[] getGlyphs (String s) {
+
+    return parseGlyphList (s);
+  }
+
+  public int countGlyphs (String s) {
+    return getGlyphs (s).length;
+  }
+
+  public static int parseOneInt (String s) {
+    int radix = 10;
+    int start = 0;
+
+    if (   s.length() &gt;= 2
+        &amp;&amp; s.charAt (0) == '0'
+        &amp;&amp; s.charAt (1) == 'x') {
+      start += 2;
+      radix = 16; }
+
+    return Integer.parseInt (s.substring (start), radix);
+  }
+
+  public static int[] parseIntList (String s) {
+    int i;
+    int len = s.length ();
+    int count = 0;
+
+    i = 0;
+    while (i &lt; len) {
+      while (i &lt; len &amp;&amp; s.charAt (i) == ' ') {
+        i++; }
+      if (i == len) {
+        break; }
+      int j = i;
+      while (i &lt; len &amp;&amp; s.charAt (i) != ' ') {
+        i++; }
+      String x = s.substring (j, i);
+      int column = x.indexOf (':');
+      if (column != -1) {
+        int v1 = parseOneInt (x.substring (0, column));
+	int v2 = parseOneInt (x.substring (column + 1));
+        count += v2 - v1 + 1; }
+      else {
+        count++; }}
+
+    int[] list = new int [count];
+
+    i = 0;
+    count = 0;
+    while (i &lt; len) {
+      while (i &lt; len &amp;&amp; s.charAt (i) == ' ') {
+        i++; }
+      if (i == len) {
+        break; }
+      int start = i;
+      while (i &lt; len &amp;&amp; s.charAt (i) != ' ') {
+        i++; }
+
+      String x = s.substring (start, i);
+      int column = x.indexOf (':');
+      if (column != -1) {
+        int v1 = parseOneInt (x.substring (0, column));
+	int v2 = parseOneInt (x.substring (column + 1));
+        for (int k = v1; k &lt;= v2; k++) {
+          list [count++] = k; }}
+      else {
+        list [count++] = parseOneInt (x); }}
+
+    return list;
+  }
+
+
+  public int parseOneGlyph (String s) {
+    if (font.post != null) {
+      int gid = font.post.getGid (s);
+      if (gid != -1) {
+        return gid; }}
+
+    if (   s.length() &gt;= 2
+        &amp;&amp; s.charAt (0) == '0'
+        &amp;&amp; s.charAt (1) == 'x') {
+      return Integer.parseInt (s.substring (2), 16); }
+
+    return Integer.parseInt (s);
+  }
+
+  public int[] parseGlyphList (String s) {
+    int i;
+    int len = s.length ();
+    int count = 0;
+
+    i = 0;
+    while (i &lt; len) {
+      while (i &lt; len &amp;&amp; s.charAt (i) == ' ') {
+        i++; }
+      if (i == len) {
+        break; }
+      int j = i;
+      while (i &lt; len &amp;&amp; s.charAt (i) != ' ') {
+        i++; }
+      String x = s.substring (j, i);
+      int column = x.indexOf (':');
+      if (column != -1) {
+        int v1 = parseOneGlyph (x.substring (0, column));
+	int v2 = parseOneGlyph (x.substring (column + 1));
+        count += v2 - v1 + 1; }
+      else {
+        count++; }}
+
+    int[] list = new int [count];
+
+    i = 0;
+    count = 0;
+    while (i &lt; len) {
+      while (i &lt; len &amp;&amp; s.charAt (i) == ' ') {
+        i++; }
+      if (i == len) {
+        break; }
+      int start = i;
+      while (i &lt; len &amp;&amp; s.charAt (i) != ' ') {
+        i++; }
+
+      String x = s.substring (start, i);
+      int column = x.indexOf (':');
+      if (column != -1) {
+        int v1 = parseOneGlyph (x.substring (0, column));
+	int v2 = parseOneGlyph (x.substring (column + 1));
+        for (int k = v1; k &lt;= v2; k++) {
+          list [count++] = k; }}
+      else {
+        list [count++] = parseOneGlyph (x); }}
+
+    return list;
+  }
+</code-fragment>
+    </section>
+    

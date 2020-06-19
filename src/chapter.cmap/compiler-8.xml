@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods">
+  private Block format12FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+    java.util.SortedMap&lt;Integer, Integer&gt; m
+          = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element map = (Element) children.item (i);
+      int charcode = Integer.decode (map.getAttribute ("code")).intValue ();
+      int glyphid = Integer.decode (map.getAttribute ("glyph")).intValue ();
+      String c = map.getAttribute ("count");
+      int count;
+      if (c.equals ("")) {
+         count = 1; }
+      else {
+         count = Integer.decode (c).intValue (); }
+
+      while (count &gt; 0) {
+        if (glyphid != 0) {
+          if (m.put (charcode, glyphid) != null) {
+            warning ("duplicate charcode in cmap format12 (0x"
+                       + Integer.toHexString (charcode) + ")"); }}
+        count--;
+        charcode++;
+        glyphid++; }}
+
+    // count the number of segments
+    int groups = 0;
+    int previousCp = -1;
+    int previousGid = -1;
+
+    for (Integer x : m.keySet ()) {
+      int cp = x.intValue ();
+      int gid = m.get (x);
+      if (previousCp + 1 != cp || previousGid + 1 != gid) {
+        groups++; }
+      previousCp = cp;
+      previousGid = gid; }
+
+
+    int length = 16 + 12*groups;
+    Block b = new Block (length, 0);
+
+    b.setuint16 (0, 12);
+    b.setuint16 (2, 0);
+    b.setuint32 (4, length);
+    b.setuint32 (8, language);
+    b.setuint32 (12, groups);
+
+    int offset = 16 - 12;
+    previousCp = -1;
+    previousGid = -1;
+
+    for (Integer x : m.keySet ()) {
+      int cp = x.intValue ();
+      int gid = m.get (x);
+      if (previousCp + 1 != cp || previousGid + 1 != gid) {
+        offset += 12;
+        b.setuint32 (offset, cp);
+        b.setuint32 (offset + 8, gid); }
+      b.setuint32 (offset + 4, cp);
+      previousCp = cp;
+      previousGid = gid; }
+
+    return b;
+  }
+</code-fragment>
+    </section>
+    

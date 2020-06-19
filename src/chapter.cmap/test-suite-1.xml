@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="test-suite">
+      <title>Test Suite</title>
+      <para>Our test framework is simply to convert a sequence of
+          characters to a sequence of glyphs.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="CmapTester"><code-title>CmapTest class</code-title>
+  package com.adobe.aots.CommonType;
+
+  <code-include linkend="test_imports"/>
+
+  public class CmapTester {
+
+    <code-include linkend="test_methods"/>
+
+    public static void main (String[] args) throws Exception {
+
+      try {
+        String testName = "anonymousTest";
+	URL fontURL = null;
+	Font font = null;
+	int platformID = 3;
+	int encodingID = 10;
+        int[] inputs= null;
+	int[] expected = null;
+
+        for (int i = 0; i &lt; args.length; i++) {
+          if ("-testname".equals (args [i])) {
+	    i++;
+	    testName = args [i]; }
+
+	  if ("-font".equals (args [i])) {
+	    i++;
+	    fontURL = new File (args [i]).getAbsoluteFile ().toURL ();
+	    font = new Font ();
+	    font.fromBinary (fontURL); }
+
+	  if ("-platform".equals (args [i])) {
+	    i++;
+	    platformID = Integer.parseInt (args [i]); }
+
+	  if ("-encoding".equals (args [i])) {
+	    i++;
+	    encodingID = Integer.parseInt (args [i]); }
+
+	  if ("-inputs".equals (args [i])) {
+	    i++;
+	    inputs = parseIntList (args [i]); }
+
+	  if ("-expected".equals (args [i])) {
+	    i++;
+	    expected = parseIntList (args [i]); }}
+
+        int[] outputs = font.cmap.char2glyph (platformID, encodingID, inputs);
+
+        if (expected != null) {
+	  boolean pass = compareIntLists (expected, outputs) ;
+	  if (! pass) {
+  	    System.err.print ("  expected:");
+	    for (int i = 0; i &lt; expected.length; i++) {
+              System.err.print (" " + expected [i]); }
+	    System.err.println ("");
+
+  	    System.err.print ("  actual:  ");
+	    for (int i = 0; i &lt; outputs.length; i++) {
+              System.err.print (" " + outputs [i]); }
+	    System.err.println (""); }
+
+          reportStatus (testName, pass); }
+        else {
+          System.out.println ("outputs: ");
+          printIntList (outputs); }}
+
+      catch (Exception e) {
+        System.out.println ("Exception: " + e.getMessage ());
+        e.printStackTrace (); }
+    }
+  }
+</code-fragment>
+      <code-fragment package="com.adobe.aots.CommonType" class="CmapUVSTester"><code-title>CmapUVSTest class</code-title>
+  package com.adobe.aots.CommonType;
+
+  <code-include linkend="test_imports"/>
+
+  public class CmapUVSTester {
+
+    <code-include linkend="test_methods"/>
+
+    public static void main (String[] args) throws Exception {
+
+      try {
+        String testName = "anonymousTest";
+	URL fontURL = null;
+	Font font = null;
+	int platformID = 3;
+	int encodingID = 10;
+        int[] inputs= null;
+	int[] expected = null;
+
+        for (int i = 0; i &lt; args.length; i++) {
+          if ("-testname".equals (args [i])) {
+	    i++;
+	    testName = args [i]; }
+
+	  if ("-font".equals (args [i])) {
+	    i++;
+	    fontURL = new File (args [i]).getAbsoluteFile ().toURL ();
+	    font = new Font ();
+	    font.fromBinary (fontURL); }
+
+	  if ("-inputs".equals (args [i])) {
+	    i++;
+	    inputs = parseIntList (args [i]); }
+
+	  if ("-expected".equals (args [i])) {
+	    i++;
+	    expected = parseIntList (args [i]); }}
+
+        int[] outputs = new int [inputs.length / 2];
+
+        for (int i = 0; i &lt; inputs.length; i += 2) {
+          outputs [i/2] = font.cmap.uvs2glyph (inputs [i], inputs [i+1]); }
+
+        if (expected != null) {
+	  boolean pass = compareIntLists (expected, outputs) ;
+	  if (! pass) {
+  	    System.err.print ("  expected:");
+	    for (int i = 0; i &lt; expected.length; i++) {
+              System.err.print (" " + expected [i]); }
+	    System.err.println ("");
+
+  	    System.err.print ("  actual:  ");
+	    for (int i = 0; i &lt; outputs.length; i++) {
+              System.err.print (" " + outputs [i]); }
+	    System.err.println (""); }
+
+          reportStatus (testName, pass); }
+        else {
+          System.out.println ("outputs: ");
+          printIntList (outputs); }}
+
+      catch (Exception e) {
+        System.out.println ("Exception: " + e.getMessage ());
+        e.printStackTrace (); }
+    }
+  }
+</code-fragment>
+    </section>
+    

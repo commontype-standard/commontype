@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>We start with a procedure that performs the matching of
+          a single sub rule. When this procedure is called, it is
+          known that the glyph run matched
+          I<subscript>0</subscript> and that I<subscript>0</subscript>
+          is at <varname>inPos</varname>. If the rest of the pattern
+          (i.e. the glyphs in the subrule) is not matched, then this
+          procedure returns <varname>null</varname>. Otherwise, it
+          returns an array of the glyph run positions for the input
+          glyphs, i.e. the positions of I<subscript>0</subscript>,
+          I<subscript>1</subscript>, …</para>
+      <para>Note that the organization of this procedure matches the
+          organization of the subtable: I<subscript>0</subscript> is
+          recorded in the Coverage of the subtable, and
+          I<subscript>1</subscript>, … are recorded in a
+          ChainSubClassRule table; essentially this procedure takes
+          care of one ChainSubClassRule table.</para>
+      <code-fragment id="lookuptable.methods"><code-title>Method to match one GSUB 6/2 ChainSubClassRule</code-title>
+  int[] matchOneChainClassRule (GlyphRun gr, int inPos,
+                                int ruleOffset,
+                                int backtrackClassDefOffset,
+                                int inputClassDefOffset,
+                                int lookaheadClassDefOffset,
+                                 int lookupIndex, int lookupFlag)
+      throws InvalidFontException {
+
+    int backtrackGlyphCount = getuint16 (ruleOffset);
+    int inputGlyphCount = getuint16 (ruleOffset + 2
+                                     + 2*backtrackGlyphCount);
+    int lookaheadGlyphCount = getuint16 (ruleOffset + 4
+                                         + 2*backtrackGlyphCount
+                                         + 2*(inputGlyphCount - 1));
+
+    int backPos = inPos - 1;
+    for (int b = 0; b &lt; backtrackGlyphCount; b++) {
+
+      while (lookupFlagCovers (lookupFlag, gr.glyphAt (backPos))) {
+        backPos--; }
+
+      if (   classIndex (gr.glyphAt (backPos), backtrackClassDefOffset)
+          != getuint16 (ruleOffset + 2 + 2*b)) {
+        return null; }
+
+      backPos--; }
+
+    int [] matchedPositions = new int [inputGlyphCount];
+    matchedPositions [0] = inPos;
+    inPos++;
+
+    for (int i = 1; i &lt; inputGlyphCount; i++) {
+
+      while (lookupFlagCovers (lookupFlag, gr.glyphAt (inPos))) {
+        inPos++; }
+
+      if (   classIndex (gr.glyphAt (inPos), inputClassDefOffset)
+          != getuint16 (ruleOffset + 4
+                        + 2*backtrackGlyphCount + 2*(i-1))) {
+        return null; }
+
+      matchedPositions [i] = inPos;
+      inPos++; }
+
+    for (int l = 0; l &lt; lookaheadGlyphCount; l++) {
+
+      while (lookupFlagCovers (lookupFlag, gr.glyphAt (inPos))) {
+        inPos++; }
+
+      if (   classIndex (gr.glyphAt (inPos), lookaheadClassDefOffset)
+          != getGlyphID (ruleOffset + 6
+                         + 2*backtrackGlyphCount
+                         + 2*(inputGlyphCount-1) + 2*l)) {
+        return null; }
+
+      inPos++; }
+
+    return matchedPositions;
+  }
+</code-fragment>
+      <para>With that in place, we can now implement the full
+          subtable.</para>
+      <code-fragment id="chainingLookup_format2"><code-title>Execute format 2 subtable and return</code-title>
+  { int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int inPos = curGlyph;
+
+    if (-1 == getCoverageIndex (gr.glyphAt (inPos), coverageOffset)) {
+      return lookupNotApplied; }
+
+    int backtrackClassDefOffset = stOffset + getOffset (stOffset + 4);
+    int inputClassDefOffset = stOffset + getOffset (stOffset + 6);
+    int lookaheadClassDefOffset = stOffset + getOffset (stOffset + 8);
+
+    int cl = classIndex (gr.glyphAt (inPos), inputClassDefOffset);
+    if (cl &gt; getuint16 (stOffset + 10) - 1) {
+      return lookupNotApplied; }
+    int ruleSetOffset = getOffset (stOffset + 12 + 2*cl);
+    if (ruleSetOffset == 0) {
+      return lookupNotApplied; }
+    ruleSetOffset += stOffset;
+    int ruleCount = getuint16 (ruleSetOffset);
+
+    for (int s = 0; s &lt; ruleCount; s++) {
+      int ruleOffset
+        = ruleSetOffset + getOffset (ruleSetOffset + 2 + 2*s);
+
+      int [] matchedPositions
+        = matchOneChainClassRule (gr, inPos, ruleOffset,
+                                     backtrackClassDefOffset,
+                                     inputClassDefOffset,
+                                     lookaheadClassDefOffset,
+                                     lookupIndex, lookupFlag);
+
+      if (   matchedPositions != null
+          &amp;&amp; gr.isLookupApplied (lookupIndex, curGlyph,
+                                 matchedPositions[matchedPositions.length-1])) {
+        int backtrackGlyphCount = getuint16 (ruleOffset);
+        int inputGlyphCount = getuint16 (ruleOffset + 2
+                                         + 2*backtrackGlyphCount);
+        int lookaheadGlyphCount = getuint16 (ruleOffset + 4
+                                             + 2*backtrackGlyphCount
+                                             + 2*(inputGlyphCount -1));
+        int applyCountOffset = ruleOffset + 6
+                                    + 2*backtrackGlyphCount
+                                    + 2*(inputGlyphCount - 1)
+                                    + 2*lookaheadGlyphCount;
+        int applyCount = getuint16 (applyCountOffset);
+        int applyOffset = applyCountOffset + 2;
+        if (listener != null) {
+          listener.applyingSubtable (lookupIndex, gr, curGlyph,
+                                     Tag.tag2string (tag), stOffset); }
+        return applySubLookups (gr, matchedPositions, applyCount, applyOffset); }}
+
+    return lookupNotApplied; }
+</code-fragment>
+    </section>
+    

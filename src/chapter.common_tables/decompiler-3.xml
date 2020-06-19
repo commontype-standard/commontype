@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="lookuptable.methods">
+  public void langSysTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+  }
+
+  public void langSysTableOffsetToXML (DecompilerConfig conf, int offset,
+                                      int [] counts,
+                                       String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "langSysTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      langSysTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void langSysTableToXML (DecompilerConfig conf, int offset,
+                                int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "langSysTable_" + Integer.toHexString (offset));
+      langSysTableToXMLEmit (conf, offset, counts,
+                                "langSysTable", at);
+      counts [offset] = 0; }
+  }
+
+  public void langSysTableToXMLEmit (DecompilerConfig conf, int offset,
+                                     int[] counts,
+				     String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+
+      if (getuint16 (offset + 2) != 0xffff) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "name", "name", "CDATA",
+                         "feature_" + getuint16 (offset+2)); }
+
+      for (int i = 0; i &lt; getuint16 (offset + 4); i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "name", "name", "CDATA",
+                         "feature_" + getuint16 (offset + 6 + 2*i));
+        conf.ch.element ("featureIndex", at); }
+
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+
+  defaultUVSTable =
+    element defaultMappings {
+      element range {
+        attribute start { text },
+        attribute additionalCount { text }}* }
+
+  standaloneDefaultUVS =
+    element defaultUVSTable { attribute id { text }, defaultUVSTable }
+
+  defaultUVSOffset = attribute defaultUVSTable { text } | defaultUVSTable
+
+
+  nonDefaultUVSTable =
+    element nonDefaultMappings {
+      element map {
+        attribute usv { text },
+        attribute gid  { text }}* }
+
+  standaloneNonDefaultUVS =
+    element nonDefaultUVSSubtable { attribute id { text }, nonDefaultUVSTable }
+
+  nonDefaultUVSOffset = attribute nonDefaultUVSTable { text } | nonDefaultUVSTable
+
+  cmapsubtable |=
+    attribute format { "14" },
+
+    element variation-selector {
+      attribute vs { text },
+      defaultUVSOffset,
+      nonDefaultUVSOffset }*
+
+</code-fragment>
+    </section>
+    

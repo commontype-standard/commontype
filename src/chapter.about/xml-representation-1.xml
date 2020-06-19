@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>The “XML representation” sections propose
+         an XML representation of CommonType fonts. The mains goals are:
+          <itemizedlist><listitem><para>allow the precise representation of fonts in an
+                XML form, to facilitate exchange, manipulation by
+                programs, or archival of fonts.</para></listitem><listitem><para>be a convenient form to author fonts or fragments
+                of fonts; in particular, facilitate the creation of
+                fonts to test CommonType engines.</para></listitem></itemizedlist></para>
+      <para>The XML representation is currently formalized in
+          a Relax NG schema, expressed here in the compact syntax.</para>
+    </section>
+    

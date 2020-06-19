@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Implementation Test</title>
+      <section>
+        <title>gsub4_1_simple</title>
+        <para>Let’s start with a simple test that replaces
+          glyphs 18, 19, and 20 by glyph 23.</para>
+        <aots:test-font id="gsub4_1_simple_f1">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4">
+                <ligatureSubst format="1">
+                  <coverage glyphs="18" format="any"/>
+                  <subst in="18 19 20" out="23"/>
+                </ligatureSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub4_1_simple_t1" font="gsub4_1_simple_f1" inputs="17, 18, 19, 20, 17, 18, 19, 22, 20" outputs="17, 23,         17, 18, 19, 22, 20"/>
+      </section>
+      <section>
+        <title>gsub4_1_lookupflag</title>
+        <para>Let’s add LookupFlag in a straightforward way;
+          in addition to the change above, glyph 24 is skipped.</para>
+        <aots:test-font id="gsub4_1_lookupflag_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="24"/>
+            </glyphClassDef>
+          </GDEF>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" ignoreBaseGlyphs="yes" type="4">
+                <ligatureSubst format="1">
+                  <coverage glyphs="18" format="any"/>
+                  <subst in="18 19 20" out="23"/>
+                </ligatureSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <para>In the glyph run, we inject glyph 24 just before, in the
+            middle (one or more occurrences), and after the input pattern
+            match. If one observes the glyph run after each lookup
+            application, one should see:</para>
+        <literallayout>
+ *17  24  18  24  19  24  24  20  24  17  18  19  22  20
+  17 *24  18  24  19  24  24  20  24  17  18  19  22  20
+  17  24  23  24  24  24 *24  17  18  19  22  20
+  17  24  23  24  24  24  24 *17  18  19  22  20
+  17  24  23  24  24  24  24  17 *18  19  22  20
+  17  24  23  24  24  24  24  17  18 *19  22  20
+  17  24  23  24  24  24  24  17  18  19 *22  20
+  17  24  23  24  24  24  24  17  18  19  22 *20
+  17  24  23  24  24  24  24  17  18  19  22  20
+</literallayout>
+        <para>Note that the first match is on the first occurrence of
+            glyph 24, and that it covers the glyph run up to glyph 20; the
+            next lookup application is at the occurrence of glyph 24 just
+            following glyph 20.</para>
+        <aots:gsub-test id="gsub4_1_lookupflag_t1" font="gsub4_1_lookupflag_f1" inputs="17, 24, 18, 24, 19, 24, 24, 20, 24, 17, 18, 19, 22, 20" outputs="17, 24, 23, 24,     24, 24,     24, 17, 18, 19, 22, 20"/>
+      </section>
+      <section>
+        <title>gsub4_1_multiple_ligatures</title>
+        <para>Let’s verify what happens when multiple
+          ligatures are present. Let’s have (18, 19, 20) go to
+          23, and then (18, 19) go to 24. Note that the first ligature
+          is more specific than the second one.</para>
+        <aots:test-font id="gsub4_1_multiple_ligatures_f1">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4">
+                <ligatureSubst format="1">
+                  <coverage glyphs="18" format="any"/>
+                  <subst in="18 19 20" out="23"/>
+                  <subst in="18 19" out="24"/>
+                </ligatureSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub4_1_multiple_ligatures_t1" font="gsub4_1_multiple_ligatures_f1" inputs="17, 18, 19, 20, 17, 18, 19, 22, 20" outputs="17, 23,         17, 24,     22, 20"/>
+        <para>Let’s invert the order of those two ligatures,
+          to make the second one more specific (and see that it never
+          applies).</para>
+        <aots:test-font id="gsub4_1_multiple_ligatures_f2">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4">
+                <ligatureSubst format="1">
+                  <coverage glyphs="18" format="any"/>
+                  <subst in="18 19" out="24"/>
+                  <subst in="18 19 20" out="23"/>
+                </ligatureSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub4_1_multiple_ligatures_t2" font="gsub4_1_multiple_ligatures_f2" inputs="17, 18, 19, 20, 17, 18, 19, 22, 20" outputs="17, 24,     20, 17, 24,     22, 20"/>
+      </section>
+      <section>
+        <title>gsub4_1_multiple_ligsets</title>
+        <para>Moving on to multiple ligature sets. (18, 19) goes to 23 and
+            (20, 19) goes to 24.</para>
+        <aots:test-font id="gsub4_1_multiple_ligsets_f1">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4">
+                <ligatureSubst format="1">
+                  <coverage glyphs="18 20" format="any"/>
+                  <subst in="18 19" out="23"/>
+                  <subst in="20 19" out="24"/>
+                </ligatureSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub4_1_multiple_ligsets_t1" font="gsub4_1_multiple_ligsets_f1" inputs="17, 18, 19, 21, 20, 19, 22" outputs="17, 23,     21, 24,     22"/>
+      </section>
+    </section>
+  

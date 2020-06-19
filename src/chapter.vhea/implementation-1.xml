@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Here is the class definition for <ottable>vhea</ottable>
+          tables:</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Vhea"><code-title>Vhea class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Vhea extends Table {
+
+  public Vhea () {
+    super (Tag.vhea, null);
+  }
+
+  public Vhea (Font font) {
+    super (Tag.vhea, font);
+  }
+
+  <code-include linkend="vhea.methods"/>
+}
+</code-fragment>
+      <para>We have simple accessor functions:</para>
+      <code-fragment id="vhea.methods"><code-title>Vhea class</code-title>
+  public int getNumberOfVMetrics () {
+    return getuint16 (34);
+  }
+
+  public void setNumberOfVMetrics (int n) {
+    setuint16 (34, n);
+  }
+</code-fragment>
+    </section>
+  

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <para>When decompiling a font, we do have a number of choices,
+	such as whether the XML reflects the exact formats used in the
+	font, or whether is provides the most readable view of the
+	font. This and other parameters are captured in a DecompilerConfig
+	object:</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="DecompilerConfig"><code-title/>
+package com.adobe.aots.CommonType;
+
+import java.io.File;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
+import java.net.URL;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.sax.SAXSource;
+import javax.xml.transform.sax.SAXTransformerFactory;
+import javax.xml.transform.sax.TransformerHandler;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.transform.stream.StreamResult;
+
+public class DecompilerConfig extends org.xml.sax.helpers.DefaultHandler {
+  public ContentHandlerPlus ch;
+
+  public boolean preciseCoverageFormat;
+  public boolean preciseClassDefFormat;
+  public boolean preciseCmap;
+
+  public enum PointersAreShown { never, asNeeded, always };
+  public PointersAreShown pointers;
+
+  public enum Gid { byNumber, byName};
+  public Gid gid;
+  public String[] glyphNames;
+  protected java.util.Map&lt;String, String&gt; userGlyphNames = null;
+
+
+  DecompilerConfig () {
+    makeReadable ();
+  }
+
+  public void makeReadable () {
+    preciseCoverageFormat = false;
+    preciseClassDefFormat = false;
+    preciseCmap = false;
+    pointers = PointersAreShown.never;
+    gid = Gid.byNumber;
+  }
+
+  public void makeExact () {
+    preciseCoverageFormat = true;
+    preciseClassDefFormat = true;
+    preciseCmap = true;
+    pointers = PointersAreShown.asNeeded;
+    gid = Gid.byNumber;
+  }
+
+  public void sendOutputTo (javax.xml.transform.Result result)
+      throws javax.xml.transform.TransformerConfigurationException {
+
+    TransformerFactory tfactory = TransformerFactory.newInstance ();
+    if (!tfactory.getFeature (SAXSource.FEATURE)) {
+      System.err.println ("SAXSource.FEATURE not supported"); }
+
+    SAXTransformerFactory sfactory = (SAXTransformerFactory) tfactory;
+
+    TransformerHandler handler = sfactory.newTransformerHandler ();
+
+//    handler.setResult (new StreamResult (System.out));
+    handler.setResult (result);
+
+    Transformer transformer = handler.getTransformer ();
+    transformer.setOutputProperty (OutputKeys.INDENT, "yes");
+    transformer.setOutputProperty (OutputKeys.STANDALONE, "yes");
+
+    ch = new ContentHandlerPlus (handler);
+  }
+
+
+
+  public void startElement (String namespaceURI, String localName, String qName,
+                            org.xml.sax.Attributes atts)
+      throws org.xml.sax.SAXException {
+    if (localName.equals ("glyph")) {
+      userGlyphNames.put (atts.getValue ("id"), atts.getValue ("name")); }
+  }
+
+  public void parseGlyphNames (String filename)
+      throws javax.xml.parsers.ParserConfigurationException,
+             org.xml.sax.SAXException,
+             java.io.IOException {
+    userGlyphNames = new java.util.HashMap&lt;String, String&gt; ();
+
+    javax.xml.parsers.SAXParserFactory spf
+      = javax.xml.parsers.SAXParserFactory.newInstance ();
+    spf.setNamespaceAware (true);
+    javax.xml.parsers.SAXParser sp = spf.newSAXParser ();
+    sp.parse (filename, this);
+  }
+
+  public void incorporateUserGlyphNames (int nGlyphs) {
+    if (userGlyphNames == null) {
+      return; }
+
+    if (glyphNames == null) {
+      glyphNames = new String [nGlyphs]; }
+
+    for (String g : userGlyphNames.keySet ()) {
+      int gid = Integer.parseInt (g);
+      glyphNames [gid] = userGlyphNames.get (g); }
+  }
+
+
+}
+</code-fragment>
+      <para>The decompiler is really a simple shell that creates a
+          <varname>Font</varname>, calls its
+          <varname>fromBinary</varname> method to initializes it with
+          the content of an existing font, calls its
+          <varname>toXML</varname> method to create the XML
+          representation and serializes it.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Decompiler"><code-title>Decompiler class</code-title>
+package com.adobe.aots.CommonType;
+
+
+import java.io.File;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
+import java.net.URL;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+import org.w3c.dom.Element;
+
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.dom.DOMResult;
+import javax.xml.transform.sax.SAXSource;
+import javax.xml.transform.sax.SAXTransformerFactory;
+import javax.xml.transform.sax.TransformerHandler;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.transform.stream.StreamResult;
+
+public class Decompiler {
+
+  public static void main (String args[]) throws Exception {
+
+    try {
+      long [] tags = null;
+      int ttcIndex = -1;
+      boolean roundtrip = false;
+      OutputStream output = System.out;
+      DecompilerConfig conf = new DecompilerConfig ();
+      URL base = null;
+
+      for (int i = 0; i &lt; args.length; i++) {
+        if ("-ttc".equals (args [i])) {
+          i++;
+          ttcIndex = Integer.parseInt (args [i]); }
+
+        else if ("-t".equals (args [i])) {
+          i++;
+  	  tags = Tag.string2tags (args [i]); }
+
+        else if ("-exact".equals (args [i])) {
+	  conf.makeExact (); }
+
+	else if ("-readable".equals (args [i])) {
+          conf.makeReadable (); }
+
+	else if ("-pointers=never".equals (args [i])) {
+	  conf.pointers = DecompilerConfig.PointersAreShown.never; }
+
+	else if ("-pointers=asneeded".equals (args [i])) {
+	  conf.pointers = DecompilerConfig.PointersAreShown.asNeeded; }
+
+	else if ("-pointers=always".equals (args [i])) {
+	  conf.pointers = DecompilerConfig.PointersAreShown.always; }
+
+        else if ("-gid=names".equals (args[i])) {
+	  conf.gid = DecompilerConfig.Gid.byName; }
+
+        else if ("-gid=numbers".equals (args [i])) {
+	  conf.gid = DecompilerConfig.Gid.byNumber; }
+
+        else if (args [i].startsWith ("-gid=")) {
+	  conf.gid = DecompilerConfig.Gid.byName;
+          conf.parseGlyphNames (args [i].substring (5)); }
+
+	else if ("-coverages=exact".equals (args [i])) {
+	  conf.preciseCoverageFormat = true; }
+
+	else if ("-coverages=readable".equals (args [i])) {
+	  conf.preciseCoverageFormat = false; }
+
+	else if ("-classdefs=exact".equals (args [i])) {
+	  conf.preciseClassDefFormat = true; }
+
+	else if ("-classdefs=readable".equals (args [i])) {
+	  conf.preciseClassDefFormat = false; }
+
+	else if ("-roundtrip".equals (args [i])) {
+	  roundtrip = true; }
+
+	else if ("-b".equals (args [i])) {
+	  i++;
+	  base = new File (args [i]).toURL (); }
+
+        else if ("-o".equals (args [i])) {
+	  i++;
+          output = new FileOutputStream (args [i]); }
+
+	else if ("-h".equals (args [i])
+	         || "--help".equals (args)
+		 || "-u".equals (args)) {
+	  i++;
+	  System.out.println ("Decompiler [options] fontfile\n"
++ "\n"
++ "-t&lt;table&gt;[,&lt;table&gt;]    decompile selected tables\n"
++ "-exact                 show the font content exactly\n"
++ "-readable              show the font content readably\n"
++ "-pointers=never        inline all blocks\n"
++ "-pointers=asneeded     inline blocks with a single reference\n"
++ "-pointers=always       never inline blocks\n"
++ "-coverages=exact       show the coverages exactly\n"
++ "-coverages=readable    show the coverages readably\n"
++ "-classdefs=exact       show the class definitions exactly\n"
++ "-classdefs=readably    show the class definitions readably\n"
++ "-gid=names             show gids by their name\n"
++ "-gid=numbers           show gids by their numbers"); }
+
+        else if (args [i].startsWith ("-")) {
+	  i++;
+	  System.out.println ("invalid option: " + args [i]);
+	  System.out.println ("-h for help"); }
+
+        else {
+          URL source = new File (args [i]).getAbsoluteFile().toURL ();
+          Font font = new Font ();
+          if (ttcIndex == -1) {
+            font.fromBinary (source); }
+          else {
+            font.fromBinary (source, ttcIndex); }
+
+          if (! roundtrip) {
+            conf.sendOutputTo (new StreamResult (output));
+            conf.ch.startDocument (); {
+              font.toXML (conf, tags, base != null ? base : source);
+              conf.ch.endDocument (); }}
+
+          else {
+            DOMResult stage1 = new DOMResult ();
+            conf.sendOutputTo (stage1);
+            conf.ch.startDocument (); {
+              font.toXML (conf, tags, source);
+              conf.ch.endDocument (); }
+
+            Font f2 = new Font ();
+            f2.fromXML (null, (Element)stage1.getNode ().getFirstChild ());
+	    f2.toBinary (output); }
+          output.close (); }}}
+
+    catch (Exception e) {
+      System.err.println ("Exception: " + e.getMessage ());
+      e.printStackTrace ();
+      System.exit (1); }
+  }
+}
+</code-fragment>
+    </section>
+  

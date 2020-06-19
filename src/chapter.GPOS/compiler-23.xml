@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gpos.methods">
+  public Block anchorTableFromXML (Element t,
+                                   Element table,
+			           Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    Block me = null;
+
+    String format = t.getAttribute ("format");
+
+    if ("1".equals (format)) {
+      me = anchorTableFormat1FromXML (t, table, blockCache); }
+    else if ("2".equals (format)) {
+      me = anchorTableFormat2FromXML (t, table, blockCache); }
+    else if ("3".equals (format)) {
+      me = anchorTableFormat3FromXML (t, table, blockCache); }
+    else {
+      /* cannot get there on valid document */
+      throw new InvalidFontException
+                      ("invalid anchor table format (" + format + ")"); }
+
+    blockCache.put (t, me);
+    return me;
+  }
+</code-fragment>
+    </section>
+    

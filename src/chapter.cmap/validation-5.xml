@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="validation">
+      <title>Validation</title>
+      <code-fragment id="validate_cmap_format6"><code-title>Validate cmap 6 subtable at stOffset</code-title>
+  if (! claim (stPrefix + " header", stOffset + 2, 8)) {
+    break; }
+
+  int stVersion = getuint16 (stOffset + 4);
+  if (stVersion &gt; 0) {
+    reportError ("cmap@" + stOffset + " table version (" + stVersion
+                 + ") not part of the specification"); }
+
+  int length = getuint16 (stOffset + 2);
+
+  int firstCode = getuint16 (stOffset + 6);
+  int entryCount = getuint16 (stOffset + 8);
+
+  if (length != 2*entryCount + 10) {
+    reportError ("cmap subtable at " + stOffset + " has wrong length"); }
+
+  claim (stPrefix + " glyphIdArray", stOffset + 10, 2*entryCount);
+</code-fragment>
+    </section>
+  

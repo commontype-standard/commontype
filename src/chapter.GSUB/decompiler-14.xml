@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="chainingLookup.toXMLCount_2">
+  coverageTableToXMLCount (stOffset + getOffset (stOffset + 2), counts);
+  classDefTableToXMLCount (stOffset + getOffset (stOffset + 4), counts);
+  classDefTableToXMLCount (stOffset + getOffset (stOffset + 6), counts);
+  classDefTableToXMLCount (stOffset + getOffset (stOffset + 8), counts);
+</code-fragment>
+      <code-fragment id="chainingLookup.toXML_2">
+  coverageTableToXML (conf, stOffset + getOffset (stOffset + 2), counts);
+  classDefTableToXML (conf, stOffset + getOffset (stOffset + 4), counts);
+  classDefTableToXML (conf, stOffset + getOffset (stOffset + 6), counts);
+  classDefTableToXML (conf, stOffset + getOffset (stOffset + 8), counts);
+</code-fragment>
+      <code-fragment id="chainingLookup.toXMLEmit_2">
+    int setCount = getuint16 (stOffset + 10);
+
+    at = new AttributesImpl ();
+    coverageTableOffsetToXML (conf, stOffset + getOffset (stOffset + 2), counts,
+                              "coverage", at);
+    at = new AttributesImpl ();
+    classDefTableOffsetToXML (conf, stOffset + getOffset (stOffset + 4), counts,
+                              "backClassDef", at);
+    at = new AttributesImpl ();
+    classDefTableOffsetToXML (conf, stOffset + getOffset (stOffset + 6), counts,
+                              "inClassDef", at);
+    at = new AttributesImpl ();
+    classDefTableOffsetToXML (conf, stOffset + getOffset (stOffset + 8), counts,
+                              "aheadClassDef", at);
+
+
+    for (int set = 0; set &lt; setCount; set++) {
+      int x = getOffset (stOffset + 12 + 2*set);
+      if (x != 0) {
+        int setOffset = stOffset + x;
+        int ruleCount = getuint16 (setOffset);
+
+        for (int rule = 0; rule &lt; ruleCount; rule++) {
+          int o = setOffset + getOffset (setOffset + 2 + 2*rule);
+          at = new AttributesImpl ();
+
+          { int backGlyphCount = getuint16 (o);
+            o += 2;
+            o += (backGlyphCount - 1) * 2;
+            StringBuilder s = new StringBuilder ();
+            for (int g = 0; g &lt; backGlyphCount; g++) {
+              s.append (" " + getuint16 (o));
+              o -= 2; }
+            o += (backGlyphCount + 1) * 2;
+            at.addAttribute ("", "back", "back", "CDATA",
+                             s.toString ()); }
+
+          { int inGlyphCount = getuint16 (o);
+            o += 2;
+            StringBuilder s = new StringBuilder ();
+            s.append ("" + set);
+            for (int g = 0; g &lt; inGlyphCount - 1; g++) {
+              s.append (" " + getuint16 (o));
+              o += 2; }
+            at.addAttribute ("", "in", "in", "CDATA",
+                             s.toString ()); }
+
+          { int aheadGlyphCount = getuint16 (o);
+            o += 2;
+            StringBuilder s = new StringBuilder ();
+            for (int g = 0; g &lt; aheadGlyphCount; g++) {
+              s.append (" " + getuint16 (o));
+              o += 2; }
+            at.addAttribute ("", "ahead", "ahead", "CDATA",
+                             s.toString ()); }
+
+          conf.ch.startElement ("pattern", at); {
+            int posCount = getuint16 (o);
+            o += 2;
+            subLookupsToXML (conf, posCount, o);
+            conf.ch.endElement ("pattern"); }}}}
+</code-fragment>
+    </section>
+    

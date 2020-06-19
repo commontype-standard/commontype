@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>baseCoordTable</code-title>
+  standaloneBaseCoordTable =
+    element baseCoordTable { attribute id { text }, baseCoordTable }
+
+  baseCoordTableOffset = attribute name { text } | baseCoordTable
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>anchorTable</code-title>
+  standaloneAnchorTable =
+    element anchorTable { attribute id { text }, anchorTable }
+
+  anchorTableOffset = attribute name { text } | anchorTable
+</code-fragment>
+    </section>
+    

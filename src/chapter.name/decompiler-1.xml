@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="name.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, UnsupportedFontException {
+
+    AttributesImpl at;
+
+    at = new AttributesImpl ();
+    conf.ch.startElement ("name", at); {
+      int stringOffset = getuint16 (4);
+      for (int i = 0; i &lt; getuint16 (2); i++) {
+        int platformID = getuint16 (6 + 12*i);
+        int encodingID = getuint16 (6 + 12*i + 2);
+        int languageID = getuint16 (6 + 12*i + 4);
+        int nameID     = getuint16 (6 + 12*i + 6);
+        int length     = getuint16 (6 + 12*i + 8);
+        int offset     = getuint16 (6 + 12*i + 10);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "platformID", "platformID", "CDATA",
+	                 "" + platformID);
+        at.addAttribute ("", "encodingID", "encodingID", "CDATA",
+	                 "" + encodingID);
+        at.addAttribute ("", "languageID", "languageID", "CDATA",
+	                 "" + languageID);
+        at.addAttribute ("", "nameID", "nameID", "CDATA",
+	                 "" + nameID);
+
+        String charset = getCharset (platformID, encodingID);
+	if (charset == null) {
+          throw new UnsupportedFontException ("name: unsupported encoding ("
+                                + platformID + "/" + encodingID + ")"); }
+
+        try {
+          String v = new String (data, stringOffset + offset, length, charset);
+          at.addAttribute ("", "v", "v", "CDATA", v); }
+        catch (java.io.UnsupportedEncodingException e) {
+          throw new UnsupportedFontException ("name: unsupported encoding ("
+                                + platformID + "/" + encodingID + ")"); }
+
+        conf.ch.element ("name-record", at); }
+      conf.ch.endElement ("name"); }
+  }
+</code-fragment>
+    </section>
+    

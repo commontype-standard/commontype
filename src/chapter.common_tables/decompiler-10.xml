@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="LayoutTable.coverageToXML.2">
+  { conf.ch.startElement (element, at); {
+
+      int rangeCount = getuint16 (offset + 2);
+      for (int i = 0; i &lt; rangeCount; i++) {
+        int start = getuint16 (offset + 4 + 6*i);
+        int end = getuint16 (offset + 4 + 6*i + 2);
+        at = new AttributesImpl ();
+        at.addAttribute ("", "start", "start", "CDATA", "" + start);
+        at.addAttribute ("", "end", "end", "CDATA", "" + end);
+        conf.ch.element ("range", at); }
+
+      conf.ch.endElement (element); }}
+</code-fragment>
+    </section>
+    

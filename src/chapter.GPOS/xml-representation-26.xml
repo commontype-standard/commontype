@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>anchorTable, format 2</code-title>
+  anchorTable |=
+    attribute format { "2" },
+    attribute x { text },
+    attribute y { text },
+    attribute point { text }
+</code-fragment>
+    </section>
+    

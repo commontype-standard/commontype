@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>This subtable is very similar to a Ligature Substitution
+          subtable. The matched patterns are the same. The difference
+          is in the replacement; in a Ligature Substitution, the
+          matched glyphs are replaced by a specific glyph, whereas in
+          this subtable, SubstLookupRecords are invoked.</para>
+      <para>We start with a procedure that performs the matching for
+          a single sub rule. When this procedure is called, it is
+          known that the glyph run matched
+          L<subscript>0</subscript> and that L<subscript>0</subscript>
+          is at <varname>inPos</varname>. If the glyph run does not
+          match the rest of the sub rule, then this procedure returns
+          null. Otherwise, it returns an array of the glyph run
+          positions that where matched, i.e. the positions of
+          L<subscript>0</subscript>, L<subscript>1</subscript>,
+          …</para>
+      <para>Note that the organization of this procedure matches the
+          organization of the subtable: L<subscript>0</subscript> is
+          recorded in the coverage of the subtable, and
+          L<subscript>1</subscript>, … are recorded in SubRule
+          table; essentially this procedure takes care of one SubRule
+          table.</para>
+      <code-fragment id="lookuptable.methods"><code-title>Procedure to match one GSUB 5/1 sub rule</code-title>
+
+  int[] matchOneRule (GlyphRun gr, int inPos, int ruleOffset,
+                         int lookupIndex, int lookupFlag)
+      throws InvalidFontException {
+
+    int glyphCount = getuint16 (ruleOffset);
+    int [] matchedPositions = new int [glyphCount];
+    matchedPositions [0] = inPos;
+    inPos++;
+
+    for (int i = 1; i &lt; glyphCount; i++) {
+
+      while (lookupFlagCovers (lookupFlag, gr.glyphAt (inPos))) {
+        inPos++; }
+
+      if (gr.glyphAt (inPos) != getuint16 (ruleOffset + 4 + 2*(i-1))) {
+        return null; }
+
+      matchedPositions [i] = inPos;
+      inPos++; }
+
+    return matchedPositions;
+  }
+</code-fragment>
+      <para>With that in place, we can now implement the full
+          subtable.</para>
+      <para>The only complication is the determination of the
+          position of the next glyph to process. The next glyph is the
+          one following L<subscript>n-1</subscript>. Before the
+          SubstLookupRecords are applied, we know the position of that
+          glyph, but it can modified by the SubstLookupRecords. We
+          could arrange for the application of the SubstLookupRecords
+          to indicate how many glyphs are inserted or deleted, but
+          this would complicate that code. Instead, we rely on the
+          property that the SubstLookupRecords cannot modify glyphs
+          outside of the matched pattern: in particular, we know that
+          none of the glyphs following L<subscript>n-1</subscript> in
+          the glyph run are modified, and therefore that their number
+          does not change.</para>
+      <code-fragment id="contextualLookup_format1"><code-title>Execute contextual lookup subtable, format 1, and return</code-title>
+  { int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int inPos = curGlyph;
+
+    int ci = getCoverageIndex (gr.glyphAt (inPos), coverageOffset);
+    if (ci == -1) {
+      return lookupNotApplied; }
+
+    int ruleSetOffset = stOffset + getuint16 (stOffset + 6 + ci*2);
+    int ruleCount = getuint16 (ruleSetOffset);
+
+    for (int s = 0; s &lt; ruleCount; s++) {
+      int ruleOffset = ruleSetOffset +  getOffset (ruleSetOffset + 2 + 2*s);
+
+      int[] matchedPositions
+        = matchOneRule (gr, inPos, ruleOffset, lookupIndex, lookupFlag);
+
+      if (matchedPositions != null
+          &amp;&amp; gr.isLookupApplied (lookupIndex, curGlyph,
+                                 matchedPositions [matchedPositions.length-1])) {
+
+        int glyphCount = getuint16 (ruleOffset);
+        int applyCount = getuint16 (ruleOffset + 2);
+        int applyOffset = ruleOffset + 4 + 2*(glyphCount-1);
+        if (listener != null) {
+           listener.applyingSubtable (lookupIndex, gr, curGlyph,
+                                      Tag.tag2string (tag), stOffset); }
+        return applySubLookups (gr, matchedPositions,
+                                applyCount, applyOffset); }}
+
+    return lookupNotApplied; }
+</code-fragment>
+    </section>
+    

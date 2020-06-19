@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="glyf.methods"><code-title>Glyf methods</code-title>
+  public static final int ON_CURVE_POINT                       = 0x0001;
+  public static final int X_SHORT_VECTOR                       = 0x0002;
+  public static final int Y_SHORT_VECTOR                       = 0x0004;
+  public static final int REPEAT_FLAG                          = 0x0008;
+  public static final int X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR = 0x0010;
+  public static final int Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR = 0x0020;
+</code-fragment>
+      <para>This method unpacks the fields of a simple glyph, so that we have the list of coordinates readily available.</para>
+      <code-fragment id="glyf.methods">
+
+  public class SimpleGlyphUnpack {
+    int offset;
+    int endPts [];
+    int nbPts;
+    int x[];
+    int y[];
+    boolean on[];
+  }
+
+  public SimpleGlyphUnpack unpackSimpleGlyphContours (int offset,
+                                                      int nbContours) {
+
+    SimpleGlyphUnpack u = new SimpleGlyphUnpack ();
+
+    u.endPts = new int [nbContours];
+    for (int i = 0; i &lt; nbContours; i++) {
+      u.endPts [i] = getuint16 (offset); offset += 2; }
+
+    offset += 2 + getuint16 (offset);  // instructionLength
+
+    u.nbPts = u.endPts [nbContours - 1] + 1;
+    u.x = new int [u.nbPts];
+    u.y = new int [u.nbPts];
+    u.on = new boolean [u.nbPts];
+
+    int flags[] = new int [u.nbPts];
+    int repeat = 0;
+    int f = 0;
+
+    for (int i = 0; i &lt; u.nbPts; i++) {
+      if (repeat == 0) {
+        f = getuint8 (offset); offset++;
+        repeat = 0;
+        if ((f &amp; REPEAT_FLAG) != 0) {
+          repeat = getuint8 (offset); offset++; }}
+      else {
+        repeat--; }
+      flags [i] = f;
+      u.on [i] = ((f &amp; ON_CURVE_POINT) != 0);  }
+
+    int current_x = 0;
+
+    for (int i = 0; i &lt; u.nbPts; i++) {
+      if ((flags [i] &amp; X_SHORT_VECTOR) != 0) {
+        int xOffset = getuint8 (offset); offset += 1;
+        if ((flags [i] &amp; X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR) == 0) {
+          xOffset = - xOffset; }
+        current_x += xOffset; }
+
+      else if ((flags [i] &amp; X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR) != 0) {
+        /* same */ }
+
+      else {
+        current_x += getint16 (offset); offset += 2; }
+
+      u.x [i] = current_x; }
+
+    int current_y = 0;
+
+    for (int i = 0; i &lt; u.nbPts; i++) {
+      if ((flags [i] &amp; Y_SHORT_VECTOR) != 0) {
+        int yOffset = getuint8 (offset); offset += 1;
+        if ((flags [i] &amp; Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR) == 0) {
+          yOffset = - yOffset; }
+        current_y += yOffset; }
+
+      else if ((flags [i] &amp; Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR) != 0) {
+        /* same */ }
+
+      else {
+        current_y += getint16 (offset); offset += 2; }
+
+      u.y [i] = current_y; }
+
+    return u;
+  }
+</code-fragment>
+      <para>This class receives descriptions of the lines and curves of contours and computes their bounding box.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="TTBoundingBox"><code-title>Type2Bounding class</code-title>
+package com.adobe.aots.CommonType;
+
+public class TTBoundingBox {
+  public BoundingBox bb;
+
+  TTBoundingBox () {
+    this.bb = new BoundingBox ();
+  }
+
+  public void line (double x1, double y1, double x2, double y2) {
+    bb.include (x1, y1);
+    bb.include (x2, y2);
+  }
+
+  private double at (double t, double z1, double z2, double z3)
+  {
+    double mt = 1 - t;
+    return mt * mt * z1 + 2 * mt * t * z2 + t * t * z3;
+  }
+
+  private void includeAtT (double t,
+                           double x1, double y1, double x2, double y2,
+                           double x3, double y3)
+  {
+    if (0 &lt; t &amp;&amp; t &lt; 1) {
+      bb.include (at (t, x1, x2, x3),
+                  at (t, y1, y2, y3)); }
+  }
+
+  private void includeExtremas (double z1, double z2, double z3,
+                                double x1, double y1, double x2, double y2,
+                                double x3, double y3)
+  {
+    double denom = z1 - 2*z2 + z3;
+    if (Math.abs (denom) &lt; 1e-12) {
+      return; }
+
+      includeAtT ((z1 - z2) / denom,
+                  x1, y1, x2, y2, x3, y3);
+  }
+
+  public void curve (double x1, double y1, double x2, double y2,
+                     double x3, double y3)
+  {
+    bb.include (x1, y1);
+    bb.include (x3, y3);
+
+    includeExtremas (x1, x2, x3,
+                     x1, y1, x2, y2, x3, y3);
+    includeExtremas (y1, y2, y3,
+                     x1, y1, x2, y2, x3, y3);
+  }
+}
+</code-fragment>
+      <para>Using this class, this method walks the contours of a simple glyph to get their bounding box:</para>
+      <code-fragment id="glyf.methods">
+  public BoundingBox getSimpleGlyphContoursBoundingBox (int offset, int nbContours)
+  {
+    TTBoundingBox b = new TTBoundingBox ();
+
+    SimpleGlyphUnpack u = unpackSimpleGlyphContours (offset, nbContours);
+
+      int pt = 0;
+
+      for (int c = 0; c &lt; nbContours; c++) {
+
+        int originx = u.x [pt];
+        int originy = u.y [pt];
+        pt++;
+        boolean lastPointIsOn = true;
+
+        int p0x, p0y, p1x, p1y;
+        p0x = originx;
+        p0y = originy;
+        p1x = 0;  // just to make the compiler happy
+        p1y = 0;
+
+        while (pt &lt;= u.endPts [c]) {
+          if (u.on [pt]) {
+            if (lastPointIsOn) {
+              b.line (p0x, p0y, u.x [pt], u.y [pt]); }
+            else {
+              b.curve (p0x, p0y, p1x, p1y, u.x [pt], u.y [pt]); }
+            p0x = u.x [pt];
+            p0y = u.y [pt];
+            lastPointIsOn = true; }
+
+          else {
+            if (! lastPointIsOn) {
+              int mx = (p1x + u.x [pt]) / 2;
+              int my = (p1y + u.y [pt]) / 2;
+              b.curve (p0x, p0y, p1x, p1y, mx, my);
+              p0x = mx;
+              p0y = my; }
+
+            p1x = u.x [pt];
+            p1y = u.y [pt];
+            lastPointIsOn = false; }
+
+          pt++; }
+
+        if (! lastPointIsOn) {
+          b.curve (p0x, p0y, p1x, p1y, originx, originy); }}
+
+    return b.bb;
+  }
+</code-fragment>
+    </section>
+  

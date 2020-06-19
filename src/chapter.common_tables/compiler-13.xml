@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="layouttable.methods">
+  public ClassdefTableBlock classdefFormat2FromXML (Element classdef,
+                                                    Element table,
+                                                    Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList ranges = classdef.getChildNodes ();
+    int nbRanges = ranges.getLength ();
+
+    int lastClass = 0;
+
+    ClassdefTableBlock me = new ClassdefTableBlock (4 + 6 * nbRanges, 0);
+    me.setuint16 (0, 2);
+    me.setuint16 (2, nbRanges);
+    for (int i = 0; i &lt; nbRanges; i++) {
+      Element range = (Element) ranges.item (i);
+      me.setGlyphID (4 + 6*i,  Integer.parseInt (range.getAttribute ("start")));
+      me.setGlyphID (4 + 6*i+2, Integer.parseInt (range.getAttribute ("end")));
+      int classID = Integer.parseInt (range.getAttribute ("class"));
+      if (classID &gt; lastClass) {
+        lastClass = classID; }
+      me.setuint16 (4 + 6*i+4, classID); }
+
+    me.classCount = lastClass + 1;
+    return me;
+  }
+</code-fragment>
+    </section>
+    

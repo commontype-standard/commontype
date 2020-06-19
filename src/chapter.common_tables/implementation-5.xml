@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="method_Table_findLookups4"><code-title>Convert 'selectedFeatureTags' to
+           'selectedFeatureIndices' using table at 'langSysOffset'</code-title>
+  { int requiredFeature = getuint16 (langSysOffset + 2);
+    if (requiredFeature != 0xffff) {
+      selectedFeatureIndices [selectedFeatureIndicesCount++] = requiredFeature; }
+
+    int featureCount = getuint16 (langSysOffset + 4);
+    for (int f = 0; f &lt; featureCount; f++) {
+      int featureIndex = getuint16 (langSysOffset + 6 + 2*f);
+      <code-include linkend="method_Table_findLookups6"/> }}
+</code-fragment>
+      <code-fragment id="lookuptable.methods"><code-title>aaa</code-title>
+  private String[] getFeatureNamesForLang (int langSysOffset) {
+    int featureCount = getuint16 (langSysOffset + 4);
+
+    int featureListOffset = getFeatureListOffset ();
+
+    String [] result = new String [featureCount];
+    for (int f = 0; f &lt; featureCount; f++) {
+      int featureIndex = getuint16 (langSysOffset + 6 + 2*f);
+      <code-include linkend="LookupTable_getFeatureNamesForLang_2"/> }
+
+    return result;
+  }
+</code-fragment>
+    </section>
+  

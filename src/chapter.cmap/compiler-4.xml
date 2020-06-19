@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <para>We have three cases to consider: when the cmap is empty;
+          when it is described by <sgmltag>segment</sgmltag> elements;
+          and when it is described by <sgmltag>map</sgmltag>
+          elements.</para>
+      <code-fragment id="cmap.methods"><code-title>Method to compile a format 4 cmap</code-title>
+  private Block format4FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+    if (children.getLength () == 0) {
+      <code-include linkend="compileCmapFormat4.empty"/> }
+    else if ("segment".equals (((Element)children.item (0)).getTagName ())) {
+      <code-include linkend="compileCmapFormat4.segments"/> }
+    else {
+      <code-include linkend="compileCmapFormat4.maps"/> }
+  }
+</code-fragment>
+      <para>The empty cmap case is fairly straightforward:</para>
+      <code-fragment id="compileCmapFormat4.empty"><code-title>Generate empty format 4 cmap</code-title>
+{   int segCount = 1;
+    int segCountX2 = 2;
+    int searchRange = 1;
+    int entrySelector = 0;
+    int rangeShift = 1;
+
+    int length = 24;
+    Block me = new Block (length, 0);
+    me.setuint16 (0, 4);
+    me.setuint16 (2, length);
+    me.setuint16 (4, language);
+    me.setuint16 (6, segCountX2);
+    me.setuint16 (8, searchRange);
+    me.setuint16 (10, entrySelector);
+    me.setuint16 (12, rangeShift);
+
+    me.setuint16 (14, 0xffff);
+    me.setuint16 (16, 0); // reservedPad
+    me.setuint16 (18, 0xffff);
+    me.setint16  (20, 1);
+    me.setuint16 (22, 0);
+
+    return me; }
+</code-fragment>
+      <code-fragment id="compileCmapFormat4.maps"><code-title>Generate format 4 cmap from maps</code-title>
+{ int[] m = new int [0x10000];     // char -&gt; gid
+
+  for (int i = 0; i &lt; 0x10000; i++) {
+    m [i] = 0; }
+
+    NodeList maps = t.getChildNodes ();
+    for (int i = 0; i &lt; maps.getLength (); i++) {
+      Element e = (Element) maps.item (i);
+      int charcode = Integer.decode (e.getAttribute ("code")).intValue ();
+      int glyphid  = Integer.decode (e.getAttribute ("glyph")).intValue ();
+      String c = e.getAttribute ("count");
+      int count;
+      if (c.equals ("")) {
+         count = 1; }
+      else {
+         count = Integer.decode (c).intValue (); }
+
+      for (int j = charcode; j &lt; charcode + count; j++) {
+        m [j] = glyphid++; }}
+
+    int segCount = 0;
+    int glyphIdArraySize = 0;
+
+    class Segment {
+      int start;
+      int end;
+      boolean consecutive; }
+
+    Segment[] segments = new Segment [0x10000];
+
+    int current = 0;
+    while (current &lt; 0x10000) {
+      while (current &lt; 0x10000 &amp;&amp; m [current] == 0) {
+        current++; }
+
+      if (current == 0x10000) {
+        break; }
+
+      int first = current;
+      boolean consecutive = true;
+
+      current++;
+      while (current &lt; 0x10000 &amp;&amp; m [current] != 0) {
+        if (m[current] != m[current-1] + 1) {
+          consecutive = false; }
+        current++; }
+
+      segments [segCount] = new Segment ();
+      segments [segCount].start = first;
+      segments [segCount].end = current - 1;
+      segments [segCount].consecutive = consecutive;
+      if (! consecutive) {
+        glyphIdArraySize += current - first; }
+      segCount++; }
+
+    if (m [0xffff] == 0) {
+      segments [segCount] = new Segment ();
+      segments [segCount].start = 0xffff;
+      segments [segCount].end = 0xffff;
+      segments [segCount].consecutive = true;
+      segCount++; }
+
+    int segCountX2 = segCount * 2;
+    int searchRange = 1;
+    int entrySelector = -1;
+    while (searchRange &lt; segCount) {
+      searchRange *= 2;
+      entrySelector++; }
+    int rangeShift = 2 * segCount - searchRange;
+
+    int length = 16 + 8*segCount + glyphIdArraySize*2;
+    Block me = new Block (length, 0);
+    me.setuint16 (0, 4);
+    me.setuint16 (2, length);
+    me.setuint16 (4, language);
+    me.setuint16 (6, segCountX2);
+    me.setuint16 (8, searchRange);
+    me.setuint16 (10, entrySelector);
+    me.setuint16 (12, rangeShift);
+
+    int offset = 14;
+    int glyphIdArrayOffset = 16 + 8 * segCount;;
+
+    for (int i = 0; i &lt; segCount; i++) {
+      me.setuint16 (offset, segments [i].end);
+      me.setuint16 (offset + 2 + 2*segCount, segments [i].start);
+
+      if (segments [i].consecutive) {
+        int firstCode = segments [i].start;
+        me.setint16  (offset + 2 + 4*segCount,
+                      (m[firstCode] - firstCode) % 0x10000);
+        me.setuint16 (offset + 2 + 6*segCount, 0); }
+
+      else {
+        me.setint16  (offset + 2 + 4*segCount, 0);
+        me.setuint16 (offset + 2 + 6*segCount,
+                      glyphIdArrayOffset - 16 - 6*segCount - 2*i);
+        for (int j = segments [i].start; j &lt;= segments [i].end; j++) {
+          me.setuint16 (glyphIdArrayOffset, m [j]);
+          glyphIdArrayOffset += 2; }}
+
+      offset += 2; }
+
+    me.setuint16 (offset, 0); // reservedPad
+
+    return me; }
+</code-fragment>
+      <code-fragment id="compileCmapFormat4.segments"><code-title>Generate format 4 cmap from segments</code-title>
+{   NodeList segments = t.getChildNodes ();
+    int glyphIdArraySize = 0;
+    int lastEndCode = 0;
+
+    int segCount = segments.getLength () - 1; // omit "glyphIndex" element
+    Element glyphIndexElt = (Element) segments.item (segCount);
+    int[]  glyphIndexVals = parseIntList (glyphIndexElt.getAttribute ("v"));
+
+    int segCountX2 = segCount * 2;
+    int searchRange = 1;
+    int entrySelector = 0;
+    while (searchRange &lt; segCount) {
+      searchRange *= 2;
+      entrySelector++; }
+    searchRange *= 2;
+    int rangeShift = 2 * segCount - searchRange;
+
+    int length = 16 + 8*segCount + glyphIndexVals.length *2;
+    Block me = new Block (length, 0);
+    me.setuint16 (0, 4);
+    me.setuint16 (2, length);
+    me.setuint16 (4, language);
+    me.setuint16 (6, segCountX2);
+    me.setuint16 (8, searchRange);
+    me.setuint16 (10, entrySelector);
+    me.setuint16 (12, rangeShift);
+
+    int offset = 14;
+    int glyphIdArrayOffset = 0;
+
+    for (int i = 0; i &lt; segCount; i++) {
+      Element segment = (Element) segments.item (i);
+
+      int startCode = Integer.decode (segment.getAttribute ("startCode")).intValue ();
+      int endCode = Integer.decode (segment.getAttribute ("endCode")).intValue ();
+      int idDelta = Integer.decode (segment.getAttribute ("idDelta")).intValue ();
+      int idRangeOffset = Integer.decode (segment.getAttribute ("idRangeOffset")).intValue ();
+
+      me.setuint16 (offset, endCode);
+      me.setuint16 (offset + 2 + 2*segCount, startCode);
+      me.setint16 (offset + 2 + 4*segCount, idDelta);
+      me.setint16 (offset + 2 + 6*segCount, idRangeOffset);
+
+      offset += 2; }
+
+    me.setuint16 (offset, 0); // reservedPad
+    offset += 2;
+
+    offset += 6*segCount; // skip startCount, idDelta and idRangeOffset;
+
+    for (int i = 0; i &lt; glyphIndexVals.length; i++) {
+      me.setuint16 (offset, glyphIndexVals [i]);
+      offset += 2; }
+
+    return me;
+  }
+</code-fragment>
+    </section>
+    

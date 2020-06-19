@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Gdef"><code-title>GDEF Class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Gdef extends LayoutTable {
+
+  public Gdef () {
+    super (Tag.GDEF, null);
+  }
+
+  public Gdef (Font font) {
+    super (Tag.GDEF, font);
+  }
+
+  public int[] getTableVersion () {
+    return getFixed (0);
+  }
+
+  <code-include linkend="gdef.methods"/>
+}
+</code-fragment>
+    </section>
+  

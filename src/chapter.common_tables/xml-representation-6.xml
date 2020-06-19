@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>featureTable</code-title>
+  featureTable =
+    element lookupIndex {
+      attribute name { text }
+    }*
+
+  standaloneFeatureTable =
+    element featureTable { attribute id { text }, featureTable }
+
+  featureTableOffset = attribute name { text } | featureTable
+</code-fragment>
+    </section>
+    

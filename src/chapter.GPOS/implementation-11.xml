@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="gpos_5"><code-title>Execute GPOS 5 subtable and return</code-title>
+  { int markCoverageOffset = stOffset + getOffset (stOffset + 2);
+    int ligCoverageOffset = stOffset + getOffset (stOffset + 4);
+    int inPos = curGlyph;
+
+    if (getCoverageIndex (gr.glyphAt (inPos), markCoverageOffset) == -1) {
+      return lookupNotApplied; }
+
+    int ligPos = curGlyph - 1;
+    int ligGlyphID = gr.glyphAt (ligPos);
+
+    while (ligGlyphID != -1
+           &amp;&amp; (   lookupFlagCovers (lookupFlag, ligGlyphID)
+               || (   font.gdef != null
+                   &amp;&amp; font.gdef.getGlyphClass (ligGlyphID) == 3))) {
+      ligPos--;
+      ligGlyphID = gr.glyphAt (ligPos); }
+
+    if (   ligGlyphID == -1
+        || getCoverageIndex (ligGlyphID, ligCoverageOffset) == -1) {
+      return lookupNotApplied; }
+
+    if (! gr.isLookupApplied (lookupIndex, ligPos, inPos)) {
+      return lookupNotApplied; }
+
+
+    int classCount = getuint16 (stOffset + 6);
+    int markCoverageIndex = getCoverageIndex (gr.glyphAt (inPos),
+                                              markCoverageOffset);
+    int markArrayOffset = stOffset + getOffset (stOffset + 8);
+    int markRecordOffset = markArrayOffset + 2 + 4 * markCoverageIndex;
+    int markClass = getuint16 (markRecordOffset);
+    int markAnchorOffset = markArrayOffset + getOffset (markRecordOffset + 2);
+
+    int ligCoverageIndex = getCoverageIndex (gr.glyphAt (ligPos),
+                                              ligCoverageOffset);
+    int ligArrayOffset = stOffset + getOffset (stOffset + 10);
+    int ligAttachOffset = ligArrayOffset
+          + getOffset (ligArrayOffset + 2+2*ligCoverageIndex);
+
+
+    int compRecordOffset = ligAttachOffset + 2
+             + 2 * (classCount * gr.getLigComponent (inPos) + markClass);
+    int ligAnchorOffset = ligAttachOffset + getOffset (compRecordOffset);
+
+    int[] newPos = mergeAnchors (gr,
+                                 ligPos, ligAnchorOffset,
+                                 inPos, markAnchorOffset);
+
+    if (listener != null) {
+      listener.move (newPos [0], newPos [1]);
+      listener.applyingSubtable (lookupIndex, gr, inPos, "GPOS", stOffset); }
+
+    return new LookupResult (true, inPos + 1, 0); }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>As usual, all subtable formats start with the same
+          field, the uint16 SubstFormat, which we use to
+          dispatch:</para>
+      <code-fragment id="lookuptable.methods"><code-title>?</code-title>
+  public LookupResult applyContextualLookupSubtable
+                          (int lookupIndex, int lookupType, int lookupFlag,
+                           int stOffset, GlyphRun gr, int curGlyph)
+      throws InvalidFontException {
+
+    int substFormat = getuint16 (stOffset);
+
+    switch (substFormat) {
+      case 1: { <code-include linkend="contextualLookup_format1"/> }
+      case 2: { <code-include linkend="contextualLookup_format2"/> }
+      case 3: { <code-include linkend="contextualLookup_format3"/> }
+      default:
+        throw new InvalidFontException ("GSUB 5/-" + substFormat + "-"); }
+  }
+</code-fragment>
+    </section>
+  

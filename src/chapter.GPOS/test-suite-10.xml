@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Implementation Test</title>
+      <section>
+        <title>gpos7_1_font1: simple case</title>
+        <para>Let's start with a simple test that matches the sequence 18,
+            19, 20. At each position, we then apply a LookupType 1
+            which increases xPosition of the glyph by 100. </para>
+        <aots:test-font id="gpos7_1_font1">
+          <base-font name="base.otf"/>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.single" type="1">
+                <singlePos format="2">
+                  <value glyph="18" xPlacement="100"/>
+                  <value glyph="19" xPlacement="200"/>
+                  <value glyph="20" xPlacement="300"/>
+                </singlePos>
+              </lookup>
+              <lookup id="lookup.test" type="7">
+                <contextual format="1">
+                  <coverage glyphs="18" format="any"/>
+                  <pattern in="18 19 20">
+                    <apply pos="0" lookup="lookup.single"/>
+                    <apply pos="1" lookup="lookup.single"/>
+                    <apply pos="2" lookup="lookup.single"/>
+                  </pattern>
+                </contextual>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos7_1_test1a" font="gpos7_1_font1" inputs="17,   18,   19,   20,   21" xdeltas=" 0,  100,  200,  300,    0" ydeltas=" 0,    0,    0,    0,    0"/>
+        <para>Here is a test case on the same font that involves incomplete
+            matches of input sequence:</para>
+        <aots:gpos-test id="gpos7_1_test1b" font="gpos7_1_font1" inputs="17,   18,   17,   18,   19,   17" xdeltas=" 0,    0,    0,    0,    0,    0" ydeltas=" 0,    0,    0,    0,    0,    0"/>
+      </section>
+    </section>
+  

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="lookuptable.methods">
+  public void featureTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+  }
+
+  public void featureTableOffsetToXML (DecompilerConfig conf, int offset,
+                                      int [] counts,
+                                       String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "featureTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      featureTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void featureTableToXML (DecompilerConfig conf, int offset,
+                                int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "featureTable_" + Integer.toHexString (offset));
+      featureTableToXMLEmit (conf, offset, counts,
+                                "featureTable", at);
+      counts [offset] = 0; }
+  }
+
+  public void featureTableToXMLEmit (DecompilerConfig conf, int offset,
+                                        int[] counts,
+					String element, AttributesImpl at)
+      throws org.xml.sax.SAXException {
+
+    conf.ch.startElement (element, at); {
+
+      for (int i = 0; i &lt; getuint16 (offset + 2); i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "name", "name", "CDATA",
+                       "lookup_" + getuint16 (offset + 4 + 2*i));
+        conf.ch.element ("lookupIndex", at); }
+
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+    

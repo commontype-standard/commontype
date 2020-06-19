@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gpos.methods">
+  private void pairSetValueFormatFromXML (Element t, Element table,
+                                         int[] format) {
+    String name = t.getAttribute ("name");
+    if (name != null &amp;&amp; ! "".equals (name)) {
+      t = resolveXMLid (table, name); }
+
+    NodeList l = t.getChildNodes ();
+    for (int j = 0; j &lt; l.getLength (); j++) {
+      Element pos2 = (Element) l.item (j);
+
+      NodeList m = pos2.getChildNodes ();
+      for (int k = 0; k &lt; m.getLength (); k++) {
+        Element v = (Element) m.item (k);
+        if ("value1".equals (v.getTagName ())) {
+          format [0] |= parseValue (v).format; }
+        else if ("value2".equals (v.getTagName ())) {
+          format [1] |= parseValue (v).format; }}}
+  }
+
+
+  private Block pairSetTableFromXML (Element t, Element table,
+                                     Map&lt;Element, Block&gt; blockCache,
+				     int[] valueFormat)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    int valueSize1 = valueSize (valueFormat [0]);
+    int valueSize2 = valueSize (valueFormat [1]);
+
+    CoverageTableBlock coverage = coverageFromXML (t.getChildNodes (), "in");
+
+    int pairValueSize = (2 + valueSize1 + valueSize2);
+
+    Block me = new Block (2 + coverage.glyphs.length * pairValueSize, 0);
+    blockCache.put (t, me);
+
+    me.setuint16 (0, coverage.glyphs.length);
+
+    NodeList l = t.getChildNodes ();
+    for (int i = 0; i &lt; l.getLength (); i++) {
+      Element pos2 = (Element) l.item (i);
+      int[] gids = parseGlyphList (pos2.getAttribute ("in"));
+      for (int j = 0; j &lt; gids.length; j++) {
+        int ci = coverage.index (gids [j]);
+        int offset = 2 + ci * pairValueSize;
+        me.setuint16 (offset, gids [j]);
+        offset += 2;
+
+        NodeList m = pos2.getChildNodes ();
+        for (int k = 0; k &lt; m.getLength (); k++) {
+          Element v = (Element) m.item (k);
+          if ("value1".equals (v.getTagName ())) {
+            me.setValue (offset, valueFormat [0], parseValue (v));
+            offset += valueSize1; }
+          else if ("value2".equals (v.getTagName ())) {
+            me.setValue (offset, valueFormat [1], parseValue (v));
+            offset += valueSize2; }}}}
+
+
+    return me;
+  }
+
+  private Block pairPosFormat1FromXML (Element t, Element table,
+                                       Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me = null;
+
+    CoverageTableBlock coverage;
+    Element firstChild = (Element) t.getFirstChild ();
+    if (firstChild == null) {
+      coverage = emptyCoverage (); }
+    else if ("coverage".equals (firstChild.getTagName ())) {
+      coverage = coverageFromXML (firstChild, table, blockCache);
+      t.removeChild (firstChild); }
+    else {
+      coverage = coverageFromXML (t.getChildNodes (), "in"); }
+
+    NodeList pairSets = t.getChildNodes ();
+    int[] valueFormat = new int [2];
+    valueFormat [0] = 0;
+    valueFormat [1] = 0;
+    for (int i = 0; i &lt; pairSets.getLength(); i++) {
+      Element pairSet = (Element) pairSets.item (i);
+      pairSetValueFormatFromXML (pairSet, table, valueFormat); }
+
+    me = new Block (10 + 2*coverage.glyphs.length,
+                    1 + coverage.glyphs.length);
+    me.setuint16 (0, 1);
+    me.setOffset (2, coverage);
+    me.setuint16 (4, valueFormat [0]);
+    me.setuint16 (6, valueFormat [1]);
+    me.setuint16 (8, coverage.glyphs.length);
+
+    for (int i = 0; i &lt; pairSets.getLength(); i++) {
+      Element pairSet = (Element) pairSets.item (i);
+      int[] gids = parseGlyphList (pairSet.getAttribute ("in"));
+      for (int k = 0; k &lt; gids.length; k++) {
+        int ci = coverage.index (gids [k]);
+        me.setOffset (10 + 2*ci,
+                      pairSetTableFromXML (pairSet, table, blockCache,
+                                           valueFormat)); }}
+
+    return me;
+  }
+
+</code-fragment>
+    </section>
+    

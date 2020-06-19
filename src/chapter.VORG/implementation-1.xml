@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Vorg"><code-title>Vorg class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Vorg extends Table {
+
+  public Vorg () {
+    super (Tag.VORG, null);
+  }
+
+  public Vorg (Font font) {
+    super (Tag.VORG, font);
+  }
+
+  public int getVerticalOrigin (int glyphID) {
+    int numVertOriginYMetrics = getuint16 (6);
+
+    for (int i = 0; i &lt; numVertOriginYMetrics; i++) {
+      if (glyphID == getuint16 (8 + 4*i)) {
+        return getint16 (8 + 4*i + 2); }}
+
+    return getint16 (4);
+  }
+
+  <code-include linkend="VORG.methods"/>
+}
+</code-fragment>
+    </section>
+  

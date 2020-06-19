@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>??</code-title>
+hhea =
+  element hhea {
+    attribute major { text },
+    attribute minor { text },
+    element macLineMetrics {
+      attribute ascent { text },
+      attribute descent { text },
+      attribute lineGap { text }
+    },
+    element advanceWidthMax {
+      attribute v { text }
+    },
+    element minLeftSideBearing {
+      attribute v { text }
+    },
+    element minRightSideBearing {
+      attribute v { text }
+    },
+    element xMaxExtent {
+      attribute v { text }
+    },
+    element caret {
+      attribute slopeRise { text },
+      attribute slopeRun { text },
+      attribute offset { text }
+    },
+    element numberOfHMetrics {
+      attribute v { text }
+    }
+  }
+</code-fragment>
+    </section>
+    

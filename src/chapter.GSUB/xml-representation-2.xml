@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>GSUB table</code-title>
+GSUB =
+  element GSUB {
+    attribute major { "1" },
+    attribute minor { "0" },
+    element scriptList { scriptListTableOffset },
+    element featureList { featureListTableOffset },
+    element lookupList { GSUBlookupListTableOffset },
+
+    (  standaloneScriptListTable
+     | standaloneScriptTable
+     | standaloneLangSysTable
+     | standaloneFeatureListTable
+     | standaloneFeatureTable
+     | standaloneGSUBLookupListTable
+     | standaloneGSUBLookupTable
+     | standaloneSingleSubstTable
+     | standaloneMultipleSubstTable
+     | standaloneAlternateSubstTable
+     | standaloneLigatureSubstTable
+     | standaloneContextualTable
+     | standaloneChainingContextualTable
+     | standaloneExtensionTable
+     | standaloneCoverageTable
+     | standaloneClassDefTable
+     | standaloneDeviceTable)*
+  }
+</code-fragment>
+    </section>
+    

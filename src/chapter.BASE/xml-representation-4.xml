@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>baseScriptListTable</code-title>
+  baseScriptListTable =
+    element baseScriptRecord {
+      attribute tag { text },
+      baseScriptTableOffset
+    }*
+
+  standaloneBaseScriptListTable =
+    element baseScriptListTable { attribute id { text }, baseScriptListTable }
+
+  baseScriptListTableOffset = attribute name { text } | baseScriptListTable
+</code-fragment>
+    </section>
+    

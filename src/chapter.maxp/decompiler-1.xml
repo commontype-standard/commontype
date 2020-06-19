@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="maxp.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    int [] version = getFixed (0);
+    if (! (   (version [0] == 0 &amp;&amp; version [1] == 0x5000)
+           || (version [0] == 1 &amp;&amp; version [1] == 0))) {
+      throw new InvalidFontException ("unsupported maxp table version ("
+                                      + version [0] + "." + version [1]
+                                      + ") for decompilation"); }
+
+    AttributesImpl at;
+    at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA",
+                     version [1] == 0x5000 ? "5" : "0");
+    conf.ch.startElement ("maxp", at); {
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (4));
+      conf.ch.element ("numGlyphs", at);
+
+      if (version [0] == 1 &amp;&amp; version [1] == 0) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (6));
+	conf.ch.element ("maxPoints", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (8));
+        conf.ch.element ("maxContours", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (10));
+        conf.ch.element ("maxCompositePoints", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (12));
+        conf.ch.element ("maxCompositeContours", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (14));
+        conf.ch.element ("maxZones", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (16));
+        conf.ch.element ("maxTwilightPoints", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (18));
+        conf.ch.element ("maxStorage", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (20));
+        conf.ch.element ("maxFunctionDefs", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (22));
+        conf.ch.element ("maxInstructionDefs", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (24));
+        conf.ch.element ("maxStackElements", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (26));
+        conf.ch.element ("maxSizeOfInstructions", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (28));
+        conf.ch.element ("maxComponentElements", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (30));
+        conf.ch.element ("maxComponentDepth", at); }
+
+      conf.ch.endElement ("maxp"); }
+  }
+</code-fragment>
+    </section>
+    

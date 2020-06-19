@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>This cmap subtable format is really supporting two
+	operations: find the bytes that represent a character in the
+	input stream and convert those to a glyphID. The first part is
+	supported only though a sequential scan of the bytes, and so
+	amounts to deciding whether a first byte is representing a
+	character on its own, or is the high byte of a byte pair. We
+	do not really want to support the first part in our interface:
+	the client must already determine the boundaries of
+	characters, and assemble the bytes in code points.</para>
+      <para>This creates a little difficulty: consider the case
+	where we get at our interface a code point
+	<emphasis>c</emphasis> between 0x00 and 0xff. Was it the
+	result of a single byte <emphasis>c</emphasis> (in which case
+	we should index in subHeaderKeys with that value) or was it
+	the result of a two byte sequence 0x00 <emphasis>c</emphasis>
+	(in which case we should index subHeaderKeys with 0)?
+	Fortunately, we can inspect subHeaderKeys[c] to distinguish
+	the cases. The situation does not happen for code points above
+	0xff, as those are by necessity on two bytes.</para>
+      <para>It is worth noting that the confusion is unlikely in
+	practice, as the byte 0x00 is representing entirely a
+	character in essentially all one/two bytes encodings. However,
+	this is not implied by the cmap subtable format, so we need
+	to handle the situation.</para>
+      <para>The next observation is that we really have two indexing
+	operations at play: the first in subHeaderKeys, the second in
+	glyphIndexArray. For code points represented by a single byte,
+	that byte is used for both operations. Otherwise, the first
+	byte is used for the indexing, and the second byte is used for
+	the second indexing.</para>
+      <para>Combining all that, our strategy is to figure out the
+	two byte values used for the indexing operations, and then
+	perform them.</para>
+      <code-fragment id="cmap_format2"><code-title>Return glyph for 'charCode', using format 2 subtable at
+  'stOffset'</code-title>
+{ int headerIndexByte;
+  int glyphIndexArrayIndexByte;
+
+  { int highByte = (charCode &gt;&gt; 8) &amp; 0xff;
+    int lowByte = (charCode) &amp; 0xff;
+
+    if (highByte == 0 &amp;&amp; getuint16 (stOffset + 6 + 2*lowByte) == 0) {
+      // lowByte is a single byte character
+      headerIndexByte = lowByte; }
+    else {
+      headerIndexByte = highByte; }
+
+    glyphIndexArrayIndexByte = lowByte; }
+
+  int subHeaderKey = getuint16 (stOffset + 6 + 2*headerIndexByte) / 8;
+  int subHeaderOffset = stOffset + 518 + 8*subHeaderKey;
+  int firstCode = getuint16 (subHeaderOffset);
+  int entryCount = getuint16 (subHeaderOffset + 2);
+
+  if (   glyphIndexArrayIndexByte &lt; firstCode
+      || firstCode + entryCount &lt;= glyphIndexArrayIndexByte) {
+    return 0; }
+
+  int idDelta = getuint16 (subHeaderOffset + 4);
+  int idRange = getuint16 (subHeaderOffset + 6);
+  int glyphIndexOffset = subHeaderOffset + 6 + idRange;
+  int g = getuint16 (glyphIndexOffset + 2 * (glyphIndexArrayIndexByte - firstCode));
+
+  if (g == 0) {
+    return 0; }
+  else {
+    return (g + idDelta) % 0x10000; }
+}
+</code-fragment>
+      <para>We have less difficulty when enumerating the mappings,
+        as we do not have to reconcile with an outside operation, but
+        instead let us be driven by the cmap subtable content.</para>
+      <code-fragment id="cmap_format2_iterator"><code-title>Enumerate mappings in format 2 subtable at 'stOffset'</code-title>
+{ java.util.TreeMap&lt;Integer, Integer&gt; m
+      = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+  for (int firstByte = 0; firstByte &lt;= 0xff; firstByte++) {
+    int subHeaderIndex = getuint16 (stOffset + 6 + 2*firstByte) / 8;
+    int subHeaderOffset = stOffset + 518 + subHeaderIndex * 8;
+    int firstCode = getuint16 (subHeaderOffset);
+    int entryCount = getuint16 (subHeaderOffset + 2);
+    int idDelta = getuint16 (subHeaderOffset + 4);
+    int idRange = getuint16 (subHeaderOffset + 6);
+    int glyphIndexOffset = subHeaderOffset + 6 + idRange;
+
+    if (subHeaderIndex == 0) {
+      int g = getuint16 (glyphIndexOffset + 2 * (firstByte - firstCode));
+	if (g != 0) {
+        m.put (firstByte, (g + idDelta) % 0x10000); }}
+
+    else {
+      for (int secondByte = firstCode;
+           secondByte &lt; firstCode + entryCount;
+           secondByte++) {
+	int g = getuint16 (glyphIndexOffset + 2 * (secondByte - firstCode));
+        if (g != 0) {
+          m.put ((firstByte &lt;&lt; 8) + secondByte,
+                 (g + idDelta) % 0x10000); }}}}
+
+  return m; }
+</code-fragment>
+      <para>Since the inversion is non-trivial, and the meaning of
+        this format is so unclear, let's wait to implement this one.</para>
+      <code-fragment id="cmap_format2_inv"><code-title>Return a character that maps to 'glyphID', using format 2 subtable at 'stOffset'</code-title>
+{ return -1; }
+</code-fragment>
+      <code-fragment id="cmap_format2_inv2"><code-title>Fill 'v' with characters that map to 'glyphID', using format 2 subtable at 'stOffset'</code-title>
+  {}
+</code-fragment>
+    </section>
+    

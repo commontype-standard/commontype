@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gsub.toXMLCount_4">
+  /* nothing */
+</code-fragment>
+      <code-fragment id="gsub.toXML_4">
+  /* nothing */
+</code-fragment>
+      <code-fragment id="gsub.toXMLEmit_4">
+    int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int sequenceCount = getuint16 (stOffset + 4);
+
+    int [] glyphs = getCoveredGlyphs (coverageOffset);
+
+    for (int i = 0; i &lt; sequenceCount; i++) {
+      int ligatureSetOffset = stOffset + getOffset (stOffset + 6 + 2*i);
+      int ligatureCount = getuint16 (ligatureSetOffset);
+
+      for (int l = 0; l &lt; ligatureCount; l++) {
+        int ligatureOffset = ligatureSetOffset + getOffset (ligatureSetOffset + 2 + 2*l);
+	int compCount = getuint16 (ligatureOffset + 2);
+
+        at = new AttributesImpl ();
+
+        StringBuilder s = new StringBuilder ();
+	glyphToXML (conf, s, glyphs [i]);
+        for (int g = 0; g &lt; compCount - 1; g++) {
+          glyphToXML (conf, s, getuint16 (ligatureOffset + 4 + 2*g)); }
+        at.addAttribute ("", "in", "in", "CDATA", s.toString ());
+
+        at.addAttribute ("", "out", "out", "CDATA",
+                         glyphToXML (conf, getuint16 (ligatureOffset)));
+
+        conf.ch.element ("subst", at); }}
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>If we do not find the LangSys table specifically for the
+          langugage, we revert to the default language table, if it
+          exists.</para>
+      <code-fragment id="method_Table_findLookups3"><code-title>Find LangSys table for 'langSysTag' in Script table at 'scriptOffset'</code-title>
+  { int langSysCount = getuint16 (scriptOffset + 2);
+    for (int lang = 0; lang &lt; langSysCount; lang++) {
+      if (langSysTag == getuint32 (scriptOffset + 4 + 6*lang)) {
+        langSysOffset = getOffset (scriptOffset, 4 + 6*lang + 4);
+        break; }}
+
+    if (langSysOffset == -1) {
+      int defaultLangSysOffset = getOffset (scriptOffset, 0);
+      if (defaultLangSysOffset != 0) {
+        langSysOffset = defaultLangSysOffset; }}}
+</code-fragment>
+      <code-fragment id="LookupTable_getScriptLangList_2"><code-title>ddd</code-title>
+  { int langSysCount = getuint16 (scriptOffset + 2);
+    int defaultLangSysOffset = getOffset (scriptOffset);
+
+    int n = langSysCount;
+    if (defaultLangSysOffset != 0) {
+      n++; }
+    result [scr] = new String [n + 1];
+    result [scr][0] = Tag.tag2string (scriptTag);
+
+    for (int lang = 0; lang &lt; langSysCount; lang++) {
+      long langSysTag = getuint32 (scriptOffset + 4 + 6*lang);
+      result [scr] [lang+1] = Tag.tag2string (langSysTag); }
+
+    if (defaultLangSysOffset != 0) {
+      result [scr] [langSysCount + 1] = "dflt"; }}
+</code-fragment>
+      <code-fragment id="LookupTable_getFeatureNames_2"><code-title>Return the names of features for 'scriptOffset', if any</code-title>
+  { int langSysCount = getuint16 (scriptOffset + 2);
+    int defaultLangSysOffset = getOffset (scriptOffset);
+
+    for (int lang = 0; lang &lt; langSysCount; lang++) {
+      if (languageTag == getuint32 (scriptOffset + 4 + 6*lang)) {
+        int langSysOffset
+          = scriptOffset + getOffset (scriptOffset + 4 + 6*lang + 4);
+        return getFeatureNamesForLang (langSysOffset); }}
+
+    if (defaultLangSysOffset != 0) {
+      int langSysOffset = scriptOffset + defaultLangSysOffset;
+      return getFeatureNamesForLang (langSysOffset); }}
+</code-fragment>
+    </section>
+  

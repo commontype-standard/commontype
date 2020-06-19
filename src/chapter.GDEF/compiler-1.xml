@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gdef.methods">
+  public void fromXML (Element gdef)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Map&lt;Element, Block&gt; blockCache = new HashMap&lt;Element, Block&gt; ();
+    NodeList l = gdef.getChildNodes ();
+
+    boolean glyphClassDefSet = false;
+    boolean attachListSet = false;
+    boolean ligCaretListSet = false;
+    boolean markAttachClassDefSet = false;
+
+    Block me = new Block (12, 4);
+    me.setFixed (0, 1, 0);
+
+    for (int i = 0; i &lt; l.getLength (); i++) {
+      Element e = (Element) l.item (i);
+      if ("glyphClassDef".equals (e.getTagName ())) {
+        me.setOffset (4, classdefFromXML (e, gdef, blockCache));
+        glyphClassDefSet = true;}
+      if ("attachList".equals (e.getTagName ())) {
+        me.setOffset (6, null /*TODO*/);
+        attachListSet = true;}
+      if ("ligCaretList".equals (e.getTagName ())) {
+        me.setOffset (8, null /*TODO*/);
+        ligCaretListSet = true; }
+      if ("markAttachClassDef".equals (e.getTagName ())) {
+        me.setOffset (10, classdefFromXML (e, gdef, blockCache));
+        markAttachClassDefSet = true;}}
+
+    if (! glyphClassDefSet) {
+      me.setOffset (4, null); }
+    if (! attachListSet) {
+      me.setOffset (6, null); }
+    if (! ligCaretListSet) {
+      me.setOffset (8, null); }
+    if (! markAttachClassDefSet) {
+      me.setOffset (10, null); }
+
+    data = me.serialize ();
+  }
+</code-fragment>
+    </section>
+    

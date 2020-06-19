@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Since there is no a-priori reason that all tables that
+          contain FeatureList tables put them at the same place (or
+          put pointers to them at the same place), we need an abstract
+          method to get the offset of the FeatureList table.</para>
+      <code-fragment id="lookuptable.methods"><code-title>Method to find the offset of FeatureList</code-title>
+  abstract int getFeatureListOffset ();
+</code-fragment>
+      <para>??</para>
+      <code-fragment id="method_Table_findLookups6"><code-title>Include 'featureIndex' if its tag is in 'selectedFeatureTags'</code-title>
+  { long featureTag = getuint32 (featureListOffset + 2 + 6*featureIndex);
+    for (int i = 0; i &lt; selectedFeatureTags.length; i++) {
+      if (selectedFeatureTags [i] == featureTag) {
+        selectedFeatureIndices [selectedFeatureIndicesCount++] = featureIndex; }}}
+</code-fragment>
+      <code-fragment id="LookupTable_getFeatureNamesForLang_2"><code-title>ddd</code-title>
+  { long featureTag = getuint32 (featureListOffset + 2 + 6*featureIndex);
+    result [f] = Tag.tag2string (featureTag); }
+</code-fragment>
+    </section>
+  

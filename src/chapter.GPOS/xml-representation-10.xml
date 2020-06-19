@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>Since the BaseArray.BaseRecord array has exactly one
+	element for each glyph covered by BaseCoverage, we do not
+	explicitly represent that coverage, but instead record the
+	glyphID with the <sgmltag>baseGlyph</sgmltag>
+	element. Similarlly the MarkCoverage is folded in the
+	<sgmltag>markGlyph</sgmltag> elements.</para>
+      <code-fragment id="schema"><code-title>markToBaseAttachementTable</code-title>
+  markToBaseAttachmentTable |=
+    attribute format { "1" },
+    element baseGlyph {
+      attribute glyphID { text },
+      element baseAnchor {
+        attribute class { text },
+        anchorTableOffset
+      }*
+    }*,
+    element markGlyphAnchor {
+      attribute glyphID { text },
+      attribute class { text },
+      anchorTableOffset
+    }*
+
+  standaloneMarkToBaseAttachmentTable =
+    element markToBaseAttachmentTable { attribute id { text }, markToBaseAttachmentTable }
+
+  markToBaseAttachmentTableOffset = attribute name { text } | markToBaseAttachmentTable
+</code-fragment>
+    </section>
+    

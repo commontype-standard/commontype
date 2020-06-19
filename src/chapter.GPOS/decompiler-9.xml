@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gpos.toXMLCount_4">
+  int classCount = getuint16 (stOffset + 6);
+
+  int baseArrayOffset = stOffset + getOffset (stOffset + 10);
+  int baseCount = getuint16 (baseArrayOffset);
+  int o = baseArrayOffset + 2;
+
+  for (int i = 0; i &lt; baseCount; i++) {
+    for (int c = 0; c &lt; classCount; c++) {
+      anchorTableToXMLCount (baseArrayOffset + getOffset (o), counts);
+      o += 2; }}
+
+  int markArrayOffset = stOffset + getOffset (stOffset + 8);
+  int markCount = getuint16 (markArrayOffset);
+  o = markArrayOffset + 2;
+  for (int i = 0; i &lt; markCount; i++) {
+    o += 2;
+    anchorTableToXMLCount (markArrayOffset + getOffset (o), counts);
+    o += 2; }
+</code-fragment>
+      <code-fragment id="gpos.toXML_4">
+    int classCount = getuint16 (stOffset + 6);
+
+    int baseArrayOffset = stOffset + getOffset (stOffset + 10);
+    int baseCount = getuint16 (baseArrayOffset);
+    int o = baseArrayOffset + 2;
+
+    for (int i = 0; i &lt; baseCount; i++) {
+      for (int c = 0; c &lt; classCount; c++) {
+        anchorTableToXML (conf, baseArrayOffset + getOffset (o), counts);
+        o += 2; }}
+
+    int markArrayOffset = stOffset + getOffset (stOffset + 8);
+    int markCount = getuint16 (markArrayOffset);
+    o = markArrayOffset + 2;
+    for (int i = 0; i &lt; markCount; i++) {
+      o += 2;
+      anchorTableToXML (conf, markArrayOffset + getOffset (o), counts);
+      o += 2; }
+</code-fragment>
+      <code-fragment id="gpos.toXMLEmit_4">
+    int classCount = getuint16 (stOffset + 6);
+
+    int[] baseGlyphs = getCoveredGlyphs (stOffset + getOffset (stOffset + 4));
+    int baseArrayOffset = stOffset + getOffset (stOffset + 10);
+    int baseCount = getuint16 (baseArrayOffset);
+    int o = baseArrayOffset + 2;
+    for (int i = 0; i &lt; baseCount; i++) {
+      at = new AttributesImpl ();
+      at.addAttribute ("", "glyphID", "glyphID", "CDATA",
+                       glyphToXML (conf, baseGlyphs[i]));
+      conf.ch.startElement ("baseGlyph", at); {
+        for (int c = 0; c &lt; classCount; c++) {
+          at = new AttributesImpl ();
+          at.addAttribute ("", "class", "class", "CDATA", "" + c);
+          anchorTableOffsetToXML (conf, baseArrayOffset + getOffset (o), counts,
+                                  "baseAnchor", at);
+          o += 2; }
+        conf.ch.endElement ("baseGlyph"); }}
+
+
+    int[] markGlyphs = getCoveredGlyphs (stOffset + getOffset (stOffset + 2));
+    int markArrayOffset = stOffset + getOffset (stOffset + 8);
+    int markCount = getuint16 (markArrayOffset);
+    o = markArrayOffset + 2;
+    for (int i = 0; i &lt; markCount; i++) {
+      int markClass = getuint16 (o);
+      o += 2;
+      at = new AttributesImpl ();
+      at.addAttribute ("", "glyphID", "glyphID", "CDATA",
+                       glyphToXML (conf, markGlyphs[i]));
+      at.addAttribute ("", "class", "class", "CDTA", "" + markClass);
+      anchorTableOffsetToXML (conf, markArrayOffset + getOffset (o), counts,
+                              "markGlyphAnchor", at);
+      o += 2; }
+</code-fragment>
+    </section>
+    

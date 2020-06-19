@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="ClassdefTableBlock">
+package com.adobe.aots.CommonType;
+
+public class ClassdefTableBlock extends Block {
+    public ClassdefTableBlock (int size, int referenceCount) {
+      super (size, referenceCount);
+    }
+
+    public int classCount;
+  }
+</code-fragment>
+      <code-fragment id="layouttable.methods">
+  public ClassdefTableBlock classdefFromXML (Element classdef, Element table,
+                                             Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = classdef.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+        classdef = resolveXMLid (table, name); }}
+
+    { ClassdefTableBlock cached = (ClassdefTableBlock) blockCache.get (classdef);
+      if (cached != null) {
+        return cached; }}
+
+    String format = classdef.getAttribute ("format");
+
+
+    ClassdefTableBlock me = null;
+
+    if ("any".equals (format)) {
+      me = classdefFormatAnyFromXML (classdef, table, blockCache); }
+    else if ("1".equals (format)) {
+      me = classdefFormat1FromXML (classdef, table, blockCache); }
+    else if ("2".equals (format)) {
+      me = classdefFormat2FromXML (classdef, table, blockCache); }
+    else {
+      /* cannot get there on valid document */
+      throw new InvalidFontException
+                 ("invalid classdef format (" + format + ")"); }
+
+    blockCache.put (classdef, me);
+    return me;
+  }
+
+
+  public ClassdefTableBlock classdefFormatAnyFromXML (Element classdef,
+                                                      Element table,
+                                                      Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    /*TODO: generate a format 1 if smaller; generate a better format2 */
+    /*generate a format 2 */
+
+    int highestClass = 0;
+
+    NodeList classes = classdef.getChildNodes ();
+    java.util.SortedMap&lt;Integer, Integer&gt; map
+         = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+    for (int i = 0; i &lt; classes.getLength (); i++) {
+      Element aclass = (Element) classes.item (i);
+      int classID = Integer.parseInt (aclass.getAttribute ("classID"));
+      int [] glyphs = getGlyphs (aclass.getAttribute ("glyphs"));
+      if (glyphs.length != 0) {
+        if (classID &gt; highestClass) {
+	  highestClass = classID; }}
+      if (classID != 0) {
+        for (int j = 0; j &lt; glyphs.length; j++) {
+          map.put (glyphs [j], classID); }}}
+
+    Integer[] glyphs = map.keySet ().toArray (new Integer [0]);
+
+    ClassdefTableBlock me = new ClassdefTableBlock (4 + 6 * glyphs.length, 0);
+    me.classCount = highestClass + 1;
+    me.setuint16 (0, 2);
+    me.setuint16 (2, glyphs.length);
+    for (int i = 0; i &lt; glyphs.length; i++) {
+      me.setGlyphID (4 + 6*i, glyphs [i].intValue ());
+      me.setGlyphID (4 + 6*i + 2, glyphs [i].intValue ());
+      me.setuint16 (4 + 6*i + 4, map.get (glyphs [i])); }
+
+    return me;
+  }
+</code-fragment>
+    </section>
+    

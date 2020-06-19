@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="lookuptable.methods">
+  public void extensionLookupToXMLCount (int stOffset, int[] counts) {
+    int targetType = getuint16 (stOffset + 2);
+    int extensionOffset = stOffset + (int) getuint32 (stOffset + 4);
+
+    lookupSubtableToXMLCount (extensionOffset, counts, targetType);
+
+    // This will force the target to be emitted on its own
+    counts [extensionOffset] += 2;
+  }
+
+  public void extensionLookupToXML (DecompilerConfig conf,
+                                   int stOffset, int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    int targetType = getuint16 (stOffset + 2);
+    int extensionOffset = stOffset + (int) getuint32 (stOffset + 4);
+
+    lookupSubtableToXML (conf, extensionOffset, counts, targetType);
+  }
+
+  public void extensionLookupToXMLEmit (DecompilerConfig conf,
+                                        int stOffset, int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    int targetType = getuint16 (stOffset + 2);
+    int extensionOffset = stOffset + (int) getuint32 (stOffset + 4);
+
+    AttributesImpl at = new AttributesImpl ();
+
+    at.addAttribute ("", "type", "type", "CDATA", "" + targetType);
+
+    counts [extensionOffset] += 2;
+    lookupSubtableOffsetToXML (conf, extensionOffset, counts, targetType);
+
+    conf.ch.element ("ext", at);
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Vdmx"><code-title>Vdmx class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Vdmx extends Table {
+
+  public Vdmx () {
+    super (Tag.VDMX, null);
+  }
+
+  public Vdmx (Font font) {
+    super (Tag.VDMX, font);
+  }
+
+  <code-include linkend="vdmx.methods"/>
+}
+</code-fragment>
+    </section>
+  

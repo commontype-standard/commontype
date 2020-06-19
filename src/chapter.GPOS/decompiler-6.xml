@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <para>When a PairSet table is referenced multiple times from a
+	a PairPos table, we are going to group those references, so we
+	need to count that PairSet table only once. However, it is
+	still possible that the PairSet table could also be referenced
+	from another PairPos table.</para>
+      <code-fragment id="gpos.toXMLCount_2_1">
+  coverageTableToXMLCount (stOffset + getOffset (stOffset + 2), counts);
+  int pairSetCount = getuint16 (stOffset + 8);
+  for (int i = 0; i &lt; pairSetCount; i++) {
+    int offset = stOffset + getOffset (stOffset + 10 + 2*i);
+
+    boolean seen = false;
+    int j = 0;
+    while (j &lt; i &amp;&amp; ! seen) {
+      int previousOffset = stOffset + getOffset (stOffset + 10 + 2*j);
+      if (previousOffset == offset) {
+        seen = true; }
+      else {
+        j++; }}
+
+    if (! seen) {
+      pairSetTableToXMLCount (offset, counts); }}
+</code-fragment>
+      <code-fragment id="gpos.methods">
+  public void pairSetTableToXMLCount (int offset, int[] counts) {
+    counts [offset]++;
+  }
+</code-fragment>
+      <code-fragment id="gpos.toXML_2_1">
+  coverageTableToXML (conf, stOffset + getOffset (stOffset + 2), counts);
+  int pairSetCount = getuint16 (stOffset + 8);
+  int valueFormat1 = getuint16 (stOffset + 4);
+  int valueFormat2 = getuint16 (stOffset + 6);
+  for (int i = 0; i &lt; pairSetCount; i++) {
+    pairSetTableToXML (conf, stOffset + getOffset (stOffset + 10 + 2*i), counts,
+                       valueFormat1, valueFormat2); }
+</code-fragment>
+      <code-fragment id="gpos.methods">
+  public void pairSetTableOffsetToXML (DecompilerConfig conf, int offset,
+                                       int[] counts,
+                                       String element, AttributesImpl at,
+                                       int valueFormat1, int valueFormat2)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "pairSetTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      pairSetTableToXMLEmit (conf, offset, counts, element, at,
+                             valueFormat1, valueFormat2); }
+  }
+
+  public void pairSetTableToXML (DecompilerConfig conf,
+                                 int offset, int[] counts,
+                                 int valueFormat1, int valueFormat2)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "pairSetTable_" + Integer.toHexString (offset));
+      pairSetTableToXMLEmit (conf, offset, counts, "pairSetTable", at,
+                             valueFormat1, valueFormat2);
+      counts [offset] = 0; }
+  }
+</code-fragment>
+      <code-fragment id="gpos.toXMLEmit_2_1">
+  int coverageOffset = stOffset + getOffset (stOffset + 2);
+  int valueFormat1 = getuint16 (stOffset + 4);
+  int valueFormat2 = getuint16 (stOffset + 6);
+  int[] glyphs = getCoveredGlyphs (coverageOffset);
+  int pairSetCount = getuint16 (stOffset + 8);
+
+  at = new AttributesImpl ();
+  coverageTableOffsetToXML (conf, coverageOffset, counts, "coverage", at);
+
+  Map&lt;Integer, String&gt; m = new HashMap&lt;Integer, String&gt; ();
+  for (int i = 0; i &lt; pairSetCount; i++) {
+    int pairSetOffset = stOffset + getOffset (stOffset + 10 + 2 * i);
+    String s = m.get (pairSetOffset);
+    if (s == null) {
+      s = glyphToXML (conf, glyphs [i]); }
+    else {
+      s = s.concat (" " + glyphToXML (conf, glyphs [i])); }
+    m.put (pairSetOffset, s); }
+
+  // for readability and for round-tripping stability, we
+  // want to enumerate the pairSet tables in the numeric
+  // order of their first glyph
+  SortedMap&lt;String,Integer&gt; mm = new TreeMap&lt;String, Integer&gt; ();
+  for (int pairSetOffset : m.keySet ()) {
+    String s = m.get (pairSetOffset);
+    mm.put (s, pairSetOffset); }
+
+  for (String s : mm.keySet ()) {
+    int pairSetOffset = mm.get (s);
+    at = new AttributesImpl ();
+    at.addAttribute ("", "in", "in", "CDATA", m.get (pairSetOffset));
+    pairSetTableOffsetToXML (conf, pairSetOffset, counts, "pairSet", at,
+                             valueFormat1, valueFormat2); }
+</code-fragment>
+      <code-fragment id="gpos.methods">
+  public void pairSetTableToXMLEmit (DecompilerConfig conf, int offset,
+                                     int[] counts,
+				     String element, AttributesImpl at,
+                                     int valueFormat1, int valueFormat2)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+
+    int valueRecord1Size = ValueRecord.getSize (valueFormat1);
+    int valueRecord2Size = ValueRecord.getSize (valueFormat2);
+    int pairValueRecordSize = 2 + valueRecord1Size + valueRecord2Size;
+
+    conf.ch.startElement (element, at); {
+      int pairValueCount = getuint16 (offset);
+
+      for (int j = 0; j &lt; pairValueCount; j++) {
+        int pairValueRecordOffset = offset + 2 + pairValueRecordSize * j;
+        int secondGlyph = getGlyphID (pairValueRecordOffset);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "in", "in", "CDATA",
+   			 glyphToXML (conf, secondGlyph));
+        conf.ch.startElement ("pos2", at); {
+          ValueRecord vr1 = new ValueRecord().fromBinary (this,
+                                 pairValueRecordOffset + 2, valueFormat1);
+          ValueRecord vr2 =  new ValueRecord().fromBinary (this,
+                   pairValueRecordOffset + 2 + valueRecord1Size, valueFormat2);
+
+          if (true || ! vr1.isNull ()) {
+            at = new AttributesImpl ();
+	      vr1.toXML (at);
+            conf.ch.element ("value1", at); }
+
+          if (! vr2.isNull ()) {
+            at = new AttributesImpl ();
+            vr2.toXML (at);
+            conf.ch.element ("value2", at); }
+
+          conf.ch.endElement ("pos2"); }}
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+    

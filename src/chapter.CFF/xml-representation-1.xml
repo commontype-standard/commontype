@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>Pretty simple:</para>
+      <code-fragment id="schema"><code-title>CFF</code-title>
+  CFF =
+    element CFF { grammar { include "cfffontset.rnc" } }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="os2.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    int version = getuint16 (0);
+    if (version &lt; 0 || 5 &lt; version) {
+      throw new InvalidFontException ("unsupported OS/2 table version ("
+                                      + version + ") for decompilation"); }
+
+    AttributesImpl at;
+    int mask, j;
+
+    at = new AttributesImpl ();
+    at.addAttribute ("", "version", "version", "CDATA", "" + version);
+    conf.ch.startElement ("OS2", at); {
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getint16 (2) );
+      conf.ch.element ("avgCharWidth", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getuint16 (4) );
+      conf.ch.element ("weightClass", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getuint16 (6) );
+      conf.ch.element ("widthClass", at);
+
+      at = new AttributesImpl ();
+      int fsType = getuint16 (8);
+      int fsTypeFormat = fsType_version2format [version];
+      for (mask = 1, j = 0; j &lt; fsTypeNames.length; mask &lt;&lt;= 1, j++) {
+        if (fsTypeNames [j][fsTypeFormat] != null) {
+          at.addAttribute ("", fsTypeNames [j][fsTypeFormat],
+                           fsTypeNames [j][fsTypeFormat], "CDATA",
+                           (fsType &amp; mask) == 0 ? "no" : "yes"); }}
+      conf.ch.element ("fsType", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "xsize", "xsize", "CDATA", "" +  getint16 (10));
+      at.addAttribute ("", "ysize", "ysize", "CDATA", "" +  getint16 (12));
+      at.addAttribute ("", "xoffset", "xoffset", "CDATA", "" +  getint16 (14));
+      at.addAttribute ("", "yoffset", "yoffset", "CDATA", "" +  getint16 (16));
+      conf.ch.element ("subscript", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "xsize", "xsize", "CDATA", "" +  getint16 (18));
+      at.addAttribute ("", "ysize", "ysize", "CDATA", "" +  getint16 (20));
+      at.addAttribute ("", "xoffset", "xoffset", "CDATA", "" +  getint16 (22));
+      at.addAttribute ("", "yoffset", "yoffset", "CDATA", "" +  getint16 (24));
+      conf.ch.element ("superscript", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "size", "size", "CDATA", "" +  getint16 (26));
+      at.addAttribute ("", "position", "position", "CDATA", "" +  getint16 (28));
+      conf.ch.element ("strikeout", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getint16 (30) );
+      conf.ch.element ("familyClass", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "familyType", "familyType", "CDATA",
+                       "" +  getuint8 (32));
+      at.addAttribute ("", "serifStyle", "serifStyle", "CDATA",
+                       "" +  getuint8 (33));
+      at.addAttribute ("", "weight", "weight", "CDATA",
+                       "" +  getuint8 (34));
+      at.addAttribute ("", "proportion", "proportion", "CDATA",
+                       "" +  getuint8 (35));
+      at.addAttribute ("", "contrast", "contrast", "CDATA",
+                       "" +  getuint8 (36));
+      at.addAttribute ("", "strokeVariation", "strokeVariation", "CDATA",
+                       "" +  getuint8 (37));
+      at.addAttribute ("", "armStyle", "armStyle", "CDATA",
+                       "" +  getuint8 (38));
+      at.addAttribute ("", "letterform", "letterform", "CDATA",
+                       "" +  getuint8 (39));
+      at.addAttribute ("", "midline", "midline", "CDATA",
+                       "" +  getuint8 (40));
+      at.addAttribute ("", "xHeight", "xHeight", "CDATA",
+                       "" +  getuint8 (41));
+      conf.ch.element ("panose", at);
+
+      if (version &gt; 0) {
+        at = new AttributesImpl ();
+	long[] range = {getuint32 (42), getuint32 (46),
+                        getuint32 (50),  getuint32 (54)};
+        for (int r = 0; r &lt; unicodeRangeNames.length; r++) {
+          if (unicodeRangeNames [r][version] != null) {
+            at.addAttribute ("", unicodeRangeNames [r][version],
+                             unicodeRangeNames [r][version], "CDATA",
+                             ((range [r / 32] &amp; (1 &lt;&lt; (r % 32))) == 0) ? "no" : "yes"); }}
+        conf.ch.element ("unicodeRange", at); }
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", Tag.tag2string (getuint32 (58)));
+      conf.ch.element ("vendID", at);
+
+      at = new AttributesImpl ();
+      int fsSelectionFormat = fsSelectionNames_version2format [version];
+      int fsSelection = getuint16 (62);
+      for (j = 0; j &lt; fsSelectionNames.length; j++) {
+        if (fsSelectionNames [j][fsSelectionFormat] != null) {
+          at.addAttribute ("", fsSelectionNames [j][fsSelectionFormat],
+                           fsSelectionNames [j][fsSelectionFormat], "CDATA",
+                           ((fsSelection &amp; (1 &lt;&lt; j)) == 0) ? "no" : "yes"); }}
+      conf.ch.element ("fsSelection", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "first", "first", "CDATA", "" +  getuint16 (64) );
+      at.addAttribute ("", "last", "last", "CDATA", "" +  getuint16 (66) );
+      conf.ch.element ("charIndex", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "ascender", "ascender", "CDATA", "" +  getint16 (68) );
+      at.addAttribute ("", "descender", "descender", "CDATA", "" +  getint16 (70) );
+      at.addAttribute ("", "linegap", "linegap", "CDATA", "" +  getint16 (72) );
+      conf.ch.element ("typo", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "ascent", "ascent", "CDATA", "" +  getint16 (74) );
+      at.addAttribute ("", "descent", "descent", "CDATA", "" +  getint16 (76) );
+      conf.ch.element ("win", at);
+
+      if (version &gt; 0) {
+        at = new AttributesImpl ();
+        int format = cpNames_version2format [version];
+        long[] cp = {getuint32 (78), getuint32 (82)};
+        for (int r = 0; r &lt; cpNames.length; r++) {
+          if (cpNames [r][format] != null) {
+            at.addAttribute ("", cpNames[r][format], cpNames[r][format], "CDATA",
+                 ((cp [r/32] &amp; (1 &lt;&lt; (r %32))) == 0) ? "no" : "yes"); }}
+        conf.ch.element ("codePageRange", at); }
+
+      if (version &gt;= 2) {
+	at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" +  getint16 (86) );
+        conf.ch.element ("height", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" +  getint16 (88) );
+        conf.ch.element ("capHeight", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" +  getuint16 (90) );
+        conf.ch.element ("defaultChar", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" +  getuint16 (92) );
+        conf.ch.element ("breakChar", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" +  getuint16 (94) );
+        conf.ch.element ("maxContext", at); }
+
+      if (version &gt;= 5) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (96) );
+        conf.ch.element ("lowerOpticalPointSize", at);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA", "" + getuint16 (98) );
+        conf.ch.element ("upperOpticalPointSize", at); }
+
+      conf.ch.endElement ("OS2"); }
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gsub.toXMLCount_1_1"><code-title>Count references for GSUB 1/1 subtable</code-title>
+  coverageTableToXMLCount (stOffset + getOffset (stOffset + 2), counts);
+</code-fragment>
+      <code-fragment id="gsub.toXML_1_1"><code-title>Emit references for GSUB 1/1 subtable</code-title>
+  coverageTableToXML (conf, stOffset + getOffset (stOffset + 2), counts);
+</code-fragment>
+      <code-fragment id="gsub.toXMLEmit_1_1"><code-title>Emit GSUB 1/1 subtable</code-title>
+  int coverageOffset = stOffset + getOffset (stOffset + 2);
+
+  at = new AttributesImpl ();
+  coverageTableOffsetToXML (conf, coverageOffset, counts, "coverage", at);
+
+  at = new AttributesImpl ();
+  at.addAttribute ("", "v", "v", "CDATA", "" + getint16 (stOffset + 4));
+  conf.ch.element ("delta", at);
+</code-fragment>
+    </section>
+    

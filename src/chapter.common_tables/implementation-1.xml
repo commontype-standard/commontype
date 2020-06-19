@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>The five layout tables do indeed share subtable formats,
+          but only <ottable>GSUB</ottable> and <ottable>GPOS</ottable>
+          have Script, Language and Lookups. Consequently, we have two
+          base classes for these layout tables: LayoutTable for all of
+          them, and LookupTable for <ottable>GSUB</ottable> and
+          <ottable>GPOS</ottable>.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="LayoutTable"><code-title>LayoutTable class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.TreeSet;
+import java.util.SortedSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.HashMap;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public abstract class LayoutTable extends Table {
+
+  public LayoutTable (long tag, Font font) {
+    super (tag, font);
+  }
+
+  <code-include linkend="layouttable.methods"/>
+}
+</code-fragment>
+      <code-fragment package="com.adobe.aots.CommonType" class="LookupTableListener"><code-title>LookupTableListener interface</code-title>
+package com.adobe.aots.CommonType;
+
+import java.net.URL;
+
+public interface LookupTableListener {
+  public void init (Font font, URL fontURL,
+                    java.io.PrintStream out, boolean positioned)
+      throws InvalidFontException;
+
+  public void selectedLookups (int[] lookupIndices);
+
+  public void applyingLookup (int lookupIndex, GlyphRun gr);
+    public void applyingLookupAtPos (int lookupIndex, GlyphRun gr, int position);
+      public void replace (int oldGlyphId, int newGlyphId);
+      public void replace (int oldGlyphId, int[] newGlyphIds);
+      public void replace (int[] oldGlyphId, int newGlyphId);
+      public void adjust (ValueRecord vr, int format);
+      public void move (int x, int y);
+      public void applyingSubtable (int lookupIndex, GlyphRun gr,
+                                    int position, String table, int stOffset);
+      public void noSubtableApplied (int lookupIndex, GlyphRun gr, int position);
+    public void applyingLookupAtPosDone (int lookupIndex, GlyphRun gr, int position);
+  public void applyingLookupDone (int lookupIndex, GlyphRun gr);
+
+  public void shutdown ();
+}
+</code-fragment>
+      <code-fragment package="com.adobe.aots.CommonType" class="TextLookupTableListener"><code-title>TextLookupTableListener class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.net.URL;
+
+public class TextLookupTableListener implements LookupTableListener {
+
+  java.io.PrintStream out;
+
+  TextLookupTableListener (int details) {
+  }
+
+  public void init (Font font, URL fontURL,
+                    java.io.PrintStream out, boolean positioned) {
+    this.out = out;
+  }
+
+  public void selectedLookups (int[] lookupIndices) {
+    out.print ("lookups selected: ");
+    for (int k = 0; k &lt; lookupIndices.length; k++) {
+      out.print (" " + lookupIndices [k]); }
+    out.println ("");
+  }
+
+  public void applyingLookup (int lookupIndex, GlyphRun gr) {
+    out.println ("Applying lookup " + lookupIndex);
+  }
+
+  String action = "";
+  public void applyingLookupAtPos (int lookupIndex, GlyphRun gr, int position) {
+    out.println ("Applying lookup " + lookupIndex
+                        + " at " + position + " (gid=" + gr.glyphAt (position) + ")");
+    action = "";
+  }
+
+  public void replace (int oldGlyphId, int newGlyphId) {
+    action = "" + oldGlyphId + "-&gt;" + newGlyphId;
+  }
+
+  public void replace (int oldGlyphId, int[] newGlyphIds) {
+    action = "" + oldGlyphId + "-&gt;";
+    for (int i = 0; i &lt; newGlyphIds.length; i++) {
+      action += "" + newGlyphIds[i] + " "; }
+  }
+
+  public void replace (int[] oldGlyphIds, int newGlyphId) {
+    action = "";
+    for (int i = 0; i &lt; oldGlyphIds.length; i++) {
+      action += "" + oldGlyphIds[i] + " "; }
+    action += "-&gt;" + newGlyphId;
+  }
+
+
+  public void adjust (ValueRecord vr, int format) {
+    action = "";
+    if ((format &amp; 0x001) != 0) {
+      action += "xp " + vr.xPlacement + " "; }
+    if ((format &amp; 0x002) != 0) {
+      action += "yp " + vr.yPlacement + " "; }
+    if ((format &amp; 0x004) != 0) {
+      action += "xa " + vr.xAdvance + " "; }
+    if ((format &amp; 0x008) != 0) {
+      action += "ya " + vr.yAdvance + " "; }
+  }
+
+  public void move (int x, int y) {
+    action = "x " + x + "  y " + y;
+  }
+
+  public void applyingSubtable (int lookupIndex, GlyphRun gr,
+                                int position, String table, int stOffset) {
+    out.println ("Apply subtable at " + table + "." + stOffset
+                 + " (" + action + ")");
+  }
+
+  public void noSubtableApplied (int lookupIndex, GlyphRun gr,
+                                 int position) {
+  }
+
+  public void applyingLookupAtPosDone (int lookupIndex, GlyphRun gr,
+                                       int position) {
+    out.println ("Applying lookup at pos done");
+  }
+
+  public void applyingLookupDone (int lookupIndex, GlyphRun gr) {
+    out.println ("Applying lookup done");
+  }
+
+  public void shutdown () {
+    out.close ();
+  }
+}
+</code-fragment>
+      <code-fragment package="com.adobe.aots.CommonType" class="SVGLookupTableListener"><code-title>SVGLookupTableListener class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.net.URL;
+
+public class SVGLookupTableListener implements LookupTableListener {
+  protected int y;
+  protected Font font;
+  protected boolean positioned;
+  protected int details;
+  protected java.io.PrintStream out;
+
+  public SVGLookupTableListener (int details) {
+    this.details = details;
+  }
+
+  protected int scale (int x) {
+    return (x * 1000) / 18;
+  }
+
+  public void init (Font font, URL fontURL,
+                    java.io.PrintStream out,
+                    boolean positioned)
+      throws InvalidFontException {
+    init (font, fontURL, out, positioned, false);
+  }
+  public void init (Font font, URL fontURL,
+                    java.io.PrintStream out, boolean positioned,
+                    boolean useSystemFonts) {
+    this.font = font;
+    this.out = out;
+    this.positioned = positioned;
+
+    out.println ("&lt;?xml version='1.0'?&gt;");
+    out.println ("&lt;!--_____________________________________________________________________________");
+    out.println ("");
+    out.println ("  Copyright 2000-2016 Adobe Systems Incorporated. All Rights Reserved.");
+    out.println ("");
+    out.println ("  Licensed under the Apache License, Version 2.0 (the 'License');");
+    out.println ("  you may not use these files except in compliance with the License.");
+    out.println ("  You may obtain a copy of the License at");
+    out.println ("");
+    out.println ("   http://www.apache.org/licenses/LICENSE-2.0");
+    out.println ("");
+    out.println ("  Unless required by applicable law or agreed to in writing, software");
+    out.println ("  distributed under the License is distributed on an 'AS IS' BASIS,");
+    out.println ("  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.");
+    out.println ("  See the License for the specific language governing permissions and");
+    out.println ("  limitations under the License.");
+    out.println ("  ____________________________________________________________________________--&gt;");
+    out.println ("");
+
+    out.println ("&lt;svg xml:space='preserve' &gt;");
+    out.println ("  &lt;style type='text/css'&gt;");
+
+    if (useSystemFonts) {
+      out.println ("   .st1{font-family:'Courier';font-size:700}");
+      out.println ("   .st2{font-family:'ZapfDingbats';font-size:700}");
+      out.println ("   .st0{font-family:'" + font.name.getName (0x409, 1) + "'");
+      String subFamily = font.name.getName (0x409, 2);
+      if ("Bold".equals (subFamily)) {
+        out.println (";font-weight: bold"); }
+      else if ("Italic".equals (subFamily)) {
+        out.println (";font-style: italic"); }
+      else if ("Bold Italic".equals (subFamily)) {
+        out.println (";font-weight: bold");
+        out.println (";font-style: italic"); }
+      out.println (";font-subfamily:'" + subFamily + "'");
+      out.println (";font-size:1000}"); }
+    else {
+      out.println ("   .st0{font-family:'t';font-size:1000}");
+      out.println ("   .st1{font-family:'c';font-size:700}");
+      out.println ("   .st2{font-family:'z';font-size:700}");
+      out.println ("   @font-face{font-family:'c';src:url(c.cef)}");
+      out.println ("   @font-face{font-family:'z';src:url(z.cef)}");
+      out.println ("   @font-face{font-family:'t';src:url('" + fontURL + "')}"); }
+
+    out.println ("  &lt;/style&gt;");
+    out.println ("  &lt;g class='st0'&gt;");
+
+    out.println ("&lt;g transform='scale(0.018)'&gt;");
+
+    out.print ("  &lt;text x='" + scale(10) + "' y='" + scale(20) + "' class='st1'&gt;");
+    out.print (font.name.getName (0x409, 4));
+    out.println ("&lt;/text&gt;");
+
+    out.print ("  &lt;text x='" + scale (10) + "' y='" + scale(35) + "' class='st1'&gt;");
+    out.print (font.name.getName (0x409, 5));
+    out.println ("&lt;/text&gt;");
+
+    y = 50;
+
+  }
+
+
+  public void outputLine (String s) {
+    out.print ("&lt;text x='" + scale(10 + 20*depth)
+                      + "' y='" + scale(y+22) + "' class='st0'&gt;"
+                      + s + "&lt;/text&gt;");
+    y += 22; }
+
+  public void outputLine (String s1, String s2) {
+    out.print ("&lt;text x='" + scale(10 + 20*depth)
+                      + "' y='" + scale(y+22) + "' class='st0'&gt;"
+                      + s1 + "&lt;/text&gt;");
+    out.print ("&lt;text x='" + scale(400) + "' y='" + scale(y+22) + "' class='st0'&gt;"
+                      + s2 + "&lt;/text&gt;");
+    y += 22;
+  }
+
+  public void outputLine (String s1, String s2, String s3) {
+    out.print ("&lt;text x='" + scale(10 + 20*depth)
+                      + "' y='" + scale(y+22) + "' class='st0'&gt;"
+                      + s1 + "&lt;/text&gt;");
+    out.print ("&lt;text x='" + scale(400) + "' y='" + scale(y+22) + "' class='st0'&gt;"
+                      + s2 + "&lt;/text&gt;");
+    out.print ("&lt;text x='" + scale(600) + "' y='" + scale(y+22) + "' class='st0'&gt;"
+                      + s3 + "&lt;/text&gt;");
+    y += 22;
+  }
+
+
+  public String annotation (String s) {
+    return ("&lt;tspan class='st1'&gt;" + s + "&lt;/tspan&gt;");
+  }
+
+  static final String arrow
+       = "&lt;tspan class='st2'&gt;&amp;#x2192;&lt;/tspan&gt;";
+
+  static final String undef
+       = "&lt;tspan class='st1'&gt;&amp;#x7f;&lt;/tspan&gt;";
+
+  public String glyphRun (GlyphRun gr) {
+    String s = "";
+    if (positioned) {
+      String xPos = "" + gr.getXPos (0);
+      String yPos = "" + gr.getYPos (0);
+      for (int i = 0; i &lt; gr.glyphCount (); i++) {
+        s += "&lt;altGlyph glyphRef='$$" + gr.glyphAt (i) + "'&gt;X&lt;/altGlyph&gt;";
+        if (i &gt; 0) {
+          xPos += " " + (gr.getXPos (i) - gr.getXPos (i-1)
+                          - font.hmtx.getHorizontalAdvance (gr.glyphAt (i-1)));
+          yPos += " " + (-(gr.getYPos (i) - gr.getYPos (i-1))); }}
+      s = "&lt;tspan dx='" + xPos + "' dy='" + yPos + "'&gt;"
+           + s + "&lt;/tspan&gt;"; }
+    else {
+      for (int i = 0; i &lt; gr.glyphCount (); i++) {
+        s += "&lt;altGlyph glyphRef='$$" + gr.glyphAt (i) + "'&gt;X&lt;/altGlyph&gt;"; }}
+    return s;
+  }
+
+  public String glyphRun (GlyphRun gr, int position) {
+    String s = "";
+    for (int i = 0; i &lt; gr.glyphCount (); i++) {
+      if (i == position) {
+        s += annotation ("*"); }
+      else {
+        s += annotation (" "); }
+      s += "&lt;altGlyph glyphRef='$$" + gr.glyphAt (i) + "'&gt;X&lt;/altGlyph&gt;"; }
+    return s;
+  }
+
+  int depth = 0;
+
+
+
+  public void selectedLookups (int[] lookupIndices) {
+    String s = "lookups selected:";
+    for (int k = 0; k &lt; lookupIndices.length; k++) {
+      s += " " + lookupIndices [k]; }
+    outputLine (annotation (s));
+  }
+
+
+  String action = "";
+  protected void addAction (String s) {
+    if (! action.equals ("")) {
+      action += "; "; }
+    action += s;
+  }
+
+
+  public String intList (int[] ints) {
+    if (ints.length == 0) {
+      return ""; }
+
+    String s = "" + ints [0];
+    for (int i = 1; i &lt; ints.length; i++) {
+      s += "," + ints[i]; }
+    return s;
+  }
+
+  public String stringList (String[] strings) {
+    if (strings.length == 0) {
+      return ""; }
+
+    String s = "" + strings [0];
+    for (int i = 1; i &lt; strings.length; i++) {
+      s += "," + strings[i]; }
+    return s;
+  }
+
+  public void replace (int oldGlyphId, int newGlyphId) {
+    addAction ("" + oldGlyphId + arrow + newGlyphId);
+    if (font.cff != null) {
+      addAction (font.cff.getGlyphName (oldGlyphId)
+                  + " " + arrow + " "
+                  + font.cff.getGlyphName (newGlyphId)); }
+  }
+
+  public void replace (int oldGlyphId, int[] newGlyphIds) {
+    addAction ("" + oldGlyphId + arrow + intList (newGlyphIds));
+    if (font.cff != null) {
+      addAction (font.cff.getGlyphName (oldGlyphId)
+                  + " " + arrow + " "
+                  + stringList (font.cff.getGlyphName (newGlyphIds))); }
+  }
+
+  public void replace (int[] oldGlyphIds, int newGlyphId) {
+    addAction ("" + intList (oldGlyphIds) + arrow + newGlyphId);
+    if (font.cff != null) {
+      addAction (stringList (font.cff.getGlyphName (oldGlyphIds))
+                  + " " + arrow + " "
+                  + font.cff.getGlyphName (newGlyphId)); }
+  }
+
+  public void adjust (ValueRecord vr, int format) {
+    String s = "";
+    if ((format &amp; 0x001) != 0) {
+      s += "xp " + vr.xPlacement + " "; }
+    if ((format &amp; 0x002) != 0) {
+      s += "yp " + vr.yPlacement + " "; }
+    if ((format &amp; 0x004) != 0) {
+      s += "xa " + vr.xAdvance + " "; }
+    if ((format &amp; 0x008) != 0) {
+      s += "ya " + vr.yAdvance + " "; }
+    addAction (s);
+  }
+
+  public void move (int x, int y) {
+    String s = "x " + x + "  y " + y;
+    addAction (s);
+  }
+
+  public void applyingLookup (int lookupIndex, GlyphRun gr) {
+    String l = Integer.toString (lookupIndex);
+    while (l.length () &lt; 3) {
+      l = " " + l; }
+    outputLine (annotation ("applying lookup " + lookupIndex + " on ")
+                 + glyphRun (gr));
+  }
+
+  public void applyingLookupAtPos (int lookupIndex, GlyphRun gr, int position) {
+    depth++;
+    action = "";
+  }
+
+  public void applyingSubtable (int lookupIndex, GlyphRun gr,
+                                int curGlyph, String table, int stOffset) {
+    if (   (details &gt;= 1 &amp;&amp; depth == 1)
+        || (details &gt;= 2)) {
+      outputLine (glyphRun (gr, curGlyph),
+                  annotation ("using " + table + ".0x"
+                              + Integer.toHexString (stOffset)),
+                  annotation (action)); }
+  }
+
+  public void noSubtableApplied (int lookupIndex, GlyphRun gr,
+                                 int curGlyph) {
+    if (details &gt;= 3) {
+      outputLine (glyphRun (gr, curGlyph), "", ""); }
+  }
+
+  public void applyingLookupAtPosDone (int lookupIndex, GlyphRun gr,
+                                       int position) {
+    depth--;
+  }
+
+  public void applyingLookupDone (int lookupIndex, GlyphRun gr) {
+    if (details &gt;= 1) {
+      depth++;
+      outputLine (glyphRun (gr, -1), "", "");
+      depth--; }
+
+    outputLine (annotation ("             result: ") + glyphRun (gr));
+  }
+
+  public void shutdown () {
+    out.println ("  &lt;/g&gt;");
+    out.println ("  &lt;/g&gt;");
+    out.println ("&lt;/svg&gt;");
+    out.close ();
+  }
+}
+</code-fragment>
+      <code-fragment package="com.adobe.aots.CommonType" class="LookupTable"><code-title>LookupTable class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.TreeSet;
+import java.util.SortedSet;
+import java.util.Iterator;
+import java.util.Vector;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.HashMap;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public abstract class LookupTable extends LayoutTable {
+
+  public LookupTable (long tag, Font font) {
+    super (tag, font);
+  }
+
+  protected LookupTableListener listener = null;
+
+  public void setLookupTableListener (LookupTableListener l) {
+   listener = l;
+  }
+
+  public void removeLookupTableListener () {
+    listener = null;
+  }
+
+  <code-include linkend="lookuptable.methods"/>
+
+  abstract String lookupName (int lookupType);
+  abstract int lookupType (String name);
+
+  abstract void lookupSubtableToXMLCount (int offset, int[] counts,
+                                          int lookupType);
+
+  abstract void lookupSubtableOffsetToXML (DecompilerConfig conf, int offset,
+                                           int[] counts,
+                                           int lookupType)
+     throws org.xml.sax.SAXException, InvalidFontException;
+
+  abstract void lookupSubtableToXML (DecompilerConfig conf, int offset,
+                                     int[] counts,
+                                     int lookupType)
+     throws org.xml.sax.SAXException, InvalidFontException;
+
+  public void recordUse (int offset) {
+  }
+}
+</code-fragment>
+    </section>
+  

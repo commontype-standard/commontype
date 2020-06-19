@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>Our generic format for single substitions describes the mapping one  substitution at a time.</para>
+      <code-fragment id="schema"><code-title>singleSubstTable</code-title>
+  singleSubstTable |=
+    attribute format { "any" },
+    element subst {
+      attribute in { text },
+      attribute out { text }
+    }*
+
+  standaloneSingleSubstTable =
+    element singleSubstTable { attribute id { text }, singleSubstTable }
+
+  singleSubstTableOffset = attribute name { text } | singleSubstTable
+</code-fragment>
+    </section>
+    

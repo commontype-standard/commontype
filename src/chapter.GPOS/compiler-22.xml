@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="table.methods">
+  public int valueSize (int valueFormat) {
+    int size = 0;
+
+    if ((valueFormat &amp; 0x001) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x002) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x004) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x008) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x010) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x020) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x040) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x080) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x100) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x200) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x400) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x800) != 0) {
+      size += 2; }
+
+    return size;
+  }
+
+  public Value parseValue (Element value) {
+    Value v = new Value ();
+
+    if (value == null) {
+      return v; }
+
+    String xPlacement = value.getAttribute ("xPlacement");
+    if (xPlacement != null &amp;&amp; ! "".equals (xPlacement)) {
+      v.format |= 0x001;
+      v.xPlacement = Integer.parseInt (xPlacement); }
+
+    String yPlacement = value.getAttribute ("yPlacement");
+    if (yPlacement != null &amp;&amp; ! "".equals (yPlacement)) {
+      v.format |= 0x002;
+      v.yPlacement = Integer.parseInt (yPlacement); }
+
+    String xAdvance = value.getAttribute ("xAdvance");
+    if (xAdvance != null &amp;&amp; ! "".equals (xAdvance)) {
+      v.format |= 0x004;
+      v.xAdvance = Integer.parseInt (xAdvance); }
+
+    String yAdvance = value.getAttribute ("yAdvance");
+    if (yAdvance != null &amp;&amp; ! "".equals (yAdvance)) {
+      v.format |= 0x008;
+      v.yAdvance = Integer.parseInt (yAdvance); }
+
+    String s = value.getAttribute ("format");
+    if (s != null &amp;&amp; ! "".equals (s)) {
+      int f = Integer.parseInt (s);
+      if ((v.format &amp; ~f) != 0) {
+        warning ("specified value format ('" + s + "') does not cover actual format"); }
+      v.format = f; }
+
+    return v;
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="base.methods">
+  public Block minMaxTableFromXML (Element table, Element base,
+                                   Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = table.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+        table = resolveXMLid (base, name); }}
+
+    { Block cached = blockCache.get (table);
+      if (cached != null) {
+        return cached; }}
+
+    Element child;
+
+    Block minCoordBlock = null;
+    child = (Element) table.getFirstChild ();
+    if (child != null
+        &amp;&amp; "minCoord".equals (child.getTagName())) {
+      minCoordBlock = baseCoordTableFromXML (child,
+                                             base, blockCache);
+      table.removeChild (child); }
+
+    Block maxCoordBlock = null;
+    child = (Element) table.getFirstChild ();
+    if (child != null
+        &amp;&amp;"maxCoord".equals (child.getTagName ())) {
+      maxCoordBlock = baseCoordTableFromXML (child,
+                                             base, blockCache);
+      table.removeChild (child); }
+
+    NodeList children = table.getChildNodes ();
+    int nbChildren = children.getLength ();
+
+    Block me = new Block (6 + 6*nbChildren, 2 + nbChildren);
+    me.setOffset (0, minCoordBlock);
+    me.setOffset (2, maxCoordBlock);
+    me.setuint16 (4, nbChildren);
+
+    int offset = 6;
+    for (int i = 0; i &lt; nbChildren; i++) {
+      child = (Element) children.item (i);
+      me.setTag (offset, child.getAttribute ("tag"));
+      Element subChild = (Element) child.getFirstChild ();
+      if (subChild != null
+          &amp;&amp; "minCoord".equals (subChild.getTagName ())) {
+        me.setOffset (offset + 4, baseCoordTableFromXML (subChild,
+                                                    base, blockCache));
+        child.removeChild (subChild); }
+      else {
+        me.setOffset (offset + 4, null); }
+
+      subChild = (Element) child.getFirstChild ();
+      if (subChild != null
+          &amp;&amp; "maxCoord".equals (subChild.getTagName ())) {
+        me.setOffset (offset + 6, baseCoordTableFromXML (subChild,
+                                                    base, blockCache));
+        child.removeChild (subChild); }
+      else {
+        me.setOffset (offset + 6, null); }
+      offset += 6; }
+
+    blockCache.put (table, me);
+    return me;
+  }
+</code-fragment>
+    </section>
+    

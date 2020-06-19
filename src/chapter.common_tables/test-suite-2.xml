@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="test-suite">
+      <title>Implementation Test</title>
+      <para>To test classDef table, we use contextual GSUB tests.
+	Here are some base lookups:</para>
+      <code-fragment id="layout.test.classdef">
+        <code-title>?</code-title>
+        <lookup id="inc_by_3" type="1">
+          <singleSubst format="1">
+            <coverage format="any" glyphs="0:99"/>
+            <delta v="3"/>
+          </singleSubst>
+        </lookup>
+        <lookup id="inc_by_4" type="1">
+          <singleSubst format="1">
+            <coverage format="any" glyphs="0:99"/>
+            <delta v="4"/>
+          </singleSubst>
+        </lookup>
+        <lookup id="inc_by_5" type="1">
+          <singleSubst format="1">
+            <coverage format="any" glyphs="0:99"/>
+            <delta v="5"/>
+          </singleSubst>
+        </lookup>
+      </code-fragment>
+    </section>
+  

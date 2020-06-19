@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="contextualLookup.toXMLCount_1">
+  /* nothing */
+</code-fragment>
+      <code-fragment id="contextualLookup.toXML_1">
+  /* nothing */
+</code-fragment>
+      <code-fragment id="contextualLookup.toXMLEmit_1">
+    int posRuleSetCount = getuint16 (stOffset + 4);
+    int[] coveredGlyphs = getCoveredGlyphs (stOffset + getOffset (stOffset + 2));
+
+    for (int i = 0; i &lt; posRuleSetCount; i++) {
+      int posRuleSetOffset = stOffset + getOffset (stOffset + 6 + 2*i);
+      int posRuleCount = getuint16 (posRuleSetOffset);
+      for (int j = 0; j &lt; posRuleCount; j++) {
+        int posRuleOffset = posRuleSetOffset + getOffset (posRuleSetOffset + 2 + 2*j);
+        int glyphCount = getuint16 (posRuleOffset);
+        StringBuilder s = new StringBuilder ();
+	glyphToXML (conf, s, coveredGlyphs [i]);
+        for (int g = 0; g &lt; glyphCount - 1; g++) {
+          glyphToXML (conf, s, getuint16 (posRuleOffset + 4 + 2*g)); }
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "in", "in", "CDATA", s.toString ());
+        conf.ch.startElement ("pattern", at); {
+          subLookupsToXML (conf, getuint16 (posRuleOffset + 2),
+                           posRuleOffset + 4 + 2*(glyphCount-1));
+          conf.ch.endElement ("pattern"); }}}
+</code-fragment>
+    </section>
+    

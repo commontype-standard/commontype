@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>coverageTable, format 2</code-title>
+  coverageTable |=
+    attribute format { "2" },
+    element range {
+      attribute start { text },
+      attribute end { text }
+    }*
+</code-fragment>
+    </section>
+    

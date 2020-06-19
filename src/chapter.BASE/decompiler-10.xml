@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="baseCoordTableToXMLEmit.cases">
+  case 2: {
+    at.addAttribute ("", "coord", "coord", "CDATA",
+                     "" + getint16 (offset + 2));
+    at.addAttribute ("", "glyphID", "glyphID", "CDATA",
+                     "" + getuint16 (offset + 4));
+    at.addAttribute ("", "baseCoordPoint", "baseCoordPoint", "CDATA",
+                     "" + getuint16 (offset + 6));
+    conf.ch.element (element, at);
+    break; }
+</code-fragment>
+    </section>
+  

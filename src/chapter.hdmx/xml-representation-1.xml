@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>??</code-title>
+hdmx =
+  element hdmx {
+    attribute version { text },
+    element deviceRecord {
+      attribute pixelSize { text },
+      attribute maxWidth { text },
+      element width {
+        attribute gid { text },
+        attribute v   { text }}* }* }
+</code-fragment>
+    </section>
+    

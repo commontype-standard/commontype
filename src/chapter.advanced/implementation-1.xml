@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>For the purpose of testing our CommonType implementation,
+	  here is a very simple implementation of the GlyphRun
+	  interface:</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="GlyphRunImpl"><code-title>TestGlyphrun Class</code-title>
+
+package com.adobe.aots.CommonType;
+
+public class GlyphRunImpl implements GlyphRun {
+  protected int[] glyphs;
+  protected int totGlyphs;
+
+  public int glyphCount () {
+    return totGlyphs;
+  }
+
+  public int glyphAt (int position) {
+    if (position &lt; 0 || totGlyphs &lt;= position) {
+      return -1; }
+    else {
+      return glyphs [position]; }
+  }
+
+  public void setGlyphAt (int position, int glyph) {
+    if (position &lt; 0 || totGlyphs &lt;= position) {
+      return; }
+    else {
+      glyphs [position] = glyph; }
+  }
+
+  public void setGlyphs (int [] glyphs, int count) {
+    this.glyphs = new int [count];
+    System.arraycopy (glyphs, 0, this.glyphs, 0, count);
+    this.totGlyphs = count;
+  }
+
+  public void setGlyphs (int [] glyphs) {
+    setGlyphs (glyphs, glyphs.length);
+  }
+
+  public boolean isLookupApplied (int lookupIndex, int start, int stop) {
+    return (0 &lt;= start &amp;&amp; stop &lt; totGlyphs);
+  }
+
+  public void replace (int position, int replacementGlyph) {
+    // replace the glyph at position by replacementGlyph
+    glyphs [position] = replacementGlyph;
+  }
+
+  public void replace (int position, int[] replacementGlyphs) {
+    // replace the glyph at position by replacementGlyphs
+    if (totGlyphs + replacementGlyphs.length - 1 &gt; glyphs.length) {
+      int[] temp = new int [totGlyphs + replacementGlyphs.length + 100];
+      System.arraycopy (glyphs, 0, temp, 0, totGlyphs);
+      glyphs = temp; }
+    System.arraycopy (glyphs, position + 1,
+                      glyphs, position + replacementGlyphs.length,
+                      totGlyphs - position - 1);
+    System.arraycopy (replacementGlyphs, 0,
+                      glyphs, position,
+                      replacementGlyphs.length);
+    totGlyphs += replacementGlyphs.length - 1;
+  }
+
+  public void replace (int[] positions, int replacementGlyph) {
+    // replace the glyphs at positions by replacementGlyph
+    // = replace the glyph at positions[0] by replacementGlyph
+    //   + delete the glyphs at positions[i], i&gt;0
+
+    glyphs [positions [0]] = replacementGlyph;
+
+    for (int i = positions.length - 1; i &gt;= 1; i--) {
+      System.arraycopy (glyphs, positions[i] + 1,
+                        glyphs, positions[i],
+                        totGlyphs - (positions[i] + 1));
+      totGlyphs--; }
+  }
+
+  public void dump (int curGlyph) {
+    for (int i = 0; i &lt; totGlyphs; i++) {
+      if (i == curGlyph) {
+        System.out.print (" *" + glyphs[i]); }
+      else {
+        System.out.print ("  " + glyphs[i]); }}
+    System.out.println ("");
+  }
+
+  public int [] xPos;
+  public int [] yPos;
+
+  public void setDefaultPlacementsAndAdvances (Font font) {
+    xPos = new int [totGlyphs];
+    yPos = new int [totGlyphs];
+
+    // this works for horizontal layout only.
+    xPos [0] = 0;
+    yPos [0] = 0;
+
+    for (int i = 1; i &lt; totGlyphs; i++) {
+      xPos [i] = xPos [i-1] + font.hmtx.getHorizontalAdvance (glyphs [i-1]);
+      yPos [i] = 0; }
+  }
+
+  public void adjustPlacementAndAdvance (int g, ValueRecord vr) {
+    xPos [g] += vr.xPlacement;
+    yPos [g] += vr.yPlacement;
+    for (int i = g + 1; i &lt; totGlyphs; i++) {
+      xPos [i] += vr.xAdvance;
+      yPos [i] += vr.yAdvance; }
+  }
+
+  public void move (int g, int x, int y) {
+    xPos [g] = x;
+    yPos [g] = y;
+  }
+
+  public int getXPos (int g) {
+    return xPos [g];
+  }
+
+  public int getYPos (int g) {
+    return yPos [g];
+  }
+
+  public int [] ligComponents = null;
+
+  public void setLigComponents (int[] components) {
+    ligComponents = components;
+  }
+
+  public int getLigComponent (int g) {
+    if (ligComponents == null) {
+      return -1; }
+    else {
+      return ligComponents [g]; }
+  }
+}
+</code-fragment>
+    </section>
+  

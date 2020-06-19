@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>A cmap table is represented by a <sgmltag>cmap</sgmltag>
+	element, with each entry represented by a
+	<sgmltag>mapping</sgmltag> element. Each cmap subtalble will
+	contribute a bunch of attributes and elements. As usual, those
+	can be attached directly to the <sgmltag>mapping</sgmltag>
+	element, or they can be attached to a
+	<sgmltag>cmapsubtable</sgmltag> element. In the latter case,
+	the <sgmltag>mapping</sgmltag> element carries an IDREF
+	<sgmltag>name</sgmltag> attribute, and the
+	<sgmltag>cmapsubtable</sgmltag> carries a corresponding ID
+	<sgmltag>id</sgmltag> attribute. This mechanism is useful,
+	e.g. when a cmapsutable is listed under both Microsoft/Unicode
+	BMP (3/1) and Unicode/BMP (1/0).</para>
+      <para>We pull the language field of each cmap subtable in the
+	<sgmltag>mapping</sgmltag> entry, as it logically belongs
+	there. However, this creates a validity constraint: if a
+	<sgmltag>cmapsubtable</sgmltag> is referenced from multiple
+	entries, then all those entries must have the same
+	<sgmltag>language</sgmltag>.</para>
+      <para>When we do not care about the format of a cmap subtable,
+	we set the <sgmltag>format</sgmltag> attribute to
+	<sgmltag>any</sgmltag> and simply list the code point to glyph
+	correspondance.</para>
+      <para>Each cmap subtable format is also dual: it can either be
+	expressed (mostly) as a bunch of mappings, or it can be
+	precise, recording all the details specific to the format. We
+	need this flexibility, because many font consumers impose that
+	the subtable for a given platform/encoding be in a specific
+	format, yet we want to describe the mappings simply.</para>
+      <code-fragment id="schema"><code-title>cmap table</code-title>
+  cmap =
+    element cmap {
+      attribute version { "0" },
+      element mapping {
+        attribute platformid { text },
+        attribute encodingid { text },
+        attribute language { text },
+        cmapsubtableOffset }*,
+
+      standaloneCmapsubtable*
+    }
+
+  standaloneCmapsubtable =
+    element cmapsubtable { attribute id { text }, cmapsubtable }
+
+  cmapsubtableOffset = attribute name { text } | cmapsubtable
+
+  cmapsubtable |=
+    attribute format { "any" },
+    element map {
+      attribute code { text },
+      attribute glyph { text }}*
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>langSysTable</code-title>
+  langSysTable =
+    element requiredFeature {
+      attribute name { text }
+    }?,
+    element featureIndex {
+      attribute name { text }
+    }*
+
+  standaloneLangSysTable =
+    element langSysTable { attribute id { text }, langSysTable }
+
+  langSysTableOffset = attribute name { text } | langSysTable
+</code-fragment>
+    </section>
+    

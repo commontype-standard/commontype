@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gpos.toXMLCount_3">
+  coverageTableToXMLCount (stOffset + getOffset (stOffset + 2), counts);
+
+  int o = stOffset + 6;
+  for (int i = 0; i &lt; 2 * getuint16 (stOffset + 4); i++) {
+    if (getOffset (o) != 0) {
+      anchorTableToXMLCount (stOffset + getOffset (o), counts); }
+    o += 2; }
+</code-fragment>
+      <code-fragment id="gpos.toXML_3">
+    coverageTableToXML (conf, stOffset + getOffset (stOffset + 2), counts);
+
+    int o = stOffset + 6;
+    for (int i = 0; i &lt; 2 * getuint16 (stOffset + 4); i++) {
+      if (getOffset (o) != 0) {
+        anchorTableToXML (conf, stOffset + getOffset (o), counts); }
+      o += 2; }
+</code-fragment>
+      <code-fragment id="gpos.toXMLEmit_3">
+    int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int[] glyphs = getCoveredGlyphs (coverageOffset);
+
+    at = new AttributesImpl ();
+    coverageTableOffsetToXML (conf, coverageOffset, counts, "coverage", at);
+
+    int o = stOffset + 6;
+    for (int i = 0; i &lt; getuint16 (stOffset + 4); i++) {
+      at = new AttributesImpl ();
+      at.addAttribute ("", "glyphID", "glyphID", "CDATA", "" + glyphs[i]);
+      conf.ch.startElement ("entryExit", at); {
+        if (getOffset (o) != 0) {
+          anchorTableOffsetToXML (conf, stOffset + getOffset (o), counts,
+                                  "entry", new AttributesImpl ()); }
+        o += 2;
+        if (getOffset (o) != 0) {
+          anchorTableOffsetToXML (conf, stOffset + getOffset (o), counts,
+                                  "exit", new AttributesImpl ()); }
+        o += 2;
+        conf.ch.endElement ("entryExit"); }}
+</code-fragment>
+    </section>
+    

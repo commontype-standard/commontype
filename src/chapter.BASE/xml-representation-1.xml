@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>BASE</code-title>
+  BASE =
+    element BASE {
+      attribute major { "1" },
+      attribute minor { "0" },
+      element horizontalAxis { axisTableOffset }?,
+      element verticalAxis { axisTableOffset }?,
+
+      (  standaloneAxisTable
+       | standaloneBaseTagListTable
+       | standaloneBaseScriptListTable
+       | standaloneBaseScriptTable
+       | standaloneBaseValuesTable
+       | standaloneMinMaxTable
+       | standaloneBaseCoordTable
+       | standaloneDeviceTable)*
+    }
+</code-fragment>
+    </section>
+    

@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.post"></a>Chapter 12. post - PostScript</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm300714655120"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.13.1.1"></a>Specification</h4></div></div></div><p>This table contains additional information needed to use
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.post"></a>Chapter 12. post - PostScript</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516892149696"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.13.1.1"></a>Specification</h4></div></div></div><p>This table contains additional information needed to use
         TrueType or CommonType fonts on PostScript printers.  This
         includes data for the FontInfo dictionary entry and the
         PostScript names of all the glyphs. For more information about
@@ -6,7 +6,7 @@
         and Glyph Names</a>.</p><p>Versions 1.0, 2.0, and 2.5 refer to TrueType fonts and
           CommonType fonts with TrueType data. CommonType fonts with
           TrueType data may also use Version 3.0. CommonType fonts with
-          CFF data use Version 3.0 only.</p><p>The table begins as follows:</p><div class="table"><a name="idm300714650960"></a><p class="title"><strong>Table 12.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>
+          CFF data use Version 3.0 only.</p><p>The table begins as follows:</p><div class="table"><a name="idm516892145520"></a><p class="title"><strong>Table 12.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>
             <table border="0" summary="Simple list" class="simplelist"><tr><td>0x00010000 for version 1.0</td></tr><tr><td>0x00020000 for version 2.0</td></tr><tr><td>0x00025000 for version 2.5
                   (deprecated)</td></tr><tr><td>0x00030000 for version 3.0</td></tr></table>
           </td><td class="auto-generated"> </td></tr><tr><td>Fixed</td><td>italicAngle</td><td>Italic angle in counter-clockwise degrees
@@ -40,13 +40,13 @@
           additional entries for versions 2.0 and 2.5 are shown below.
           Apple has defined a version 4.0 for use with Apple's AAT
           (Apple Advanced Typography), which is described in their
-          documentation.</p><h5><a name="idm300714630368"></a>Version 1.0</h5><p>This TrueType-based font file contains exactly the 258
+          documentation.</p><h5><a name="idm516892124928"></a>Version 1.0</h5><p>This TrueType-based font file contains exactly the 258
           glyphs in the standard Macintosh TrueType font file (see
           <a class="ulink" href="http://www.microsoft.com/typography/otspec/WGL4.htm" target="_top">The
             WGL4.0 Character Set</a> chapter for a list of the
           Macintosh glyphs). As a result, the glyph names are taken
-          from the system with no storage required by the font.</p><h5><a name="idm300714628560"></a>Version 2.0</h5><p>This is the version required by TrueType-based fonts to
-          be used on Windows.</p><div class="table"><a name="idm300714627680"></a><p class="title"><strong>Table 12.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs (this should be the same as
+          from the system with no storage required by the font.</p><h5><a name="idm516892123120"></a>Version 2.0</h5><p>This is the version required by TrueType-based fonts to
+          be used on Windows.</p><div class="table"><a name="idm516892122240"></a><p class="title"><strong>Table 12.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs (this should be the same as
               numGlyphs in <a class="link" href="chapter.maxp.html" title="Chapter 8. maxp - Maximum Profile">maxp</a>
               table).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>glyphNameIndex [numGlyphs]</td><td>This is not an offset, but is the ordinal
               number of the glyph in <a class="link" href="chapter.post.html" title="Chapter 12. post - PostScript">post</a> string
@@ -64,11 +64,11 @@
           some to its own names.</p><p>Index numbers 32768 through 65535 are reserved for
           future use. If you do not want to associate a PostScript
           name with a particular glyph, use index number 0 which
-          points the name .notdef.</p><h5><a name="idm300714618000"></a>Version 2.5</h5><p>This version of the <a class="link" href="chapter.post.html" title="Chapter 12. post - PostScript">post</a> table has
+          points the name .notdef.</p><h5><a name="idm516892112560"></a>Version 2.5</h5><p>This version of the <a class="link" href="chapter.post.html" title="Chapter 12. post - PostScript">post</a> table has
           been deprecated as of CommonType Specification v1.3.</p><p>This version provides a space saving table for
           TrueType-based fonts which contain a pure subset of, or a
           simple reordering of, the standard Macintosh glyph
-          set.</p><div class="table"><a name="idm300714615888"></a><p class="title"><strong>Table 12.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>offset [numGlyphs]</td><td>Difference between graphic index and standard
+          set.</p><div class="table"><a name="idm516892110448"></a><p class="title"><strong>Table 12.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>offset [numGlyphs]</td><td>Difference between graphic index and standard
               order of glyph</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This version is useful for TrueType-based font files
           that contain only glyphs in the standard Macintosh glyph set
           but which have those glyphs arranged in a non-standard order
@@ -80,7 +80,7 @@
           37th, 38th, and 39th glyphs in the standard ordering, the
           <a class="link" href="chapter.post.html" title="Chapter 12. post - PostScript">post</a> table would contain the bytes +36,
           +36, +36. This format has been deprecated by Apple, as of
-          February 2000.</p><h5><a name="idm300714609568"></a>Version 3.0</h5><p>This version is used by CommonType fonts with TrueType or
+          February 2000.</p><h5><a name="idm516892103600"></a>Version 3.0</h5><p>This version is used by CommonType fonts with TrueType or
           CFF data. The version makes it possible to create a special
           font that is not burdened with a large
           <a class="link" href="chapter.post.html" title="Chapter 12. post - PostScript">post</a> table set of glyph names.</p><p>This version specifies that no PostScript name

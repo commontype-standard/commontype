@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.vhea"></a>Chapter 36. vhea - Vertical Header Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm300706555392"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.37.1.1"></a>Specification</h4></div></div></div><p>The vertical header table (tag name:
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.vhea"></a>Chapter 36. vhea - Vertical Header Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516882649456"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.37.1.1"></a>Specification</h4></div></div></div><p>The vertical header table (tag name:
         <a class="link" href="chapter.vhea.html" title="Chapter 36. vhea - Vertical Header Table">vhea</a>) contains information needed for
         vertical fonts. The glyphs of vertical fonts are written
         either top to bottom or bottom to top. This table contains
@@ -17,17 +17,17 @@
           Korean) fonts.</p><p>The difference between version 1.0 and version 1.1 is
 	  the name and definition of: </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>ascender becomes vertTypoAscender</p></li><li class="listitem"><p>descender becomes vertTypoDescender</p></li><li class="listitem"><p>lineGap becomes vertTypoLineGap</p></li></ul></div><p>
       </p><p>The vertical header table format follows: Vertical
-          Header Table</p><div class="table"><a name="idm300706546432"></a><p class="title"><strong>Table 36.1. Version 1.0</strong></p><div class="table-contents"><table class="table" summary="Version 1.0" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>version</td><td>Version number of the vertical header table;
-              0x0001000 for version 1.0</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ascent</td><td>Distance in FUnits from the centerline to the
-	      previous line’ descent.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>descent</td><td>Distance in FUnits from the centerline to
+          Header Table</p><div class="table"><a name="idm516882640496"></a><p class="title"><strong>Table 36.1. Version 1.0</strong></p><div class="table-contents"><table class="table" summary="Version 1.0" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>version</td><td>Version number of the vertical header table;
+              0x0001000 for version 1.0</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ascent</td><td>Distance in <em class="glossterm">font unit</em>s from the centerline to the
+	      previous line’ descent.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>descent</td><td>Distance in <em class="glossterm">font unit</em>s from the centerline to
 	      the next line’s ascent.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>lineGap</td><td>Reserved; set to 0.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>advanceHeightMax</td><td>The maximum advance height measurement
-	      — in FUnits — found in the font. This value
+	      — in <em class="glossterm">font unit</em>s — found in the font. This value
 	      must be consistent with the entries in the vertical metrics
               table.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>minTop</td><td>The minimum top sidebearing measurement found
-              in the font, in FUnits. This value must be consistent
+              in the font, in <em class="glossterm">font unit</em>s. This value must be consistent
               with the entries in the vertical metrics
               table.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>minBottom</td><td>The minimum bottom sidebearing measurement
-              found in the font, in FUnits. This value must be
+              found in the font, in <em class="glossterm">font unit</em>s. This value must be
               consistent with the entries in the vertical metrics
               table. </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yMaxExtent</td><td>Defined as yMaxExtent=minTopSideBearing +
               (yMax - yMin)</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>caretSlopeRise</td><td>The value of the caretSlopeRise field divided
@@ -43,18 +43,18 @@
               slanted glyph needs to be shifted away from the glyph in
               order to produce the best appearance. Set value equal to
               0 for nonslanted fonts.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>reserved</td><td>Set to 0.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>reserved</td><td>Set to 0.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>reserved</td><td>Set to 0.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>reserved</td><td>Set to 0.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>metricDataFormat</td><td>Set to 0.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numOfLongVerMetrics</td><td>Number of advance heights in the vertical
-              metrics table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm300706517264"></a><p class="title"><strong>Table 36.2. Version 1.1</strong></p><div class="table-contents"><table class="table" summary="Version 1.1" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>version</td><td>Version number of the vertical header table;
+              metrics table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm516882609376"></a><p class="title"><strong>Table 36.2. Version 1.1</strong></p><div class="table-contents"><table class="table" summary="Version 1.1" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>version</td><td>Version number of the vertical header table;
               0x00011000 for version 1.1. Note the representation of a
               non-zero fractional part, in Fixed
               numbers.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>vertTypoAscender</td><td>The vertical typographic ascender for this
-              font. It is the distance in FUnits from the ideographic
+              font. It is the distance in <em class="glossterm">font unit</em>s from the ideographic
               em-box center baseline for the vertical axis to the
               right of the ideographic em-box and is usually set to
               (head.unitsPerEm)/2. For example, a font with an em of
               1000 fUnits will set this field to 500. See the baseline
               section of the CommonType Tag Registry for a description
               of the ideographic em-box. </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>vertTypoDescender</td><td>The vertical typographic descender for this
-              font. It is the distance in FUnits from the ideographic
+              font. It is the distance in <em class="glossterm">font unit</em>s from the ideographic
               em-box center baseline for the horizontal axis to the
               left of the ideographic em-box and is usually set to
               (head.unitsPerEm)/2. For example, a font with an em of
@@ -63,13 +63,13 @@
               spacing for single spaced vertical text for an CommonType
               font by the following expression: ideo embox width +
               vhea.vertTypoLineGap </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>advanceHeightMax</td><td>The maximum advance height measurement -in
-              FUnits found in the font. This value must be consistent
+              <em class="glossterm">font unit</em>s found in the font. This value must be consistent
               with the entries in the vertical metrics
               table.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>minTopSideBearing</td><td>The minimum top sidebearing measurement found
-              in the font, in FUnits. This value must be consistent
+              in the font, in <em class="glossterm">font unit</em>s. This value must be consistent
               with the entries in the vertical metrics
               table.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>minBottomSideBearing</td><td>The minimum bottom sidebearing measurement
-              found in the font, in FUnits. This value must be
+              found in the font, in <em class="glossterm">font unit</em>s. This value must be
               consistent with the entries in the vertical metrics
               table. </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yMaxExtent</td><td>Defined as yMaxExtent=minTopSideBearing +
               (yMax - yMin)</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>caretSlopeRise</td><td>The value of the caretSlopeRise field divided
@@ -85,13 +85,13 @@
               slanted glyph needs to be shifted away from the glyph in
               order to produce the best appearance. Set value equal to
               0 for nonslanted fonts.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>reserved</td><td>Set to 0.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>reserved</td><td>Set to 0.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>reserved</td><td>Set to 0.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>reserved</td><td>Set to 0.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>metricDataFormat</td><td>Set to 0.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numOfLongVerMetrics</td><td>Number of advance heights in the vertical
-              metrics table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Vertical Header Table Example</p><div class="table"><a name="idm300706486864"></a><p class="title"><strong>Table 36.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>0x00011000</td><td>version</td><td>Version number of the vertical header table,
+              metrics table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Vertical Header Table Example</p><div class="table"><a name="idm516882577536"></a><p class="title"><strong>Table 36.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>0x00011000</td><td>version</td><td>Version number of the vertical header table,
               in fixed-point format, is 1.1 </td><td class="auto-generated"> </td></tr><tr><td>1024</td><td>vertTypoAscender</td><td>Half the em-square height.</td><td class="auto-generated"> </td></tr><tr><td>-1024</td><td>vertTypoDescender</td><td>Minus half the em-square
               height.</td><td class="auto-generated"> </td></tr><tr><td>0</td><td>vertTypoLineGap</td><td>Typographic line gap is 0
-              FUnits.</td><td class="auto-generated"> </td></tr><tr><td>2079</td><td>advanceHeightMax</td><td>The maximum advance height measurement found
-              in the font is 2079 FUnits.</td><td class="auto-generated"> </td></tr><tr><td>-342</td><td>minTopSideBearing</td><td>The minimum top sidebearing measurement found
-              in the font is -342 FUnits.</td><td class="auto-generated"> </td></tr><tr><td>-333</td><td>minBottomSideBearing</td><td>The minimum bottom sidebearing measurement
-              found in the font is -333 FUnits.</td><td class="auto-generated"> </td></tr><tr><td>2036</td><td>yMaxExtent</td><td>minTopSideBearing +
+              <em class="glossterm">font unit</em>s.</td><td class="auto-generated"> </td></tr><tr><td>2079</td><td>advanceHeightMax</td><td>The maximum advance height measurement found
+              in the font is 2079 <em class="glossterm">font unit</em>s.</td><td class="auto-generated"> </td></tr><tr><td>-342</td><td>minTopSideBearing</td><td>The minimum top sidebearing measurement found
+              in the font is -342 <em class="glossterm">font unit</em>s.</td><td class="auto-generated"> </td></tr><tr><td>-333</td><td>minBottomSideBearing</td><td>The minimum bottom sidebearing measurement
+              found in the font is -333 <em class="glossterm">font unit</em>s.</td><td class="auto-generated"> </td></tr><tr><td>2036</td><td>yMaxExtent</td><td>minTopSideBearing +
               (yMax-yMin)=2036.</td><td class="auto-generated"> </td></tr><tr><td>0</td><td>caretSlopeRise</td><td>The caret slope rise of 0 and a caret slope
               run of 1 indicate a horizontal caret for a vertical
               font.</td><td class="auto-generated"> </td></tr><tr><td>1</td><td>caretSlopeRun</td><td>The caret slope rise of 0 and a caret slope

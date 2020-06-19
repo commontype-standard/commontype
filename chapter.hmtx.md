@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.hmtx"></a>Chapter 7. hmtx - Horizontal Metrics</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm300713878560"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.8.1.1"></a>Specification</h4></div></div></div><p>The type longHorMetric is defined as an array where each
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.hmtx"></a>Chapter 7. hmtx - Horizontal Metrics</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516889414480"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.8.1.1"></a>Specification</h4></div></div></div><p>The type longHorMetric is defined as an array where each
           element has two parts: the advance width, which is of type
           USHORT, and the left side bearing, which is of type SHORT.
           Or, more formally:</p><div class="literallayout"><p><br/>
@@ -6,7 +6,7 @@ typedef struct  _longHorMetric {<br/>
      USHORT advanceWidth;<br/>
      SHORT  lsb;<br/>
 }  longHorMetric;<br/>
-</p></div><div class="table"><a name="idm300713875776"></a><p class="title"><strong>Table 7.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>longHorMetric [numberOfHMetrics]</td><td>hMetrics</td><td>Paired advance width and left side bearing
+</p></div><div class="table"><a name="idm516889411600"></a><p class="title"><strong>Table 7.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>longHorMetric [numberOfHMetrics]</td><td>hMetrics</td><td>Paired advance width and left side bearing
               values for each glyph. The value numOfHMetrics comes
               from the <a class="link" href="chapter.hhea.html" title="Chapter 6. hhea - Horizontal Header">hhea</a> table. If the font is
               monospaced, only one entry need be in the array, but

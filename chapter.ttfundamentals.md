@@ -1,37 +1,37 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.ttfundamentals"></a>Chapter 42. TrueType fundamentals</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm300706965440"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.1.1"></a>Specification</h4></div></div></div><p>CommonType fonts are an extension of the TrueType Font
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.ttfundamentals"></a>Chapter 42. TrueType fundamentals</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516880704032"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.1.1"></a>Specification</h4></div></div></div><p>CommonType fonts are an extension of the TrueType Font
 	File format.</p><p>This chapter introduces the basic concepts needed to
 	create and instruct a TrueType font, or an CommonType font that
 	contains TrueType outline data. It begins with an overview of
 	the steps involved in taking a design from paper to the
 	creation of a bitmap that can be sent to an output device and
 	follows with a closer look at each of the steps in the
-	process.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm300706961952"></a>From design to font file</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.2.1"></a>Specification</h4></div></div></div><p>A TrueType font can originate as a new design drawn on
+	process.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516880700544"></a>From design to font file</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.2.1"></a>Specification</h4></div></div></div><p>A TrueType font can originate as a new design drawn on
 	paper or created on a computer screen. TrueType fonts can also
 	be obtained by converting fonts from other formats. Whatever
 	the case, it is necessary to create a TrueType font file that,
 	among other things, describes each glyph in the font as an
-	outline in the TrueType format.</p><div class="informalfigure"><div class="mediaobject"><img src="src/images/../../img00288.gif"/></div></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm300706957168"></a>From Font File to Paper</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.3.1"></a>Specification</h4></div></div></div><p>This section describes the process that allows glyphs
+	outline in the TrueType format.</p><div class="informalfigure"><div class="mediaobject"><img src="src/images/../../img00288.gif"/></div></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516880695760"></a>From Font File to Paper</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.3.1"></a>Specification</h4></div></div></div><p>This section describes the process that allows glyphs
 	from a TrueType font file to be displayed on raster devices.</p><p>First, the outline stored in the font file isscaled to
 	the requested size. Once scaled, the points that make up the
-	outline are no longer recorded in the FUnits used to describe
+	outline are no longer recorded in the <em class="glossterm">font unit</em>s used to describe
 	the original outline, but have become device-specific pixel
 	coordinates.</p><p>Next, the instructions associated with this glyph are
 	carried out by the interpreter. The result of carrying out the
 	instructions is a grid-fitted outline for the requested
 	glyph. This outline is then scan converted to produce a bitmap
-	that can be rendered on the target device.</p><div class="informalfigure"><div class="mediaobject"><img src="src/images/../../ball.gif"/></div></div><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Digitize outline with FUnit coordinates in TrueType
-	    font file</p></li><li class="listitem"><p>Scaler converts FUnits to pixel coordinates and
+	that can be rendered on the target device.</p><div class="informalfigure"><div class="mediaobject"><img src="src/images/../../ball.gif"/></div></div><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Digitize outline with <em class="glossterm">font unit</em> coordinates in TrueType
+	    font file</p></li><li class="listitem"><p>Scaler converts <em class="glossterm">font unit</em>s to pixel coordinates and
 	    scales outline to size requested by application</p></li><li class="listitem"><p>Outline "sized" to new grid</p></li><li class="listitem"><p>Scaled outline with pixel coordinates</p></li><li class="listitem"><p>Interpreter executes instructions associated with
-	    glyph "B" and gridfits</p></li><li class="listitem"><p>Grid-fitted outline</p></li><li class="listitem"><p>Grid fitted outline</p></li><li class="listitem"><p>Scan converter decides which pixels to turn on</p></li><li class="listitem"><p>Bitmap is rendered on raster device</p></li></ol></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm300706943488"></a>Digitizing a Design</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.4.1"></a>Specification</h4></div></div></div><p>This section describes the coordinate system used to
+	    glyph "B" and gridfits</p></li><li class="listitem"><p>Grid-fitted outline</p></li><li class="listitem"><p>Grid fitted outline</p></li><li class="listitem"><p>Scan converter decides which pixels to turn on</p></li><li class="listitem"><p>Bitmap is rendered on raster device</p></li></ol></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516880680880"></a>Digitizing a Design</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.4.1"></a>Specification</h4></div></div></div><p>This section describes the coordinate system used to
 	establish the locations of the points that define a glyph
 	outline. It also documents the placement of glyphs with
-	respect to the coordinate axes.</p><h5><a name="idm300706941072"></a>Outlines</h5><p>In a TrueType font, glyph shapes are described by their
+	respect to the coordinate axes.</p><h5><a name="idm516880678464"></a>Outlines</h5><p>In a TrueType font, glyph shapes are described by their
 	outlines. A glyph outline consists of a series of contours. A
 	simple glyph may have only one contour. More complex glyphs
 	can have two or more contours. Composite glyphs can be
 	constructed by combining two or more simpler glyphs. Certain
 	control characters that have no visible manifestation will map
-	to the glyph with no contours.</p><div class="figure"><a name="idm300706939888"></a><p class="title"><strong>Figure 42.1. Figure 1-1. Glyphs with one, two, three contours
+	to the glyph with no contours.</p><div class="figure"><a name="idm516880677280"></a><p class="title"><strong>Figure 42.1. Figure 1-1. Glyphs with one, two, three contours
 	    respectively</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00290.gif" alt="Figure 1-1. Glyphs with one, two, three contours respectively"/></div><div class="mediaobject"><img src="src/images/../../img00291.gif" alt="Figure 1-1. Glyphs with one, two, three contours respectively"/></div><div class="mediaobject"><img src="src/images/../../img00292.gif" alt="Figure 1-1. Glyphs with one, two, three contours respectively"/></div></div></div><br class="figure-break"/><p>Contours are composed of straight lines and
 	curves. Curves are defined by a series of points that describe
 	second order Bezier-splines. The TrueType Bezier-spline format
@@ -39,15 +39,15 @@
 	the curve and those that are off the curve. Any combination of
 	off and on curve points is acceptable when defining a
 	curve. Straight lines are defined by two consecutive on curve
-	points.</p><div class="figure"><a name="idm300706934384"></a><p class="title"><strong>Figure 42.2. Figure 1-2 A glyph description consisting of a series
+	points.</p><div class="figure"><a name="idm516880671776"></a><p class="title"><strong>Figure 42.2. Figure 1-2 A glyph description consisting of a series
           of on and off curve points</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00293.gif" alt="Figure 1-2 A glyph description consisting of a series of on and off curve points"/></div></div></div><br class="figure-break"/><p>The points that make up a curve must be numbered in
 	consecutive order. It makes a difference whether the order is
 	increasing or decreasing in determining the fill pattern of
 	the shapes that make up the glyph. The direction of the curves
 	has to be such that, if the curve is followed in the direction
 	of increasing point numbers, the black space (the filled area)
-	will always be to the right.</p><h5><a name="idm300706931456"></a>FUnits and the em square</h5><p>In a TrueType font file point locations are described in
-	font units, or FUnits. An FUnit is the smallest measurable
+	will always be to the right.</p><h5><a name="idm516880668848"></a><em class="glossterm">font unit</em>s and the em square</h5><p>In a TrueType font file point locations are described in
+	font units, or <em class="glossterm">font unit</em>s. An <em class="glossterm">font unit</em> is the smallest measurable
 	unit in the em square, an imaginary square that is used to
 	size and align glyphs. The dimensions of the em square
 	typically are those of the full body height of a font plus
@@ -62,20 +62,20 @@
 	character that extends outside of the em square</p><div class="informalfigure"><div class="mediaobject"><img src="src/images/../../img00295.gif"/></div></div><p>The em square defines a two-dimensional coordinate grid
 	whose x-axis describes movement in a horizontal direction and
 	whose y-axis describes movement in a vertical direction. This
-	is discussed in more detail in the following section.</p><h5><a name="idm300706925456"></a>FUnits and the grid</h5><p>A key decision in digitizing a font is determining the
+	is discussed in more detail in the following section.</p><h5><a name="idm516880661776"></a><em class="glossterm">font unit</em>s and the grid</h5><p>A key decision in digitizing a font is determining the
 	resolution at which the points that make up glyph outlines
 	will be described. The points represent locations in a grid
-	whose smallest addressable unit is known as an FUnit or font
+	whose smallest addressable unit is known as an <em class="glossterm">font unit</em> or font
 	Unit. The grid is a two-dimensional coordinate system whose
 	x-axis describes movement in a horizontal direction and whose
 	y-axis describes movement in a vertical direction. The grid
 	origin has the coordinates (0,0). The grid is not an infinite
 	plane. Each point must be within the range -16384 and +16383
-	FUnits. Depending upon the resolution chosen, the range of
+	<em class="glossterm">font unit</em>s. Depending upon the resolution chosen, the range of
 	addressable grid locations will be smaller.</p><p>The choice of the granularity of the coordinate
 	grid-that is, number of units per em (upem)-is made by the
 	font manufacturer. Outline scaling will be fastest if units
-	per em is chosen to be a power of 2, such as 2048.</p><div class="figure"><a name="idm300706923392"></a><p class="title"><strong>Figure 42.3. Figure 1-4 The coordinate system</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00296.gif" alt="Figure 1-4 The coordinate system"/></div></div></div><br class="figure-break"/><p>The origin of the em square need not have any consistent
+	per em is chosen to be a power of 2, such as 2048.</p><div class="figure"><a name="idm516880658624"></a><p class="title"><strong>Figure 42.3. Figure 1-4 The coordinate system</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00296.gif" alt="Figure 1-4 The coordinate system"/></div></div></div><br class="figure-break"/><p>The origin of the em square need not have any consistent
 	relationship to the glyph outlines. In practice, however,
 	applications depend upon the existence of some convention for
 	the placement of glyphs for a given font. For Roman fonts,
@@ -93,7 +93,7 @@
 	place each glyph so that its leftmost extreme outline point
 	has an x-value equal to the left-side-bearing of the
 	glyph. Fonts created in this way may allow some applications
-	to print more quickly to PostScript printers.</p><div class="figure"><a name="idm300706919376"></a><p class="title"><strong>Figure 42.4. Figure 1-5 Two possible choices for the glyph origin
+	to print more quickly to PostScript printers.</p><div class="figure"><a name="idm516880654608"></a><p class="title"><strong>Figure 42.4. Figure 1-5 Two possible choices for the glyph origin
 	  in a Roman font. In the first case (left) the left side
 	  bearing is x-zero. In the second (right), the aesthetic
 	  center of the character is x-zero</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00297.gif" alt="Figure 1-5 Two possible choices for the glyph origin in a Roman font. In the first case (left) the left side bearing is x-zero. In the second (right), the aesthetic center of the character is x-zero"/></div></div></div><br class="figure-break"/><p>Non-Roman fonts may wish to use other conventions for
@@ -102,13 +102,13 @@
 	should be roughly centered within the advance width. For
 	example, a symmetrical character would have equal left and
 	right side bearings.</p><p>The granularity of the em square is determined by the
-	number of FUnits per em, or more simply units per em . The em
-	square as divided into FUnits defines a coordinate system with
-	one unit equaling an FUnit. All points defined in this
+	number of <em class="glossterm">font unit</em>s per em, or more simply units per em . The em
+	square as divided into <em class="glossterm">font unit</em>s defines a coordinate system with
+	one unit equaling an <em class="glossterm">font unit</em>. All points defined in this
 	coordinate system must have integral locations. The greater
 	the number of units per em, the greater the precision
-	available in addressing locations within the em square.</p><div class="figure"><a name="idm300706915616"></a><p class="title"><strong>Figure 42.5. Figure 1-6 Two em squares, 8 units per em (left), 16
-          units per em (right) </strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00298.gif" alt="Figure 1-6 Two em squares, 8 units per em (left), 16 units per em (right)"/></div><div class="mediaobject"><img src="src/images/../../img00299.gif" alt="Figure 1-6 Two em squares, 8 units per em (left), 16 units per em (right)"/></div></div></div><br class="figure-break"/><p>FUnits are relative units because they vary in size as
+	available in addressing locations within the em square.</p><div class="figure"><a name="idm516880649632"></a><p class="title"><strong>Figure 42.5. Figure 1-6 Two em squares, 8 units per em (left), 16
+          units per em (right) </strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00298.gif" alt="Figure 1-6 Two em squares, 8 units per em (left), 16 units per em (right)"/></div><div class="mediaobject"><img src="src/images/../../img00299.gif" alt="Figure 1-6 Two em squares, 8 units per em (left), 16 units per em (right)"/></div></div></div><br class="figure-break"/><p><em class="glossterm">font unit</em>s are relative units because they vary in size as
 	the size of the em square changes. The number of units per em
 	remains constant for a given font regardless of the point
 	size. The number of points per em, however, will vary with the
@@ -116,17 +116,17 @@
 	when a glyph is displayed at 9 points, exactly 10 points high
 	when the font is displayed at 10 point, and so on. Since the
 	number of units per em does not vary with the point size at
-	which the font is displayed, the absolute size of an FUnit
-	varies as the point size varies.</p><div class="figure"><a name="idm300706911216"></a><p class="title"><strong>Figure 42.6. Figure 1-7 72 point M and 127 point M and their em
-	    squares. Upem equals 8 in both cases.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00300.gif" alt="Figure 1-7 72 point M and 127 point M and their em squares. Upem equals 8 in both cases."/></div></div></div><br class="figure-break"/><p>Because FUnits are relative to the em square, a given
+	which the font is displayed, the absolute size of an <em class="glossterm">font unit</em>
+	varies as the point size varies.</p><div class="figure"><a name="idm516880644560"></a><p class="title"><strong>Figure 42.6. Figure 1-7 72 point M and 127 point M and their em
+	    squares. Upem equals 8 in both cases.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00300.gif" alt="Figure 1-7 72 point M and 127 point M and their em squares. Upem equals 8 in both cases."/></div></div></div><br class="figure-break"/><p>Because <em class="glossterm">font unit</em>s are relative to the em square, a given
 	location on a glyph will have the same coordinate location in
-	FUnits regardless of the point size at which the font is
+	<em class="glossterm">font unit</em>s regardless of the point size at which the font is
 	rendered. This is convenient because it makes it possible to
 	instruct outline points once considering only the original
 	outline and have the changes apply to the glyph at whatever
-	size and resolution it is ultimately rendered.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm300706907712"></a>Scaling a glyph</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.5.1"></a>Specification</h4></div></div></div><p>This section describes how glyph outlines are scaled
+	size and resolution it is ultimately rendered.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516880640256"></a>Scaling a glyph</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.5.1"></a>Specification</h4></div></div></div><p>This section describes how glyph outlines are scaled
 	from the master size stored in the font file to the size
-	requested by an application.</p><h5><a name="idm300706905376"></a>Device space</h5><p>Whatever the resolution of the em square used to define
+	requested by an application.</p><h5><a name="idm516880637920"></a>Device space</h5><p>Whatever the resolution of the em square used to define
 	a glyph outline, before that glyph can be displayed it must be
 	scaled to reflect the size, transformation and the
 	characteristics of the output device on which it is to be
@@ -136,16 +136,16 @@
 	glyph outline are described in terms of pixels.</p><p>Intuitively, pixels are the actual output bits that will
 	appear on screen or printer. To allow for greater precision in
 	managing outlines, TrueType describes pixel coordinates to the
-	nearest sixty-fourth of a pixel.</p><h5><a name="idm300706903504"></a>Converting FUnits to pixels</h5><p>Values in the em square are converted to values in the
+	nearest sixty-fourth of a pixel.</p><h5><a name="idm516880636048"></a>Converting <em class="glossterm">font unit</em>s to pixels</h5><p>Values in the em square are converted to values in the
 	pixel coordinate system by multiplying them by a scale. This
 	scale is:</p><p>pointSize * resolution / ( 72 points per inch *
 	units_per_em )</p><p>where pointSize is the size at which the glyph is to be
 	displayed, and resolution is the resolution of the output
 	device. The 72 in the denominator reflects the number of
-	points per inch.</p><p>For example, assume that a glyph feature is 550 FUnits
+	points per inch.</p><p>For example, assume that a glyph feature is 550 <em class="glossterm">font unit</em>s
 	in length on a 72 dpi screen at 18 point. There are 2048 units
 	per em. The following calculation reveals that the feature is
-	4.83 pixels long.</p><p>550 * 18 * 72 / ( 72 * 2048 ) = 4.83</p><h5><a name="idm300706900528"></a>Display device characteristics</h5><p>The resolution of any particular display device is
+	4.83 pixels long.</p><p>550 * 18 * 72 / ( 72 * 2048 ) = 4.83</p><h5><a name="idm516880632256"></a>Display device characteristics</h5><p>The resolution of any particular display device is
 	specified by the number of dots or pixels per inch (dpi) that
 	are displayed. For example, a VGA under Windows is treated as
 	a 96 dpi device, and most laser printers have a resolution of
@@ -157,7 +157,7 @@
 	resolution of the output device. An 18 point character will
 	have 18 pixels per em on a 72 dpi device. Change the
 	resolution to 300 dpi and it has 75 pixels per em, or change
-	to 1200 dpi and it has 300 pixels per em.</p><div class="figure"><a name="idm300706898544"></a><p class="title"><strong>Figure 42.7. Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200 dpi.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00302b.gif" alt="Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200 dpi."/></div></div></div><br class="figure-break"/><p>Displaying type on a particular device at a specific
+	to 1200 dpi and it has 300 pixels per em.</p><div class="figure"><a name="idm516880630272"></a><p class="title"><strong>Figure 42.7. Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200 dpi.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00302b.gif" alt="Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200 dpi."/></div></div></div><br class="figure-break"/><p>Displaying type on a particular device at a specific
 	point size yields an effective resolution measured in pixels
 	per em (ppem). The formula for calculating pixels per em
 	is:</p><p>ppem = pointSize * dpi / 72</p><p>= (pixels per inch) * (inches per pica point) * (pica
@@ -171,9 +171,9 @@
 	that in traditional typography an inch contains 72.2752 points
 	(rather than 72); that is, one point equals .013836
 	inches.</p><p>If you know the ppem, the formula to convert between
-	FUnits and pixel space coordinates is:</p><p>pixel_coordinate = em_coordinate * ppem /upem</p><p>An em_coordinate position of (1024, 0) would yield a
+	<em class="glossterm">font unit</em>s and pixel space coordinates is:</p><p>pixel_coordinate = em_coordinate * ppem /upem</p><p>An em_coordinate position of (1024, 0) would yield a
 	device_pixels coordinate of (6, 0), given 2048 units per em
-	and 12 pixels per em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm300706891616"></a>Grid-fitting a glyph outline</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.6.1"></a>Specification</h4></div></div></div><p>The fundamental task of instructing a glyph is one of
+	and 12 pixels per em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516880622928"></a>Grid-fitting a glyph outline</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.6.1"></a>Specification</h4></div></div></div><p>The fundamental task of instructing a glyph is one of
 	identifying the critical characteristics of the original
 	design and using instructions to ensure that those
 	characteristics will be preserved when the glyph is rendered
@@ -188,19 +188,19 @@
 	sometimes necessary to change or distort the original outline
 	description to produce a high quality image. This distortion
 	of the outline is known as grid-fitting.</p><p>The figure below illustrates how grid-fitting a
-	character distorts the outline found in the original design.</p><div class="figure"><a name="idm300706887232"></a><p class="title"><strong>Figure 42.8. Figure 1-9 12 point outlines ungrid-fitted (left) and
+	character distorts the outline found in the original design.</p><div class="figure"><a name="idm516880618544"></a><p class="title"><strong>Figure 42.8. Figure 1-9 12 point outlines ungrid-fitted (left) and
           grid-fitted (right) </strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00304.gif" alt="Figure 1-9 12 point outlines ungrid-fitted (left) and grid-fitted (right)"/></div></div></div><br class="figure-break"/><p>As the illustration above suggests, the grid-fitting
 	employed in TrueType goes well beyond aligning a glyph's left
 	side bearing to the pixel grid. This sophisticated
 	grid-fitting is guided by instructions. The beneficial effects
-	of grid-fitting are illustrated in the next figure.</p><div class="figure"><a name="idm300706884416"></a><p class="title"><strong>Figure 42.9. Figure 1-10 12 point outlines and bitmap
+	of grid-fitting are illustrated in the next figure.</p><div class="figure"><a name="idm516880615728"></a><p class="title"><strong>Figure 42.9. Figure 1-10 12 point outlines and bitmap
 	    ungrid-fitted (left) and grid-fitted (right)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00305.gif" alt="Figure 1-10 12 point outlines and bitmap ungrid-fitted (left) and grid-fitted (right)"/></div></div></div><br class="figure-break"/><p>Grid-fitting is the process of stretching the outline of
 	a glyph according to the instructions associated with it. Once
 	a glyph is grid-fitted, the point numbers will be unchanged
 	but the actual location of that point in the coordinate grid
 	may have shifted. That is, the coordinates for a given point
 	number will, very likely, have changed after a glyph is
-	grid-fitted.</p><h5><a name="idm300706881504"></a>What are instructions?</h5><p>The TrueType instruction set provides a large number of
+	grid-fitted.</p><h5><a name="idm516880612816"></a>What are instructions?</h5><p>The TrueType instruction set provides a large number of
 	commands designed to allow designers to specify how character
 	features should be rendered. Instructions are the mechanism by
 	which the design of a character is preserved when it is
@@ -245,8 +245,8 @@
 	the loss of a stem due to chance effects in the relationship
 	of stems to pixel centers. In the second glyph, instructions
 	have aligned the stems to the grid so that the glyph suffers
-	no similar loss.</p><div class="figure"><a name="idm300706875424"></a><p class="title"><strong>Figure 42.10. Figure 1-11 9 point Arial m-uninstructed (left),
-	    instructed (right)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00306.gif" alt="Figure 1-11 9 point Arial m-uninstructed (left), instructed (right)"/></div><div class="mediaobject"><img src="src/images/../../img00307.gif" alt="Figure 1-11 9 point Arial m-uninstructed (left), instructed (right)"/></div></div></div><br class="figure-break"/><h5><a name="idm300706872016"></a>The TrueType interpreter</h5><p>This section describes the actions of the TrueType
+	no similar loss.</p><div class="figure"><a name="idm516880606736"></a><p class="title"><strong>Figure 42.10. Figure 1-11 9 point Arial m-uninstructed (left),
+	    instructed (right)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00306.gif" alt="Figure 1-11 9 point Arial m-uninstructed (left), instructed (right)"/></div><div class="mediaobject"><img src="src/images/../../img00307.gif" alt="Figure 1-11 9 point Arial m-uninstructed (left), instructed (right)"/></div></div></div><br class="figure-break"/><h5><a name="idm516880603328"></a>The TrueType interpreter</h5><p>This section describes the actions of the TrueType
 	interpreter. It is the interpreter, as the name suggests, that
 	"interprets" or carries out the instructions.</p><p>More concretely, the interpreter processes a stream or
 	sequence of instructions. Typically these instructions take
@@ -286,18 +286,18 @@
 		State variables. In the illustration shown, the
 		Graphics State variable rp0 is updated using a value
 		taken from the interpreter stack.</p><div class="informalfigure"><div class="mediaobject"><img src="src/images/../../img00311.gif"/></div></div></li></ul></div></li><li class="listitem"><p>The process is repeated until there are no further
-	    instructions to be executed. </p></li></ol></div><h5><a name="idm300706852432"></a>Using instructions</h5><p>Instructions can appear in a number of places in the
+	    instructions to be executed. </p></li></ol></div><h5><a name="idm516880583776"></a>Using instructions</h5><p>Instructions can appear in a number of places in the
 	font file tables that make up a TrueType font. They can appear
 	as part of the Font Program, the CVT Program, or as glyph
 	data. Instructions appearing in the first two apply to the
 	font as a whole. Those found in glyph data
 	(<a class="link" href="chapter.glyf.html" title="Chapter 15. glyf - Glyf Data">glyf</a>) apply to individual glyphs within a
-	font.</p><h5><a name="idm300706850656"></a>The Font Program</h5><p>The Font Program consists of a set of instructions that
+	font.</p><h5><a name="idm516880582000"></a>The Font Program</h5><p>The Font Program consists of a set of instructions that
 	is executed once, the first time a font is accessed by an
 	application. It is used to create function definitions (FDEFs)
 	and instruction definitions (IDEFs). Functions and
 	instructions defined in the Font Program can be used elsewhere
-	in the font file.</p><h5><a name="idm300706849536"></a>The CVT Program</h5><p>The CVT Program is a sequence of TrueType instructions
+	in the font file.</p><h5><a name="idm516880580880"></a>The CVT Program</h5><p>The CVT Program is a sequence of TrueType instructions
 	executed every time the point size or transformation
 	change. It is used to make font wide changes rather than to
 	manage individual glyphs. The CVT Program is used to establish
@@ -308,22 +308,22 @@
 	entries can be used to store values that need to be the same
 	across a number of glyphs in a font. For example an
 	instruction might refer to a CVT entry whose purpose is to
-	regularize stem weights across a font.</p><div class="table"><a name="idm300706847616"></a><p class="title"><strong>Table 42.1. Figure 1-12 Some sample CVT entries</strong></p><div class="table-contents"><table class="table" summary="Figure 1-12 Some sample CVT entries" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Entry #</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>upper and lower case flat base(base line)</td></tr><tr><td>1</td><td>-39</td><td>upper case round base</td></tr><tr><td>2</td><td>-35</td><td>lower case round base</td></tr><tr><td>3</td><td>-33</td><td>figure round base</td></tr><tr><td>4</td><td>1082</td><td>x-height flat</td></tr><tr><td>5</td><td>1114</td><td>x-height round overlap</td></tr><tr><td>6</td><td>1493</td><td>flat cap</td></tr><tr><td>7</td><td>1522</td><td>round cap</td></tr><tr><td>8</td><td>1463</td><td>numbers flat</td></tr><tr><td>9</td><td>1491</td><td>numbers round top</td></tr><tr><td>10</td><td>1493</td><td>flat ascender</td></tr><tr><td>11</td><td>1514</td><td>round ascender</td></tr><tr><td>12</td><td>157</td><td>x stem weight</td></tr><tr><td>13</td><td>127</td><td>y stem weight</td></tr><tr><td>14</td><td>57</td><td>serif</td></tr><tr><td>15</td><td>83</td><td>space between the dot and the I</td></tr></tbody></table></div></div><br class="table-break"/><p>Instructions that refer to values in the CVT are called
+	regularize stem weights across a font.</p><div class="table"><a name="idm516880578960"></a><p class="title"><strong>Table 42.1. Figure 1-12 Some sample CVT entries</strong></p><div class="table-contents"><table class="table" summary="Figure 1-12 Some sample CVT entries" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Entry #</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>upper and lower case flat base(base line)</td></tr><tr><td>1</td><td>-39</td><td>upper case round base</td></tr><tr><td>2</td><td>-35</td><td>lower case round base</td></tr><tr><td>3</td><td>-33</td><td>figure round base</td></tr><tr><td>4</td><td>1082</td><td>x-height flat</td></tr><tr><td>5</td><td>1114</td><td>x-height round overlap</td></tr><tr><td>6</td><td>1493</td><td>flat cap</td></tr><tr><td>7</td><td>1522</td><td>round cap</td></tr><tr><td>8</td><td>1463</td><td>numbers flat</td></tr><tr><td>9</td><td>1491</td><td>numbers round top</td></tr><tr><td>10</td><td>1493</td><td>flat ascender</td></tr><tr><td>11</td><td>1514</td><td>round ascender</td></tr><tr><td>12</td><td>157</td><td>x stem weight</td></tr><tr><td>13</td><td>127</td><td>y stem weight</td></tr><tr><td>14</td><td>57</td><td>serif</td></tr><tr><td>15</td><td>83</td><td>space between the dot and the I</td></tr></tbody></table></div></div><br class="table-break"/><p>Instructions that refer to values in the CVT are called
 	indirect instructions as opposed to the direct instructions
 	which take their values from the glyph outline.</p><p>As part of the TrueType font file, the values in the CVT
-	are expressed in FUnits. When the outlines are converted from
-	FUnits to pixel units, values in the CVT are also converted.</p><p>When writing to the CVT you may use a value that is in
+	are expressed in <em class="glossterm">font unit</em>s. When the outlines are converted from
+	<em class="glossterm">font unit</em>s to pixel units, values in the CVT are also converted.</p><p>When writing to the CVT you may use a value that is in
 	the glyph coordinate system (using WCVTP) or you can use a
-	value that is in the original FUnits (using WCVTF). The
+	value that is in the original <em class="glossterm">font unit</em>s (using WCVTF). The
 	interpreter will scale all values appropriately. Values read
-	from the CVT are always in pixels (F26Dot6).</p><h5><a name="idm300706816816"></a>The Storage Area</h5><p>The interpreter also maintains a Storage Area consisting
+	from the CVT are always in pixels (F26Dot6).</p><h5><a name="idm516880547008"></a>The Storage Area</h5><p>The interpreter also maintains a Storage Area consisting
 	of a portion of memory that can be used for temporary storage
 	of data from the interpreter stack. Instructions exist that
 	make it possible to read the values of stored data and to
 	write new values to storage. Storage locations range from 0 to
 	n-1 where n is the value established in the maxStorage entry
 	in the maxProfile table of the font file. Values are 32 bit
-	numbers</p><div class="table"><a name="idm300706815568"></a><p class="title"><strong>Table 42.2. Figure 1-13 Some storage area entries</strong></p><div class="table-contents"><table class="table" summary="Figure 1-13 Some storage area entries" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Address</th><th>Value</th></tr></thead><tbody><tr><td>0</td><td>343</td></tr><tr><td>1</td><td>241</td></tr><tr><td>2</td><td>-27</td></tr><tr><td>3</td><td>4654</td></tr><tr><td>4</td><td>125</td></tr><tr><td>5</td><td>11</td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm300706805200"></a>The Graphics State</h5><p>The Graphics State consists of a table of variables and
+	numbers</p><div class="table"><a name="idm516880545760"></a><p class="title"><strong>Table 42.2. Figure 1-13 Some storage area entries</strong></p><div class="table-contents"><table class="table" summary="Figure 1-13 Some storage area entries" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Address</th><th>Value</th></tr></thead><tbody><tr><td>0</td><td>343</td></tr><tr><td>1</td><td>241</td></tr><tr><td>2</td><td>-27</td></tr><tr><td>3</td><td>4654</td></tr><tr><td>4</td><td>125</td></tr><tr><td>5</td><td>11</td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm516880535424"></a>The Graphics State</h5><p>The Graphics State consists of a table of variables and
 	their values. All instructions act within the context of the
 	Graphics State. Graphics State variables have default values
 	as specified in Appendix B, "Graphics State Summary". Their
@@ -335,7 +335,7 @@
 	other words, the Graphics State has no inter-glyph
 	memory. Changing the value of a Graphics State variable while
 	processing an individual glyph will result in a change that
-	remains in effect only for that glyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm300706802624"></a>The scan converter</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.7.1"></a>Specification</h4></div></div></div><p>The TrueType scan converter takes an outline description
+	remains in effect only for that glyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516880532848"></a>The scan converter</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.43.7.1"></a>Specification</h4></div></div></div><p>The TrueType scan converter takes an outline description
 	of a glyph and produces a bitmap image for that glyph.</p><p>The TrueType scan converter offers two modes. In the
 	first mode, the scan converter uses a simple algorithm for
 	determining which pixels are part of that glyph. The rules can
@@ -362,10 +362,10 @@
 	zero and the point is not inside the glyph. The second point,
 	p2, undergoes an off transition followed by an on transition
 	followed by an off transition yielding a winding number of
-	+1. The point is in the interior of the glyph.</p><div class="figure"><a name="idm300706796224"></a><p class="title"><strong>Figure 42.11. Figure 1-14 Determining the winding number of a point.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00312.gif" alt="Figure 1-14 Determining the winding number of a point."/></div></div></div><br class="figure-break"/><h5><a name="idm300706794112"></a>What is a dropout?</h5><p>A dropout occurs whenever there is a connected region of
+	+1. The point is in the interior of the glyph.</p><div class="figure"><a name="idm516880526448"></a><p class="title"><strong>Figure 42.11. Figure 1-14 Determining the winding number of a point.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00312.gif" alt="Figure 1-14 Determining the winding number of a point."/></div></div></div><br class="figure-break"/><h5><a name="idm516880524336"></a>What is a dropout?</h5><p>A dropout occurs whenever there is a connected region of
 	a glyph interior that contains two black pixels that cannot be
 	connected by a straight line that only passes through black
-	pixels.</p><div class="figure"><a name="idm300706793120"></a><p class="title"><strong>Figure 42.12. Figure 1-15 The letter m with two dropouts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00313.gif" alt="Figure 1-15 The letter m with two dropouts."/></div></div></div><br class="figure-break"/><h5><a name="idm300706791024"></a>Preventing dropouts</h5><p>The TrueType instructions are designed to allow you to
+	pixels.</p><div class="figure"><a name="idm516880523344"></a><p class="title"><strong>Figure 42.12. Figure 1-15 The letter m with two dropouts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00313.gif" alt="Figure 1-15 The letter m with two dropouts."/></div></div></div><br class="figure-break"/><h5><a name="idm516880521248"></a>Preventing dropouts</h5><p>The TrueType instructions are designed to allow you to
 	gridfit a glyph so that the desired pixels will be turned on
 	by the simple scan converter regardless of the point size or
 	the transformation used. It may prove difficult to foresee all

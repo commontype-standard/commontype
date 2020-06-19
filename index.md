@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idm300715661840"></a>The CommonType Standard</h2></div></div><hr/></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="section.about"></a>About this specification</h2></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>This specification details the format of CommonType fonts,
+<div xmlns="http://www.w3.org/1999/xhtml" class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idm516891245936"></a>The CommonType Standard</h2></div></div><hr/></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="section.about"></a>About this specification</h2></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>This specification details the format of CommonType fonts,
           the TrueType and CFF outline formats, and the TrueType
           hinting language. This document derives from Adobe's
           <a class="link" href="https://github.com/adobe-type-tools/aots" target="_top">Annotated
@@ -8,7 +8,11 @@
           itself an extension of TrueType, there is also information in
           this document that was originally authored by Apple.</p><p>Many references to both TrueType and PostScript exist
           throughout this document, as CommonType fonts combine the two
-          technologies.</p><p>If you have comments or suggestions about this document,
+          technologies.</p><p class="remark"><em><span class="remark">
+          <p>This specification is an editor's draft. It does not
+          necessarily represent the consensus of the CommonType committee.
+          </p>
+    </span></em></p><p>If you have comments or suggestions about this document,
           please create an annotation by selecting the text on the page and
           pressing the "annotate" button. If you find errors or inaccuracies
           in this document, please <a class="link" href="https://github.com/commontype-standard/commontype-standard.github.io/issues/new" target="_top">file

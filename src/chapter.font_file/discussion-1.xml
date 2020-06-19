@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="discussion">
+  <title>Discussion</title>
+  <para> Examples of <type>F2DOT14</type> values are: </para>
+  <informaltable>
+    <tgroup cols="4">
+      <thead>
+        <row>
+          <entry>Decimal Value</entry>
+          <entry>Hex Value</entry>
+          <entry>Mantissa</entry>
+          <entry>Fraction</entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry>1.999939</entry>
+          <entry>0x7fff</entry>
+          <entry>1</entry>
+          <entry>16383/16384</entry>
+        </row>
+        <row>
+          <entry>1.75</entry>
+          <entry>0x7000</entry>
+          <entry>1</entry>
+          <entry>12288/16384</entry>
+        </row>
+        <row>
+          <entry>0.000061</entry>
+          <entry>0x0001</entry>
+          <entry>0</entry>
+          <entry>1/16384</entry>
+        </row>
+        <row>
+          <entry>0.0</entry>
+          <entry>0x0000</entry>
+          <entry>0</entry>
+          <entry>0/16384</entry>
+        </row>
+        <row>
+          <entry>-0.000061</entry>
+          <entry>0xffff</entry>
+          <entry>-1</entry>
+          <entry>16383/16384</entry>
+        </row>
+        <row>
+          <entry>-2.0</entry>
+          <entry>0x8000</entry>
+          <entry>-2</entry>
+          <entry>0/16384</entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  <para>
+    The following Python code will convert a floating point number to a
+    <type>F2DOT14</type> value and vice versa:
+  </para>
+  <programlisting>
+    def floatToF2DOT14(f):
+      return int(math.floor( (value * 1 &lt;&lt; 14) + 0.5))
+
+    def f2DOT14ToFloat(fixed):
+      return fixed / (1 &lt; &lt; 14)
+  </programlisting>
+</section>

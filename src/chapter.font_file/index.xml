@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <section id="chapter.font_file">
   <title>The CommonType Font File</title>
-  <!--======================================================================-->
+
   <section role="fragment">
-    <title>Introduction</title>
-    <!--____________________________________________________________________-->
     <section role="specification">
-      <title>Specification</title>
-      <para>An CommonType font file contains data, in table format,
-          that comprises either a TrueType or a PostScript outline
-          font. Rasterizers use combinations of data from the tables
-          contained in the font to render the TrueType or PostScript
-          glyph outlines. Some of this supporting data is used no
-          matter which outline format is used; some of the supporting
-          data is specific to either TrueType or PostScript.</para>
+      <para>A CommonType font file contains data, structured as a
+          series of <glossterm>tables</glossterm>. <glossterm>Font
+          consumers</glossterm> use combinations of data from the tables
+          contained in the font to process and render glyph sequences.
+      </para>
+      <para>
+          The glyphs in a font may be represented in a number of
+          <glossterm>glyph representation format</glossterm>s.
+          CommonType supports three <glossterm>outline formats</glossterm>
+          (TrueType outlines, PostScript outlines and SVG outlines), as
+          well as a variety of <glossterm>bitmap formats</glossterm>.
+          Some of the supporting data is used no matter which glyph
+          representation format is used; some of the supporting
+          data is specific to the glyph representation format.</para>
     </section>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-1.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-1.xml"/>
@@ -24,23 +28,30 @@
     <title>Filenames</title>
     <!--____________________________________________________________________-->
     <section role="specification">
-      <title>Specification</title>
-      <para>CommonType fonts may have the extension .OTF or .TTF,
-          depending on the kind of outlines in the font and the
-          creator's desire for compatibility on systems without native
-          CommonType support.</para>
+      <para>CommonType font files must have either the extension
+          <filename class="extension">.otf</filename> or the extension
+          <filename class="extension">.ttf</filename>,
+          depending on the representation format used.</para>
       <itemizedlist>
         <listitem>
-          <para>In all cases, fonts with only CFF data (no TrueType
-              outlines) always have an .OTF extension.</para>
+          <para>Font files where the only
+            <glossterm>glyph representation format</glossterm> in use
+            is TrueType outlines <glossterm>may</glossterm> have the
+            extension <filename class="extension">.ttf</filename>.
+          </para>
         </listitem>
         <listitem>
-          <para>Fonts containing TrueType outlines may have either
-              .OTF or .TTF, depending on the desire for backward
-              compatibility on older systems or with previous versions
-              of the font. TrueType Collection fonts should have a
-              .TTC extension whether or not the fonts have CommonType
-              layout tables present.</para>
+          <para>
+              <link linkend="font_file.ttc">TrueType Collection</link>
+              fonts <glossterm>must</glossterm> have a
+              <filename class="extension">.ttc</filename> extension.
+            </para>
+        </listitem>
+        <listitem>
+          <para>Font files containing any other representations
+            <glossterm>must</glossterm> have the extension
+            <filename class="extension">.otf</filename>.
+          </para>
         </listitem>
       </itemizedlist>
     </section>
@@ -50,10 +61,9 @@
     <title>Data Types</title>
     <!--____________________________________________________________________-->
     <section role="specification">
-      <title>Specification</title>
       <para>The following data types are used in the CommonType font
         file. All CommonType fonts use Motorola-style byte ordering (Big
-        Endian):</para>
+        Endian).</para>
       <informaltable>
         <tgroup cols="2">
           <thead>
@@ -64,216 +74,166 @@
           </thead>
           <tbody>
             <row>
-              <entry>BYTE</entry>
+              <entry><type>BYTE</type>, <type>uint8</type></entry>
               <entry>8-bit unsigned integer.</entry>
             </row>
             <row>
-              <entry>CHAR</entry>
+              <entry><type>CHAR</type>, <type>int8</type></entry>
               <entry>8-bit signed integer.</entry>
             </row>
             <row>
-              <entry>USHORT</entry>
+              <entry><type>USHORT</type>, <type>uint16</type></entry>
               <entry>16-bit unsigned integer.</entry>
             </row>
             <row>
-              <entry>SHORT</entry>
+              <entry><type>SHORT</type>, int16</entry>
               <entry>16-bit signed integer.</entry>
             </row>
             <row>
-              <entry>UINT24</entry>
+              <entry><type>UINT24</type></entry>
               <entry>24-bit signed integer.</entry>
             </row>
             <row>
-              <entry>ULONG</entry>
+              <entry><type>ULONG</type>, <type>uint32</type></entry>
               <entry>32-bit unsigned integer.</entry>
             </row>
             <row>
-              <entry>LONG</entry>
+              <entry><type>LONG</type>, <type>int32</type></entry>
               <entry>32-bit signed integer.</entry>
             </row>
             <row>
-              <entry>Fixed</entry>
+              <entry><type>Fixed</type></entry>
               <entry>32-bit signed fixed-point number (16.16)</entry>
             </row>
             <row>
-              <entry>FUNIT</entry>
-              <entry>Smallest measurable distance in the em space.</entry>
+              <entry><type>FWORD</type></entry>
+              <entry>16-bit signed integer (<type>SHORT</type>) that describes a quantity in <glossterm>font unit</glossterm>s.</entry>
             </row>
             <row>
-              <entry>FWORD</entry>
-              <entry>16-bit signed integer (SHORT) that describes a
-		  quantity in FUnits.</entry>
+              <entry><type>UFWORD</type></entry>
+              <entry>16-bit unsigned integer (<type>USHORT</type>) that describes
+      a quantity in <glossterm>font unit</glossterm>s.</entry>
             </row>
             <row>
-              <entry>UFWORD</entry>
-              <entry>16-bit unsigned integer (USHORT) that describes
-		  a quantity in FUnits.</entry>
-            </row>
-            <row>
-              <entry>F2DOT14</entry>
+              <entry><type>F2DOT14</type></entry>
               <entry>16-bit signed fixed number with the low 14 bits of
             fraction (2.14).</entry>
             </row>
             <row>
-              <entry>LONGDATETIME</entry>
+              <entry><type>LONGDATETIME</type></entry>
               <entry>Date represented in number of seconds since 12:00
             midnight, January 1, 1904. The value is represented as a
             signed 64-bit integer.</entry>
             </row>
             <row>
-              <entry>Tag</entry>
-              <entry>Array of four uint8s (length = 32 bits) used to
-            identify a script, language system, feature, or
-            baseline</entry>
+              <entry><type>Tag</type></entry>
+              <entry>Array of four <type>BYTE</type>s
+                (hence with a total length of 32 bits) used to
+                identify a script, language system, feature, or
+                baseline.
+              </entry>
             </row>
             <row>
-              <entry>GlyphID</entry>
-              <entry>Glyph index number, same as uint16 (length = 16
-                bits)</entry>
+              <entry><type>GlyphID</type></entry>
+              <entry>A <type>USHORT</type> representing a
+                <glossterm>glyph index number</glossterm>.
+              </entry>
             </row>
             <row>
-              <entry>Offset</entry>
-              <entry> Offset to a table, same as uint16 (length = 16
-            bits), NULL offset = 0x0000</entry>
+              <entry><type>Offset</type></entry>
+              <entry>A <type>USHORT</type> representing an offset to a table.
+                The NULL offset is represented as <literal>0x0000</literal>.
+              </entry>
+            </row>
+            <row>
+              <entry><type>Version</type></entry>
+              <entry>A 32-bit unsigned table version number.
+                (See <link linkend="font_file.versions">Version Numbers</link>
+                below.) The upper 16 bits represent the major version
+                number, and the lower 16 bits represent the minor
+                version number.
+              </entry>
             </row>
           </tbody>
         </tgroup>
       </informaltable>
-      <para>The F2DOT14 format consists of a signed, 2's
-        complement mantissa and an unsigned fraction. To compute the
-        actual value, take the mantissa and add the fraction. Examples
-        of 2.14 values are:</para>
-      <informaltable>
-        <tgroup cols="4">
-          <thead>
-            <row>
-              <entry>Decimal Value</entry>
-              <entry>Hex Value</entry>
-              <entry>Mantissa</entry>
-              <entry>Fraction</entry>
-            </row>
-          </thead>
-          <tbody>
-            <row>
-              <entry>1.999939</entry>
-              <entry>0x7fff</entry>
-              <entry>1</entry>
-              <entry>16383/16384</entry>
-            </row>
-            <row>
-              <entry>1.75</entry>
-              <entry>0x7000</entry>
-              <entry>1</entry>
-              <entry>12288/16384</entry>
-            </row>
-            <row>
-              <entry>0.000061</entry>
-              <entry>0x0001</entry>
-              <entry>0</entry>
-              <entry>1/16384</entry>
-            </row>
-            <row>
-              <entry>0.0</entry>
-              <entry>0x0000</entry>
-              <entry>0</entry>
-              <entry>0/16384</entry>
-            </row>
-            <row>
-              <entry>-0.000061</entry>
-              <entry>0xffff</entry>
-              <entry>-1</entry>
-              <entry>16383/16384</entry>
-            </row>
-            <row>
-              <entry>-2.0</entry>
-              <entry>0x8000</entry>
-              <entry>-2</entry>
-              <entry>0/16384</entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </informaltable>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="annotation">
-      <title>Annotation</title>
-      <para>A number of synonyms are used for throughout the
-          specification. They should be documented, and may be even
-          replace the type above, as their names are more useful:</para>
-      <informaltable>
-        <tgroup cols="2">
-          <tbody>
-            <row>
-              <entry>uint8</entry>
-              <entry>BYTE</entry>
-            </row>
-            <row>
-              <entry>int8</entry>
-              <entry>CHAR</entry>
-            </row>
-            <row>
-              <entry>uint16</entry>
-              <entry>USHORT</entry>
-            </row>
-            <row>
-              <entry>int16</entry>
-              <entry>SHORT</entry>
-            </row>
-            <row>
-              <entry>uint32</entry>
-              <entry>ULONG</entry>
-            </row>
-            <row>
-              <entry>int32</entry>
-              <entry>LONG</entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </informaltable>
+      <section>
+        <title>Signed Fixed-Point Numbers</title>
+        <para>
+          As mentioned above, the <type>F2DOT14</type> type is a fixed-point
+          value consisting of a two bit, signed, 2's complement mantissa,
+          and a 14-bit unsigned fraction. To compute the actual value,
+          take the mantissa and add the fraction.
+        </para>
+        <para>
+          When converting floating-point numbers to <type>F2DOT14</type>,
+          multiply the floating point number by 2<superscript>14</superscript>,
+          and then round to an integer format. When rounding, font producers
+          <glossterm>must</glossterm> apply the following rounding strategy:
+        </para>
+        <itemizedlist>
+          <listitem>
+            <para>When the fractional part is 0.5 or higher, round to the
+            <emphasis>next higher integer</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>When the fractional part is less than 0.5 or higher,
+              truncate the fractional part.</para>
+          </listitem>
+        </itemizedlist>
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="discussion-1.xml"/>
+      </section>
     </section>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-1.xml"/>
   </section>
   <!--======================================================================-->
-  <section role="fragment">
+  <section role="fragment" id="font_file.versions">
     <title>Version Numbers</title>
     <!--____________________________________________________________________-->
     <section role="specification">
-      <title>Specification</title>
       <para>Most tables have version numbers, and the version number
-	  for the entire font is contained in the Table
-	  Directory. Note that there are two different table version
-	  number types, each with its own numbering scheme. USHORT
-	  version numbers always start at zero (0). Fixed version
-	  numbers always start at one (1.0 or 0x00010000), except
-	  where noted (<ottable>EBDT</ottable>,
-	  <ottable>EBLC</ottable> and <ottable>EBSC</ottable>
-	  tables).</para>
-      <para>Implementations reading tables must include code to
-        check version numbers so that if and when the format and
-        therefore the version number changes, older implementations
-        will reject newer versions gracefully, if the changes are
-        incompatible.</para>
-      <para>When a Fixed number is used as a version, the upper 16
-        bits comprise a major version number, and the lower 16 bits a
-        minor. Tables with non-zero minor version numbers always
-        specify the literal value of the version number since the
-        normal representation of Fixed numbers is not necessarily
-        followed. For example, the version number of
-        <ottable>maxp</ottable> table version 0.5 is 0x00005000, and
-        that of <ottable>vhea</ottable> table version 1.1 is
-        0x00011000. If an implementation understands a major version
+    for the entire font is contained in the Table
+    Directory. Note that there are two different table version
+    number types, each with its own numbering scheme:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <type>USHORT</type> version numbers always start at zero
+            (<literal>0</literal>).
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Fixed version numbers (<type>Version</type>) always start at one
+            (<literal>1.0</literal> or <literal>0x00010000</literal>),
+            except where noted (<ottable>EBDT</ottable>,
+            <ottable>EBLC</ottable> and <ottable>EBSC</ottable>
+            tables).
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para><glossterm>Font consumers</glossterm> reading tables
+        <glossterm>must</glossterm> include code to check version numbers
+        so that if and when the format and therefore the version number
+        changes, older implementations will reject newer versions
+        gracefully if the changes are incompatible.</para>
+      <para>When a <type>Version</type> number is used as a version, the
+        upper 16 bits represent the major version number, and the lower
+        16 bits represent the minor version number. For example, the version
+        number of a <ottable>maxp</ottable> table version 0.5 is
+        <literal>0x00005000</literal>, and that of <ottable>vhea</ottable>
+        table version 1.1 is <literal>0x00011000</literal>.
+        If a <glossterm>font consumer</glossterm> understands a major version
         number, then it can safely proceed reading the table. The
         minor version number indicates extensions to the format that
         are undetectable by implementations that do not support
         them.</para>
-      <para>The only exception to this is the Offset Table's sfnt
-        version. This serves solely to identify whether the CommonType
-        font contains TrueType outlines (a value of 1.0) or CFF data
-        (the tag 'OTTO'), as described in the section below,
-        <link linkend="organization">Organization of an CommonType
-        font</link>.</para>
-      <para>When a USHORT number is used to indicate version, it
-        should be treated as though it were a minor version number;
+      <para>The only exception to this is the
+        <link linkend="font_file.offset">Offset Table</link>'s
+        <literal>sfnt</literal> version, described below.</para>
+      <para>When a <type>USHORT</type> number is used to indicate version,
+        it should be treated as though it were a minor version number;
         i.e., all format changes are compatible extensions.</para>
     </section>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-2.xml"/>
@@ -283,114 +243,131 @@
     <title>Organization of an CommonType Font</title>
     <!--____________________________________________________________________-->
     <section role="specification">
-      <title>Specification</title>
       <para>A key characteristic of the CommonType format is the
-        TrueType sfnt "wrapper", which provides organization for a
-        collection of tables in a general and extensible
-        manner.</para>
-      <para>The CommonType font file begins with the Offset Table. If
-	  the font file contains only one font, the Offset Table will
-	  begin at byte 0 of the file. If the font file is a TrueType
-	  collection, the beginning point of the Offset Table for each
-	  font is indicated in the TTCHeader.</para>
-      <otformat>
+        TrueType <literal>sfnt</literal> "wrapper", which provides
+        organization for a collection of tables in a general and
+        extensible manner.</para>
+      <remark>
+        <para> A formal definition of "table" is needed here.</para>
+      </remark>
+      <para>Within a CommonType font file, all tables
+        <glossterm>must</glossterm> be aligned to four byte boundries. Any
+        remaining space between tables must be padded with zeros.
+      </para>
+      <section>
         <title>Offset Table</title>
-        <otfield>
-          <otfieldoffs>0</otfieldoffs>
-          <otfieldtype>Fixed</otfieldtype>
-          <otfieldname>sfnt version</otfieldname>
-          <otfielddesc>0x00010000 for version 1.0.</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>4</otfieldoffs>
-          <otfieldtype>USHORT</otfieldtype>
-          <otfieldname>numTables</otfieldname>
-          <otfielddesc>Number of tables.</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>6</otfieldoffs>
-          <otfieldtype>USHORT</otfieldtype>
-          <otfieldname>searchRange</otfieldname>
-          <otfielddesc>(Maximum power of 2 &lt;= numTables) x
-              16.</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>8</otfieldoffs>
-          <otfieldtype>USHORT</otfieldtype>
-          <otfieldname>entrySelector</otfieldname>
-          <otfielddesc>Log2(maximum power of 2 &lt;=
-              numTables).</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>10</otfieldoffs>
-          <otfieldtype>USHORT</otfieldtype>
-          <otfieldname>rangeShift</otfieldname>
-          <otfielddesc>NumTables x 16-searchRange.</otfielddesc>
-        </otfield>
-      </otformat>
-      <para>CommonType fonts that contain TrueType outlines should use
-          the value of 1.0 for the sfnt version. CommonType fonts
-          containing CFF data should use the tag 'OTTO' as the sfnt
-          version number.</para>
-      <para>Note: The Apple specification for TrueType fonts allows
-	  for 'true' and 'typ1' for sfnt version. These version tags
-	  should not be used for fonts which contain CommonType
-	  tables.</para>
-      <para>The Offset Table is followed immediately by the Table
-          Directory entries. Entries in the Table Directory must be
-          sorted in ascending order by tag. Offset values in the Table
-          Directory are measured from the start of the font
-          file.</para>
-      <otformat>
+        <para>A CommonType font file which is not a TrueType Collection
+          begins with an <emphasis>Offset Table</emphasis> at byte 0 of
+          the file. If the font file is a TrueType collection, the font file
+          begins with a <literal>TTC Header</literal>, which contains a list
+          of the byte indexes of the Offset Table of each font in the
+          collection.
+        </para>
+        <otformat>
+          <title id="font_file.offset">Offset Table</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Version</otfieldtype>
+            <otfieldname><literal>sfnt</literal> version</otfieldname>
+            <otfielddesc>0x00010000 for version 1.0, or the <type>Tag</type> "<literal>OTTO</literal>.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>numTables</otfieldname>
+            <otfielddesc>Number of tables.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>6</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>searchRange</otfieldname>
+            <otfielddesc>(Maximum power of 2 &lt;= numTables) x
+                16.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>8</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>entrySelector</otfieldname>
+            <otfielddesc>Log2(maximum power of 2 &lt;=
+                numTables).</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>10</otfieldoffs>
+            <otfieldtype>USHORT</otfieldtype>
+            <otfieldname>rangeShift</otfieldname>
+            <otfielddesc>NumTables x 16-searchRange.</otfielddesc>
+          </otfield>
+        </otformat>
+        <para> CommonType font files whose only <glossterm>glyph representation
+          format</glossterm> is TrueType outlines <glossterm>must</glossterm>
+          have a <literal>sfnt</literal> version of <literal>1.0</literal>
+          expressed as a <type>Version</type> type. CommonType fonts
+          containing other representation formats <glossterm>must</glossterm>
+          have a <literal>sfnt</literal> version of "<literal>OTTO</literal>"
+          expressed as a <type>Tag</type> type.
+        </para>
+      </section>
+      <section>
         <title>Table Directory</title>
-        <otfield>
-          <otfieldoffs>0</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>tag</otfieldname>
-          <otfielddesc>4 -byte identifier.</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>4</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>checkSum</otfieldname>
-          <otfielddesc>CheckSum for this table.</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>8</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>offset</otfieldname>
-          <otfielddesc>Offset from beginning of TrueType font
-              file.</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>12</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>length</otfieldname>
-          <otfielddesc>Length of this table.</otfielddesc>
-        </otfield>
-      </otformat>
-      <para>The Table Directory makes it possible for a given font
-        to contain only those tables it actually needs. As a result
-        there is no standard value for numTables.</para>
-      <para>Tags are the names given to tables in the CommonType font
-        file. All tag names consist of four characters. Names with
-        less than four letters are allowed if followed by the
-        necessary trailing spaces. All tag names defined within a font
-        (e.g., table names, feature tags, language tags) must be built
-        from printing characters represented by ASCII values
-        32-126</para>
+        <para>The <emphasis>Offset Table</emphasis> is followed immediately
+            by the <emphasis>Table Directory</emphasis>, which is made up of
+            a list of <emphasis>Table Directory Entry</emphasis> elements.
+            Entries in the <emphasis>Table Directory</emphasis> must be
+            sorted in ascending order by tag. Offset values in the
+            <emphasis>Table Directory Entry</emphasis> are measured from the
+            start of the font file.
+          </para>
+        <otformat>
+          <title>Table Directory Entry</title>
+          <otfield>
+            <otfieldoffs>0</otfieldoffs>
+            <otfieldtype>Tag</otfieldtype>
+            <otfieldname>tag</otfieldname>
+            <otfielddesc>4 -byte identifier.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>4</otfieldoffs>
+            <otfieldtype>ULONG</otfieldtype>
+            <otfieldname>checkSum</otfieldname>
+            <otfielddesc>CheckSum for this table.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>8</otfieldoffs>
+            <otfieldtype>ULONG</otfieldtype>
+            <otfieldname>offset</otfieldname>
+            <otfielddesc>Offset from beginning of TrueType font
+                file.</otfielddesc>
+          </otfield>
+          <otfield>
+            <otfieldoffs>12</otfieldoffs>
+            <otfieldtype>ULONG</otfieldtype>
+            <otfieldname>length</otfieldname>
+            <otfielddesc>Length of this table.</otfielddesc>
+          </otfield>
+        </otformat>
+        <para>The <emphasis>Table Directory</emphasis> makes it possible for
+          a given font to contain only those tables it actually needs.
+          As a result there is no standard value for <varname>numTables</varname>.
+        </para>
+        <para>Table names are specified as <glossterm>tag</glossterm>s. A
+          <glossterm>tag</glossterm> is a reference to a predefined constant
+          within a given context. For example, when used as a table name, the
+          tag <literal>hhea</literal> means "Horizontal header". Tags are
+          defined in this specification for table names, CommonType Layout
+          feature names, names of languages, and names of scripts.
+          All tag names consist of four characters. Tags with less than
+          four letters <glossterm>must</glossterm> be followed by the
+          necessary trailing spaces. All tag names must be made up of
+          printable characters with ASCII values between 32 and 126.
+        </para>
+        <para>
+          The length of all tables recorded in the table
+          directory must be their actual length, disregarding any zero
+          byte padding required to align tables on four-byte boundaries.
+        </para>
+      </section>
     </section>
     <!--____________________________________________________________________-->
-    <section role="annotation">
-      <title>Annotation</title>
-      <para>For clarity, is may be worth to add "or 'OTTO'" to the
-          description of the field snft version in the first
-          table. I realize that the paragraph following the table
-          makes that clear, but users of the specification familiar
-          with it are likely to look at the tables only.</para>
-      <para>The type of the tag field in the second table should
-          probably be 'Tag'.</para>
-    </section>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-2.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-3.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-3.xml"/>
@@ -405,7 +382,7 @@
       <para>Table checksums are the unsigned sum of the longs of a
         given table. In C, the following function can be used to
         determine a checksum:</para>
-      <literallayout>
+      <programlisting>
 ULONG
 CalcTableChecksum(ULONG *Table, ULONG Length)
 {
@@ -416,23 +393,18 @@ while (Table &lt; EndPtr)
         Sum += *Table++;
 return Sum;
 }
-</literallayout>
-      <blockquote>
-        <para>Note: This function implies that the length of a table
-          must be a multiple of four bytes. In fact, a font is not
-          considered structurally proper without the correct padding.
-          All tables must begin on four byte boundries, and any
-          remaining space between tables is padded with zeros. The
-          length of all tables should be recorded in the table
-          directory with their actual length (not their padded
-          length).</para>
-      </blockquote>
-      <para>To calculate the checkSum for the <ottable>head</ottable>
-          table which itself includes the checkSumAdjustment entry for
-          the entire font, do the following:</para>
+</programlisting>
+      <para>
+        The <ottable>head</ottable> table is a special case, as it
+        contains a <varname>checkSumAdjustment</varname> field which is
+        calculated and written <emphasis>after</emphasis> the table's
+        checksum is calculated, necessarily invalidating that checksum.
+        To calculate the checksum for the <ottable>head</ottable>
+          table, do the following:
+        </para>
       <orderedlist>
         <listitem>
-          <para>Set the checkSumAdjustment to 0.</para>
+          <para>Set the <varname>checkSumAdjustment</varname> to 0.</para>
         </listitem>
         <listitem>
           <para>Calculate the checksum for all the tables including
@@ -443,31 +415,34 @@ return Sum;
           <para>Calculate the checksum for the entire font.</para>
         </listitem>
         <listitem>
-          <para>Subtract that value from the hex value B1B0AFBA.</para>
+          <para>Subtract that value from the hex value
+            <literal>B1B0AFBA</literal>.</para>
         </listitem>
         <listitem>
-          <para>Store the result in checkSumAdjustment.</para>
+          <para>Store the result in <varname>checkSumAdjustment</varname>.
+          </para>
         </listitem>
       </orderedlist>
-      <para>The checkSum for the head table which includes the
-          checkSumAdjustment entry for the entire font is now
-          incorrect. That is not a problem. Do not change it. An
-          application attempting to verify that the <ottable>head</ottable> table has
-          not changed should calculate the checkSum for that table by
-          not including the checkSumAdjustment value, and compare the
-          result with the entry in the table directory.</para>
+      <para>Rewriting the <varname>checkSumAdjustment</varname> with
+          invalidate <varname>checkSum</varname> for the
+          <ottable>head</ottable>. That is not a problem. Do not change it. A
+          <glossterm>font consumer</glossterm> attempting to verify that
+          the <ottable>head</ottable> table has not changed should
+          calculate the checkSum for that table by assuming the
+          <varname>checkSumAdjustment</varname> value is zero before
+          comparing the result with the entry in the
+          <emphasis>Table Directory</emphasis>.</para>
     </section>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-4.xml"/>
   </section>
   <!--======================================================================-->
-  <section role="fragment">
+  <section role="fragment" id="font_file.ttc">
     <title>TrueType Collections</title>
     <!--____________________________________________________________________-->
     <section role="specification">
-      <title>Specification</title>
-      <para>A TrueType Collection (TTC) is a means of delivering
-        multiple CommonType fonts in a single file structure. TrueType
-        Collections are most useful when the fonts to be delivered
+      <para>A <glossterm>TrueType Collection</glossterm> (TTC) is a means
+        of delivering multiple CommonType fonts within a single file.
+        TrueType Collections are most useful when the fonts to be delivered
         together share many glyphs in common. By allowing multiple
         fonts to share glyph sets, TTCs can result in a significant
         saving of file space.</para>
@@ -481,217 +456,177 @@ return Sum;
         problem.</para>
       <para>The CFF rasterizer does not currently support TTC
         files.</para>
-    </section>
-  </section>
-  <!--======================================================================-->
-  <section role="fragment">
-    <title>The TTC File Structure</title>
-    <!--____________________________________________________________________-->
-    <section role="specification">
-      <title>Specification</title>
-      <para>A TrueType Collection file consists of a single TTC
-	  Header table, one or more Offset Tables with Table
-	  Directories, and a number of CommonType tables. The TTC Header
-	  must be located at the beginning of the TTC file.</para>
-      <para>Each CommonType table in a TTC file is referenced through
-	  the Offset Table and Table Directories of each font which
-	  uses that table. Some of the CommonType tables must appear multiple
-	  times, once for each font included in the TTC; while other
-	  tables should be shared by multiple fonts in the TTC.</para>
-      <para>As an example, consider a TTC file which combines two
-          Japanese fonts (Font1 and Font2). The fonts have different
-          kana designs (Kana1 and Kana2) but use the same design for
-          kanji. The TTC file contains a single
-          <ottable>glyf</ottable> table which includes both designs of
-          kana together with the kanji; both fonts' Table Directories
-          point to this <ottable>glyf</ottable> table. But each font's
-          Table Directory points to a different
-          <ottable>cmap</ottable> table, which identifies the glyph
-          set to use. Font1's <ottable>cmap</ottable> table points to
-          the Kana1 region of the <ottable>loca</ottable> and
-          <ottable>glyf</ottable> tables for kana glyphs, and to the
-          kanji region for the kanji. Font2's <ottable>cmap</ottable>
-          table points to the Kana2 region of the
-          <ottable>loca</ottable> and <ottable>glyf</ottable> tables
-          for kana glyphs, and to the same kanji region for the
-          kanji.</para>
-      <para>The tables that should have a unique copy per font are
-          those that are used by the system in identifying the font
-          and its character mapping, including
-          <ottable>cmap</ottable>, <ottable>name</ottable>, and
-          <ottable>OS/2</ottable>. The tables that should be shared by
-          fonts in the TTC are those that define glyph and instruction
-          data or use glyph indices to access data:
-          <ottable>glyf</ottable>, <ottable>loca</ottable>,
-          <ottable>hmtx</ottable>, <ottable>hdmx</ottable>,
-          <ottable>LTSH</ottable>, <ottable>cvt </ottable>,
-          <ottable>fpgm</ottable>, <ottable>prep</ottable>,
-          <ottable>EBLC</ottable>, <ottable>EBDT</ottable>,
-          <ottable>EBSC</ottable>, <ottable>maxp</ottable>, and so
-          on. In practice, any tables which have identical data for
-          two or more fonts may be shared.</para>
-      <para>A tool is available from Microsoft to help build .TTC
-          files. The process involves paying close attention the issue
-          of glyph renumbering in a font and the side effects that can
-          result, in the <ottable>cmap</ottable> table and elsewhere.
-          The fonts to be merged must also have compatible TrueType
-          instructions-that is, their preprograms, function
-          definitions, and control values must not conflict.</para>
-      <para>TrueType Collection files use the filename suffix
-        .TTC.</para>
-    </section>
-  </section>
-  <!--======================================================================-->
-  <section role="fragment">
-    <title>TTC Header</title>
-    <!--____________________________________________________________________-->
-    <section role="specification">
-      <title>Specification</title>
-      <para>There are two versions of the TTC Header: Version 1.0
-        has been used for TTC files without digital
-        signatures. Version 2.0 can be used for TTC files with or
-        without digital signatures ’ if there's no signature, then
-        the last three fields of the version 2.0 header are left
-        null</para>
-      <para>If a digital signature is used, the DSIG table for the
-        file must be the last table in the TTC file. Signatures in a
-        TTC file are expected to be Format 1 signatures</para>
-      <para>The purpose of the TTC Header table is to locate the
-        different Offset Tables within a TTC file. The TTC Header
-        is located at the beginning of the TTC file (offset = 0). It
-        consists of an identification tag, a version number, a count
-        of the number of CommonType fonts (Table Directories) in the
-        file, and an array of offsets to each Offset Table.</para>
-      <otformat>
-        <title>TTC Header Version 1.0</title>
-        <otfield>
-          <otfieldoffs>0</otfieldoffs>
-          <otfieldtype>TAG</otfieldtype>
-          <otfieldname>TTCTag</otfieldname>
-          <otfielddesc>TrueType Collection ID string:
-              'ttcf'</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>4</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>Version</otfieldname>
-          <otfielddesc>Version of the TTC Header (1.0),
-              0x00010000</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>8</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>numFonts</otfieldname>
-          <otfielddesc>Number of fonts in the TTC</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>12</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>OffsetTable [numFonts]</otfieldname>
-          <otfielddesc>Array of offsets to Offset Table for each
-	      font from the beginning of the file</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>16</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>ulDsigTag</otfieldname>
-          <otfielddesc>Tag indicating that a DSIG table exists. This
-              tag should equal 0x44534947 (<ottable>DSIG</ottable>)</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>20</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>ulDsigLength</otfieldname>
-          <otfielddesc>The length (in bytes) of the DSIG
-              table</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>24</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>ulDsigOffset</otfieldname>
-          <otfielddesc>The offset (in bytes) of the DSIG table from
-              the beginning of the TTC file</otfielddesc>
-        </otfield>
-      </otformat>
-      <otformat>
-        <title>TTC Header Version 2.0</title>
-        <otfield>
-          <otfieldoffs>0</otfieldoffs>
-          <otfieldtype>TAG</otfieldtype>
-          <otfieldname>TTCTag</otfieldname>
-          <otfielddesc>TrueType Collection ID string:
-              'ttcf'</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>4</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>Version</otfieldname>
-          <otfielddesc>Version of the TTC Header (2.0),
-              0x00020000</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>8</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>numFonts</otfieldname>
-          <otfielddesc>Number of fonts in TTC</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>12</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>OffsetTable [numFonts]</otfieldname>
-          <otfielddesc>Array of offsets to Offset Table for each
-	      font from the beginning of the file</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>16</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>ulDsigTag</otfieldname>
-          <otfielddesc>Tag
-            indicating that a DSIG table exists, 0x44534947
-            (<ottable>DSIG</ottable>) (null if no
-            signature)</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>20</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>ulDsigLength</otfieldname>
-          <otfielddesc>The length (in bytes) of the DSIG table (null
-              if no signature)</otfielddesc>
-        </otfield>
-        <otfield>
-          <otfieldoffs>24</otfieldoffs>
-          <otfieldtype>ULONG</otfieldtype>
-          <otfieldname>ulDsigOffset</otfieldname>
-          <otfielddesc>The offset (in bytes) of the DSIG table from
-              the beginning of the TTC file (null if no
-              signature)</otfielddesc>
-        </otfield>
-      </otformat>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="annotation">
-      <title>Annotation</title>
-      <para>The type of the TTCTag field in both format should
-          probably be 'Tag' instead of 'TAG'.</para>
-      <para>The value of the Version field in both tables seems to
-          be wrong; it's missing a 0 at the end.</para>
-      <para>The description of the difference between version 1.0
-          and version 2.0 seems to contradict the content of the
-          version 1.0 table. If a version 1.0 table is for files
-          without a digital signature, what is the meaning of the
-          fields ulDsigTag, ulDsigLength and ulDsigOffset?</para>
-    </section>
-  </section>
-  <!--======================================================================-->
-  <section role="fragment">
-    <title>Font Tables</title>
-    <!--____________________________________________________________________-->
-    <section role="specification">
-      <title>Specification</title>
-      <para>  The rasterizer has a much easier time traversing
-        tables if they are padded so that each table begins on a
-        4-byte boundary. It is highly recommended that all tables be
-        long-aligned and padded with zeroes.</para>
+      <section role="fragment">
+        <title>The TTC File Structure</title>
+        <!--____________________________________________________________________-->
+        <section role="specification">
+          <para>A TrueType Collection file consists of a single
+            <emphasis>TTC Header</emphasis> table, one or more
+            <emphasis>Offset Tables</emphasis> with
+            <emphasis>Table Directories</emphasis>, and a number of
+            CommonType tables. The <emphasis>TTC Header</emphasis>
+            must be located at the beginning of the TTC file.
+          </para>
+          <para>
+            A CommonType table within a TTC file is found by first locating
+            the <emphasis>Offset Table</emphasis> and <emphasis>Table Directories</emphasis> for the font being consumed.Some of the CommonType tables must appear multiple
+            times, once for each font included in the TTC; while other
+            tables should be shared by multiple fonts in the TTC.</para>
+          <para>
+            As an example, consider a TTC file which combines two
+              Japanese fonts (Font1 and Font2). The fonts have different
+              kana designs (Kana1 and Kana2) but use the same design for
+              kanji. The TTC file contains a single
+              <ottable>glyf</ottable> table which includes both designs of
+              kana together with the kanji; both fonts' <emphasis>Table
+              Directories</emphasis> point to this <ottable>glyf</ottable>
+              table. But each font's <emphasis>Table Directory</emphasis>
+              points to a different <ottable>cmap</ottable> table, which
+              identifies the glyph set to use.
+              Font1's <ottable>cmap</ottable> table points to
+              the Kana1 region of the <ottable>loca</ottable> and
+              <ottable>glyf</ottable> tables for kana glyphs, and to the
+              kanji region for the kanji. Font2's <ottable>cmap</ottable>
+              table points to the Kana2 region of the
+              <ottable>loca</ottable> and <ottable>glyf</ottable> tables
+              for kana glyphs, and to the same kanji region for the
+              kanji.</para>
+          <para>The tables that <glossentry>should</glossentry> have a
+              unique copy per font are
+              those that are used by the system in identifying the font
+              and its character mapping, including
+              <ottable>cmap</ottable>, <ottable>name</ottable>, and
+              <ottable>OS/2</ottable>. The tables that <glossentry>should</glossentry>
+              be shared by fonts in the TTC are those that define glyph
+              and instruction data or use glyph indices to access data:
+              <ottable>glyf</ottable>, <ottable>loca</ottable>,
+              <ottable>hmtx</ottable>, <ottable>hdmx</ottable>,
+              <ottable>LTSH</ottable>, <ottable>cvt </ottable>,
+              <ottable>fpgm</ottable>, <ottable>prep</ottable>,
+              <ottable>EBLC</ottable>, <ottable>EBDT</ottable>,
+              <ottable>EBSC</ottable>, <ottable>maxp</ottable>, and so
+              on. In practice, any tables which have identical data for
+              two or more fonts <glossentry>may</glossentry> be shared.</para>
+          <para>When merging multiple font files into a TTC,
+              close attention must be paid to the issue
+              of glyph renumbering in a font and the side effects that can
+              result, in the <ottable>cmap</ottable> table and elsewhere.
+              <remark>What side effects? What needs to be remembered?</remark>
+              The fonts to be merged must also have compatible TrueType
+              instructions-that is, their preprograms, function
+              definitions, and control values must not conflict.</para>
+        </section>
+      </section>
+      <!--____________________________________________________________________-->
+      <section role="fragment" id="font_file.ttcheader">
+        <title>TTC Header</title>
+        <section role="specification">
+          <para>There are two versions of the <emphasis>TTC Header</emphasis>:
+            Version 1.0 was used for TTC files without digital
+            signatures. Font producers should now produce version 2.0
+            <emphasis>TTC Header</emphasis>s, whether or not the files include
+            digital signatures. When there is no digital signature,
+            the last three fields of the version 2.0 header are zero
+            filled.</para>
+          <para>If a digital signature is used, the <ottable>DSIG</ottable>
+            table for the file must be the last table in the TTC file.
+            Signatures in a TTC file are expected to be Format 1 signatures.
+          </para>
+          <para>The purpose of the <emphasis>TTC Header</emphasis> table is
+            to locate the different <emphasis>Offset Tables</emphasis>
+            within a TTC file. The <emphasis>TTC Header</emphasis> is located
+            at the beginning of the TTC file (offset = 0). It consists of
+            an identification tag, a version number, a count of the number
+            of CommonType fonts (<emphasis>Table Directories</emphasis>) in the
+            file, and an array of offsets to each <emphasis>Offset
+            Table</emphasis>.
+          </para>
+          <otformat>
+            <title>TTC Header Version 1.0</title>
+            <otfield>
+              <otfieldoffs>0</otfieldoffs>
+              <otfieldtype>Tag</otfieldtype>
+              <otfieldname>TTCTag</otfieldname>
+              <otfielddesc>TrueType Collection ID string:
+                  <literal>ttcf</literal></otfielddesc>
+            </otfield>
+            <otfield>
+              <otfieldoffs>4</otfieldoffs>
+              <otfieldtype>Version</otfieldtype>
+              <otfieldname>Version</otfieldname>
+              <otfielddesc>Version of the TTC Header (1.0),
+                  <literal>0x00010000</literal></otfielddesc>
+            </otfield>
+            <otfield>
+              <otfieldoffs>8</otfieldoffs>
+              <otfieldtype>ULONG</otfieldtype>
+              <otfieldname>numFonts</otfieldname>
+              <otfielddesc>Number of fonts in the TTC</otfielddesc>
+            </otfield>
+            <otfield>
+              <otfieldoffs>12</otfieldoffs>
+              <otfieldtype>ULONG</otfieldtype>
+              <otfieldname>OffsetTable [numFonts]</otfieldname>
+              <otfielddesc>Array of offsets to Offset Table for each
+            font from the beginning of the file</otfielddesc>
+            </otfield>
+          </otformat>
+          <otformat>
+            <title>TTC Header Version 2.0</title>
+            <otfield>
+              <otfieldoffs>0</otfieldoffs>
+              <otfieldtype>Tag</otfieldtype>
+              <otfieldname>TTCTag</otfieldname>
+              <otfielddesc>TrueType Collection ID string:
+                  <literal>ttcf</literal></otfielddesc>
+            </otfield>
+            <otfield>
+              <otfieldoffs>4</otfieldoffs>
+              <otfieldtype>Version</otfieldtype>
+              <otfieldname>Version</otfieldname>
+              <otfielddesc>Version of the TTC Header (2.0),
+                  0x00020000</otfielddesc>
+            </otfield>
+            <otfield>
+              <otfieldoffs>8</otfieldoffs>
+              <otfieldtype>ULONG</otfieldtype>
+              <otfieldname>numFonts</otfieldname>
+              <otfielddesc>Number of fonts in the TTC</otfielddesc>
+            </otfield>
+            <otfield>
+              <otfieldoffs>12</otfieldoffs>
+              <otfieldtype>ULONG</otfieldtype>
+              <otfieldname>OffsetTable [numFonts]</otfieldname>
+              <otfielddesc>Array of offsets to Offset Table for each
+            font from the beginning of the file</otfielddesc>
+            </otfield>
+            <otfield>
+              <otfieldoffs>16</otfieldoffs>
+              <otfieldtype>Tag</otfieldtype>
+              <otfieldname>ulDsigTag</otfieldname>
+              <otfielddesc>Tag indicating that a DSIG table exists,
+                <literal>0x44534947</literal> (<ottable>DSIG</ottable>),
+                or <literal>0x00000000</literal> if there is no
+                <ottable>DSIG</ottable> table.</otfielddesc>
+            </otfield>
+            <otfield>
+              <otfieldoffs>20</otfieldoffs>
+              <otfieldtype>ULONG</otfieldtype>
+              <otfieldname>ulDsigLength</otfieldname>
+              <otfielddesc>The length (in bytes) of the DSIG table (null
+                  if no signature)</otfielddesc>
+            </otfield>
+            <otfield>
+              <otfieldoffs>24</otfieldoffs>
+              <otfieldtype>ULONG</otfieldtype>
+              <otfieldname>ulDsigOffset</otfieldname>
+              <otfielddesc>The offset (in bytes) of the DSIG table from
+                  the beginning of the TTC file (null if no
+                  signature)</otfielddesc>
+            </otfield>
+          </otformat>
+        </section>
+      </section>
     </section>
   </section>
 </section>

@@ -105,14 +105,14 @@
           <otfieldtype>USHORT</otfieldtype>
           <otfieldname>advanceHeight</otfieldname>
           <otfielddesc>The advance height of the glyph. Unsigned
-              integer in FUnits </otfielddesc>
+              integer in <glossterm>font unit</glossterm>s </otfielddesc>
         </otfield>
         <otfield>
           <otfieldoffs>2</otfieldoffs>
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>topSideBearing</otfieldname>
           <otfielddesc>The top sidebearing of the glyph. Signed
-              integer in FUnits.</otfielddesc>
+              integer in <glossterm>font unit</glossterm>s.</otfielddesc>
         </otfield>
       </otformat>
       <para>The second array is optional and generally is used for a
@@ -135,7 +135,7 @@
           <otfieldtype>SHORT</otfieldtype>
           <otfieldname>topSideBearing []</otfieldname>
           <otfielddesc>The top sidebearing of the glyph. Signed
-              integer in FUnits. </otfielddesc>
+              integer in <glossterm>font unit</glossterm>s. </otfielddesc>
         </otfield>
       </otformat>
     </section>

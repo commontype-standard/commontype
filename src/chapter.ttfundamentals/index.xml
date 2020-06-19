@@ -49,7 +49,7 @@
 	from a TrueType font file to be displayed on raster devices.</para>
       <para>First, the outline stored in the font file isscaled to
 	the requested size. Once scaled, the points that make up the
-	outline are no longer recorded in the FUnits used to describe
+	outline are no longer recorded in the <glossterm>font unit</glossterm>s used to describe
 	the original outline, but have become device-specific pixel
 	coordinates.</para>
       <para>Next, the instructions associated with this glyph are
@@ -66,11 +66,11 @@
       </informalfigure>
       <orderedlist>
         <listitem>
-          <para>Digitize outline with FUnit coordinates in TrueType
+          <para>Digitize outline with <glossterm>font unit</glossterm> coordinates in TrueType
 	    font file</para>
         </listitem>
         <listitem>
-          <para>Scaler converts FUnits to pixel coordinates and
+          <para>Scaler converts <glossterm>font unit</glossterm>s to pixel coordinates and
 	    scales outline to size requested by application</para>
         </listitem>
         <listitem>
@@ -159,9 +159,9 @@
 	has to be such that, if the curve is followed in the direction
 	of increasing point numbers, the black space (the filled area)
 	will always be to the right.</para>
-      <bridgehead>FUnits and the em square</bridgehead>
+      <bridgehead><glossterm>font unit</glossterm>s and the em square</bridgehead>
       <para>In a TrueType font file point locations are described in
-	font units, or FUnits. An FUnit is the smallest measurable
+	font units, or <glossterm>font unit</glossterm>s. An <glossterm>font unit</glossterm> is the smallest measurable
 	unit in the em square, an imaginary square that is used to
 	size and align glyphs. The dimensions of the em square
 	typically are those of the full body height of a font plus
@@ -193,17 +193,17 @@
 	whose x-axis describes movement in a horizontal direction and
 	whose y-axis describes movement in a vertical direction. This
 	is discussed in more detail in the following section.</para>
-      <bridgehead>FUnits and the grid</bridgehead>
+      <bridgehead><glossterm>font unit</glossterm>s and the grid</bridgehead>
       <para>A key decision in digitizing a font is determining the
 	resolution at which the points that make up glyph outlines
 	will be described. The points represent locations in a grid
-	whose smallest addressable unit is known as an FUnit or font
+	whose smallest addressable unit is known as an <glossterm>font unit</glossterm> or font
 	Unit. The grid is a two-dimensional coordinate system whose
 	x-axis describes movement in a horizontal direction and whose
 	y-axis describes movement in a vertical direction. The grid
 	origin has the coordinates (0,0). The grid is not an infinite
 	plane. Each point must be within the range -16384 and +16383
-	FUnits. Depending upon the resolution chosen, the range of
+	<glossterm>font unit</glossterm>s. Depending upon the resolution chosen, the range of
 	addressable grid locations will be smaller.</para>
       <para>The choice of the granularity of the coordinate
 	grid-that is, number of units per em (upem)-is made by the
@@ -255,9 +255,9 @@
 	example, a symmetrical character would have equal left and
 	right side bearings.</para>
       <para>The granularity of the em square is determined by the
-	number of FUnits per em, or more simply units per em . The em
-	square as divided into FUnits defines a coordinate system with
-	one unit equaling an FUnit. All points defined in this
+	number of <glossterm>font unit</glossterm>s per em, or more simply units per em . The em
+	square as divided into <glossterm>font unit</glossterm>s defines a coordinate system with
+	one unit equaling an <glossterm>font unit</glossterm>. All points defined in this
 	coordinate system must have integral locations. The greater
 	the number of units per em, the greater the precision
 	available in addressing locations within the em square.</para>
@@ -275,7 +275,7 @@
           </imageobject>
         </mediaobject>
       </figure>
-      <para>FUnits are relative units because they vary in size as
+      <para><glossterm>font unit</glossterm>s are relative units because they vary in size as
 	the size of the em square changes. The number of units per em
 	remains constant for a given font regardless of the point
 	size. The number of points per em, however, will vary with the
@@ -283,7 +283,7 @@
 	when a glyph is displayed at 9 points, exactly 10 points high
 	when the font is displayed at 10 point, and so on. Since the
 	number of units per em does not vary with the point size at
-	which the font is displayed, the absolute size of an FUnit
+	which the font is displayed, the absolute size of an <glossterm>font unit</glossterm>
 	varies as the point size varies.</para>
       <figure>
         <title>Figure 1-7 72 point M and 127 point M and their em
@@ -294,9 +294,9 @@
           </imageobject>
         </mediaobject>
       </figure>
-      <para>Because FUnits are relative to the em square, a given
+      <para>Because <glossterm>font unit</glossterm>s are relative to the em square, a given
 	location on a glyph will have the same coordinate location in
-	FUnits regardless of the point size at which the font is
+	<glossterm>font unit</glossterm>s regardless of the point size at which the font is
 	rendered. This is convenient because it makes it possible to
 	instruct outline points once considering only the original
 	outline and have the changes apply to the glyph at whatever
@@ -325,7 +325,7 @@
 	appear on screen or printer. To allow for greater precision in
 	managing outlines, TrueType describes pixel coordinates to the
 	nearest sixty-fourth of a pixel.</para>
-      <bridgehead>Converting FUnits to pixels</bridgehead>
+      <bridgehead>Converting <glossterm>font unit</glossterm>s to pixels</bridgehead>
       <para>Values in the em square are converted to values in the
 	pixel coordinate system by multiplying them by a scale. This
 	scale is:</para>
@@ -335,7 +335,7 @@
 	displayed, and resolution is the resolution of the output
 	device. The 72 in the denominator reflects the number of
 	points per inch.</para>
-      <para>For example, assume that a glyph feature is 550 FUnits
+      <para>For example, assume that a glyph feature is 550 <glossterm>font unit</glossterm>s
 	in length on a 72 dpi screen at 18 point. There are 2048 units
 	per em. The following calculation reveals that the feature is
 	4.83 pixels long.</para>
@@ -382,7 +382,7 @@
 	(rather than 72); that is, one point equals .013836
 	inches.</para>
       <para>If you know the ppem, the formula to convert between
-	FUnits and pixel space coordinates is:</para>
+	<glossterm>font unit</glossterm>s and pixel space coordinates is:</para>
       <para>pixel_coordinate = em_coordinate * ppem /upem</para>
       <para>An em_coordinate position of (1024, 0) would yield a
 	device_pixels coordinate of (6, 0), given 2048 units per em
@@ -740,11 +740,11 @@
 	indirect instructions as opposed to the direct instructions
 	which take their values from the glyph outline.</para>
       <para>As part of the TrueType font file, the values in the CVT
-	are expressed in FUnits. When the outlines are converted from
-	FUnits to pixel units, values in the CVT are also converted.</para>
+	are expressed in <glossterm>font unit</glossterm>s. When the outlines are converted from
+	<glossterm>font unit</glossterm>s to pixel units, values in the CVT are also converted.</para>
       <para>When writing to the CVT you may use a value that is in
 	the glyph coordinate system (using WCVTP) or you can use a
-	value that is in the original FUnits (using WCVTF). The
+	value that is in the original <glossterm>font unit</glossterm>s (using WCVTF). The
 	interpreter will scale all values appropriately. Values read
 	from the CVT are always in pixels (F26Dot6).</para>
       <bridgehead>The Storage Area</bridgehead>

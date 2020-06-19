@@ -258,7 +258,7 @@
           <otfieldtype>FWORD</otfieldtype>
           <otfieldname>value</otfieldname>
           <otfielddesc>The kerning value for the above pair, in
-              FUnits. If this value is greater than zero, the
+              <glossterm>font unit</glossterm>s. If this value is greater than zero, the
               characters will be moved apart. If this value is less
               than zero, the character will be moved closer
               together.</otfielddesc>

@@ -1791,7 +1791,7 @@
       <para>Format: SHORT</para>
       <para>Description: This metric specifies the distance between
           the baseline and the approximate height of non-ascending
-          lowercase letters measured in FUnits. This value would
+          lowercase letters measured in <glossterm>font unit</glossterm>s. This value would
           normally be specified by a type designer but in situations
           where that is not possible, for example when a legacy font
           is being converted, the value may be set equal to the top of
@@ -1806,7 +1806,7 @@
       <para>Format: SHORT</para>
       <para>Description: This metric specifies the distance between
           the baseline and the approximate height of uppercase letters
-          measured in FUnits. This value would normally be specified
+          measured in <glossterm>font unit</glossterm>s. This value would normally be specified
           by a type designer but in situations where that is not
           possible, for example when a legacy font is being converted,
           the value may be set equal to the top of the unscaled and
@@ -3669,7 +3669,7 @@
       <para>Format: SHORT</para>
       <para>Description: This metric specifies the distance between
           the baseline and the approximate height of non-ascending
-          lowercase letters measured in FUnits. This value would
+          lowercase letters measured in <glossterm>font unit</glossterm>s. This value would
           normally be specified by a type designer but in situations
           where that is not possible, for example when a legacy font
           is being converted, the value may be set equal to the top of
@@ -3684,7 +3684,7 @@
       <para>Format: SHORT</para>
       <para>Description: This metric specifies the distance between
           the baseline and the approximate height of uppercase letters
-          measured in FUnits. This value would normally be specified
+          measured in <glossterm>font unit</glossterm>s. This value would normally be specified
           by a type designer but in situations where that is not
           possible, for example when a legacy font is being converted,
           the value may be set equal to the top of the unscaled and

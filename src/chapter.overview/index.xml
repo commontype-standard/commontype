@@ -68,6 +68,26 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
+    <title>Definitions</title>
+    <section role="specification">
+      <para>
+        The key words <glossterm>must</glossterm>,
+        <glossterm>must not</glossterm>, <glossterm>required</glossterm>,
+        <glossterm>shall</glossterm>, <glossterm>shall not</glossterm>,
+        <glossterm>should</glossterm>, <glossterm>should not</glossterm>,
+        <glossterm>recommended</glossterm>, <glossterm>may</glossterm>,
+        and <glossterm>optional</glossterm> in this specification are to
+        be interpreted as described in
+        <link xlink:href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</link>.
+        Note that for reasons of style, these words are not capitalized in this document.
+      </para>
+      <para>
+        Further key words are defined in the Glossary.
+      </para>
+    </section>
+  </section>
+  <!--======================================================================-->
+  <section role="fragment">
     <title>Related documentation</title>
     <!--____________________________________________________________________-->
     <section role="specification">

@@ -15,6 +15,11 @@
     <para>Many references to both TrueType and PostScript exist
           throughout this document, as CommonType fonts combine the two
           technologies.</para>
+    <remark>
+          <para>This specification is an editor's draft. It does not
+          necessarily represent the consensus of the CommonType committee.
+          </para>
+    </remark>
     <para>If you have comments or suggestions about this document,
           please create an annotation by selecting the text on the page and
           pressing the "annotate" button. If you find errors or inaccuracies

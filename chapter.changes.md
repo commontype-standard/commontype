@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.changes"></a>Chapter 45. Changes log</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516878986400"></a>Version 1.4</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.1.1"></a>Specification</h4></div></div></div><p>Released October 11, 2002</p><p>baselinetags.htm
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.changes"></a>Chapter 45. Changes log</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28271"></a>Version 1.4</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.1.1"></a>Specification</h4></div></div></div><p>Released October 11, 2002</p><p>baselinetags.htm
 	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Corrected typographic error.</p></li><li class="listitem"><p>Changed hanging baseline references from Hindi to
 	      Tibetan.</p></li></ul></div><p>
       </p><p>chapter2.htm
@@ -92,7 +92,7 @@
       </p><p>wgl4e.htm
 	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Optional glyphs identified and marked. Added a
 		footnote.</p></li></ul></div><p>
-      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516878915472"></a>Version 1.3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.2.1"></a>Specification</h4></div></div></div><p>Released April, 2001.</p><p>Multiple Master support in CommonType, discontinued. The
+      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28442"></a>Version 1.3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.2.1"></a>Specification</h4></div></div></div><p>Released April, 2001.</p><p>Multiple Master support in CommonType, discontinued. The
 	  following tables pertaining to it have been removed from this
 	  version of the CommonType specification: 'fvar', 'MMSD',
 	  'MMFX'.</p><p>base.htm
@@ -284,7 +284,7 @@
 		fonts to locate the origin of vertical glyphs.</p></li></ul></div><p>
       </p><p>wgl4d.htm
 	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Added a missing asterisk for PostScriptName.macron</p></li><li class="listitem"><p>Added the U+02dc (tilde)-- was missing from the list.</p></li></ul></div><p>
-      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516878792512"></a>Version 1.25</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.3.1"></a>Specification</h4></div></div></div><p>Released July, 2000</p><p>feattags.htm (Feature Tags)
+      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28724"></a>Version 1.25</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.3.1"></a>Specification</h4></div></div></div><p>Released July, 2000</p><p>feattags.htm (Feature Tags)
 	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Features added: abvm (Above-base Mark Positioning); abvs
 		(Above-base Substitutions); akhn (Akhand); blwf (Below-base
 		Forms); blws (Below-base Substitutions); clig (Contextual
@@ -343,7 +343,7 @@
       </p><p>chapter2.htm
 	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>modified description of FeatureParams field for a
 		non-null offset (the size feature uses it).</p></li></ul></div><p>
-      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516878782848"></a>Version 1.2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.4.1"></a>Specification</h4></div></div></div><p>Released November, 1998</p><p>Data type notation and spelling corrected
+      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28743"></a>Version 1.2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.4.1"></a>Specification</h4></div></div></div><p>Released November, 1998</p><p>Data type notation and spelling corrected
 	throughout</p><p>base.htm - added BaseCoord Table Format 4</p><p>chapter2.htm - corrected example 3; refined description
 	of next glyph; reserved RightToLeft lookup flag; corrected
 	descriptions of LookupFlag bits</p><p>cmap.htm - removed legacy encodings</p><p>dsig.htm - updated field names and format of signature
@@ -376,7 +376,7 @@
 	  tables (18 December 1998)</p><p>name.htm - Descriptions of name ID 13 and 14 corrected
 	  (29 January 1999)</p><p>mmsd.htm - Attribute flags corrected (29 January
 	  1999)</p><p>head.htm - Data type of xMin corrected (29 January
-	  1999)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516878768672"></a>Version 1.1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.5.1"></a>Specification</h4></div></div></div><p>Released April, 1999</p><p>CFF and Type2 specs updated</p><p>chapter2.htm - corrected typo in figure 2d
+	  1999)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28771"></a>Version 1.1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.5.1"></a>Specification</h4></div></div></div><p>Released April, 1999</p><p>CFF and Type2 specs updated</p><p>chapter2.htm - corrected typo in figure 2d
 	(fig2d.gif)</p><p>dsig.htm - added info about location of DSIG table;
 	  added list of sfnt structural requirements</p><p>feattags.htm - created more comprehensive list and
 	  description of layout feature tags</p><p>gpos.htm - corrected illustration 4f (fig4f.gif)</p><p>head.htm - added bit 12 (converted) to flags
@@ -388,10 +388,10 @@
 	  usMaxLookup; clarified sTypoAscender and sTypoDescender
 	  fields; changed some Unicode range values to reflect Unicode
 	  2; updated registered vendors</p><p>otff.htm - general editing; added description of two
-	  types of TTC headers, and DSIG table location</p><p>recom.htm - general editing</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516878760160"></a>Version 1.01</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.6.1"></a>Specification</h4></div></div></div><p>Released October, 1997</p><p>mmfx.htm, fvar.htm, mmsd.htm, otover.htm, recom.htm -
+	  types of TTC headers, and DSIG table location</p><p>recom.htm - general editing</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28788"></a>Version 1.01</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.6.1"></a>Specification</h4></div></div></div><p>Released October, 1997</p><p>mmfx.htm, fvar.htm, mmsd.htm, otover.htm, recom.htm -
 	  edits throughout</p><p>loca.htm - changed long-aligned to word-aligned for
 	  local offsets</p><p>wgl4.htm - added reference to Euro symbol</p><p>dsig.htm - added note about system use of dsig table to
 	  distinguish OT from TT fonts</p><p>ttoreg.htm - added VIT, TRK, and ROM lang sys
 	  tags</p><p>otff.htm - rearranged table list</p><p>base.htm - change to basecoordformat3 data type</p><p>gpos.htm - pairposformat1 subtable valuerecord becomes
 	  offset</p><p>kern.htm - gpos clarification</p><p>name.htm - added name id's 13 and 14</p><p>ltsh.htm - clarified option for fixed-pitch fonts</p><p>dmx.htm - version 1 added to vdmx table</p><p>os2.htm - added codepage range 8 for Vietnamese; added
-	  new vendor id's, including UNKN</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516878751552"></a>Version 1.0</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.7.1"></a>Specification</h4></div></div></div><p>Released April, 1997</p></div></div></div>
+	  new vendor id's, including UNKN</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28806"></a>Version 1.0</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.46.7.1"></a>Specification</h4></div></div></div><p>Released April, 1997</p></div></div></div>

@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.overview"></a>Chapter 1. Overview</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516891229968"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The CommonType font format is an extension of the TrueType
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.overview"></a>Chapter 1. Overview</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm18"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The CommonType font format is an extension of the TrueType
 	font format, adding support for PostScript font data. The
 	CommonType font format is derived from the OpenType font format
   developed jointly by Microsoft and Adobe. CommonType fonts and the
@@ -34,7 +34,7 @@
 	documents, before using them. Also, font developers can encode
 	embedding restrictions in CommonType fonts, and these
 	restrictions cannot be altered in a font signed by the
-	developer.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516891218944"></a>Definitions</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>
+	developer.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm39"></a>Definitions</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>
         The key words <em class="glossterm">must</em>,
         <em class="glossterm">must not</em>, <em class="glossterm">required</em>,
         <em class="glossterm">shall</em>, <em class="glossterm">shall not</em>,
@@ -46,7 +46,7 @@
         Note that for reasons of style, these words are not capitalized in this document.
       </p><p>
         Further key words are defined in the Glossary.
-      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm516891211648"></a>Related documentation</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The following documents may be consulted for further
+      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm55"></a>Related documentation</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The following documents may be consulted for further
 	information:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
             <a class="link" href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5176.CFF.pdf" target="_top">Adobe Technical Note #5176</a>: "The Compact Font Format
 	      Specification."</p></li><li class="listitem"><p>

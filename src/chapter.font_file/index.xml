@@ -15,9 +15,9 @@
           matter which outline format is used; some of the supporting
           data is specific to either TrueType or PostScript.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/xml-representation-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/compiler-1.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/decompiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -239,7 +239,7 @@
         </tgroup>
       </informaltable>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/implementation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -284,7 +284,7 @@
         should be treated as though it were a minor version number;
         i.e., all format changes are compatible extensions.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/implementation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-2.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment" id="organization">
@@ -399,10 +399,10 @@
       <para>The type of the tag field in the second table should
           probably be 'Tag'.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/compiler-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/compiler-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/implementation-3.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/validation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -465,7 +465,7 @@ return Sum;
           not including the checkSumAdjustment value, and compare the
           result with the entry in the table directory.</para>
     </section>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/implementation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-4.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">

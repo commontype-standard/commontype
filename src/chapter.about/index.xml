@@ -28,10 +28,10 @@
            the specification, including clarifications, examples, additional
            techniques, background information and so on.</para>
   </section>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.about/xml-representation-1.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.about/compiler-1.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.about/decompiler-1.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.about/implementation-1.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.about/test-suite-1.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.about/validation-1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-1.xml"/>
 </section>

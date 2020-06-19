@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import argparse
 from lxml import etree
-from os.path import dirname, join
+from os.path import dirname, join, basename
 
 parser = argparse.ArgumentParser(description="Split an XML file by XPath")
 parser.add_argument("file", metavar="FILE", type=str, help="file to process")
@@ -36,7 +36,7 @@ for elem in mydoc.xpath(predicate):
     parent.remove(elem)
     new_elem = etree.Element(
         "{http://www.w3.org/2001/XInclude}include",
-        attrib={"href": newfilename},
+        attrib={"href": basename(newfilename)},
         nsmap={"xi": "http://www.w3.org/2001/XInclude"},
     )
     new_elem.tail = "\n"

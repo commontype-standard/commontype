@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gpos.toXMLCount_2">
+  switch (getuint16 (stOffset)) {
+    case 1: { <code-include linkend="gpos.toXMLCount_2_1"/>; break; }
+    case 2: { <code-include linkend="gpos.toXMLCount_2_2"/>; break; }}
+</code-fragment>
+      <code-fragment id="gpos.toXML_2">
+  switch (getuint16 (stOffset)) {
+    case 1: { <code-include linkend="gpos.toXML_2_1"/>; break; }
+    case 2: { <code-include linkend="gpos.toXML_2_2"/>; break; }}
+</code-fragment>
+      <code-fragment id="gpos.toXMLEmit_2">
+   switch (getuint16 (stOffset)) {
+    case 1: { <code-include linkend="gpos.toXMLEmit_2_1"/>; break; }
+    case 2: { <code-include linkend="gpos.toXMLEmit_2_2"/>; break; }}
+</code-fragment>
+    </section>
+    

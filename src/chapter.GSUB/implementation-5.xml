@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="gsub_2"><code-title>Execute GSUB 2 subtable and return</code-title>
+  { int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int inPos = curGlyph;
+
+    int ci = getCoverageIndex (gr.glyphAt (inPos), coverageOffset);
+    if (ci == -1) {
+      return lookupNotApplied; }
+
+    if (! gr.isLookupApplied (lookupIndex, curGlyph, inPos)) {
+      return lookupNotApplied; }
+
+    int sequenceOffset = stOffset + getOffset (stOffset + 6 + 2*ci);
+    int oldGlyphId = gr.glyphAt (inPos);
+    int glyphCount = getuint16 (sequenceOffset);
+    int [] newGlyphIds = new int [glyphCount];
+    for (int g = 0; g &lt; glyphCount; g++) {
+      newGlyphIds [g] = getGlyphID (sequenceOffset + 2 +  2*g); }
+
+    if (listener != null) {
+      listener.replace (oldGlyphId, newGlyphIds);
+      listener.applyingSubtable (lookupIndex, gr, curGlyph, "GSUB", stOffset); }
+    gr.replace (inPos, newGlyphIds);
+
+    return new LookupResult (true, inPos + glyphCount, glyphCount - 1); }
+</code-fragment>
+    </section>
+    

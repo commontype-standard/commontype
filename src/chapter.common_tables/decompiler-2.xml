@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="lookuptable.methods">
+  public void scriptTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    if (getOffset (offset, 0) != 0) {
+      langSysTableToXMLCount (getOffset (offset, 0), counts); }
+
+    for (int i = 0; i &lt; getuint16 (offset + 2); i++) {
+       langSysTableToXMLCount (getOffset (offset, 4 + 6*i + 4), counts); }
+  }
+
+  public void scriptTableOffsetToXML (DecompilerConfig conf, int offset,
+                                      int [] counts,
+                                       String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "scriptTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      scriptTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void scriptTableToXML (DecompilerConfig conf, int offset,
+                                int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "scriptTable_" + Integer.toHexString (offset));
+      scriptTableToXMLEmit (conf, offset, counts,
+                                "scriptTable", at);
+      counts [offset] = 0; }
+
+    if (getOffset (offset, 0) != 0) {
+      langSysTableToXML (conf, getOffset (offset, 0), counts); }
+
+    for (int i = 0; i &lt; getuint16 (offset+2); i++) {
+      langSysTableToXML (conf,
+                         getOffset (offset, 4 + 6*i + 4),
+	 	         counts); }
+  }
+
+   void scriptTableToXMLEmit (DecompilerConfig conf, int offset,
+                                    int[] counts,
+				    String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+
+      if (getOffset (offset, 0) != 0) {
+        at = new AttributesImpl ();
+        langSysTableOffsetToXML (conf, getOffset (offset, 0),
+                                 counts, "defaultLangSys", at); }
+
+      for (int i = 0; i &lt; getuint16 (offset + 2); i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "tag", "tag", "CDATA",
+                         Tag.tag2string (getuint32 (offset + 4 + 6*i)));
+
+        langSysTableOffsetToXML (conf, getOffset (offset, 4 + 6*i + 4),
+                                 counts, "langSysRecord", at); }
+
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+    

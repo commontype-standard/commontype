@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="LayoutTable.anchorTableToXMLEmit.cases">
+  case 2: {
+    int x = getint16 (offset + 2);
+    at.addAttribute ("", "x", "x", "CDATA", "" + x);
+
+    int y = getint16 (offset + 4);
+    at.addAttribute ("", "y", "y", "CDATA", "" + y);
+
+    int point = getuint16 (offset + 6);
+    at.addAttribute ("", "point", "point", "CDATA", "" + point);
+
+    conf.ch.element (element, at);
+    break; }
+</code-fragment>
+    </section>
+  

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Implementation Test</title>
+      <section>
+        <title>gsub2_1_simple</title>
+        <para>Our first test is simple. It replaces glyph 18 by glyphs
+            20, 21 and 22.</para>
+        <aots:test-font id="gsub2_1_simple_f1">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="2">
+                <multipleSubst format="1">
+                  <coverage glyphs="18" format="any"/>
+                  <subst in="18" out="20 21 22"/>
+                </multipleSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub2_1_simple_t1" font="gsub2_1_simple_f1" inputs="17, 18, 19" outputs="17, 20, 21, 22, 19"/>
+        <para>This lookup type has the unique property of increasing
+            the size of the glyph run. In implementation in which
+            glyphs in a glyph run are identified by indices, one must
+            be careful to adjust indices as needed. For example, the
+            upper bound of a loop that processes all (or some of) the
+            glyphs in a glyph run needs to be adjusted if a multiple
+            lookup is applied. This test tries to verify this by
+            having an occurrence of glyph 18 (the last one) such that
+            its indice after other occurrences are replaced is bigger
+            than the original index of the last glyph.</para>
+        <aots:gsub-test id="gsub2_1_simple_t2" font="gsub2_1_simple_f1" inputs="17, 18, 19, 18" outputs="17, 20, 21, 22, 19, 20, 21, 22"/>
+      </section>
+      <section>
+        <title>gsub2_1_multiple_sequences</title>
+        <para>Our next test verifies that multiple sequences are correctly
+            interpreted.</para>
+        <aots:test-font id="gsub2_1_multiple_sequences_f1">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="2">
+                <multipleSubst format="1">
+                  <coverage glyphs="18 19" format="any"/>
+                  <subst in="18" out="20 21"/>
+                  <subst in="19" out="22 23"/>
+                </multipleSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub2_1_multiple_sequences_t1" font="gsub2_1_multiple_sequences_f1" inputs="17, 18,     19,     17" outputs="17, 20, 21, 22, 23, 17"/>
+      </section>
+      <section>
+        <title>gsub2_1_lookupflag</title>
+        <para>Our next test verifies that LookupFlag is correctly
+            interpreted.</para>
+        <aots:test-font id="gsub2_1_lookupflag_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="18"/>
+            </glyphClassDef>
+          </GDEF>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="2" ignoreBaseGlyphs="yes">
+                <multipleSubst format="1">
+                  <coverage glyphs="18 19" format="any"/>
+                  <subst in="18" out="20 21"/>
+                  <subst in="19" out="22 23"/>
+                </multipleSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub2_1_lookupflag_t1" font="gsub2_1_lookupflag_f1" inputs="17, 18, 19,     17" outputs="17, 18, 22, 23, 17"/>
+      </section>
+    </section>
+  

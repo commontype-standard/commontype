@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>??</code-title>
+vmtx =
+  element vmtx {
+    element vMetric {
+      attribute tsb { text },
+      attribute adv { text }
+    }*,
+    element tsb {
+      attribute tsb { text }
+    }*
+  }
+</code-fragment>
+    </section>
+    

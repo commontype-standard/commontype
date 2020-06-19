@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="validation">
+      <title>Validation</title>
+      <code-fragment id="gsub.methods"><code-title>GSUB Validation Method</code-title> public void
+          validate () { }
+        </code-fragment>
+    </section>
+  

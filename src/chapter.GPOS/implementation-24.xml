@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="gpos.methods"><code-title>Merge two anchors</code-title>
+  public int[] mergeAnchors (GlyphRun gr,
+                             int pos1, int offset1,
+                             int pos2, int offset2) {
+
+    int a1x = getint16 (offset1 + 2);
+    int a1y = getint16 (offset1 + 4);
+    int a2x = getint16 (offset2 + 2);
+    int a2y = getint16 (offset2 + 4);
+    int x1 = gr.getXPos (pos1);
+    int y1 = gr.getYPos (pos1);
+
+    int[] newPos = {x1 + a1x - a2x, y1 + a1y - a2y};
+
+    gr.move (pos2, newPos[0], newPos[1]);
+
+    return newPos;
+  }
+</code-fragment>
+    </section>
+  

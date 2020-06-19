@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format0.elt"><code-title>Generate elements for the format 0 cmap subtable at 'stOffset'</code-title>
+  for (int i = 0; i &lt; 256; i++) {
+    if (conf.preciseCmap || getuint8 (stOffset + 6 + i) != 0) {
+      at = new AttributesImpl ();
+      at.addAttribute ("", "code", "code", "CDATA",
+                       "0x" + Integer.toHexString (i));
+      at.addAttribute ("", "glyph", "glyph", "CDATA",
+                       "" + getuint8 (stOffset + 6 + i));
+      conf.ch.element ("map", at); }}
+
+</code-fragment>
+    </section>
+    

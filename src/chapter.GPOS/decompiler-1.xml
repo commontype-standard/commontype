@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gpos.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    int [] counts = new int [data.length];
+    for (int i = 0; i &lt; counts.length; i++) {
+      counts [i] = 0; }
+
+    scriptListTableToXMLCount (getOffset (4), counts);
+    featureListTableToXMLCount (getOffset (6), counts);
+    lookupListTableToXMLCount (getOffset (8), counts);
+
+    if (conf.pointers == DecompilerConfig.PointersAreShown.never) {
+      for (int i = 0; i &lt; counts.length; i++) {
+        counts [i] = 1; }}
+    if (conf.pointers == DecompilerConfig.PointersAreShown.always) {
+      for (int i = 0; i &lt; counts.length; i++) {
+        counts [i] = 2; }}
+
+    AttributesImpl at;
+
+    int [] version = getTableVersion ();
+    at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
+
+    conf.ch.startElement ("GPOS", at); {
+
+      scriptListTableOffsetToXML (conf, getOffset (4), counts,
+                                  "scriptList", new AttributesImpl ());
+      featureListTableOffsetToXML (conf, getOffset (6), counts,
+                                   "featureList", new AttributesImpl ());
+      lookupListTableOffsetToXML (conf, getOffset (8), counts,
+                                  "lookupList", new AttributesImpl ());
+
+      scriptListTableToXML (conf, getOffset (4), counts);
+      featureListTableToXML (conf, getOffset (6), counts);
+      lookupListTableToXML (conf, getOffset (8), counts);
+      conf.ch.endElement ("GPOS"); }
+  }
+</code-fragment>
+    </section>
+    

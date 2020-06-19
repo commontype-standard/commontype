@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="method_Table_findLookups7"><code-title>Add the lookups of 'selectedFeatureIndices' to 'selectedLookups'</code-title>
+  { for (int f = 0; f &lt; selectedFeatureIndicesCount; f++) {
+      int featureOffset
+         = featureListOffset
+           + getuint16 (featureListOffset + 2 + selectedFeatureIndices[f]*6 + 4);
+      int lookupCount = getuint16 (featureOffset + 2);
+      for (int l = 0; l &lt; lookupCount; l++) {
+        selectedLookups.add (getuint16 (featureOffset + 4 + l*2)); }}}
+</code-fragment>
+    </section>
+  

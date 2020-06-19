@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gpos.methods">
+  public void anchorTableToXMLCount (int offset, int[] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    switch (getuint16 (offset)) {
+      <code-include linkend="LayoutTable.anchorTableToXMLCount.cases"/> }
+  }
+
+  public void anchorTableOffsetToXML (DecompilerConfig conf, int offset,
+                                      int[] counts,
+                                      String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "anchorTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      anchorTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void anchorTableToXML (DecompilerConfig conf, int offset,
+                                int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "anchorTable_" + Integer.toHexString (offset));
+      anchorTableToXMLEmit (conf, offset, counts, "anchorTable", at);
+      counts [offset] = 0; }
+
+    switch (getuint16 (offset)) {
+      <code-include linkend="LayoutTable.anchorTableToXML.cases"/> }
+  }
+
+  public void anchorTableToXMLEmit (DecompilerConfig conf, int offset,
+                                    int[] counts,
+                                    String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    at.addAttribute ("", "format", "format", "CDATA", "" + getuint16 (offset));
+    switch (getuint16 (offset)) {
+      <code-include linkend="LayoutTable.anchorTableToXMLEmit.cases"/> }
+  }
+</code-fragment>
+    </section>
+    

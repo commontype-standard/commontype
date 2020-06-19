@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>In many cases, we do not care to specify the format
+	  which should be used to represent a coverage, but instead
+	  would prefer the compiler to figure out the best
+	  representation. For this purpose, we use the observation in
+	  our annotations, and represent two attributes:
+	  <sgmltag>format</sgmltag> with the value
+	  <sgmltag>any</sgmltag> and <sgmltag>glyphs</sgmltag> to hold
+	  the list of covered glyphs:</para>
+      <code-fragment id="schema"><code-title>coverageTable</code-title>
+  coverageTable |=
+    attribute format { "any" },
+    attribute glyphs { text }
+
+  standaloneCoverageTable =
+    element coverageTable { attribute id { text }, coverageTable }
+
+  coverageTableOffset = attribute name { text } | coverageTable
+</code-fragment>
+    </section>
+    

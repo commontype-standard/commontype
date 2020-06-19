@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Maxp"><code-title>Maxp class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Maxp extends Table {
+
+  public Maxp () {
+    super (Tag.maxp, null);
+  }
+
+  public Maxp (Font font) {
+    super (Tag.maxp, font);
+  }
+
+  public int getNumGlyphs () {
+    return getuint16 (4);
+  }
+
+  public void setNumGlyphs (int n) {
+    setuint16 (4, n);
+  }
+
+  public int getMaxPoints () {
+    return getuint16 (6);
+  }
+
+  public void setMaxPoints (int n) {
+    setuint16 (6, n);
+  }
+
+  public int getMaxContours () {
+    return getuint16 (8);
+  }
+
+  public void setMaxContours (int n) {
+    setuint16 (8, n);
+  }
+
+  public int getMaxCompositePoints () {
+    return getuint16 (10);
+  }
+
+  public void setMaxCompositePoints (int n) {
+    setuint16 (10, n);
+  }
+
+  public int getMaxCompositeContours () {
+    return getuint16 (12);
+  }
+
+  public void setMaxCompositeContours (int n) {
+    setuint16 (12, n);
+  }
+
+  public int getMaxZones () {
+    return getuint16 (14);
+  }
+
+  public void setMaxZones (int n) {
+    setuint16 (14, n);
+  }
+
+  public int getMaxComponentElements () {
+    return getuint16 (28);
+  }
+
+  public void setMaxComponentElements (int n) {
+    setuint16 (28, n);
+  }
+
+  public int getMaxComponentDepth () {
+    return getuint16 (30);
+  }
+
+  public void setMaxComponentDepth (int n) {
+    setuint16 (30, n);
+  }
+
+  public void fixValuesDerivedFromGlyf () {
+    if (font.glyf != null) {
+      int maxPoints = 0;
+      int maxCompositePoints = 0;
+      int maxContours = 0;
+      int maxCompositeContours = 0;
+      int maxComponentElements = 0;
+      int maxComponentDepth = 0;
+
+      for (int gid = 0; gid &lt; getNumGlyphs (); gid++) {
+        Glyf.MaxpValues values = font.glyf.getMaxpValues (gid);
+
+        maxPoints = Math.max (maxPoints, values.numPoints);
+        maxCompositePoints = Math.max (maxCompositePoints,
+                                       values.numCompositePoints);
+        maxContours = Math.max (maxContours, values.numContours);
+        maxCompositeContours = Math.max (maxCompositeContours,
+                                         values.numCompositeContours);
+
+        maxComponentElements = Math.max (maxComponentElements,
+                                         values.numComponentElements);
+        maxComponentDepth = Math.max (maxComponentDepth, values.componentDepth); }
+
+      setMaxPoints  (maxPoints);
+      setMaxContours (maxContours);
+      setMaxCompositePoints  (maxCompositePoints);
+      setMaxCompositeContours (maxCompositeContours);
+      setMaxComponentElements (maxComponentElements);
+      setMaxComponentDepth (Math.min (1, maxComponentDepth)); }
+  }
+
+  <code-include linkend="maxp.methods"/>
+}
+</code-fragment>
+    </section>
+  

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="VORG.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    int offset = 0;
+    AttributesImpl at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + getuint16 (offset));
+    offset += 2;
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + getuint16 (offset));
+    offset += 2;
+    at.addAttribute ("", "defaultVertOriginY", "defaultVertOriginY", "CDATA",
+                     "" + getint16 (offset));
+    offset += 2;
+
+    int numVertOriginYMetrics = getuint16 (offset);
+    offset += 2;
+
+    conf.ch.startElement ("VORG", at); {
+
+      for (int i = 0; i &lt; numVertOriginYMetrics; i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + getuint16 (offset));
+        offset += 2;
+        at.addAttribute ("", "vertOriginY", "vertOriginY", "CDATA",
+                         "" + getint16 (offset));
+        offset += 2;
+        conf.ch.element ("vMetric", at); }
+
+      conf.ch.endElement ("VORG"); }
+  }
+</code-fragment>
+    </section>
+    

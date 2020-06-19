@@ -136,7 +136,7 @@
           a 1000-unit-em font, every glyph in the font is specified as
           having a vertOriginY of 880 except for glyphs with glyph
           indexes 10, 12, and 13:</para>
-      <literallayout><![CDATA[
+      <literallayout>
 majorVersion         =1
 minorVersion         =0
 defaultVertOriginY   =880
@@ -145,136 +145,11 @@ numVertOriginYMetrics=3
 [0]=(10,889)
 [1]=(12,861)
 [2]=(13,849)
-]]></literallayout>
+</literallayout>
     </section>
-    <!--________________________________________________________________-->
-    <section role="xml-representation">
-      <title>XML Representation</title>
-      <code-fragment id="schema"><code-title>??</code-title>
-VORG =
-  element VORG {
-    attribute major { "1" },
-    attribute minor { "0" },
-    attribute defaultVertOriginY { text },
-
-    element vMetric {
-      attribute gid { text },
-      attribute vertOriginY { text }
-    }*
-  }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="compiler">
-      <title>Compiler</title>
-      <code-fragment id="VORG.methods">
-  public void fromXML (Element vorg)
-    throws InvalidFontException, UnsupportedFontException {
-
-    NodeList metrics = vorg.getChildNodes ();
-
-    Block me = new Block (2 + 2 + 2 + 2 + metrics.getLength () * 4, 0);
-
-    int offset = 0;
-
-    me.setuint16 (offset,
-                  Integer.decode (vorg.getAttribute ("major")).intValue ());
-    offset += 2;
-
-    me.setuint16 (offset,
-                  Integer.decode (vorg.getAttribute ("minor")).intValue ());
-    offset += 2;
-
-    me.setint16 (offset,
-                 Integer.decode (vorg.getAttribute ("defaultVertOriginY")).intValue ());
-    offset += 2;
-
-    me.setuint16 (offset, metrics.getLength ());
-    offset += 2;
-
-    for (int i = 0; i &lt; metrics.getLength (); i++) {
-      Element metric = (Element) metrics.item (i);
-      me.setuint16 (offset,
-                    Integer.decode (metric.getAttribute ("gid")).intValue ());
-      offset += 2;
-      me.setint16 (offset,
-                   Integer.decode (metric.getAttribute ("verOriginY")).intValue ());
-      offset += 2; }
-
-    data = me.serialize ();
-  }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="decompiler">
-      <title>Decompiler</title>
-      <code-fragment id="VORG.methods">
-  public void toXML (DecompilerConfig conf)
-      throws org.xml.sax.SAXException {
-
-    int offset = 0;
-    AttributesImpl at = new AttributesImpl ();
-    at.addAttribute ("", "major", "major", "CDATA", "" + getuint16 (offset));
-    offset += 2;
-    at.addAttribute ("", "minor", "minor", "CDATA", "" + getuint16 (offset));
-    offset += 2;
-    at.addAttribute ("", "defaultVertOriginY", "defaultVertOriginY", "CDATA",
-                     "" + getint16 (offset));
-    offset += 2;
-
-    int numVertOriginYMetrics = getuint16 (offset);
-    offset += 2;
-
-    conf.ch.startElement ("VORG", at); {
-
-      for (int i = 0; i &lt; numVertOriginYMetrics; i++) {
-        at = new AttributesImpl ();
-        at.addAttribute ("", "gid", "gid", "CDATA", "" + getuint16 (offset));
-        offset += 2;
-        at.addAttribute ("", "vertOriginY", "vertOriginY", "CDATA",
-                         "" + getint16 (offset));
-        offset += 2;
-        conf.ch.element ("vMetric", at); }
-
-      conf.ch.endElement ("VORG"); }
-  }
-</code-fragment>
-    </section>
-    <!--________________________________________________________________-->
-    <section role="implementation">
-      <title>Implementation</title>
-      <code-fragment package="com.adobe.aots.CommonType" class="Vorg"><code-title>Vorg class</code-title>
-package com.adobe.aots.CommonType;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.helpers.AttributesImpl;
-
-import com.adobe.aots.util.ContentHandlerPlus;
-
-public class Vorg extends Table {
-
-  public Vorg () {
-    super (Tag.VORG, null);
-  }
-
-  public Vorg (Font font) {
-    super (Tag.VORG, font);
-  }
-
-  public int getVerticalOrigin (int glyphID) {
-    int numVertOriginYMetrics = getuint16 (6);
-
-    for (int i = 0; i &lt; numVertOriginYMetrics; i++) {
-      if (glyphID == getuint16 (8 + 4*i)) {
-        return getint16 (8 + 4*i + 2); }}
-
-    return getint16 (4);
-  }
-
-  <code-include linkend="VORG.methods"/>
-}
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.VORG/xml-representation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.VORG/compiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.VORG/decompiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.VORG/implementation-1.xml"/>
   </section>
 </section>

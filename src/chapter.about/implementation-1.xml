@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>The “Implementation” sections are the
+        source code for classes that represent fonts, as well as
+        support usual operations. For example, the implementation code
+        for the <ottable>cmap</ottable> table includes method to
+        convert a code point to a glyph ID.</para>
+    </section>
+    

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="lookuptable.methods">
+  private Block lookupTableFromXML (Element t, Element table,
+                                    Map&lt;Element, Block&gt; blockCache,
+				    Map&lt;String, Integer&gt; lookupIndices)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    { Block cached = blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    NodeList subtables = t.getChildNodes ();
+
+    int subtableCount = subtables.getLength ();
+    int type = lookupType (t.getAttribute ("type"));
+    if (type == 0) {
+      type = Integer.parseInt (t.getAttribute ("type")); }
+    int lookupFlag = 0;
+    if ("yes".equals (t.getAttribute ("rightToleft"))) {
+      lookupFlag |= 0x0001; }
+    if ("yes".equals (t.getAttribute ("ignoreBaseGlyphs"))) {
+      lookupFlag |= 0x0002; }
+    if ("yes".equals (t.getAttribute ("ignoreLigatures"))) {
+      lookupFlag |= 0x0004; }
+    if ("yes".equals (t.getAttribute ("ignoreMarks"))) {
+      lookupFlag |= 0x0008; }
+    String markAttachmentType = t.getAttribute ("markAttachmentType");
+    if (   markAttachmentType != null
+        &amp;&amp; ! "".equals (markAttachmentType)) {
+      lookupFlag |= (Integer.parseInt (markAttachmentType) &amp; 0xff) &lt;&lt; 8; }
+
+    Block me = new Block (6 + 2*subtableCount, subtableCount);
+    blockCache.put (t, me);
+
+    me.setuint16 (0, type);
+    me.setuint16 (2, lookupFlag);
+    me.setuint16 (4, subtableCount);
+    for (int i = 0; i &lt; subtableCount; i++) {
+      Element subtable =  (Element) subtables.item (i);
+      Block block = lookupSubtableFromXML (subtable, table,
+                                           blockCache, type,
+					   lookupIndices);
+      if (block == null) {
+        String subtableName = subtable.getTagName ();
+        warning ("unrecognized lookup subtable " + subtableName); }
+      me.setOffset (6 + 2*i, block); }
+
+    return me;
+  }
+
+  private Block lookupSubtableFromXML (Element lookupSubtable,
+                                       Element table,
+                                       Map&lt;Element, Block&gt; blockCache,
+                                       int lookupType,
+				       Map&lt;String, Integer&gt; lookupIndices)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = lookupSubtable.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+        lookupSubtable = resolveXMLid (table, name); }}
+
+    { Block cached = blockCache.get (lookupSubtable);
+      if (cached != null) {
+        return cached; }}
+
+    Block me = lookupSubtableBodyFromXML (lookupSubtable, table, blockCache,
+                                          lookupType, lookupIndices);
+
+    blockCache.put (lookupSubtable, me);
+    return me;
+  }
+
+  abstract Block lookupSubtableBodyFromXML (Element lookupSubtable,
+                                           Element table,
+                                           Map&lt;Element, Block&gt; blockCache,
+                                           int lookupType,
+		    		           Map&lt;String, Integer&gt; lookupIndices)
+      throws InvalidFontException, UnsupportedFontException;
+</code-fragment>
+      <code-fragment id="gpos.methods">
+  Block lookupSubtableBodyFromXML (Element lookupSubtable,
+                                           Element table,
+                                           Map&lt;Element, Block&gt; blockCache,
+                                           int lookupType,
+					   Map&lt;String, Integer&gt; lookupIndices)
+      throws InvalidFontException, UnsupportedFontException {
+
+    switch (lookupType) {
+      case 1: { return singlePosLookupFromXML (lookupSubtable, table,
+                                               blockCache); }
+      case 2: { return pairPosLookupFromXML (lookupSubtable, table,
+                                             blockCache); }
+      case 3: { return cursivePosFormat1FromXML (lookupSubtable, table,
+                                                 blockCache); }
+      case 4: { return markBasePosFormat1FromXML (lookupSubtable, table,
+                                                  blockCache); }
+      case 5: { return markLigPosFormat1FromXML (lookupSubtable, table,
+                                                 blockCache); }
+      case 6: { return markMarkPosFormat1FromXML (lookupSubtable, table,
+                                                  blockCache); }
+      case 7: { return contextLookupFromXML (lookupSubtable, table,
+                                              blockCache, lookupIndices); }
+      case 8: { return chainingLookupFromXML (lookupSubtable, table,
+                                              blockCache, lookupIndices); }
+      case 9: { return extensionFormat1FromXML (lookupSubtable, table,
+                                                blockCache, lookupIndices); }}
+
+     /* cannot get there with valid document */
+     throw new InvalidFontException
+                  ("invalid lookupType (" + lookupType + ")");
+  }
+</code-fragment>
+      <code-fragment id="gsub.methods">
+  Block lookupSubtableBodyFromXML (Element lookupSubtable,
+                                           Element table,
+                                           Map&lt;Element, Block&gt; blockCache,
+                                           int lookupType,
+					   Map&lt;String, Integer&gt; lookupIndices)
+      throws InvalidFontException, UnsupportedFontException {
+
+     switch (lookupType) {
+       case 1: { return singleSubstLookupFromXML (lookupSubtable, table,
+                                                   blockCache); }
+       case 2: { return multipleSubstFormat1FromXML (lookupSubtable, table,
+                                                     blockCache); }
+       case 3: { return alternateSubstFormat1FromXML (lookupSubtable, table,
+                                                      blockCache); }
+       case 4: { return ligatureSubstFormat1FromXML (lookupSubtable, table,
+                                                     blockCache); }
+       case 5: { return contextLookupFromXML (lookupSubtable, table,
+                                               blockCache, lookupIndices); }
+       case 6: { return chainingLookupFromXML (lookupSubtable, table,
+                                               blockCache, lookupIndices); }
+       case 7: { return extensionFormat1FromXML (lookupSubtable, table,
+                                                 blockCache, lookupIndices); }}
+
+     /* cannot get there with valid document */
+     throw new InvalidFontException
+                  ("invalid lookupType (" + lookupType + ")");
+  }
+</code-fragment>
+    </section>
+    

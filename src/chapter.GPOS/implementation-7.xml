@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Note that contrary to other lookups, the next glyph to
+          process is not always the first glyph after the matched
+          sequenced: if valueFormat2 is 0, then the next glyph to
+          process is the second matching glyph.</para>
+      <code-fragment id="gpos_2_1"><code-title>Execute GPOS 2/1 subtable and return</code-title>
+  { int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int inPos = curGlyph;
+
+    int ci = getCoverageIndex (gr.glyphAt (inPos), coverageOffset);
+    if (ci == -1) {
+      return lookupNotApplied; }
+
+    int firstGlyphPos = inPos++;
+
+    while (lookupFlagCovers (lookupFlag, gr.glyphAt (inPos))) {
+      inPos++; }
+
+    if (! gr.isLookupApplied (lookupIndex, firstGlyphPos, inPos)) {
+      return lookupNotApplied; }
+
+    int valueFormat1 = getuint16 (stOffset + 4);
+    int valueFormat2 = getuint16 (stOffset + 6);
+    int valueRecord1Size = ValueRecord.getSize (valueFormat1);
+    int valueRecord2Size = ValueRecord.getSize (valueFormat2);
+    int pairValueRecordSize = 2 + valueRecord1Size + valueRecord2Size;
+
+    int pairSetOffset = stOffset + getOffset (stOffset + 10 + 2*ci);
+    int pairValueCount = getuint16 (pairSetOffset);
+    for (int p = 0; p &lt; pairValueCount; p++) {
+      int pairValueRecordOffset = pairSetOffset + 2 + pairValueRecordSize * p;
+      int secondGlyph = getGlyphID (pairValueRecordOffset);
+
+      if (secondGlyph == gr.glyphAt (inPos)) {
+        ValueRecord value1
+	  = new ValueRecord().fromBinary (this,
+                                          pairValueRecordOffset + 2,
+                                          valueFormat1);
+        ValueRecord value2
+	  = new ValueRecord().fromBinary (this,
+	                                  pairValueRecordOffset + 2 + valueRecord1Size,
+                                          valueFormat2);
+        if (listener != null) {
+          listener.adjust (value1, valueFormat1);
+          listener.adjust (value2, valueFormat2);
+          listener.applyingSubtable (lookupIndex, gr, curGlyph,
+                                     "GPOS", stOffset); }
+
+        if (valueFormat1 != 0) {
+          gr.adjustPlacementAndAdvance (firstGlyphPos, value1); }
+        if (valueFormat2 != 0) {
+          gr.adjustPlacementAndAdvance (inPos, value2); }
+
+        if (valueFormat2 == 0) {
+          return new LookupResult (true, inPos, 0); }
+        else {
+          return new LookupResult (true, inPos + 1, 0); }}}
+
+    return lookupNotApplied; }
+</code-fragment>
+    </section>
+    

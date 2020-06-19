@@ -1944,11 +1944,16 @@ Else:
 	  OS/2.sTypoAscender = 880.</para>
       <para>Compatibility notes:
 
-	  <orderedlist><listitem><para>Most applications expect the width of full-width
+	  <orderedlist>
+          <listitem>
+            <para>Most applications expect the width of full-width
 	      ideographs in a CJK font to be exactly one em, thus it
 	      is strongly recommended that VertAxis.idtp, if present,
 	      be set to head.unitsPerEm. (The idtp baseline tag was
-	      introduced in CommonType 1.3.)</para></listitem><listitem><para>While the CommonType specification allows for CJK
+	      introduced in CommonType 1.3.)</para>
+          </listitem>
+          <listitem>
+            <para>While the CommonType specification allows for CJK
 		fonts' OS/2.sTypoDescender and OS/2.sTypoAscender
 		fields to specify metrics different from the
 		HorizAxis.ideo and HorizAxis.idtp in the <ottable>BASE</ottable> table,
@@ -1961,7 +1966,10 @@ Else:
 		applications, they should ensure that any ideographic
 		em-box values in the <ottable>BASE</ottable> table of their CJK fonts
 		describe the same bottom and top edges as the
-		OS/2.sTypoDescender and OS/2.sTypoAscender fields.</para></listitem><listitem><para>Applications on platforms other than Windows that
+		OS/2.sTypoDescender and OS/2.sTypoAscender fields.</para>
+          </listitem>
+          <listitem>
+            <para>Applications on platforms other than Windows that
 	      don't parse the <ottable>OS/2</ottable> table won't have
 	      access to the OS/2.sTypoDescender and OS/2.sTypoAscender
 	      fields, since these metrics are exposed only through
@@ -1970,7 +1978,10 @@ Else:
 	      hhea.Descender, OS/2.sTypoDescender, and HorizAxis.ideo
 	      (if present), and the same Ascender value recorded in
 	      hhea.Ascender, OS/2.sTypoAscender, and HorizAxis.idtp
-	      (if present).</para></listitem></orderedlist></para>
+	      (if present).</para>
+          </listitem>
+        </orderedlist>
+      </para>
       <para>See the section "CommonType CJK Font Guidelines"
 	    for more information about constructing CJK
 	    fonts.</para>
@@ -4110,9 +4121,17 @@ HorizAxis.icfb = -94.
 	characters. The 'nlck' feature is used to access those
 	glyphs.</para>
       <para>Example: The glyph
-          <mediaobject><imageobject><imagedata fileref="../../nlc1.gif"/></imageobject></mediaobject>
+          <mediaobject>
+          <imageobject>
+            <imagedata fileref="../../nlc1.gif"/>
+          </imageobject>
+        </mediaobject>
 	  is replaced by the glyph
-          <mediaobject><imageobject><imagedata fileref="../../nlc2.gif"/></imageobject></mediaobject>.</para>
+          <mediaobject>
+          <imageobject>
+            <imagedata fileref="../../nlc2.gif"/>
+          </imageobject>
+        </mediaobject>.</para>
       <para>Recommended implementation: One-for-one substitution of
 	non-NLC glyphs by the corresponding NLC glyph.</para>
       <para>UI suggestion: This feature should be off by default.</para>

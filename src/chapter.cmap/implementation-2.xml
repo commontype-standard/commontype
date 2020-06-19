@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="cmap_format0"><code-title>Return glyph for 'charCode', using format 0 subtable at 'stOffset'</code-title>
+  { int size = getuint16 (stOffset + 2) - 6;
+    if (0 &lt;= charCode &amp;&amp; charCode &lt; size) {
+      return getuint8 (stOffset + 6 + charCode); }
+    else {
+      return 0; }}
+</code-fragment>
+      <code-fragment id="cmap_format0_iterator"><code-title>Enumerate mappings in format 0 subtable at 'stOffset'</code-title>
+  { java.util.TreeMap&lt;Integer, Integer&gt; m
+        = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    int size = getuint16 (stOffset + 2) - 6;
+    for (int i = 0; i &lt; size; i++) {
+      if (from &lt;= i &amp;&amp; (i &lt;= to || to == -1)) {
+        m.put (i, getuint8 (stOffset + 6 + i)); }}
+
+    return m; }
+</code-fragment>
+      <code-fragment id="cmap_format0_inv"><code-title>Return character for 'glyphID', using format 0 subtable at 'stOffset'</code-title>
+  { int size = getuint16 (stOffset + 2) - 6;
+    for (int i = 0; i &lt; size; i++) {
+      if (getuint8 (stOffset + 6 + i) == glyphID) {
+        return i; }}
+    return -1; }
+</code-fragment>
+      <code-fragment id="cmap_format0_inv2"><code-title>Fill 'v' with characters for 'glyphID', using format 0 subtable at 'stOffset'</code-title>
+  { int size = getuint16 (stOffset + 2) - 6;
+    for (int i = 0; i &lt; size; i++) {
+      if (getuint8 (stOffset + 6 + i) == glyphID) {
+        v.add (new Integer (i)); }}}
+</code-fragment>
+    </section>
+    

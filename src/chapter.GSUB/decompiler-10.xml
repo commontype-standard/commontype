@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="contextualLookup.toXMLCount_2">
+  coverageTableToXMLCount (stOffset + getOffset (stOffset + 2), counts);
+  classDefTableToXMLCount (stOffset + getOffset (stOffset + 4), counts);
+</code-fragment>
+      <code-fragment id="contextualLookup.toXML_2">
+  coverageTableToXML (conf, stOffset + getOffset (stOffset + 2), counts);
+  classDefTableToXML (conf, stOffset + getOffset (stOffset + 4), counts);
+</code-fragment>
+      <code-fragment id="contextualLookup.toXMLEmit_2">
+    at = new AttributesImpl ();
+    coverageTableOffsetToXML (conf, stOffset + getOffset (stOffset + 2), counts,
+                              "coverage", at);
+
+    at = new AttributesImpl ();
+    classDefTableOffsetToXML (conf, stOffset + getOffset (stOffset + 4), counts,
+                              "classDef", at);
+
+    int classSetCount = getuint16 (stOffset + 6);
+    for (int c = 0; c &lt; classSetCount; c++) {
+      int xx = getOffset (stOffset + 8 + 2*c);
+      if (xx != 0) {
+        int classSetOffset = stOffset + xx;
+
+        int classRuleCount = getuint16 (classSetOffset);
+        for (int r = 0; r &lt; classRuleCount; r++) {
+          int classRuleOffset = classSetOffset
+                                + getOffset (classSetOffset + 2 + 2*r);
+
+          at = new AttributesImpl ();
+
+          int glyphCount = getuint16 (classRuleOffset);
+          StringBuilder s = new StringBuilder ();
+          s.append ("" + c);
+          for (int g = 0; g &lt; glyphCount - 1; g++) {
+            s.append (" " + getuint16 (classRuleOffset + 4 + 2*g)); }
+          at.addAttribute ("", "in", "in", "CDATA", s.toString ());
+
+          conf.ch.startElement ("pattern", at); {
+            subLookupsToXML (conf, getuint16 (classRuleOffset + 2),
+                             classRuleOffset + 4 + 2*(glyphCount-1));
+          conf.ch.endElement ("pattern"); }}}}
+</code-fragment>
+    </section>
+    

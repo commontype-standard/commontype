@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="lookuptable.methods"><code-title>Execute GSUB 7 subtable and return</code-title>
+  public LookupResult applyExtensionLookupSubtable
+                          (int lookupIndex, int lookupType, int lookupFlag,
+                           int stOffset, GlyphRun gr, int curGlyph)
+      throws InvalidFontException {
+
+    int extensionLookupType = getuint16 (stOffset + 2);
+    int extensionOffset = stOffset + (int)getuint32 (stOffset + 4);
+
+    return applyLookupSubtable (lookupIndex, extensionLookupType,
+                                lookupFlag, extensionOffset, gr,
+                                curGlyph);
+  }
+</code-fragment>
+    </section>
+    

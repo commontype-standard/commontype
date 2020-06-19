@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Each table type is implemented as a class; all those
+          classes derive from the class Table. Note that we record the
+          font to which a table belong when creating it; this allows
+          one table to access other tables when performing some
+          operation (such as GSUB using GDEF).</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Table">
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+import java.io.InputStream;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public abstract class Table {
+  protected long tag;
+  protected Font font;
+
+  public Table (long tag) {
+    this.tag = tag;
+    this.font = null;
+  }
+
+  public Table (long tag, Font font) {
+    this.tag = tag;
+    this.font = font;
+  }
+
+  public long getTag () {
+    return tag;
+  }
+  <code-include linkend="table.methods"/>
+}
+</code-fragment>
+      <code-fragment id="schema">
+  unknownTable =
+    element unknownTable {
+      attribute tag { text },
+      text
+    }
+</code-fragment>
+      <code-fragment package="com.adobe.aots.CommonType" class="UnknownTable">
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+public class UnknownTable extends Table {
+  public UnknownTable (long tag, Font font) {
+    super (tag, font);
+  }
+
+  public void fromXML (Element e)
+    throws InvalidFontException, UnsupportedFontException {
+
+    // TODO: recover the content
+  }
+
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException,
+             InvalidFontException,
+             UnsupportedFontException {
+
+    AttributesImpl at = new AttributesImpl ();
+    at.addAttribute ("", "tag", "tag", "CDATA", Tag.tag2string (tag));
+
+    conf.ch.startElement ("unknownTable", at); {
+       // TODO: dump the content of the table
+       conf.ch.endElement ("unknownTable"); }
+  }
+}
+</code-fragment>
+      <para>Each subclass of Table will essentially hold an internal
+          representation of the table, and provide methods to access
+          the data in the table, or may be apply that data (e.g. GSUB
+          and GPOS).</para>
+      <para>The internal representation can be built from two
+          sources: from an actual font file or from an XML
+          representation of the font; this is achieved by the
+          fromBinary and fromXML methods. Similarly, the internal
+          representation can be expressed as either a fragment of a
+          font, or in XML; this is achieved by the toBinary and toXML
+          methods.</para>
+      <para>In many cases, the internal representation is actually
+          the binary form of the table, and a couple of methods are
+          trivial. The Table class provides an implementation for that
+          case.</para>
+      <code-fragment id="table.methods"><code-title>Import/export methods</code-title>
+  public byte[] data;
+
+  public int fromBinary (InputStream in, int length)
+      throws IOException, InvalidFontException {
+    data = new byte [length];
+    return in.read (data);
+  }
+
+  public byte[] toBinary () {
+    return data;
+  }
+
+  abstract public void fromXML (Element e)
+    throws InvalidFontException, UnsupportedFontException;
+
+  abstract public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException,
+             InvalidFontException,
+             UnsupportedFontException;
+</code-fragment>
+      <para>Technically, the header is not a table, but it is
+        convenient for our purposes to pretend so.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Header"><code-title>Header class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.Iterator;
+import java.io.InputStream;
+import java.io.IOException;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Header extends Table {
+
+  public Header () {
+    super (0, null);
+  }
+
+  public Header (Font font) {
+    super (0, font);
+  }
+
+  <code-include linkend="header.methods"/>
+
+  public void toXML (DecompilerConfig conf) {
+     // never called
+  }
+  public void fromXML (Element cmap)
+      throws InvalidFontException, UnsupportedFontException {
+     // never called
+  }
+}
+</code-fragment>
+      <para>The fromBinary method has a slightly different
+          signature: the header contains its own size, which is not
+          generally true for the other tables.</para>
+      <code-fragment id="header.methods"><code-title>Header.fromBinary</code-title>
+  public int fromBinary (InputStream in)
+      throws IOException, InvalidFontException {
+    byte top[] = new byte[12];
+    int curOffset = in.read (top);
+
+    data = top;
+
+    if (getuint32 (0) == Tag.ttcf) {
+      return fromTTCBinary2 (in, 0, curOffset, top); }
+
+    int numTables = getuint16 (4);
+
+    data = new byte [curOffset + numTables*16];
+    System.arraycopy (top, 0, data, 0, curOffset);
+    int m = in.read (data, curOffset, numTables*16);
+
+    return curOffset + m;
+  }
+
+  public int fromTTCBinary (InputStream in, int ttcIndex)
+       throws IOException, InvalidFontException {
+
+    int curOffset = 0;
+
+    byte top[] = new byte [12];
+    curOffset += in.read (top);
+
+    data = top;
+
+    return fromTTCBinary2 (in, ttcIndex, curOffset, top);
+  }
+
+  public int fromTTCBinary2 (InputStream in, int ttcIndex, int curOffset, byte[] top)
+       throws IOException, InvalidFontException {
+
+    long tag = getuint32 (0);
+    if (tag != Tag.ttcf) {
+      throw new InvalidFontException ("invalid TTCTag"); }
+
+    long version = getuint32 (4);
+    long ttcCount = getuint32 (8);
+    int ttcHeaderSize = 0;
+
+    if (version == 0x00010000) {
+      ttcHeaderSize = 12 + 4 * (int)(ttcCount); }
+    else if (version == 0x00020000) {
+      ttcHeaderSize = 24 + 4 * (int)(ttcCount); }
+    else {
+      throw new InvalidFontException ("invalid TTHeader version"); }
+
+    if (ttcIndex &gt;= ttcCount) {
+      throw new InvalidFontException ("no such font (ttcIndex=" +
+                   ttcIndex + ", ttcCount=" + ttcCount + ")"); }
+
+    data = new byte [ttcHeaderSize];
+    System.arraycopy (top, 0, data, 0, 12);
+    curOffset += in.read (data, 12, ttcHeaderSize - 12);
+
+    long offsetTableOffset = getuint32 (12 + ttcIndex * 4);
+
+    while (curOffset != offsetTableOffset) {
+      curOffset += in.skip (offsetTableOffset - curOffset); }
+
+    curOffset += fromBinary (in);
+
+    return curOffset;
+  }
+</code-fragment>
+      <para>Often, we will need to iterate over the tables. Here is
+          a helper class to describe a table:</para>
+      <code-fragment id="header.methods"><code-title>Helper class TableDesc</code-title>
+  public class TableDesc {
+    public long tag;
+    public int offset;
+    public int length;
+  };
+
+  public class TableDescByTag extends TableDesc implements Comparable {
+    public int compareTo (Object o) {
+      TableDesc td = (TableDesc) o;
+      if (this.tag &gt; td.tag) {
+        return 1; }
+      else if (this.tag == td.tag) {
+        return 0; }
+      else {
+        return -1; }}
+  };
+
+  public class TableDescByOffset extends TableDesc implements Comparable {
+    public int compareTo (Object o) {
+      TableDesc td = (TableDesc) o;
+      if (this.offset &gt; td.offset) {
+        return 1; }
+      else if (this.offset == td.offset) {
+        return 0; }
+      else {
+        return -1; }}
+  };
+</code-fragment>
+      <para>And here is an iterator given an array of
+          TableDesc:</para>
+      <code-fragment id="header.methods"><code-title>Helper class TableIterator</code-title>
+  private class TablesIterator implements Iterator {
+    private TableDesc[] tds;
+    private int current;
+
+    public TablesIterator (TableDesc[] tds) {
+      this.current = 0;
+      this.tds = tds;
+    }
+
+    public boolean hasNext () {
+      return current &lt; tds.length;
+    }
+
+    public Object next () {
+      return tds [current++];
+    }
+
+    public void remove () {
+    }
+  };
+</code-fragment>
+      <para>Our first iterator returns the tables by increasing tag
+          values.</para>
+      <code-fragment id="header.methods"><code-title>Helper class TableDesc</code-title>
+  public Iterator tablesByTag () {
+    TableDesc[] tds = new TableDesc [getuint16 (4)];
+    for (int i = 0; i &lt; tds.length; i++) {
+      tds [i] = new TableDescByTag ();
+      tds [i].tag    = getuint32   (12 + 16*i);
+      tds [i].offset = getLOffset (12 + 16*i + 8);
+      tds [i].length = getLOffset (12 + 16*i + 12); }
+
+    java.util.Arrays.sort (tds);
+
+    return new TablesIterator (tds);
+  }
+
+  public Iterator tablesByOffset () {
+    TableDesc[] tds = new TableDesc [getuint16 (4)];
+    for (int i = 0; i &lt; tds.length; i++) {
+      tds [i] = new TableDescByOffset ();
+      tds [i].tag    = getuint32   (12 + 16*i);
+      tds [i].offset = getLOffset (12 + 16*i + 8);
+      tds [i].length = getLOffset (12 + 16*i + 12); }
+
+    java.util.Arrays.sort (tds);
+
+    return new TablesIterator (tds);
+  }
+</code-fragment>
+      <code-fragment id="table.methods">
+  protected void warning (String msg) {
+    System.out.println ("Warning: " + msg);
+  }
+</code-fragment>
+    </section>
+    

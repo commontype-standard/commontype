@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Here is a method to compile the checksum of a byte
+          sequence:</para>
+      <code-fragment id="font.methods"><code-title>Checksum method</code-title>
+  private long checksum (byte[] data) {
+    long checksum = 0;
+    int i = 0;
+    while (i &lt; data.length) {
+      int b1 = data [i++] &amp; 0xff;
+
+      int b2 = 0;
+      if (i &lt; data.length) {
+        b2 = data [i++] &amp; 0xff; }
+
+      int b3 = 0;
+      if (i &lt; data.length) {
+        b3 = data [i++] &amp; 0xff; }
+
+      int b4 = 0;
+      if (i &lt; data.length) {
+        b4 = data [i++] &amp; 0xff; }
+
+      int word = b1 &lt;&lt; 24 | b2 &lt;&lt;16 | b3 &lt;&lt; 8 | b4;
+      checksum = (checksum + word) &amp; 0xffffffffL; }
+
+    return checksum;
+  }
+</code-fragment>
+    </section>
+  

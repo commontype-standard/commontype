@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="hdmx.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    AttributesImpl at = new AttributesImpl ();
+    at.addAttribute ("", "version", "version", "CDATA", "" + getuint16 (0));
+
+    conf.ch.startElement ("hdmx", at); {
+      int offset;
+      int numGlyphs = font.maxp.getNumGlyphs ();
+
+      int numRecords = getint16 (2);
+      int sizeDeviceRecord = getint32 (4);
+
+      offset = 8;
+
+      for (int i = 0; i &lt; numRecords; i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "pixelSize", "pixelSize", "CDATA", "" + getuint8 (offset));
+        at.addAttribute ("", "maxWidth", "maxWidth", "CDATA", "" + getuint8 (offset + 1));
+
+        conf.ch.startElement ("deviceRecord", at); {
+          for (int gid = 0; gid &lt; numGlyphs; gid++) {
+            at = new AttributesImpl ();
+            at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
+            at.addAttribute ("", "v", "v", "CDATA", "" + getuint8 (offset + 2 + gid));
+            conf.ch.element ("width", at); }
+          conf.ch.endElement ("deviceRecord"); }
+
+        offset += sizeDeviceRecord; }
+
+      conf.ch.endElement ("hdmx"); }
+  }
+</code-fragment>
+    </section>
+    

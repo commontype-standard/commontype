@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="chainingLookup_format3"><code-title>Execute chaining format 3 subtable and return</code-title>
+  { int backtrackGlyphCount = getuint16 (stOffset + 2);
+    int inputGlyphCount = getuint16 (stOffset + 4 + 2*backtrackGlyphCount);
+    int lookaheadGlyphCount = getuint16 (stOffset + 6 + 2*backtrackGlyphCount
+                                         + 2*inputGlyphCount);
+
+    int backPos = curGlyph - 1;
+
+    for (int b = 0 ; b &lt; backtrackGlyphCount; b++) {
+      while (lookupFlagCovers (lookupFlag, gr.glyphAt (backPos))) {
+        backPos--; }
+
+      if (-1 == getCoverageIndex (gr.glyphAt (backPos),
+                                  stOffset + getOffset (stOffset + 4 + 2*b))) {
+        return lookupNotApplied; }
+
+      backPos--; }
+
+    int [] matchedPositions = new int [inputGlyphCount];
+    int inPos = curGlyph;
+
+    for (int i = 0; i &lt; inputGlyphCount; i++) {
+      if (i != 0) {
+        while (lookupFlagCovers (lookupFlag, gr.glyphAt (inPos))) {
+          inPos++; }}
+
+      if (-1 == getCoverageIndex (gr.glyphAt (inPos),
+                                  stOffset + getOffset (  stOffset + 6
+                                                        + 2*backtrackGlyphCount
+                                                        + 2*i))) {
+        return lookupNotApplied; }
+
+      matchedPositions [i] = inPos;
+      inPos++; }
+
+    if (! gr.isLookupApplied (lookupIndex, curGlyph, inPos - 1)) {
+      return lookupNotApplied; }
+
+    for (int l = 0; l &lt; lookaheadGlyphCount; l++) {
+
+      while (lookupFlagCovers (lookupFlag, gr.glyphAt (inPos))) {
+        inPos++; }
+
+      if (-1 == getCoverageIndex (gr.glyphAt (inPos),
+                                  stOffset + getOffset (  stOffset + 8
+                                                        + 2*backtrackGlyphCount
+                                                        + 2*inputGlyphCount
+                                                        + 2*l))) {
+        return lookupNotApplied; }
+
+      inPos++; }
+
+    int applyCountOffset = stOffset + 8
+                                + 2*backtrackGlyphCount
+                                + 2*inputGlyphCount
+                                + 2*lookaheadGlyphCount;
+    int applyCount = getuint16 (applyCountOffset);
+    int applyOffset = applyCountOffset + 2;
+    if (listener != null) {
+      listener.applyingSubtable (lookupIndex, gr, curGlyph,
+                                 Tag.tag2string (tag), stOffset); }
+    return applySubLookups (gr, matchedPositions, applyCount, applyOffset); }
+</code-fragment>
+    </section>
+    

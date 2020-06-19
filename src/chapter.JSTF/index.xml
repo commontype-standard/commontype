@@ -218,7 +218,8 @@
     <!--____________________________________________________________________-->
     <section role="zzzxml-representation">
       <title>XML Representation</title>
-      <code-fragment id="zzzschema"><code-title>JST</code-title>
+      <code-fragment id="zzzschema">
+        <code-title>JST</code-title>
   JSTF =
     element JSTF {
       attribute major { "1" },
@@ -404,7 +405,8 @@
     <!--____________________________________________________________________-->
     <section role="zzzxml-representation">
       <title>XML Representation</title>
-      <code-fragment id="zzzschema"><code-title>JST</code-title>
+      <code-fragment id="zzzschema">
+        <code-title>JST</code-title>
   jstfScriptTable =
     element extenderGlyph { extenderGlyphTableOffset }?,
     element defaultLangSys { jstfLangSysTableOffset }?,
@@ -456,7 +458,8 @@
     <!--____________________________________________________________________-->
     <section role="zzzxml-representation">
       <title>XML Representation</title>
-      <code-fragment id="zzzschema"><code-title>JST</code-title>
+      <code-fragment id="zzzschema">
+        <code-title>JST</code-title>
   extenderGlyphTable =
     attribute glyphs { text }
 
@@ -508,7 +511,8 @@
     <!--____________________________________________________________________-->
     <section role="zzzxml-representation">
       <title>XML Representation</title>
-      <code-fragment id="zzzschema"><code-title>JST</code-title>
+      <code-fragment id="zzzschema">
+        <code-title>JST</code-title>
   jstfLangSysTable =
     element priority {
       jstfPriorityTableOffset
@@ -628,7 +632,8 @@
     <!--____________________________________________________________________-->
     <section role="zzzxml-representation">
       <title>XML Representation</title>
-      <code-fragment id="zzzschema"><code-title>JST</code-title>
+      <code-fragment id="zzzschema">
+        <code-title>JST</code-title>
   jstfPriorityTable =
     element shrinkage {
       element enableGSUB   { jstfModListOffset }?,
@@ -719,7 +724,8 @@
     <!--____________________________________________________________________-->
     <section role="zzzxml-representation">
       <title>XML Representation</title>
-      <code-fragment id="zzzschema"><code-title>JST</code-title>
+      <code-fragment id="zzzschema">
+        <code-title>JST</code-title>
   jstfModList =
     attribute lookups { text }
 
@@ -785,7 +791,8 @@
     <!--____________________________________________________________________-->
     <section role="zzzxml-representation">
       <title>XML Representation</title>
-      <code-fragment id="zzzschema"><code-title>JST</code-title>
+      <code-fragment id="zzzschema">
+        <code-title>JST</code-title>
   jstfMaxTable =
     element lookup {
       GPOSJSTFlookupTableOffset

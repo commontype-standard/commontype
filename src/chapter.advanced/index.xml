@@ -13,16 +13,30 @@
 	that extends the capabilities of the fonts to support
 	high-quality international typography:
 
-	  <itemizedlist><listitem><para>CommonType Layout fonts allow a rich mapping between
+	  <itemizedlist>
+          <listitem>
+            <para>CommonType Layout fonts allow a rich mapping between
 		characters and glyphs, which supports ligatures,
 		positional forms, alternates, and other
-		substitutions.</para></listitem><listitem><para>CommonType Layout fonts include information to
+		substitutions.</para>
+          </listitem>
+          <listitem>
+            <para>CommonType Layout fonts include information to
 		support features for two-dimensional positioning and
-		glyph attachment.</para></listitem><listitem><para>CommonType Layout fonts contain explicit script and
+		glyph attachment.</para>
+          </listitem>
+          <listitem>
+            <para>CommonType Layout fonts contain explicit script and
 		language information, so a text-processing application
-		can adjust its behavior accordingly.</para></listitem><listitem><para>CommonType Layout fonts have an open format that
+		can adjust its behavior accordingly.</para>
+          </listitem>
+          <listitem>
+            <para>CommonType Layout fonts have an open format that
 		allows font developers to define their own
-		typographical features.</para></listitem></itemizedlist></para>
+		typographical features.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
       <para>This overview introduces the power and flexibility of
 	  the CommonType Layout font model. The CommonType Layout tables
 	  are described in more detail in the "Font File Tables"
@@ -342,7 +356,8 @@
 	  connection since the GSUB and GPOS programs do operate on
 	  that structure. We capture here this connection in the form
 	  of an interface:</para>
-      <code-fragment package="com.adobe.aots.CommonType" class="GlyphRun"><code-title>GlyphRun interface</code-title>
+      <code-fragment package="com.adobe.aots.CommonType" class="GlyphRun">
+        <code-title>GlyphRun interface</code-title>
 package com.adobe.aots.CommonType;
 
 public interface GlyphRun {
@@ -352,13 +367,15 @@ public interface GlyphRun {
       <para>First, we have two simple methods to access the number
 	  of glyphs in the run and the ID of glyph at a specific
 	  position:</para>
-      <code-fragment id="glyphrun.methods"><code-title>GlyphRun interface</code-title>
+      <code-fragment id="glyphrun.methods">
+        <code-title>GlyphRun interface</code-title>
   public int glyphCount ();
   public int glyphAt (int pos);
 </code-fragment>
       <para>Another pair of accessors, this time to get the position
 	  of a glyph:</para>
-      <code-fragment id="glyphrun.methods"><code-title>GlyphRun interface</code-title>
+      <code-fragment id="glyphrun.methods">
+        <code-title>GlyphRun interface</code-title>
   public int getXPos (int g);
   public int getYPos (int g);
 </code-fragment>
@@ -373,171 +390,35 @@ public interface GlyphRun {
 	  followin it. Thus, a GPOS/GSUB engine needs
 	  to figure out if a given lookup is to be applied at a given
 	  position:</para>
-      <code-fragment id="glyphrun.methods"><code-title>GlyphRun interface</code-title>
+      <code-fragment id="glyphrun.methods">
+        <code-title>GlyphRun interface</code-title>
   public boolean isLookupApplied (int lookupIndex, int start, int stop);
 </code-fragment>
       <para>The MarkToLigature GPOS lookup type has the implicit
 	  notion of ligature component, and of the component to which
 	  a mark following a ligature attaches to:</para>
-      <code-fragment id="glyphrun.methods"><code-title>GlyphRun interface</code-title>
+      <code-fragment id="glyphrun.methods">
+        <code-title>GlyphRun interface</code-title>
   public void setLigComponents (int[] components);
   public int getLigComponent (int g);
 </code-fragment>
       <para>The GSUB lookups result in the replaced of one or more
 	  glyphs by one or more glyphs:</para>
-      <code-fragment id="glyphrun.methods"><code-title>GlyphRun interface</code-title>
+      <code-fragment id="glyphrun.methods">
+        <code-title>GlyphRun interface</code-title>
   public void replace (int position, int replacementGlyph);
   public void replace (int position, int[] replacementGlyphs);
   public void replace (int[] positions, int replacementGlyph);
 </code-fragment>
       <para>The GPOS lookups result in the adjustment of a glyph
 	  position:</para>
-      <code-fragment id="glyphrun.methods"><code-title>GlyphRun interface</code-title>
+      <code-fragment id="glyphrun.methods">
+        <code-title>GlyphRun interface</code-title>
   public void adjustPlacementAndAdvance (int g, ValueRecord vr);
   public void move (int g, int x, int y);
 </code-fragment>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="implementation">
-      <title>Implementation</title>
-      <para>For the purpose of testing our CommonType implementation,
-	  here is a very simple implementation of the GlyphRun
-	  interface:</para>
-      <code-fragment package="com.adobe.aots.CommonType" class="GlyphRunImpl"><code-title>TestGlyphrun Class</code-title>
-
-package com.adobe.aots.CommonType;
-
-public class GlyphRunImpl implements GlyphRun {
-  protected int[] glyphs;
-  protected int totGlyphs;
-
-  public int glyphCount () {
-    return totGlyphs;
-  }
-
-  public int glyphAt (int position) {
-    if (position &lt; 0 || totGlyphs &lt;= position) {
-      return -1; }
-    else {
-      return glyphs [position]; }
-  }
-
-  public void setGlyphAt (int position, int glyph) {
-    if (position &lt; 0 || totGlyphs &lt;= position) {
-      return; }
-    else {
-      glyphs [position] = glyph; }
-  }
-
-  public void setGlyphs (int [] glyphs, int count) {
-    this.glyphs = new int [count];
-    System.arraycopy (glyphs, 0, this.glyphs, 0, count);
-    this.totGlyphs = count;
-  }
-
-  public void setGlyphs (int [] glyphs) {
-    setGlyphs (glyphs, glyphs.length);
-  }
-
-  public boolean isLookupApplied (int lookupIndex, int start, int stop) {
-    return (0 &lt;= start &amp;&amp; stop &lt; totGlyphs);
-  }
-
-  public void replace (int position, int replacementGlyph) {
-    // replace the glyph at position by replacementGlyph
-    glyphs [position] = replacementGlyph;
-  }
-
-  public void replace (int position, int[] replacementGlyphs) {
-    // replace the glyph at position by replacementGlyphs
-    if (totGlyphs + replacementGlyphs.length - 1 &gt; glyphs.length) {
-      int[] temp = new int [totGlyphs + replacementGlyphs.length + 100];
-      System.arraycopy (glyphs, 0, temp, 0, totGlyphs);
-      glyphs = temp; }
-    System.arraycopy (glyphs, position + 1,
-                      glyphs, position + replacementGlyphs.length,
-                      totGlyphs - position - 1);
-    System.arraycopy (replacementGlyphs, 0,
-                      glyphs, position,
-                      replacementGlyphs.length);
-    totGlyphs += replacementGlyphs.length - 1;
-  }
-
-  public void replace (int[] positions, int replacementGlyph) {
-    // replace the glyphs at positions by replacementGlyph
-    // = replace the glyph at positions[0] by replacementGlyph
-    //   + delete the glyphs at positions[i], i&gt;0
-
-    glyphs [positions [0]] = replacementGlyph;
-
-    for (int i = positions.length - 1; i &gt;= 1; i--) {
-      System.arraycopy (glyphs, positions[i] + 1,
-                        glyphs, positions[i],
-                        totGlyphs - (positions[i] + 1));
-      totGlyphs--; }
-  }
-
-  public void dump (int curGlyph) {
-    for (int i = 0; i &lt; totGlyphs; i++) {
-      if (i == curGlyph) {
-        System.out.print (" *" + glyphs[i]); }
-      else {
-        System.out.print ("  " + glyphs[i]); }}
-    System.out.println ("");
-  }
-
-  public int [] xPos;
-  public int [] yPos;
-
-  public void setDefaultPlacementsAndAdvances (Font font) {
-    xPos = new int [totGlyphs];
-    yPos = new int [totGlyphs];
-
-    // this works for horizontal layout only.
-    xPos [0] = 0;
-    yPos [0] = 0;
-
-    for (int i = 1; i &lt; totGlyphs; i++) {
-      xPos [i] = xPos [i-1] + font.hmtx.getHorizontalAdvance (glyphs [i-1]);
-      yPos [i] = 0; }
-  }
-
-  public void adjustPlacementAndAdvance (int g, ValueRecord vr) {
-    xPos [g] += vr.xPlacement;
-    yPos [g] += vr.yPlacement;
-    for (int i = g + 1; i &lt; totGlyphs; i++) {
-      xPos [i] += vr.xAdvance;
-      yPos [i] += vr.yAdvance; }
-  }
-
-  public void move (int g, int x, int y) {
-    xPos [g] = x;
-    yPos [g] = y;
-  }
-
-  public int getXPos (int g) {
-    return xPos [g];
-  }
-
-  public int getYPos (int g) {
-    return yPos [g];
-  }
-
-  public int [] ligComponents = null;
-
-  public void setLigComponents (int[] components) {
-    ligComponents = components;
-  }
-
-  public int getLigComponent (int g) {
-    if (ligComponents == null) {
-      return -1; }
-    else {
-      return ligComponents [g]; }
-  }
-}
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.advanced/implementation-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">

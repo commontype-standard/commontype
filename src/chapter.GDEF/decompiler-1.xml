@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gdef.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    int [] counts = new int [data.length];
+    for (int i = 0; i &lt; counts.length; i++) {
+      counts [i] = 0; }
+
+    if (getOffset (0, 4) != 0) {
+      classDefTableToXMLCount (getOffset (0, 4), counts); }
+    if (getOffset (0, 6) != 0) {
+      attachListTableToXMLCount (getOffset (0, 6), counts); }
+    if (getOffset (0, 8) != 0) {
+      ligCaretListTableToXMLCount (getOffset (0, 8), counts); }
+    if (getOffset (0, 10) != 0) {
+      classDefTableToXMLCount (getOffset (0, 10), counts); }
+
+    if (conf.pointers == DecompilerConfig.PointersAreShown.never) {
+      for (int i = 0; i &lt; counts.length; i++) {
+        counts [i] = 1; }}
+    if (conf.pointers == DecompilerConfig.PointersAreShown.always) {
+      for (int i = 0; i &lt; counts.length; i++) {
+        counts [i] = 2; }}
+
+    AttributesImpl at;
+
+    int [] version = getTableVersion ();
+    at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
+
+    conf.ch.startElement ("GDEF", at); {
+
+      if (getOffset (0, 4) != 0) {
+        classDefTableOffsetToXML (conf, getOffset (0, 4), counts,
+                                  "glyphClassDef", new AttributesImpl ()); }
+      if (getOffset (0, 6) != 0) {
+        attachListTableOffsetToXML (conf, getOffset (0, 6), counts,
+                                   "attachList", new AttributesImpl ()); }
+      if (getOffset (0, 8) != 0) {
+        ligCaretListTableOffsetToXML (conf, getOffset (0, 8), counts,
+                                      "ligCaretList", new AttributesImpl ()); }
+      if (getOffset (0, 10) != 0) {
+        classDefTableOffsetToXML (conf, getOffset (0, 10), counts,
+                                  "markAttachClassDef", new AttributesImpl ()); }
+
+      if (getOffset (0, 4) != 0) {
+        classDefTableToXML (conf, getOffset (0, 4), counts); }
+      if (getOffset (0, 6) != 0) {
+        attachListTableToXML (conf, getOffset (0, 6), counts); }
+      if (getOffset (0, 8) != 0) {
+        ligCaretListTableToXML (conf, getOffset (0, 8), counts); }
+      if (getOffset (0, 10) != 0) {
+        classDefTableToXML (conf, getOffset (0, 10), counts); }
+
+      conf.ch.endElement ("GDEF"); }
+  }
+</code-fragment>
+    </section>
+    

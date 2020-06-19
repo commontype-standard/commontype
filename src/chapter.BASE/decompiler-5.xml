@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <!--GOO-->
+      <code-fragment id="base.methods">
+  public void baseScriptTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    if (getOffset (offset) != 0) {
+      baseValuesTableToXMLCount (getOffset (offset, 0), counts); }
+    if (getOffset (offset + 2) != 0) {
+      minMaxTableToXMLCount (getOffset (offset, 2), counts); }
+    for (int i = 0; i &lt; getuint16 (offset + 4); i++) {
+      minMaxTableToXMLCount (getOffset (offset, 6 + 6*i + 4), counts); }
+  }
+
+  public void baseScriptTableOffsetToXML (DecompilerConfig conf, int offset,
+                                          int [] counts,
+                                          String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "baseScriptTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      baseScriptTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void baseScriptTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "baseScriptTable_" + Integer.toHexString (offset));
+      baseScriptTableToXMLEmit (conf, offset, counts,
+                               "baseScriptTable", at);
+      counts [offset] = 0; }
+
+    if (getOffset (offset) != 0) {
+      baseValuesTableToXML (conf, getOffset (offset, 0), counts); }
+    if (getOffset (offset + 2) != 0) {
+      minMaxTableToXML (conf, getOffset (offset, 2), counts); }
+    for (int i = 0; i &lt; getuint16 (offset + 4); i++) {
+      minMaxTableToXML (conf, getOffset (offset, 6 + 6*i + 4), counts); }
+  }
+
+
+  public void baseScriptTableToXMLEmit (DecompilerConfig conf, int offset,
+                                    int[] counts,
+                                    String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+      if (getOffset (offset) != 0) {
+        at = new AttributesImpl ();
+        baseValuesTableOffsetToXML (conf, getOffset (offset, 0), counts,
+                                    "baseValues", at); }
+
+      if (getOffset (offset + 2) != 0) {
+        at = new AttributesImpl ();
+        minMaxTableOffsetToXML (conf, getOffset (offset, 2), counts,
+                                "defaultMinMax", at); }
+
+      for (int i = 0; i &lt; getuint16 (offset + 4); i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "tag", "tag", "CDATA",
+                         Tag.tag2string (getuint32 (offset + 6 + 6*i)));
+        minMaxTableOffsetToXML (conf, getOffset (offset, 6 + 6*i + 4),
+                                counts, "baseLangSysRecord", at); }
+
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+  

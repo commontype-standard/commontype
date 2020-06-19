@@ -167,7 +167,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>BASE</ottable> Table</title>
+    <title>
+      <ottable>BASE</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -195,7 +196,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>cmap</ottable> Table </title>
+    <title>
+      <ottable>cmap</ottable> Table </title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -239,7 +241,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>cvt</ottable> Table</title>
+    <title>
+      <ottable>cvt</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -249,7 +252,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>fpgm</ottable> Table</title>
+    <title>
+      <ottable>fpgm</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -259,7 +263,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>glyf</ottable> Table</title>
+    <title>
+      <ottable>glyf</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -274,7 +279,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>hdmx</ottable> Table</title>
+    <title>
+      <ottable>hdmx</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -310,7 +316,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>head</ottable> Table</title>
+    <title>
+      <ottable>head</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -327,7 +334,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>hhead</ottable> Table</title>
+    <title>
+      <ottable>hhead</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -337,7 +345,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>hmtx</ottable> Table</title>
+    <title>
+      <ottable>hmtx</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -351,7 +360,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>kern</ottable> Table</title>
+    <title>
+      <ottable>kern</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -368,7 +378,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>loca</ottable> Table</title>
+    <title>
+      <ottable>loca</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -386,7 +397,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>LTSH</ottable> Table</title>
+    <title>
+      <ottable>LTSH</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -397,7 +409,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>maxp</ottable> Table</title>
+    <title>
+      <ottable>maxp</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -459,7 +472,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>OS/2</ottable> Table</title>
+    <title>
+      <ottable>OS/2</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -515,7 +529,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>post</ottable> Table</title>
+    <title>
+      <ottable>post</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -533,7 +548,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>prep</ottable> Table</title>
+    <title>
+      <ottable>prep</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
@@ -543,7 +559,8 @@
   </section>
   <!--======================================================================-->
   <section role="fragment">
-    <title><ottable>VDMX</ottable> Table</title>
+    <title>
+      <ottable>VDMX</ottable> Table</title>
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Hmtx"><code-title>Hmtx class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Hmtx extends Table {
+
+  public Hmtx () {
+    super (Tag.hmtx, null);
+  }
+
+  public Hmtx (Font font) {
+    super (Tag.hmtx, font);
+  }
+
+  public int getLeftSideBearing (int glyphID) {
+    int numberOfHMetrics = font.hhea.getNumberOfHMetrics ();
+    if (glyphID &lt; numberOfHMetrics) {
+      return getFWord (4*glyphID + 2); }
+    else {
+      return getFWord (4*numberOfHMetrics + 2*(glyphID - numberOfHMetrics)); }
+  }
+
+  public int getHorizontalAdvance (int glyphID) {
+    int numberOfHMetrics = font.hhea.getNumberOfHMetrics ();
+    if (glyphID &lt; numberOfHMetrics) {
+      return getuFWord (4*glyphID); }
+    else {
+      return getuFWord (4*(numberOfHMetrics - 1)); }
+  }
+
+  <code-include linkend="hmtx.methods"/>
+}
+</code-fragment>
+    </section>
+  

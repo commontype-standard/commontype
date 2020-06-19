@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="validation">
+      <title>Validation</title>
+      <para>In line with our annotation, the validation code generates a
+          warning if the glyphIdArray does not have exactly 256
+          entries.</para>
+      <code-fragment id="validate_cmap_format0"><code-title>Validate cmap 0 subtable at stOffset</code-title>
+  if (! claim (stPrefix + " header", stOffset, 6)) {
+    break; }
+
+  int stVersion = getuint16 (stOffset + 4);
+  if (stVersion &gt; 0) {
+    reportError ("cmap@" + stOffset + " table version (" + stVersion
+                 + ") not part of the specification"); }
+
+  int size = getuint16 (stOffset + 2);
+  if (size &lt; 6) {
+    reportError ("cmap subtable at " + stOffset + " has length &lt;  6"); }
+  if (size &gt; 6 + 256) {
+    reportError ("cmap subtable at " + stOffset
+                     + " has more than 256 entries"); }
+  if (size &lt; 6 + 256) {
+    reportWarning ("cmap subtable at " + stOffset
+                   + " has less than 256 entries"); }
+  // check that each glyphID in glyphIdArray is a valid glyph
+
+  claim (stPrefix + " glyphIDArray", stOffset + 6, size - 6);
+</code-fragment>
+    </section>
+  

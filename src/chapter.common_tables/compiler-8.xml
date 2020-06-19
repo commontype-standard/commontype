@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="CoverageTableBlock">
+package com.adobe.aots.CommonType;
+
+public class CoverageTableBlock extends Block {
+  public CoverageTableBlock (int size, int referenceCount) {
+    super (size, referenceCount);
+  }
+
+  public int[] glyphs;
+
+  public int index (int gid) {
+    for (int ci = 0; ci &lt; glyphs.length; ci++) {
+      if (glyphs [ci] == gid) {
+        return ci; }}
+    return -1;
+  }
+}
+</code-fragment>
+      <code-fragment id="layouttable.methods">
+  public CoverageTableBlock coverageFromXML (Element t,
+                                             Element table,
+					     Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    { CoverageTableBlock cached = (CoverageTableBlock) blockCache.get (t);
+      if (cached != null) {
+        return cached; }}
+
+    CoverageTableBlock me = null;
+
+    String format = t.getAttribute ("format");
+
+    if ("any".equals (format)) {
+      me = coverageFromGlyphs (getGlyphs (t.getAttribute ("glyphs"))); }
+    else if ("1".equals (format)) {
+      me = coverageFormat1FromXML (t, table, blockCache); }
+    else if ("2".equals (format)) {
+      me = coverageFormat2FromXML (t, table, blockCache); }
+    else {
+      /* cannot get there on valid document */
+      throw new InvalidFontException
+                 ("invalid coverage format (" + format + ")"); }
+
+    blockCache.put (t, me);
+    return me;
+  }
+
+
+  public CoverageTableBlock emptyCoverage () {
+    return coverageFromGlyphs (new int[0], 0);
+  }
+
+  public CoverageTableBlock coverageFromGlyphs (int [] glyphs) {
+    return coverageFromGlyphs (glyphs, glyphs.length);
+  }
+
+  public CoverageTableBlock coverageFromGlyphs (Integer [] glyphs) {
+    return coverageFromGlyphs (glyphs, glyphs.length);
+  }
+
+  public CoverageTableBlock coverageFromGlyphs (Integer [] glyphs, int count) {
+    int[] g = new int [count];
+    for (int i = 0; i &lt; count; i++) {
+      g[i] = glyphs[i].intValue (); }
+    return coverageFromGlyphs (g, count);
+  }
+
+  public CoverageTableBlock coverageFromGlyphs (int [] glyphs, int count) {
+    CoverageTableBlock table = new CoverageTableBlock (4 + 2*count, 0);
+    table.glyphs = new int [count];
+    System.arraycopy (glyphs, 0, table.glyphs, 0, count);
+
+    for (int i = 0; i &lt; count - 1; i++) {
+      for (int j = i + 1; j &lt; count; j++) {
+        if (table.glyphs [i] &gt; table.glyphs [j]) {
+          int temp = table.glyphs [i];
+          table.glyphs [i] = table.glyphs [j];
+          table.glyphs [j] = temp; }}}
+
+    table.setuint16 (0, 1);
+    table.setuint16 (2, count);
+    for (int i = 0; i &lt; count; i++) {
+      table.setGlyphID (4 + 2*i, table.glyphs [i]); }
+
+    return table;
+  }
+</code-fragment>
+      <para>This method is given a nodelist, which must contains
+        Elements only. Each element in the list must have the
+        attribute <varname>attribute</varname>, the value of which is
+        a sequence of glyph references. The coverage is built by
+        taking the first glyph reference in each attribute (if
+        firstOnly is true) or all the glyphs references (if firstOnly
+        is false).</para>
+      <code-fragment id="layouttable.methods">
+  public CoverageTableBlock coverageFromXML (NodeList nl, String attribute)
+      throws InvalidFontException, UnsupportedFontException {
+    return coverageFromXML (nl, attribute, true);
+  }
+
+  public CoverageTableBlock coverageFromXML (NodeList nl, String attribute,
+                                             boolean firstOnly)
+      throws InvalidFontException, UnsupportedFontException {
+
+    SortedSet&lt;Integer&gt; s = new TreeSet&lt;Integer&gt; ();
+
+    for (int i = 0; i &lt; nl.getLength (); i++) {
+      Element e = (Element) nl.item (i);
+      String v = e.getAttribute (attribute).trim ();
+      if (e.hasAttribute (attribute)) {
+        int[] gids = parseGlyphList (v);
+        int count = firstOnly ? 1 : gids.length;
+        for (int j = 0; j &lt; count; j++) {
+          s.add (gids [j]); }}}
+
+    int [] glyphs = new int [s.size ()];
+    int glyphCount = 0;
+
+    for (int gid : s) {
+       glyphs [glyphCount++] = gid; }
+
+    return coverageFromGlyphs (glyphs);
+  }
+</code-fragment>
+    </section>
+    

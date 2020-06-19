@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Since each table (<ottable>GSUB</ottable>,
+          <ottable>GPOS</ottable>) defines different lookup subtables,
+          we need to defer the application of a subtable to the
+          corresponding classes. We encapsulate this operation in a
+          method that applies a given subtable to a given position of
+          a glyphrun.</para>
+      <para>This method returns a complex result. The boolean
+          <varname>applied</varname> is true iff the glyphrun matched
+          the pattern of the subtable. If true, then the two other
+          fields are defined: <varname>nextToProcess</varname> is the
+          next glyph to process, and <varname>countAdjust</varname> is
+          the difference between the number of glyphs after
+          application and the number of glyph before application.</para>
+      <code-fragment id="lookuptable.methods"><code-title>LookupResult class</code-title>
+  static public class LookupResult {
+    public boolean applied;
+    public int nextToProcess;
+    public int countAdjust;
+
+    public LookupResult (boolean applied, int nextToProcess, int countAdjust) {
+      this.applied = applied;
+      this.nextToProcess = nextToProcess;
+      this.countAdjust = countAdjust;
+    }
+  }
+
+  static public LookupResult lookupNotApplied = new LookupResult (false, 0, 0);
+</code-fragment>
+      <para>And is the declaration for applyLookupSubtable:</para>
+      <code-fragment id="lookuptable.methods"><code-title>Method to apply a lookup subtable at a glyph position</code-title>
+  abstract public LookupResult applyLookupSubtable
+              (int lookupIndex, int lookupType,
+               int lookupFlag, int stOffset,
+               GlyphRun gr, int curGlyph)
+      throws InvalidFontException;
+</code-fragment>
+      <para>From there, we can apply a given lookup to a given
+          position in a glyph run. It's simply a matter of trying each
+          subtable in turn, until one succeeds. This method returns
+          a <varname>LookupResult</varname>.</para>
+      <code-fragment id="lookuptable.methods"><code-title>Method to apply a lookup at a glyph position</code-title>
+
+  public LookupResult applyLookup (int lookupIndex, GlyphRun gr, int curGlyph)
+    throws InvalidFontException {
+
+    if (listener != null) {
+      listener.applyingLookupAtPos (lookupIndex, gr, curGlyph); }
+
+    try {
+      int lookupOffset = getLookupOffset (lookupIndex);
+
+      int lookupType = getuint16 (lookupOffset);
+      int lookupFlag = getuint16 (lookupOffset + 2);
+      int subtableCount = getuint16 (lookupOffset + 4);
+
+
+      if (lookupFlagCovers (lookupFlag, gr.glyphAt (curGlyph))) {
+        if (listener != null) {
+          listener.noSubtableApplied (lookupIndex, gr, curGlyph); }
+        return lookupNotApplied; }
+
+      for (int st = 0; st &lt; subtableCount; st++) {
+        int stOffset
+          = lookupOffset + getOffset (lookupOffset + 6 + 2*st);
+
+        LookupResult result = applyLookupSubtable (lookupIndex,
+	                          lookupType, lookupFlag,
+                                  stOffset, gr, curGlyph);
+        if (result.applied) {
+          return result; }}
+
+      // no subtable worked, just move to the next glyph
+      if (listener != null) {
+        listener.noSubtableApplied (lookupIndex, gr, curGlyph); }
+
+      return lookupNotApplied; }
+
+    finally {
+      if (listener != null) {
+        listener.applyingLookupAtPosDone (lookupIndex, gr, curGlyph); }}
+  }
+</code-fragment>
+      <para>Finally, we can apply a bunch of features to a glyph
+          run:</para>
+      <code-fragment id="lookuptable.methods"><code-title>Apply features to a glyphrun</code-title>
+  public void applyFeatures (long scriptTag, long langSysTag,
+                             long []featureTags, GlyphRun gr)
+      throws InvalidFontException {
+    applyFeatures (scriptTag, langSysTag, featureTags,
+                   gr, 0, gr.glyphCount () - 1);
+  }
+
+  public void applyFeatures (long scriptTag, long langSysTag,
+                             long []featureTags, GlyphRun gr,
+	                     int start, int stop)
+      throws InvalidFontException {
+
+    int[] lookupIndices = findLookups (scriptTag, langSysTag, featureTags);
+
+    if (listener != null) {
+      listener.selectedLookups (lookupIndices); }
+
+    for (int l = 0; l &lt; lookupIndices.length; l++) {
+      if (listener != null) {
+        listener.applyingLookup (lookupIndices [l], gr); }
+      int curGlyph = start;
+      while (curGlyph &lt;= stop) {
+        LookupResult result = applyLookup (lookupIndices [l], gr, curGlyph);
+        if (result.applied) {
+          curGlyph = result.nextToProcess;
+          stop += result.countAdjust; }
+        else {
+          curGlyph++; }}
+      if (listener != null) {
+        listener.applyingLookupDone (lookupIndices [l], gr); }}
+  }
+</code-fragment>
+      <para>When we apply a lookup, we will need to know if LookupFlag
+          covers a glyph or not.</para>
+      <code-fragment id="layouttable.methods"><code-title>Method to find if lookupFlag covers a glyph</code-title>
+  public boolean lookupFlagCovers (int lookupFlag, int glyph)
+    throws InvalidFontException {
+
+    if (glyph == -1) {
+      return false; }
+
+    if ((lookupFlag &amp; 0x0E) != 0) {
+      int glyphClass = font.gdef.getGlyphClass (glyph);
+      if (   ((lookupFlag &amp; 0x2) != 0 &amp;&amp; glyphClass == 1)
+          || ((lookupFlag &amp; 0x4) != 0 &amp;&amp; glyphClass == 2)
+          || ((lookupFlag &amp; 0x8) != 0 &amp;&amp; glyphClass == 3))
+        return true; }
+
+    if (   (lookupFlag &amp; 0xff00) != 0
+        &amp;&amp; font.gdef.getGlyphClass (glyph) == 3) {
+      int markClass = font.gdef.getMarkAttachClass (glyph);
+      if (((lookupFlag &amp; 0xff00) &gt;&gt; 8) != markClass) {
+        return true; }}
+
+    return false;
+  }
+</code-fragment>
+    </section>
+    

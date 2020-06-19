@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Lookup type</code-title>
+  lookupTableCommonAttributes =
+    attribute rightToLeft         { yesOrNo }?,
+    attribute ignoreBaseGlyphs    { yesOrNo }?,
+    attribute ignoreLigatures     { yesOrNo }?,
+    attribute ignoreMarks         { yesOrNo }?,
+    attribute markAttachmentType  { text }?
+
+
+  standaloneGSUBLookupTable =
+    element lookupTable { attribute id { text }, GSUBlookupTable }
+
+  GSUBlookupTableOffset = attribute name { text } | GSUBlookupTable
+
+
+  standaloneGPOSLookupTable =
+    element lookupTable { attribute id { text }, GPOSlookupTable }
+
+  GPOSlookupTableOffset = attribute name { text } | GPOSlookupTable
+</code-fragment>
+    </section>
+    

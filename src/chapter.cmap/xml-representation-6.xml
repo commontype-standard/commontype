@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title/>
+  cmapsubtable |=
+    attribute format { "8" },
+    attribute singleWords { text },
+
+    ((element group {
+        attribute firstCode { text },
+        attribute lastCode { text },
+        attribute firstGlyph { text }}*)
+    |
+     (element map {
+        attribute code { text },
+        attribute glyph { text }}*))
+</code-fragment>
+    </section>
+    

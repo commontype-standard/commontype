@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Implementation Test</title>
+      <para>Our first test is a single range covering glyphs 18:20,
+	which are incremented by 5.</para>
+      <aots:test-font id="classdef1_font1">
+        <base-font name="base.otf"/>
+        <GSUB major="1" minor="0">
+          <code-include linkend="testfonts.gsub.scripts_features"/>
+          <lookupList>
+            <code-include linkend="layout.test.classdef"/>
+            <lookup id="lookup.test" type="5">
+              <contextual format="2">
+                <coverage glyphs="0:99" format="any"/>
+                <classDef format="1" startGlyph="18" classes="1 1 1"/>
+                <pattern in="1">
+                  <apply pos="0" lookup="inc_by_5"/>
+                </pattern>
+              </contextual>
+            </lookup>
+          </lookupList>
+        </GSUB>
+      </aots:test-font>
+      <aots:gsub-test id="classdef1_single_range" font="classdef2_font1" inputs="17, 18, 19, 20, 21" outputs="17, 23, 24, 25, 21"/>
+      <para>Next, we try the case where one class (1) has no
+	  glyphs. Note that we include a transformation for that
+	  class, to make sure that no glyphs are matched with that
+	  class.</para>
+      <aots:test-font id="classdef1_font2">
+        <base-font name="base.otf"/>
+        <GSUB major="1" minor="0">
+          <code-include linkend="testfonts.gsub.scripts_features"/>
+          <lookupList>
+            <code-include linkend="layout.test.classdef"/>
+            <lookup id="lookup.test" type="5">
+              <contextual format="2">
+                <coverage glyphs="0:99" format="any"/>
+                <classDef format="1" startGlyph="18" classes="2 2 2"/>
+                <pattern in="1">
+                  <apply pos="0" lookup="inc_by_4"/>
+                </pattern>
+                <pattern in="2">
+                  <apply pos="0" lookup="inc_by_5"/>
+                </pattern>
+              </contextual>
+            </lookup>
+          </lookupList>
+        </GSUB>
+      </aots:test-font>
+      <aots:gsub-test id="classdef1_empty_class" font="classdef1_font2" inputs="17, 18, 19, 20, 21" outputs="17, 23, 24, 25, 21"/>
+      <para>Our most complex case has with multiple
+	  ranges. Two ranges are assigned to class 2, and a range is
+	  assigned to class 0.</para>
+      <aots:test-font id="classdef1_font3">
+        <base-font name="base.otf"/>
+        <GSUB major="1" minor="0">
+          <code-include linkend="testfonts.gsub.scripts_features"/>
+          <lookupList>
+            <code-include linkend="layout.test.classdef"/>
+            <lookup id="lookup.test" type="5">
+              <contextual format="2">
+                <coverage glyphs="0:99" format="any"/>
+                <classDef format="1" startGlyph="18" classes="2 2 2 0 1 1 1 0 0 0 0 2 0 0 0 1 1"/>
+                <pattern in="0">
+                  <apply pos="0" lookup="inc_by_3"/>
+                </pattern>
+                <pattern in="1">
+                  <apply pos="0" lookup="inc_by_4"/>
+                </pattern>
+                <pattern in="2">
+                  <apply pos="0" lookup="inc_by_5"/>
+                </pattern>
+              </contextual>
+            </lookup>
+          </lookupList>
+        </GSUB>
+      </aots:test-font>
+      <aots:gsub-test id="classdef1_multiple_ranges" font="classdef1_font3" inputs="17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36" outputs="20, 23, 24, 25, 24, 26, 27, 28, 28, 29, 30, 31, 34, 33, 34, 35, 37, 38, 38, 39"/>
+      <para>The empty definition.</para>
+      <aots:test-font id="classdef1_font4">
+        <base-font name="base.otf"/>
+        <GSUB major="1" minor="0">
+          <code-include linkend="testfonts.gsub.scripts_features"/>
+          <lookupList>
+            <code-include linkend="layout.test.classdef"/>
+            <lookup id="lookup.test" type="5">
+              <contextual format="2">
+                <coverage glyphs="0:99" format="any"/>
+                <classDef format="1" startGlyph="18" classes=""/>
+                <pattern in="1">
+                  <apply pos="0" lookup="inc_by_4"/>
+                </pattern>
+                <pattern in="2">
+                  <apply pos="0" lookup="inc_by_5"/>
+                </pattern>
+              </contextual>
+            </lookup>
+          </lookupList>
+        </GSUB>
+      </aots:test-font>
+      <aots:gsub-test id="classdef1_empty" font="classdef1_font4" inputs="17, 18, 19, 20, 21" outputs="17, 18, 19, 20, 21"/>
+    </section>
+  

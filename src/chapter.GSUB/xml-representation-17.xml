@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Coverage tables</code-title>
+  extensionTable |=
+    attribute format { "1" },
+    element ext {
+      attribute type { text },
+      attribute name { text }
+    }
+
+  standaloneExtensionTable =
+    element extensionTable { attribute id { text }, extensionTable }
+
+  extensionTableOffset = attribute name { text } | extensionTable
+</code-fragment>
+    </section>
+    

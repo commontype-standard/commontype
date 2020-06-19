@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="test-suite">
+      <title>Test Suite</title>
+      <para>Here are some useful font fragments to build test
+	fonts.</para>
+      <para>The first fragment is a piece of layout table. It declares
+	the 'latn' script, a default language for it, and a feature list
+	for it which references the lookup with id 'lookup.test'.</para>
+      <code-fragment id="testfonts.gsub.scripts_features">
+        <code-title>ScriptList latn/default; Feature list: 'test'-&gt;lookup.test</code-title>
+        <scriptList>
+          <script tag="latn">
+            <defaultLangSys>
+              <featureIndex name="feature.test"/>
+            </defaultLangSys>
+          </script>
+        </scriptList>
+        <featureList>
+          <feature id="feature.test" tag="test">
+            <lookupIndex name="lookup.test"/>
+          </feature>
+        </featureList>
+      </code-fragment>
+      <code-fragment id="testfonts.gpos.scripts_features">
+        <code-title>ScriptList latn/default; Feature list: 'test'-&gt;lookup.test</code-title>
+        <scriptList>
+          <script tag="latn">
+            <defaultLangSys>
+              <featureIndex name="feature.test"/>
+            </defaultLangSys>
+          </script>
+        </scriptList>
+        <featureList>
+          <feature id="feature.test" tag="test">
+            <lookupIndex name="lookup.test"/>
+          </feature>
+        </featureList>
+      </code-fragment>
+      <para>For contextual and chaining contextual lookups, we have a
+	 bit more infrastructure. Here are GSUB lookups that are going
+	 to be invoked from contextual lookups:</para>
+      <code-fragment id="testfonts.context.gsub.lookups">
+        <lookup id="lookup.single" type="1">
+          <singleSubst format="1">
+            <coverage format="1" glyphs="20 21 22 23 24 25 26 27 28 29"/>
+            <delta v="40"/>
+          </singleSubst>
+        </lookup>
+        <lookup id="lookup.double" type="4">
+          <ligatureSubst format="1">
+            <subst in="21 22" out="61"/>
+          </ligatureSubst>
+        </lookup>
+        <lookup id="lookup.double.nomarks" type="4" ignoreMarks="yes">
+          <ligatureSubst format="1">
+            <subst in="21 22" out="61"/>
+          </ligatureSubst>
+        </lookup>
+        <lookup id="lookup.multiple" type="2">
+          <multipleSubst format="1">
+            <subst in="21" out="61 62 63"/>
+          </multipleSubst>
+        </lookup>
+      </code-fragment>
+      <para>Here is the similar set of GPOS lookups:</para>
+      <code-fragment id="testfonts.context.gpos.lookups">
+        <lookup id="lookup.single" type="1">
+          <singlePos format="1">
+            <coverage format="any" glyphs="20 21 22 23 24 25 26 27 28 29"/>
+            <value xPlacement="20"/>
+          </singlePos>
+        </lookup>
+        <lookup id="lookup.double" type="2">
+          <pairPos format="1">
+            <pairSet in="21">
+              <pos2 in="22">
+                <value1 xPlacement="20"/>
+              </pos2>
+            </pairSet>
+          </pairPos>
+        </lookup>
+        <lookup id="lookup.double.nomarks" type="2" ignoreMarks="yes">
+          <pairPos format="1">
+            <pairSet in="21">
+              <pos2 in="22">
+                <value1 xPlacement="20"/>
+              </pos2>
+            </pairSet>
+          </pairPos>
+        </lookup>
+        <lookup id="lookup.multiple" type="1"/>
+        <!-- there is nothing equivalent to multiple in GPOS-->
+      </code-fragment>
+      <para>The GDEF table that goes with them:</para>
+      <code-fragment id="testfonts.context.gdef">
+        <GDEF major="1" minor="0">
+          <glyphClassDef format="any">
+            <class classID="1" glyphs="80 81 82 83 84"/>
+            <!-- base -->
+            <class classID="2" glyphs="85 86 87 88 89"/>
+            <!-- ligature -->
+            <class classID="3" glyphs="90 91 92 93 94"/>
+            <!-- mark -->
+            <class classID="4" glyphs="95 96 97 98 99"/>
+            <!-- component -->
+          </glyphClassDef>
+        </GDEF>
+      </code-fragment>
+    </section>
+  

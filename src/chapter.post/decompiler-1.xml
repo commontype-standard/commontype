@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="post.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    int [] version = getFixed (0);
+
+    AttributesImpl at;
+
+    at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
+    conf.ch.startElement ("post", at); {
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "int", "int", "CDATA", "" + getFixed (4) [0]);
+      at.addAttribute ("", "frac", "frac", "CDATA", "" + getFixed (4) [1]);
+      conf.ch.element ("italicAngle", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "position", "position", "CDATA", "" +  getFWord (8) );
+      at.addAttribute ("", "thickness", "thickness", "CDATA", "" +  getFWord (10) );
+      conf.ch.element ("underline", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", getuint32 (12) == 0 ? "no":"yes");
+      conf.ch.element ("isFixedPitch", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "min", "min", "CDATA", "" +  getuint32 (16) );
+      at.addAttribute ("", "max", "max", "CDATA", "" +  getuint32 (20) );
+      conf.ch.element ("memType42", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "min", "min", "CDATA", "" +  getuint32 (24) );
+      at.addAttribute ("", "max", "max", "CDATA", "" +  getuint32 (28) );
+      conf.ch.element ("memType1", at);
+
+      if (version [0] == 2 &amp;&amp; version [1] == 0) {
+        String [] names = getGlyphNames ();
+        for (int g = 0; g &lt; names.length; g++) {
+	  at = new AttributesImpl ();
+	  at.addAttribute ("", "id", "id", "CDATA", "" + g);
+          at.addAttribute ("", "name", "name", "CDATA", names [g]);
+          conf.ch.element ("glyph", at); }}
+
+      conf.ch.endElement ("post"); }
+  }
+</code-fragment>
+    </section>
+    

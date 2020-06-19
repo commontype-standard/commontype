@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="glyf.methods">
+  public void compositeGlyphToXML (DecompilerConfig conf, int offset)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    CompositeGlyphUnpack u = unpackCompositeGlyph (offset);
+
+    for (CompositeGlyphComponent c : u.components) {
+      AttributesImpl at = new AttributesImpl ();
+
+      at.addAttribute ("", "flags", "flags", "CDATA",
+                       "0x" + Integer.toHexString (c.flags &amp; 0x1e06));
+
+      at.addAttribute ("", "gid", "gid", "CDATA",
+                       Integer.toString (c.gid));
+
+      at.addAttribute ("", "arg1", "arg1", "CDATA",
+                       Integer.toString (c.arg1));
+      at.addAttribute ("", "arg2", "arg2", "CDATA",
+                       Integer.toString (c.arg2));
+
+      if ((c.flags &amp; WE_HAVE_A_SCALE) != 0) {
+        at.addAttribute ("", "scale", "scale", "CDATA",
+                         Integer.toString (c.xscale)); }
+
+      else if ((c.flags &amp; WE_HAVE_AN_X_AND_Y_SCALE) != 0) {
+        at.addAttribute ("", "xscale", "xscale", "CDATA",
+                         Integer.toString (c.xscale));
+        at.addAttribute ("", "yscale", "yscale", "CDATA",
+                         Integer.toString (c.yscale)); }
+
+
+      else if ((c.flags &amp; WE_HAVE_A_TWO_BY_TWO) != 0) {
+        at.addAttribute ("", "xscale", "xscale", "CDATA",
+                         Integer.toString (c.xscale));
+        at.addAttribute ("", "scale01", "scale01", "CDATA",
+                         Integer.toString (c.scale01));
+        at.addAttribute ("", "scale10", "scale10", "CDATA",
+                         Integer.toString (c.scale10));
+        at.addAttribute ("", "yscale", "yscale", "CDATA",
+                         Integer.toString (c.yscale)); }
+
+      conf.ch.element ("component", at); }
+
+    if (u.instructions != null) {
+      String opcodes = "";
+      String prefix = "";
+      for (int i = 0; i &lt; u.instructions.length; i++) {
+        opcodes += prefix + "0x" + Integer.toString (u.instructions [i]);
+        prefix = " "; }
+
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "opcodes", "opcodes", "CDATA",
+                       opcodes);
+
+      conf.ch.element ("instructions", at); }
+  }
+</code-fragment>
+    </section>
+    

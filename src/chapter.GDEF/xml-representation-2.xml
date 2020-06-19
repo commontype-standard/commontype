@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>attachListTable</code-title>
+  attachListTable =
+    element coverage { coverageTableOffset }?,
+    element attachPoint {
+      attribute glyphID { text },
+      element point {
+        attribute index { text }
+      }*
+    }*
+
+  standaloneAttachListTable =
+    element attachListTable { attribute id { text }, attachListTable }
+
+  attachListTableOffset = attribute name { text } | attachListTable
+</code-fragment>
+    </section>
+    

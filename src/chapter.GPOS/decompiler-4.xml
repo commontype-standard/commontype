@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gpos.toXMLCount_1_2">
+  coverageTableToXMLCount (stOffset + getOffset (stOffset + 2), counts);
+</code-fragment>
+      <code-fragment id="gpos.toXML_1_2">
+  coverageTableToXML (conf, stOffset + getOffset (stOffset + 2), counts);
+</code-fragment>
+      <code-fragment id="gpos.toXMLEmit_1_2">
+    int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int valueFormat = getuint16 (stOffset + 4);
+    int valueCount = getuint16 (stOffset + 6);
+    int valueRecordSize = ValueRecord.getSize (valueFormat);
+
+    at = new AttributesImpl ();
+    coverageTableOffsetToXML (conf, coverageOffset, counts,
+                              "coverage", at);
+
+    int [] glyphs = getCoveredGlyphs (coverageOffset);
+
+    for (int i = 0; i &lt; valueCount; i++) {
+      at = new AttributesImpl ();
+      at.addAttribute ("", "glyph", "glyph", "CDATA", "" + glyphs [i]);
+      new ValueRecord().fromBinary (this, stOffset + 8 + valueRecordSize*i,
+                                    valueFormat).toXML (at);
+      conf.ch.element ("value", at); }
+</code-fragment>
+    </section>
+    

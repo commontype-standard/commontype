@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <para>To output the ScriptList table of a layout table, we
+          need to find all the <sgmltag>scriptRecord</sgmltag>
+          elements.</para>
+      <code-fragment id="table.methods"><code-title>Resolving XML ids</code-title>
+
+  public Element resolveXMLid (Element table, String name) {
+    NodeList l = table.getChildNodes ();
+    for (int i = 0; i &lt; l.getLength (); i++) {
+      Element e = (Element) l.item (i);
+      String n = e.getAttribute ("id");
+      if (name.equals (n)) {
+        return e; }}
+    warning ("Could not dereference '" + name + "'");
+   return null;
+  }
+</code-fragment>
+      <code-fragment id="lookuptable.methods"><code-title>Output the ScriptList table of a layout table</code-title>
+
+  public Block scriptListTableFromXML (Element t,
+                                       Element table,
+				       Map&lt;Element, Block&gt; blockCache,
+                                       Map&lt;String, Integer&gt; featureIndices)
+      throws InvalidFontException, UnsupportedFontException {
+
+    { String name = t.getAttribute ("name");
+      if (name != null &amp;&amp; ! "".equals (name)) {
+        t = resolveXMLid (table, name); }}
+
+    NodeList scripts = t.getChildNodes ();
+    int scriptCount = scripts.getLength ();
+
+    Block me = new Block (2 + 6 * scriptCount, scriptCount);
+    me.setuint16 (0, scriptCount);
+
+    for (int i = 0; i &lt; scriptCount; i++) {
+      Element script = (Element) scripts.item (i);
+      me.setTag (2 + 6 * i, script.getAttribute ("tag"));
+      me.setOffset (2 + 6 * i + 4,
+                    scriptTableFromXML (script, table, blockCache,
+                                        featureIndices)); }
+
+    return me;
+  }
+</code-fragment>
+    </section>
+    

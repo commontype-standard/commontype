@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="lookuptable.methods">
+  private Block chainingLookupFormat2FromXML (Element subtable, Element table,
+                                              Map&lt;Element, Block&gt; blockCache,
+					      Map&lt;String, Integer&gt; lookupIndices)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me;
+
+    CoverageTableBlock coverage = null;
+
+    Element firstChild = (Element) subtable.getFirstChild ();
+    if (   (firstChild != null)
+        &amp;&amp; (firstChild.getTagName ().startsWith ("coverage"))) {
+      coverage = coverageFromXML (firstChild, table, blockCache);
+      subtable.removeChild (firstChild); }
+
+    ClassdefTableBlock backtrackClassdef
+        = classdefFromXML ((Element) subtable.getFirstChild (),
+                           table, blockCache);
+    subtable.removeChild (subtable.getFirstChild ());
+
+    ClassdefTableBlock inputClassdef
+        = classdefFromXML ((Element) subtable.getFirstChild (),
+                           table, blockCache);
+    subtable.removeChild (subtable.getFirstChild ());
+
+    ClassdefTableBlock lookaheadClassdef
+        = classdefFromXML ((Element) subtable.getFirstChild (),
+                           table, blockCache);
+    subtable.removeChild (subtable.getFirstChild ());
+
+    NodeList classPatterns = subtable.getChildNodes ();
+
+    if (coverage == null) {
+      System.err.println ("implicit coverage in chainingContextSubstFormat2 not yet supported"); }
+
+
+    me = new Block (12 + 2*inputClassdef.classCount,
+                    4 + inputClassdef.classCount);
+    me.setuint16 (0, 2);
+    me.setOffset (2, coverage);
+    me.setOffset (4, backtrackClassdef);
+    me.setOffset (6, inputClassdef);
+    me.setOffset (8, lookaheadClassdef);
+    me.setuint16 (10, inputClassdef.classCount);
+
+    for (int c = 0; c &lt; inputClassdef.classCount; c++) {
+
+      // count how may classPatterns start with class c
+      int count = 0;
+      for (int j = 0; j &lt; classPatterns.getLength (); j++) {
+        Element classPattern = (Element) classPatterns.item (j);
+        int[] classes = parseIntList (classPattern.getAttribute ("in"));
+        if (classes [0] == c) {
+          count++; }}
+
+      if (count == 0) {
+        me.setOffset (12 + 2*c, null); }
+
+      else {
+        Block subClassSet = new Block (2 + 2*count, count);
+        me.setOffset (12 + 2*c, subClassSet);
+        subClassSet.setuint16 (0, count);
+
+        count = 0;
+        for (int j = 0; j &lt; classPatterns.getLength (); j++) {
+          Element classPattern = (Element) classPatterns.item (j);
+          int[] inClasses = parseIntList (classPattern.getAttribute ("in"));
+          if (inClasses [0] == c) {
+            int[] backtrackClasses
+                     = parseIntList (classPattern.getAttribute ("back"));
+            int[] lookaheadClasses
+                     = parseIntList (classPattern.getAttribute ("ahead"));
+            NodeList applies = classPattern.getChildNodes ();
+            int applyCount = applies.getLength ();
+
+            Block subClassRule = new Block (  2 + 2 * backtrackClasses.length
+                                            + 2 + 2 * (inClasses.length - 1)
+                                            + 2 + 2 * lookaheadClasses.length
+                                            + 2 + 4 * applyCount,
+                                            0);
+
+            subClassSet.setOffset (2 + 2*(count++), subClassRule);
+
+            int offset = 0;
+            subClassRule.setuint16 (offset, backtrackClasses.length);
+            offset += 2;
+            for (int k = backtrackClasses.length - 1; k &gt;= 0; k--) {
+              subClassRule.setuint16 (offset, backtrackClasses [k]);
+              offset += 2; }
+            subClassRule.setuint16 (offset, inClasses.length);
+            offset += 2;
+            for (int k = 1; k &lt; inClasses.length; k++) {
+              subClassRule.setuint16 (offset, inClasses [k]);
+              offset += 2; }
+            subClassRule.setuint16 (offset, lookaheadClasses.length);
+            offset += 2;
+            for (int k = 0; k &lt; lookaheadClasses.length; k++) {
+              subClassRule.setuint16 (offset, lookaheadClasses [k]);
+              offset += 2; }
+
+            subClassRule.setuint16 (offset, applyCount);
+            offset += 2;
+
+	    offset += subLookupsFromXML (applyCount, applies, subClassRule, offset,
+					lookupIndices); }}}}
+    return me;
+  }
+</code-fragment>
+    </section>
+    

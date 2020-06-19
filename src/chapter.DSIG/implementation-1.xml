@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Dsig"><code-title>DSIG Class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Dsig extends Table {
+
+  public Dsig () {
+    super (Tag.DSIG, null);
+  }
+
+  public Dsig (Font font) {
+    super (Tag.DSIG, font);
+  }
+
+  <code-include linkend="dsig.methods"/>
+
+  public int[] getTableVersion () {
+    return getFixed (0);
+  }
+}
+</code-fragment>
+    </section>
+  

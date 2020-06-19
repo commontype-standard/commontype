@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gsub.toXMLCount_1"><code-title>Count references for GSUB 1 subtable</code-title>
+  switch (getuint16 (stOffset)) {
+    case 1: { <code-include linkend="gsub.toXMLCount_1_1"/>; break; }
+    case 2: { <code-include linkend="gsub.toXMLCount_1_2"/>; break; }}
+</code-fragment>
+      <code-fragment id="gsub.toXML_1"><code-title>Emit references for GSUB 1 subtable</code-title>
+  switch (getuint16 (stOffset)) {
+    case 1: { <code-include linkend="gsub.toXML_1_1"/>; break; }
+    case 2: { <code-include linkend="gsub.toXML_1_2"/>; break; }}
+</code-fragment>
+      <code-fragment id="gsub.toXMLEmit_1"><code-title>Emit GSUB 1 subtable</code-title>
+  switch (getuint16 (stOffset)) {
+    case 1: { <code-include linkend="gsub.toXMLEmit_1_1"/>; break; }
+    case 2: { <code-include linkend="gsub.toXMLEmit_1_2"/>; break; }}
+</code-fragment>
+    </section>
+    

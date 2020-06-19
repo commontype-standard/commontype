@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gpos.methods">
+  private Block pairPosFormat2FromXML (Element t, Element table,
+                                       Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me = null;
+
+    CoverageTableBlock coverage;
+    Element firstChild = (Element) t.getFirstChild ();
+
+    if (firstChild == null) {
+      coverage = emptyCoverage (); }
+    else if ("coverage".equals (firstChild.getTagName ())) {
+      coverage = coverageFromXML (firstChild, table, blockCache);
+      t.removeChild (firstChild); }
+    else {
+      coverage = coverageFromXML (t.getChildNodes (), "in"); }
+
+    ClassdefTableBlock classdef1
+        = classdefFromXML ((Element) t.getFirstChild (),
+                           table, blockCache);
+    t.removeChild (t.getFirstChild ());
+    ClassdefTableBlock classdef2
+        = classdefFromXML ((Element) t.getFirstChild (),
+                           table, blockCache);
+    t.removeChild (t.getFirstChild ());
+
+    NodeList children = t.getChildNodes ();
+
+    int valueFormat1 = 0;
+    int valueFormat2 = 0;
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element pos = (Element) children.item (i);
+      Element value1 = (Element) pos.getFirstChild ();
+      valueFormat1 |= parseValue (value1).format;
+      Element value2 = (Element) value1.getNextSibling ();
+      valueFormat2 |= parseValue (value2).format; }
+
+    int valueSize1 = valueSize (valueFormat1);
+    int valueSize2 = valueSize (valueFormat2);
+
+    // System.err.println ("vs1=" + valueSize1 + " vs2=" + valueSize2
+    // + "  c1=" + classdef1.classCount + " c2=" + classdef2.classCount);
+
+    me = new Block (16
+                    + (valueSize1 + valueSize2)
+                      *  (classdef1.classCount * classdef2.classCount),
+                    3);
+    me.setuint16 (0, 2);
+    me.setOffset (2, coverage);
+    me.setuint16 (4, valueFormat1);
+    me.setuint16 (6, valueFormat2);
+    me.setOffset (8, classdef1);
+    me.setOffset (10, classdef2);
+    me.setuint16 (12, classdef1.classCount);
+    me.setuint16 (14, classdef2.classCount);
+
+    int offset = 16;
+    for (int i = 0; i &lt; classdef1.classCount; i++) {
+      for (int j = 0; j &lt; classdef2.classCount; j++) {
+        me.setValue (offset, valueFormat1, null);
+        offset += valueSize1;
+        me.setValue (offset, valueFormat2, null);
+        offset += valueSize2; }}
+
+
+    for (int k = 0; k &lt; children.getLength (); k++) {
+      Element pos2 = (Element) children.item (k);
+      int[] classes = getGlyphs (pos2.getAttribute ("in"));
+      offset = 16 + (classdef2.classCount * classes [0]
+                     + classes [1]) * (valueSize1 + valueSize2);
+      Element value1 = (Element) pos2.getFirstChild ();
+      me.setValue (offset, valueFormat1, parseValue (value1));
+      offset += valueSize1;
+      Element value2 = (Element) value1.getNextSibling ();
+      me.setValue (offset, valueFormat2, parseValue (value2)); }
+
+    return me;
+  }
+</code-fragment>
+    </section>
+    

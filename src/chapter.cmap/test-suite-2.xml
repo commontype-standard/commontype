@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap0_font1: basic test</title>
+        <para>Let's start with a simple case:</para>
+        <aots:test-font id="cmap0_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="0">
+              <map code="0x34" glyph="17"/>
+              <map code="0x35" glyph="56"/>
+              <map code="0x36" glyph="12"/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap0_test1" font="cmap0_font1" platformID="3" encodingID="1" inputs="0,  0x01, 0x33, 0x34, 0x35, 0x36, 0x37, 0xffff" outputs="0,  0,       0,   17,   56,   12,    0,      0"/>
+      </section>
+    </section>
+    

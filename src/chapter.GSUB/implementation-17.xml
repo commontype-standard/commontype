@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="lookuptable.methods"><code-title>Apply subLookups</code-title>
+  public LookupResult applySubLookups (GlyphRun gr, int[] matchedPositions,
+                                       int count, int offset)
+      throws InvalidFontException {
+
+    LookupResult result
+      = new LookupResult (true,
+                          matchedPositions [matchedPositions.length -1] + 1,
+                          0);
+
+    for (int su = 0; su &lt; count; su++) {
+      int sequenceIndex = getuint16 (offset);
+      int lookupListIndex = getuint16 (offset + 2);
+      offset += 4;
+      LookupResult r = applyLookup (lookupListIndex, gr,
+                                    matchedPositions [sequenceIndex]);
+      if (r.applied) {
+        result.nextToProcess += r.countAdjust;
+        result.countAdjust += r.countAdjust; }}
+
+    return result;
+  }
+</code-fragment>
+    </section>
+  

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>gpos6_font1: basic tests</title>
+        <para>Here is a simple test to start with:</para>
+        <aots:test-font id="gpos6_font1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="17"/>
+              <class classID="3" glyphs="18"/>
+              <class classID="3" glyphs="19"/>
+              <class classID="3" glyphs="20"/>
+            </glyphClassDef>
+          </GDEF>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="6">
+                <markToMarkAttachment format="1">
+                  <mark2Glyph glyphID="18">
+                    <mark2Anchor class="0" format="1" x="100" y="150"/>
+                  </mark2Glyph>
+                  <mark1GlyphAnchor glyphID="19" class="0" format="1" x="200" y="230"/>
+                </markToMarkAttachment>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <para>After execution, occurrences glyph 19 will have been
+            moved, to have its origin at (-100, -80) relative to the
+            origin of the new position of the occurrence of glyph 18
+            serving as a base:</para>
+        <aots:gpos-test id="gpos6_test1a" font="gpos6_font1" inputs="17,   18,    19,   17" xdeltas=" 0,    0, -1600,    0" ydeltas=" 0,    0,   -80,    0"/>
+        <para>In this test, the base glyph for the mark is not covered:</para>
+        <aots:gpos-test id="gpos6_test1b" font="gpos6_font1" inputs="17,   17,   19,   17" xdeltas=" 0,    0,    0,    0" ydeltas=" 0,    0,    0,    0"/>
+        <para>In this test, there is no base glyph at all:</para>
+        <aots:gpos-test id="gpos6_test1c" font="gpos6_font1" inputs="20,   20,   19,   17" xdeltas=" 0,    0,    0,    0" ydeltas=" 0,    0,    0,    0"/>
+        <!--
+          <para>Let's have two occurrences of 19 on the same
+          base:</para>
+
+          <aots:gpos-test id='gpos6_test1d'
+	  font='gpos6_font1'
+	  script='latn' language='UNKN' features='test'>
+            inputs= '17   18    19   19  17'
+            xdeltas='0    0  -100 -100   0'
+            ydeltas='0    0   -80  -80   0'
+
+          </
+-->
+      </section>
+      <!--
+        <section>
+          <title>gpos6_font2: multiple anchors</title>
+
+          <para>Here is a simple test to start with:</para>
+
+<aots:test-font id='gpos6_font2'>
+  <base-font name='base.otf'/>
+  <GDEF major='1' minor='0'>
+  <glyphClassdef>
+    <class classID='3' glyphs='17'/>
+    <class classID='3' glyphs='18'/>
+    <class classID='3' glyphs='19'/>
+    <class classID='3' glyphs='20'/>
+    <class classID='3' glyphs='21'/>
+    <class classID='3' glyphs='22'/>
+  </glyphClassdef>
+  </GDEF>
+  <GPOS major='1' minor='0'>
+    <code-include linkend='testfonts.gpos.scripts_features'/>
+    <markMarkPos id="lookup.test">
+    <markMarkPosFormat1>
+      <mark2Glyph glyphID='17'>
+        <mark2Anchor class='0' x='100' y='150'/>
+        <mark2Anchor class='1' x='110' y='160'/>
+      </mark2Glyph>
+      <mark2Glyph glyphID='18'>
+        <mark2Anchor class='0' x='120' y='170'/>
+        <mark2Anchor class='1' x='130' y='180'/>
+      </mark2Glyph>
+      <markGlyph glyphID='19' class='0' x='200' y='230'/>
+      <markGlyph glyphID='20' class='1' x='201' y='231'/>
+      <markGlyph glyphID='21' class='0' x='202' y='232'/>
+      <markGlyph glyphID='22' class='1' x='203' y='233'/>
+    </markMarkPosFormat1>
+  </markMarkPos>
+  </GPOS>
+</aots:test-font>
+
+          <aots:gpos-test id='gpos6_test2a'
+	  font='gpos6_font2'
+	  script='latn' language='UNKN' features='test'>
+            inputs= '17   19  20   21  22 18  19  20  21  22'
+            xdeltas='0 -100 -91 -102 -93  0 -80 -71 -82 -73'
+            ydeltas='0  -80 -71  -82 -73  0 -60 -51 -62 -53'
+
+          </
+
+
+        </section>
+-->
+    </section>
+  

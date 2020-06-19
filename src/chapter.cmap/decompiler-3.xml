@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <para>When we generate a simple mapping representation, we
+	also need to record which bytes are single bytes:</para>
+      <code-fragment id="cmap.decompile.format2.att"><code-title>Generate attributes for the format 2 cmap subtable at 'stOffset'</code-title>
+  if (! conf.preciseCmap) {
+    StringBuilder sb = new StringBuilder ();
+    for (int key = 0; key &lt; 256; key++) {
+      int subHeadersIndex = getuint16 (stOffset + 6 + 2*key) / 8;
+      if (subHeadersIndex == 0) {
+        sb.append (" 0x");
+        sb.append (Integer.toHexString (key)); }}
+    at.addAttribute ("", "singleBytes", "singleBytes", "CDATA", sb.toString ()); }
+</code-fragment>
+      <para>We have no real indication of where the glyphIndexArray
+        starts. For example, one could increase all the idRangeOffset
+        values by 10, increase the size of the glyphIndexArray by 10,
+        and shift all its values by 10 slots. Consequently, we also
+        have not real indication of the actual number of
+        subHeaders. All we know is that given a code point, the
+        computation of the corresponding glyphID will interpret the
+        content of the table appropriately; it is even possible
+        that a given byte will be interpreted as part of a subHeader
+        for one code point, and as part of the glyphIndexArray for
+        another code point! (although that would require a
+        non-straightforward font generator, which probably does not
+        exists at this point)</para>
+      <para>Our strategy to handle this is to do a symbolic
+	inteperpretation of the table (or equivalently, a dataflow
+	analyzis). First, we traverse the subHeaderKeys, recording the
+	indices of the subHeaders that are used; in fact, we even
+	build a map for subHeaders to the subHeaderKeys that point to
+	them:</para>
+      <code-fragment id="cmap.decompile.format2.elt.1"><code-title>Build a map from subHeaders to subHeaderKeys</code-title>
+  SortedMap&lt;Integer, SortedSet&lt;Integer&gt;&gt; subHeader2keys
+    = new TreeMap&lt;Integer, SortedSet&lt;Integer&gt;&gt; ();
+
+  for (int key = 0; key &lt; 256; key++) {
+    int subHeader = getuint16 (stOffset + 6 + 2*key) / 8;
+    SortedSet&lt;Integer&gt; keys = subHeader2keys.get (subHeader);
+    if (keys == null) {
+      keys = new TreeSet&lt;Integer&gt; ();
+      subHeader2keys.put (subHeader, keys); }
+    keys.add (key); }
+</code-fragment>
+      <para>Next, we traverse the subheaders, to find the offset of
+        the first byte that is used as a glyphIndexArray element, and
+        the index following the last byte used that way. Those offsets
+        are recorded as byte offsets from the start of the cmap
+        table (i.e, as indices in our 'data' array):</para>
+      <code-fragment id="cmap.decompile.format2.elt.2"><code-title>Find the boundaries of glyphIndexArray</code-title>
+   int minGlyphIndexOffset = stOffset + getuint16 (stOffset + 2);
+   int maxGlyphIndexOffset = stOffset;
+
+    for (int subHeader : subHeader2keys.keySet ()) {
+      int subHeaderOffset = stOffset + 6 + 512 + 8*subHeader;
+      int entryCount = getuint16 (subHeaderOffset + 2);
+      int idRangeOffset = getuint16 (subHeaderOffset + 6);
+      if (entryCount &gt; 0) {
+        int firstGlyphIndexOffset = subHeaderOffset + 6 + idRangeOffset;
+        int lastGlyphIndexOffset = firstGlyphIndexOffset + 2 * entryCount;
+
+        if (firstGlyphIndexOffset &lt; minGlyphIndexOffset) {
+          minGlyphIndexOffset = firstGlyphIndexOffset; }
+	if (maxGlyphIndexOffset &lt; lastGlyphIndexOffset) {
+	  maxGlyphIndexOffset = lastGlyphIndexOffset; }}}
+</code-fragment>
+      <para>With that, we can build the representations of the
+        subHeaders;</para>
+      <code-fragment id="cmap.decompile.format2.elt.3"><code-title>Generate elements for the subHeaders</code-title>
+  for (int subHeader : subHeader2keys.keySet ()) {
+    at = new AttributesImpl ();
+
+    { SortedSet&lt;Integer&gt; keys = subHeader2keys.get (subHeader);
+      StringBuilder sb = new StringBuilder ();
+      for (int key : keys) {
+        sb.append (" 0x");
+ 	  sb.append (Integer.toHexString (key)); }
+      at.addAttribute ("", "highBytes", "highBytes", "CDATA", sb.toString ()); }
+
+    int subHeaderOffset = stOffset + 6 + 512 + 8*subHeader;
+    int firstCode = getuint16 (subHeaderOffset);
+    int entryCount = getuint16 (subHeaderOffset + 2);
+    int idDelta = getuint16 (subHeaderOffset + 4);
+    int idRangeOffset = getuint16 (subHeaderOffset + 6);
+    int firstGlyphIndexOffset = subHeaderOffset + 6 + idRangeOffset;
+
+    at.addAttribute ("", "firstCode", "firstCode", "CDATA",
+                     "0x" + Integer.toHexString (firstCode));
+    at.addAttribute ("", "entryCount", "entryCount", "CDATA", "" + entryCount);
+    at.addAttribute ("", "idDelta", "idDelta", "CDATA", "" + idDelta);
+    at.addAttribute ("", "idRangeOffset", "idRangeOffset", "CDATA",
+                     "" + ((firstGlyphIndexOffset - minGlyphIndexOffset) / 2));
+
+    conf.ch.element ("subheader", at); }
+</code-fragment>
+      <para>And we can also build the representation of
+        glyphIndexArray:</para>
+      <code-fragment id="cmap.decompile.format2.elt.4"><code-title>Generate an element for glyphIndexArray</code-title>
+  { StringBuilder sb = new StringBuilder ();
+    for (int i = minGlyphIndexOffset; i &lt; maxGlyphIndexOffset; i += 2) {
+      sb.append (" ");
+      sb.append (getuint16 (i)); }
+    at = new AttributesImpl ();
+    at.addAttribute ("", "v", "v", "CDATA", sb.toString ());
+
+    conf.ch.element ("glyphIndex", at); }
+</code-fragment>
+      <para>We are ready to put everything together:</para>
+      <code-fragment id="cmap.decompile.format2.elt"><code-title>Generate elements for the format 2 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+    <code-include linkend="cmap.decompile.format2.elt.1"/>
+    <code-include linkend="cmap.decompile.format2.elt.2"/>
+    <code-include linkend="cmap.decompile.format2.elt.3"/>
+    <code-include linkend="cmap.decompile.format2.elt.4"/> }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="validation">
+      <title>Validation</title>
+      <para>The “Validation” sections are the source
+          code for a font validator. The intent is that the validator
+          would detect violation of the specification, as well as
+          violation of additional rules and dubious constructs.</para>
+    </section>
+

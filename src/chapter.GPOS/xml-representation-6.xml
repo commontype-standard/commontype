@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>pairPosTable</code-title>
+  standalonePairPosTable =
+    element pairPosTable { attribute id { text }, pairPosTable }
+
+  pairPosTableOffset = attribute name { text } | pairPosTable
+</code-fragment>
+    </section>
+    

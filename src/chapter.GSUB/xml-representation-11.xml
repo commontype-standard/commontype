@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Contextual substitution format 2</code-title>
+  contextualTable |=
+    attribute format { "2" },
+    element coverage { coverageTableOffset }?,
+    element classDef { classDefTableOffset },
+    element pattern {
+      attribute in { text },
+      subLookups
+    }*
+</code-fragment>
+    </section>
+    

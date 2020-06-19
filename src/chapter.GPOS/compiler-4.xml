@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gpos.methods">
+  private Block singlePosFormat2FromXML (Element subtable, Element table,
+                                         Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me = null;
+
+    CoverageTableBlock coverage;
+    Element firstChild = (Element) subtable.getFirstChild ();
+
+    if (firstChild == null) {
+      coverage = emptyCoverage (); }
+    else if ("coverage".equals (firstChild.getTagName ())) {
+      coverage = coverageFromXML (firstChild, table, blockCache);
+      subtable.removeChild (firstChild); }
+    else {
+      coverage = coverageFromXML (subtable.getChildNodes (), "glyph"); }
+
+    NodeList children = subtable.getChildNodes ();
+    Value[] values = new Value [coverage.glyphs.length];
+
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element pos = (Element) children.item (i);
+      int[] in = getGlyphs (pos.getAttribute ("glyph"));
+      Value value = parseValue (pos);
+
+      if (in.length != 1) {
+        warning ("singlePosFormat2/pos/@in must have exactly one glyph"); }
+
+      boolean covered = false;
+      for (int j = 0; j &lt; coverage.glyphs.length; j++) {
+        if (in [0] == coverage.glyphs [j]) {
+          values [j] = value;
+          covered = true;
+          break; }}
+
+      if (! covered) {
+       warning ("in glyph '" + in[0]
+                + "' must be covered in singlePosFormat2"); }}
+
+    int valueFormat = 0;
+    for (int i = 0; i &lt; coverage.glyphs.length; i++) {
+      if (values [i] == null) {
+        warning ("no 'pos' for glyph " + coverage.glyphs [i]
+                 + " in SinglePosFormat2"); }
+      else {
+        valueFormat |= values [i].format; }}
+
+    int valueSize = valueSize (valueFormat);
+
+    me = new Block (8 + valueSize * coverage.glyphs.length, 1);
+    me.setuint16 (0, 2);
+    me.setOffset (2, coverage);
+    me.setuint16 (4, valueFormat);
+    me.setuint16 (6, coverage.glyphs.length);
+
+    int offset = 8;
+    for (int i = 0; i &lt; coverage.glyphs.length; i++) {
+      me.setValue (offset, valueFormat, values[i]);
+      offset += valueSize; }
+
+    return me;
+  }
+</code-fragment>
+    </section>
+    

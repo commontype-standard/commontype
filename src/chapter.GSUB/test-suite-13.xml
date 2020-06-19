@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>gsub7_font1/2: basic tests</title>
+        <para>Our first font has a single subtable.</para>
+        <aots:test-font id="gsub7_font1">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="7">
+                <extensionSubst format="1">
+                  <ext type="1" name="singlesubst"/>
+                </extensionSubst>
+              </lookup>
+            </lookupList>
+            <singleSubstTable id="singlesubst" format="1">
+              <coverage glyphs="18 19" format="any"/>
+              <delta v="5"/>
+            </singleSubstTable>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub7_test1" font="gsub7_font1" inputs="17, 18, 19, 20, 21" outputs="17, 23, 24, 20, 21"/>
+        <para>Let’s have multiple subtables.</para>
+        <aots:test-font id="gsub7_font2">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="7">
+                <extensionSubst format="1">
+                  <ext type="1" name="singlesubst1"/>
+                </extensionSubst>
+                <extensionSubst format="1">
+                  <ext type="1" name="singlesubst2"/>
+                </extensionSubst>
+              </lookup>
+            </lookupList>
+            <singleSubstTable id="singlesubst1" format="1">
+              <coverage glyphs="18" format="any"/>
+              <delta v="5"/>
+            </singleSubstTable>
+            <singleSubstTable id="singlesubst2" format="1">
+              <coverage glyphs="19" format="any"/>
+              <delta v="10"/>
+            </singleSubstTable>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub7_test2" font="gsub7_font2" inputs="17, 18, 19, 20, 21" outputs="17, 23, 29, 20, 21"/>
+      </section>
+    </section>
+  

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="validation">
+      <title>Validation</title>
+      <para>Remembering our general discussion of lookupFlag
+          [insert link here], we have a warning-level message if the
+          coverage table includes any glyph that is also covered by
+          lookupFlag.</para>
+      <code-fragment id="validate_gsub_1_1"><code-title>Validate GSUB 1/1 subtable</code-title>
+  ensureAvailableBytes (stOffset, 6);
+  markByteRange (stOffset, 6, FRAGMENT_TYPE_GSUB_1_1);
+  int coverageOffset = stOffset + getuint16 (stOffset + 2);
+  validateCoverageTable (coverageOffset);
+  warnIfCoverageOverlapsLookupFlag (lookupFlag, gsub, coverageOffset);
+</code-fragment>
+    </section>
+  

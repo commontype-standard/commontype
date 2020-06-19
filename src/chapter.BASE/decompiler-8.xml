@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="base.methods"><code-title>??</code-title>
+
+  public void baseCoordTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return;}
+
+    switch (getuint16 (offset)) {
+      <code-include linkend="baseCoordTableToXMLCount.cases"/>
+    }
+  }
+
+  public void baseCoordTableOffsetToXML (DecompilerConfig conf, int offset,
+                                         int [] counts,
+                                         String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "baseCoordTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      baseCoordTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void baseCoordTableToXML (DecompilerConfig conf, int offset,
+                                   int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "baseCoordTable_" + Integer.toHexString (offset));
+      baseCoordTableToXMLEmit (conf, offset, counts,
+                               "baseCoordTable", at);
+      counts [offset] = 0; }
+
+    switch (getuint16 (offset)) {
+      <code-include linkend="baseCoordTableToXML.cases"/>
+    }
+  }
+
+  public void baseCoordTableToXMLEmit (DecompilerConfig conf, int offset,
+                                       int[] counts,
+                                       String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    at.addAttribute ("", "format", "format", "CDATA", "" + getuint16 (offset));
+
+    switch (getuint16 (offset)) {
+      <code-include linkend="baseCoordTableToXMLEmit.cases"/>
+    }
+  }
+</code-fragment>
+    </section>
+  

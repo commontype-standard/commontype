@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>It is difficult to find a format-independent description
+	of a contextual substitution, so we do not have one for now.</para>
+      <para>Here is the boiler plate:</para>
+      <code-fragment id="schema"><code-title>Coverage tables</code-title>
+  standaloneContextualTable =
+    element contextualTable { attribute id { text }, contextualTable }
+
+  contextualTableOffset = attribute name { text } | contextualTable
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format10.elt"><code-title>Generate elements for the format 10 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+
+    int firstCode = getuint32asint (stOffset + 12,
+                          "cmap subtable, format 10, firstCode too big");
+    int lastCode = firstCode + getuint32asint (stOffset + 16,
+                              "cmap subtable, format 10, entryCount too big") - 1;
+    for (int i = firstCode; i &lt;= lastCode; i++) {
+      int glyphID = getuint16 (stOffset + 20 + 2*(i - firstCode));
+      at = new AttributesImpl ();
+      at.addAttribute ("", "code", "code", "CDATA",
+                       "0x" + Integer.toHexString (i));
+      at.addAttribute ("", "glyph", "glyph", "CDATA", "" + glyphID);
+      conf.ch.element ("map", at); }}
+</code-fragment>
+    </section>
+    

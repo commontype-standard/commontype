@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Getting a little bit ahead of the specification, we note
+          that in all formats, a subtable starts with a uint16, which
+          indicates its format.</para>
+      <para>The first interesting operation on a coverage is to
+          determine if a given glyph is covered;</para>
+      <!--
+<code-method-decl id='layouttable.methods>
+  <code-signature>
+    <code-visible>protected</code-visible>
+    <code-name>getCoverageIndex</code-name>
+
+    <code-args>
+      <code-arg>
+        <code-type>int</code-type>
+        <code-name>glyphID</code-name>
+        <code-desc>The glyph for which the coverage index is
+        desired</code-desc>
+      <code-arg>
+      <code-arg>
+        <code-type>int</code-type>
+        <code-name>coverageOffset</code-name>
+        <code-desc>The offset of the coverage table to use, in the
+        current table</code-desc>
+      </code-arg>
+    </code-args>
+
+    <code-exceptions>
+      <code-exception>
+        <code-name>InvalidFontException</code-name>
+        <code-desc>if the font cannot be parsed</code-desc>
+      </code-exception>
+    </code-exceptions>
+
+    <code-return>
+      <code-type>int</code-type>
+      <code-desc>-1 if the glyph is not covered; otherwise its
+      coverage index</code-desc>
+    </code-return>
+  <code-signature>
+
+  <code-desc>Returns the coverage index of <varname>glyphID</varname>
+  using the coverage table at
+  <varname>coverageOffset</varname>.</code-desc>
+
+  <code-body>
+    int format = getuint16 (coverageOffset);
+
+    switch (format) {
+      case 1: { <code-include linkend='LayoutTable_getCoverageIndex1'/> }
+      case 2: { <code-include linkend='LayoutTable_getCoverageIndex2'/> }
+      default: throw new InvalidFontException (); }
+  </code-body>
+
+</code-method-decl>
+-->
+      <code-fragment id="layouttable.methods"><code-title>Method to get the coverage index of a glyph</code-title>
+  /**
+   * Returns the coverage index of glyphID using the coverage at
+   * coverageOffset. If the glyph is not covered, returns -1.
+   *
+   * @param glyphID
+   * @param coverageOffset the offset the coverage table in the current table
+   * @return -1 if the glyph is not covered, its coverage index  otherwise.
+   * @exception InvalidFontException
+   *             if the font cannot be parsed.
+   */
+  protected int getCoverageIndex (int glyphID, int coverageOffset)
+      throws InvalidFontException {
+
+    if (glyphID == -1) {
+      return -1; }
+
+    int format = getuint16 (coverageOffset);
+
+    switch (format) {
+      case 1: { <code-include linkend="LayoutTable_getCoverageIndex1"/> }
+      case 2: { <code-include linkend="LayoutTable_getCoverageIndex2"/> }
+      default: throw new InvalidFontException (); }
+  }
+</code-fragment>
+      <para>Another interesting operation is to enumerate all the
+          covered glyphs:</para>
+      <code-fragment id="layouttable.methods"><code-title>Method to get the glyphs covered by a Coverage Table</code-title>
+  /**
+   * Returns the glyphs covered by the coverage at
+   * coverageOffset.
+   *
+   * @param coverageOffset the offset the coverage table in the current table
+   * @return an array of glyphIDs. The coverage index of a glyph is
+   *         its position in the array
+   * @exception InvalidFontException
+   *             if the font cannot be parsed.
+   */
+  protected int[] getCoveredGlyphs (int coverageOffset)
+      throws InvalidFontException {
+
+    int format = getuint16 (coverageOffset);
+
+    switch (format) {
+      case 1: { <code-include linkend="LayoutTable_getCoveredGlyphs1"/> }
+      case 2: { <code-include linkend="LayoutTable_getCoveredGlyphs2"/> }
+      default: throw new InvalidFontException (); }
+  }
+</code-fragment>
+    </section>
+  

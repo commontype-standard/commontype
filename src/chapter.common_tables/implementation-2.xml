@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>A basic operation is to find the list of lookups
+          corresponding to a 'featureTagsList' for a given
+          'scriptTag'/'languageTag'. The strategy is to find the
+          langSys table for the script/language, convert the set of
+          feature tags into a set of feature indices, and finally to
+          convert those to an ordered list of lookup indices.</para>
+      <code-fragment id="lookuptable.methods"><code-title>Find Lookups</code-title>
+  public int[] findLookups (long scriptTag, long langSysTag,
+                            long[] selectedFeatureTags) {
+
+    int langSysOffset = -1;
+    <code-include linkend="method_Table_findLookups2"/>
+    if (langSysOffset == -1) {
+      return new int[0]; }
+
+    int[] selectedFeatureIndices = new int [selectedFeatureTags.length + 1];
+    int   selectedFeatureIndicesCount = 0;
+    int featureListOffset = getFeatureListOffset ();
+
+    <code-include linkend="method_Table_findLookups4"/>
+
+    SortedSet&lt;Integer&gt; selectedLookups = new TreeSet&lt;Integer&gt; ();
+    <code-include linkend="method_Table_findLookups7"/>
+
+    // turn the set of selectedLookups in an ordered list and return it
+    int[] selectedL = new int [selectedLookups.size ()];
+    int k = 0;
+    for (Integer i : selectedLookups) {
+      selectedL [k++] = i.intValue (); }
+
+    return selectedL;
+  }
+</code-fragment>
+    </section>
+  

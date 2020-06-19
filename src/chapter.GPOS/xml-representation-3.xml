@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>Here is the boiler plate:</para>
+      <code-fragment id="schema"><code-title>singlePostTable</code-title>
+  standaloneSinglePosTable =
+    element singlePosTable { attribute id { text }, singlePosTable }
+
+  singlePosTableOffset = attribute name { text } | singlePosTable
+</code-fragment>
+    </section>
+    

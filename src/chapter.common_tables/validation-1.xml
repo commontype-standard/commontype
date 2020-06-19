@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="validation">
+      <title>Validation</title>
+      <code-fragment id="validate_ScriptList"><code-title>ScriptList validation</code-title>
+  { if (! available (scriptListOffset, 2)) {
+      return; }
+    int scriptCount = getuint16 (scriptListOffset);
+
+    if (! claim ("script list", scriptListOffset, 2 + 6*scriptCount)) {
+      return; }
+
+    for (int scr = 0; scr &lt; scriptCount; scr++) {
+      int scriptOffset
+        = getOffset (scriptListOffset, 2 + 6*scr + 4);
+      validateScript (scriptOffset); }
+  }
+</code-fragment>
+    </section>
+  

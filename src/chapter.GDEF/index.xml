@@ -248,170 +248,10 @@
         </otfield>
       </otformat>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="xml-representation">
-      <title>XML Representation</title>
-      <code-fragment id="schema"><code-title>GDEF</code-title>
-  GDEF =
-    element GDEF {
-      attribute major { "1" },
-      attribute minor { "0" },
-      element glyphClassDef      { classDefTableOffset }?,
-      element attachList         { attachListTableOffset }?,
-      element ligCaretList       { ligCaretListTableOffset }?,
-      element markAttachClassDef { classDefTableOffset }?,
-
-      (  standaloneClassDefTable
-       | standaloneAttachListTable
-       | standaloneLigCaretListTable
-       | standaloneLigGlyphTable
-       | standaloneCaretValueTable
-       | standaloneCoverageTable
-       | standaloneDeviceTable)*
-    }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="compiler">
-      <title>Compiler</title>
-      <code-fragment id="gdef.methods">
-  public void fromXML (Element gdef)
-      throws InvalidFontException, UnsupportedFontException {
-
-    Map&lt;Element, Block&gt; blockCache = new HashMap&lt;Element, Block&gt; ();
-    NodeList l = gdef.getChildNodes ();
-
-    boolean glyphClassDefSet = false;
-    boolean attachListSet = false;
-    boolean ligCaretListSet = false;
-    boolean markAttachClassDefSet = false;
-
-    Block me = new Block (12, 4);
-    me.setFixed (0, 1, 0);
-
-    for (int i = 0; i &lt; l.getLength (); i++) {
-      Element e = (Element) l.item (i);
-      if ("glyphClassDef".equals (e.getTagName ())) {
-        me.setOffset (4, classdefFromXML (e, gdef, blockCache));
-        glyphClassDefSet = true;}
-      if ("attachList".equals (e.getTagName ())) {
-        me.setOffset (6, null /*TODO*/);
-        attachListSet = true;}
-      if ("ligCaretList".equals (e.getTagName ())) {
-        me.setOffset (8, null /*TODO*/);
-        ligCaretListSet = true; }
-      if ("markAttachClassDef".equals (e.getTagName ())) {
-        me.setOffset (10, classdefFromXML (e, gdef, blockCache));
-        markAttachClassDefSet = true;}}
-
-    if (! glyphClassDefSet) {
-      me.setOffset (4, null); }
-    if (! attachListSet) {
-      me.setOffset (6, null); }
-    if (! ligCaretListSet) {
-      me.setOffset (8, null); }
-    if (! markAttachClassDefSet) {
-      me.setOffset (10, null); }
-
-    data = me.serialize ();
-  }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="decompiler">
-      <title>Decompiler</title>
-      <code-fragment id="gdef.methods">
-  public void toXML (DecompilerConfig conf)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-    int [] counts = new int [data.length];
-    for (int i = 0; i &lt; counts.length; i++) {
-      counts [i] = 0; }
-
-    if (getOffset (0, 4) != 0) {
-      classDefTableToXMLCount (getOffset (0, 4), counts); }
-    if (getOffset (0, 6) != 0) {
-      attachListTableToXMLCount (getOffset (0, 6), counts); }
-    if (getOffset (0, 8) != 0) {
-      ligCaretListTableToXMLCount (getOffset (0, 8), counts); }
-    if (getOffset (0, 10) != 0) {
-      classDefTableToXMLCount (getOffset (0, 10), counts); }
-
-    if (conf.pointers == DecompilerConfig.PointersAreShown.never) {
-      for (int i = 0; i &lt; counts.length; i++) {
-        counts [i] = 1; }}
-    if (conf.pointers == DecompilerConfig.PointersAreShown.always) {
-      for (int i = 0; i &lt; counts.length; i++) {
-        counts [i] = 2; }}
-
-    AttributesImpl at;
-
-    int [] version = getTableVersion ();
-    at = new AttributesImpl ();
-    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
-    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
-
-    conf.ch.startElement ("GDEF", at); {
-
-      if (getOffset (0, 4) != 0) {
-        classDefTableOffsetToXML (conf, getOffset (0, 4), counts,
-                                  "glyphClassDef", new AttributesImpl ()); }
-      if (getOffset (0, 6) != 0) {
-        attachListTableOffsetToXML (conf, getOffset (0, 6), counts,
-                                   "attachList", new AttributesImpl ()); }
-      if (getOffset (0, 8) != 0) {
-        ligCaretListTableOffsetToXML (conf, getOffset (0, 8), counts,
-                                      "ligCaretList", new AttributesImpl ()); }
-      if (getOffset (0, 10) != 0) {
-        classDefTableOffsetToXML (conf, getOffset (0, 10), counts,
-                                  "markAttachClassDef", new AttributesImpl ()); }
-
-      if (getOffset (0, 4) != 0) {
-        classDefTableToXML (conf, getOffset (0, 4), counts); }
-      if (getOffset (0, 6) != 0) {
-        attachListTableToXML (conf, getOffset (0, 6), counts); }
-      if (getOffset (0, 8) != 0) {
-        ligCaretListTableToXML (conf, getOffset (0, 8), counts); }
-      if (getOffset (0, 10) != 0) {
-        classDefTableToXML (conf, getOffset (0, 10), counts); }
-
-      conf.ch.endElement ("GDEF"); }
-  }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="implementation">
-      <title>Implementation</title>
-      <code-fragment package="com.adobe.aots.CommonType" class="Gdef"><code-title>GDEF Class</code-title>
-package com.adobe.aots.CommonType;
-
-import java.util.Map;
-import java.util.HashMap;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.helpers.AttributesImpl;
-
-import com.adobe.aots.util.ContentHandlerPlus;
-
-public class Gdef extends LayoutTable {
-
-  public Gdef () {
-    super (Tag.GDEF, null);
-  }
-
-  public Gdef (Font font) {
-    super (Tag.GDEF, font);
-  }
-
-  public int[] getTableVersion () {
-    return getFixed (0);
-  }
-
-  <code-include linkend="gdef.methods"/>
-}
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/xml-representation-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/compiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/decompiler-1.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/implementation-1.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -477,18 +317,7 @@ public class Gdef extends LayoutTable {
           GlyphClassDef table with a sample glyph for each of the
           assigned classes.</para>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="implementation">
-      <title>Implementation</title>
-      <code-fragment id="gdef.methods"><code-title>Method to compute the GDEF class of a glyph</code-title>
-  public int getGlyphClass (int glyph)
-    throws InvalidFontException {
-
-    int glyphClassOffset = getuint16 (4);
-    return classIndex (glyph, glyphClassOffset);
-  }
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/implementation-2.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -556,91 +385,8 @@ public class Gdef extends LayoutTable {
         </otfield>
       </otformat>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="xml-representation">
-      <title>XML Representation</title>
-      <code-fragment id="schema"><code-title>attachListTable</code-title>
-  attachListTable =
-    element coverage { coverageTableOffset }?,
-    element attachPoint {
-      attribute glyphID { text },
-      element point {
-        attribute index { text }
-      }*
-    }*
-
-  standaloneAttachListTable =
-    element attachListTable { attribute id { text }, attachListTable }
-
-  attachListTableOffset = attribute name { text } | attachListTable
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="decompiler">
-      <title>Decompiler</title>
-      <code-fragment id="gdef.methods">
-  public void attachListTableToXMLCount (int offset, int[] counts) {
-    counts [offset]++;
-  }
-
-  public void attachListTableOffsetToXML (DecompilerConfig conf, int offset,
-                                          int[] counts,
-                                          String element, AttributesImpl at)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-    if (counts [offset] != 1) {
-      at.addAttribute ("", "name", "name", "CDATA",
-                       "attachListTable_" + Integer.toHexString (offset));
-      conf.ch.element (element, at); }
-
-    else {
-      attachListTableToXMLEmit (conf, offset, counts, element, at); }
-  }
-
-  public void attachListTableToXML (DecompilerConfig conf, int offset,
-                                    int[] counts)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-    if (counts [offset] &gt; 1) {
-      AttributesImpl at = new AttributesImpl ();
-      at.addAttribute ("", "id", "id", "CDATA",
-                       "attachListTable_" + Integer.toHexString (offset));
-      attachListTableToXMLEmit (conf, offset, counts, "attachListTable", at);
-      counts [offset] = 0; }
-  }
-
-  public void attachListTableToXMLEmit (DecompilerConfig conf, int offset,
-                                        int[] counts,
-                                        String element, AttributesImpl at)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-
-    conf.ch.startElement (element, at); {
-      int[] coveredGlyphs = getCoveredGlyphs (getOffset (offset, 0));
-      int glyphCount = getuint16 (offset + 2);
-
-      for (int g = 0; g &lt; glyphCount; g++) {
-        int attachPointOffset = getOffset (offset, 4 + 2*g);
-        if (attachPointOffset != 0) {
-	  at = new AttributesImpl ();
-          at.addAttribute ("", "glyphID", "glyphID", "CDATA",
-                           "" + coveredGlyphs [g]);
-	  conf.ch.startElement ("attachPoint", at); {
-	    int pointCount = getuint16 (attachPointOffset);
-	    int o = attachPointOffset + 2;
-	    for (int p = 0; p &lt; pointCount; p++) {
-	      int pointIndex = getuint16 (o);
-	      o += 2;
-	      at = new AttributesImpl ();
-	      at.addAttribute ("", "index", "index", "CDATA", "" + pointIndex);
-	      conf.ch.element ("point", at); }
-
-	      conf.ch.endElement ("attachPoint"); }}}
-
-      conf.ch.endElement (element); }
-  }
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/xml-representation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/decompiler-2.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -683,97 +429,8 @@ public class Gdef extends LayoutTable {
         </otfield>
       </otformat>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="xml-representation">
-      <title>XML Representation</title>
-      <code-fragment id="schema"><code-title>ligCaretListTable </code-title>
-  ligCaretListTable =
-    element coverage { coverageTableOffset }?,
-    element ligGlyph {
-      attribute glyphID { text },
-      ligGlyphTableOffset
-    }*
-
-  standaloneLigCaretListTable =
-    element ligCaretListTable { attribute id { text }, ligCaretListTable }
-
-  ligCaretListTableOffset = attribute name { text } | ligCaretListTable
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="decompiler">
-      <title>Decompiler</title>
-      <code-fragment id="gdef.methods">
-  public void ligCaretListTableToXMLCount (int offset, int[] counts) {
-    counts [offset]++;
-    if (counts [offset] &gt; 1) {
-      return; }
-
-    int glyphCount = getuint16 (offset + 2);
-
-    for (int g = 0; g &lt; glyphCount; g++) {
-      int ligGlyphOffset = getOffset (offset, 4 + 2*g);
-      if (ligGlyphOffset != 0) {
-        ligGlyphTableToXMLCount (ligGlyphOffset, counts); }}
-  }
-
-  public void ligCaretListTableOffsetToXML (DecompilerConfig conf, int offset,
-                                            int[] counts,
-                                            String element, AttributesImpl at)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-    if (counts [offset] != 1) {
-      at.addAttribute ("", "name", "name", "CDATA",
-                       "attachListTable_" + Integer.toHexString (offset));
-      conf.ch.element (element, at); }
-
-    else {
-      ligCaretListTableToXMLEmit (conf, offset, counts, element, at); }
-  }
-
-  public void ligCaretListTableToXML (DecompilerConfig conf, int offset,
-                                    int[] counts)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-    if (counts [offset] &gt; 1) {
-      AttributesImpl at = new AttributesImpl ();
-      at.addAttribute ("", "id", "id", "CDATA",
-                       "ligCaretListTable_" + Integer.toHexString (offset));
-      ligCaretListTableToXMLEmit (conf, offset, counts, "ligCaretListTable", at);
-      counts [offset] = 0; }
-
-    int[] coveredGlyphs = getCoveredGlyphs (getOffset (offset, 0));
-    int glyphCount = getuint16 (offset + 2);
-
-    for (int g = 0; g &lt; glyphCount; g++) {
-      int ligGlyphOffset = getOffset (offset, 4 + 2*g);
-      if (ligGlyphOffset != 0) {
-        ligGlyphTableToXML (conf, ligGlyphOffset, counts); }}
-  }
-
-  public void ligCaretListTableToXMLEmit (DecompilerConfig conf, int offset,
-                                        int[] counts,
-                                        String element, AttributesImpl at)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-
-    conf.ch.startElement (element, at); {
-      int[] coveredGlyphs = getCoveredGlyphs (getOffset (offset, 0));
-      int glyphCount = getuint16 (offset + 2);
-
-      for (int g = 0; g &lt; glyphCount; g++) {
-        int ligGlyphOffset = getOffset (offset, 4 + 2*g);
-        if (ligGlyphOffset != 0) {
-          at = new AttributesImpl ();
-          at.addAttribute ("", "glyphID", "glyphID", "CDATA",
-                           "" + coveredGlyphs [g]);
-          ligGlyphTableOffsetToXML (conf, ligGlyphOffset, counts,
-                                    "ligGlyph", at); }}
-
-      conf.ch.endElement (element); }
-  }
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/xml-representation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/decompiler-3.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -811,86 +468,8 @@ public class Gdef extends LayoutTable {
         </otfield>
       </otformat>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="xml-representation">
-      <title>XML Representation</title>
-      <code-fragment id="schema"><code-title>ligGlyphTable</code-title>
-  ligGlyphTable = element caretValue { caretValueTableOffset }*
-
-  standaloneLigGlyphTable =
-    element ligGlyphTable { attribute id { text }, ligGlyphTable }
-
-  ligGlyphTableOffset = attribute name { text } | ligGlyphTable
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="decompiler">
-      <title>Decompiler</title>
-      <code-fragment id="gdef.methods">
-  public void ligGlyphTableToXMLCount (int offset, int[] counts) {
-    counts [offset]++;
-    if (counts [offset] &gt; 1) {
-      return; }
-
-    int caretCount = getuint16 (offset);
-    for (int c = 0; c &lt; caretCount; c++) {
-      int caretValueOffset = getOffset (offset, 2 + 2*c);
-      if (caretValueOffset != 0) {
-        caretValueTableToXMLCount (caretValueOffset, counts); }}
-  }
-
-  public void ligGlyphTableOffsetToXML (DecompilerConfig conf, int offset,
-                                            int[] counts,
-                                            String element, AttributesImpl at)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-    if (counts [offset] != 1) {
-      at.addAttribute ("", "name", "name", "CDATA",
-                       "attachListTable_" + Integer.toHexString (offset));
-      conf.ch.element (element, at); }
-
-    else {
-      ligGlyphTableToXMLEmit (conf, offset, counts, element, at); }
-  }
-
-  public void ligGlyphTableToXML (DecompilerConfig conf, int offset,
-                                    int[] counts)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-    if (counts [offset] &gt; 1) {
-      AttributesImpl at = new AttributesImpl ();
-      at.addAttribute ("", "id", "id", "CDATA",
-                       "ligGlyphTable_" + Integer.toHexString (offset));
-      ligGlyphTableToXMLEmit (conf, offset, counts, "ligGlyphTable", at);
-      counts [offset] = 0; }
-
-    int caretCount = getuint16 (offset);
-    for (int c = 0; c &lt; caretCount; c++) {
-      int caretValueOffset = getOffset (offset, 2 + 2*c);
-      if (caretValueOffset != 0) {
-        caretValueTableToXML (conf, caretValueOffset, counts); }}
-  }
-
-  public void ligGlyphTableToXMLEmit (DecompilerConfig conf, int offset,
-                                        int[] counts,
-                                        String element, AttributesImpl at)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-
-    conf.ch.startElement (element, at); {
-      int caretCount = getuint16 (offset);
-
-      for (int c = 0; c &lt; caretCount; c++) {
-        int caretValueOffset = getOffset (offset, 2 + 2*c);
-        if (caretValueOffset != 0) {
-          at = new AttributesImpl ();
-          caretValueTableOffsetToXML (conf, caretValueOffset, counts,
-                                      "caretValue", at); }}
-
-      conf.ch.endElement (element); }
-  }
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/xml-representation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/decompiler-4.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -907,75 +486,8 @@ public class Gdef extends LayoutTable {
           either X or Y values, depending upon the text
           direction.</para>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="xml-representation">
-      <title>XML Representation</title>
-      <code-fragment id="schema"><code-title>caretValueTable</code-title>
-  standaloneCaretValueTable =
-    element caretValueTable { attribute id { text }, caretValueTable }
-
-  caretValueTableOffset = attribute name { text } | caretValueTable
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="decompiler">
-      <title>Decompiler</title>
-      <code-fragment id="gdef.methods"><code-title>??</code-title>
-
-  public void caretValueTableToXMLCount (int offset, int [] counts) {
-    counts [offset]++;
-    if (counts [offset] &gt; 1) {
-      return;}
-
-    switch (getuint16 (offset)) {
-      <code-include linkend="caretValueTableToXMLCount.cases"/>
-    }
-  }
-
-  public void caretValueTableOffsetToXML (DecompilerConfig conf, int offset,
-                                         int [] counts,
-                                         String element, AttributesImpl at)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-    if (counts [offset] != 1) {
-      at.addAttribute ("", "name", "name", "CDATA",
-                       "caretValueTable_" + Integer.toHexString (offset));
-      conf.ch.element (element, at); }
-
-    else {
-      caretValueTableToXMLEmit (conf, offset, counts, element, at); }
-  }
-
-  public void caretValueTableToXML (DecompilerConfig conf, int offset,
-                                   int[] counts)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-    if (counts [offset] &gt; 1) {
-      AttributesImpl at = new AttributesImpl ();
-      at.addAttribute ("", "id", "id", "CDATA",
-                       "caretValueTable_" + Integer.toHexString (offset));
-      caretValueTableToXMLEmit (conf, offset, counts,
-                               "caretValueTable", at);
-      counts [offset] = 0; }
-
-    switch (getuint16 (offset)) {
-      <code-include linkend="caretValueTableToXML.cases"/>
-    }
-  }
-
-  public void caretValueTableToXMLEmit (DecompilerConfig conf, int offset,
-                                       int[] counts,
-                                       String element, AttributesImpl at)
-      throws org.xml.sax.SAXException, InvalidFontException {
-
-    at.addAttribute ("", "format", "format", "CDATA", "" + getuint16 (offset));
-
-    switch (getuint16 (offset)) {
-      <code-include linkend="caretValueTableToXMLEmit.cases"/> }
-
-  }
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/xml-representation-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/decompiler-5.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1008,25 +520,8 @@ public class Gdef extends LayoutTable {
         </otfield>
       </otformat>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="xml-representation">
-      <title>XML Representation</title>
-      <code-fragment id="schema"><code-title>caretValueTable, format 1</code-title>
-  caretValueTable |=
-    attribute format { "1" },
-    attribute coord { text }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="decompiler">
-      <title>Decompiler</title>
-      <code-fragment id="caretValueTableToXMLEmit.cases">
-  case 1: {
-    at.addAttribute ("", "coord", "coord", "CDATA", "" + getint16 (offset + 2));
-    conf.ch.element (element, at);
-    break; }
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/xml-representation-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/decompiler-6.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1061,26 +556,8 @@ public class Gdef extends LayoutTable {
         </otfield>
       </otformat>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="xml-representation">
-      <title>XML Representation</title>
-      <code-fragment id="schema"><code-title>caretValueTable, format 2</code-title>
-  caretValueTable |=
-    attribute format { "2" },
-    attribute contourPoint { text }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="decompiler">
-      <title>Decompiler</title>
-      <code-fragment id="caretValueTableToXMLEmit.cases">
-  case 2: {
-    at.addAttribute ("", "contourPoint", "contourPoint", "CDATA",
-                     "" + getint16 (offset + 2));
-    conf.ch.element (element, at);
-    break; }
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/xml-representation-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/decompiler-7.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1122,39 +599,8 @@ public class Gdef extends LayoutTable {
         </otfield>
       </otformat>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="xml-representation">
-      <title>XML Representation</title>
-      <code-fragment id="schema"><code-title>caretValueTable, format 3</code-title>
-  caretValueTable |=
-    attribute format { "3" },
-    attribute coord { text },
-    element deviceTable { deviceTableOffset }
-</code-fragment>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="decompiler">
-      <title>Decompiler</title>
-      <code-fragment id="caretValueTableToXMLCount.cases">
-  case 3: {
-    deviceTableToXMLCount (getOffset (offset, 4), counts);
-    break; }
-</code-fragment>
-      <code-fragment id="caretValueTableToXML.cases">
-  case 3: {
-    deviceTableToXML (conf, getOffset (offset, 4), counts);
-    break; }
-</code-fragment>
-      <code-fragment id="caretValueTableToXMLEmit.cases">
-  case 3: {
-    at.addAttribute ("", "coord", "coord", "CDATA", "" + getint16 (offset + 2));
-    conf.ch.startElement (element, at); {
-      deviceTableOffsetToXML (conf, getOffset (offset, 4), counts,
-                              "deviceTable", new AttributesImpl ());
-      conf.ch.endElement (element); }
-    break; }
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/xml-representation-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/decompiler-8.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">
@@ -1169,22 +615,7 @@ public class Gdef extends LayoutTable {
       <para>Example 7 in this document shows a MarkAttachClassDef
         table.</para>
     </section>
-    <!--____________________________________________________________________-->
-    <section role="implementation">
-      <title>Implementation</title>
-      <code-fragment id="gdef.methods"><code-title>Method to compute the Mark Attachment class of a glyph</code-title>
-  public int getMarkAttachClass (int glyph)
-    throws InvalidFontException {
-
-    int markAttachOffset = getuint16 (10);
-
-    if (markAttachOffset != 0) {
-      return classIndex (glyph, markAttachOffset); }
-    else {
-      return 0; }
-  }
-</code-fragment>
-    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/implementation-3.xml"/>
   </section>
   <!--======================================================================-->
   <section role="fragment">

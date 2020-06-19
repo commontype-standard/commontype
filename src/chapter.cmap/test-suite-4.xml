@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap4_font1: basic test</title>
+        <para>Let’s start with a simple case:</para>
+        <aots:test-font id="cmap4_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="4">
+              <segment startCode="17" endCode="30" idDelta="23" idRangeOffset="0"/>
+              <segment startCode="200" endCode="210" idDelta="56" idRangeOffset="0"/>
+              <glyphIndex v=""/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap4_test1" font="cmap4_font1" platformID="3" encodingID="1" inputs="0,  1, 16, 17, 18, 30, 31, 199, 200, 205, 210, 211, 0xffff" outputs="0,  0,  0, 40, 41, 53,  0,   0, 256, 261, 266,   0,      0"/>
+      </section>
+      <section>
+        <title>cmap4_font2,3: boundary cases</title>
+        <para>The first boundary case is when the cmap is as empty
+          as possible, i.e. with a single segment for 0xffff. Since
+          the compiler takes care of adding such a segment, it means
+          no segments in the XML declaration:</para>
+        <aots:test-font id="cmap4_font2">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="4"/>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap4_test2" font="cmap4_font2" platformID="3" encodingID="1" inputs="0,  1, 16, 17, 18, 30, 31, 199, 200, 205, 210, 211, 0xffff" outputs="0,  0,  0,  0,  0,  0,  0,   0,   0,   0,   0,   0,      0"/>
+        <para>Of course, we can have a single segment for 0xffff,
+            but map it to something other than 0: </para>
+        <aots:test-font id="cmap4_font3">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="4">
+              <segment startCode="65535" endCode="65535" idDelta="-1" idRangeOffset="0"/>
+              <glyphIndex v=""/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <aots:cmap-test id="cmap4_test3" font="cmap4_font3" platformID="3" encodingID="1" inputs="0,  1, 16, 17, 18, 30, 31, 199, 200, 205, 210, 211, 0xffff" outputs="0,  0,  0,  0,  0,  0,  0,   0,   0,   0,   0,   0, 0xfffe"/>
+        <para>Here is a test font specifically for the idDelta modulo
+          arithmethic:</para>
+        <aots:test-font id="cmap4_font4">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="3" encodingid="1" language="0" format="4">
+              <segment startCode="100" endCode="1000" idDelta="-500" idRangeOffset="0"/>
+              <segment startCode="45000" endCode="45100" idDelta="-500" idRangeOffset="0"/>
+              <segment startCode="65000" endCode="65100" idDelta="500" idRangeOffset="0"/>
+              <glyphIndex v=""/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <para>Let's start with the second segment, which deals with
+          negative idDelta:</para>
+        <aots:cmap-test id="cmap4_test4a" font="cmap4_font4" platformID="3" encodingID="1" inputs="0,  44999, 45000, 45001, 45099, 45100, 45101" outputs="0,      0, 44500, 44501, 44599, 44600,     0"/>
+        <para>The third segment tests the modulo arithmetic by overflow:</para>
+        <aots:cmap-test id="cmap4_test4b" font="cmap4_font4" platformID="3" encodingID="1" inputs="0,  64999, 65000, 65001, 65035, 65036, 65037, 65100, 65101" outputs="0,      0, 65500, 65501, 65535,     0,     1,    64,     0"/>
+        <para>Finally, the first segment tests both negative idDelta
+          and modulo arithmetic by underflow:</para>
+        <aots:cmap-test id="cmap4_test4c" font="cmap4_font4" platformID="3" encodingID="1" inputs="0,  99,   100,  499, 500, 501, 1000, 1001" outputs="0,  0,  65136, 65535, 0,    1,  500,    0"/>
+      </section>
+    </section>
+    

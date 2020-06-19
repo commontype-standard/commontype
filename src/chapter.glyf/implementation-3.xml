@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="glyf.methods"><code-title>Glyf methods</code-title>
+  public static final int ARG_1_AND_2_ARE_WORDS      = 0x0001;
+  public static final int ARGS_ARE_XY_VALUES         = 0x0002;
+  public static final int ROUND_XY_TO_GRID           = 0x0004;
+  public static final int WE_HAVE_A_SCALE            = 0x0008;
+  public static final int MORE_COMPONENTS            = 0x0020;
+  public static final int WE_HAVE_AN_X_AND_Y_SCALE   = 0x0040;
+  public static final int WE_HAVE_A_TWO_BY_TWO       = 0x0080;
+  public static final int WE_HAVE_INSTRUCTIONS       = 0x0100;
+  public static final int USE_MY_METRICS             = 0x0200;
+  public static final int OVERLAP_COMPOUND           = 0x0400;
+  public static final int SCALED_COMPONENT_OFFSET    = 0x0800;
+  public static final int UNSCALED_COMPONENT_OFFSET  = 0x1000;
+</code-fragment>
+      <code-fragment id="glyf.methods">
+  public class CompositeGlyphComponent {
+    int flags;
+    int gid;
+    int arg1, arg2;
+
+    int xscale = 1 &lt;&lt; 14;
+    int yscale = 1 &lt;&lt; 14;
+    int scale01 = 0;
+    int scale10 = 0;
+  }
+
+  public class CompositeGlyphUnpack {
+    int offset;
+    java.util.Vector&lt;CompositeGlyphComponent&gt; components;
+    int[] instructions;
+
+    public CompositeGlyphUnpack ()
+    {
+      this.components = new java.util.Vector&lt;CompositeGlyphComponent&gt; ();
+      this.instructions = null;
+    }
+  }
+
+
+  public CompositeGlyphUnpack unpackCompositeGlyph (int offset) {
+
+    CompositeGlyphUnpack u = new CompositeGlyphUnpack ();
+
+    boolean we_have_instructions = false;
+
+    while (true) {
+      CompositeGlyphComponent c = new CompositeGlyphComponent ();
+
+      int flags = getuint16 (offset);
+      offset += 2;
+
+      c.flags = flags;  // remove ARG1, scale, instr
+
+      we_have_instructions |= ((flags &amp; WE_HAVE_INSTRUCTIONS) != 0);
+
+      c.gid = getGlyphID (offset);
+      offset += 2;
+
+      if ((flags &amp; ARG_1_AND_2_ARE_WORDS) != 0) {
+        if ((flags &amp; ARGS_ARE_XY_VALUES) != 0) {
+          c.arg1 = getint16 (offset); offset += 2;
+          c.arg2 = getint16 (offset); offset += 2; }
+        else {
+          c.arg1 = getuint16 (offset); offset += 2;
+          c.arg2 = getuint16 (offset); offset += 2; }}
+      else {
+        if ((flags &amp; ARGS_ARE_XY_VALUES) != 0) {
+          c.arg1 = getint8 (offset); offset += 1;
+          c.arg2 = getint8 (offset); offset += 1; }
+        else {
+          c.arg1 = getuint8 (offset); offset += 1;
+          c.arg2 = getuint8 (offset); offset += 1; }}
+
+      if ((flags &amp; WE_HAVE_A_SCALE) != 0) {
+        c.xscale = c.yscale = getFWord (offset); offset += 2; }
+
+      else if ((flags &amp; WE_HAVE_AN_X_AND_Y_SCALE) != 0) {
+        c.xscale = getFWord (offset); offset += 2;
+        c.yscale = getFWord (offset); offset += 2; }
+
+      else if ((flags &amp; WE_HAVE_A_TWO_BY_TWO) != 0) {
+        c.xscale = getFWord (offset); offset += 2;
+        c.scale01 = getFWord (offset); offset += 2;
+        c.scale10 = getFWord (offset); offset += 2;
+        c.yscale = getFWord (offset); offset += 2; }
+
+      u.components.add (c);
+
+      if ((flags &amp; MORE_COMPONENTS) == 0) {
+        break; }}
+
+    if (we_have_instructions) {
+      int numInstr = getuint16 (offset); offset += 2;
+      u.instructions = new int [numInstr];
+      for (int i = 0; i &lt; numInstr; i++) {
+        u.instructions [i] = getuint8 (offset);
+        offset += 1; }}
+
+    u.offset = offset;
+
+    return u;
+  }
+</code-fragment>
+      <para>This method computes some of the 'maxp' values from the glyphs.</para>
+      <code-fragment id="glyf.methods">
+  static public class MaxpValues {
+    int numPoints;
+    int numCompositePoints;
+    int numContours;
+    int numCompositeContours;
+    int numComponentElements;
+    int componentDepth;
+  };
+
+  public MaxpValues getMaxpValues (int gid) {
+    MaxpValues maxpValues = new MaxpValues ();
+    maxpValues.numPoints = 0;
+    maxpValues.numCompositePoints = 0;
+    maxpValues.numContours = 0;
+    maxpValues.numCompositeContours = 0;
+    maxpValues.numComponentElements = 0;
+    maxpValues.componentDepth = 0;
+
+    if (isEmpty (gid)) {
+      return maxpValues; }
+
+    int offset = (int) font.loca.getGlyphLocation (gid);
+
+    if (getint16 (offset) &gt;= 0) {
+      maxpValues.componentDepth = 0;
+      maxpValues.numContours = getuint16 (offset);
+      maxpValues.numPoints = getuint16 (offset + 10 + (maxpValues.numContours-1) * 2) + 1;
+      maxpValues.numCompositeContours = maxpValues.numContours;
+      maxpValues.numCompositePoints = maxpValues.numPoints;
+
+      return maxpValues; }
+
+
+    maxpValues.componentDepth = 0;
+
+    offset += 10;
+
+    while (true) {
+      int flags = getuint16 (offset);
+      MaxpValues maxpValues2 = getMaxpValues (getuint16 (offset + 2));
+
+      maxpValues.numCompositePoints += maxpValues2.numCompositePoints;
+      maxpValues.numCompositeContours += maxpValues2.numCompositeContours;
+
+      maxpValues.componentDepth = Math.max (maxpValues.componentDepth,
+                                     1 + maxpValues2.componentDepth);
+
+      maxpValues.numComponentElements += 1;
+
+      offset += 4;
+      if ((flags &amp; ARG_1_AND_2_ARE_WORDS) != 0) {
+        offset += 4; }
+      else {
+        offset += 2; }
+
+      if ((flags &amp; WE_HAVE_A_SCALE) != 0) {
+        offset += 2; }
+      else if ((flags &amp; WE_HAVE_AN_X_AND_Y_SCALE) != 0) {
+        offset += 4; }
+      else if ((flags &amp; WE_HAVE_A_TWO_BY_TWO) != 0) {
+        offset += 8; }
+
+      if ((flags &amp; MORE_COMPONENTS) == 0) {
+        break; }}
+
+    return maxpValues;
+  }
+
+  public BoundingBox getCompositeGlyphContoursBoundingBox (int offset)
+  {
+    BoundingBox b = new BoundingBox ();
+
+    CompositeGlyphUnpack u = unpackCompositeGlyph (offset);
+
+    for (CompositeGlyphComponent c : u.components) {
+      BoundingBox cb = getContoursBoundingBox (c.gid);
+
+      if ((c.flags &amp; ARGS_ARE_XY_VALUES) == 0) {
+        throw new Error ("oops"); }
+
+      // not really the best, should pass the transformation matrix
+      // to get the bb of the transformed glyph; in fact, should
+      // get ctm in and combine with the glyph tm
+
+      b.include (cb.xmin * c.xscale/16384.0  + cb.ymin * c.scale01/16384.0 + c.arg1,
+                 cb.xmin * c.scale10/16384.0 + cb.ymin * c.yscale/16384.0  + c.arg2);
+
+      b.include (cb.xmax * c.xscale/16384.0  + cb.ymax * c.scale01/16384.0 + c.arg1,
+                 cb.xmax * c.scale10/16384.0 + cb.ymax * c.yscale/16384.0  + c.arg2); }
+
+    return b;
+  }
+</code-fragment>
+    </section>
+  

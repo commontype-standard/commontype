@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>The nature of this feature is requires that it takes
+          some input, namely which alternate glyph to use. Various
+          applications will choose different methods, depending on
+          their needs, so the method we use here should not be taken
+          as implied by the specification.</para>
+      <para>To help our testing, we want to have some deterministic
+          method, yet we want to have a way to reach all alternate
+          glyphs. We maintain a table that records for each
+          AlternateSet table the alternate to use in the next
+          application. On the first application, the glyph is not
+          replaced, on the second application, it is replaced by the
+          first alternate; when all alternates have been used, we
+          restart the cycle.</para>
+      <code-fragment id="gsub_globals_1"><code-title>GSUB private members</code-title>
+  java.util.Map&lt;Integer, Integer&gt; alternateMap
+       = new java.util.HashMap&lt;Integer, Integer&gt; ();
+</code-fragment>
+      <code-fragment id="gsub_3"><code-title>Execute GSUB 3 subtable and return</code-title>
+  { int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int inPos = curGlyph;
+
+    int ci = getCoverageIndex (gr.glyphAt (inPos), coverageOffset);
+    if (ci == -1) {
+      return lookupNotApplied; }
+
+    if (! gr.isLookupApplied (lookupIndex, curGlyph, inPos)) {
+      return lookupNotApplied; }
+
+    int alternateSetOffset = stOffset + getOffset (stOffset + 6 + 2*ci);
+    int glyphCount = getuint16 (alternateSetOffset);
+
+    int alternate = -1;
+    Integer o = alternateMap.get (alternateSetOffset);
+    if (o != null) {
+      alternate = o.intValue (); }
+
+    if (alternate != -1) {
+      int oldGlyphId = gr.glyphAt (inPos);
+      int newGlyphId = getGlyphID (alternateSetOffset + 2 + 2*alternate);
+
+      if (listener != null) {
+        listener.replace (oldGlyphId, newGlyphId);
+        listener.applyingSubtable (lookupIndex, gr, curGlyph, "GSUB", stOffset); }
+      gr.replace (inPos, newGlyphId); }
+
+    alternate++;
+    if (alternate == glyphCount) {
+      alternate = -1; }
+    alternateMap.put (alternateSetOffset,
+                      alternate);
+
+    return new LookupResult (true, inPos + 1, 0); }
+</code-fragment>
+    </section>
+    

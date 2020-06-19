@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="LayoutTable.classDefTableToXMLEmit.cases">
+  case 1: {
+    int startGlyph = getGlyphID (offset + 2);
+    int glyphCount = getuint16 (offset + 4);
+
+    if (conf.preciseClassDefFormat) {
+      at.addAttribute ("", "format", "format", "CDATA", "1");
+      at.addAttribute ("", "startGlyph", "startGlyph", "CDATA", "" + startGlyph);
+      StringBuilder sb = new StringBuilder ();
+      for (int i = 0; i &lt; glyphCount; i++) {
+        sb.append (" ");
+        sb.append (getuint16 (offset + 6 + 2*i)); }
+      at.addAttribute ("", "classes", "classes", "CDATA", sb.toString ());
+
+      conf.ch.element (element, at); }
+
+    else {
+      at.addAttribute ("", "format", "format", "CDATA", "any");
+      conf.ch.startElement (element, at); {
+
+        StringBuilder sb = new StringBuilder ();
+
+        // there are at most glyphCount classes
+        for (int cl = 1; cl &lt;= glyphCount; cl++) {
+          for (int glyph = 0; glyph &lt; glyphCount; glyph++) {
+            if (cl == getuint16 (offset + 6 + 2*glyph)) {
+              glyphToXML (conf, sb, startGlyph + glyph); }}
+
+          if (sb.length () != 0) {
+            at = new AttributesImpl ();
+            at.addAttribute ("", "classID", "classID", "CDATA", "" + cl);
+            at.addAttribute ("", "glyphs", "glyphs", "CDATA", sb.toString ());
+            conf.ch.element ("class", at);
+            sb.setLength (0); }}
+        conf.ch.endElement (element); }}
+
+    break; }
+</code-fragment>
+    </section>
+    

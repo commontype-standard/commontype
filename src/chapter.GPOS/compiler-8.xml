@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gpos.methods"><code-title>Compile cursivePosFormat1 lookups</code-title>
+  public CoverageTableBlock coverageFromEntryExitFromXML (NodeList nl)
+      throws InvalidFontException, UnsupportedFontException {
+    int [] glyphs = new int [nl.getLength ()];
+    int glyphCount = 0;
+
+    for (int i = 0; i &lt; nl.getLength (); i++) {
+      Element entryExit = (Element) nl.item (i);
+      int glyph = Integer.parseInt (entryExit.getAttribute ("glyphID"));
+      glyphs [glyphCount++] = glyph; }
+
+    return coverageFromGlyphs (glyphs);
+  }
+
+  private Block cursivePosFormat1FromXML (Element subtable, Element table,
+                                          Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me = null;
+
+    CoverageTableBlock coverage;
+    Element firstChild = (Element) subtable.getFirstChild ();
+
+    if (firstChild == null) {
+      coverage = emptyCoverage (); }
+    else if ("coverage".equals (firstChild.getTagName ())) {
+      coverage = coverageFromXML (firstChild, table, blockCache);
+      subtable.removeChild (firstChild); }
+    else {
+      coverage = coverageFromEntryExitFromXML (subtable.getChildNodes ()); }
+
+    me = new Block (6 + 4*coverage.glyphs.length,
+                    1 + 2*coverage.glyphs.length);
+    me.setuint16 (0, 1);
+    me.setOffset (2, coverage);
+    me.setuint16 (4, coverage.glyphs.length);
+
+    NodeList children = subtable.getChildNodes ();
+
+    boolean[] seen = new boolean [coverage.glyphs.length];
+
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element entryExit = (Element) children.item (i);
+      int glyphID = Integer.parseInt (entryExit.getAttribute ("glyphID"));
+
+      boolean covered = false;
+      for (int j = 0; j &lt; coverage.glyphs.length; j++) {
+        if (glyphID == coverage.glyphs [j]) {
+          covered = true;
+          if (seen [j]) {
+            warning ("glyph " + glyphID
+                      + " has two entries in cursivePosFormat1"); }
+          seen [j] = true;
+
+          NodeList nl = entryExit.getChildNodes ();
+          boolean entrySeen = false;
+          boolean exitSeen = false;
+	  for (int k = 0; k &lt; nl.getLength (); k++) {
+            Element e = (Element) nl.item  (k);
+            Block anchor = anchorTableFromXML (e, table, blockCache);
+            int o;
+            if ("entry".equals (e.getTagName ())) {
+              entrySeen = true;
+              o = 6 + 4*j + 0; }
+            else {
+              exitSeen = true;
+              o = 6 + 4*j + 2; }
+            me.setOffset (o, anchor); }
+          if (! entrySeen) {
+            me.setOffset (6 + 4*j, null); }
+          if (! exitSeen) {
+            me.setOffset (6 + 4*j + 2, null); }
+          break; }}
+
+      if (! covered) {
+        warning ("glyph " + glyphID + " must be covered in cursivePosFormat1"); }}
+    for (int j = 0; j &lt; seen.length; j++) {
+      if (! seen [j]) {
+        warning ("glyph " + coverage.glyphs [j]
+                 + " covered but has not entryExit in cursivePosFormat1"); }}
+    return me;
+  }
+</code-fragment>
+    </section>
+    

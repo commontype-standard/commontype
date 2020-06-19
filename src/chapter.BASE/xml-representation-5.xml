@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>baseScriptTable</code-title>
+  baseScriptTable =
+    element baseValues    { baseValuesTableOffset }?,
+    element defaultMinMax { minMaxTableOffset }?,
+    element baseLangSysRecord {
+      attribute tag { text },
+      element minMax { minMaxTableOffset }
+    }*
+
+  standaloneBaseScriptTable =
+     element baseScriptTable { attribute id { text }, baseScriptTable }
+
+  baseScriptTableOffset = attribute name { text } | baseScriptTable
+</code-fragment>
+    </section>
+    

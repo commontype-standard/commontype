@@ -708,17 +708,22 @@
             <row>
               <entry>U+00a0</entry>
               <entry>space
-		  <footnote id="f1"><para>This glyph name is also used for another
+		  <footnote id="f1">
+                  <para>This glyph name is also used for another
 		      Unicode value listed in this document. If a
 		      separate design for this glyph is desired, it
 		      may be given a uni&lt;CODE&gt; glyph name, where
 		      &lt;CODE&gt; is a 4-digit uppercase hexadecimal
-		      number that indicates the Unicode value.</para><para>For example, if different designs are
+		      number that indicates the Unicode value.</para>
+                  <para>For example, if different designs are
 		      desired for MICRO SIGN (U+00B5) and GREEK SMALL
 		      LETTER MU (U+03BC), then glyph "mu" should be
 		      designed as MICRO SIGN and glyph "uni03BC" should
-		      be designed as GREEK SMALL LETTER MU.</para><para>Refer to the Adobe document 'Unicode and Glyph Names'
-		      for more details.</para></footnote></entry>
+		      be designed as GREEK SMALL LETTER MU.</para>
+                  <para>Refer to the Adobe document 'Unicode and Glyph Names'
+		      for more details.</para>
+                </footnote>
+              </entry>
               <entry>no-break space</entry>
               <entry>0xca</entry>
               <entry>172</entry>
@@ -809,7 +814,8 @@
             </row>
             <row>
               <entry>U+00ad</entry>
-              <entry>hyphen<footnoteref linkend="f1"/></entry>
+              <entry>hyphen<footnoteref linkend="f1"/>
+              </entry>
               <entry>soft hyphen</entry>
               <entry/>
               <entry/>
@@ -2076,14 +2082,16 @@
             </row>
             <row>
               <entry>U+0162</entry>
-              <entry>Tcommaaccent<footnoteref linkend="f1"/></entry>
+              <entry>Tcommaaccent<footnoteref linkend="f1"/>
+              </entry>
               <entry>latin capital letter t with cedilla</entry>
               <entry/>
               <entry/>
             </row>
             <row>
               <entry>U+0163</entry>
-              <entry>tcommaaccent<footnoteref linkend="f1"/> </entry>
+              <entry>tcommaaccent<footnoteref linkend="f1"/>
+              </entry>
               <entry>latin small letter t with cedilla</entry>
               <entry/>
               <entry/>
@@ -2349,7 +2357,8 @@
             </row>
             <row>
               <entry>U+02c9</entry>
-              <entry>macron<footnoteref linkend="f1"/> </entry>
+              <entry>macron<footnoteref linkend="f1"/>
+              </entry>
               <entry>modifier letter macron</entry>
               <entry/>
               <entry/>
@@ -2496,7 +2505,8 @@
             </row>
             <row>
               <entry>U+0394</entry>
-              <entry>Delta<footnoteref linkend="f1"/> </entry>
+              <entry>Delta<footnoteref linkend="f1"/>
+              </entry>
               <entry>greek capital letter delta</entry>
               <entry/>
               <entry/>
@@ -2636,7 +2646,8 @@
             </row>
             <row>
               <entry>U+03a9</entry>
-              <entry>Omega<footnoteref linkend="f1"/></entry>
+              <entry>Omega<footnoteref linkend="f1"/>
+              </entry>
               <entry>greek capital letter omega</entry>
               <entry/>
               <entry/>
@@ -2769,7 +2780,8 @@
             </row>
             <row>
               <entry>U+03bc</entry>
-              <entry>mu<footnoteref linkend="f1"/> </entry>
+              <entry>mu<footnoteref linkend="f1"/>
+              </entry>
               <entry>greek small letter mu</entry>
               <entry/>
               <entry/>
@@ -3924,7 +3936,10 @@
             </row>
             <row>
               <entry>U+21a8</entry>
-              <entry>arrowupdnbse<footnote id="f2"><para>This is an optional glyph</para></footnote></entry>
+              <entry>arrowupdnbse<footnote id="f2">
+                  <para>This is an optional glyph</para>
+                </footnote>
+              </entry>
               <entry>up down arrow with base</entry>
               <entry/>
               <entry/>
@@ -3966,14 +3981,16 @@
             </row>
             <row>
               <entry>U+2215</entry>
-              <entry>fraction<footnoteref linkend="f1"/></entry>
+              <entry>fraction<footnoteref linkend="f1"/>
+              </entry>
               <entry>division slash</entry>
               <entry>0xda</entry>
               <entry>188</entry>
             </row>
             <row>
               <entry>U+2219</entry>
-              <entry>periodcentered<footnoteref linkend="f1"/></entry>
+              <entry>periodcentered<footnoteref linkend="f1"/>
+              </entry>
               <entry>bullet operator</entry>
               <entry>0xe1</entry>
               <entry>195</entry>
@@ -4050,28 +4067,32 @@
             </row>
             <row>
               <entry>U+2302</entry>
-              <entry>house<footnoteref linkend="f2"/></entry>
+              <entry>house<footnoteref linkend="f2"/>
+              </entry>
               <entry>house</entry>
               <entry/>
               <entry/>
             </row>
             <row>
               <entry>U+2310</entry>
-              <entry>revlogicalnot<footnoteref linkend="f2"/> </entry>
+              <entry>revlogicalnot<footnoteref linkend="f2"/>
+              </entry>
               <entry>reversed not sign</entry>
               <entry/>
               <entry/>
             </row>
             <row>
               <entry>U+2320</entry>
-              <entry>integraltp<footnoteref linkend="f2"/></entry>
+              <entry>integraltp<footnoteref linkend="f2"/>
+              </entry>
               <entry>top half integral</entry>
               <entry/>
               <entry/>
             </row>
             <row>
               <entry>U+2321</entry>
-              <entry>integralbt<footnoteref linkend="f2"/></entry>
+              <entry>integralbt<footnoteref linkend="f2"/>
+              </entry>
               <entry>bottom half integral</entry>
               <entry/>
               <entry/>
@@ -4358,7 +4379,8 @@
             </row>
             <row>
               <entry>U+2580</entry>
-              <entry>upblock<footnoteref linkend="f2"/></entry>
+              <entry>upblock<footnoteref linkend="f2"/>
+              </entry>
               <entry>upper half block</entry>
               <entry/>
               <entry/>
@@ -4386,14 +4408,16 @@
             </row>
             <row>
               <entry>U+2590</entry>
-              <entry>rtblock<footnoteref linkend="f2"/></entry>
+              <entry>rtblock<footnoteref linkend="f2"/>
+              </entry>
               <entry>right half block</entry>
               <entry/>
               <entry/>
             </row>
             <row>
               <entry>U+2591</entry>
-              <entry>ltshade<footnoteref linkend="f2"/></entry>
+              <entry>ltshade<footnoteref linkend="f2"/>
+              </entry>
               <entry>light shade</entry>
               <entry/>
               <entry/>
@@ -4442,7 +4466,8 @@
             </row>
             <row>
               <entry>U+25ac</entry>
-              <entry>filledrect<footnoteref linkend="f2"/></entry>
+              <entry>filledrect<footnoteref linkend="f2"/>
+              </entry>
               <entry>black rectangle</entry>
               <entry/>
               <entry/>
@@ -4456,7 +4481,8 @@
             </row>
             <row>
               <entry>U+25ba</entry>
-              <entry>triagrt<footnoteref linkend="f2"/></entry>
+              <entry>triagrt<footnoteref linkend="f2"/>
+              </entry>
               <entry>black right-pointing pointer</entry>
               <entry/>
               <entry/>
@@ -4470,7 +4496,8 @@
             </row>
             <row>
               <entry>U+25c4</entry>
-              <entry>triaglf<footnoteref linkend="f2"/></entry>
+              <entry>triaglf<footnoteref linkend="f2"/>
+              </entry>
               <entry>black left-pointing pointer</entry>
               <entry/>
               <entry/>
@@ -4498,14 +4525,16 @@
             </row>
             <row>
               <entry>U+25d8</entry>
-              <entry>invbullet<footnoteref linkend="f2"/></entry>
+              <entry>invbullet<footnoteref linkend="f2"/>
+              </entry>
               <entry>inverse bullet</entry>
               <entry/>
               <entry/>
             </row>
             <row>
               <entry>U+25d9</entry>
-              <entry>invcircle<footnoteref linkend="f2"/></entry>
+              <entry>invcircle<footnoteref linkend="f2"/>
+              </entry>
               <entry>inverse white circle</entry>
               <entry/>
               <entry/>
@@ -4519,21 +4548,24 @@
             </row>
             <row>
               <entry>U+263a</entry>
-              <entry>smileface<footnoteref linkend="f2"/></entry>
+              <entry>smileface<footnoteref linkend="f2"/>
+              </entry>
               <entry>white smiling face</entry>
               <entry/>
               <entry/>
             </row>
             <row>
               <entry>U+263b</entry>
-              <entry>invsmileface<footnoteref linkend="f2"/></entry>
+              <entry>invsmileface<footnoteref linkend="f2"/>
+              </entry>
               <entry>black smiling face</entry>
               <entry/>
               <entry/>
             </row>
             <row>
               <entry>U+263c</entry>
-              <entry>sun<footnoteref linkend="f2"/></entry>
+              <entry>sun<footnoteref linkend="f2"/>
+              </entry>
               <entry>white sun with rays</entry>
               <entry/>
               <entry/>
@@ -4575,7 +4607,8 @@
             </row>
             <row>
               <entry>U+2666</entry>
-              <entry>diamond<footnoteref linkend="f2"/></entry>
+              <entry>diamond<footnoteref linkend="f2"/>
+              </entry>
               <entry>black diamond suit</entry>
               <entry/>
               <entry/>
@@ -4589,7 +4622,8 @@
             </row>
             <row>
               <entry>U+266b</entry>
-              <entry>musicalnotedbl<footnoteref linkend="f2"/></entry>
+              <entry>musicalnotedbl<footnoteref linkend="f2"/>
+              </entry>
               <entry>beamed eighth notes</entry>
               <entry/>
               <entry/>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>We start with a procedure that performs the matching for
+          a single SubClassRule. When this procedure is called, it is
+          known that the glyph run match L<subscript>0</subscript>
+          and that L<subscript>0</subscript> is at
+          <varname>inPos</varname>. If the glyph run does not match
+          the rest of the SubClassRule, then this procedure returns
+          null. Otherwise, it returns an array of the glyph run
+          positions that where matched, i.e. the positions of
+          L<subscript>0</subscript>, L<subscript>1</subscript>,
+          …</para>
+      <code-fragment id="lookuptable.methods"><code-title>Procedure to match one GSUB 5/2 sub class rule</code-title>
+  int[] matchOneClassRule (GlyphRun gr, int inPos,
+                           int classRuleOffset, int classOffset,
+                           int lookupIndex, int lookupFlag)
+      throws InvalidFontException {
+
+    int glyphCount = getuint16 (classRuleOffset);
+    int[] matchedPositions = new int [glyphCount];
+    matchedPositions [0] = inPos;
+    inPos++;
+
+    for (int g = 1; g &lt; glyphCount; g++) {
+
+      while (lookupFlagCovers (lookupFlag, gr.glyphAt (inPos))) {
+        inPos++; }
+
+      if (   classIndex (gr.glyphAt (inPos), classOffset)
+          != getuint16 (classRuleOffset + 4 + 2*(g-1))) {
+        return null; }
+
+      matchedPositions [g] = inPos;
+      inPos++; }
+
+    return matchedPositions;
+  }
+</code-fragment>
+      <para>With that in place, we can now implement the full
+          subtable.</para>
+      <code-fragment id="contextualLookup_format2"><code-title>Execute contextual lookup subtable, format 2, and return</code-title>
+  { int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int classDefOffset = stOffset + getOffset (stOffset + 4);
+    int inPos = curGlyph;
+
+    if (-1 == getCoverageIndex (gr.glyphAt (inPos), coverageOffset)) {
+      return lookupNotApplied; }
+
+    int cl = classIndex (gr.glyphAt (inPos), classDefOffset);
+    if (cl &gt; getuint16 (stOffset + 6) - 1) {
+      return lookupNotApplied; }
+    int classSetOffset = getOffset (stOffset + 8 + 2*cl);
+    if (classSetOffset == 0) {
+      return lookupNotApplied; }
+    classSetOffset += stOffset;
+    int classRuleCnt = getuint16 (classSetOffset);
+
+    for (int i = 0; i &lt; classRuleCnt; i++) {
+      int classRuleOffset
+        = classSetOffset + getOffset (classSetOffset + 2 + 2*i);
+      int glyphCount = getuint16 (classRuleOffset);
+
+      int[] matchedPositions
+        = matchOneClassRule (gr, inPos,
+                             classRuleOffset, classDefOffset,
+                             lookupIndex, lookupFlag);
+
+      if (matchedPositions != null
+          &amp;&amp; gr.isLookupApplied (lookupIndex, curGlyph,
+                                 matchedPositions [matchedPositions.length-1])) {
+        int applyCount = getuint16 (classRuleOffset + 2);
+        int applyOffset = classRuleOffset + 4 + 2*(glyphCount-1);
+        if (listener != null) {
+          listener.applyingSubtable (lookupIndex, gr, curGlyph,
+                                     Tag.tag2string (tag), stOffset); }
+        return applySubLookups (gr, matchedPositions,
+                                applyCount, applyOffset); }}
+    return lookupNotApplied; }
+</code-fragment>
+    </section>
+    

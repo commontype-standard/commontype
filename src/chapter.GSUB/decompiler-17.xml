@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="lookuptable.methods">
+  protected void subLookupsToXML (DecompilerConfig conf, int count, int offset)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    for (int i = 0; i &lt; count; i++) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "pos", "pos", "CDATA", "" + getuint16 (offset));
+      at.addAttribute ("", "lookup", "lookup", "CDATA",
+                       "lookup_" + getuint16 (offset + 2));
+      conf.ch.element ("apply", at);
+      offset += 4; }
+  }
+</code-fragment>
+    </section>
+    

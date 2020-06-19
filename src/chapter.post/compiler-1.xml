@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="post.methods">
+  public void fromXML (Element post)
+      throws InvalidFontException, UnsupportedFontException {
+
+    int highestGid = -1;
+    int namesLength = 0;
+    int nbOffsets = 0;
+
+    NodeList children = post.getChildNodes ();
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element e = (Element) children.item (i);
+
+      if ("glyph".equals (e.getTagName ())) {
+        int gid = Integer.decode (e.getAttribute ("id")).intValue ();
+        if (gid &gt; highestGid) {
+          highestGid = gid; }
+        namesLength += 1 + e.getAttribute ("name").length (); }
+
+      else if ("offset".equals (e.getTagName ())) {
+        nbOffsets++; }}
+
+    int nbGids = highestGid + 1;
+
+    int major = Integer.decode (post.getAttribute ("major")).intValue ();
+    int minor = Integer.decode (post.getAttribute ("minor")).intValue ();
+
+    int blockSize = 32;
+
+    if (major == 2) {
+      if (minor == 0) {
+        blockSize += 2 + 2 * nbGids + namesLength; }
+      else {
+        blockSize += 2 + nbOffsets; }}
+
+    Block me = new Block (blockSize, 0);
+    String[] names = new String [nbGids];
+    int[] offsets = new int [nbOffsets];
+    int o = 0;
+
+    me.setFixed (0, major, minor);
+
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element e = (Element) children.item (i);
+
+      if ("italicAngle".equals (e.getTagName ())) {
+        me.setFixed (4,
+	             Integer.decode (e.getAttribute ("int")).intValue(),
+	             Integer.decode (e.getAttribute ("frac")).intValue()); }
+
+      if ("underline".equals (e.getTagName ())) {
+        me.setFWord (8, Integer.decode (e.getAttribute ("position")).intValue());
+        me.setFWord (10, Integer.decode (e.getAttribute ("thickness")).intValue()); }
+
+      if ("isFixedPitch".equals (e.getTagName ())) {
+        me.setuint32 (12, "yes".equals (e.getAttribute ("v")) ? 1 : 0); }
+
+      if ("memType42".equals (e.getTagName ())) {
+        me.setuint32 (16, Integer.decode (e.getAttribute ("min")).intValue());
+        me.setuint32 (20, Integer.decode (e.getAttribute ("max")).intValue()); }
+
+      if ("memType1".equals (e.getTagName ())) {
+        me.setuint32 (24, Integer.decode (e.getAttribute ("min")).intValue());
+        me.setuint32 (28, Integer.decode (e.getAttribute ("max")).intValue()); }
+
+      if ("glyph".equals (e.getTagName ())) {
+        int gid = Integer.decode (e.getAttribute ("id")).intValue ();
+        names [gid] = e.getAttribute ("name"); }
+
+      if ("offset".equals (e.getTagName ())) {
+        offsets [o] = Integer.decode (e.getAttribute ("v")).intValue ();
+        o++; }}
+
+
+    if (major == 2) {
+      if (minor == 0) {
+
+        me.setuint16 (32, nbGids);
+        int indexOffset = 34;
+        int charOffset = indexOffset + nbGids * 2;
+
+        for (int gid = 0; gid &lt; nbGids; gid++) {
+          me.setuint16 (indexOffset, 258 + gid);
+          indexOffset += 2;
+
+          char[] name = names [gid].toCharArray ();
+
+          me.setuint8 (charOffset, name.length);
+          charOffset++;
+          for (int i = 0; i &lt; name.length; i++) {
+            me.setuint8 (charOffset, name [i]);
+            charOffset ++; }}}
+
+      else if (minor == 5) {
+        me.setuint16 (32, nbOffsets);
+        for (int i = 0; i &lt; nbOffsets; i++) {
+          me.setint8 (34 + i, offsets [i]); }}}
+
+    data = me.serialize ();
+  }
+</code-fragment>
+    </section>
+    

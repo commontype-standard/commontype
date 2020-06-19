@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="glyf.methods"><code-title>Decompiler for simple glyphs</code-title>
+
+  public void simpleGlyphToXML (DecompilerConfig conf,
+                                int offset,
+                                int nbContours)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+      SimpleGlyphUnpack u = unpackSimpleGlyphContours (offset, nbContours);
+
+      offset += 2 * nbContours;  // skip to the instructions
+
+      int numInstr = getuint16 (offset); offset += 2;
+      String opcodes = "";
+      String prefix = "";
+      for (int i = 0; i &lt; numInstr; i++) {
+        opcodes += prefix + "0x" + Integer.toHexString (getuint8 (offset));
+        offset += 1;
+        prefix = " "; }
+
+      int pt = 0;
+      for (int c = 0; c &lt; nbContours; c++) {
+        conf.ch.startElement ("contour");
+
+        while (pt &lt;= u.endPts [c]) {
+
+          AttributesImpl at = new AttributesImpl ();
+          at.addAttribute ("", "on_curve", "on_curve", "CDATA",
+                           u.on [pt] ? "yes" : "no");
+          at.addAttribute ("", "x", "x", "CDATA", Integer.toString (u.x [pt]));
+          at.addAttribute ("", "y", "y", "CDATA", Integer.toString (u.y [pt]));
+
+          conf.ch.element ("point", at);
+          pt++; }
+
+        conf.ch.endElement ("contour"); }
+
+      if (numInstr != 0) {
+        AttributesImpl at = new AttributesImpl ();
+        at.addAttribute ("", "opcodes", "opcodes", "CDATA", opcodes);
+        conf.ch.element ("instructions", at); }
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <para>A single substitution represented as a sequence of
+        <sgmltag>subst</sgmltag> elements is equivalent to a single
+        single substitution represented with single format 2 subtable,
+        with those substs as its children.</para>
+      <code-fragment id="gsub.methods"><code-title>Compile GSUB 1 subtable</code-title>
+  private Block singleSubstLookupFromXML (Element lookupSubtable,
+                                          Element table,
+                                          Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    String format = lookupSubtable.getAttribute ("format");
+    if ("1".equals (format)) {
+      return singleSubstFormat1FromXML (lookupSubtable, table, blockCache); }
+    if ("2".equals (format) || "any".equals (format)) {
+      return singleSubstFormat2FromXML (lookupSubtable, table, blockCache); }
+
+    /*cannot get here with valid instance*/
+    throw new InvalidFontException (
+      "invalid single substitution format (" + format + ")");
+  }
+</code-fragment>
+    </section>
+    

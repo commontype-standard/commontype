@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.methods">
+  public void defaultUVSTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+  }
+
+  public void defaultUVSTableOffsetToXML (DecompilerConfig conf, int offset,
+                                          int [] counts,
+                                          String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (false &amp;&amp; counts [offset] != 1) {
+      at.addAttribute ("", "defaultUsvTable", "defaultUsvTable", "CDATA",
+                       "defaultUsvTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      defaultUVSTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void defaultUSVTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (false &amp;&amp;  counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "defaultUsvTable_" + Integer.toHexString (offset));
+      defaultUVSTableToXMLEmit (conf, offset, counts, "defaultUVSTable", at);
+      counts [offset] = 0; }
+  }
+
+  protected void defaultUVSTableToXMLEmit (DecompilerConfig conf, int offset,
+                                           int[] counts,
+                                           String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+      long nbRanges = getuint32 (offset);
+      for (int i = 0; i &lt; nbRanges; i++) {
+        int start = getuint24 (offset + 4 + i * 4);
+        int additionalCount = getuint8 (offset + 4 + i * 4 + 3);
+        at = new AttributesImpl ();
+        at.addAttribute ("", "start", "start", "CDATA",
+                         "0x" + Integer.toHexString (start));
+        at.addAttribute ("", "additionalCount", "additionalCount", "CDATA",
+                         "" + additionalCount);
+        conf.ch.element ("range", at); }
+      conf.ch.endElement (element); }
+  }
+
+  public void nonDefaultUVSTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+  }
+
+  public void nonDefaultUVSTableOffsetToXML (DecompilerConfig conf, int offset,
+                                             int [] counts,
+                                             String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "nonDefaultUsv", "nonDefaultUsv", "CDATA",
+                       "nonDefaultUsvTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      nonDefaultUVSTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void nonDefaultUSVTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "nonDefaultUsvTable_" + Integer.toHexString (offset));
+      nonDefaultUVSTableToXMLEmit (conf, offset, counts,
+                                   "nonDefaultUVSTable", at);
+      counts [offset] = 0; }
+  }
+
+  protected void nonDefaultUVSTableToXMLEmit (DecompilerConfig conf, int offset,
+                                              int[] counts,
+                                              String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+
+    conf.ch.startElement (element, at); {
+      long nbMappings = getuint32 (offset);
+      for (int i = 0; i &lt; nbMappings; i++) {
+        int usv = getuint24 (offset + 4 + i * 5);
+        int gid = getuint16 (offset + 4 + i * 5 + 3);
+
+        at = new AttributesImpl ();
+        at.addAttribute ("", "usv", "usv", "CDATA",
+                         "0x" + Integer.toHexString (usv));
+        at.addAttribute ("", "gid", "gid", "CDATA", "" + gid);
+        conf.ch.element ("map", at); }
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+      <code-fragment id="cmap.decompile.format14.elt"><code-title>Generate elements for the format 14 cmap subtable at 'stOffset'</code-title>
+
+  long numVarSelectorRecords = getuint32 (stOffset + 6);
+
+  if (true || conf.preciseCmap) {
+    for (int i = 0; i &lt; numVarSelectorRecords; i++) {
+      int vs = getuint24 (stOffset + 10 + i * 11);
+      int defaultOffset = getLOffset (stOffset, 10 + i * 11 + 3);
+      int nonDefOffset = getLOffset (stOffset, + 10 + i * 11 + 7);
+      at = new AttributesImpl ();
+      at.addAttribute ("", "vs", "vs", "CDATA", "0x" + Integer.toHexString (vs));
+      conf.ch.startElement ("variation-selector", at); {
+        if (defaultOffset != 0) {
+          at = new AttributesImpl ();
+          defaultUVSTableOffsetToXML (conf, defaultOffset, counts, "defaultMappings", at);  }
+        if (nonDefOffset != 0) {
+          at = new AttributesImpl ();
+          nonDefaultUVSTableOffsetToXML (conf, nonDefOffset, counts, "nonDefaultMappings", at); }
+        conf.ch.endElement ("variation-selector"); }}}
+
+</code-fragment>
+    </section>
+    

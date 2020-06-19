@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>ligGlyphTable</code-title>
+  ligGlyphTable = element caretValue { caretValueTableOffset }*
+
+  standaloneLigGlyphTable =
+    element ligGlyphTable { attribute id { text }, ligGlyphTable }
+
+  ligGlyphTableOffset = attribute name { text } | ligGlyphTable
+</code-fragment>
+    </section>
+    

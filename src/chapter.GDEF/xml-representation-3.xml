@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>ligCaretListTable </code-title>
+  ligCaretListTable =
+    element coverage { coverageTableOffset }?,
+    element ligGlyph {
+      attribute glyphID { text },
+      ligGlyphTableOffset
+    }*
+
+  standaloneLigCaretListTable =
+    element ligCaretListTable { attribute id { text }, ligCaretListTable }
+
+  ligCaretListTableOffset = attribute name { text } | ligCaretListTable
+</code-fragment>
+    </section>
+    

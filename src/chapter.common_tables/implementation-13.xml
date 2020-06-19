@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="layouttable.methods"><code-title>Method to find the class index of a glyph</code-title>
+
+  protected int classIndex (int glyph, int offset)
+     throws InvalidFontException {
+
+    if (glyph == -1) {
+      return -1; }
+
+    int format = getuint16 (offset);
+
+    switch (format) {
+      case 1: { <code-include linkend="sub_classIndex1"/> }
+      case 2: { <code-include linkend="sub_classIndex2"/> }
+      default: throw new InvalidFontException (); }
+  }
+</code-fragment>
+    </section>
+    

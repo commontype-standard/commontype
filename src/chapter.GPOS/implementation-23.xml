@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Value">
+package com.adobe.aots.CommonType;
+
+  public class Value {
+    public int format;
+    public int xPlacement;
+    public int yPlacement;
+    public int xAdvance;
+    public int yAdvance;
+
+    public Value () {
+      super ();
+      format = 0;
+      xPlacement = 0;
+      yPlacement = 0;
+      xAdvance = 0;
+      yAdvance = 0; }
+  }
+</code-fragment>
+      <code-fragment package="com.adobe.aots.CommonType" class="ValueRecord"><code-title>ValueRecord class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+public class ValueRecord {
+  public int xPlacement = 0;
+  public int yPlacement = 0;
+  public int xAdvance = 0;
+  public int yAdvance = 0;
+
+  public static int getSize (int valueFormat) {
+    int size = 0;
+    if ((valueFormat &amp; 0x001) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x002) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x004) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x008) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x010) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x020) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x040) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x080) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x100) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x200) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x400) != 0) {
+      size += 2; }
+    if ((valueFormat &amp; 0x800) != 0) {
+      size += 2; }
+
+    return size;
+  }
+
+  public boolean isNull () {
+    return (   (xPlacement == 0) &amp;&amp; (yPlacement == 0)
+            &amp;&amp; (xAdvance == 0) &amp;&amp; (yAdvance == 0));
+  }
+
+  public void toXML (AttributesImpl at) {
+   if (xPlacement != 0) {
+     at.addAttribute ("", "xPlacement", "xPlacement", "CDATA", "" + xPlacement); }
+   if (yPlacement != 0) {
+     at.addAttribute ("", "yPlacement", "yPlacement", "CDATA", "" + yPlacement); }
+   if (xAdvance != 0) {
+     at.addAttribute ("", "xAdvance", "xAdvance", "CDATA", "" + xAdvance); }
+   if (yAdvance != 0) {
+     at.addAttribute ("", "yAdvance", "yAdvance", "CDATA", "" + yAdvance); }
+  }
+
+
+  public ValueRecord fromBinary (Table table, int offset, int valueFormat) {
+    if ((valueFormat &amp; 0x001) != 0) {
+      xPlacement = table.getint16 (offset);
+      offset += 2; }
+    if ((valueFormat &amp; 0x002) != 0) {
+      yPlacement = table.getint16 (offset);
+      offset += 2; }
+    if ((valueFormat &amp; 0x004) != 0) {
+      xAdvance = table.getint16 (offset);
+      offset += 2; }
+    if ((valueFormat &amp; 0x008) != 0) {
+      yAdvance = table.getint16 (offset);
+      offset += 2; }
+    if ((valueFormat &amp; 0x010) != 0) {
+      offset += 2; }
+    if ((valueFormat &amp; 0x020) != 0) {
+      offset += 2; }
+    if ((valueFormat &amp; 0x040) != 0) {
+      offset += 2; }
+    if ((valueFormat &amp; 0x080) != 0) {
+      offset += 2; }
+    if ((valueFormat &amp; 0x100) != 0) {
+      offset += 2; }
+    if ((valueFormat &amp; 0x200) != 0) {
+      offset += 2; }
+    if ((valueFormat &amp; 0x400) != 0) {
+      offset += 2; }
+    if ((valueFormat &amp; 0x800) != 0) {
+      offset += 2; }
+
+    return this;
+  }
+}
+</code-fragment>
+    </section>
+  

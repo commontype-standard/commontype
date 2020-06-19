@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>gpos4_simple</title>
+        <para>Here is a simple test to start with: glyphs 17 and 18
+          are base glyphs; glyphs 19 and 20 are mark glyphs. 19
+          attaches to 18, to have its origin at (-100, -80) relative
+          to the origin of the new position of the occurrence of glyph
+          18 serving as a base.</para>
+        <aots:test-font id="gpos4_simple_1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="17:18"/>
+              <class classID="3" glyphs="19:20"/>
+            </glyphClassDef>
+          </GDEF>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4">
+                <markToBaseAttachment format="1">
+                  <baseGlyph glyphID="18">
+                    <baseAnchor class="0" format="1" x="100" y="150"/>
+                  </baseGlyph>
+                  <markGlyphAnchor glyphID="19" class="0" format="1" x="200" y="230"/>
+                </markToBaseAttachment>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <para>Let’s see that in action:</para>
+        <aots:gpos-test id="gpos4_simple_1" font="gpos4_simple_1" inputs="17,   18,    19,   17" xdeltas=" 0,    0, -1600,    0" ydeltas=" 0,    0,   -80,    0"/>
+        <para>In this test, the base glyph for the mark is not covered:</para>
+        <aots:gpos-test id="gpos4_simple_2" font="gpos4_simple_1" inputs="17,   17,   19,   17" xdeltas=" 0,    0,    0,    0" ydeltas=" 0,    0,    0,    0"/>
+        <para>In this test, there is no base glyph at all:</para>
+        <aots:gpos-test id="gpos4_simple_3" font="gpos4_simple_1" inputs="25,   25,   19,   17" xdeltas=" 0,    0,    0,    0" ydeltas=" 0,    0,    0,    0"/>
+        <para>Let’s have two occurrences of 19 on the same
+          base, they should both be moved.</para>
+        <aots:gpos-test id="gpos4_simple_4" font="gpos4_simple_1" inputs="17,   18,    19,    19,  17" xdeltas=" 0,    0, -1600, -3100,   0" ydeltas=" 0,    0,   -80,   -80,   0"/>
+        <para>There can also be occurrences of other mark glyphs
+	  between the mark being processed and the base glyph:</para>
+        <aots:gpos-test id="gpos4_simple_5" font="gpos4_simple_1" inputs="17,   18,   20,    19,   17" xdeltas=" 0,    0,    0, -3100,    0" ydeltas=" 0,    0,    0,   -80,    0"/>
+      </section>
+      <section>
+        <title>gpos4_lookupflag</title>
+        <para>The interesting case of lookup flags is when there are
+	  intervening non-marks between the base and the mark being
+	  processed. But if we skip those, then we must skip all base
+	  characters, and therefore should never find one for the
+	  mark! Of course, this implies that lookupFlag on this kind
+	  of lookup is not too useful.</para>
+        <aots:test-font id="gpos4_lookupflag_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="17:18"/>
+              <class classID="3" glyphs="19:20"/>
+            </glyphClassDef>
+            <markAttachClassDef format="any">
+              <class classID="1" glyphs="19"/>
+              <!-- e.g. above -->
+              <class classID="2" glyphs="20"/>
+              <!-- e.g. below -->
+            </markAttachClassDef>
+          </GDEF>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4" ignoreBaseGlyphs="yes">
+                <markToBaseAttachment format="1">
+                  <baseGlyph glyphID="18">
+                    <baseAnchor class="0" format="1" x="100" y="150"/>
+                  </baseGlyph>
+                  <markGlyphAnchor glyphID="19" class="0" format="1" x="200" y="230"/>
+                </markToBaseAttachment>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <para>Let’s see that in action:</para>
+        <aots:gpos-test id="gpos4_lookupflag_t1" font="gpos4_lookupflag_f1" inputs="17,   18,   17,   19,   17" xdeltas=" 0,    0,    0,    0,    0" ydeltas=" 0,    0,    0,    0,    0"/>
+        <para>Actually, there is another degenerate case, i.e. when
+	  a covered mark glyph is excluded by lookupFlag.</para>
+        <aots:test-font id="gpos4_lookupflag_f2">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="17:18"/>
+              <class classID="3" glyphs="19:20"/>
+            </glyphClassDef>
+          </GDEF>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4" ignoreMarks="yes">
+                <markToBaseAttachment format="1">
+                  <baseGlyph glyphID="18">
+                    <baseAnchor class="0" format="1" x="100" y="150"/>
+                  </baseGlyph>
+                  <markGlyphAnchor glyphID="19" class="0" format="1" x="200" y="230"/>
+                </markToBaseAttachment>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos4_lookupflag_t2" font="gpos4_lookupflag_f2" inputs="17,   18,   19,   17" xdeltas=" 0,    0,    0,    0" ydeltas=" 0,    0,    0,    0"/>
+      </section>
+      <section>
+        <title>gpos4_multiple_anchors</title>
+        <para>Here is a slightly more complicated case. 17 and 18
+          are still base glyphs, 19 through 22 are mark glyphs. The
+          base glyphs each define two anchors. 19 and 21 attach to the
+          first anchor and 20 and 22 attach to the second
+          anchor.</para>
+        <aots:test-font id="gpos4_multiple_anchors_1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="17:18"/>
+              <class classID="3" glyphs="19:22"/>
+            </glyphClassDef>
+          </GDEF>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="4">
+                <markToBaseAttachment format="1">
+                  <baseGlyph glyphID="17">
+                    <baseAnchor class="0" format="1" x="100" y="150"/>
+                    <baseAnchor class="1" format="1" x="110" y="160"/>
+                  </baseGlyph>
+                  <baseGlyph glyphID="18">
+                    <baseAnchor class="0" format="1" x="120" y="170"/>
+                    <baseAnchor class="1" format="1" x="130" y="180"/>
+                  </baseGlyph>
+                  <markGlyphAnchor glyphID="19" class="0" format="1" x="200" y="230"/>
+                  <markGlyphAnchor glyphID="20" class="1" format="1" x="201" y="231"/>
+                  <markGlyphAnchor glyphID="21" class="0" format="1" x="202" y="232"/>
+                  <markGlyphAnchor glyphID="22" class="1" format="1" x="203" y="233"/>
+                </markToBaseAttachment>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <aots:gpos-test id="gpos4_multiple_anchors_1" font="gpos4_multiple_anchors_1" inputs="17,    19,    20,    21,    22,  18,    19,    20,    21,    22" xdeltas=" 0, -1600, -3091, -4602, -6093,   0, -1580, -3071, -4582, -6073" ydeltas=" 0,   -80,   -71,   -82,   -73,   0,   -60,   -51,   -62,   -53"/>
+      </section>
+    </section>
+  

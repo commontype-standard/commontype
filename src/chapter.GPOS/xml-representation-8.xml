@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>pairPosTable, format 2</code-title>
+  pairPosTable |=
+    attribute format { "2" },
+    element coverage { coverageTableOffset }?,
+    element classdef { classDefTableOffset },
+    element classdef { classDefTableOffset },
+    element pos2 {
+      attribute in { text },
+      element value1 { valueRecord }?,
+      element value2 { valueRecord }?
+    }*
+</code-fragment>
+    </section>
+    

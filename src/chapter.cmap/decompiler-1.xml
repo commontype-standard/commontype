@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.methods"><code-title>Decompile a cmap table</code-title>
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, UnsupportedFontException, InvalidFontException {
+
+    AttributesImpl at;
+
+    at = new AttributesImpl ();
+    at.addAttribute ("", "version", "version", "CDATA", "" + getuint16 (0));
+    conf.ch.startElement ("cmap", at); {
+
+      int[] counts = new int [data.length];
+      for (int o = 0; o &lt; counts.length; o++) {
+        counts [o] = 0; }
+
+      for (int st = 0; st &lt; getuint16 (2); st++) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+	counts [stOffset]++; }
+
+      if (conf.pointers == DecompilerConfig.PointersAreShown.never) {
+        for (int i = 0; i &lt; counts.length; i++) {
+          counts [i] = 1; }}
+      if (conf.pointers == DecompilerConfig.PointersAreShown.always) {
+        for (int i = 0; i &lt; counts.length; i++) {
+          counts [i] = 2; }}
+
+      for (int st = 0; st &lt; getuint16 (2); st++) {
+        at = new AttributesImpl ();
+        int stOffset = getLOffset (4 + 8*st + 4);
+
+	int platformID = getuint16 (4 + 8*st);
+        int encodingID = getuint16 (4 + 8*st + 2);
+
+        at.addAttribute ("", "platformid", "platformid", "CDATA",
+                         "" + platformID);
+        at.addAttribute ("", "encodingid", "encodingid", "CDATA",
+                         "" + encodingID);
+        at.addAttribute ("", "language", "language", "CDATA",
+                         "" + getuint16 (stOffset + 4));
+
+        if (counts [stOffset] != 1) {
+          at.addAttribute ("", "name", "name", "CDATA",
+	                   "cmapsubtable_" + Integer.toHexString (stOffset));
+          conf.ch.element ("mapping", at); }
+
+        else {
+          oneSubtableToXML (conf, counts, stOffset, platformID, encodingID,
+                            "mapping", at); }}
+
+      for (int st = 0; st &lt; getuint16 (2); st++) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+	int platformID = getuint16 (4 + 8*st);
+        int encodingID = getuint16 (4 + 8*st + 2);
+        if (counts [stOffset] != 1) {
+	  at = new AttributesImpl ();
+	  at.addAttribute ("", "id", "id", "CDATA",
+	                   "cmapsubtable_" + Integer.toHexString (stOffset));
+          oneSubtableToXML (conf, counts, stOffset, platformID, encodingID,
+                            "cmapsubtable", at);
+          counts [stOffset] = 1; }}
+
+      conf.ch.endElement ("cmap"); }
+  }
+
+  void oneSubtableToXML (DecompilerConfig conf, int[] counts, int stOffset,
+                         int platformID, int encodingID,
+                         String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, UnsupportedFontException, InvalidFontException {
+
+    int format = getuint16 (stOffset);
+    at.addAttribute ("", "format", "format", "CDATA", "" + format);
+
+    switch (format) {
+      case 0: { <code-include linkend="cmap.decompile.format0.att"/>; break; }
+      case 2: { <code-include linkend="cmap.decompile.format2.att"/>; break; }
+      case 4: { <code-include linkend="cmap.decompile.format4.att"/>; break; }
+      case 6: { <code-include linkend="cmap.decompile.format6.att"/>; break; }
+      case 8: { <code-include linkend="cmap.decompile.format8.att"/>; break; }
+      case 10: { <code-include linkend="cmap.decompile.format10.att"/>; break; }
+      case 12: { <code-include linkend="cmap.decompile.format12.att"/>; break; }
+      case 14: { <code-include linkend="cmap.decompile.format14.att"/>; break; }
+      default: { break; }}
+
+     conf.ch.startElement (element, at); {
+
+      switch (format) {
+        case 0: { <code-include linkend="cmap.decompile.format0.elt"/>; break; }
+        case 2: { <code-include linkend="cmap.decompile.format2.elt"/>; break; }
+        case 4: { <code-include linkend="cmap.decompile.format4.elt"/>; break; }
+        case 6: { <code-include linkend="cmap.decompile.format6.elt"/>; break; }
+        case 8: { <code-include linkend="cmap.decompile.format8.elt"/>; break; }
+        case 10: { <code-include linkend="cmap.decompile.format10.elt"/>; break; }
+        case 12: { <code-include linkend="cmap.decompile.format12.elt"/>; break; }
+        case 14: { <code-include linkend="cmap.decompile.format14.elt"/>; break; }
+        default: { break; }}
+
+      if (! conf.preciseCmap) {
+        SortedMap&lt;Integer, Integer&gt; m = getMap (platformID, encodingID);
+
+        if (m != null) {
+          for (int c : m.keySet ()) {
+            int g = m.get (c);
+            at = new AttributesImpl ();
+            at.addAttribute ("", "code", "code", "CDATA",
+                             "0x" + Integer.toHexString (c));
+            at.addAttribute ("", "glyph", "glyph", "CDATA", glyphToXML (conf, g));
+            conf.ch.element ("map", at); }}}
+
+       conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="lookuptable.methods">
+  public void lookupTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    int lookupType = getuint16 (offset);
+    for (int st = 0; st &lt; getuint16 (offset + 4); st++) {
+      int stOffset = getOffset (offset, 6 + 2*st);
+      lookupSubtableToXMLCount (stOffset, counts, lookupType); }
+  }
+
+  public void lookupTableOffsetToXML (DecompilerConfig conf, int offset,
+                                      int [] counts,
+                                      String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "lookupTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      lookupTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void lookupTableToXML (DecompilerConfig conf, int offset,
+                                int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "lookupTable_" + Integer.toHexString (offset));
+      lookupTableToXMLEmit (conf, offset, counts,
+                            "lookupTable", at);
+      counts [offset] = 0; }
+
+    int lookupType = getuint16 (offset);
+    for (int st = 0; st &lt; getuint16 (offset + 4); st++) {
+      int stOffset = getOffset (offset, 6 + 2*st);
+      lookupSubtableToXML (conf, stOffset, counts, lookupType); }
+  }
+
+  protected void lookupTableToXMLEmit (DecompilerConfig conf, int offset,
+                                    int[] counts,
+				    String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    at.addAttribute ("", "type", "type", "CDATA", "" + getuint16 (offset));
+
+    int lookupFlag = getuint16 (offset + 2);
+    if ((lookupFlag &amp; 0x0001) != 0) {
+      at.addAttribute ("", "rightToLeft", "rightToLeft", "CDATA",
+                       ((lookupFlag &amp; 0x0001) != 0) ? "yes" : "no");  }
+    if ((lookupFlag &amp; 0x0002) != 0) {
+      at.addAttribute ("", "ignoreBaseGlyphs", "ignoreBaseGlyphs", "CDATA",
+                       ((lookupFlag &amp; 0x0002) != 0) ? "yes" : "no"); }
+    if ((lookupFlag &amp; 0x0004) != 0) {
+      at.addAttribute ("", "ignoreLigatures", "ignoreLigatures", "CDATA",
+                       ((lookupFlag &amp; 0x0004) != 0) ? "yes" : "no"); }
+    if ((lookupFlag &amp; 0x0008) != 0) {
+      at.addAttribute ("", "ignoreMarks", "ignoreMarks", "CDATA",
+                       ((lookupFlag &amp; 0x0008) != 0) ? "yes" : "no"); }
+    if ((lookupFlag &amp; 0xFF00) != 0) {
+      at.addAttribute ("", "markAttachmentType", "markAttachmentType",
+                       "CDATA", "" + ((lookupFlag &gt;&gt; 8) &amp; 0xff)); }
+
+    conf.ch.startElement (element, at); {
+      int lookupType = getuint16 (offset);
+      for (int st = 0; st &lt; getuint16 (offset + 4); st++) {
+        int stOffset = getOffset (offset, 6 + 2*st);
+        lookupSubtableOffsetToXML (conf, stOffset, counts, lookupType); }
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+      <code-fragment id="gsub.methods">
+  static final String[] lookupNames = {null, "singleSubst", "multipleSubst",
+    "alternateSubst", "ligatureSubst", "contextual",
+    "chainingContextual", "extensionSubst"};
+
+  String lookupName (int lookupType) {
+    return lookupNames [lookupType];
+  }
+
+  int lookupType (String name) {
+    for (int i = 0; i &lt; lookupNames.length ; i++) {
+      if (name.equals (lookupNames [i])) {
+        return i; }}
+    return 0;
+  }
+
+  public void lookupSubtableToXMLCount (int stOffset, int[] counts,
+                                        int lookupType) {
+    counts [stOffset]++;
+    if (counts [stOffset] &gt; 1) {
+      return; }
+
+    switch (lookupType) {
+      case 1: { <code-include linkend="gsub.toXMLCount_1"/>;   break; }
+      case 2: { <code-include linkend="gsub.toXMLCount_2"/>;   break; }
+      case 3: { <code-include linkend="gsub.toXMLCount_3"/>;   break; }
+      case 4: { <code-include linkend="gsub.toXMLCount_4"/>;   break; }
+      case 5: { contextualLookupToXMLCount (stOffset, counts); break; }
+      case 6: { chainingLookupToXMLCount (stOffset, counts);   break; }
+      case 7: { extensionLookupToXMLCount (stOffset, counts);  break; }}
+  }
+
+  public void lookupSubtableOffsetToXML (DecompilerConfig conf, int stOffset,
+                                         int [] counts,
+                                         int lookupType)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [stOffset] != 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "name", "name", "CDATA",
+                       lookupNames [lookupType] + "Table_"
+		         + Integer.toHexString (stOffset));
+      conf.ch.element (lookupNames [lookupType] + "Table", at); }
+
+    else {
+      lookupSubtableToXMLEmit (conf, stOffset, counts,
+                               lookupNames [lookupType], new AttributesImpl (),
+			       lookupType); }
+  }
+
+  public void lookupSubtableToXML (DecompilerConfig conf, int stOffset,
+                                   int[] counts,
+                                   int lookupType)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [stOffset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       lookupNames [lookupType] + "Table_"
+                         + Integer.toHexString (stOffset));
+      lookupSubtableToXMLEmit (conf, stOffset, counts,
+                               lookupNames [lookupType] + "Table", at,
+                               lookupType);
+      counts [stOffset] = 0; }
+
+    switch (lookupType) {
+      case 1: { <code-include linkend="gsub.toXML_1"/>;       break; }
+      case 2: { <code-include linkend="gsub.toXML_2"/>;       break; }
+      case 3: { <code-include linkend="gsub.toXML_3"/>;       break; }
+      case 4: { <code-include linkend="gsub.toXML_4"/>;       break; }
+      case 5: { contextualLookupToXML (conf, stOffset, counts); break; }
+      case 6: { chainingLookupToXML (conf, stOffset, counts);   break; }
+      case 7: { extensionLookupToXML (conf, stOffset, counts);  break; }}
+  }
+
+  public void lookupSubtableToXMLEmit (DecompilerConfig conf,
+                                       int stOffset, int[] counts,
+				       String element, AttributesImpl at,
+                                       int lookupType)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    at.addAttribute ("", "format", "format", "CDATA",
+                     "" + getuint16 (stOffset));
+    conf.ch.startElement (element, at); {
+      switch (lookupType) {
+        case 1: { <code-include linkend="gsub.toXMLEmit_1"/>;       break; }
+        case 2: { <code-include linkend="gsub.toXMLEmit_2"/>;       break; }
+        case 3: { <code-include linkend="gsub.toXMLEmit_3"/>;       break; }
+        case 4: { <code-include linkend="gsub.toXMLEmit_4"/>;       break; }
+        case 5: { contextualLookupToXMLEmit (conf, stOffset, counts); break; }
+	case 6: { chainingLookupToXMLEmit (conf, stOffset, counts);   break; }
+	case 7: { extensionLookupToXMLEmit (conf, stOffset, counts);  break; }}
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+      <code-fragment id="gpos.methods">
+  final String[] lookupNames = {null, "singlePos", "pairPos",
+      "cursiveAttachment", "markToBaseAttachment",
+      "markToLigatureAttachment", "markToMarkAttachment",
+      "contextual", "chainingContextual", "extensionPos"};
+
+  String lookupName (int lookupType) {
+    return lookupNames [lookupType];
+  }
+
+  int lookupType (String name) {
+    for (int i = 0; i &lt; lookupNames.length; i++) {
+      if (name.equals (lookupNames [i])) {
+        return i; }}
+    return 0;
+  }
+
+  public void lookupSubtableToXMLCount (int stOffset, int[] counts,
+                                        int lookupType) {
+    counts [stOffset]++;
+    if (counts [stOffset] &gt; 1) {
+      return; }
+
+    switch (lookupType) {
+      case 1: { <code-include linkend="gpos.toXMLCount_1"/>;   break; }
+      case 2: { <code-include linkend="gpos.toXMLCount_2"/>;   break; }
+      case 3: { <code-include linkend="gpos.toXMLCount_3"/>;   break; }
+      case 4: { <code-include linkend="gpos.toXMLCount_4"/>;   break; }
+      case 5: { <code-include linkend="gpos.toXMLCount_5"/>;   break; }
+      case 6: { <code-include linkend="gpos.toXMLCount_6"/>;   break; }
+      case 7: { contextualLookupToXMLCount (stOffset, counts); break; }
+      case 8: { chainingLookupToXMLCount (stOffset, counts);   break; }
+      case 9: { extensionLookupToXMLCount (stOffset, counts);  break; }}
+  }
+
+  public void lookupSubtableToXML (DecompilerConfig conf, int stOffset,
+                                   int[] counts,
+                                   int lookupType)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [stOffset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       lookupNames [lookupType] + "Table_"
+                         + Integer.toHexString (stOffset));
+      lookupSubtableToXMLEmit (conf, stOffset, counts,
+                               lookupNames [lookupType] + "Table", at,
+                               lookupType);
+      counts [stOffset] = 0; }
+
+    switch (lookupType) {
+      case 1: { <code-include linkend="gpos.toXML_1"/>;       break; }
+      case 2: { <code-include linkend="gpos.toXML_2"/>;       break; }
+      case 3: { <code-include linkend="gpos.toXML_3"/>;       break; }
+      case 4: { <code-include linkend="gpos.toXML_4"/>;       break; }
+      case 5: { <code-include linkend="gpos.toXML_5"/>;       break; }
+      case 6: { <code-include linkend="gpos.toXML_6"/>;       break; }
+      case 7: { contextualLookupToXML (conf, stOffset, counts); break; }
+      case 8: { chainingLookupToXML (conf, stOffset, counts);   break; }
+      case 9: { extensionLookupToXML (conf, stOffset, counts);  break; }}
+  }
+
+  public void lookupSubtableOffsetToXML (DecompilerConfig conf, int stOffset,
+                                         int [] counts,
+                                         int lookupType)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [stOffset] != 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "name", "name", "CDATA",
+                       lookupNames [lookupType] + "Table_"
+		         + Integer.toHexString (stOffset));
+      conf.ch.element (lookupNames [lookupType], at); }
+
+    else {
+      lookupSubtableToXMLEmit (conf, stOffset, counts,
+                               lookupNames [lookupType], new AttributesImpl (),
+			       lookupType); }
+  }
+
+  public void lookupSubtableToXMLEmit (DecompilerConfig conf,
+                                       int stOffset, int[] counts,
+ 				       String element, AttributesImpl at,
+                                       int lookupType)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    at.addAttribute ("", "format", "format", "CDATA",
+                     "" + getuint16 (stOffset));
+    conf.ch.startElement (element, at); {
+      switch (lookupType) {
+        case 1: { <code-include linkend="gpos.toXMLEmit_1"/>;       break; }
+        case 2: { <code-include linkend="gpos.toXMLEmit_2"/>;       break; }
+	case 3: { <code-include linkend="gpos.toXMLEmit_3"/>;       break; }
+	case 4: { <code-include linkend="gpos.toXMLEmit_4"/>;       break; }
+	case 5: { <code-include linkend="gpos.toXMLEmit_5"/>;       break; }
+	case 6: { <code-include linkend="gpos.toXMLEmit_6"/>;       break; }
+	case 7: { contextualLookupToXMLEmit (conf, stOffset, counts); break; }
+	case 8: { chainingLookupToXMLEmit (conf, stOffset, counts);   break; }
+	case 9: { extensionLookupToXMLEmit (conf, stOffset, counts);  break; }}
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+    

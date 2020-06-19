@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>TODO: This really belongs to the 'size' feature and should be
+	moved there sometime.</para>
+      <para>The 'size' feature is not really a  layout feature,
+	  just a place we have	stored some numbers. Here is a method
+	  that returns those numbers.</para>
+      <para>Historically, we have shipped fonts with an incorrect
+	  form: we made the offset of the feature params relative to
+	  the featureList rather than relative to the feature
+	  itself. So this method takes a boolean to either allow or disallow
+	  automatic fixing of this problem. </para>
+      <code-fragment id="gpos.methods"><code-title>Method to return the size parameters</code-title>
+  public class SizeParameters {
+    public int designSize;
+    public int subfamilyId;
+    public int nameId;
+    public int minSize;
+    public int maxSize; };
+
+  public SizeParameters getSizeParameters () {
+    return getSizeParameters (true);
+  }
+
+  public SizeParameters getSizeParameters (boolean useFeatureListOffset) {
+
+    int featureListOffset = getFeatureListOffset ();
+    int featureCount = getuint16 (featureListOffset);
+
+    for (int i = 0; i &lt; featureCount; i++) {
+       if (getint32 (featureListOffset + 2 + 6*i) == Tag.string2tag ("size")) {
+	  int featureOffset = featureListOffset + getOffset (
+                             featureListOffset + 2 + 6*i + 4);
+	  int featureParamsOffset = getOffset (featureOffset);
+
+	  if (useFeatureListOffset) {
+	   featureParamsOffset += featureListOffset; }
+	  else {
+           featureParamsOffset += featureOffset; }
+
+	  SizeParameters res = new SizeParameters ();
+	  res.designSize = getuint16 (featureParamsOffset);
+	  res.subfamilyId = getuint16 (featureParamsOffset + 2);
+	  res.nameId = getuint16 (featureParamsOffset + 4);
+	  res.minSize = getuint16 (featureParamsOffset + 6);
+	  res.maxSize = getuint16 (featureParamsOffset + 8);
+	  return res; }}
+
+    return null;
+  }
+</code-fragment>
+      <para>Here is a program to extract the size parameters of a
+	font.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="SizeParams"><code-title>SizeParams class</code-title>
+package com.adobe.aots.CommonType;
+
+import java.io.File;
+import java.net.URL;
+
+public class SizeParams {
+
+  public static void outputSp (Font font, Gpos.SizeParameters sp) {
+    String c;
+    if (sp.designSize == 0) {
+      c = "*"; }
+    else if (   sp.subfamilyId == 0
+             &amp;&amp; sp.nameId == 0
+             &amp;&amp; sp.minSize == 0
+             &amp;&amp; sp.maxSize == 0) {
+      c = " "; }
+    else if (   sp.designSize &lt; sp.minSize
+             || sp.maxSize &lt; sp.designSize
+             || sp.nameId &lt; 256
+             || sp.nameId &gt; 32767
+             /*|| font.name.getName (-1, sp.nameId) == null)*/) {
+      c = "*"; }
+    else {
+      c = " "; }
+    System.out.println (c + "     sizes = " + sp.minSize + ", "
+                        + sp.designSize + ", " + sp.maxSize
+                        + "; subfamilyId=" + sp.subfamilyId
+                        + "; nameId=" + sp.nameId
+	                + " = " + font.name.getName (-1, sp.nameId));
+  }
+
+  public static void main (String args[]) throws Exception {
+    Font font = new Font ();
+    font.fromBinary (new URL ("file:" + args [0]));
+
+    Gpos.SizeParameters sp = null;
+    Gpos.SizeParameters sp2 = null;
+    if (font.gpos != null) {
+      sp = font.gpos.getSizeParameters (false);
+      sp2 = font.gpos.getSizeParameters (true); }
+
+    if (sp != null || sp2 != null) {
+      System.out.println ("--- " + args [0]);
+      outputSp (font, sp);
+      outputSp (font, sp2); }
+
+  }
+}
+</code-fragment>
+      <para>Here is a method for decompilation.</para>
+      <code-fragment id="gpos.methods">
+  public void opticalSizeToXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    SizeParameters sp = null;
+    sp = getSizeParameters (false);
+    if (sp == null) {
+      sp = getSizeParameters (true); }
+
+    if (sp == null) {
+      return; }
+
+    AttributesImpl at;
+    at = new AttributesImpl ();
+    at.addAttribute ("", "designSize", "designSize", "CDATA", "" + sp.designSize);
+    at.addAttribute ("", "subfamilyId", "subfamilyId", "CDATA", "" + sp.subfamilyId);
+    at.addAttribute ("", "nameId", "nameId", "CDATA", "" + sp.nameId);
+    at.addAttribute ("", "minSize", "minSize", "CDATA", "" + sp.minSize);
+    at.addAttribute ("", "maxSize", "maxSize", "CDATA", "" + sp.maxSize);
+
+    conf.ch.startElement ("opticalSize", at); {
+      conf.ch.endElement ("opticalSize"); }
+}
+</code-fragment>
+    </section>
+  

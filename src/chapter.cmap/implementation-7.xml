@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="cmap_format10"><code-title>Return glyph for 'charCode', using format 10 subtable at 'stOffset'</code-title>
+  { int firstCode = getuint32asint (stOffset + 12,
+                             "cmap subtable, format 10, firstCode too big");
+    int entryCount = getuint32asint (stOffset + 16,
+                             "cmap subtable, format 10, entryCount too big");
+
+    if (firstCode &lt;= charCode &amp;&amp; charCode &lt; firstCode + entryCount) {
+      return getuint16 (stOffset + 20 + 2*(charCode-firstCode)); }
+    else {
+      return 0; }}
+</code-fragment>
+      <code-fragment id="cmap_format10_iterator"><code-title>Enumerate mappings in format 10 subtable at 'stOffset'</code-title>
+  { java.util.TreeMap&lt;Integer, Integer&gt; m
+      = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    int firstCode = getuint32asint (stOffset + 12,
+                            "cmap subtable, format 10, firstCode too big");
+    int entryCount = getuint32asint (stOffset + 16,
+                            "cmap subtable, format 10, entryCount too big");
+
+    for (int i = 0; i &lt; entryCount; i++) {
+      int code = firstCode + i;
+      if (from &lt;= code &amp;&amp; (code &lt;= to || to == -1)) {
+        m.put (code, getuint16 (stOffset + 20 + 2*i)); }}
+
+    return m; }
+</code-fragment>
+      <code-fragment id="cmap_format10_inv"><code-title>Return character for 'glyphID', using format 10 subtable at stOffset</code-title>
+  { int firstCode = getuint32asint (stOffset + 12,
+                            "cmap subtable, format 10, firstCode too big");
+    int entryCount = getuint32asint (stOffset + 16,
+                            "cmap subtable, format 10, entryCount too big");
+
+    for (int i = 0; i &lt; entryCount; i++) {
+      if (getuint16 (stOffset + 20 + 2*i) == glyphID) {
+        return firstCode + i; }}
+
+    return -1; }
+</code-fragment>
+    </section>
+    

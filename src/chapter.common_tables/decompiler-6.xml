@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="lookuptable.methods">
+  public void lookupListTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+    if (counts [offset] &gt; 1) {
+      return; }
+
+    for (int i = 0; i &lt; getuint16 (offset); i++) {
+       lookupTableToXMLCount (getOffset (offset, 2 + 2*i), counts); }
+  }
+
+  public void lookupListTableOffsetToXML (DecompilerConfig conf, int offset,
+                                          int [] counts,
+                                          String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "lookupListTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      lookupListTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void lookupListTableToXML (DecompilerConfig conf, int offset,
+                                    int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "lookupTable_" + Integer.toHexString (offset));
+      lookupListTableToXMLEmit (conf, offset, counts,
+                                "lookupListTable", at);
+      counts [offset] = 0; }
+
+    for (int i = 0; i &lt; getuint16 (offset); i++) {
+      lookupTableToXML (conf,
+                        getOffset (offset, 2 + 2*i),
+	 	        counts); }
+  }
+
+  public void lookupListTableToXMLEmit (DecompilerConfig conf, int offset,
+                                        int[] counts,
+				        String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+
+      for (int i = 0; i &lt; getuint16 (offset); i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "id", "id", "CDATA", "lookup_" + i);
+
+        lookupTableOffsetToXML (conf, getOffset (offset, 2 + 2*i),
+                                counts, "lookup", at); }
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+    

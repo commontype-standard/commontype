@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>cmap14_font1: basic test</title>
+        <para>Let’s start with a simple case:</para>
+        <aots:test-font id="cmap14_font1">
+          <base-font name="base.otf"/>
+          <cmap version="0">
+            <mapping platformid="0" encodingid="5" language="0" format="14">
+              <variation-selector vs="0xe0100">
+                <defaultMappings>
+                  <range start="0x4e00" additionalCount="0"/>
+                  <range start="0x4e03" additionalCount="3"/>
+                </defaultMappings>
+                <nonDefaultMappings>
+                  <map usv="0x4e10" gid="25"/>
+                  <map usv="0x4e11" gid="26"/>
+                </nonDefaultMappings>
+              </variation-selector>
+            </mapping>
+            <mapping platformid="3" encodingid="1" language="0" format="4">
+              <map code="0x4e00" glyph="10"/>
+              <map code="0x4e01" glyph="11"/>
+              <map code="0x4e02" glyph="12"/>
+              <map code="0x4e03" glyph="13"/>
+              <map code="0x4e04" glyph="14"/>
+              <map code="0x4e05" glyph="15"/>
+              <map code="0x4e06" glyph="16"/>
+              <map code="0x4e07" glyph="17"/>
+              <map code="0x4e08" glyph="18"/>
+              <map code="0x4e09" glyph="19"/>
+            </mapping>
+          </cmap>
+        </aots:test-font>
+        <para>Default mappings:</para>
+        <aots:cmap-uvs-test id="cmap14_test1a" font="cmap14_font1" inputs="0x4e00, 0xe0100, 0x4e03, 0xe0100, 0x4e04, 0xe0100" outputs="            10,              13,              14"/>
+        <para>Non default mappings:</para>
+        <aots:cmap-uvs-test id="cmap14_test1b" font="cmap14_font1" inputs="0x4e10, 0xe0100, 0x4e11, 0xe0100" outputs="            25,              26"/>
+        <para>Not supported:</para>
+        <aots:cmap-uvs-test id="cmap14_test1c" font="cmap14_font1" inputs="0x4e00, 0xe0101, 0x4e01, 0xe0100" outputs="             0,               0"/>
+      </section>
+    </section>
+  

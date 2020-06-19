@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="glyf.methods">
+  public Block compositeGlyphFromXML (Element e) {
+
+    NodeList components = e.getChildNodes ();
+    int nbComponents = components.getLength ();
+
+    Element instructionsElt = (Element) components.item (nbComponents - 1);
+    Block instructions;
+
+    if ("instructions".equals (instructionsElt.getTagName())) {
+      nbComponents--;
+      int opcodes [] = parseIntList (instructionsElt.getAttribute ("opcodes"));
+      instructions = new Block (opcodes.length, 0);
+      for (int i = 0; i &lt; opcodes.length; i++) {
+        instructions.setuint8 (i, opcodes [i]); }}
+    else {
+      instructions = new Block (0, 0); }
+
+    // pessimistic allocation
+    Block data = new Block (10 + nbComponents * (4 + 4 + 8), 0);
+    int dataOffset = 0;
+
+    for (int c = 0; c &lt; nbComponents; c++) {
+      Element component = (Element) components.item (c);
+
+      int flags = Integer.decode (component.getAttribute ("flags"));
+      int gid = Integer.decode (component.getAttribute ("gid"));
+      int arg1 = Integer.decode (component.getAttribute ("arg1"));
+      int arg2 = Integer.decode (component.getAttribute ("arg2"));
+
+      int xscale = 1 &lt;&lt; 14;
+      int scale01 = 0;
+      int scale10 = 0;
+      int yscale = 1 &lt;&lt; 14;
+
+      if (component.getAttribute ("scale") != null
+          &amp;&amp; ! "".equals (component.getAttribute ("scale"))) {
+        xscale = Integer.parseInt (component.getAttribute ("scale"));
+        yscale = xscale; }
+
+      if (component.getAttribute ("xscale") != null
+          &amp;&amp; ! "".equals (component.getAttribute ("xscale"))) {
+        xscale = Integer.parseInt (component.getAttribute ("xscale")); }
+
+      if (component.getAttribute ("scale01") != null
+          &amp;&amp; ! "".equals (component.getAttribute ("scale01"))) {
+        scale01 = Integer.parseInt (component.getAttribute ("scale01")); }
+
+      if (component.getAttribute ("scale10") != null
+          &amp;&amp; ! "".equals (component.getAttribute ("scale10"))) {
+        scale10 = Integer.parseInt (component.getAttribute ("scale10")); }
+
+      if (component.getAttribute ("yscale") != null
+          &amp;&amp; ! "".equals (component.getAttribute ("yscale"))) {
+        yscale = Integer.parseInt (component.getAttribute ("yscale")); }
+
+
+      int flagsOffset = dataOffset;
+      dataOffset += 2;
+
+      data.setuint16 (dataOffset, gid); dataOffset += 2;
+
+      // retain only those bits from our input, we will
+      // set the others as needed
+      flags &amp;= ARGS_ARE_XY_VALUES
+            | ROUND_XY_TO_GRID
+            | USE_MY_METRICS
+            | OVERLAP_COMPOUND
+            | SCALED_COMPONENT_OFFSET
+            | UNSCALED_COMPONENT_OFFSET;
+
+      if ((flags &amp; ARGS_ARE_XY_VALUES) != 0) {
+        if (arg1 &lt; -128 || 127 &lt; arg1 || arg2 &lt; -128 || 127 &lt; arg2 ) {
+          flags |= ARG_1_AND_2_ARE_WORDS;
+          data.setint16 (dataOffset, arg1); dataOffset += 2;
+          data.setint16 (dataOffset, arg2); dataOffset += 2; }
+        else {
+          data.setint8 (dataOffset, arg1); dataOffset += 1;
+          data.setint8 (dataOffset, arg2); dataOffset += 1; }}
+      else {
+        if (256 &lt; arg1 || 256 &lt; arg2) {
+          flags |= ARG_1_AND_2_ARE_WORDS;
+          data.setuint16 (dataOffset, arg1); dataOffset += 2;
+          data.setuint16 (dataOffset, arg2); dataOffset += 2; }
+        else {
+          data.setuint8 (dataOffset, arg1); dataOffset += 1;
+          data.setuint8 (dataOffset, arg2); dataOffset += 1; }}
+
+      if (scale01 != 0 || scale10 != 0) {
+        flags |= WE_HAVE_A_TWO_BY_TWO;
+        data.setuint16 (dataOffset, xscale); dataOffset += 2;
+        data.setuint16 (dataOffset, scale01); dataOffset += 2;
+        data.setuint16 (dataOffset, scale10); dataOffset += 2;
+        data.setuint16 (dataOffset, yscale); dataOffset += 2; }
+
+      else if (xscale != yscale) {
+        flags |= WE_HAVE_AN_X_AND_Y_SCALE;
+        data.setuint16 (dataOffset, xscale); dataOffset += 2;
+        data.setuint16 (dataOffset, yscale); dataOffset += 2; }
+
+      else if (xscale != 1 &lt;&lt;14) {
+        flags |= WE_HAVE_A_SCALE;
+        data.setuint16 (dataOffset, xscale); dataOffset += 2; }
+
+      if (c &lt; nbComponents - 1) {
+        flags |= MORE_COMPONENTS; }
+
+      if (instructions.content.length &gt; 0) {
+        flags |= WE_HAVE_INSTRUCTIONS; }
+
+      data.setuint16 (flagsOffset, flags); }
+
+    int totalSize = 10 + dataOffset;
+    if (instructions.content.length &gt; 0) {
+      totalSize += 2 + instructions.content.length; }
+
+    if (totalSize % 2 == 1) {
+      totalSize++; }
+
+    Block result = new Block (totalSize, 0);
+    int b = 0;
+
+    result.setint16 (b, -1); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("xMin"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("yMin"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("xMax"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("yMax"))); b += 2;
+
+    for (int i = 0; i &lt; dataOffset; i++) {
+      result.setuint8 (b, data.content [i]); b++; }
+
+    if (instructions.content.length &gt; 0) {
+      result.setuint16 (b, instructions.content.length); b += 2;
+
+      System.arraycopy (instructions.content, 0,
+                        result.content, b,
+                        instructions.content.length);
+
+      b += instructions.content.length; }
+
+    return result;
+  }
+</code-fragment>
+    </section>
+    

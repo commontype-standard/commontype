@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="test-suite">
+      <title>Test Suite</title>
+      <para>The “Test Suite” sections are test fonts
+        and test cases which exercise the implementation. As much as
+        possible, those test cases have been designed to be usable
+        with any implementation, assuming a test harness is
+        provided.</para>
+    </section>
+    

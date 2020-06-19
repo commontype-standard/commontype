@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>markToLigatureAttachementTable</code-title>
+  markToLigatureAttachmentTable |=
+    attribute format { "1" },
+    element ligGlyph {
+      attribute glyphID { text },
+      element ligComponent {
+        attribute comp { text },
+        element ligAnchor {
+          attribute class { text },
+          anchorTableOffset
+        }*
+      }*
+    }*,
+    element markGlyphAnchor {
+      attribute glyphID { text },
+      attribute class { text },
+      anchorTableOffset
+    }*
+
+  standaloneMarkToLigatureAttachmentTable =
+    element markToLigatureAttachmentTable { attribute id { text }, markToLigatureAttachmentTable }
+
+  markToLigatureAttachmentTableOffset = attribute name { text } | markToLigatureAttachmentTable
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods">
+  private Block format14FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+    int nbSelectors = children.getLength ();
+    int length = 10 + nbSelectors * 11;
+    java.util.SortedMap&lt;Integer, Integer&gt; m
+          = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+
+    Block me = new Block (length, nbSelectors * 2);
+    me.setuint16 (0, 14);
+    me.setuint32 (6, nbSelectors);
+    int totalLength = length;
+
+    for (int i = 0; i &lt; nbSelectors; i++) {
+      Element selector = (Element) children.item (i);
+      int vs = Integer.decode (selector.getAttribute ("vs")).intValue ();
+      int childPosition = 0;
+      NodeList c2 = selector.getChildNodes ();
+
+      me.setuint24 (10 + 11*i, vs);
+
+      if (   c2.getLength () &gt; childPosition
+          &amp;&amp; "defaultMappings".equals (((Element) c2.item (childPosition)).getTagName ())) {
+        NodeList ranges = ((Element) c2.item (0)).getChildNodes ();
+        int nbRanges = ranges.getLength ();
+        Block defaultUvsBlock = new Block (4 + 4 * nbRanges, 0);
+        totalLength += 4 + 4*nbRanges;
+        int o = 0;
+        defaultUvsBlock.setuint32 (o, nbRanges);
+        o += 4;
+        for (int r = 0; r &lt; nbRanges; r++) {
+          Element range = (Element) ranges.item (r);
+          defaultUvsBlock.setuint24 (o,
+            Integer.decode (range.getAttribute ("start")).intValue ());
+          o += 3;
+          defaultUvsBlock.setuint8 (o,
+            Integer.decode (range.getAttribute ("additionalCount")).intValue ());
+          o += 1; }
+        me.setBigOffset (10 + 11*i + 3, defaultUvsBlock);
+        childPosition = 1; }
+      else {
+        me.setBigOffset (10 + 11*i + 3, null); }
+
+      if (c2.getLength () &gt; childPosition) { /* nonDefaultUVS */
+        NodeList maps = ((Element) c2.item (childPosition)).getChildNodes ();
+        int nbMaps = maps.getLength ();
+        Block nonDefaultUvsBlock = new Block (4 + 5 * nbMaps, 0);
+        totalLength += 4 + 5*nbMaps;
+        int o = 0;
+        nonDefaultUvsBlock.setuint32 (o, nbMaps);
+        o += 4;
+        for (int mapping = 0; mapping &lt; nbMaps; mapping++) {
+          Element map = (Element) maps.item (mapping);
+          nonDefaultUvsBlock.setuint24 (o,
+            Integer.decode (map.getAttribute ("usv")).intValue ());
+          o += 3;
+          nonDefaultUvsBlock.setuint16 (o,
+            Integer.decode (map.getAttribute ("gid")).intValue ());
+          o += 2; }
+        me.setBigOffset (10 + 11*i + 7, nonDefaultUvsBlock); }
+      else {
+        me.setBigOffset (10 + 11*i + 7, null); }}
+
+   me.setuint32 (2, totalLength);
+   return me;
+}
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="base.methods">
+  public void baseTagListTableToXMLCount (int offset, int [] counts) {
+    counts [offset]++;
+  }
+
+  public void baseTagListTableOffsetToXML (DecompilerConfig conf, int offset,
+                                           int [] counts,
+                                           String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "baseTagListTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      baseTagListTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void baseTagListTableToXML (DecompilerConfig conf, int offset,
+                                     int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "baseTagListTable_" + Integer.toHexString (offset));
+      baseTagListTableToXMLEmit (conf, offset, counts, "baseTagListTable", at);
+      counts [offset] = 0; }
+  }
+
+  public void baseTagListTableToXMLEmit (DecompilerConfig conf, int offset,
+                                         int[] counts,
+                                         String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    conf.ch.startElement (element, at); {
+      for (int i = 0; i &lt; getuint16 (offset); i++) {
+        at = new AttributesImpl ();
+        at.addAttribute ("", "v", "v", "CDATA",
+                         Tag.tag2string (getuint32 (offset + 2 + 4*i)));
+        conf.ch.element ("tag", at); }
+      conf.ch.endElement (element); }
+  }
+</code-fragment>
+    </section>
+  

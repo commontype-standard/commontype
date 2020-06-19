@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Here is the class representing a <ottable>cmap</ottable>
+          table.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Cmap"><code-title>Cmap class</code-title>
+
+package com.adobe.aots.CommonType;
+
+import java.util.Iterator;
+import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.Arrays;
+import java.util.Vector;
+
+import java.net.URL;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Cmap extends Table {
+
+  public Cmap () {
+    super (Tag.cmap, null);
+  }
+
+  public Cmap (Font font) {
+    super (Tag.cmap, font);
+  }
+
+  <code-include linkend="cmap.methods"/>
+}
+</code-fragment>
+      <para>Here is a helper class to represent cmap selection:</para>
+      <code-fragment id="cmap.methods"><code-title>Index class</code-title>
+static public class Index implements Comparable {
+  int platformID;
+  int encodingID;
+  int language;
+
+  public Index (int platformID, int encodingID) {
+    this.platformID = platformID;
+    this.encodingID = encodingID;
+  }
+
+  public Index (int platformID, int encodingID, int language) {
+    this.platformID = platformID;
+    this.encodingID = encodingID;
+    this.language = language;
+  }
+
+  public int compareTo (Object o) {
+    Index index = (Index) o;
+
+    if (this.platformID &lt; index.platformID) {
+      return -1; }
+    if (this.platformID &gt; index.platformID) {
+      return 1; }
+
+    if (this.encodingID &lt; index.platformID) {
+      return -1; }
+    if (this.encodingID &gt; index.encodingID) {
+      return 1; }
+
+    if (this.platformID == 1) {
+      if (this.language &lt; index.language) {
+        return -1; }
+      if (this.language &gt; index.language) {
+        return 1; }}
+
+    return 0;
+  }
+}
+
+static public Index WinUnicode1 = new Index (3, 1);
+static public Index WinUnicode10 = new Index (3, 10);
+</code-fragment>
+      <para>Our internal representation decomposes a cmap in its
+        subtables:</para>
+      <!--code-fragment id='cmap.methods'>
+  private java.util.Map subtables;
+
+  public int fromBinary (InputStream in, int length)
+      throws IOException, InvalidFontException {
+
+    byte[] head = new byte[4];
+</code-fragment-->
+      <para>The basic operation on a cmap is to find a glyph given a
+          platformID, encodingID and character code.</para>
+      <para>As noted earlier, a subtable can be in a number of
+          formats. We need to go a little bit ahead of the
+          specification and note that the first USHORT of a subtable
+          is that format.</para>
+      <code-fragment id="cmap.methods"><code-title>Character to Glyph Method</code-title>
+  public int char2glyph (int platformID, int encodingID, int charCode)
+     throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   platformID == getuint16 (4 + 8*st)
+          &amp;&amp; encodingID == getuint16 (4 + 8*st + 2)) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+        int format = getuint16 (stOffset);
+        switch (format) {
+          case 0: { <code-include linkend="cmap_format0"/> }
+          case 2: { <code-include linkend="cmap_format2"/> }
+          case 4: { <code-include linkend="cmap_format4"/> }
+          case 6: { <code-include linkend="cmap_format6"/> }
+          case 8: { <code-include linkend="cmap_format8"/> }
+          case 10: { <code-include linkend="cmap_format10"/> }
+          case 12: { <code-include linkend="cmap_format12"/> }
+          default: return 0; }}}
+
+    return 0;
+  }
+
+  public int unicodechar2glyph (int charCode) throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+    int encodingID = 1;
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (getuint16 (4 + 8*st) == 3 &amp;&amp; getuint16 (4 + 8*st + 2) == 10) {
+        encodingID = 10; }}
+
+    return char2glyph (3, encodingID, charCode);
+  }
+</code-fragment>
+      <code-fragment id="cmap.methods"><code-title>map generator</code-title>
+  public java.util.SortedMap&lt;Integer, Integer&gt; getMap (int platformID, int encodingID)
+      throws UnsupportedFontException {
+    return getMap (platformID, encodingID, 0, 0x7fffffff);
+  }
+
+  public java.util.SortedMap&lt;Integer, Integer&gt;
+           getMap (int platformID, int encodingID, int from, int to)
+      throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   platformID == getuint16 (4 + 8*st)
+          &amp;&amp; encodingID == getuint16 (4 + 8*st + 2)) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+        int format = getuint16 (stOffset);
+        switch (format) {
+          case 0: { <code-include linkend="cmap_format0_iterator"/>}
+          case 2: { <code-include linkend="cmap_format2_iterator"/>}
+          case 4: { <code-include linkend="cmap_format4_iterator"/>}
+          case 6: { <code-include linkend="cmap_format6_iterator"/>}
+          case 8: { <code-include linkend="cmap_format8_iterator"/>}
+          case 10: { <code-include linkend="cmap_format10_iterator"/>}
+          case 12: { <code-include linkend="cmap_format12_iterator"/>}
+          default: return null; }}}
+
+    return null;
+  }
+</code-fragment>
+      <para>Once we know how to convert a single character, it's
+          easy to convert a bunch of them:</para>
+      <code-fragment id="cmap.methods"><code-title>Characters to Glyphs Method</code-title>
+  public int[] char2glyph (int platformID, int encodingID, int[] charCodes)
+      throws UnsupportedFontException {
+    int[] glyphIDs = new int [charCodes.length];
+    for (int i = 0; i &lt; charCodes.length; i++) {
+      glyphIDs [i] = char2glyph (platformID, encodingID, charCodes [i]); }
+    return glyphIDs;
+  }
+</code-fragment>
+      <para>The inverse transformation, i.e. to find a character
+          which maps to a given glyphID, is also possible. It can be
+          that there is no character that maps the glyphID (in which
+          case we return the special value -1), and it can be that
+          there are multiple characters that map to the glyphID (in
+          which case we return one of them).</para>
+      <para>The main reason to expose this functionality is that not
+          all software systems permit the access to glyphs in a font
+          through glyphIDs; for example, SVG supports the
+          specification of glyphs by their ids, but Adobe's SVG Viewer
+          1.0 does not implement that. In such a case, the renderer
+          has to be presented with characters, hence this
+          functionality. Some font vendors (e.g. Adobe) also construct
+          their fonts such that every glyph is mapped from the Unicode
+          cmap, precisely to allow this scheme to work.</para>
+      <code-fragment id="cmap.methods"><code-title>Glyph to Character Method</code-title>
+  public int glyph2char (int platformID, int encodingID, int glyphID)
+      throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   platformID == getuint16 (4 + 8*st)
+          &amp;&amp; encodingID == getuint16 (4 + 8*st + 2)) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+
+        int format = getuint16 (stOffset);
+        switch (format) {
+          case  0: { <code-include linkend="cmap_format0_inv"/>}
+          case  2: { <code-include linkend="cmap_format2_inv"/>}
+          case  4: { <code-include linkend="cmap_format4_inv"/>}
+          case  6: { <code-include linkend="cmap_format6_inv"/>}
+          case  8: { <code-include linkend="cmap_format8_inv"/>}
+          case 10: { <code-include linkend="cmap_format10_inv"/>}
+          case 12: { <code-include linkend="cmap_format12_inv"/>}}}}
+    return -1;
+  }
+
+  public int glyph2unicodechar (int glyphID) throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+    int encodingID = 1;
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (getuint16 (4 + 8*st) == 3 &amp;&amp; getuint16 (4 + 8*st + 2) == 10) {
+        encodingID = 10; }}
+
+    return glyph2char (3, encodingID, glyphID);
+  }
+</code-fragment>
+      <para>Again, it's easy to handle a bunch of glyphs:</para>
+      <code-fragment id="cmap.methods"><code-title>Glyphs to Characters Method</code-title>
+  public int [] glyph2char (int platformID, int encodingID, int[] glyphIDs)
+       throws UnsupportedFontException {
+    int[] charCodes = new int [glyphIDs.length];
+    for (int i = 0; i &lt; glyphIDs.length; i++) {
+      charCodes [i] = glyph2char (platformID, encodingID, glyphIDs [i]); }
+    return charCodes;
+  }
+</code-fragment>
+      <para>Here is another version that returns all the characters
+	  that map to a given glyphID:</para>
+      <code-fragment id="cmap.methods"><code-title>Glyph to Characters Method</code-title>
+  public int[] glyph2chars (int platformID, int encodingID, int glyphID) {
+
+    java.util.Vector&lt;Integer&gt; v = new java.util.Vector&lt;Integer&gt; ();
+
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   platformID == getuint16 (4 + 8*st)
+          &amp;&amp; encodingID == getuint16 (4 + 8*st + 2)) {
+        int stOffset = getLOffset (4 + 8*st + 4);
+
+        int format = getuint16 (stOffset);
+
+        switch (format) {
+          case  0: { <code-include linkend="cmap_format0_inv2"/>; break;}
+          case  2: { <code-include linkend="cmap_format2_inv2"/>; break;}
+          case  4: { <code-include linkend="cmap_format4_inv2"/>; break;}
+          case  6: { <code-include linkend="cmap_format6_inv2"/>; break;}
+          case  8: { <code-include linkend="cmap_format8_inv2"/>; break;}
+          case 10: { <code-include linkend="cmap_format10_inv2"/>; break;}
+          case 12: { <code-include linkend="cmap_format12_inv2"/>; break;}}}}
+
+    int[] result = new int [v.size ()];
+    for (int i = 0; i &lt; v.size (); i++) {
+      result [i] = v.get (i); }
+    return result;
+  }
+
+  public int[] glyph2unicodechars (int glyphID) {
+
+    int numTables = getuint16 (2);
+    int encodingID = 1;
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (getuint16 (4 + 8*st) == 3 &amp;&amp; getuint16 (4 + 8*st + 2) == 10) {
+        encodingID = 10; }}
+
+    return glyph2chars (3, encodingID, glyphID);
+  }
+</code-fragment>
+      <para>Another useful operation is to probe for the presence of
+          a cmap for a particular plaftformID/encodingID:</para>
+      <code-fragment id="cmap.methods"><code-title>Cmap subtable probe</code-title>
+  public boolean hasCmapSubtable (int platformID, int encodingID, int languageID) {
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   platformID == getuint16 (4 + 8*st)
+          &amp;&amp; encodingID == getuint16 (4 + 8*st + 2)) {
+        return true; }}
+    return false;
+  }
+</code-fragment>
+      <code-fragment id="cmap.methods2"><code-title>??</code-title>
+  public void addDirectMappings () {
+    java.util.SortedMap m;
+
+    boolean has310 = true;
+    m = getMap (3, 10);
+    if (m == null) {
+      has310 = false;
+      m = getMap (3, 1); }
+
+    for (int g = 0; g &lt; font.maxp.getNumGlyphs ()) {
+      m.add (new Integer (0x100000 + g), new Integer (g)); }
+
+    Block b = toBinaryFormat12 (m);
+
+    if (has310)
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="validation">
+      <title>Validation</title>
+      <code-fragment id="validate_cmap_format4"><code-title>Validate cmap 4 subtable at stOffset</code-title>
+  if (! claim (stPrefix + " header", stOffset + 2, 12)) {
+    break; }
+
+  int stVersion = getuint16 (stOffset + 4);
+  if (stVersion &gt; 0) {
+    reportError ("cmap@" + stOffset + " table version (" + stVersion
+                 + ") not part of the specification"); }
+
+  int length = getuint16 (stOffset + 2);
+
+  int segCountX2 = getuint16 (stOffset + 6);
+  if (segCountX2 % 2 != 0) {
+    reportError ("cmap@" + stOffset + " segCountX2 is not even");
+    break; }
+  int segCount = segCountX2 / 2;
+
+  int searchRange = getuint16 (stOffset + 8);
+  // verify searchRange = 2 x (2 ^ (log2 (segCount)))
+
+  int entrySelector = getuint16 (stOffset + 10);
+  // verify entrySelector = log2 (searchRange/2)
+
+  int rangeShift = getuint16 (stOffset + 12);
+  if (rangeShift != segCountX2 - searchRange) {
+    reportError ("cmap@" + stOffset + " has wrong rangeShift value"); }
+
+  if (! claim (stPrefix + " data 1",
+                     stOffset + 14, segCount * 8 + 2)) {
+    break; }
+
+  int lastEndCount = -1;
+  int glyphIdSizeNeeded = 0;
+
+  for (int s = 0; s &lt; segCount; s++) {
+    int endCount = getuint16 (stOffset + 14 + 2*s);
+    int startCount = getuint16 (stOffset + 14 + 2*segCount + 2 + 2*s);
+
+    if (startCount &gt; endCount) {
+      reportError ("cmap@" + stOffset + ", range " + s
+                   + ", startCount&gt;endCount");
+      break; }
+
+    if (startCount &lt;= lastEndCount) {
+      reportError ("cmap@" + stOffset + ", range " + s
+                   + ", overlaps with previous range"); }
+    lastEndCount = endCount;
+
+    int rangeOffset = stOffset + 14 + 6*segCount + 2 + 2*s;
+    int range = getuint16 (rangeOffset);
+
+    if (range != 0) {
+      claim (stPrefix + " range " + s,
+                   rangeOffset + range, 2 * (endCount - startCount + 1)); }}
+
+  if (lastEndCount != 0xffff) {
+    reportError ("cmap@" + stOffset + ", last range does not end at 0xffff"); }
+</code-fragment>
+    </section>
+  

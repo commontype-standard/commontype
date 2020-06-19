@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="contextualLookup.toXMLCount_3">
+  for (int c = 0; c &lt; getuint16 (stOffset + 2); c++) {
+    coverageTableToXMLCount (stOffset + getOffset (stOffset + 6 + 2*c),
+                             counts); }
+</code-fragment>
+      <code-fragment id="contextualLookup.toXML_3">
+  for (int c = 0; c &lt; getuint16 (stOffset + 2); c++) {
+    coverageTableToXML (conf, stOffset + getOffset (stOffset + 6 + 2*c),
+                        counts); }
+</code-fragment>
+      <code-fragment id="contextualLookup.toXMLEmit_3">
+    int glyphCount = getuint16 (stOffset + 2);
+    for (int c = 0; c &lt; glyphCount; c++) {
+      at = new AttributesImpl ();
+      coverageTableOffsetToXML (conf, stOffset + getOffset (stOffset + 6 + 2*c),
+                                counts, "coverage", at); }
+
+    subLookupsToXML (conf, getuint16 (stOffset + 4), stOffset + 6 + 2*glyphCount);
+</code-fragment>
+    </section>
+    

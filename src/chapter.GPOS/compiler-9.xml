@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="gpos.methods">
+  private Block markBasePosFormat1FromXML (Element subtable, Element table,
+                                           Map&lt;Element, Block&gt; blockCache)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me = null;
+
+    NodeList glyphs = subtable.getChildNodes ();
+
+    java.util.SortedMap&lt;Integer, Element&gt; baseGlyphs
+         = new java.util.TreeMap&lt;Integer, Element&gt; ();
+    java.util.SortedMap&lt;Integer, Element&gt; markGlyphs
+         = new java.util.TreeMap&lt;Integer, Element&gt; ();
+
+    int classCount = 0;
+    for (int i = 0; i &lt; glyphs.getLength (); i++) {
+      Element glyph = (Element) glyphs.item (i);
+      if ("baseGlyph".equals (glyph.getTagName ())) {
+        baseGlyphs.put (parseOneGlyph (glyph.getAttribute ("glyphID")),
+                        glyph); }
+      else if ("markGlyphAnchor".equals (glyph.getTagName ())) {
+        classCount = Math.max (classCount,
+                             Integer.parseInt (glyph.getAttribute ("class")) + 1);
+        markGlyphs.put (parseOneGlyph (glyph.getAttribute ("glyphID")),
+                        glyph); }}
+
+    int baseCount = baseGlyphs.size ();
+    int markCount = markGlyphs.size ();
+
+
+    Integer[] b;
+
+    b = new Integer [baseCount];
+    baseGlyphs.keySet ().toArray (b);
+    CoverageTableBlock baseCoverage = coverageFromGlyphs (b);
+
+    b = new Integer [markCount];
+    markGlyphs.keySet ().toArray (b);
+    CoverageTableBlock markCoverage = coverageFromGlyphs (b);
+
+
+    Block markArray = new Block (2 + 4 * markCount, markCount);
+    markArray.setuint16 (0, markCount);
+    int offset = 2;
+    for (Element glyph : markGlyphs.values ()) {
+      markArray.setuint16 (offset, Integer.parseInt (glyph.getAttribute ("class")));
+      markArray.setOffset (offset + 2,
+                           anchorTableFromXML (glyph, table, blockCache));
+      offset += 4; }
+
+    Block baseArray = new Block (2 + 2 * baseCount * classCount,
+                                 baseCount * classCount);
+    baseArray.setuint16 (0, baseCount);
+    offset = 2;
+    for (Element glyph : baseGlyphs.values ()) {
+      NodeList anchors = glyph.getChildNodes ();
+      boolean[] seen = new boolean [classCount];
+      for (int i = 0; i &lt; classCount; i++) {
+        seen [i] = false; }
+      for (int i = 0; i &lt; anchors.getLength (); i++) {
+        Element anchor = (Element) anchors.item (i);
+        int cl = Integer.parseInt (anchor.getAttribute ("class"));
+        seen [cl] = true;
+        baseArray.setOffset (offset + cl*2,
+	                     anchorTableFromXML (anchor, table, blockCache)); }
+      for (int i = 0; i &lt; classCount; i++) {
+        if (! seen [i]) {
+          baseArray.setOffset (offset + i*2, null); }}
+      offset += classCount * 2; }
+
+    me = new Block (12, 4);
+    me.setuint16 (0, 1);
+    me.setOffset (2, markCoverage);
+    me.setOffset (4, baseCoverage);
+    me.setuint16 (6, classCount);
+    me.setOffset (8, markArray);
+    me.setOffset (10, baseArray);
+
+    return me;
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="vhea.methods">
+  public void toXML (DecompilerConfig conf)
+      throws org.xml.sax.SAXException {
+
+    AttributesImpl at;
+
+    int [] version = getFixed (0);
+    at = new AttributesImpl ();
+    at.addAttribute ("", "major", "major", "CDATA", "" + version [0]);
+    at.addAttribute ("", "minor", "minor", "CDATA", "" + version [1]);
+    conf.ch.startElement ("vhea", at); {
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "ascender", "ascent", "CDATA", "" + getFWord (4));
+      at.addAttribute ("", "descender", "descent", "CDATA", "" + getFWord (6));
+      at.addAttribute ("", "lineGap", "lineGap", "CDATA", "" +  getFWord (8));
+      conf.ch.element ("typo", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getuFWord (10) );
+      conf.ch.element ("advanceHeightMax", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getFWord (12) );
+      conf.ch.element ("minTopSideBearing", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getFWord (14) );
+      conf.ch.element ("minBottomSideBearing", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" +  getFWord (16) );
+      conf.ch.element ("yMaxExtent", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "slopeRise", "slopeRise", "CDATA", "" +  getint16 (18) );
+      at.addAttribute ("", "slopeRun", "slopeRun", "CDATA", "" +  getint16 (20) );
+      at.addAttribute ("", "offset", "offset", "CDATA", "" +  getint16 (22) );
+      conf.ch.element ("caret", at);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "v", "v", "CDATA", "" + getNumberOfVMetrics ());
+      conf.ch.element ("numberOfVMetrics", at);
+
+      conf.ch.endElement ("vhea"); }
+  }
+</code-fragment>
+    </section>
+    

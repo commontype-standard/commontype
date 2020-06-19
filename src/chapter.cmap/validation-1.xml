@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="validation">
+      <title>Validation</title>
+      <para>Let's start by verifying the header.</para>
+      <code-fragment id="validate_header"><code-title>Validate header and set 'numTables'</code-title>
+  if (! claim ("cmap header", 0, 4)) {
+    return; }
+
+  int version = getuint16 (0);
+  if (version &gt; 0) {
+    reportError ("cmap table version (" + version
+                   + ") not part of the specification"); }
+
+  int numTables = getuint16 (2);
+  if (numTables == 0) {
+    reportMistake ("font does not have any cmap subtables"); }
+</code-fragment>
+      <para>Let's move on to the directory of subtables. We first
+          need to claim the bytes:</para>
+      <code-fragment id="validate_directory"><code-title>Validate directory</code-title>
+  if (! claim ("cmap directory", 4, 8*numTables)) {
+    return; }
+</code-fragment>
+      <para>Another check is to make sure that the subtables are
+          properly ordered:</para>
+      <code-fragment id="validate_directory_order"><code-title>Validate directory order</code-title>
+  int lastPlatformID = -1;
+  int lastEncodingID = -1;
+
+  for (int st = 0; st &lt; numTables; st++) {
+    int platformID = getuint16 (4 + 8*st);
+    int encodingID = getuint16 (4 + 8*st + 2);
+
+    if (   platformID &lt; lastPlatformID
+        || (   platformID == lastPlatformID
+            &amp;&amp; encodingID &lt;= lastEncodingID)) {
+      reportError ("cmap subtables not ordered by (platformID, encodingID)"); }
+
+    lastPlatformID = platformID;
+    lastEncodingID = encodingID; }
+</code-fragment>
+      <para>Another check is that there are entries for 3/1 and 0/3,
+          and that they point ot the same subtable. This is a
+          requirement for Adobe fonts only.</para>
+      <code-fragment id="validate_directory_has_unicode"><code-title>Check there are 3/1 and 0/3 entries for the same
+  subtable</code-title>
+  int subtable03offset = -1;
+  int subtable31offset = -1;
+
+  for (int st = 0; st &lt; numTables; st++) {
+    int platformID = getuint16 (4 + 8*st);
+    int encodingID = getuint16 (4 + 8*st + 2);
+
+    if (platformID == 0 &amp;&amp; encodingID == 3) {
+      subtable03offset = getLOffset (4 + 8*st + 4); }
+
+    if (platformID == 3 &amp;&amp; encodingID == 1) {
+      subtable31offset = getLOffset (4 + 8*st + 4); }}
+
+  if (subtable03offset == -1) {
+    reportMistake ("no 0_3 subtable defined"); }
+  if (subtable31offset == -1) {
+    reportMistake ("no 3_1 subtable defined"); }
+
+  if (   subtable03offset != subtable31offset
+      &amp;&amp; subtable03offset != -1
+      &amp;&amp; subtable31offset != -1) {
+    reportMistake ("subtable 0_3 and 3_1 are not the same"); }
+</code-fragment>
+      <para>We validate each unique subtable on its own.</para>
+      <code-fragment id="validate_subtables"><code-title>Validate each subtable</code-title>
+  for (int st = 0; st &lt; numTables; st++) {
+    String stPrefix = "cmap subtable " + st;
+    int stOffset = getLOffset (4 + 8*st + 4);
+    boolean checked = false;
+    for (int st2 = 0; st2 &lt; st; st2++) {
+      int st2Offset = getLOffset (4 + 8*st2 + 4);
+      if (st2Offset == stOffset) {
+         checked = true; }}
+
+    if (checked) {
+      continue; }
+
+    int format = getuint16 (stOffset);
+    switch (format) {
+      case 0: { <code-include linkend="validate_cmap_format0"/>; break; }
+      case 2: { <code-include linkend="validate_cmap_format2"/>; break; }
+      case 4: { <code-include linkend="validate_cmap_format4"/>; break; }
+      case 6: { <code-include linkend="validate_cmap_format6"/>; break; }
+      default:{
+        reportError (stPrefix + " is in an invalid format (" + format + ")");
+        break; }}}
+</code-fragment>
+      <para>Finally, we verify that the Unicode cmap subtable is in
+          the  appropriate format:</para>
+      <code-fragment id="validate_unicode_subtable_format"><code-title>Check the format of the Microsoft Unicode subtable</code-title>
+  for (int st = 0; st &lt; numTables; st++) {
+    int platformID = getuint16 (4 + 8*st);
+    int encodingID = getuint16 (4 + 8*st + 2);
+
+    if (platformID == 3 &amp;&amp; encodingID == 1) {
+      int stOffset = getLOffset (4 + 8*st + 4);
+      int format = getuint16 (stOffset);
+      if (format != 4) {
+        reportError ("cmap subtable 3/1 must be in format 4"); }
+      break; }}
+</code-fragment>
+      <para>Time to put everything together:</para>
+      <code-fragment id="cmap.methods"><code-title>Cmap Validation Method</code-title>
+  public void validate () {
+
+    <code-include linkend="validate_header"/>
+
+    <code-include linkend="validate_directory"/>
+    <code-include linkend="validate_directory_order"/>
+    <code-include linkend="validate_directory_has_unicode"/>
+
+    <code-include linkend="validate_subtables"/>
+    <code-include linkend="validate_unicode_subtable_format"/>
+
+    report ();
+  }
+</code-fragment>
+    </section>
+  

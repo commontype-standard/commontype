@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="contextualLookup_format3"><code-title>Execute contextual lookup subtable, format 3, and return</code-title>
+  { int glyphCount = getuint16 (stOffset + 2);
+    int inPos = curGlyph;
+    int [] matchedPositions = new int [glyphCount];
+
+    for (int i = 0; i &lt; glyphCount; i++) {
+      if (i != 0) {
+        while (lookupFlagCovers (lookupFlag, gr.glyphAt (inPos))) {
+          inPos++; }}
+
+      if (-1 == getCoverageIndex (gr.glyphAt (inPos),
+                                  stOffset + getOffset (stOffset + 6 + 2*i))) {
+        return lookupNotApplied; }
+
+      matchedPositions [i] = inPos;
+      inPos++; }
+
+    if (! gr.isLookupApplied (lookupIndex, curGlyph,
+          matchedPositions [matchedPositions.length-1])) {
+      return lookupNotApplied; }
+
+    int applyCount = getuint16 (stOffset + 4);
+    int applyOffset = stOffset + 6 + 2*glyphCount;
+    if (listener != null) {
+      listener.applyingSubtable (lookupIndex, gr, curGlyph,
+                                 Tag.tag2string (tag), stOffset); }
+
+    return applySubLookups (gr, matchedPositions, applyCount, applyOffset); }
+</code-fragment>
+    </section>
+    

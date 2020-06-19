@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>lookupTable for GPOS</code-title>
+  GPOSlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "1" | "singlePos" },
+    element singlePos { singlePosTableOffset }*
+
+  GPOSlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "2" | "pairPos" },
+    element pairPos { pairPosTableOffset }*
+
+  GPOSlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "3" | "cursiveAttachment" },
+    element cursiveAttachment { cursiveAttachmentTableOffset }*
+
+  GPOSlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "4" | "markToBaseAttachement" },
+    element markToBaseAttachment { markToBaseAttachmentTableOffset }*
+
+  GPOSlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "5" | "markToLigatureAttachment" },
+    element markToLigatureAttachment { markToLigatureAttachmentTableOffset }*
+
+  GPOSlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "6" | "markToMarkAttachment" },
+    element markToMarkAttachment { markToMarkAttachmentTableOffset }*
+
+  GPOSlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "7" | "contextual" },
+    element contextual { contextualTableOffset }*
+
+  GPOSlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "8" | "chainingContextual" },
+    element chainingContextual { chainingContextualTableOffset }*
+
+  GPOSlookupTable |=
+    lookupTableCommonAttributes,
+    attribute type { "9" | "extensionPos" },
+    element extensionPos { extensionTableOffset }*
+</code-fragment>
+    </section>
+    

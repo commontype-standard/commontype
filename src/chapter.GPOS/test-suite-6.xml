@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>gpos3_font1: basic tests</title>
+        <para>Here is a simple test to start with:</para>
+        <aots:test-font id="gpos3_font1">
+          <base-font name="base.otf"/>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="3">
+                <cursiveAttachment format="1">
+                  <entryExit glyphID="18">
+                    <entry format="1" x="100" y="150"/>
+                    <exit format="1" x="200" y="250"/>
+                  </entryExit>
+                  <entryExit glyphID="19">
+                    <entry format="1" x="101" y="151"/>
+                    <exit format="1" x="201" y="251"/>
+                  </entryExit>
+                </cursiveAttachment>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <para>After execution, occurrences glyph 19 will have been
+            moved, to have its origin at (99, 99) relative to the
+            origin of the new position of the occurrence of glyph 18:</para>
+        <aots:gpos-test id="gpos3_test1a" font="gpos3_font1" inputs="17,   18,   19,   17" xdeltas=" 0,    0,-1401,    0" ydeltas=" 0,    0,   99,    0"/>
+        <para>Here, there is an intervening glyph, so nothing
+            should move::</para>
+        <aots:gpos-test id="gpos3_test1b" font="gpos3_font1" inputs="17,   18,   17,   19,   17" xdeltas=" 0,    0,    0,    0,    0" ydeltas=" 0,    0,    0,    0,    0"/>
+      </section>
+      <section>
+        <title>gpos3_font2: lookupFlag</title>
+        <para>Glyph 21 is captured by lookupFlag:</para>
+        <aots:test-font id="gpos3_font2">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="21"/>
+            </glyphClassDef>
+          </GDEF>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" ignoreBaseGlyphs="yes" type="3">
+                <cursiveAttachment format="1">
+                  <entryExit glyphID="18">
+                    <entry format="1" x="100" y="150"/>
+                    <exit format="1" x="200" y="250"/>
+                  </entryExit>
+                  <entryExit glyphID="19">
+                    <entry format="1" x="101" y="151"/>
+                    <exit format="1" x="201" y="251"/>
+                  </entryExit>
+                </cursiveAttachment>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <para>After execution, occurrences glyph 19 will have been
+            moved, to have its origin at (99, 99) relative to the
+            origin of the new position of the occurrence of glyph 18:</para>
+        <aots:gpos-test id="gpos3_lookupflag_1" font="gpos3_font2" inputs="17,   18,   21,    19,   17" xdeltas=" 0,    0,    0, -2901,    0" ydeltas=" 0,    0,    0,    99,    0"/>
+        <aots:gpos-test id="gpos3_lookupflag_2" font="gpos3_font2" inputs="17,   18,   21,   21,   21,    19,   17" xdeltas=" 0,    0,    0,    0,    0, -5901,    0" ydeltas=" 0,    0,    0,    0,    0,    99,    0"/>
+      </section>
+      <section>
+        <title>gpos3_font3: boundary cases</title>
+        <para>Here we have a glyphs that have only an entry or only
+ 	  an exit:</para>
+        <aots:test-font id="gpos3_font3">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="21"/>
+            </glyphClassDef>
+          </GDEF>
+          <GPOS major="1" minor="0">
+            <code-include linkend="testfonts.gpos.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" ignoreBaseGlyphs="yes" type="3">
+                <cursiveAttachment format="1">
+                  <entryExit glyphID="18">
+                    <entry format="1" x="100" y="150"/>
+                    <exit format="1" x="200" y="250"/>
+                  </entryExit>
+                  <entryExit glyphID="19">
+                    <entry format="1" x="101" y="151"/>
+                  </entryExit>
+                  <entryExit glyphID="20">
+                    <exit format="1" x="202" y="252"/>
+                  </entryExit>
+                </cursiveAttachment>
+              </lookup>
+            </lookupList>
+          </GPOS>
+        </aots:test-font>
+        <para>The sequences 18 18, 18 19, 20 18 and 20 19 should
+  	    trigger the cursive attachment:</para>
+        <aots:gpos-test id="gpos3_test3a" font="gpos3_font3" inputs="17,   18,    18,   17" xdeltas=" 0,    0, -1400,    0" ydeltas=" 0,    0,   100,    0"/>
+        <aots:gpos-test id="gpos3_test3b" font="gpos3_font3" inputs="17,   18,    19,   17" xdeltas=" 0,    0, -1401,    0" ydeltas=" 0,    0,    99,    0"/>
+        <aots:gpos-test id="gpos3_test3c" font="gpos3_font3" inputs="17,   20,    18,   17" xdeltas=" 0,    0, -1398,    0" ydeltas=" 0,    0,   102,    0"/>
+        <aots:gpos-test id="gpos3_test3d" font="gpos3_font3" inputs="17,   20,    19,  17" xdeltas=" 0,    0, -1399,   0" ydeltas=" 0,    0,   101,   0"/>
+        <para>But the sequences 18 20, 19 18 and 19 20 should not:</para>
+        <aots:gpos-test id="gpos3_test3e" font="gpos3_font3" inputs="17,   18,   20,   17" xdeltas=" 0,    0,    0,    0" ydeltas=" 0,    0,    0,    0"/>
+        <aots:gpos-test id="gpos3_test3f" font="gpos3_font3" inputs="17,   19,   18,   17" xdeltas=" 0,    0,    0,    0" ydeltas=" 0,    0,    0,    0"/>
+        <aots:gpos-test id="gpos3_test3g" font="gpos3_font3" inputs="17,   19,   20,   17" xdeltas=" 0,    0,    0,    0" ydeltas=" 0,    0,    0,    0"/>
+        <para>Another boundary case is when the glyph run contains
+	  the first glyph, but not the second (with or without glyphs
+	  ignored by LookupFlag):</para>
+        <aots:gpos-test id="gpos3_test3h" font="gpos3_font3" inputs="17,   18" xdeltas=" 0,    0" ydeltas=" 0,    0"/>
+        <aots:gpos-test id="gpos3_test3i" font="gpos3_font3" inputs="17,   18,   21,   21,   21" xdeltas=" 0,    0,    0,    0,    0" ydeltas=" 0,    0,    0,    0,    0"/>
+      </section>
+    </section>
+  

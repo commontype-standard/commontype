@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>classDefTable, format 1</code-title>
+  classDefTable |=
+    attribute format { "1" },
+    attribute startGlyph { text },
+    attribute classes    { text }
+</code-fragment>
+    </section>
+    

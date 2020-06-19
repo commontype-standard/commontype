@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>We do not represent explicitly the subHeaderKeys
+	array. Rather, we represent the subHeaders structure directly,
+	and collect the subHeaderKeys from which they are referenced
+	in the <sgmltag>subHeaderKeys</sgmltag> attribute. The first </para>
+      <para>The idRangeOffset field can be interpreted only when one
+	knows its location in the cmap subtable. Since this datum
+	disappears in our XML representation, the field
+	<sgmltag>idRangeOffset</sgmltag> is the
+	index of the first integer corresponding to the subHeader in
+	the <sgmltag>glyphIndexArray</sgmltag>.</para>
+      <para>If we are given only the mapping from code points to
+	glyphs, we have no way of knowing which code points are
+	represented on one byte, and which are represented in two
+	bytes. Therefore, this format contributes an attribute
+	<sgmltag>singleBytes</sgmltag> to record those. We need this
+	attribute only when we use the 'bunch of mappings'
+	representation; when we have all the details, the first
+	<sgmltag>subheader</sgmltag> element carries the single byte
+	code points.</para>
+      <code-fragment id="schema"><code-title>XML representation of format 2 cmap subtables</code-title>
+  cmapsubtable |=
+    attribute format { "2" },
+
+    ((element subheader {
+        attribute subHeaderKeys { text },
+        attribute firstCode { text },
+        attribute entryCount { text },
+        attribute idDelta { text },
+        attribute idRangeOffset { text }
+      }*,
+
+      element glyphIndex {
+        attribute v { text }
+      })
+    |
+     (attribute singleBytes { text },
+      element map {
+        attribute code { text },
+        attribute glyph { text }}*))
+</code-fragment>
+    </section>
+    

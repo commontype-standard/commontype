@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format12.elt"><code-title>Generate elements for the format 12 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+
+    long nGroups = getuint32 (stOffset + 12);
+
+    for (int g = 0; g &lt; nGroups; g++) {
+      long startCharCode = getuint32 (stOffset + 16 + 12*g);
+      long endCharCode = getuint32 (stOffset + 16 + 12*g + 4);
+      long startGlyphID = getuint32 (stOffset + 16 + 12*g + 8);
+
+      at = new AttributesImpl ();
+      at.addAttribute ("", "code", "code", "CDATA",
+                       "0x" + Long.toHexString (startCharCode));
+      at.addAttribute ("", "glyph", "glyph", "CDATA",
+                       "" + startGlyphID);
+      at.addAttribute ("", "count", "count", "CDATA",
+                       "" + (endCharCode - startCharCode + 1));
+      conf.ch.element ("map", at); }}
+</code-fragment>
+    </section>
+    

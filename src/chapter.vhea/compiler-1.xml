@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="vhea.methods">
+  public void fromXML (Element vhea)
+      throws InvalidFontException, UnsupportedFontException {
+
+    Block me = new Block (36, 0);
+
+    me.setFixed (0,
+                 Integer.decode (vhea.getAttribute ("major")).intValue (),
+                 Integer.decode (vhea.getAttribute ("minor")).intValue ());
+
+    NodeList children = vhea.getChildNodes ();
+    for (int i = 0; i &lt; children.getLength (); i++) {
+      Element e = (Element) children.item (i);
+
+      if ("typo".equals (e.getTagName ())) {
+        me.setFWord (4, Integer.decode (e.getAttribute ("ascender")).intValue());
+        me.setFWord (6, Integer.decode (e.getAttribute ("descender")).intValue());
+        me.setFWord (8, Integer.decode (e.getAttribute ("lineGap")).intValue()); }
+
+      if ("advanceHeightMax".equals (e.getTagName ())) {
+        me.setuFWord (10, Integer.decode (e.getAttribute ("v")).intValue()); }
+
+      if ("minTopSideBearing".equals (e.getTagName ())) {
+        me.setFWord (12, Integer.decode (e.getAttribute ("v")).intValue()); }
+
+      if ("minBottomSideBearing".equals (e.getTagName ())) {
+        me.setFWord (14, Integer.decode (e.getAttribute ("v")).intValue()); }
+
+      if ("yMaxExtent".equals (e.getTagName ())) {
+        me.setFWord (16, Integer.decode (e.getAttribute ("v")).intValue()); }
+
+      if ("caret".equals (e.getTagName ())) {
+        me.setint16 (18, Integer.decode (e.getAttribute ("slopeRise")).intValue());
+        me.setint16 (20, Integer.decode (e.getAttribute ("slopeRun")).intValue());
+        me.setint16 (22, Integer.decode (e.getAttribute ("offset")).intValue()); }
+
+      if ("numberOfVMetrics".equals (e.getTagName ())) {
+        me.setint16 (34, Integer.decode (e.getAttribute ("v")).intValue()); }}
+
+    me.setint16 (24, 0);
+    me.setint16 (26, 0);
+    me.setint16 (28, 0);
+    me.setint16 (30, 0);
+    me.setint16 (32, 0);
+
+    data = me.serialize ();
+  }
+</code-fragment>
+    </section>
+    

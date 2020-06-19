@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Here is the class that represents the head
+          table:</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="Head"><code-title>Head class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.Attributes;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Head extends Table {
+
+  public Head () {
+    super (Tag.head, null);
+  }
+
+  public Head (Font font) {
+    super (Tag.head, font);
+  }
+
+  static public final long Version_OTTO = 0x4f54544f;
+  static public final long Version_1_0  = 0x00010000;
+
+  static public final long magicNumber = 0x5F0F3CF5;
+
+  public class Flags {
+    boolean baseline_at_0;
+    boolean lsb_at_0;
+    boolean instructions_vary_with_point_size;
+    boolean use_integral_ppem;
+    boolean instructions_alter_advance_width;
+    boolean lossless;
+    boolean converted;
+    boolean optimized_for_cleartype;
+
+    public void fromBinary (int n) {
+      baseline_at_0                        = ((n &amp; 0x0001) != 0);
+      lsb_at_0                             = ((n &amp; 0x0002) != 0);
+      instructions_vary_with_point_size    = ((n &amp; 0x0004) != 0);
+      use_integral_ppem                    = ((n &amp; 0x0008) != 0);
+      instructions_alter_advance_width     = ((n &amp; 0x0010) != 0);
+      lossless                             = ((n &amp; 0x0800) != 0);
+      converted                            = ((n &amp; 0x1000) != 0);
+      optimized_for_cleartype              = ((n &amp; 0x2000) != 0);
+    }
+
+    public int toBinary () {
+      int bin = 0;
+      if (baseline_at_0)                          { bin |= 0x0001; }
+      if (lsb_at_0)                               { bin |= 0x0002; }
+      if (instructions_vary_with_point_size)      { bin |= 0x0004; }
+      if (use_integral_ppem)                      { bin |= 0x0008; }
+      if (instructions_alter_advance_width)       { bin |= 0x0010; }
+      if (lossless)                               { bin |= 0x0800; }
+      if (converted)                              { bin |= 0x1000; }
+      if (optimized_for_cleartype)                { bin |= 0x2000; }
+      return bin;
+    }
+
+    public Attributes toXML () {
+      org.xml.sax.helpers.AttributesImpl at;
+      at = new org.xml.sax.helpers.AttributesImpl ();
+      if (baseline_at_0) {
+        at.addAttribute ("head",
+                         "baseline_at_0",
+                         "baseline_at_0",
+                         "CDATA", "yes"); }
+      if (lsb_at_0) {
+        at.addAttribute ("",
+                         "lsb_at_0",
+                         "lsb_at_0",
+                         "CDATA", "yes"); }
+      if (instructions_vary_with_point_size) {
+        at.addAttribute ("",
+                         "instructions_vary_with_point_size",
+                         "instructions_vary_with_point_size",
+                         "CDATA", "yes"); }
+      if (use_integral_ppem) {
+        at.addAttribute ("",
+                         "use_integral_ppem",
+                         "use_integral_ppem",
+                         "CDATA", "yes"); }
+      if (instructions_alter_advance_width) {
+        at.addAttribute ("",
+                         "instructions_alter_advance_width",
+                         "instructions_alter_advance_width",
+                         "CDATA", "yes"); }
+      if (lossless) {
+        at.addAttribute ("",
+                         "lossless",
+                         "lossless",
+                         "CDATA", "yes"); }
+      if (converted) {
+        at.addAttribute ("",
+                         "converted",
+                         "converted",
+                         "CDATA", "yes"); }
+      if (optimized_for_cleartype) {
+        at.addAttribute ("",
+                         "optimized_for_cleartype",
+                         "optimized_for_cleartype",
+                         "CDATA", "yes"); }
+      return at;
+    }
+  }
+
+  public class MacStyle {
+    boolean bold;
+    boolean italic;
+
+    public void fromBinary (int n) {
+      bold                        = ((n &amp; 0x0001) != 0);
+      italic                      = ((n &amp; 0x0002) != 0);
+    }
+
+    public int toBinary () {
+      int bin = 0;
+      if (bold)                           { bin |= 0x0001; }
+      if (italic)                         { bin |= 0x0002; }
+      return bin;
+    }
+
+    public Attributes toXML () {
+      org.xml.sax.helpers.AttributesImpl at;
+      at = new org.xml.sax.helpers.AttributesImpl ();
+      if (bold) {
+        at.addAttribute ("",
+                         "bold",
+                         "bold",
+                         "CDATA", "yes"); }
+      if (italic) {
+        at.addAttribute ("",
+                         "italic",
+                         "italic",
+                         "CDATA", "yes"); }
+      return at;
+    }
+  }
+
+  <code-include linkend="head.methods"/>
+
+  public int[] getTableVersion () {
+    return getFixed (0);
+  }
+
+  public void setTableVersion (int major, int minor) {
+    setFixed (0, major, minor);
+  }
+
+  public int[] getFontRevision () {
+    return getFixed (4);
+  }
+
+  public void setFontRevision (int major, int minor) {
+    setFixed (4, major, minor);
+  }
+
+  public void clearChecksumAdjust () {
+    setuint32 (8, 0);
+  }
+
+  public void setChecksumAdjust (long l) {
+    setuint32 (8, (int)l);
+  }
+
+  public Flags getFlags () {
+    Flags result = new Flags ();
+    result.fromBinary (getuint16 (16));
+    return result;
+  }
+
+  public void setFlags (Flags flags) {
+    setuint16 (16, flags.toBinary ());
+  }
+
+  public int getUnitsPerEm () {
+    return getuint16 (18);
+  }
+
+  public void setUnitsPerEm (int u) {
+    setuint16 (18, u);
+  }
+
+  static final java.util.GregorianCalendar baseForDates
+       = new java.util.GregorianCalendar (1904, 0, 1, 0, 0, 0);
+
+  public java.util.Date getCreated () {
+    return new java.util.Date (baseForDates.getTime ().getTime ()
+                               +  getLONGDATETIME (20) * 1000);
+  }
+
+  public void setCreated (java.util.Date d) {
+   setLONGDATETIME (20, (d.getTime () - baseForDates.getTime ().getTime ()) / 1000);
+  }
+
+  public java.util.Date getModified () {
+    return new java.util.Date (baseForDates.getTime ().getTime ()
+                               +  getLONGDATETIME (28) * 1000);
+  }
+
+  public void setModified (java.util.Date d) {
+    setLONGDATETIME (28, (d.getTime () - baseForDates.getTime ().getTime ()) / 1000);
+  }
+
+  static public class Bbox {
+    public int xMin;
+    public int yMin;
+    public int xMax;
+    public int yMax; };
+
+  public Bbox getBbox () {
+    Bbox b = new Bbox ();
+    b.xMin = getint16 (36);
+    b.yMin = getint16 (38);
+    b.xMax = getint16 (40);
+    b.yMax = getint16 (42);
+    return b;
+  }
+
+  public void setBbox (Bbox b) {
+    setint16 (36, b.xMin);
+    setint16 (38, b.yMin);
+    setint16 (40, b.xMax);
+    setint16 (42, b.yMax);
+  }
+
+  public MacStyle getMacStyle () {
+    MacStyle result = new MacStyle ();
+    result.fromBinary (getuint16 (44));
+    return result;
+  }
+
+  public void setMacStyle (MacStyle flags) {
+    setuint16 (44, flags.toBinary ());
+  }
+
+  public int getLowestRecPPEM () {
+    return getuint16 (46);
+  }
+
+  public void setLowestRecPPEM (int n) {
+    setuint16 (46, n);
+  }
+
+  public int getFontDirectionHint () {
+    return getint16 (48);
+  }
+
+  public void setFontDirectionHint (int n) {
+    setint16 (48, n);
+  }
+
+  public int getIndexToLocFormat () {
+    return getint16 (50);
+  }
+
+  public void setIndexToLocFormat (int n) {
+    setint16 (50, n);
+  }
+
+  public int getGlyphDataFormat () {
+    return getint16 (52);
+  }
+
+  public void setGlyphDataFormat (int n) {
+    setint16 (52, n);
+  }
+}
+</code-fragment>
+    </section>
+  

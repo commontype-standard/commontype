@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<chapter id="chapter.overview" xmlns:xlink="http://www.w3.org/1999/xlink">
+<chapter xmlns:xlink="http://www.w3.org/1999/xlink" id="chapter.overview">
   <title>Overview</title>
   <!--======================================================================-->
   <section role="fragment">
@@ -17,12 +17,23 @@
       <para>The CommonType font format addresses the following goals:
 
 	  <itemizedlist>
-      <listitem><para>broader multi-platform support</para></listitem>
-      <listitem><para>better support for international character sets</para></listitem>
-      <listitem><para>better protection for font data</para></listitem>
-      <listitem><para>smaller file sizes to make font distribution more
-	      efficient</para></listitem>
-        <listitem><para>broader support for advanced typographic control</para></listitem></itemizedlist>
+          <listitem>
+            <para>broader multi-platform support</para>
+          </listitem>
+          <listitem>
+            <para>better support for international character sets</para>
+          </listitem>
+          <listitem>
+            <para>better protection for font data</para>
+          </listitem>
+          <listitem>
+            <para>smaller file sizes to make font distribution more
+	      efficient</para>
+          </listitem>
+          <listitem>
+            <para>broader support for advanced typographic control</para>
+          </listitem>
+        </itemizedlist>
       </para>
       <para>CommonType fonts are also referred to as TrueType Open
 	v.2.0 fonts, because they use the TrueType <literal>sfnt</literal> font file
@@ -64,30 +75,36 @@
 	information:</para>
       <itemizedlist>
         <listitem>
-          <para><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5176.CFF.pdf">Adobe Technical Note #5176</link>: "The Compact Font Format
+          <para>
+            <link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5176.CFF.pdf">Adobe Technical Note #5176</link>: "The Compact Font Format
 	      Specification."</para>
         </listitem>
         <listitem>
-          <para><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5177.Type2.pdf">Adobe Technical Note #5177</link>: "Type 2 Charstring Format."</para>
+          <para>
+            <link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5177.Type2.pdf">Adobe Technical Note #5177</link>: "Type 2 Charstring Format."</para>
         </listitem>
         <listitem>
-          <para><link xlink:href="https://docs.microsoft.com/en-us/typography/opentype/spec/">The OpenType Specification</link>. Microsoft.</para>
+          <para>
+            <link xlink:href="https://docs.microsoft.com/en-us/typography/opentype/spec/">The OpenType Specification</link>. Microsoft.</para>
         </listitem>
         <listitem>
           <para>Adobe Type 1 Font Format. Addison Wesley, 1991; ISBN
 	      0-201-57044-0.</para>
         </listitem>
         <listitem>
-          <para><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5015.Type1_Supp.pdf">Adobe Technical Note #5015</link>: "The Type 1 Font Format
+          <para>
+            <link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5015.Type1_Supp.pdf">Adobe Technical Note #5015</link>: "The Type 1 Font Format
 	      Supplement." This document contains all updates to the
 	      Type 1 format.</para>
         </listitem>
         <listitem>
-          <para><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/postscript/pdfs/5087.MM_Fond.pdf">Adobe Technical Note #5087</link>: "Multiple Master Font
+          <para>
+            <link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/postscript/pdfs/5087.MM_Fond.pdf">Adobe Technical Note #5087</link>: "Multiple Master Font
 	      Programs for the Macintosh."</para>
         </listitem>
         <listitem>
-          <para><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5088.FontNames.pdf">Adobe Technical Note #5088</link>: "Font Naming Issues."
+          <para>
+            <link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5088.FontNames.pdf">Adobe Technical Note #5088</link>: "Font Naming Issues."
 	      This document discusses general font name issues. </para>
         </listitem>
         <listitem>

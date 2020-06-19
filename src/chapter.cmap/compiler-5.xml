@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="cmap.methods">
+  private Block format6FromXML (Element t, int language)
+      throws InvalidFontException, UnsupportedFontException {
+
+    NodeList children = t.getChildNodes ();
+    int firstCharCode = 0xffff;
+    int lastCharCode = 0;
+    java.util.Map&lt;Integer, Integer&gt; m
+          = new java.util.HashMap&lt;Integer, Integer&gt; ();
+
+    if (children.getLength () == 0) {
+      firstCharCode = 0;
+      lastCharCode = -1; }
+
+    else {
+      for (int i = 0; i &lt; children.getLength (); i++) {
+        Element map = (Element) children.item (i);
+        int charcode = Integer.decode (map.getAttribute ("code")).intValue ();
+        int glyphid = Integer.decode (map.getAttribute ("glyph")).intValue ();
+
+        if (i == 0) {
+          firstCharCode = charcode;
+          lastCharCode = charcode; }
+        else {
+          firstCharCode = Math.min (charcode, firstCharCode);
+          lastCharCode = Math.max (charcode, lastCharCode); }
+
+        if (m.put (charcode, glyphid) != null) {
+          warning ("duplicate charcode in cmap format6 (0x"
+                    + Integer.toHexString (charcode) + ")"); }}
+
+      for (int i = firstCharCode; i &lt;= lastCharCode; i++) {
+        if (! m.containsKey (i)) {
+          //warning ("no entry for charcode " + i + " in cmap format 6");
+          m.put (i, 0); }}}
+
+    int length = 10 + (lastCharCode - firstCharCode + 1)*2;
+    Block b = new Block (length, 0);
+
+    b.setuint16 (0, 6);
+    b.setuint16 (2, length);
+    b.setuint16 (4, language);
+    b.setuint16 (6, firstCharCode);
+    b.setuint16 (8, lastCharCode - firstCharCode + 1);
+    int offset = 10;
+    for (int i = firstCharCode; i &lt;= lastCharCode; i++) {
+      int glyphid = m.get (i);
+       b.setuint16 (offset, glyphid);
+       offset += 2; }
+
+    return b;
+  }
+</code-fragment>
+    </section>
+    

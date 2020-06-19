@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <para>In many cases, we do not care to specify the format
+	  which should be used to represent a class definition, but instead
+	  would prefer the compiler to figure out the best
+	  representation. In that case, the classes are just listed:</para>
+      <code-fragment id="schema"><code-title>classDefTable, any format</code-title>
+  classDefTable |=
+    attribute format { "any" },
+    element class {
+      attribute classID { text },
+      attribute glyphs { text }
+    }*
+
+  standaloneClassDefTable =
+    element classDefTable { attribute id { text }, classDefTable }
+
+  classDefTableOffset = attribute name { text } | classDefTable
+</code-fragment>
+    </section>
+    

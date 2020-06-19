@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="gpos_2_2"><code-title>Execute GPOS 2/2 subtable and return</code-title>
+  { int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int inPos = curGlyph;
+
+    if (getCoverageIndex (gr.glyphAt (inPos), coverageOffset) == -1) {
+      return lookupNotApplied; }
+
+    int firstGlyphPos = inPos++;
+
+    while (lookupFlagCovers (lookupFlag, gr.glyphAt (inPos))) {
+      inPos++; }
+
+    if (! gr.isLookupApplied (lookupIndex, firstGlyphPos, inPos)) {
+      return lookupNotApplied; }
+
+
+    int firstGlyphClass = classIndex (gr.glyphAt (firstGlyphPos),
+                                      stOffset + getOffset (stOffset + 8));
+    int secondGlyphClass = classIndex (gr.glyphAt (inPos),
+                                       stOffset + getOffset (stOffset + 10));
+    int class1Count = getuint16 (stOffset + 12);
+    int class2Count = getuint16 (stOffset + 14);
+    int valueFormat1 = getuint16 (stOffset + 4);
+    int valueFormat2 = getuint16 (stOffset + 6);
+    int valueRecord1Size = ValueRecord.getSize (valueFormat1);
+    int valueRecord2Size = ValueRecord.getSize (valueFormat2);
+    int class2RecordSize = valueRecord1Size + valueRecord2Size;
+    int class1RecordSize = class2RecordSize * class2Count;
+
+    int class2RecordOffset
+       = stOffset + 16
+          + firstGlyphClass * class1RecordSize
+          + secondGlyphClass * class2RecordSize;
+    ValueRecord value1 = new ValueRecord().fromBinary (this, class2RecordOffset,
+                                         valueFormat1);
+    ValueRecord value2 = new ValueRecord().fromBinary (this, class2RecordOffset + valueRecord1Size,
+                                         valueFormat2);
+    if (listener != null) {
+      listener.adjust (value1, valueFormat1);
+      listener.adjust (value2, valueFormat2);
+      listener.applyingSubtable (lookupIndex, gr, curGlyph, "GPOS", stOffset); }
+
+    if (valueFormat1 != 0) {
+      gr.adjustPlacementAndAdvance (firstGlyphPos, value1); }
+    if (valueFormat2 != 0) {
+      gr.adjustPlacementAndAdvance (inPos, value2); }
+
+    if (valueFormat2 == 0) {
+      return new LookupResult (true, inPos, 0); }
+    else {
+      return new LookupResult (true, inPos + 1, 0); }}
+</code-fragment>
+    </section>
+    

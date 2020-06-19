@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>markToMarkAttachmentTable</code-title>
+  markToMarkAttachmentTable |=
+    attribute format { "1" },
+    element mark2Glyph {
+      attribute glyphID { text },
+      element mark2Anchor {
+        attribute class { text },
+        anchorTableOffset
+      }*
+    }*,
+    element mark1GlyphAnchor {
+      attribute glyphID { text },
+      attribute class { text },
+      anchorTableOffset
+    }*
+
+  standaloneMarkToMarkAttachmentTable =
+    element markToMarkAttachmentTable { attribute id { text }, markToMarkAttachmentTable }
+
+  markToMarkAttachmentTableOffset = attribute name { text } | markToMarkAttachmentTable
+</code-fragment>
+    </section>
+    

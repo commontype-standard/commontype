@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <para>Since there is no a-priori reason that all tables that
+          contain ScriptList tables put them at the same place (or put
+          pointers to them at the same place), we need an abstract
+          method to get the offset of the ScriptList table.</para>
+      <code-fragment id="lookuptable.methods"><code-title>Method to get the offset of ScriptList</code-title>
+  abstract int getScriptListOffset ();
+</code-fragment>
+      <para>??</para>
+      <code-fragment id="method_Table_findLookups2"><code-title>Find LangSys table for 'scriptTag'/'langSysTag' in ScriptList table</code-title>
+  { int scriptListOffset = getScriptListOffset ();
+    int scriptCount = getuint16 (scriptListOffset);
+
+    for (int scr = 0; scr &lt; scriptCount; scr++) {
+      if (scriptTag == getuint32 (scriptListOffset + 2 + 6*scr)) {
+        int scriptOffset
+          = getOffset (scriptListOffset, 2 + 6*scr + 4);
+        <code-include linkend="method_Table_findLookups3"/>
+        break; }}}
+</code-fragment>
+      <code-fragment id="lookuptable.methods"><code-title>Method to get the list of script/languages</code-title>
+  public String[][] getScriptLangList () {
+    int scriptListOffset = getScriptListOffset ();
+    int scriptCount = getuint16 (scriptListOffset);
+
+    String[][] result = new String [scriptCount][];
+
+    for (int scr = 0; scr &lt; scriptCount; scr++) {
+      long scriptTag = getuint32 (scriptListOffset + 2 + 6*scr);
+      int scriptOffset
+         = getOffset (scriptListOffset, 2 + 6*scr + 4);
+      <code-include linkend="LookupTable_getScriptLangList_2"/> }
+
+    return result;
+  }
+</code-fragment>
+      <code-fragment id="lookuptable.methods"><code-title>Method to get the names of features in a script/language</code-title>
+  public String[] getFeatureNames (String script, String language) {
+    int scriptListOffset = getScriptListOffset ();
+    int scriptCount = getuint16 (scriptListOffset);
+
+    long scriptTag = Tag.string2tag (script);
+    long languageTag = Tag.string2tag (language);
+
+    for (int scr = 0; scr &lt; scriptCount; scr++) {
+      if (scriptTag == getuint32 (scriptListOffset + 2 + 6*scr)) {
+        int scriptOffset
+           = getOffset (scriptListOffset, 2 + 6*scr + 4);
+        <code-include linkend="LookupTable_getFeatureNames_2"/> }}
+
+    return null;
+  }
+</code-fragment>
+    </section>
+    

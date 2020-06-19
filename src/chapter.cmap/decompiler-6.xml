@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="cmap.decompile.format8.att"><code-title>Generate attributes for the format 8 cmap subtable at 'stOffset'</code-title>
+  { StringBuilder sb = new StringBuilder ();
+    // TODO deal with is32
+    at.addAttribute ("", "singleWords", "singleWords", "CDATA", sb.toString ()); }
+</code-fragment>
+      <code-fragment id="cmap.decompile.format8.elt"><code-title>Generate elements for the format 8 cmap subtable at 'stOffset'</code-title>
+  if (conf.preciseCmap) {
+    int nGroups = getuint32asint (stOffset + 8204,
+                                  "cmap subtable, format 8, nGroups is big");
+
+    for (int g = 0; g &lt; nGroups; g++) {
+
+      int startCharCode = getuint32asint (stOffset + 8208 + 12*g,
+                                          "cmap subtable, format 8, startCharCode is big");
+      int endCharCode = getuint32asint (stOffset + 8208 + 12*g + 4,
+                                        "cmap subtable, format 8, endCharCode is big");
+      int startGlyphID = getuint32asint (stOffset + 8208 + 12*g + 8,
+                                         "cmap subtable, format 8, startGlyphID is big");
+      at = new AttributesImpl ();
+      at.addAttribute ("", "firstCode", "firstCode", "CDATA",
+                       "0x" + Integer.toHexString (startCharCode));
+      at.addAttribute ("", "lastCode", "lastCode", "CDATA",
+                       "0x" + Integer.toHexString (endCharCode));
+      at.addAttribute ("", "firstGlyph", "firstGlyph", "CDATA", "" + startGlyphID);
+      conf.ch.element ("group", at); }}
+</code-fragment>
+    </section>
+    

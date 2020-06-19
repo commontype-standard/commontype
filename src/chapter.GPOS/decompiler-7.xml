@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gpos.toXMLCount_2_2">
+  coverageTableToXMLCount (stOffset + getOffset (stOffset + 2), counts);
+  classDefTableToXMLCount (stOffset + getOffset (stOffset + 8), counts);
+  classDefTableToXMLCount (stOffset + getOffset (stOffset + 10), counts);
+</code-fragment>
+      <code-fragment id="gpos.toXML_2_2">
+  coverageTableToXML (conf, stOffset + getOffset (stOffset + 2), counts);
+  classDefTableToXML (conf, stOffset + getOffset (stOffset + 8), counts);
+  classDefTableToXML (conf, stOffset + getOffset (stOffset + 10), counts);
+</code-fragment>
+      <code-fragment id="gpos.toXMLEmit_2_2">
+    int coverageOffset = stOffset + getOffset (stOffset + 2);
+    int classDef1Offset = stOffset + getOffset (stOffset + 8);
+    int classDef2Offset = stOffset + getOffset (stOffset + 10);
+    int valueFormat1 = getuint16 (stOffset + 4);
+    int valueFormat2 = getuint16 (stOffset + 6);
+    int valueRecord1Size = ValueRecord.getSize (valueFormat1);
+    int valueRecord2Size = ValueRecord.getSize (valueFormat2);
+    int pairValueRecordSize = 2 + valueRecord1Size + valueRecord2Size;
+
+    at = new AttributesImpl ();
+    coverageTableOffsetToXML (conf, coverageOffset, counts, "coverage", at);
+
+    at = new AttributesImpl ();
+    classDefTableOffsetToXML (conf, classDef1Offset, counts, "classdef", at);
+
+    at = new AttributesImpl ();
+    classDefTableOffsetToXML (conf, classDef2Offset, counts, "classdef", at);
+
+    int class1Count = getuint16 (stOffset + 12);
+    int class2Count = getuint16 (stOffset + 14);
+
+    int vrOffset =  stOffset + 16;
+
+    for (int i = 0; i &lt; class1Count; i++) {
+      for (int j = 0; j &lt; class2Count; j++) {
+
+        ValueRecord vr1 = new ValueRecord().fromBinary (this, vrOffset,
+                                                        valueFormat1);
+        vrOffset += valueRecord1Size;
+        ValueRecord vr2 = new ValueRecord().fromBinary (this, vrOffset,
+                                                        valueFormat2);
+        vrOffset += valueRecord2Size;
+
+        if (! (vr1.isNull () &amp;&amp; vr2.isNull ())) {
+          at = new AttributesImpl ();
+          at.addAttribute ("", "in", "in", "CDATA", "" + i + " " + j);
+	  conf.ch.startElement ("pos2", at); {
+
+            if (! vr1.isNull ()) {
+	      at = new AttributesImpl ();
+	      vr1.toXML (at);
+	      conf.ch.element ("value1", at); }
+
+	    if (! vr2.isNull ()) {
+	      at = new AttributesImpl ();
+	      vr2.toXML (at);
+	      conf.ch.element ("value2", at); }
+
+	    conf.ch.endElement ("pos2"); }}}}
+</code-fragment>
+    </section>
+    

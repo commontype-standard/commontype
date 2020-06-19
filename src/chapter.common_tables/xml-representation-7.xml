@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>lookupListTable</code-title>
+  GSUBlookup =
+    element lookup {
+      attribute id { text },
+      GSUBlookupTableOffset
+    }
+
+  GSUBlookupListTable =
+    GSUBlookup*
+
+  standaloneGSUBLookupListTable =
+    element lookupListTable { attribute id { text }, GSUBlookupListTable }
+
+  GSUBlookupListTableOffset =  attribute name { text } | GSUBlookupListTable
+
+
+  GPOSlookup =
+    element lookup {
+      attribute id { text },
+      GPOSlookupTableOffset
+    }
+
+  GPOSlookupListTable =
+    GPOSlookup*
+
+  standaloneGPOSLookupListTable =
+    element lookupListTable { attribute id { text }, GPOSlookupListTable }
+
+  GPOSlookupListTableOffset =  attribute name { text } | GPOSlookupListTable
+
+  lookup = GSUBlookup | GPOSlookup
+</code-fragment>
+    </section>
+    

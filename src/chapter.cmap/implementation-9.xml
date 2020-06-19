@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="cmap.methods"><code-title>UVS to glyph method</code-title>
+  public int uvs2glyph (int charCode, int variationSelector)
+    throws UnsupportedFontException {
+
+    int numTables = getuint16 (2);
+
+    for (int st = 0; st &lt; numTables; st++) {
+      if (   0 == getuint16 (4 + 8*st)
+          &amp;&amp; 5 == getuint16 (4 + 8*st + 2)) {
+        int stOffset = getLOffset (0, 4 + 8*st + 4);
+
+        long numVarSelectorRecords = getuint32 (stOffset + 6);
+
+        for (int i = 0; i &lt; numVarSelectorRecords; i++) {
+          if (variationSelector == getuint24 (stOffset + 10 + 11*i)) {
+
+            int dOffset = getLOffset (stOffset, 10 + 11*i + 3);
+
+            if (dOffset != 0) {
+              long numUnicodeValueRanges = getuint32 (dOffset);
+
+              for (int j = 0; j &lt; numUnicodeValueRanges; j++) {
+                int start = getuint24 (dOffset + 4 + 4*j);
+                int additionalCount = getuint8 (dOffset + 4 + 4*j + 3);
+
+                if (   start &lt;= charCode
+                    &amp;&amp; charCode &lt;= start + additionalCount) {
+
+                  return unicodechar2glyph (charCode); }}}
+
+            int nOffset = getLOffset (stOffset, 10 + 11*i + 7);
+
+            if (nOffset != 0) {
+              long numMappings = getuint32 (nOffset);
+
+              for (int j = 0; j &lt; numMappings; j++) {
+                if (charCode == getuint24 (nOffset + 4 + 5*j)) {
+                  return getuint16 (nOffset + 4 + 5*j + 3); }}}}}}}
+
+    return 0;
+  }
+</code-fragment>
+    </section>
+    

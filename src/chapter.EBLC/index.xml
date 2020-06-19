@@ -469,7 +469,8 @@
           <otfieldtype>ULONG</otfieldtype>
           <otfieldname>additionalOffsetToIndexSubtable</otfieldname>
           <otfielddesc>add to indexSubTableArrayOffset to get offset
-              from beginning of <ottable>EBLC</ottable></otfielddesc>
+              from beginning of <ottable>EBLC</ottable>
+          </otfielddesc>
         </otfield>
       </otformat>
       <para>After determining the strike, the rasterizer searches

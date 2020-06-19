@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>baseTagListTable</code-title>
+  baseTagListTable =
+    element tag {
+      attribute v { text }
+    }*
+
+  standaloneBaseTagListTable =
+    element baseTagListTable { attribute id { text }, baseTagListTable }
+
+  baseTagListTableOffset = attribute name { text } | baseTagListTable
+</code-fragment>
+    </section>
+    

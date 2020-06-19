@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>gsub1_2_simple</title>
+        <para>A simple test to start. Glyph 18 has coverage index 0,
+            and is replaced by glyph 22; glyph 20 has coverage index 1,
+            and is replaced by glyph 25.</para>
+        <aots:test-font id="gsub1_2_simple_f1">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="1">
+                <singleSubst format="2">
+                  <coverage glyphs="18 20" format="any"/>
+                  <subst in="18" out="22"/>
+                  <subst in="20" out="25"/>
+                </singleSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub1_2_simple_t1" font="gsub1_2_simple_f1" inputs="17, 18, 19, 20, 21" outputs="17, 22, 19, 25, 21"/>
+      </section>
+      <section>
+        <title>gsub1_2_lookupflag</title>
+        <para>Our second tests exercises LookupFlag, which captures
+          glyph 18. In order to isolate the behaviour of LookupFlag,
+          we need to make sure that glyph 18 is covered by the lookup
+          itself.</para>
+        <aots:test-font id="gsub1_2_lookupflag_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="18"/>
+            </glyphClassDef>
+          </GDEF>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" ignoreBaseGlyphs="yes" type="1">
+                <singleSubst format="2">
+                  <coverage glyphs="18 20" format="any"/>
+                  <subst in="18" out="22"/>
+                  <subst in="20" out="25"/>
+                </singleSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub1_2_lookupflag_t1" font="gsub1_2_lookupflag_f1" inputs="17, 18, 19, 20, 21" outputs="17, 18, 19, 25, 21"/>
+      </section>
+    </section>
+    

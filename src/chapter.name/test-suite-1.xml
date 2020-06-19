@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="test-suite">
+      <title>Test Suite</title>
+      <para>The following piece of code creates a very basic name
+        table. We use it for our test fonts.</para>
+      <code-fragment package="com.adobe.aots.CommonType" class="NameBuilder"><code-title>NameBuilder class</code-title>
+  package com.adobe.aots.CommonType;
+
+  public class NameBuilder {
+    private static void writeUSHORT (int n)
+        throws java.io.IOException {
+      byte[] data = new byte[2];
+      data [1] =  (byte)( n       &amp; 0xff);
+      data [0] =  (byte)((n &gt;&gt; 8) &amp; 0xff);
+      System.out.write (data);
+    }
+
+    private static String storage = "";
+
+
+    private static void writeNameRecord (int nameID, String s)
+        throws java.io.IOException {
+      writeUSHORT (3);
+      writeUSHORT (1);
+      writeUSHORT (1033);
+      writeUSHORT (nameID);
+      writeUSHORT (s.length () * 2);
+      writeUSHORT (storage.length () * 2);
+      storage = storage + s;
+    }
+
+    public static void main (String[] args) {
+      try {
+        int entries = 6;
+        writeUSHORT (0);
+        writeUSHORT (entries);
+        writeUSHORT (6 + 12*entries);
+
+        writeNameRecord (1, args[0]);
+        writeNameRecord (2, "Regular");
+        writeNameRecord (3, args[0]);
+        writeNameRecord (4, args[0] + "-Regular");
+        writeNameRecord (5, "Version 1.00");
+        writeNameRecord (6, args[0] + "-Regular");
+
+        for (int i = 0; i &lt; storage.length(); i++) {
+          writeUSHORT (storage.charAt (i)); }}
+
+      catch (Exception e) {
+       System.out.println ("Exception: " + e.getMessage ());
+       e.printStackTrace (); }
+    }
+  }
+</code-fragment>
+    </section>
+  

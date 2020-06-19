@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>name table</code-title>
+name =
+  element name {
+    element name-record {
+      attribute platformID { text },
+      attribute encodingID { text },
+      attribute languageID { text },
+      attribute nameID { text },
+      attribute v { text }
+    }*
+  }
+</code-fragment>
+    </section>
+    

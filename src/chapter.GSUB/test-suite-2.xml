@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section xmlns:aots="http://aots.adobe.com/2001/aots" role="test-suite">
+      <title>Test Suite</title>
+      <section>
+        <title>gsub1_1_simple</title>
+        <para>Our first test is fairly simple. It translates glyphs 18
+	  and 19 by 5, to get glyphs 23 and 24:</para>
+        <aots:test-font id="gsub1_1_simple_f1">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" type="1">
+                <singleSubst format="1">
+                  <coverage glyphs="18 19" format="any"/>
+                  <delta v="5"/>
+                </singleSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub1_1_simple_t1" font="gsub1_1_simple_f1" inputs="17, 18, 19, 20, 21" outputs="17, 23, 24, 20, 21"/>
+      </section>
+      <section>
+        <title>gsub1_1_lookupflag</title>
+        <para>Our second test case exercises LookupFlag. The trick
+	  to have a glyph which is both in the collection defined by
+	  LookupFlag and transformed. Since LookupFlag takes
+	  precedence over Coverage, the glyph should not be
+	  transformed. In addition, looking at the step by step
+	  execution of the lookup over the glyphrun, one should see
+	  that there is a single lookup application for this glyph and
+	  the next glyph (which is transformed). While the font may
+	  seem at first improperly built, it could be that the
+	  Coverage is shared with another table.</para>
+        <aots:test-font id="gsub1_1_lookupflag_f1">
+          <base-font name="base.otf"/>
+          <GDEF major="1" minor="0">
+            <glyphClassDef format="any">
+              <class classID="1" glyphs="18"/>
+            </glyphClassDef>
+          </GDEF>
+          <GSUB major="1" minor="0">
+            <code-include linkend="testfonts.gsub.scripts_features"/>
+            <lookupList>
+              <lookup id="lookup.test" ignoreBaseGlyphs="yes" type="1">
+                <singleSubst format="1">
+                  <coverage glyphs="18 19" format="any"/>
+                  <delta v="5"/>
+                </singleSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub1_1_lookupflag_t1" font="gsub1_1_lookupflag_f1" inputs="17, 18, 19, 20, 21" outputs="17, 18, 24, 20, 21"/>
+      </section>
+      <section>
+        <title>gsub1_1_modulo</title>
+        <para>An interesting test case involves exercising the
+	  "modulo" nature of the glyph computation, since it is not
+          explicit in the specification. In a modulo arithmetic
+          system, there are two cases to consider: when the sum of two
+          numbers goes over the base (overflow); and when the sum of
+          two (signed) numbers goes below 0 (underflow). Our test font
+          includes one feature, with two lookups and all their
+          subtables in format 1</para>
+        <para>The behaviour of the test feature is:</para>
+        <table>
+          <title>Test feature</title>
+          <tgroup cols="5">
+            <colspec colwidth="3cm"/>
+            <colspec colwidth="3cm"/>
+            <colspec colwidth="3cm"/>
+            <colspec colwidth="3cm"/>
+            <colspec colwidth="3cm"/>
+            <thead>
+              <row>
+                <entry>Input glyph</entry>
+                <entry>Lookup 1</entry>
+                <entry>Intermediate glyph</entry>
+                <entry>Lookup 2</entry>
+                <entry>Output glyph</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>21</entry>
+                <entry>subtable 1: +32766</entry>
+                <entry>32787</entry>
+                <entry>subtable 3: -32764</entry>
+                <entry>23</entry>
+              </row>
+              <row>
+                <entry>22</entry>
+                <entry>subtable 1: +32766</entry>
+                <entry>32788</entry>
+                <entry>subtable 4: +32766 (overflow)</entry>
+                <entry>18</entry>
+              </row>
+              <row>
+                <entry>19</entry>
+                <entry>subtable 2: -32766 (underflow)</entry>
+                <entry>32789</entry>
+                <entry>subtable 5: +32764 (overflow)</entry>
+                <entry>17</entry>
+              </row>
+              <row>
+                <entry>20</entry>
+                <entry>subtable 2: -32766 (underflow)</entry>
+                <entry>32790</entry>
+                <entry>subtable 6: -32766</entry>
+                <entry>24</entry>
+              </row>
+              <row>
+                <entry>anything else</entry>
+                <entry>unchanged</entry>
+                <entry/>
+                <entry/>
+                <entry/>
+              </row>
+              <row>
+                <entry/>
+                <entry/>
+                <entry>anything else</entry>
+                <entry>unchanged</entry>
+                <entry/>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para>This test case is a bit contrived, because the base font
+          on which we apply it does not have pairs of glyphs such that
+          one can be reached from the other via a legal DeltaGlyphID
+          value involving an overflow or underflow. Instead, we do
+          that in two steps (hence the two lookups). The intermediate
+          glyph is not in the font, but the first and third
+          transformations above help us validate that the program
+          under test does not care about that.</para>
+        <aots:test-font id="gsub1_1_modulo_f1">
+          <base-font name="base.otf"/>
+          <GSUB major="1" minor="0">
+            <scriptList>
+              <script tag="latn">
+                <defaultLangSys>
+                  <featureIndex name="feature.test"/>
+                </defaultLangSys>
+              </script>
+            </scriptList>
+            <featureList>
+              <feature id="feature.test" tag="test">
+                <lookupIndex name="lookup.test.1"/>
+                <lookupIndex name="lookup.test.2"/>
+              </feature>
+            </featureList>
+            <lookupList>
+              <lookup id="lookup.test.1" type="1">
+                <singleSubst format="1">
+                  <coverage glyphs="21 22" format="any"/>
+                  <delta v="32766"/>
+                </singleSubst>
+                <singleSubst format="1">
+                  <coverage glyphs="19 20" format="any"/>
+                  <delta v="-32766"/>
+                </singleSubst>
+              </lookup>
+              <lookup id="lookup.test.2" type="1">
+                <singleSubst format="1">
+                  <coverage glyphs="32787" format="any"/>
+                  <delta v="-32764"/>
+                </singleSubst>
+                <singleSubst format="1">
+                  <coverage glyphs="32788" format="any"/>
+                  <delta v="32766"/>
+                </singleSubst>
+                <singleSubst format="1">
+                  <coverage glyphs="32789" format="any"/>
+                  <delta v="32764"/>
+                </singleSubst>
+                <singleSubst format="1">
+                  <coverage glyphs="32790" format="any"/>
+                  <delta v="-32766"/>
+                </singleSubst>
+              </lookup>
+            </lookupList>
+          </GSUB>
+        </aots:test-font>
+        <aots:gsub-test id="gsub1_1_modulo_t1" font="gsub1_1_modulo_f1" inputs="17, 18, 19, 20, 21, 22, 23, 24" outputs="17, 18, 17, 24, 23, 18, 23, 24"/>
+        <para>Translated to characters (for use with InDesign), the
+          string "0123456789" gets translated to "0107616789".</para>
+      </section>
+    </section>
+    

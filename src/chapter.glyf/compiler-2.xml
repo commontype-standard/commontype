@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="compiler">
+      <title>Compiler</title>
+      <code-fragment id="glyf.methods">
+  public Block simpleGlyphFromXML (Element e) {
+
+    NodeList contours = e.getChildNodes ();
+    int nbContours = contours.getLength ();
+
+    Element instructionsElt = (Element) contours.item (nbContours - 1);
+    Block instructions;
+
+    if ("instructions".equals (instructionsElt.getTagName())) {
+      nbContours--;
+      int opcodes [] = parseIntList (instructionsElt.getAttribute ("opcodes"));
+      instructions = new Block (opcodes.length, 0);
+      for (int i = 0; i &lt; opcodes.length; i++) {
+        instructions.setuint8 (i, opcodes [i]); }}
+    else {
+      instructions = new Block (0, 0); }
+
+    int nbTotalPoints = 0;
+    for (int c = 0; c &lt; nbContours; c++) {
+       Element contour = (Element) contours.item (c);
+       NodeList points = (NodeList) contour.getChildNodes ();
+       nbTotalPoints += points.getLength (); }
+
+    int endPts []  = new int [nbContours];
+
+    // pessimistic allocation
+    Block flags = new Block (nbTotalPoints, 0);
+    int flagsOffset = 0;
+    Block x = new Block (nbTotalPoints * 2, 0);
+    int xOffset = 0;
+    Block y = new Block (nbTotalPoints * 2, 0);
+    int yOffset = 0;
+
+
+    int currentPoint = 0;
+    int currentX = 0;
+    int currentY = 0;
+
+    int lastFlags = 0;
+    boolean lastFlagsRepeat = false;
+    int lastFlagsCount = 0;
+
+    for (int c = 0; c &lt; nbContours; c++) {
+       Element contour = (Element) contours.item (c);
+
+       NodeList points = (NodeList) contour.getChildNodes ();
+       int nbPoints = points.getLength ();
+
+       for (int p = 0; p &lt; nbPoints; p++) {
+         Element point = (Element) points.item (p);
+         int thisX = Integer.parseInt (point.getAttribute ("x"));
+         int thisY = Integer.parseInt (point.getAttribute ("y"));
+
+         int thisFlags = 0;
+
+         if ("yes".equals (point.getAttribute ("on_curve"))) {
+           thisFlags |= ON_CURVE_POINT; }
+
+         int delta_x = thisX - currentX;
+         if (delta_x == 0) {
+           thisFlags |= X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR; }
+         else if (-255 &lt;= delta_x &amp;&amp; delta_x &lt;= 255) {
+           thisFlags |= X_SHORT_VECTOR;
+           if (0 &lt; delta_x) {
+             thisFlags |= X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR; }
+           else {
+             delta_x = - delta_x; }
+           x.setuint8 (xOffset, delta_x);
+           xOffset += 1; }
+         else {
+           x.setint16 (xOffset, delta_x);
+           xOffset += 2; }
+
+         currentX = thisX;
+
+         int delta_y = thisY - currentY;
+         if (delta_y == 0) {
+           thisFlags |= Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR; }
+         else if (-255 &lt;= delta_y &amp;&amp; delta_y &lt;= 255) {
+           thisFlags |= Y_SHORT_VECTOR;
+           if (0 &lt; delta_y) {
+             thisFlags |= Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR; }
+           else {
+             delta_y = - delta_y; }
+           y.setuint8 (yOffset, delta_y);
+           yOffset += 1; }
+         else {
+           y.setint16 (yOffset, delta_y);
+           yOffset += 2; }
+
+         currentY = thisY;
+
+         if (0 &lt; flagsOffset  &amp;&amp; thisFlags == lastFlags) {
+           if (lastFlagsRepeat) {
+             if (lastFlagsCount &lt; 255) {
+               lastFlagsCount++;
+               flags.setuint8 (flagsOffset - 1, lastFlagsCount); }
+             else {
+               flags.setuint8 (flagsOffset, thisFlags);
+               flagsOffset += 1;
+               lastFlagsRepeat = false;
+               lastFlagsCount = 0; }}
+           else {
+             flags.setuint8 (flagsOffset - 1, lastFlags | REPEAT_FLAG);
+             flags.setuint8 (flagsOffset, 1);
+             flagsOffset += 1;
+             lastFlagsRepeat = true;
+             lastFlagsCount = 1; }}
+         else {
+           flags.setuint8 (flagsOffset, thisFlags);
+           flagsOffset += 1;
+           lastFlagsRepeat = false;
+           lastFlagsCount = 0; }
+
+         lastFlags = thisFlags; }
+
+      endPts [c] = ((c == 0) ? -1 : endPts [c - 1]) + nbPoints; }
+
+
+    int totalSize = 10
+                     + endPts.length * 2
+                     + 2 + instructions.content.length
+                     + flagsOffset + xOffset + yOffset;
+
+    if (totalSize % 2 == 1) {
+      totalSize++; }
+
+    Block result = new Block (totalSize, 0);
+    int b = 0;
+
+    result.setuint16 (b, nbContours); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("xMin"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("yMin"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("xMax"))); b += 2;
+    result.setint16 (b, Integer.parseInt (e.getAttribute ("yMax"))); b += 2;
+
+    for (int c = 0; c &lt; nbContours; c++) {
+      result.setuint16 (b, endPts [c]); b += 2; }
+
+    if (instructions == null) {
+      result.setuint16 (b, 0); b += 2; }
+    else {
+      result.setuint16 (b, instructions.content.length); b += 2;
+      System.arraycopy (instructions.content, 0,
+                        result.content, b,
+                        instructions.content.length);
+      b += instructions.content.length; }
+
+    System.arraycopy (flags.content, 0, result.content, b, flagsOffset);
+    b += flagsOffset;
+
+    System.arraycopy (x.content, 0, result.content, b, xOffset);
+    b += xOffset;
+
+    System.arraycopy (y.content, 0, result.content, b, yOffset);
+    b += yOffset;
+
+    return result;
+  }
+</code-fragment>
+    </section>
+    

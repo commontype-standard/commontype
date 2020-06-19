@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="gpos.toXMLCount_1_1">
+  coverageTableToXMLCount (stOffset + getOffset (stOffset + 2), counts);
+</code-fragment>
+      <code-fragment id="gpos.toXML_1_1">
+  coverageTableToXML (conf, stOffset + getOffset (stOffset + 2), counts);
+</code-fragment>
+      <code-fragment id="gpos.toXMLEmit_1_1">
+  int coverageOffset = stOffset + getOffset (stOffset + 2);
+  int valueFormat = getuint16 (stOffset + 4);
+
+  at = new AttributesImpl ();
+  coverageTableOffsetToXML (conf, coverageOffset, counts, "coverage", at);
+
+  at = new AttributesImpl ();
+  new ValueRecord().fromBinary (this, stOffset + 6, valueFormat).toXML (at);
+  conf.ch.element ("value", at);
+</code-fragment>
+    </section>
+    

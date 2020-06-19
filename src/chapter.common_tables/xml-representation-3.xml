@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>scriptTable</code-title>
+  scriptTable =
+    element defaultLangSys { langSysTableOffset }?,
+    element langSysRecord {
+      attribute tag { text },
+      langSysTableOffset
+    }*
+
+  standaloneScriptTable =
+    element scriptTable { attribute id { text }, scriptTable }
+
+  scriptTableOffset = attribute name { text } | scriptTable
+</code-fragment>
+    </section>
+    

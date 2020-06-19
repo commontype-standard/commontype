@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="xml-representation">
+      <title>XML Representation</title>
+      <code-fragment id="schema"><code-title>Contextual substitution format 1 type</code-title>
+  contextualTable |=
+    attribute format { "1" },
+    element coverage { coverageTableOffset }?,
+    element pattern {
+      attribute in { text },
+      subLookups
+    }*
+</code-fragment>
+    </section>
+    

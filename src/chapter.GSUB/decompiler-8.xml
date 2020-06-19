@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="lookuptable.methods">
+  public void contextualLookupToXMLCount (int stOffset, int[] counts) {
+
+    switch (getuint16 (stOffset)) {
+      case 1: { <code-include linkend="contextualLookup.toXMLCount_1"/>; break; }
+      case 2: { <code-include linkend="contextualLookup.toXMLCount_2"/>; break; }
+      case 3: { <code-include linkend="contextualLookup.toXMLCount_3"/>; break; }}
+  }
+
+  public void contextualLookupToXML (DecompilerConfig conf,
+                                     int stOffset, int[] counts)
+     throws org.xml.sax.SAXException, InvalidFontException {
+
+    switch (getuint16 (stOffset)) {
+      case 1: { <code-include linkend="contextualLookup.toXML_1"/>; break; }
+      case 2: { <code-include linkend="contextualLookup.toXML_2"/>; break; }
+      case 3: { <code-include linkend="contextualLookup.toXML_3"/>; break; }}
+  }
+
+  public void contextualLookupToXMLEmit (DecompilerConfig conf,
+                                         int stOffset, int[] counts)
+     throws org.xml.sax.SAXException, InvalidFontException {
+
+    AttributesImpl at;
+    switch (getuint16 (stOffset)) {
+      case 1: { <code-include linkend="contextualLookup.toXMLEmit_1"/>; break; }
+      case 2: { <code-include linkend="contextualLookup.toXMLEmit_2"/>; break; }
+      case 3: { <code-include linkend="contextualLookup.toXMLEmit_3"/>; break; }}
+  }
+</code-fragment>
+    </section>
+    

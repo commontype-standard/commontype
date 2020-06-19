@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="decompiler">
+      <title>Decompiler</title>
+      <code-fragment id="layouttable.methods">
+  public void coverageTableToXMLCount (int offset, int[] counts) {
+    counts [offset]++;
+  }
+
+  public void coverageTableOffsetToXML (DecompilerConfig conf, int offset,
+                                        int[] counts,
+                                        String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] != 1) {
+      at.addAttribute ("", "name", "name", "CDATA",
+                       "coverageTable_" + Integer.toHexString (offset));
+      conf.ch.element (element, at); }
+
+    else {
+      coverageTableToXMLEmit (conf, offset, counts, element, at); }
+  }
+
+  public void coverageTableToXML (DecompilerConfig conf, int offset,
+                                  int[] counts)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (counts [offset] &gt; 1) {
+      AttributesImpl at = new AttributesImpl ();
+      at.addAttribute ("", "id", "id", "CDATA",
+                       "coverageTable_" + Integer.toHexString (offset));
+      coverageTableToXMLEmit (conf, offset, counts, "coverageTable", at);
+      counts [offset] = 0; }
+  }
+
+  public void coverageTableToXMLEmit (DecompilerConfig conf, int offset,
+                                      int[] counts,
+                                      String element, AttributesImpl at)
+      throws org.xml.sax.SAXException, InvalidFontException {
+
+    if (conf.preciseCoverageFormat) {
+      int format = getuint16 (offset);
+      at.addAttribute ("", "format", "format", "CDATA", "" + format);
+      switch (format) {
+        case 1: { <code-include linkend="LayoutTable.coverageToXML.1"/>; break; }
+        case 2: { <code-include linkend="LayoutTable.coverageToXML.2"/>; break; }}}
+
+    else {
+      int[] glyphs = getCoveredGlyphs (offset);
+      StringBuilder sb = new StringBuilder ();
+
+      if (conf.glyphNames != null) {
+        for (int i = 0; i &lt; glyphs.length; i++) {
+          glyphToXML (conf, sb, glyphs [i]); }}
+
+      else {
+        int i = 0;
+        while (i &lt; glyphs.length) {
+          int start = glyphs [i];
+          int stop = start;
+          i++;
+
+          while (i &lt; glyphs.length &amp;&amp; (glyphs [i] == glyphs [i-1] + 1)) {
+    	    stop = glyphs [i];
+            i++; }
+
+          if (start &lt; stop) {
+            sb.append (" ");
+	    sb.append (start);
+            sb.append (":");
+	    sb.append (stop); }
+          else {
+            sb.append (" ");
+	    sb.append (start); }}}
+
+        at.addAttribute ("", "format", "format", "CDATA", "any");
+        at.addAttribute ("", "glyphs", "glyphs", "CDATA", sb.toString ());
+        conf.ch.element (element, at); }
+  }
+
+
+  public int[] coverageToXMLDetailed (DecompilerConfig conf, int offset)
+      throws org.xml.sax.SAXException {
+
+    return null;
+  }
+</code-fragment>
+    </section>
+    

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="validation">
+      <title>Validation</title>
+      <para>When validating a table, we want to make sure that there
+          is are no "dead" pieces in it, and that we don't have
+          pointers in the middle. Here are some helper methods:</para>
+      <code-fragment id="table.methods"><code-title> </code-title>
+  class Range {
+    public String s;
+    public int from;
+    public int size;
+    public boolean exclusive;
+
+    public Range (String s, int from, int size, boolean exclusive) {
+      this.s = s;
+      this.from = from;
+      this.size = size;
+      this.exclusive = exclusive;
+    }};
+
+  private int nbRanges = 0;
+  private Range[] ranges = null;
+
+  public boolean claim (String s, int from, int size) {
+    return claim (s, from, size, true);
+  }
+
+  public boolean claim (String s, int from, int size, boolean exclusive) {
+    if (data.length &lt; from + size) {
+      System.out.println ("cannot claim " + size + " bytes from 0x"
+                          + Integer.toHexString (from) + " for " + s);
+      return false; }
+
+    if (ranges == null) {
+      ranges = new Range [100]; }
+
+    if (nbRanges == ranges.length) {
+      Range[] temp = new Range [nbRanges + 100];
+      System.arraycopy (ranges, 0, temp, 0, nbRanges);
+      ranges = temp; }
+
+    ranges [nbRanges++] = new Range (s, from, size, exclusive);
+
+    return true;
+  }
+
+  public void reportError (String s) {
+    System.out.println ("Error: " + s);
+  }
+
+  public void reportMistake (String s) {
+    System.out.println ("Mistake: " + s);
+  }
+
+  public void reportWarning (String s) {
+    System.out.println ("Warning: " + s);
+  }
+
+  public void report () {
+    String[] mask = new String [data.length];
+    boolean[] exclusive = new boolean [data.length];
+
+    for (int b = 0; b &lt; mask.length; b++) {
+      mask [b] = null; }
+
+    for (int r = 0; r &lt; nbRanges; r++) {
+      for (int b = ranges [r].from; b &lt; ranges [r].from + ranges [r].size; b++) {
+
+        if (mask [b] != null) {
+          if (exclusive [b] || ranges[r].exclusive) {
+            System.out.println ("byte 0x" + Integer.toHexString (b)
+                                + " claimed by both '"
+                                + mask[b] + "' and '" + ranges[r].s); }}
+        else {
+          mask [b] = ranges [r].s;
+          exclusive [b] = ranges [r].exclusive; }}}
+
+    for (int b = 0; b &lt; mask.length; b++) {
+      if (mask[b] == null) {
+        System.out.println ("byte 0x" + Integer.toHexString (b)
+                            + " not claimed"); }}
+  }
+</code-fragment>
+    </section>
+  

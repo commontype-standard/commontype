@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment package="com.adobe.aots.CommonType" class="Vmtx"><code-title>Vmtx class</code-title>
+package com.adobe.aots.CommonType;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.helpers.AttributesImpl;
+
+import com.adobe.aots.util.ContentHandlerPlus;
+
+public class Vmtx extends Table {
+
+  public Vmtx () {
+    super (Tag.vmtx, null);
+  }
+
+  public Vmtx (Font font) {
+    super (Tag.vmtx, font);
+  }
+
+  public int getTopSideBearing (int glyphID) {
+    int numberOfVMetrics = font.vhea.getNumberOfVMetrics ();
+    if (glyphID &lt; numberOfVMetrics) {
+      return getFWord (4*glyphID + 2); }
+    else {
+      return getFWord (4*numberOfVMetrics + 2*(glyphID - numberOfVMetrics)); }
+  }
+
+  public int getVerticalAdvance (int glyphID) {
+    int numberOfVMetrics = font.vhea.getNumberOfVMetrics ();
+    if (glyphID &lt; numberOfVMetrics) {
+      return getuFWord (4*glyphID); }
+    else {
+      return getuFWord (4*(numberOfVMetrics - 1)); }
+  }
+
+  <code-include linkend="vmtx.methods"/>
+}
+</code-fragment>
+    </section>
+  

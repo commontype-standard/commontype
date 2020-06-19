@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<section role="implementation">
+      <title>Implementation</title>
+      <code-fragment id="cmap_format6"><code-title>Return glyph for 'charCode', using format 6 subtable at 'stOffset'</code-title>
+  { int firstCode = getuint16 (stOffset + 6);
+    int entryCount = getuint16 (stOffset + 8);
+
+    if (firstCode &lt;= charCode &amp;&amp; charCode &lt; firstCode + entryCount) {
+      return getuint16 (stOffset + 10 + (charCode-firstCode)*2); }
+    else {
+      return 0; }}
+</code-fragment>
+      <code-fragment id="cmap_format6_iterator"><code-title>Enumerate mappings in format 6 subtable at 'stOffset'</code-title>
+  { java.util.TreeMap&lt;Integer, Integer&gt; m
+      = new java.util.TreeMap&lt;Integer, Integer&gt; ();
+
+    int firstCode = getuint16 (stOffset + 6);
+    int entryCount = getuint16 (stOffset + 8);
+
+    for (int i = 0; i &lt; entryCount; i++) {
+      int code = firstCode + i;
+      if (from &lt;= code &amp;&amp; (code &lt;= to || to == -1)) {
+        m.put (code, getuint16 (stOffset + 10 + i*2)); }}
+
+    return m; }
+</code-fragment>
+      <code-fragment id="cmap_format6_inv"><code-title>Return character for 'glyphID', using format 6 subtable at stOffset</code-title>
+  { int firstCode = getuint16 (stOffset + 6);
+    int entryCount = getuint16 (stOffset + 8);
+
+    for (int i = 0; i &lt; entryCount; i++) {
+      if (getuint16 (stOffset + 6 + 2*i) == glyphID) {
+        return firstCode + i; }}
+
+    return -1; }
+</code-fragment>
+    </section>
+    

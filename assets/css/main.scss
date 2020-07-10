@@ -42,3 +42,14 @@ table { border: none; }
 	padding-right: 15px;
 	border-radius: 15px;
 }
+
+tr[role=deprecated] {
+color: #755;
+}
+tr[role=deprecated]::after {
+	content: "deprecated";
+	color: #fff;
+	background-color: #f00;
+	border-radius: 5px;
+	padding:5px 1px 5px 1px;
+}

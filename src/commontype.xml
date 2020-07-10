@@ -6,6 +6,7 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.overview/index.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.font_file/index.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.CommonType_tables/index.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.common_structures/index.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.cmap/index.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.head/index.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.hhea/index.xml"/>
@@ -27,6 +28,7 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GDEF/index.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GPOS/index.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.GSUB/index.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.processing/index.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.JSTF/index.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.EBDT/index.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter.EBLC/index.xml"/>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chapter xmlns:xlink="http://www.w3.org/1999/xlink" id="chapter.processing">
+  <title>Processing Model</title>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Introduction</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <para>
+        The expected process of applying the instructions found in the
+        CommonType Layout Tables to a input text is
+      </para>
+    </section>
+  </section>
+</chapter>

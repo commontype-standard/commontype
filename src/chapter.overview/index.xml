@@ -6,66 +6,30 @@
     <title>Introduction</title>
     <!--____________________________________________________________________-->
     <section role="specification">
-      <para>The CommonType font format is an extension of the TrueType
-	font format, adding support for PostScript font data. The
-	CommonType font format is derived from the OpenType font format
-  developed jointly by Microsoft and Adobe. CommonType fonts and the
-  operating system services which
-	support CommonType fonts provide users with a simple way to
-	install and use fonts, whether the fonts contain TrueType
-	outlines or CFF (PostScript) outlines.</para>
-      <para>The CommonType font format addresses the following goals:
-
-	  <itemizedlist>
-          <listitem>
-            <para>broader multi-platform support</para>
-          </listitem>
-          <listitem>
-            <para>better support for international character sets</para>
-          </listitem>
-          <listitem>
-            <para>better protection for font data</para>
-          </listitem>
-          <listitem>
-            <para>smaller file sizes to make font distribution more
-	      efficient</para>
-          </listitem>
-          <listitem>
-            <para>broader support for advanced typographic control</para>
-          </listitem>
-        </itemizedlist>
+      <para>The CommonType font format is a file format for representing
+        font data, including <glossterm>glyph representations</glossterm>,
+        layout instructions, and other metadata. The CommonType font format
+        derived from the OpenType font format, developed jointly by Microsoft
+        and Adobe.</para>
+      <para>CommonType fonts <glossterm>may</glossterm> include
+        <glossterm>CommonType Layout Tables</glossterm>, which allow font
+        creators to contextually substitute and reposition glyphs during
+        text layout, enabling support for advanced typographic refinement
+        and language support.
+        CommonType fonts allow the handling of large glyph sets using Unicode
+        encoding. Such encoding allows for broad international support.
       </para>
-      <para>CommonType fonts are also referred to as TrueType Open
-	v.2.0 fonts, because they use the TrueType <literal>sfnt</literal> font file
-	format. PostScript data included in CommonType fonts may be
-	directly rasterized or converted to the TrueType outline
-	format for rendering, depending on which rasterizers have been
-	installed in the host operating system. But the user model is
-	the same: CommonType fonts just work. Users will not need to be
-	aware of the type of outline data in CommonType fonts. And font
-	creators can use whichever outline format they feel provides
-	the best set of features for their work, without worrying
-	about limiting a font's usability.</para>
-      <para>CommonType fonts can include the CommonType Layout tables,
-	which allow font creators to design better international and
-	high-end typographic fonts. The CommonType Layout tables contain
-	information on glyph substitution, glyph positioning,
-	justification, and baseline positioning, enabling
-	text-processing applications to improve text layout.</para>
-      <para>As with TrueType fonts, CommonType fonts allow the
-	handling of large glyph sets using Unicode encoding. Such
-	encoding allows broad international support, as well as
-	support for typographic glyph variants.</para>
-      <para>Additionally, CommonType fonts may contain digital
-	signatures, which allows operating systems and browsing
-	applications to identify the source and integrity of font
-	files, including embedded font files obtained in web
-	documents, before using them. Also, font developers can encode
-	embedding restrictions in CommonType fonts, and these
-	restrictions cannot be altered in a font signed by the
-	developer.</para>
+      <para>
+        Additionally, CommonType fonts may contain digital signatures, which
+        allows operating systems and browsing applications to identify the
+        source and integrity of font files, including embedded font files
+        obtained in web documents, before using them. Also, font developers
+        can encode embedding restrictions in CommonType fonts, and these
+        restrictions cannot be altered in a font signed by the developer.
+       </para>
     </section>
   </section>
+
   <!--======================================================================-->
   <section role="fragment">
     <title>Definitions</title>
@@ -92,12 +56,12 @@
     <!--____________________________________________________________________-->
     <section role="specification">
       <para>The following documents may be consulted for further
-	information:</para>
+  information:</para>
       <itemizedlist>
         <listitem>
           <para>
             <link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5176.CFF.pdf">Adobe Technical Note #5176</link>: "The Compact Font Format
-	      Specification."</para>
+        Specification."</para>
         </listitem>
         <listitem>
           <para>
@@ -109,23 +73,17 @@
         </listitem>
         <listitem>
           <para>Adobe Type 1 Font Format. Addison Wesley, 1991; ISBN
-	      0-201-57044-0.</para>
-        </listitem>
-        <listitem>
-          <para>
-            <link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5015.Type1_Supp.pdf">Adobe Technical Note #5015</link>: "The Type 1 Font Format
-	      Supplement." This document contains all updates to the
-	      Type 1 format.</para>
+        0-201-57044-0.</para>
         </listitem>
         <listitem>
           <para>
             <link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/postscript/pdfs/5087.MM_Fond.pdf">Adobe Technical Note #5087</link>: "Multiple Master Font
-	      Programs for the Macintosh."</para>
+        Programs for the Macintosh."</para>
         </listitem>
         <listitem>
           <para>
             <link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5088.FontNames.pdf">Adobe Technical Note #5088</link>: "Font Naming Issues."
-	      This document discusses general font name issues. </para>
+        Discusses general font name issues. </para>
         </listitem>
         <listitem>
           <para>The <link xlink:href="https://github.com/adobe-type-tools/agl-specification">Adobe Glyph List Specification</link>.</para>

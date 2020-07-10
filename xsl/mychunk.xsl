@@ -63,6 +63,16 @@
   <xsl:param name="nodes" select="/NOT-AN-ELEMENT"/>
 </xsl:template>
 
+<xsl:template name="tr.attributes">
+  <xsl:param name="row" select="."/>
+  <xsl:param name="rownum" select="0"/>
+  <xsl:if test="@role">
+    <xsl:attribute name="role">
+      <xsl:value-of select="@role"/>
+    </xsl:attribute>
+  </xsl:if>
+</xsl:template>
+
 <!-- hack to preserve role attributes -->
 <xsl:template match="*" mode="html.lang.attribute">
   <xsl:if test="@role">

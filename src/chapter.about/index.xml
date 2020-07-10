@@ -12,9 +12,6 @@
           developed jointly by Adobe and Microsoft. Because OpenType is
           itself an extension of TrueType, there is also information in
           this document that was originally authored by Apple.</para>
-    <para>Many references to both TrueType and PostScript exist
-          throughout this document, as CommonType fonts combine the two
-          technologies.</para>
     <remark>
           <para>This specification is an editor's draft. It does not
           necessarily represent the consensus of the CommonType committee.

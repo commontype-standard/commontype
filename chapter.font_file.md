@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.font_file"></a>Chapter 2. The CommonType Font File</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm85"></a></h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>A CommonType font file contains data, structured as a
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.font_file"></a>Chapter 2. The CommonType Font File</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm69"></a></h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>A CommonType font file contains data, structured as a
           series of <em class="glossterm">tables</em>. <em class="glossterm">Font
           consumers</em> use combinations of data from the tables
           contained in the font to process and render glyph sequences.
@@ -10,7 +10,7 @@
           well as a variety of <em class="glossterm">bitmap formats</em>.
           Some of the supporting data is used no matter which glyph
           representation format is used; some of the supporting
-          data is specific to the glyph representation format.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm95"></a>Filenames</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>CommonType font files must have either the extension
+          data is specific to the glyph representation format.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm79"></a>Filenames</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>CommonType font files must have either the extension
           <code class="filename">.otf</code> or the extension
           <code class="filename">.ttf</code>,
           depending on the representation format used.</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Font files where the only
@@ -24,7 +24,7 @@
             </p></li><li class="listitem"><p>Font files containing any other representations
             <em class="glossterm">must</em> have the extension
             <code class="filename">.otf</code>.
-          </p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm116"></a>Data Types</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The following data types are used in the CommonType font
+          </p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm100"></a>Data Types</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The following data types are used in the CommonType font
         file. All CommonType fonts use Motorola-style byte ordering (Big
         Endian).</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Data Type</th><th>Description</th></tr></thead><tbody><tr><td><span class="type">BYTE</span>, <span class="type">uint8</span></td><td>8-bit unsigned integer.</td></tr><tr><td><span class="type">CHAR</span>, <span class="type">int8</span></td><td>8-bit signed integer.</td></tr><tr><td><span class="type">USHORT</span>, <span class="type">uint16</span></td><td>16-bit unsigned integer.</td></tr><tr><td><span class="type">SHORT</span>, int16</td><td>16-bit signed integer.</td></tr><tr><td><span class="type">UINT24</span></td><td>24-bit signed integer.</td></tr><tr><td><span class="type">ULONG</span>, <span class="type">uint32</span></td><td>32-bit unsigned integer.</td></tr><tr><td><span class="type">LONG</span>, <span class="type">int32</span></td><td>32-bit signed integer.</td></tr><tr><td><span class="type">Fixed</span></td><td>32-bit signed fixed-point number (16.16)</td></tr><tr><td><span class="type">FWORD</span></td><td>16-bit signed integer (<span class="type">SHORT</span>) that describes a quantity in <em class="glossterm">font unit</em>s.</td></tr><tr><td><span class="type">UFWORD</span></td><td>16-bit unsigned integer (<span class="type">USHORT</span>) that describes
       a quantity in <em class="glossterm">font unit</em>s.</td></tr><tr><td><span class="type">F2DOT14</span></td><td>16-bit signed fixed number with the low 14 bits of
@@ -74,8 +74,8 @@
           </p></li><li class="listitem"><p>
             Fixed version numbers (<span class="type">Version</span>) always start at one
             (<code class="literal">1.0</code> or <code class="literal">0x00010000</code>),
-            except where noted (<a class="link" href="chapter.EBDT.html" title="Chapter 26. EBDT - Embedded Bitmap Data Table">EBDT</a>,
-            <a class="link" href="chapter.EBLC.html" title="Chapter 27. EBLC - Embedded Bitmap Location Table">EBLC</a> and <a class="link" href="chapter.EBSC.html" title="Chapter 28. EBSC - Embedded Bitmap Scaling Table">EBSC</a>
+            except where noted (<a class="link" href="chapter.EBDT.html" title="Chapter 28. EBDT - Embedded Bitmap Data Table">EBDT</a>,
+            <a class="link" href="chapter.EBLC.html" title="Chapter 29. EBLC - Embedded Bitmap Location Table">EBLC</a> and <a class="link" href="chapter.EBSC.html" title="Chapter 30. EBSC - Embedded Bitmap Scaling Table">EBSC</a>
             tables).
           </p></li></ul></div><p><em class="glossterm">Font consumers</em> reading tables
         <em class="glossterm">must</em> include code to check version numbers
@@ -84,8 +84,8 @@
         gracefully if the changes are incompatible.</p><p>When a <span class="type">Version</span> number is used as a version, the
         upper 16 bits represent the major version number, and the lower
         16 bits represent the minor version number. For example, the version
-        number of a <a class="link" href="chapter.maxp.html" title="Chapter 8. maxp - Maximum Profile">maxp</a> table version 0.5 is
-        <code class="literal">0x00005000</code>, and that of <a class="link" href="chapter.vhea.html" title="Chapter 36. vhea - Vertical Header Table">vhea</a>
+        number of a <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a> table version 0.5 is
+        <code class="literal">0x00005000</code>, and that of <a class="link" href="chapter.vhea.html" title="Chapter 38. vhea - Vertical Header Table">vhea</a>
         table version 1.1 is <code class="literal">0x00011000</code>.
         If a <em class="glossterm">font consumer</em> understands a major version
         number, then it can safely proceed reading the table. The
@@ -109,7 +109,7 @@
           begins with a <code class="literal">TTC Header</code>, which contains a list
           of the byte indexes of the Offset Table of each font in the
           collection.
-        </p><div class="table"><a name="idm312"></a><p class="title"><strong>Table 2.1. Offset Table</strong></p><div class="table-contents"><table class="table" summary="Offset Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Version</td><td><code class="literal">sfnt</code> version</td><td>0x00010000 for version 1.0, or the <span class="type">Tag</span> "<code class="literal">OTTO</code>.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numTables</td><td>Number of tables.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>searchRange</td><td>(Maximum power of 2 &lt;= numTables) x
+        </p><div class="table"><a name="idm296"></a><p class="title"><strong>Table 2.1. Offset Table</strong></p><div class="table-contents"><table class="table" summary="Offset Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Version</td><td><code class="literal">sfnt</code> version</td><td>0x00010000 for version 1.0, or the <span class="type">Tag</span> "<code class="literal">OTTO</code>.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numTables</td><td>Number of tables.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>searchRange</td><td>(Maximum power of 2 &lt;= numTables) x
                 16.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>entrySelector</td><td>Log2(maximum power of 2 &lt;=
                 numTables).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>rangeShift</td><td>NumTables x 16-searchRange.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p> CommonType font files whose only <em class="glossterm">glyph representation
           format</em> is TrueType outlines <em class="glossterm">must</em>
@@ -125,7 +125,7 @@
             sorted in ascending order by tag. Offset values in the
             <span class="emphasis"><em>Table Directory Entry</em></span> are measured from the
             start of the font file.
-          </p><div class="table"><a name="idm362"></a><p class="title"><strong>Table 2.2. Table Directory Entry</strong></p><div class="table-contents"><table class="table" summary="Table Directory Entry" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>tag</td><td>4 -byte identifier.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>checkSum</td><td>CheckSum for this table.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>offset</td><td>Offset from beginning of TrueType font
+          </p><div class="table"><a name="idm346"></a><p class="title"><strong>Table 2.2. Table Directory Entry</strong></p><div class="table-contents"><table class="table" summary="Table Directory Entry" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>tag</td><td>4 -byte identifier.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>checkSum</td><td>CheckSum for this table.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>offset</td><td>Offset from beginning of TrueType font
                 file.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>length</td><td>Length of this table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The <span class="emphasis"><em>Table Directory</em></span> makes it possible for
           a given font to contain only those tables it actually needs.
           As a result there is no standard value for <code class="varname">numTables</code>.
@@ -143,7 +143,7 @@
           The length of all tables recorded in the table
           directory must be their actual length, disregarding any zero
           byte padding required to align tables on four-byte boundaries.
-        </p></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm396"></a>Calculating Checksums</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.3.6.1"></a>Specification</h4></div></div></div><p>Table checksums are the unsigned sum of the longs of a
+        </p></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm380"></a>Calculating Checksums</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.3.6.1"></a>Specification</h4></div></div></div><p>Table checksums are the unsigned sum of the longs of a
         given table. In C, the following function can be used to
         determine a checksum:</p><pre class="programlisting">
 ULONG
@@ -157,21 +157,21 @@ while (Table &lt; EndPtr)
 return Sum;
 }
 </pre><p>
-        The <a class="link" href="chapter.head.html" title="Chapter 5. head - Font Header">head</a> table is a special case, as it
+        The <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table is a special case, as it
         contains a <code class="varname">checkSumAdjustment</code> field which is
         calculated and written <span class="emphasis"><em>after</em></span> the table's
         checksum is calculated, necessarily invalidating that checksum.
-        To calculate the checksum for the <a class="link" href="chapter.head.html" title="Chapter 5. head - Font Header">head</a>
+        To calculate the checksum for the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a>
           table, do the following:
         </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Set the <code class="varname">checkSumAdjustment</code> to 0.</p></li><li class="listitem"><p>Calculate the checksum for all the tables including
-              the <a class="link" href="chapter.head.html" title="Chapter 5. head - Font Header">head</a> table and enter that value
+              the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table and enter that value
               into the table directory.</p></li><li class="listitem"><p>Calculate the checksum for the entire font.</p></li><li class="listitem"><p>Subtract that value from the hex value
             <code class="literal">B1B0AFBA</code>.</p></li><li class="listitem"><p>Store the result in <code class="varname">checkSumAdjustment</code>.
           </p></li></ol></div><p>Rewriting the <code class="varname">checkSumAdjustment</code> with
           invalidate <code class="varname">checkSum</code> for the
-          <a class="link" href="chapter.head.html" title="Chapter 5. head - Font Header">head</a>. That is not a problem. Do not change it. A
+          <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a>. That is not a problem. Do not change it. A
           <em class="glossterm">font consumer</em> attempting to verify that
-          the <a class="link" href="chapter.head.html" title="Chapter 5. head - Font Header">head</a> table has not changed should
+          the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table has not changed should
           calculate the checkSum for that table by assuming the
           <code class="varname">checkSumAdjustment</code> value is zero before
           comparing the result with the entry in the
@@ -188,7 +188,7 @@ return Sum;
         data than the kana, this results in a great deal of wasteful
         duplication of glyph data. TTCs were defined to solve this
         problem.</p><p>The CFF rasterizer does not currently support TTC
-        files.</p><div role="fragment" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="idm437"></a>The TTC File Structure</h5></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>A TrueType Collection file consists of a single
+        files.</p><div role="fragment" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="idm421"></a>The TTC File Structure</h5></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>A TrueType Collection file consists of a single
             <span class="emphasis"><em>TTC Header</em></span> table, one or more
             <span class="emphasis"><em>Offset Tables</em></span> with
             <span class="emphasis"><em>Table Directories</em></span>, and a number of
@@ -203,38 +203,38 @@ return Sum;
               Japanese fonts (Font1 and Font2). The fonts have different
               kana designs (Kana1 and Kana2) but use the same design for
               kanji. The TTC file contains a single
-              <a class="link" href="chapter.glyf.html" title="Chapter 15. glyf - Glyf Data">glyf</a> table which includes both designs of
+              <a class="link" href="chapter.glyf.html" title="Chapter 16. glyf - Glyf Data">glyf</a> table which includes both designs of
               kana together with the kanji; both fonts' <span class="emphasis"><em>Table
-              Directories</em></span> point to this <a class="link" href="chapter.glyf.html" title="Chapter 15. glyf - Glyf Data">glyf</a>
+              Directories</em></span> point to this <a class="link" href="chapter.glyf.html" title="Chapter 16. glyf - Glyf Data">glyf</a>
               table. But each font's <span class="emphasis"><em>Table Directory</em></span>
-              points to a different <a class="link" href="chapter.cmap.html" title="Chapter 4. cmap - Character to Glyph Index Mapping Table">cmap</a> table, which
+              points to a different <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> table, which
               identifies the glyph set to use.
-              Font1's <a class="link" href="chapter.cmap.html" title="Chapter 4. cmap - Character to Glyph Index Mapping Table">cmap</a> table points to
-              the Kana1 region of the <a class="link" href="chapter.loca.html" title="Chapter 16. loca - Index to Location">loca</a> and
-              <a class="link" href="chapter.glyf.html" title="Chapter 15. glyf - Glyf Data">glyf</a> tables for kana glyphs, and to the
-              kanji region for the kanji. Font2's <a class="link" href="chapter.cmap.html" title="Chapter 4. cmap - Character to Glyph Index Mapping Table">cmap</a>
+              Font1's <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> table points to
+              the Kana1 region of the <a class="link" href="chapter.loca.html" title="Chapter 17. loca - Index to Location">loca</a> and
+              <a class="link" href="chapter.glyf.html" title="Chapter 16. glyf - Glyf Data">glyf</a> tables for kana glyphs, and to the
+              kanji region for the kanji. Font2's <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a>
               table points to the Kana2 region of the
-              <a class="link" href="chapter.loca.html" title="Chapter 16. loca - Index to Location">loca</a> and <a class="link" href="chapter.glyf.html" title="Chapter 15. glyf - Glyf Data">glyf</a> tables
+              <a class="link" href="chapter.loca.html" title="Chapter 17. loca - Index to Location">loca</a> and <a class="link" href="chapter.glyf.html" title="Chapter 16. glyf - Glyf Data">glyf</a> tables
               for kana glyphs, and to the same kanji region for the
               kanji.</p><p>The tables that <dt/> have a
               unique copy per font are
               those that are used by the system in identifying the font
               and its character mapping, including
-              <a class="link" href="chapter.cmap.html" title="Chapter 4. cmap - Character to Glyph Index Mapping Table">cmap</a>, <a class="link" href="chapter.name.html" title="Chapter 9. name - Naming Table">name</a>, and
-              <a class="link" href="chapter.OS2.html" title="Chapter 10. OS/2 - OS/2 and Windows Metrics">OS/2</a>. The tables that <dt/>
+              <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a>, <a class="link" href="chapter.name.html" title="Chapter 10. name - Naming Table">name</a>, and
+              <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a>. The tables that <dt/>
               be shared by fonts in the TTC are those that define glyph
               and instruction data or use glyph indices to access data:
-              <a class="link" href="chapter.glyf.html" title="Chapter 15. glyf - Glyf Data">glyf</a>, <a class="link" href="chapter.loca.html" title="Chapter 16. loca - Index to Location">loca</a>,
-              <a class="link" href="chapter.hmtx.html" title="Chapter 7. hmtx - Horizontal Metrics">hmtx</a>, <a class="link" href="chapter.hdmx.html" title="Chapter 31. hdmx - Horizontal Device Metrics">hdmx</a>,
-              <a class="link" href="chapter.LTSH.html" title="Chapter 33. LTSH - Linear Threshold">LTSH</a>, <a class="link" href="">cvt </a>,
-              <a class="link" href="chapter.fpgm.html" title="Chapter 14. fpgm - Font Program">fpgm</a>, <a class="link" href="chapter.prep.html" title="Chapter 17. prep - Control Value Program">prep</a>,
-              <a class="link" href="chapter.EBLC.html" title="Chapter 27. EBLC - Embedded Bitmap Location Table">EBLC</a>, <a class="link" href="chapter.EBDT.html" title="Chapter 26. EBDT - Embedded Bitmap Data Table">EBDT</a>,
-              <a class="link" href="chapter.EBSC.html" title="Chapter 28. EBSC - Embedded Bitmap Scaling Table">EBSC</a>, <a class="link" href="chapter.maxp.html" title="Chapter 8. maxp - Maximum Profile">maxp</a>, and so
+              <a class="link" href="chapter.glyf.html" title="Chapter 16. glyf - Glyf Data">glyf</a>, <a class="link" href="chapter.loca.html" title="Chapter 17. loca - Index to Location">loca</a>,
+              <a class="link" href="chapter.hmtx.html" title="Chapter 8. hmtx - Horizontal Metrics">hmtx</a>, <a class="link" href="chapter.hdmx.html" title="Chapter 33. hdmx - Horizontal Device Metrics">hdmx</a>,
+              <a class="link" href="chapter.LTSH.html" title="Chapter 35. LTSH - Linear Threshold">LTSH</a>, <a class="link" href="">cvt </a>,
+              <a class="link" href="chapter.fpgm.html" title="Chapter 15. fpgm - Font Program">fpgm</a>, <a class="link" href="chapter.prep.html" title="Chapter 18. prep - Control Value Program">prep</a>,
+              <a class="link" href="chapter.EBLC.html" title="Chapter 29. EBLC - Embedded Bitmap Location Table">EBLC</a>, <a class="link" href="chapter.EBDT.html" title="Chapter 28. EBDT - Embedded Bitmap Data Table">EBDT</a>,
+              <a class="link" href="chapter.EBSC.html" title="Chapter 30. EBSC - Embedded Bitmap Scaling Table">EBSC</a>, <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a>, and so
               on. In practice, any tables which have identical data for
               two or more fonts <dt/> be shared.</p><p>When merging multiple font files into a TTC,
               close attention must be paid to the issue
               of glyph renumbering in a font and the side effects that can
-              result, in the <a class="link" href="chapter.cmap.html" title="Chapter 4. cmap - Character to Glyph Index Mapping Table">cmap</a> table and elsewhere.
+              result, in the <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> table and elsewhere.
               <em><span class="remark">What side effects? What needs to be remembered?</span></em>
               The fonts to be merged must also have compatible TrueType
               instructions-that is, their preprograms, function
@@ -244,7 +244,7 @@ return Sum;
             <span class="emphasis"><em>TTC Header</em></span>s, whether or not the files include
             digital signatures. When there is no digital signature,
             the last three fields of the version 2.0 header are zero
-            filled.</p><p>If a digital signature is used, the <a class="link" href="chapter.DSIG.html" title="Chapter 29. DSIG - Digital Signature Table">DSIG</a>
+            filled.</p><p>If a digital signature is used, the <a class="link" href="chapter.DSIG.html" title="Chapter 31. DSIG - Digital Signature Table">DSIG</a>
             table for the file must be the last table in the TTC file.
             Signatures in a TTC file are expected to be Format 1 signatures.
           </p><p>The purpose of the <span class="emphasis"><em>TTC Header</em></span> table is
@@ -255,16 +255,16 @@ return Sum;
             of CommonType fonts (<span class="emphasis"><em>Table Directories</em></span>) in the
             file, and an array of offsets to each <span class="emphasis"><em>Offset
             Table</em></span>.
-          </p><div class="table"><a name="idm496"></a><p class="title"><strong>Table 2.3. TTC Header Version 1.0</strong></p><div class="table-contents"><table class="table" summary="TTC Header Version 1.0" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>TTCTag</td><td>TrueType Collection ID string:
+          </p><div class="table"><a name="idm480"></a><p class="title"><strong>Table 2.3. TTC Header Version 1.0</strong></p><div class="table-contents"><table class="table" summary="TTC Header Version 1.0" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>TTCTag</td><td>TrueType Collection ID string:
                   <code class="literal">ttcf</code></td><td class="auto-generated"> </td></tr><tr><td>Version</td><td>Version</td><td>Version of the TTC Header (1.0),
                   <code class="literal">0x00010000</code></td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>numFonts</td><td>Number of fonts in the TTC</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>OffsetTable [numFonts]</td><td>Array of offsets to Offset Table for each
-            font from the beginning of the file</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm523"></a><p class="title"><strong>Table 2.4. TTC Header Version 2.0</strong></p><div class="table-contents"><table class="table" summary="TTC Header Version 2.0" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>TTCTag</td><td>TrueType Collection ID string:
+            font from the beginning of the file</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm507"></a><p class="title"><strong>Table 2.4. TTC Header Version 2.0</strong></p><div class="table-contents"><table class="table" summary="TTC Header Version 2.0" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>TTCTag</td><td>TrueType Collection ID string:
                   <code class="literal">ttcf</code></td><td class="auto-generated"> </td></tr><tr><td>Version</td><td>Version</td><td>Version of the TTC Header (2.0),
                   0x00020000</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>numFonts</td><td>Number of fonts in the TTC</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>OffsetTable [numFonts]</td><td>Array of offsets to Offset Table for each
             font from the beginning of the file</td><td class="auto-generated"> </td></tr><tr><td>Tag</td><td>ulDsigTag</td><td>Tag indicating that a DSIG table exists,
-                <code class="literal">0x44534947</code> (<a class="link" href="chapter.DSIG.html" title="Chapter 29. DSIG - Digital Signature Table">DSIG</a>),
+                <code class="literal">0x44534947</code> (<a class="link" href="chapter.DSIG.html" title="Chapter 31. DSIG - Digital Signature Table">DSIG</a>),
                 or <code class="literal">0x00000000</code> if there is no
-                <a class="link" href="chapter.DSIG.html" title="Chapter 29. DSIG - Digital Signature Table">DSIG</a> table.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulDsigLength</td><td>The length (in bytes) of the DSIG table (null
+                <a class="link" href="chapter.DSIG.html" title="Chapter 31. DSIG - Digital Signature Table">DSIG</a> table.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulDsigLength</td><td>The length (in bytes) of the DSIG table (null
                   if no signature)</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulDsigOffset</td><td>The offset (in bytes) of the DSIG table from
                   the beginning of the TTC file (null if no
                   signature)</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div></div></div></div>

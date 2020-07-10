@@ -6,9 +6,7 @@
           OpenType Specification version 1.4. The OpenType Specification was
           developed jointly by Adobe and Microsoft. Because OpenType is
           itself an extension of TrueType, there is also information in
-          this document that was originally authored by Apple.</p><p>Many references to both TrueType and PostScript exist
-          throughout this document, as CommonType fonts combine the two
-          technologies.</p><p class="remark"><em><span class="remark">
+          this document that was originally authored by Apple.</p><p class="remark"><em><span class="remark">
           <p>This specification is an editor's draft. It does not
           necessarily represent the consensus of the CommonType committee.
           </p>

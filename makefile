@@ -19,6 +19,7 @@ publish:
 	git checkout master
 	git merge --strategy-option theirs source -m "Merge source"
 	make mdhtml
+	git add *.md
 	git commit -m "Rebuild" *.md
 	git push
 	git checkout source

@@ -12,10 +12,10 @@
           to support a variety of character encoding schemes used by font consumers. Each mapping is stored in a subtable, and the table header
           indicates the character encodings for which subtables are present.
       </para>
-      <section>Header</section>
-
-      <para>The Character To Glyph Index Mapping Table begins with
-        a header.</para>
+      <section>
+        <title>Header</title>
+        <para>The Character To Glyph Index Mapping Table begins with
+          a header.</para>
 
       <otformat>
         <title>cmap Header</title>
@@ -84,6 +84,7 @@
           <ottable>cmap</ottable> table.</para>
       <para>The offset is measured from the start of the cmap table.</para>
     </section>
+  </section>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-1.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-1.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-1.xml"/>

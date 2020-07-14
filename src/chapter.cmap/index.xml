@@ -80,7 +80,6 @@
           combination must appear only once in the
           <ottable>cmap</ottable> table.</para>
       <para>The offset is measured from the start of the cmap table.</para>
-    </section>
   </section>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-1.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-1.xml"/>

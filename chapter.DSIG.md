@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.DSIG"></a>Chapter 31. DSIG - Digital Signature Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm504610176400"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.1.1"></a>Specification</h4></div></div></div><p>The DSIG table contains the digital signature of the
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.DSIG"></a>Chapter 31. DSIG - Digital Signature Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm18879"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.1.1"></a>Specification</h4></div></div></div><p>The DSIG table contains the digital signature of the
           CommonType font. Signature formats are widely documented and
           rely on a key pair architecture. Software developers, or
           publishers posting material on the Internet, create
@@ -21,7 +21,7 @@
           software components.</p><p>Anyone can obtain identity certificates and encryption
           keys from a certifying agency, such as Verisign or GTE's
           Cybertrust, free or at a very low cost.</p><p>The DSIG table is organized as follows. The first
-          portion of the table is the header:</p><div class="table"><a name="idm504610168256"></a><p class="title"><strong>Table 31.1. DSIG Header</strong></p><div class="table-contents"><table class="table" summary="DSIG Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulVersion</td><td>Version number of the DSIG
+          portion of the table is the header:</p><div class="table"><a name="idm18894"></a><p class="title"><strong>Table 31.1. DSIG Header</strong></p><div class="table-contents"><table class="table" summary="DSIG Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulVersion</td><td>Version number of the DSIG
               table (0x00000001)</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usNumSigs</td><td>Number of signatures in the
               table</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usFlag</td><td>
             <p>permission flags</p>
@@ -36,9 +36,9 @@
 	  signature(s). A party who wants to ensure that their
 	  signature is the last signature can set this bit.</p><p>The DSIG header information is followed by entries for each
           of the signatures in the table specifying format and offset
-          information:</p><div class="table"><a name="idm504610158432"></a><p class="title"><strong>Table 31.2. Format/Offset Table</strong></p><div class="table-contents"><table class="table" summary="Format/Offset Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulFormat</td><td>format of the signature</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulLength</td><td>Length of signature in bytes</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulOffset</td><td>Offset to the signature block from the
+          information:</p><div class="table"><a name="idm18921"></a><p class="title"><strong>Table 31.2. Format/Offset Table</strong></p><div class="table-contents"><table class="table" summary="Format/Offset Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulFormat</td><td>format of the signature</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulLength</td><td>Length of signature in bytes</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulOffset</td><td>Offset to the signature block from the
               beginning of the table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This information is then followed by one or more
-          signature blocks:</p><div class="table"><a name="idm504610151168"></a><p class="title"><strong>Table 31.3. Signature Block</strong></p><div class="table-contents"><table class="table" summary="Signature Block" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>usReserved1</td><td>Reserved for later use; 0 for
+          signature blocks:</p><div class="table"><a name="idm18943"></a><p class="title"><strong>Table 31.3. Signature Block</strong></p><div class="table-contents"><table class="table" summary="Signature Block" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>usReserved1</td><td>Reserved for later use; 0 for
               now</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usReserved2</td><td>Reserved for later use; 0 for
               now</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>cbSignature</td><td>Length (in bytes) of the PKCS#7 packet in
               pbSignature</td><td class="auto-generated"> </td></tr><tr><td>BYTE[]</td><td>bSignature</td><td>PKCS#7 packet</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The format identifier specifies both the format of the
@@ -77,7 +77,7 @@
         text
       }*
     }
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm504610131168"></a>Format 1: For whole fonts, with either TrueType outlines
+</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm18989"></a>Format 1: For whole fonts, with either TrueType outlines
         and/or CFF data</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.2.1"></a>Specification</h4></div></div></div><p>PKCS#7 or PKCS#9. The signed content digest is created
           as follows:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>If there is an existing DSIG table in the
               font,</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>Remove DSIG table from font.</p><p>Remove DSIG table entry from sfnt Table
@@ -102,7 +102,7 @@
               words, the tables do not overlap, and there are at most
               3 bytes of padding between tables.</p></li><li class="listitem"><p>The pad bytes between tables are all zeros.</p></li><li class="listitem"><p>The offset of the last table in the file plus its
               length is not greater than the size of the file.</p></li><li class="listitem"><p>The checksums of all tables are correct.</p></li><li class="listitem"><p>The head table's checkSumAdjustment field is
-              correct.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm504610092272"></a>Signatures for TrueType Collections</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.DSIG.html" title="Chapter 31. DSIG - Digital Signature Table">DSIG</a> table for a TrueType
+              correct.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm19038"></a>Signatures for TrueType Collections</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.DSIG.html" title="Chapter 31. DSIG - Digital Signature Table">DSIG</a> table for a TrueType
 	  Collection (TTC) must be the last table in the TTC file. The
 	  offset and checksum to the table is put in the TTCHeader
 	  (version 2). Signatures of TTC files are expected to be

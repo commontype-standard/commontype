@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.loca"></a>Chapter 17. loca - Index to Location</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6179"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.18.1.1"></a>Specification</h4></div></div></div><p>The indexToLoc table stores the offsets to the locations
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.loca"></a>Chapter 17. loca - Index to Location</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189299237712"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.18.1.1"></a>Specification</h4></div></div></div><p>The indexToLoc table stores the offsets to the locations
+>>>>>>> Rebuild
           of the glyphs in the font, relative to the beginning of the
           glyphData table. In order to compute the length of the last
           glyph element, there is an extra entry after the last valid
@@ -14,10 +18,17 @@
           value in the <a class="link" href="chapter.loca.html" title="Chapter 17. loca - Index to Location">loca</a> table should
           agree.</p><p>There are two versions of this table, the short and the
           long. The version is specified in the indexToLocFormat entry
+<<<<<<< HEAD
           in the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table.</p><h5><a name="idm6190"></a>Short version</h5><div class="table"><a name="idm6191"></a><p class="title"><strong>Table 17.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>offsets [n]</td><td>The actual local offset divided by 2 is
               stored. The value of n is numGlyphs + 1. The value for
               numGlyphs is found in the <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a>
               table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm6204"></a>Long version</h5><div class="table"><a name="idm6205"></a><p class="title"><strong>Table 17.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>offsets [n]</td><td>The actual local offset is stored. The value
+=======
+          in the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table.</p><h5><a name="idm189299231696"></a>Short version</h5><div class="table"><a name="idm189299231312"></a><p class="title"><strong>Table 17.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>offsets [n]</td><td>The actual local offset divided by 2 is
+              stored. The value of n is numGlyphs + 1. The value for
+              numGlyphs is found in the <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a>
+              table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm189299227152"></a>Long version</h5><div class="table"><a name="idm189299226768"></a><p class="title"><strong>Table 17.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>offsets [n]</td><td>The actual local offset is stored. The value
+>>>>>>> Rebuild
               of n is numGlyphs + 1. The value for numGlyphs is found
               in the <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a> table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Note that the local offsets should be long-aligned,
           i.e., multiples of 4. Offsets which are not long-aligned may

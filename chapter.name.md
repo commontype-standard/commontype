@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.name"></a>Chapter 10. name - Naming Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm2088"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.11.1.1"></a>Specification</h4></div></div></div><p>The naming table allows multilingual strings to be
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.name"></a>Chapter 10. name - Naming Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189297561888"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.11.1.1"></a>Specification</h4></div></div></div><p>The naming table allows multilingual strings to be
+>>>>>>> Rebuild
           associated with the CommonType font file. These strings can
           represent copyright notices, font names, family names, style
           names, and so on. To keep this table short, the font
@@ -18,9 +22,15 @@
           <a class="link" href="chapter.name.html" title="Chapter 10. name - Naming Table">name</a> table of all fonts include Macintosh
           platform strings and that the syntax of the version number
           (name id 5) follows the guidelines given in this
+<<<<<<< HEAD
           document.</p><p>The Naming Table is organized as follows:</p><div class="table"><a name="idm2097"></a><p class="title"><strong>Table 10.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Format selector (=0).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>count</td><td>Number of name records.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>stringOffset</td><td>Offset to start of string storage (from start
                   of table).</td><td class="auto-generated"> </td></tr><tr><td>n NameRecords</td><td>nameRecord [count]</td><td>The name records where count is the number of
 	      records.</td><td class="auto-generated"> </td></tr><tr><td>(Variable)</td><td> </td><td>Storage for the actual string data.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Each NameRecord looks like this:</p><div class="table"><a name="idm2126"></a><p class="title"><strong>Table 10.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>platformID</td><td>Platform ID.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>encodingID</td><td>Platform-specific encoding ID.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>languageID</td><td>Language ID.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>nameID</td><td>Name ID.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>String length (in bytes).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>offset</td><td>String offset from start of storage area (in
+=======
+          document.</p><p>The Naming Table is organized as follows:</p><div class="table"><a name="idm189297556368"></a><p class="title"><strong>Table 10.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Format selector (=0).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>count</td><td>Number of name records.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>stringOffset</td><td>Offset to start of string storage (from start
+                  of table).</td><td class="auto-generated"> </td></tr><tr><td>n NameRecords</td><td>nameRecord [count]</td><td>The name records where count is the number of
+	      records.</td><td class="auto-generated"> </td></tr><tr><td>(Variable)</td><td> </td><td>Storage for the actual string data.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Each NameRecord looks like this:</p><div class="table"><a name="idm189297546560"></a><p class="title"><strong>Table 10.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>platformID</td><td>Platform ID.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>encodingID</td><td>Platform-specific encoding ID.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>languageID</td><td>Language ID.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>nameID</td><td>Name ID.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>String length (in bytes).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>offset</td><td>String offset from start of storage area (in
+>>>>>>> Rebuild
                   bytes).</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Following are the descriptions of the four kinds of ID.
           Note that the specific values listed here are the only ones
           that are predefined; new ones may be added by registry with
@@ -34,6 +44,7 @@
           building a symbol font for Windows, the platform ID should
           be 3 and the encoding ID should be 0. When building a font
           that will be used on the Macintosh, the platform ID should
+<<<<<<< HEAD
           be 1 and the encoding ID should be 0.</p><p>Microsoft Language IDs (platform ID = 3)</p><p>The language ID (LCID in the table below) refers to a
           value which identifies the language in which a particular
           string is written. Fifty of the language ID's assigned by
@@ -58,6 +69,9 @@
           Custom platform. This means that it can be used for
           encodings in the <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> table but not for
           strings in the <a class="link" href="chapter.name.html" title="Chapter 10. name - Naming Table">name</a> table.</p><p>Name IDs</p><p>The following name IDs are pre-defined, and they apply to
+=======
+          be 1 and the encoding ID should be 0.</p><p>Name IDs</p><p>The following name IDs are pre-defined, and they apply to
+>>>>>>> Rebuild
           all platforms unless indicated otherwise. Name IDs 21 to
           255, inclusive, are reserved for future standard names. Name
           IDs 256 to 32767, inclusive, are reserved for font-specific

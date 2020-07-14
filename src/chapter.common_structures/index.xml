@@ -357,5 +357,900 @@
         ANSI encoded. Font producers should not use it.
       </para>
     </section>
+    <section role="fragment" id="common_structures.languageids">
+      <title>Language Identifiers</title>
+      <section role="specification">
+        <title>Specification</title>
+
+        <para>The <ottable>cmap</ottable> and <ottable>name</ottable> tables
+        also specify that data refers to particular languages: language-specific
+        character-to-glyph mappings in the case of Macintosh platform entries
+        in the <ottable>cmap</ottable> table, and strings written in particular
+        languages in the <ottable>name</ottable> table.
+        </para>
+        <para>The data is therefore marked with its language, but the
+          identifiers specifying a language are depending on the platform ID
+          in use.
+        </para>
+
+        <para>There are no language identifiers defined for the Unicode platform
+          (platform ID = 0), the ISO platform (platform ID = 2), or the custom
+          platform (platform ID = 4). This means that while these platforms may
+          be used for <ottable>cmap</ottable> table entries, they cannot be used
+          for <ottable>name</ottable> table entries.
+        </para>
+
+        <section role="fragment">
+          <title>Macintosh Language IDs (platform ID = 1)</title>
+
+        <informaltable id="name_lang1">
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Code</entry>
+                <entry>Language</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0</entry>
+                <entry>English</entry>
+              </row>
+              <row>
+                <entry>1</entry>
+                <entry>French</entry>
+              </row>
+              <row>
+                <entry>2</entry>
+                <entry>German</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>Italian</entry>
+              </row>
+              <row>
+                <entry>4</entry>
+                <entry>Dutch</entry>
+              </row>
+              <row>
+                <entry>5</entry>
+                <entry>Swedish</entry>
+              </row>
+              <row>
+                <entry>6</entry>
+                <entry>Spanish</entry>
+              </row>
+              <row>
+                <entry>7</entry>
+                <entry>Danish</entry>
+              </row>
+              <row>
+                <entry>8</entry>
+                <entry>Portuguese</entry>
+              </row>
+              <row>
+                <entry>9</entry>
+                <entry>Norwegian</entry>
+              </row>
+              <row>
+                <entry>10</entry>
+                <entry>Hebrew</entry>
+              </row>
+              <row>
+                <entry>11</entry>
+                <entry>Japanese</entry>
+              </row>
+              <row>
+                <entry>12</entry>
+                <entry>Arabic</entry>
+              </row>
+              <row>
+                <entry>13</entry>
+                <entry>Finnish</entry>
+              </row>
+              <row>
+                <entry>14</entry>
+                <entry>Greek</entry>
+              </row>
+              <row>
+                <entry>15</entry>
+                <entry>Icelandic</entry>
+              </row>
+              <row>
+                <entry>16</entry>
+                <entry>Maltese</entry>
+              </row>
+              <row>
+                <entry>17</entry>
+                <entry>Turkish</entry>
+              </row>
+              <row>
+                <entry>18</entry>
+                <entry>Yugoslavian</entry>
+              </row>
+              <row>
+                <entry>19</entry>
+                <entry>Chinese (Traditional)</entry>
+              </row>
+              <row>
+                <entry>20</entry>
+                <entry>Urdu</entry>
+              </row>
+              <row>
+                <entry>21</entry>
+                <entry>Hindi</entry>
+              </row>
+              <row>
+                <entry>22</entry>
+                <entry>Thai</entry>
+              </row>
+              <row>
+                <entry>23</entry>
+                <entry>Korean</entry>
+              </row>
+              <row>
+                <entry>24</entry>
+                <entry>Lithuanian</entry>
+              </row>
+              <row>
+                <entry>25</entry>
+                <entry>Polish</entry>
+              </row>
+              <row>
+                <entry>26</entry>
+                <entry>Hungarian</entry>
+              </row>
+              <row>
+                <entry>27</entry>
+                <entry>Estonian</entry>
+              </row>
+              <row>
+                <entry>28</entry>
+                <entry>Latvian</entry>
+              </row>
+              <row>
+                <entry>29</entry>
+                <entry>Sami</entry>
+              </row>
+              <row>
+                <entry>30</entry>
+                <entry>Faroese</entry>
+              </row>
+              <row>
+                <entry>31</entry>
+                <entry>Farsi/Persian</entry>
+              </row>
+              <row>
+                <entry>32</entry>
+                <entry>Russian</entry>
+              </row>
+              <row>
+                <entry>33</entry>
+                <entry>Chinese (Simplified)</entry>
+              </row>
+              <row>
+                <entry>34</entry>
+                <entry>Flemish</entry>
+              </row>
+              <row>
+                <entry>35</entry>
+                <entry>Irish Gaelic</entry>
+              </row>
+              <row>
+                <entry>36</entry>
+                <entry>Albanian</entry>
+              </row>
+              <row>
+                <entry>37</entry>
+                <entry>Romanian</entry>
+              </row>
+              <row>
+                <entry>38</entry>
+                <entry>Czech</entry>
+              </row>
+              <row>
+                <entry>39</entry>
+                <entry>Slovak</entry>
+              </row>
+              <row>
+                <entry>40</entry>
+                <entry>Slovenian</entry>
+              </row>
+              <row>
+                <entry>41</entry>
+                <entry>Yiddish</entry>
+              </row>
+              <row>
+                <entry>42</entry>
+                <entry>Serbian</entry>
+              </row>
+              <row>
+                <entry>43</entry>
+                <entry>Macedonian</entry>
+              </row>
+              <row>
+                <entry>44</entry>
+                <entry>Bulgarian</entry>
+              </row>
+              <row>
+                <entry>45</entry>
+                <entry>Ukrainian</entry>
+              </row>
+              <row>
+                <entry>46</entry>
+                <entry>Byelorussian </entry>
+              </row>
+              <row>
+                <entry>47</entry>
+                <entry>Uzbek </entry>
+              </row>
+              <row>
+                <entry>48</entry>
+                <entry>Kazakh </entry>
+              </row>
+              <row>
+                <entry>49</entry>
+                <entry>Azerbaijani (Cyrillic script) </entry>
+              </row>
+              <row>
+                <entry>50</entry>
+                <entry>Azerbaijani (Arabic script) </entry>
+              </row>
+              <row>
+                <entry>51</entry>
+                <entry>Armenian </entry>
+              </row>
+              <row>
+                <entry>52</entry>
+                <entry>Georgian </entry>
+              </row>
+              <row>
+                <entry>53</entry>
+                <entry>Moldavian</entry>
+              </row>
+              <row>
+                <entry>54</entry>
+                <entry>Kirghiz</entry>
+              </row>
+              <row>
+                <entry>55</entry>
+                <entry>Tajiki</entry>
+              </row>
+              <row>
+                <entry>56</entry>
+                <entry>Turkmen</entry>
+              </row>
+              <row>
+                <entry>57</entry>
+                <entry>Mongolian (Mongolian script)</entry>
+              </row>
+              <row>
+                <entry>58</entry>
+                <entry>Mongolian (Cyrillic script)</entry>
+              </row>
+              <row>
+                <entry>59</entry>
+                <entry>Pashto</entry>
+              </row>
+              <row>
+                <entry>60</entry>
+                <entry>Kurdish</entry>
+              </row>
+              <row>
+                <entry>61</entry>
+                <entry>Kashmiri</entry>
+              </row>
+              <row>
+                <entry>62</entry>
+                <entry>Sindhi</entry>
+              </row>
+              <row>
+                <entry>63</entry>
+                <entry>Tibetan</entry>
+              </row>
+              <row>
+                <entry>64</entry>
+                <entry>Nepali</entry>
+              </row>
+              <row>
+                <entry>65</entry>
+                <entry>Sanskrit</entry>
+              </row>
+              <row>
+                <entry>66</entry>
+                <entry>Marathi</entry>
+              </row>
+              <row>
+                <entry>67</entry>
+                <entry>Bengali</entry>
+              </row>
+              <row>
+                <entry>68</entry>
+                <entry>Assamese</entry>
+              </row>
+              <row>
+                <entry>69</entry>
+                <entry>Gujarati</entry>
+              </row>
+              <row>
+                <entry>70</entry>
+                <entry>Punjabi</entry>
+              </row>
+              <row>
+                <entry>71</entry>
+                <entry>Oriya</entry>
+              </row>
+              <row>
+                <entry>72</entry>
+                <entry>Malayalam</entry>
+              </row>
+              <row>
+                <entry>73</entry>
+                <entry>Kannada</entry>
+              </row>
+              <row>
+                <entry>74</entry>
+                <entry>Tamil</entry>
+              </row>
+              <row>
+                <entry>75</entry>
+                <entry>Telugu </entry>
+              </row>
+              <row>
+                <entry>76</entry>
+                <entry>Sinhalese </entry>
+              </row>
+              <row>
+                <entry>77</entry>
+                <entry>Burmese </entry>
+              </row>
+              <row>
+                <entry>78</entry>
+                <entry>Khmer </entry>
+              </row>
+              <row>
+                <entry>79</entry>
+                <entry>Lao </entry>
+              </row>
+              <row>
+                <entry>80</entry>
+                <entry>Vietnamese </entry>
+              </row>
+              <row>
+                <entry>81</entry>
+                <entry>Indonesian </entry>
+              </row>
+              <row>
+                <entry>82</entry>
+                <entry>Tagalong </entry>
+              </row>
+              <row>
+                <entry>83</entry>
+                <entry>Malay (Roman script) </entry>
+              </row>
+              <row>
+                <entry>84</entry>
+                <entry>Malay (Arabic script) </entry>
+              </row>
+              <row>
+                <entry>85</entry>
+                <entry>Amharic </entry>
+              </row>
+              <row>
+                <entry>86</entry>
+                <entry>Tigrinya </entry>
+              </row>
+              <row>
+                <entry>87</entry>
+                <entry>Galla </entry>
+              </row>
+              <row>
+                <entry>88</entry>
+                <entry>Somali </entry>
+              </row>
+              <row>
+                <entry>89</entry>
+                <entry>Swahili </entry>
+              </row>
+              <row>
+                <entry>90</entry>
+                <entry>Kinyarwanda/Ruanda </entry>
+              </row>
+              <row>
+                <entry>91</entry>
+                <entry>Rundi </entry>
+              </row>
+              <row>
+                <entry>92</entry>
+                <entry>Nyanja/Chewa </entry>
+              </row>
+              <row>
+                <entry>93</entry>
+                <entry>Malagasy </entry>
+              </row>
+              <row>
+                <entry>94</entry>
+                <entry>Esperanto </entry>
+              </row>
+              <row>
+                <entry>128</entry>
+                <entry>Welsh </entry>
+              </row>
+              <row>
+                <entry>129</entry>
+                <entry>Basque </entry>
+              </row>
+              <row>
+                <entry>130</entry>
+                <entry>Catalan </entry>
+              </row>
+              <row>
+                <entry>131</entry>
+                <entry>Latin </entry>
+              </row>
+              <row>
+                <entry>132</entry>
+                <entry>Quenchua </entry>
+              </row>
+              <row>
+                <entry>133</entry>
+                <entry>Guarani </entry>
+              </row>
+              <row>
+                <entry>134</entry>
+                <entry>Aymara </entry>
+              </row>
+              <row>
+                <entry>135</entry>
+                <entry>Tatar </entry>
+              </row>
+              <row>
+                <entry>136</entry>
+                <entry>Uighur </entry>
+              </row>
+              <row>
+                <entry>137</entry>
+                <entry>Dzongkha </entry>
+              </row>
+              <row>
+                <entry>138</entry>
+                <entry>Javanese (Roman script) </entry>
+              </row>
+              <row>
+                <entry>139</entry>
+                <entry>Sundanese (Roman script) </entry>
+              </row>
+              <row>
+                <entry>140</entry>
+                <entry>Galician </entry>
+              </row>
+              <row>
+                <entry>141</entry>
+                <entry>Afrikaans </entry>
+              </row>
+              <row>
+                <entry>142</entry>
+                <entry>Breton </entry>
+              </row>
+              <row>
+                <entry>143</entry>
+                <entry>Inuktitut [!!fixed] </entry>
+              </row>
+              <row>
+                <entry>144</entry>
+                <entry>Scottish Gaelic </entry>
+              </row>
+              <row>
+                <entry>145</entry>
+                <entry>Manx Gaelic </entry>
+              </row>
+              <row>
+                <entry>146</entry>
+                <entry>Irish Gaelic (with dot above) </entry>
+              </row>
+              <row>
+                <entry>147</entry>
+                <entry>Tongan </entry>
+              </row>
+              <row>
+                <entry>148</entry>
+                <entry>Greek (polytonic) </entry>
+              </row>
+              <row>
+                <entry>149</entry>
+                <entry>Greenlandic </entry>
+              </row>
+              <row>
+                <entry>150</entry>
+                <entry>Azerbaijani (Roman script) </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </section>
+
+            <section role="fragment">
+          <title>Windows Language IDs (platform ID = 3)</title>
+          <para>The language ID (LCID in the table below) refers to a
+            value which identifies the language in which a particular
+            string is written. Fifty of the language ID's assigned by
+            Microsoft are listed below, along with their corresponding
+            code pages. There are 85 additional language ID's assigned.
+            corresponding code pages. For a full list, please see the <ulink url="http://www.microsoft.com/globaldev/reference/loclanghome.asp">Microsoft
+            Global Development</ulink> site or <ulink url="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q224804">Knowledge
+            Base article Q224804</ulink>.</para>
+        <informaltable id="name_lang3">
+          <tgroup cols="5">
+            <thead>
+              <row>
+                <entry>Primary Language</entry>
+                <entry>Locale Name</entry>
+                <entry>Language ID</entry>
+                <entry>Windows codepage</entry>
+                <entry>OEM codepage</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>Albanian</entry>
+                <entry>Albania</entry>
+                <entry>(041c; SQI)</entry>
+                <entry/>
+                <entry/>
+              </row>
+              <row>
+                <entry>Basque</entry>
+                <entry>Basque</entry>
+                <entry>(042D; EUQ)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Byelorussian</entry>
+                <entry>Byelorussia</entry>
+                <entry>(0423, BEL)</entry>
+                <entry>1251</entry>
+                <entry>866</entry>
+              </row>
+              <row>
+                <entry>Bulgarian</entry>
+                <entry>Bulgaria</entry>
+                <entry>(0402, BGR)</entry>
+                <entry>1251</entry>
+                <entry>866</entry>
+              </row>
+              <row>
+                <entry>Catalan</entry>
+                <entry>Catalan</entry>
+                <entry>(0403; CAT)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Croatian</entry>
+                <entry>Croatian</entry>
+                <entry>(041a, SHL)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Czech</entry>
+                <entry>Czech</entry>
+                <entry>(0405; CSY)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Danish</entry>
+                <entry>Danish</entry>
+                <entry>(0406; DAN)</entry>
+                <entry>1252</entry>
+                <entry>865</entry>
+              </row>
+              <row>
+                <entry>Dutch (2):</entry>
+                <entry>Dutch (Standard)</entry>
+                <entry>(0413; NLD)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Dutch (2):</entry>
+                <entry>Belgian (Flemish)</entry>
+                <entry>(0813; NLB)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>American</entry>
+                <entry>(0409; ENU)</entry>
+                <entry>1252</entry>
+                <entry>437</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>British</entry>
+                <entry>(0809; ENG)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>Australian</entry>
+                <entry>(0c09; ENA)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>Canadian</entry>
+                <entry>(1009; ENC)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>New Zealand</entry>
+                <entry>(1409; ENZ)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>English (6):</entry>
+                <entry>Ireland</entry>
+                <entry>(1809; ENI)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Estonian</entry>
+                <entry>Estonia</entry>
+                <entry>(0425, ETI)</entry>
+                <entry>1257</entry>
+                <entry>775</entry>
+              </row>
+              <row>
+                <entry>Finnish</entry>
+                <entry>Finnish</entry>
+                <entry>(040b; FIN)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>French</entry>
+                <entry>French (Standard)</entry>
+                <entry>(040c; FRA)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>French</entry>
+                <entry>Belgian</entry>
+                <entry>(080c; FRB)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>French</entry>
+                <entry>Canadian</entry>
+                <entry>(0c0c; FRC)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>French</entry>
+                <entry>Swiss</entry>
+                <entry>(100c; FRS)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>French</entry>
+                <entry>Luxembourg</entry>
+                <entry>(140c; FRL)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>German</entry>
+                <entry>German (Standard)</entry>
+                <entry>(0407; DEU)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>German</entry>
+                <entry>Swiss</entry>
+                <entry>(0807; DES)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>German</entry>
+                <entry>Austrian</entry>
+                <entry>(0c07; DEA)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>German</entry>
+                <entry>Luxembourg</entry>
+                <entry>(1007; DEL)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>German</entry>
+                <entry>Liechtenstein</entry>
+                <entry>(1407; DEC)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Greek</entry>
+                <entry>Greek</entry>
+                <entry>(0408; ELL)</entry>
+                <entry>1253</entry>
+                <entry>737 or 869<footnote>
+                    <para>737 is default, but 869 (IBM Greek) will be
+                        available at setup time through the selection of
+                        a bogus Greek locale in Custom Setup.</para>
+                  </footnote>
+                </entry>
+              </row>
+              <row>
+                <entry>Hungarian</entry>
+                <entry>Hungarian</entry>
+                <entry>(040e; HUN)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Icelandic</entry>
+                <entry>Icelandic</entry>
+                <entry>(040F; ISL)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Italian (2):</entry>
+                <entry>Italian (Standard)</entry>
+                <entry>(0410; ITA)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Italian (2):</entry>
+                <entry>Swiss</entry>
+                <entry>(0810; ITS)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Latvian</entry>
+                <entry>Latvia</entry>
+                <entry>(0426, LVI)</entry>
+                <entry>1257</entry>
+                <entry>775</entry>
+              </row>
+              <row>
+                <entry>Lithuanian</entry>
+                <entry>Lithuania</entry>
+                <entry>(0427, LTH)</entry>
+                <entry>1257</entry>
+                <entry>775</entry>
+              </row>
+              <row>
+                <entry>Norwegian (2):</entry>
+                <entry>Norwegian (Bokmal)</entry>
+                <entry>(0414; NOR)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Norwegian (2):</entry>
+                <entry>Norwegian (Nynorsk)</entry>
+                <entry>(0814; NON)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Polish</entry>
+                <entry>Polish</entry>
+                <entry>(0415; PLK)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Portuguese (2):</entry>
+                <entry>Portuguese (Brazilian)</entry>
+                <entry>(0416; PTB)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Portuguese (2):</entry>
+                <entry>Portuguese (Standard)</entry>
+                <entry>(0816; PTG)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Romanian (2):</entry>
+                <entry>Romania</entry>
+                <entry>(0418, ROM)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Russian</entry>
+                <entry>Russian</entry>
+                <entry>(0419; RUS)</entry>
+                <entry>1251</entry>
+                <entry>866</entry>
+              </row>
+              <row>
+                <entry>Slovak</entry>
+                <entry>Slovak</entry>
+                <entry>(041b; SKY)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Slovenian</entry>
+                <entry>Slovenia</entry>
+                <entry>(0424, SLV)</entry>
+                <entry>1250</entry>
+                <entry>852</entry>
+              </row>
+              <row>
+                <entry>Spanish (3):</entry>
+                <entry>Spanish (Traditional Sort)</entry>
+                <entry>(040a; ESP)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Spanish (3):</entry>
+                <entry>Mexican</entry>
+                <entry>(080a; ESM)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Spanish (3):</entry>
+                <entry>Spanish (Modern Sort)</entry>
+                <entry>(0c0a; ESN)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Swedish</entry>
+                <entry>Swedish</entry>
+                <entry>(041D; SVE)</entry>
+                <entry>1252</entry>
+                <entry>850</entry>
+              </row>
+              <row>
+                <entry>Turkish</entry>
+                <entry>Turkish</entry>
+                <entry>(041f; TRK)</entry>
+                <entry>1254</entry>
+                <entry>857</entry>
+              </row>
+              <row>
+                <entry>Ukrainian</entry>
+                <entry>Ukraine</entry>
+                <entry>(0422, UKR)</entry>
+                <entry>1251</entry>
+                <entry>866 </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+        </section>
+      </section>
+    </section>
   </section>
 </section>

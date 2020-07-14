@@ -70,7 +70,7 @@
         </para>
       <para>Subtables also contain a language ID field. For
           <ottable>cmap</ottable> subtables with platform ID 1 (Macintosh)
-          which contain language-specific mappings, this ID field should be set
+          which contain language-specific mappings, this ID field must be set
           to the
           <link linkend="common_structures.languageid">Macintosh language ID</link>
           of the language <emphasis>plus one</emphasis>.
@@ -80,7 +80,7 @@
           platform ID, then by platform-specific encoding ID, and then by
           language ID in the corresponding subtable. Each platform
           ID, platform-specific encoding ID, and language ID
-          combination may appear only once in the
+          combination must appear only once in the
           <ottable>cmap</ottable> table.</para>
       <para>The offset is measured from the start of the cmap table.</para>
     </section>
@@ -138,7 +138,6 @@
     <section role="specification">
       <title>Specification</title>
 
-        <para>XXX</para>
         <para>When a text is being shaped by a font consumer,
           character codes that are not mapped to any glyph in the font
           by the data in this table (either because there is no subtable for their encoding or

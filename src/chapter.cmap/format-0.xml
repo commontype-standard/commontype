@@ -4,8 +4,10 @@
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
-      <para>This is the Apple standard character to glyph index
-          mapping table.</para>
+      <para>This is a simple character to glyph index mapping table. It is
+        limited to 256 character codepoints and can only access glyph IDs
+        between 0 and 255.
+      </para>
       <otformat>
         <otfield>
           <otfieldoffs>0</otfieldoffs>
@@ -17,16 +19,13 @@
           <otfieldoffs>2</otfieldoffs>
           <otfieldtype>USHORT</otfieldtype>
           <otfieldname>length</otfieldname>
-          <otfielddesc>This is the length in bytes of the
-              subtable.</otfielddesc>
+          <otfielddesc>Length in bytes of the subtable.</otfielddesc>
         </otfield>
         <otfield>
           <otfieldoffs>4</otfieldoffs>
           <otfieldtype>USHORT</otfieldtype>
           <otfieldname>language</otfieldname>
-          <otfielddesc>Please see <link linkend="language_note">Note
-                on the language field in cmap subtables</link> in this
-              document.</otfielddesc>
+          <otfielddesc>Language ID (for Macintosh language-specific mappings)</otfielddesc>
         </otfield>
         <otfield>
           <otfieldoffs>6</otfieldoffs>
@@ -36,36 +35,22 @@
               index values.</otfielddesc>
         </otfield>
       </otformat>
-      <para>This is a simple 1 to 1 mapping of character codes to
-          glyph indices. The glyph set is limited to 256. Note that if
-          this format is used to index into a larger glyph set, only
-          the first 256 glyphs will be accessible.</para>
-    </section>
-    <!--____________________________________________________________________-->
-    <section role="annotation">
-      <title>Annotation</title>
-      <para>As the declaration stands, the length field seems
-          superfluous, since the table appears to always be 262 bytes
-          long. This can be explained in one of two ways:
-
-          <itemizedlist>
-          <listitem>
-            <para>the length field is included to make the first three
-                words of all cmap subtables similar; it must always be
-                262.</para>
-          </listitem>
-          <listitem>
-            <para>the glyphIdArray does not need to be always 256
-                elements long, it can be shorter.</para>
-          </listitem>
-        </itemizedlist>
+      <para>Font producers must include 256 elements in the glyphIdArray
+        and set the length to 262. Glyph consumers, however, must read the
+        length field and read either (length - 6) glyph IDs or 256, whichever
+        is the less.
       </para>
-      <para>In the spirit of "generate conservatively, accept
-          liberally", we recommend that font designers always put 256
-          entries in glyphIdArray (and consequently set length to 262), and
-          that font consumers be ready to handle fonts where the
-          glyphIdArray contains length - 6 entries (but no more than
-          256).</para>
+
+      <section role="fragment">
+        <title>Mapping Process for Font Consumers</title>
+        <para>
+          To map codepoints to glyph IDs in a format 0 subtable, each input
+          codepoint is used to index the glyphIdArray to retrieve a glyph ID.
+          Before indexing the array, the font consumer must ensure that the input
+          codepoint is less than the number of entries in the glyphIdArray;
+          if it is not less, then the character is mapped to glyph index 0.
+        </para>
+      </section>
     </section>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-2.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-2.xml"/>
@@ -74,4 +59,3 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-2.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-2.xml"/>
   </section>
- 

@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.overview"></a>Chapter 1. Overview</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The CommonType font format is a file format for representing
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.overview"></a>Chapter 1. Overview</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm504619036704"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The CommonType font format is a file format for representing
         font data, including <em class="glossterm">glyph representations</em>,
         layout instructions, and other metadata. The CommonType font format
         derived from the OpenType font format, developed jointly by Microsoft
@@ -16,7 +16,7 @@
         obtained in web documents, before using them. Also, font developers
         can encode embedding restrictions in CommonType fonts, and these
         restrictions cannot be altered in a font signed by the developer.
-       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm26"></a>Definitions</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>
+       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm504619031520"></a>Definitions</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>
         The key words <em class="glossterm">must</em>,
         <em class="glossterm">must not</em>, <em class="glossterm">required</em>,
         <em class="glossterm">shall</em>, <em class="glossterm">shall not</em>,
@@ -28,7 +28,7 @@
         Note that for reasons of style, these words are not capitalized in this document.
       </p><p>
         Further key words are defined in the Glossary.
-      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm42"></a>Related documentation</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The following documents may be consulted for further
+      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm504619024224"></a>Related documentation</h3></div></div></div><div role="specification" class="section"><div class="titlepage"/><p>The following documents may be consulted for further
   information:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
             <a class="link" href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5176.CFF.pdf" target="_top">Adobe Technical Note #5176</a>: "The Compact Font Format
         Specification."</p></li><li class="listitem"><p>

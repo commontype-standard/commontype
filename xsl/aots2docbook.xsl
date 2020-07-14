@@ -244,6 +244,11 @@
       <tbody>
         <xsl:for-each select='otfield|ots:field'>
           <row>
+            <xsl:if test="@role">
+            <xsl:attribute name="role">
+              <xsl:value-of select="@role"/>
+            </xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates/>
           </row>
         </xsl:for-each>

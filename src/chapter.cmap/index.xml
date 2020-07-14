@@ -11,8 +11,9 @@
       </para>
       <section>
         <title>Header</title>
-        <para>The Character To Glyph Index Mapping Table begins with
-          a header.</para>
+
+      <para>The Character To Glyph Index Mapping Table begins with
+        a header.</para>
 
       <otformat>
         <title>cmap Header</title>

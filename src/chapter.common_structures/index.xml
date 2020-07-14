@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<section xmlns:web="http://aots.adobe.com/2001/web" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:ots="http://aots.adobe.com/2001/ots" xmlns:aots="http://aots.adobe.com/2001/aots" id="chapter.common_structures" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<section xmlns:web="http://aots.adobe.com/2001/web" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:ots="http://aots.adobe.com/2001/ots" xmlns:aots="http://aots.adobe.com/2001/aots" xmlns:xlink="http://www.w3.org/1999/xlink" id="chapter.common_structures">
   <title>Common Structures and Data</title>
   <!--======================================================================-->
   <section role="fragment" id="common_structures.platformencoding">
@@ -358,11 +358,10 @@
       </para>
     </section>
   </section>
-    <section role="fragment" id="common_structures.languageid">
+  <section role="fragment" id="common_structures.languageid">
     <title>Language Identifiers</title>
     <section role="specification">
       <title>Specification</title>
-
       <para>The <ottable>cmap</ottable> and <ottable>name</ottable> tables
       also specify that data refers to particular languages: language-specific
       character-to-glyph mappings in the case of Macintosh platform entries
@@ -373,14 +372,12 @@
         identifiers specifying a language are depending on the platform ID
         in use.
       </para>
-
       <para>There are no language identifiers defined for the Unicode platform
         (platform ID = 0), the ISO platform (platform ID = 2), or the custom
         platform (platform ID = 4). This means that while these platforms may
         be used for <ottable>cmap</ottable> table entries, they cannot be used
         for <ottable>name</ottable> table entries.
       </para>
-
       <table id="name_lang1">
         <title>Macintosh Language IDs</title>
         <tgroup cols="2">
@@ -866,9 +863,7 @@
           </tbody>
         </tgroup>
       </table>
-    </section>
-
-        <para>The language ID (LCID in the table below) refers to a
+      <para>The language ID (LCID in the table below) refers to a
           value which identifies the language in which a particular
           string is written. Fifty of the language ID's assigned by
           Microsoft are listed below, along with their corresponding
@@ -877,6 +872,7 @@
           Global Development</ulink> site or <ulink url="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q224804">Knowledge
           Base article Q224804</ulink>.</para>
       <table id="name_lang3">
+        <title>Windows Language IDs</title>
         <tgroup cols="5">
           <thead>
             <row>
@@ -1089,11 +1085,9 @@
               <entry>Greek</entry>
               <entry>(0408; ELL)</entry>
               <entry>1253</entry>
-              <entry>737 or 869<footnote>
-                  <para>737 is default, but 869 (IBM Greek) will be
+              <entry>737 or 869<footnote><para>737 is default, but 869 (IBM Greek) will be
                       available at setup time through the selection of
-                      a bogus Greek locale in Custom Setup.</para>
-                </footnote>
+                      a bogus Greek locale in Custom Setup.</para></footnote>
               </entry>
             </row>
             <row>
@@ -1246,5 +1240,6 @@
           </tbody>
         </tgroup>
       </table>
-      </section>
     </section>
+  </section>
+</section>

@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.kern"></a>Chapter 34. kern - Kerning</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm19227"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.35.1.1"></a>Specification</h4></div></div></div><p>Note: Apple has extended the definition of the
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.kern"></a>Chapter 34. kern - Kerning</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292199968"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.35.1.1"></a>Specification</h4></div></div></div><p>Note: Apple has extended the definition of the
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.kern"></a>Chapter 34. kern - Kerning</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62723379232"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.35.1.1"></a>Specification</h4></div></div></div><p>Note: Apple has extended the definition of the
 >>>>>>> Rebuild
 	<a class="link" href="chapter.kern.html" title="Chapter 34. kern - Kerning">kern</a> table to provide additional
 	functionality. The Apple extensions are not supported on
@@ -25,6 +29,7 @@
         to limit the total effect of other subtables.</p><p>The kerning table in the CommonType font file has a
         header, which contains the format number and the number of
 <<<<<<< HEAD
+<<<<<<< HEAD
         subtables present, and the subtables themselves.</p><div class="table"><a name="idm19239"></a><p class="title"><strong>Table 34.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Table version number (starts at
               0)</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>nTables</td><td>Number of subtables in the kerning
               table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Kerning subtables will share the same header format.
@@ -35,13 +40,20 @@
         sub-fields, with sizes given in bits:</p><div class="table"><a name="idm19277"></a><p class="title"><strong>Table 34.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>0</td><td>1</td><td>1 if table has horizontal data, 0 if
 =======
         subtables present, and the subtables themselves.</p><div class="table"><a name="idm189292192592"></a><p class="title"><strong>Table 34.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Table version number (starts at
+=======
+        subtables present, and the subtables themselves.</p><div class="table"><a name="idm62723371856"></a><p class="title"><strong>Table 34.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Table version number (starts at
+>>>>>>> Rebuild
               0)</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>nTables</td><td>Number of subtables in the kerning
               table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Kerning subtables will share the same header format.
         This header is used to identify the format of the subtable and
-        the kind of information it contains:</p><div class="table"><a name="idm189292186976"></a><p class="title"><strong>Table 34.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Kern subtable version number</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>Length of the subtable, in bytes (including
+        the kind of information it contains:</p><div class="table"><a name="idm62723366240"></a><p class="title"><strong>Table 34.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Kern subtable version number</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>Length of the subtable, in bytes (including
               this header). </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>coverage</td><td>What type of information is contained in this
               table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The coverage field is divided into the following
+<<<<<<< HEAD
         sub-fields, with sizes given in bits:</p><div class="table"><a name="idm189292179936"></a><p class="title"><strong>Table 34.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>0</td><td>1</td><td>1 if table has horizontal data, 0 if
+>>>>>>> Rebuild
+=======
+        sub-fields, with sizes given in bits:</p><div class="table"><a name="idm62723359200"></a><p class="title"><strong>Table 34.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>0</td><td>1</td><td>1 if table has horizontal data, 0 if
 >>>>>>> Rebuild
               vertical.</td><td class="auto-generated"> </td></tr><tr><td>1</td><td>1</td><td>If this bit is set to 1, the table has
               minimum values. If set to 0, the table has kerning
@@ -67,6 +79,7 @@
               zero.</td><td class="auto-generated"> </td></tr><tr><td>8-15</td><td>8</td><td>Format of the subtable. Only formats 0 and 2
               have been defined. Formats 1 and 3 through 255 are
 <<<<<<< HEAD
+<<<<<<< HEAD
               reserved for future use.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm19313"></a>Format 0</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.35.2.1"></a>Specification</h4></div></div></div><p>This is the only format that will be properly
           interpreted by Windows and OS/2.</p><p>This subtable is a sorted list of kerning pairs and
           values. The list is preceded by information which makes it
@@ -78,6 +91,13 @@
           values. The list is preceded by information which makes it
           possible to make an efficient binary search of the
           list:</p><div class="table"><a name="idm189292163232"></a><p class="title"><strong>Table 34.4. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>nPairs</td><td>This gives the number of kerning pairs in the
+>>>>>>> Rebuild
+=======
+              reserved for future use.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62723345376"></a>Format 0</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.35.2.1"></a>Specification</h4></div></div></div><p>This is the only format that will be properly
+          interpreted by Windows and OS/2.</p><p>This subtable is a sorted list of kerning pairs and
+          values. The list is preceded by information which makes it
+          possible to make an efficient binary search of the
+          list:</p><div class="table"><a name="idm62723342496"></a><p class="title"><strong>Table 34.4. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>nPairs</td><td>This gives the number of kerning pairs in the
 >>>>>>> Rebuild
               table.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>searchRange</td><td>The largest power of two less than or equal
               to the value of nPairs, multiplied by the size in bytes
@@ -91,9 +111,13 @@
               by the size in bytes of an entry in the
               table.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This is followed by the list of kerning pairs and
 <<<<<<< HEAD
+<<<<<<< HEAD
           values. Each has the following format:</p><div class="table"><a name="idm19344"></a><p class="title"><strong>Table 34.5. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>left</td><td>The glyph index for the left-hand glyph in
 =======
           values. Each has the following format:</p><div class="table"><a name="idm189292154144"></a><p class="title"><strong>Table 34.5. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>left</td><td>The glyph index for the left-hand glyph in
+>>>>>>> Rebuild
+=======
+          values. Each has the following format:</p><div class="table"><a name="idm62723333408"></a><p class="title"><strong>Table 34.5. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>left</td><td>The glyph index for the left-hand glyph in
 >>>>>>> Rebuild
               the kerning pair.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>right</td><td>The glyph index for the right-hand glyph in
               the kerning pair. </td><td class="auto-generated"> </td></tr><tr><td>FWORD</td><td>value</td><td>The kerning value for the above pair, in
@@ -112,9 +136,13 @@
 	the value rangeShift.</p><p>Windows v3.1 does not make use of the
         <a class="link" href="chapter.kern.html" title="Chapter 34. kern - Kerning">kern</a> data other than to expose it to
 <<<<<<< HEAD
+<<<<<<< HEAD
         applications through the GetFontData() API.Format 2 </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm19369"></a>Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.35.3.1"></a>Specification</h4></div></div></div><p>This subtable is a two-dimensional array of kerning
 =======
         applications through the GetFontData() API.Format 2 </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292143840"></a>Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.35.3.1"></a>Specification</h4></div></div></div><p>This subtable is a two-dimensional array of kerning
+>>>>>>> Rebuild
+=======
+        applications through the GetFontData() API.Format 2 </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62723323104"></a>Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.35.3.1"></a>Specification</h4></div></div></div><p>This subtable is a two-dimensional array of kerning
 >>>>>>> Rebuild
           values. The glyphs are mapped to classes, using a different
           mapping for left- and right-hand glyphs. This allows glyphs
@@ -135,6 +163,7 @@
           array, and fetching the kerning value to which the new
           address points.</p><p>The header for the simple array has the following
 <<<<<<< HEAD
+<<<<<<< HEAD
           format:</p><div class="table"><a name="idm19377"></a><p class="title"><strong>Table 34.6. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>rowWidth</td><td>The width, in bytes, of a row in the
               table.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>leftClassTable</td><td>Offset from beginning of this subtable to
               left-hand class table.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>rightClassTable</td><td>Offset from beginning of this subtable to
@@ -146,6 +175,13 @@
               left-hand class table.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>rightClassTable</td><td>Offset from beginning of this subtable to
               right-hand class table. </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>array</td><td>Offset from beginning of this subtable to the
               start of the kerning array. </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Each class table has the following header:</p><div class="table"><a name="idm189292130560"></a><p class="title"><strong>Table 34.7. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>firstGlyph</td><td>First glyph in class range.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>nGlyphs</td><td>Number of glyph in class range.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This header is followed by nGlyphs number of class
+>>>>>>> Rebuild
+=======
+          format:</p><div class="table"><a name="idm62723318400"></a><p class="title"><strong>Table 34.6. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>rowWidth</td><td>The width, in bytes, of a row in the
+              table.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>leftClassTable</td><td>Offset from beginning of this subtable to
+              left-hand class table.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>rightClassTable</td><td>Offset from beginning of this subtable to
+              right-hand class table. </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>array</td><td>Offset from beginning of this subtable to the
+              start of the kerning array. </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Each class table has the following header:</p><div class="table"><a name="idm62723309824"></a><p class="title"><strong>Table 34.7. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>firstGlyph</td><td>First glyph in class range.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>nGlyphs</td><td>Number of glyph in class range.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This header is followed by nGlyphs number of class
 >>>>>>> Rebuild
           values, which are in USHORT format. Entries for glyphs that
           don't participate in kerning should point to the row or

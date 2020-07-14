@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.common_tables"></a>Chapter 21. CommonType Layout Common Table Formats</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6443"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.1.1"></a>Specification</h4></div></div></div><p>CommonType Layout consists of five tables: the Glyph
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.common_tables"></a>Chapter 21. CommonType Layout Common Table Formats</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295948864"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.1.1"></a>Specification</h4></div></div></div><p>CommonType Layout consists of five tables: the Glyph
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.common_tables"></a>Chapter 21. CommonType Layout Common Table Formats</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728531488"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.1.1"></a>Specification</h4></div></div></div><p>CommonType Layout consists of five tables: the Glyph
 >>>>>>> Rebuild
           Substitution table (<a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>), the Glyph
           Positioning table (<a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>), the Baseline
@@ -26,9 +30,13 @@
           Katakana, and Kanji-are used to write Japanese. With
           CommonType Layout, multiple scripts may be supported by a
 <<<<<<< HEAD
+<<<<<<< HEAD
           single font.</p><div class="figure"><a name="idm6461"></a><p class="title"><strong>Figure 21.1. Figure 2a. Glyphs in the Latin, Kanji, and Arabic
 =======
           single font.</p><div class="figure"><a name="idm189295938496"></a><p class="title"><strong>Figure 21.1. Figure 2a. Glyphs in the Latin, Kanji, and Arabic
+>>>>>>> Rebuild
+=======
+          single font.</p><div class="figure"><a name="idm62728521120"></a><p class="title"><strong>Figure 21.1. Figure 2a. Glyphs in the Latin, Kanji, and Arabic
 >>>>>>> Rebuild
           scripts</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig2a.gif" alt="Figure 2a. Glyphs in the Latin, Kanji, and Arabic scripts"/></div></div></div><br class="figure-break"/><p>A language system may modify the functions or appearance
           of glyphs in a script to represent a particular
@@ -37,9 +45,13 @@
           Figure 2b). And the Arabic script contains different glyphs
           for writing the Farsi and Urdu languages. In CommonType
 <<<<<<< HEAD
+<<<<<<< HEAD
           Layout, language systems are defined within scripts.</p><div class="figure"><a name="idm6467"></a><p class="title"><strong>Figure 21.2. Figure 2b. Differences in the English, French, and
 =======
           Layout, language systems are defined within scripts.</p><div class="figure"><a name="idm189295935632"></a><p class="title"><strong>Figure 21.2. Figure 2b. Differences in the English, French, and
+>>>>>>> Rebuild
+=======
+          Layout, language systems are defined within scripts.</p><div class="figure"><a name="idm62728518256"></a><p class="title"><strong>Figure 21.2. Figure 2b. Differences in the English, French, and
 >>>>>>> Rebuild
           German language systems</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig2b.gif" alt="Figure 2b. Differences in the English, French, and German language systems"/></div></div></div><br class="figure-break"/><p>A language system defines features, which are
           typographic rules for using glyphs to represent a
@@ -53,9 +65,13 @@
           system feature for the Arabic script substitutes initial,
           medial, and final glyph forms based on a glyph's position in
 <<<<<<< HEAD
+<<<<<<< HEAD
           a word.</p><div class="figure"><a name="idm6473"></a><p class="title"><strong>Figure 21.3. Figure 2c. A ligature glyph feature substitutes the
 =======
           a word.</p><div class="figure"><a name="idm189295932384"></a><p class="title"><strong>Figure 21.3. Figure 2c. A ligature glyph feature substitutes the
+>>>>>>> Rebuild
+=======
+          a word.</p><div class="figure"><a name="idm62728515008"></a><p class="title"><strong>Figure 21.3. Figure 2c. A ligature glyph feature substitutes the
 >>>>>>> Rebuild
           &lt;etc&gt; ligature for individual glyphs, and a mark
           feature positions diacritical marks above an Arabic ligature
@@ -64,9 +80,13 @@
           glyphs. Lookups describe the glyphs affected by an
           operation, the type of operation to be applied to these
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyphs, and the resulting glyph output.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6479"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.2.1"></a>Specification</h4></div></div></div><p>Two CommonType Layout tables, <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
 =======
           glyphs, and the resulting glyph output.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295928608"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.2.1"></a>Specification</h4></div></div></div><p>Two CommonType Layout tables, <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
+>>>>>>> Rebuild
+=======
+          glyphs, and the resulting glyph output.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728511392"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.2.1"></a>Specification</h4></div></div></div><p>Two CommonType Layout tables, <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
 >>>>>>> Rebuild
           <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>, use the same data formats to
           describe the typographic functions of glyphs and the
@@ -82,9 +102,13 @@
           table references the lookup data defined in the LookupList
           that describes how, when, and where to implement the
 <<<<<<< HEAD
+<<<<<<< HEAD
           feature</p><div class="figure"><a name="idm6489"></a><p class="title"><strong>Figure 21.4. Figure 2d. The relationship of scripts, language
 =======
           feature</p><div class="figure"><a name="idm189295922928"></a><p class="title"><strong>Figure 21.4. Figure 2d. The relationship of scripts, language
+>>>>>>> Rebuild
+=======
+          feature</p><div class="figure"><a name="idm62728505712"></a><p class="title"><strong>Figure 21.4. Figure 2d. The relationship of scripts, language
 >>>>>>> Rebuild
           systems, features, and lookups for substitution and
           positioning tables</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig2d.gif" alt="Figure 2d. The relationship of scripts, language systems, features, and lookups for substitution and positioning tables"/></div></div></div><br class="figure-break"/><div class="blockquote"><blockquote class="blockquote"><p>Note: The data in the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> and
@@ -126,9 +150,13 @@
           and its script record (ScriptRecord), the Script table and
           its language system record (LangSysRecord), and the Language
 <<<<<<< HEAD
+<<<<<<< HEAD
           System table (LangSys).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6520"></a>Script List Table and Script Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.3.1"></a>Specification</h4></div></div></div><p>CommonType Layout fonts may contain one or more groups of
 =======
           System table (LangSys).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295904192"></a>Script List Table and Script Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.3.1"></a>Specification</h4></div></div></div><p>CommonType Layout fonts may contain one or more groups of
+>>>>>>> Rebuild
+=======
+          System table (LangSys).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728486832"></a>Script List Table and Script Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.3.1"></a>Specification</h4></div></div></div><p>CommonType Layout fonts may contain one or more groups of
 >>>>>>> Rebuild
           glyphs used to render various scripts, which are enumerated
           in a ScriptList table. Both the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
@@ -156,6 +184,7 @@
           table.</p><p>Example 1 at the end of this chapter shows a ScriptList
           table and ScriptRecords for a Japanese font that uses three
 <<<<<<< HEAD
+<<<<<<< HEAD
           scripts.</p><div class="table"><a name="idm6540"></a><p class="title"><strong>Table 21.1. ScriptList table</strong></p><div class="table-contents"><table class="table" summary="ScriptList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ScriptCount</td><td>Number of ScriptRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>ScriptRecord [ScriptCount]</td><td>Array of ScriptRecords - listed
               alphabetically by ScriptTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm6557"></a><p class="title"><strong>Table 21.2. ScriptRecord</strong></p><div class="table-contents"><table class="table" summary="ScriptRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>ScriptTag</td><td>4-byte ScriptTag identifier</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Script</td><td>Offset to Script table-from beginning of
               ScriptList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6574"></a>Script Table and Language System Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.4.1"></a>Specification</h4></div></div></div><p>A Script table identifies each language system that
@@ -163,6 +192,11 @@
           scripts.</p><div class="table"><a name="idm189295893216"></a><p class="title"><strong>Table 21.1. ScriptList table</strong></p><div class="table-contents"><table class="table" summary="ScriptList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ScriptCount</td><td>Number of ScriptRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>ScriptRecord [ScriptCount]</td><td>Array of ScriptRecords - listed
               alphabetically by ScriptTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm189295888080"></a><p class="title"><strong>Table 21.2. ScriptRecord</strong></p><div class="table-contents"><table class="table" summary="ScriptRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>ScriptTag</td><td>4-byte ScriptTag identifier</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Script</td><td>Offset to Script table-from beginning of
               ScriptList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295882400"></a>Script Table and Language System Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.4.1"></a>Specification</h4></div></div></div><p>A Script table identifies each language system that
+>>>>>>> Rebuild
+=======
+          scripts.</p><div class="table"><a name="idm62728476016"></a><p class="title"><strong>Table 21.1. ScriptList table</strong></p><div class="table-contents"><table class="table" summary="ScriptList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ScriptCount</td><td>Number of ScriptRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>ScriptRecord [ScriptCount]</td><td>Array of ScriptRecords - listed
+              alphabetically by ScriptTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62728470960"></a><p class="title"><strong>Table 21.2. ScriptRecord</strong></p><div class="table-contents"><table class="table" summary="ScriptRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>ScriptTag</td><td>4-byte ScriptTag identifier</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Script</td><td>Offset to Script table-from beginning of
+              ScriptList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728465440"></a>Script Table and Language System Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.4.1"></a>Specification</h4></div></div></div><p>A Script table identifies each language system that
 >>>>>>> Rebuild
           defines how to use the glyphs in a script for a particular
           language. It also references a default language system that
@@ -180,6 +214,7 @@
           records alphabetically by LangSysTag.</p><p>If no language-specific script behavior is defined, the
           LangSysCount is set to zero (0), and no LangSysRecords are
 <<<<<<< HEAD
+<<<<<<< HEAD
           allocated.</p><div class="table"><a name="idm6581"></a><p class="title"><strong>Table 21.3. Script table</strong></p><div class="table-contents"><table class="table" summary="Script table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>DefaultLangSys</td><td>Offset to DefaultLangSys table-from beginning
               of Script table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>LangSysCount</td><td>Number of LangSysRecords for this
               script-excluding the DefaultLangSys</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>LangSysRecord [LangSysCount]</td><td>Array of LangSysRecords-listed alphabetically
@@ -191,6 +226,13 @@
               script-excluding the DefaultLangSys</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>LangSysRecord [LangSysCount]</td><td>Array of LangSysRecords-listed alphabetically
               by LangSysTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm189295871552"></a><p class="title"><strong>Table 21.4. LangSysRecord</strong></p><div class="table-contents"><table class="table" summary="LangSysRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>LangSysTag</td><td>4-byte LangSysTag identifier</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>LangSys</td><td>Offset to LangSys table-from beginning of
               Script table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295865872"></a>Language System Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.5.1"></a>Specification</h4></div></div></div><p>The Language System table (LangSys) identifies
+>>>>>>> Rebuild
+=======
+          allocated.</p><div class="table"><a name="idm62728461424"></a><p class="title"><strong>Table 21.3. Script table</strong></p><div class="table-contents"><table class="table" summary="Script table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>DefaultLangSys</td><td>Offset to DefaultLangSys table-from beginning
+              of Script table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>LangSysCount</td><td>Number of LangSysRecords for this
+              script-excluding the DefaultLangSys</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>LangSysRecord [LangSysCount]</td><td>Array of LangSysRecords-listed alphabetically
+              by LangSysTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62728454768"></a><p class="title"><strong>Table 21.4. LangSysRecord</strong></p><div class="table-contents"><table class="table" summary="LangSysRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>LangSysTag</td><td>4-byte LangSysTag identifier</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>LangSys</td><td>Offset to LangSys table-from beginning of
+              Script table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728449088"></a>Language System Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.5.1"></a>Specification</h4></div></div></div><p>The Language System table (LangSys) identifies
 >>>>>>> Rebuild
           language-system features used to render the glyphs in a
           script. (The LookupOrder offset is reserved for future
@@ -217,18 +259,26 @@
           in this chapter. Example 2 at the end of this chapter shows
           a Script table, LangSysRecord, and LangSys table used for
 <<<<<<< HEAD
+<<<<<<< HEAD
           contextual positioning in the Arabic script.</p><div class="table"><a name="idm6628"></a><p class="title"><strong>Table 21.5. LangSys table</strong></p><div class="table-contents"><table class="table" summary="LangSys table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>LookupOrder</td><td>= NULL (reserved for an offset to a
 =======
           contextual positioning in the Arabic script.</p><div class="table"><a name="idm189295859968"></a><p class="title"><strong>Table 21.5. LangSys table</strong></p><div class="table-contents"><table class="table" summary="LangSys table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>LookupOrder</td><td>= NULL (reserved for an offset to a
+>>>>>>> Rebuild
+=======
+          contextual positioning in the Arabic script.</p><div class="table"><a name="idm62728443232"></a><p class="title"><strong>Table 21.5. LangSys table</strong></p><div class="table-contents"><table class="table" summary="LangSys table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>LookupOrder</td><td>= NULL (reserved for an offset to a
 >>>>>>> Rebuild
               reordering table)</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ReqFeatureIndex</td><td>Index of a feature required for this language
               system- if no required features = 0xFFFF</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>FeatureCount</td><td>Number of FeatureIndex values for this
               language system-excludes the required
               feature</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>FeatureIndex [FeatureCount]</td><td>Array of indices into the FeatureList-in
 <<<<<<< HEAD
+<<<<<<< HEAD
               arbitrary order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6653"></a>Features and Lookups</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.6.1"></a>Specification</h4></div></div></div><p>Features define the functionality of an CommonType Layout
 =======
               arbitrary order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295851152"></a>Features and Lookups</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.6.1"></a>Specification</h4></div></div></div><p>Features define the functionality of an CommonType Layout
+>>>>>>> Rebuild
+=======
+              arbitrary order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728434496"></a>Features and Lookups</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.6.1"></a>Specification</h4></div></div></div><p>Features define the functionality of an CommonType Layout
 >>>>>>> Rebuild
           font and they are named to convey meaning to the
           text-processing client. Consider a feature named "liga" to
@@ -268,9 +318,13 @@
           script. Information that would be replicated across all
           fonts in a given language belongs in the text-processing
 <<<<<<< HEAD
+<<<<<<< HEAD
           application for that language, not in the fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6670"></a>Feature List Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.7.1"></a>Specification</h4></div></div></div><p>The headers of the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
 =======
           application for that language, not in the fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295839680"></a>Feature List Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.7.1"></a>Specification</h4></div></div></div><p>The headers of the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
+>>>>>>> Rebuild
+=======
+          application for that language, not in the fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728423280"></a>Feature List Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.7.1"></a>Specification</h4></div></div></div><p>The headers of the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
 >>>>>>> Rebuild
           <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> tables contain offsets to Feature
           List tables (FeatureList) that enumerate all the features in
@@ -287,6 +341,7 @@
           alphabetically by FeatureTag names.</p><p>Note: The values stored in the FeatureIndex array of a
           LangSys table are used to locate records in the
 <<<<<<< HEAD
+<<<<<<< HEAD
           FeatureRecord array of a FeatureList table.</p><div class="table"><a name="idm6681"></a><p class="title"><strong>Table 21.6. FeatureList table</strong></p><div class="table-contents"><table class="table" summary="FeatureList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>FeatureCount</td><td>Number of FeatureRecords in this
               table</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>FeatureRecord [FeatureCount]</td><td>Array of FeatureRecords-zero-based (first
               feature has FeatureIndex = 0)-listed alphabetically by
@@ -295,11 +350,18 @@
               FeatureList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6715"></a>Feature Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.8.1"></a>Specification</h4></div></div></div><p>A Feature table defines a feature with one or more
 =======
           FeatureRecord array of a FeatureList table.</p><div class="table"><a name="idm189295833360"></a><p class="title"><strong>Table 21.6. FeatureList table</strong></p><div class="table-contents"><table class="table" summary="FeatureList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>FeatureCount</td><td>Number of FeatureRecords in this
+=======
+          FeatureRecord array of a FeatureList table.</p><div class="table"><a name="idm62728417008"></a><p class="title"><strong>Table 21.6. FeatureList table</strong></p><div class="table-contents"><table class="table" summary="FeatureList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>FeatureCount</td><td>Number of FeatureRecords in this
+>>>>>>> Rebuild
               table</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>FeatureRecord [FeatureCount]</td><td>Array of FeatureRecords-zero-based (first
               feature has FeatureIndex = 0)-listed alphabetically by
-              FeatureTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm189295828096"></a><p class="title"><strong>Table 21.7. FeatureRecord</strong></p><div class="table-contents"><table class="table" summary="FeatureRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>FeatureTag</td><td>4-byte feature identification
+              FeatureTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62728411808"></a><p class="title"><strong>Table 21.7. FeatureRecord</strong></p><div class="table-contents"><table class="table" summary="FeatureRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>FeatureTag</td><td>4-byte feature identification
               tag</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Feature</td><td>Offset to Feature table-from beginning of
+<<<<<<< HEAD
               FeatureList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295822368"></a>Feature Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.8.1"></a>Specification</h4></div></div></div><p>A Feature table defines a feature with one or more
+>>>>>>> Rebuild
+=======
+              FeatureList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728406208"></a>Feature Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.8.1"></a>Specification</h4></div></div></div><p>A Feature table defines a feature with one or more
 >>>>>>> Rebuild
           lookups. The client uses the lookups to substitute or
           position glyphs.</p><p>Feature tables defined within the
@@ -336,9 +398,13 @@
           glyphs.</p><p>Example 3 at the end of this chapter shows the
           FeatureList and Feature tables used to substitute ligatures
 <<<<<<< HEAD
+<<<<<<< HEAD
           in two languages.</p><div class="table"><a name="idm6731"></a><p class="title"><strong>Table 21.8. Feature table</strong></p><div class="table-contents"><table class="table" summary="Feature table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>FeatureParams</td><td>= NULL (reserved for offset to
 =======
           in two languages.</p><div class="table"><a name="idm189295812336"></a><p class="title"><strong>Table 21.8. Feature table</strong></p><div class="table-contents"><table class="table" summary="Feature table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>FeatureParams</td><td>= NULL (reserved for offset to
+>>>>>>> Rebuild
+=======
+          in two languages.</p><div class="table"><a name="idm62728396272"></a><p class="title"><strong>Table 21.8. Feature table</strong></p><div class="table-contents"><table class="table" summary="Feature table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>FeatureParams</td><td>= NULL (reserved for offset to
 >>>>>>> Rebuild
               FeatureParams)</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>LookupCount</td><td>Number of LookupList indices for this
               feature</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>LookupListIndex [LookupCount]</td><td>Array of LookupList indices for this feature
@@ -349,9 +415,13 @@
           Feature Table; = NULL if not required". It is unclear why it
           has been changed and in fact the old version is better,
 <<<<<<< HEAD
+<<<<<<< HEAD
           since there are font with feature params.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6755"></a>Lookup List Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.9.1"></a>Specification</h4></div></div></div><p>The headers of the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
 =======
           since there are font with feature params.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295803104"></a>Lookup List Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.9.1"></a>Specification</h4></div></div></div><p>The headers of the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
+>>>>>>> Rebuild
+=======
+          since there are font with feature params.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728387344"></a>Lookup List Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.9.1"></a>Specification</h4></div></div></div><p>The headers of the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
 >>>>>>> Rebuild
           <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> tables contain offsets to Lookup
           List tables (LookupList) for glyph substitution
@@ -364,6 +434,7 @@
           operations. LookupCount specifies the total number of Lookup
           table offsets in the array.</p><p>Example 4 at the end of this chapter shows three
 <<<<<<< HEAD
+<<<<<<< HEAD
           ligature lookups in the LookupList table.</p><div class="table"><a name="idm6765"></a><p class="title"><strong>Table 21.9. LookupList table</strong></p><div class="table-contents"><table class="table" summary="LookupList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups in this table</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Lookup [LookupCount]</td><td>Array of offsets to Lookup tables-from
               beginning of LookupList -zero based (first lookup is
               Lookup index = 0)</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6782"></a>Lookup Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.10.1"></a>Specification</h4></div></div></div><p>A Lookup table (Lookup) defines the specific conditions,
@@ -371,6 +442,11 @@
           ligature lookups in the LookupList table.</p><div class="table"><a name="idm189295797472"></a><p class="title"><strong>Table 21.9. LookupList table</strong></p><div class="table-contents"><table class="table" summary="LookupList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups in this table</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Lookup [LookupCount]</td><td>Array of offsets to Lookup tables-from
               beginning of LookupList -zero based (first lookup is
               Lookup index = 0)</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295791728"></a>Lookup Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.10.1"></a>Specification</h4></div></div></div><p>A Lookup table (Lookup) defines the specific conditions,
+>>>>>>> Rebuild
+=======
+          ligature lookups in the LookupList table.</p><div class="table"><a name="idm62728381808"></a><p class="title"><strong>Table 21.9. LookupList table</strong></p><div class="table-contents"><table class="table" summary="LookupList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups in this table</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Lookup [LookupCount]</td><td>Array of offsets to Lookup tables-from
+              beginning of LookupList -zero based (first lookup is
+              Lookup index = 0)</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728376144"></a>Lookup Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.10.1"></a>Specification</h4></div></div></div><p>A Lookup table (Lookup) defines the specific conditions,
 >>>>>>> Rebuild
           type, and results of a substitution or positioning action
           that is used to implement a feature. For example, a
@@ -412,9 +488,13 @@
           number of SubTables. The SubTable array specifies offsets,
           measured from the beginning of the Lookup table, to each
 <<<<<<< HEAD
+<<<<<<< HEAD
           SubTable enumerated in the SubTable array.</p><div class="table"><a name="idm6797"></a><p class="title"><strong>Table 21.10. Lookup table</strong></p><div class="table-contents"><table class="table" summary="Lookup table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupType</td><td>Different enumerations for
 =======
           SubTable enumerated in the SubTable array.</p><div class="table"><a name="idm189295782336"></a><p class="title"><strong>Table 21.10. Lookup table</strong></p><div class="table-contents"><table class="table" summary="Lookup table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupType</td><td>Different enumerations for
+>>>>>>> Rebuild
+=======
+          SubTable enumerated in the SubTable array.</p><div class="table"><a name="idm62728366928"></a><p class="title"><strong>Table 21.10. Lookup table</strong></p><div class="table-contents"><table class="table" summary="Lookup table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupType</td><td>Different enumerations for
 >>>>>>> Rebuild
               <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
               <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>
@@ -429,9 +509,13 @@
               </p></li><li class="listitem"><p>The high byte is set to specify the type of mark
                 attachment.</p></li></ul></div><p>
 <<<<<<< HEAD
+<<<<<<< HEAD
       </p><div class="table"><a name="idm6830"></a><p class="title"><strong>Table 21.11. LookupFlag bit enumeration</strong></p><div class="table-contents"><table class="table" summary="LookupFlag bit enumeration" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th></tr></thead><tbody><tr><td>0x0001</td><td>RightToLeft</td><td>
 =======
       </p><div class="table"><a name="idm189295770432"></a><p class="title"><strong>Table 21.11. LookupFlag bit enumeration</strong></p><div class="table-contents"><table class="table" summary="LookupFlag bit enumeration" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th></tr></thead><tbody><tr><td>0x0001</td><td>RightToLeft</td><td>
+>>>>>>> Rebuild
+=======
+      </p><div class="table"><a name="idm62728355184"></a><p class="title"><strong>Table 21.11. LookupFlag bit enumeration</strong></p><div class="table-contents"><table class="table" summary="LookupFlag bit enumeration" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th></tr></thead><tbody><tr><td>0x0001</td><td>RightToLeft</td><td>
 >>>>>>> Rebuild
                 <p>This bit relates only to the correct
                     processing of the cursive attachment lookup type
@@ -514,9 +598,13 @@
 	to determine if a glyph should be skipped cannot look just at
 	the mark attachment class definition, it must also look at the
 <<<<<<< HEAD
+<<<<<<< HEAD
 	glyph class definition.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6894"></a>Coverage Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.11.1"></a>Specification</h4></div></div></div><p>Each subtable (except an Extension LookupType subtable)
 =======
 	glyph class definition.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295741936"></a>Coverage Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.11.1"></a>Specification</h4></div></div></div><p>Each subtable (except an Extension LookupType subtable)
+>>>>>>> Rebuild
+=======
+	glyph class definition.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728326896"></a>Coverage Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.11.1"></a>Specification</h4></div></div></div><p>Each subtable (except an Extension LookupType subtable)
 >>>>>>> Rebuild
           in a lookup references a Coverage table (Coverage), which
           specifies all the glyphs affected by a substitution or
@@ -547,9 +635,13 @@
           and we will assume that the property will always
           hold. Recommendation: make that clear in the
 <<<<<<< HEAD
+<<<<<<< HEAD
           specification.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6914"></a>Coverage Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.12.1"></a>Specification</h4></div></div></div><p>Coverage Format 1 consists of a format code
 =======
           specification.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295729808"></a>Coverage Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.12.1"></a>Specification</h4></div></div></div><p>Coverage Format 1 consists of a format code
+>>>>>>> Rebuild
+=======
+          specification.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728315296"></a>Coverage Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.12.1"></a>Specification</h4></div></div></div><p>Coverage Format 1 consists of a format code
 >>>>>>> Rebuild
           (CoverageFormat) and a count of covered glyphs (GlyphCount),
           followed by an array of glyph indices (GlyphArray). The
@@ -561,6 +653,7 @@
           = GlyphCount -1.</p><p>Example 5 at the end of this chapter shows a Coverage
           table that uses Format 1 to list the GlyphIDs of all
 <<<<<<< HEAD
+<<<<<<< HEAD
           lowercase descender glyphs in a font.</p><div class="table"><a name="idm6920"></a><p class="title"><strong>Table 21.12. CoverageFormat1 table: Individual glyph
           indices</strong></p><div class="table-contents"><table class="table" summary="CoverageFormat1 table: Individual glyph&#10;          indices" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>CoverageFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the
               GlyphArray</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>GlyphArray [GlyphCount]</td><td>Array of GlyphIDs-in numerical
@@ -570,6 +663,12 @@
           indices</strong></p><div class="table-contents"><table class="table" summary="CoverageFormat1 table: Individual glyph&#10;          indices" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>CoverageFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the
               GlyphArray</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>GlyphArray [GlyphCount]</td><td>Array of GlyphIDs-in numerical
               order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295719376"></a>Coverage Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.13.1"></a>Specification</h4></div></div></div><p>Format 2 consists of a format code (CoverageFormat) and
+>>>>>>> Rebuild
+=======
+          lowercase descender glyphs in a font.</p><div class="table"><a name="idm62728312112"></a><p class="title"><strong>Table 21.12. CoverageFormat1 table: Individual glyph
+          indices</strong></p><div class="table-contents"><table class="table" summary="CoverageFormat1 table: Individual glyph&#10;          indices" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>CoverageFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the
+              GlyphArray</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>GlyphArray [GlyphCount]</td><td>Array of GlyphIDs-in numerical
+              order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728305184"></a>Coverage Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.13.1"></a>Specification</h4></div></div></div><p>Format 2 consists of a format code (CoverageFormat) and
 >>>>>>> Rebuild
           a count of glyph index ranges (RangeCount), followed by an
           array of records (RangeRecords). Each RangeRecord consists
@@ -586,6 +685,7 @@
           GlyphID.</p><p>Example 6 at the end of this chapter shows a Coverage
           table that uses Format 2 to identify a range of numeral
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyphs in a font.</p><div class="table"><a name="idm6948"></a><p class="title"><strong>Table 21.13. CoverageFormat2 table: Range of glyphs</strong></p><div class="table-contents"><table class="table" summary="CoverageFormat2 table: Range of glyphs" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>CoverageFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>RangeCount</td><td>Number of RangeRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>RangeRecord [RangeCount]</td><td>Array of glyph ranges-ordered by Start
               GlyphID</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm6969"></a><p class="title"><strong>Table 21.14. RangeRecord</strong></p><div class="table-contents"><table class="table" summary="RangeRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>Start</td><td>First GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>End</td><td>Last GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>StartCoverageIndex</td><td>Coverage Index of first GlyphID in
               range</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6990"></a>Class Definition Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.14.1"></a>Specification</h4></div></div></div><p>In CommonType Layout, index values identify glyphs. For
@@ -593,6 +693,11 @@
           glyphs in a font.</p><div class="table"><a name="idm189295715392"></a><p class="title"><strong>Table 21.13. CoverageFormat2 table: Range of glyphs</strong></p><div class="table-contents"><table class="table" summary="CoverageFormat2 table: Range of glyphs" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>CoverageFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>RangeCount</td><td>Number of RangeRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>RangeRecord [RangeCount]</td><td>Array of glyph ranges-ordered by Start
               GlyphID</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm189296953792"></a><p class="title"><strong>Table 21.14. RangeRecord</strong></p><div class="table-contents"><table class="table" summary="RangeRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>Start</td><td>First GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>End</td><td>Last GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>StartCoverageIndex</td><td>Coverage Index of first GlyphID in
               range</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296946464"></a>Class Definition Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.14.1"></a>Specification</h4></div></div></div><p>In CommonType Layout, index values identify glyphs. For
+>>>>>>> Rebuild
+=======
+          glyphs in a font.</p><div class="table"><a name="idm62728300768"></a><p class="title"><strong>Table 21.13. CoverageFormat2 table: Range of glyphs</strong></p><div class="table-contents"><table class="table" summary="CoverageFormat2 table: Range of glyphs" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>CoverageFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>RangeCount</td><td>Number of RangeRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>RangeRecord [RangeCount]</td><td>Array of glyph ranges-ordered by Start
+              GlyphID</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62728294304"></a><p class="title"><strong>Table 21.14. RangeRecord</strong></p><div class="table-contents"><table class="table" summary="RangeRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>Start</td><td>First GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>End</td><td>Last GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>StartCoverageIndex</td><td>Coverage Index of first GlyphID in
+              range</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62731125104"></a>Class Definition Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.14.1"></a>Specification</h4></div></div></div><p>In CommonType Layout, index values identify glyphs. For
 >>>>>>> Rebuild
           efficiency and ease of representation, a font developer can
           group glyph indices to form glyph classes. Class assignments
@@ -615,9 +720,13 @@
           that assigns a range of consecutive glyph indices to
           different classes, or one that puts groups of consecutive
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph indices into the same class.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7001"></a>Class Definition Table Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.15.1"></a>Specification</h4></div></div></div><p>The first class definition format (ClassDefFormat1)
 =======
           glyph indices into the same class.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189300245952"></a>Class Definition Table Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.15.1"></a>Specification</h4></div></div></div><p>The first class definition format (ClassDefFormat1)
+>>>>>>> Rebuild
+=======
+          glyph indices into the same class.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62731118304"></a>Class Definition Table Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.15.1"></a>Specification</h4></div></div></div><p>The first class definition format (ClassDefFormat1)
 >>>>>>> Rebuild
           specifies a range of consecutive glyph indices and a list of
           corresponding glyph class values. This table is useful for
@@ -634,9 +743,13 @@
           of covered GlyphIDs automatically belongs to Class 0.</p><p>Example 7 at the end of this chapter uses Format 1 to
           assign class values to the lowercase, x-height, ascender,
 <<<<<<< HEAD
+<<<<<<< HEAD
           and descender glyphs in a font.</p><div class="table"><a name="idm7008"></a><p class="title"><strong>Table 21.15. ClassDefFormat1 table: Class array</strong></p><div class="table-contents"><table class="table" summary="ClassDefFormat1 table: Class array" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ClassFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>StartGlyph</td><td>First GlyphID of the ClassValueArray</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Size of the ClassValueArray</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ClassValueArray [GlyphCount]</td><td>Array of Class Values-one per GlyphID</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7033"></a>Class Definition Table Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.16.1"></a>Specification</h4></div></div></div><p>The second class definition format (ClassDefFormat2)
 =======
           and descender glyphs in a font.</p><div class="table"><a name="idm189300241856"></a><p class="title"><strong>Table 21.15. ClassDefFormat1 table: Class array</strong></p><div class="table-contents"><table class="table" summary="ClassDefFormat1 table: Class array" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ClassFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>StartGlyph</td><td>First GlyphID of the ClassValueArray</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Size of the ClassValueArray</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ClassValueArray [GlyphCount]</td><td>Array of Class Values-one per GlyphID</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189300233264"></a>Class Definition Table Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.16.1"></a>Specification</h4></div></div></div><p>The second class definition format (ClassDefFormat2)
+>>>>>>> Rebuild
+=======
+          and descender glyphs in a font.</p><div class="table"><a name="idm62731114288"></a><p class="title"><strong>Table 21.15. ClassDefFormat1 table: Class array</strong></p><div class="table-contents"><table class="table" summary="ClassDefFormat1 table: Class array" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ClassFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>StartGlyph</td><td>First GlyphID of the ClassValueArray</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Size of the ClassValueArray</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ClassValueArray [GlyphCount]</td><td>Array of Class Values-one per GlyphID</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62731105952"></a>Class Definition Table Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.16.1"></a>Specification</h4></div></div></div><p>The second class definition format (ClassDefFormat2)
 >>>>>>> Rebuild
           defines multiple groups of glyph indices that belong to the
           same class. Each group consists of a discrete range of glyph
@@ -651,6 +764,7 @@
           ClassRangeRecord is assumed to belong to Class 0.</p><p>Example 8 at the end of this chapter uses Format 2 to
           assign class values to four types of glyphs in the Arabic
 <<<<<<< HEAD
+<<<<<<< HEAD
           script.</p><div class="table"><a name="idm7041"></a><p class="title"><strong>Table 21.16. ClassDefFormat2 table: Class ranges</strong></p><div class="table-contents"><table class="table" summary="ClassDefFormat2 table: Class ranges" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ClassFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ClassRangeCount</td><td>Number of ClassRangeRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>ClassRangeRecord
               [ClassRangeCount]</td><td>Array of ClassRangeRecords-ordered by Start
               GlyphID</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm7062"></a><p class="title"><strong>Table 21.17. ClassRangeRecord</strong></p><div class="table-contents"><table class="table" summary="ClassRangeRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>Start</td><td>First GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>End</td><td>Last GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>Class</td><td>Applied to all glyphs in the
@@ -660,6 +774,12 @@
               [ClassRangeCount]</td><td>Array of ClassRangeRecords-ordered by Start
               GlyphID</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm189300222208"></a><p class="title"><strong>Table 21.17. ClassRangeRecord</strong></p><div class="table-contents"><table class="table" summary="ClassRangeRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>Start</td><td>First GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>End</td><td>Last GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>Class</td><td>Applied to all glyphs in the
               range</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189300215040"></a>Device Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.17.1"></a>Specification</h4></div></div></div><p>Glyphs in a font are defined in design units specified
+>>>>>>> Rebuild
+=======
+          script.</p><div class="table"><a name="idm62731101664"></a><p class="title"><strong>Table 21.16. ClassDefFormat2 table: Class ranges</strong></p><div class="table-contents"><table class="table" summary="ClassDefFormat2 table: Class ranges" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ClassFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ClassRangeCount</td><td>Number of ClassRangeRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>ClassRangeRecord
+              [ClassRangeCount]</td><td>Array of ClassRangeRecords-ordered by Start
+              GlyphID</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62731095200"></a><p class="title"><strong>Table 21.17. ClassRangeRecord</strong></p><div class="table-contents"><table class="table" summary="ClassRangeRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>Start</td><td>First GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>End</td><td>Last GlyphID in the range</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>Class</td><td>Applied to all glyphs in the
+              range</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62731088192"></a>Device Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.17.1"></a>Specification</h4></div></div></div><p>Glyphs in a font are defined in design units specified
 >>>>>>> Rebuild
           by the font developer. Font scaling increases or decreases a
           glyph's size and rounds it to the nearest whole
@@ -697,6 +817,7 @@
           at the next ppem size, and so on for each ppem size in the
           range.</p><p>Example 9 at the end of this chapter uses a Device table
 <<<<<<< HEAD
+<<<<<<< HEAD
           to define the minimum extent value for a math script.</p><div class="table"><a name="idm7117"></a><p class="title"><strong>Table 21.18. Device table</strong></p><div class="table-contents"><table class="table" summary="Device table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>StartSize</td><td>Smallest size to correct-in
               ppem</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>EndSize</td><td>Largest size to correct-in ppem</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>DeltaFormat</td><td>Format of DeltaValue array data: 1, 2, or
               3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>DeltaValue []</td><td>Array of compressed data</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7142"></a>Common Table Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.18.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes and illustrates
@@ -705,10 +826,16 @@
               ppem</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>EndSize</td><td>Largest size to correct-in ppem</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>DeltaFormat</td><td>Format of DeltaValue array data: 1, 2, or
               3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>DeltaValue []</td><td>Array of compressed data</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189300189056"></a>Common Table Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.18.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes and illustrates
 >>>>>>> Rebuild
+=======
+          to define the minimum extent value for a math script.</p><div class="table"><a name="idm62731071408"></a><p class="title"><strong>Table 21.18. Device table</strong></p><div class="table-contents"><table class="table" summary="Device table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>StartSize</td><td>Smallest size to correct-in
+              ppem</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>EndSize</td><td>Largest size to correct-in ppem</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>DeltaFormat</td><td>Format of DeltaValue array data: 1, 2, or
+              3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>DeltaValue []</td><td>Array of compressed data</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62731063072"></a>Common Table Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.18.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes and illustrates
+>>>>>>> Rebuild
           examples of all the common table formats. All the examples
           reflect unique parameters, but the samples provide a useful
           reference for building tables specific to other
           situations.</p><p>The examples have three columns showing hex data,
+<<<<<<< HEAD
 <<<<<<< HEAD
           source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7148"></a>Example 1: ScriptList Table and ScriptRecords</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.19.1"></a>Specification</h4></div></div></div><p>Example 1 illustrates a ScriptList table and
           ScriptRecord definitions for a Japanese font with multiple
@@ -718,11 +845,18 @@
                   scripts</td></tr><tr><td>0018</td><td>KanaScriptTable</td><td>offset to Script table ScriptRecord[2]</td></tr><tr><td>6C61746E</td><td>"latn"</td><td>ScriptTag, Latin script</td></tr><tr><td>001C</td><td>LatinScriptTable</td><td>offset to Script table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7198"></a>Example 2: Script Table, LangSysRecord, and LangSys Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.20.1"></a>Specification</h4></div></div></div><p>Example 2 illustrates the Script table, LangSysRecord,
 =======
           source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189300185536"></a>Example 1: ScriptList Table and ScriptRecords</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.19.1"></a>Specification</h4></div></div></div><p>Example 1 illustrates a ScriptList table and
+=======
+          source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62731059776"></a>Example 1: ScriptList Table and ScriptRecords</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.19.1"></a>Specification</h4></div></div></div><p>Example 1 illustrates a ScriptList table and
+>>>>>>> Rebuild
           ScriptRecord definitions for a Japanese font with multiple
           scripts: Han Ideographic, Kana, and Latin. Each script has
-          script-specific behavior.</p><div class="table"><a name="idm189300183088"></a><p class="title"><strong>Table 21.19. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ScriptList</td><td> </td></tr><tr><td> </td><td>TheScriptList</td><td>ScriptList table definition</td></tr><tr><td>0003</td><td>3</td><td>ScriptCount. ScriptRecord[0],in alphabetical
+          script-specific behavior.</p><div class="table"><a name="idm62731057472"></a><p class="title"><strong>Table 21.19. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ScriptList</td><td> </td></tr><tr><td> </td><td>TheScriptList</td><td>ScriptList table definition</td></tr><tr><td>0003</td><td>3</td><td>ScriptCount. ScriptRecord[0],in alphabetical
                   order by ScriptTag</td></tr><tr><td>68616E69</td><td>"hani"</td><td>ScriptTag, Han Ideographic script</td></tr><tr><td>0014</td><td>HanIScriptTable</td><td>offset to Script table ScriptRecord[1]</td></tr><tr><td>6B616E61</td><td>"kana"</td><td>ScriptTag, Hiragana and Katakana
+<<<<<<< HEAD
                   scripts</td></tr><tr><td>0018</td><td>KanaScriptTable</td><td>offset to Script table ScriptRecord[2]</td></tr><tr><td>6C61746E</td><td>"latn"</td><td>ScriptTag, Latin script</td></tr><tr><td>001C</td><td>LatinScriptTable</td><td>offset to Script table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294908128"></a>Example 2: Script Table, LangSysRecord, and LangSys Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.20.1"></a>Specification</h4></div></div></div><p>Example 2 illustrates the Script table, LangSysRecord,
+>>>>>>> Rebuild
+=======
+                  scripts</td></tr><tr><td>0018</td><td>KanaScriptTable</td><td>offset to Script table ScriptRecord[2]</td></tr><tr><td>6C61746E</td><td>"latn"</td><td>ScriptTag, Latin script</td></tr><tr><td>001C</td><td>LatinScriptTable</td><td>offset to Script table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62731042384"></a>Example 2: Script Table, LangSysRecord, and LangSys Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.20.1"></a>Specification</h4></div></div></div><p>Example 2 illustrates the Script table, LangSysRecord,
 >>>>>>> Rebuild
           and LangSys table definitions for the Arabic script and the
           Urdu language system. The default LangSys table defines
@@ -748,9 +882,13 @@
           script features. This repetition is necessary because the
           Urdu language system also uses alternative glyphs in the
 <<<<<<< HEAD
+<<<<<<< HEAD
           initial, medial, and final glyph positions in words.</p><div class="table"><a name="idm7205"></a><p class="title"><strong>Table 21.20. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>Script</td><td> </td></tr><tr><td> </td><td>ArabicScriptTable</td><td>Script table definition</td></tr><tr><td>000A</td><td>DefLangSys</td><td>offset to DefaultLangSys table</td></tr><tr><td>0001</td><td>1</td><td>LangSysCount LangSysRecord[0], in alphabetical
 =======
           initial, medial, and final glyph positions in words.</p><div class="table"><a name="idm189294903408"></a><p class="title"><strong>Table 21.20. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>Script</td><td> </td></tr><tr><td> </td><td>ArabicScriptTable</td><td>Script table definition</td></tr><tr><td>000A</td><td>DefLangSys</td><td>offset to DefaultLangSys table</td></tr><tr><td>0001</td><td>1</td><td>LangSysCount LangSysRecord[0], in alphabetical
+>>>>>>> Rebuild
+=======
+          initial, medial, and final glyph positions in words.</p><div class="table"><a name="idm62731037824"></a><p class="title"><strong>Table 21.20. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>Script</td><td> </td></tr><tr><td> </td><td>ArabicScriptTable</td><td>Script table definition</td></tr><tr><td>000A</td><td>DefLangSys</td><td>offset to DefaultLangSys table</td></tr><tr><td>0001</td><td>1</td><td>LangSysCount LangSysRecord[0], in alphabetical
 >>>>>>> Rebuild
                   order by LangSysTag</td></tr><tr><td>55524420</td><td>"URD "</td><td>LangSysTag, Urdu language</td></tr><tr><td>0016</td><td>UrduLangSys</td><td>offset to LangSys table for Urdu</td></tr><tr><td> </td><td>LangSys</td><td> </td></tr><tr><td> </td><td>DefLangSys</td><td>default LangSys table definition</td></tr><tr><td>0000</td><td>NULL</td><td>LookupOrder, reserved, null</td></tr><tr><td>FFFF</td><td>0xFFFF</td><td>ReqFeatureIndex, no required features</td></tr><tr><td>0003</td><td>3</td><td>FeatureCount</td></tr><tr><td>0000</td><td>0</td><td>FeatureIndex[0], in arbitrary order "init"
                   feature (initial glyph)</td></tr><tr><td>0001</td><td>1</td><td>FeatureIndex[1], "fina" feature (final
@@ -760,9 +898,13 @@
                   feature (initial glyph)</td></tr><tr><td>0001</td><td>1</td><td>FeatureIndex[1], "fina" feature (final
                   glyph)</td></tr><tr><td>0002</td><td>2</td><td>FeatureIndex[2], "medi" feature (medial
 <<<<<<< HEAD
+<<<<<<< HEAD
                   glyph)</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7302"></a>Example 3: FeatureList Table and Feature Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.21.1"></a>Specification</h4></div></div></div><p>Example 3 shows the FeatureList and Feature table
 =======
                   glyph)</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294869232"></a>Example 3: FeatureList Table and Feature Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.21.1"></a>Specification</h4></div></div></div><p>Example 3 shows the FeatureList and Feature table
+>>>>>>> Rebuild
+=======
+                  glyph)</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62731004640"></a>Example 3: FeatureList Table and Feature Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.21.1"></a>Specification</h4></div></div></div><p>Example 3 shows the FeatureList and Feature table
 >>>>>>> Rebuild
           definitions for ligatures in the Latin script. The
           FeatureList has three features, all optional and named
@@ -791,9 +933,13 @@
           language-system lookups, and a language-system feature table
           must explicitly list all lookups that apply to the
 <<<<<<< HEAD
+<<<<<<< HEAD
           language.</p><div class="table"><a name="idm7312"></a><p class="title"><strong>Table 21.21. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>FeatureList</td><td> </td></tr><tr><td> </td><td>TheFeatureList</td><td>FeatureList table definition</td></tr><tr><td>0003</td><td>3</td><td>FeatureCount FeatureRecord[0]</td></tr><tr><td>6C696761</td><td>"liga"</td><td>FeatureTag</td></tr><tr><td>0014</td><td>TurkishLigatures</td><td>offset to Feature table, FflFfFlLiga
 =======
           language.</p><div class="table"><a name="idm189294863120"></a><p class="title"><strong>Table 21.21. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>FeatureList</td><td> </td></tr><tr><td> </td><td>TheFeatureList</td><td>FeatureList table definition</td></tr><tr><td>0003</td><td>3</td><td>FeatureCount FeatureRecord[0]</td></tr><tr><td>6C696761</td><td>"liga"</td><td>FeatureTag</td></tr><tr><td>0014</td><td>TurkishLigatures</td><td>offset to Feature table, FflFfFlLiga
+>>>>>>> Rebuild
+=======
+          language.</p><div class="table"><a name="idm62730998176"></a><p class="title"><strong>Table 21.21. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>FeatureList</td><td> </td></tr><tr><td> </td><td>TheFeatureList</td><td>FeatureList table definition</td></tr><tr><td>0003</td><td>3</td><td>FeatureCount FeatureRecord[0]</td></tr><tr><td>6C696761</td><td>"liga"</td><td>FeatureTag</td></tr><tr><td>0014</td><td>TurkishLigatures</td><td>offset to Feature table, FflFfFlLiga
 >>>>>>> Rebuild
                   FeatureRecord[1]</td></tr><tr><td>6C696761</td><td>"liga"</td><td>FeatureTag</td></tr><tr><td>001A</td><td>DefaultLigatures</td><td>offset to Feature table, FfiFiLiga, FflFfFlLiga
                   FeatureRecord[2]</td></tr><tr><td>6C696761</td><td>"liga"</td><td>FeatureTag</td></tr><tr><td>0022</td><td>GermanLigatures</td><td>offset to Feature table, EszetLiga</td></tr><tr><td> </td><td>Feature</td><td> </td></tr><tr><td> </td><td>TurkishLigatures</td><td>Feature table definition</td></tr><tr><td>0000</td><td>NULL</td><td>FeatureParams, reserved, null</td></tr><tr><td>0001</td><td>1</td><td>LookupCount</td></tr><tr><td>0000</td><td>1</td><td>LookupListIndex[1], ffl, fl, ff ligature
@@ -803,9 +949,13 @@
                   ligatures</td></tr><tr><td>0001</td><td>1</td><td>LookupListIndex[1], ffl, fl, ff ligature
                   substitution Lookup</td></tr><tr><td>0002</td><td>2</td><td>LookupListIndex[2], eszet ligature substitution
 <<<<<<< HEAD
+<<<<<<< HEAD
                   Lookup</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7429"></a>Example 4: LookupList Table and Lookup Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.22.1"></a>Specification</h4></div></div></div><p>A continuation of Example 3, Example 4 shows three
 =======
                   Lookup</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294822064"></a>Example 4: LookupList Table and Lookup Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.22.1"></a>Specification</h4></div></div></div><p>A continuation of Example 3, Example 4 shows three
+>>>>>>> Rebuild
+=======
+                  Lookup</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730958208"></a>Example 4: LookupList Table and Lookup Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.22.1"></a>Specification</h4></div></div></div><p>A continuation of Example 3, Example 4 shows three
 >>>>>>> Rebuild
           ligature lookups in the LookupList table. The first
           generates the "ffi" and "fi" ligatures; the second produces
@@ -813,9 +963,13 @@
           the eszet ligature. Each lookup table defines an offset to a
           subtable that contains data for the ligature
 <<<<<<< HEAD
+<<<<<<< HEAD
           substitution.</p><div class="table"><a name="idm7434"></a><p class="title"><strong>Table 21.22. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>LookupList</td><td> </td></tr><tr><td> </td><td>TheLookupList</td><td>LookupList table definition</td></tr><tr><td>0003</td><td>3</td><td>LookupCount</td></tr><tr><td>0008</td><td>FfiFiLookup</td><td>Offset to Lookup[0] table, in design
 =======
           substitution.</p><div class="table"><a name="idm189294819424"></a><p class="title"><strong>Table 21.22. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>LookupList</td><td> </td></tr><tr><td> </td><td>TheLookupList</td><td>LookupList table definition</td></tr><tr><td>0003</td><td>3</td><td>LookupCount</td></tr><tr><td>0008</td><td>FfiFiLookup</td><td>Offset to Lookup[0] table, in design
+>>>>>>> Rebuild
+=======
+          substitution.</p><div class="table"><a name="idm62730955616"></a><p class="title"><strong>Table 21.22. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>LookupList</td><td> </td></tr><tr><td> </td><td>TheLookupList</td><td>LookupList table definition</td></tr><tr><td>0003</td><td>3</td><td>LookupCount</td></tr><tr><td>0008</td><td>FfiFiLookup</td><td>Offset to Lookup[0] table, in design
 >>>>>>> Rebuild
                   order</td></tr><tr><td>0010</td><td>FflFlFfLookup</td><td>offset to Lookup[1] table</td></tr><tr><td>0018</td><td>EszetLookup</td><td>offset to Lookup[2] table</td></tr><tr><td> </td><td>Lookup</td><td> </td></tr><tr><td> </td><td>FfiFiLookup</td><td>Lookup[0] table definition</td></tr><tr><td>0004</td><td>4</td><td>LookupType, ligature subst</td></tr><tr><td>000C</td><td>0x000C</td><td>LookupFlag, IgnoreLigatures,
                   IgnoreMarks</td></tr><tr><td>0001</td><td>1</td><td>SubTableCount</td></tr><tr><td>0018</td><td>FfiFiSubtable</td><td>offset to FfiFi ligature substitution
@@ -823,6 +977,7 @@
                   IgnoreMarks</td></tr><tr><td>0001</td><td>1</td><td>SubTableCount</td></tr><tr><td>0028</td><td>FflFlFfSubtable</td><td>offset to FflFlFf ligature substitution
                   subtable</td></tr><tr><td> </td><td>Lookup</td><td> </td></tr><tr><td> </td><td>EszetLookup</td><td>Lookup[2] table definition</td></tr><tr><td>0004</td><td>4</td><td>LookupType- ligature subst</td></tr><tr><td>000C</td><td>0x000C</td><td>LookupFlag- IgnoreLigatures,
                   IgnoreMarks</td></tr><tr><td>0001</td><td>1</td><td>SubTableCount</td></tr><tr><td>0038</td><td>EszetSubtable</td><td>offset to Eszet ligature substitution
+<<<<<<< HEAD
 <<<<<<< HEAD
                   subtable</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7539"></a>Example 5: CoverageFormat1 Table (GlyphID List)</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.23.1"></a>Specification</h4></div></div></div><p>Example 5 illustrates a Coverage table that lists the
           GlyphIDs of all lowercase descender glyphs in a font. The
@@ -836,12 +991,20 @@
           because the GlyphIDs for the descender glyphs are not
           consecutively ordered.</p><div class="table"><a name="idm189294780400"></a><p class="title"><strong>Table 21.23. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>DescenderCoverage</td><td>Coverage table definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat lists</td></tr><tr><td>0005</td><td>5</td><td>GlyphCount</td></tr><tr><td>0038</td><td>gGlyphID</td><td>GlyphArray[0], in GlyphID order</td></tr><tr><td>003B</td><td>jGlyphID</td><td>GlyphArray[1]</td></tr><tr><td>0041</td><td>pGlyphID</td><td>GlyphArray[2]</td></tr><tr><td>0042</td><td>qGlyphID</td><td>GlyphArray[3]</td></tr><tr><td>004A</td><td>yGlyphID</td><td>GlyphArray[4]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294764816"></a>Example 6: CoverageFormat2 Table (GlyphID Ranges)</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.24.1"></a>Specification</h4></div></div></div><p>Example 6 shows a Coverage table that defines ten
 >>>>>>> Rebuild
+=======
+                  subtable</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730920080"></a>Example 5: CoverageFormat1 Table (GlyphID List)</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.23.1"></a>Specification</h4></div></div></div><p>Example 5 illustrates a Coverage table that lists the
+          GlyphIDs of all lowercase descender glyphs in a font. The
+          table uses the list format instead of the range format
+          because the GlyphIDs for the descender glyphs are not
+          consecutively ordered.</p><div class="table"><a name="idm62730917616"></a><p class="title"><strong>Table 21.23. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>DescenderCoverage</td><td>Coverage table definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat lists</td></tr><tr><td>0005</td><td>5</td><td>GlyphCount</td></tr><tr><td>0038</td><td>gGlyphID</td><td>GlyphArray[0], in GlyphID order</td></tr><tr><td>003B</td><td>jGlyphID</td><td>GlyphArray[1]</td></tr><tr><td>0041</td><td>pGlyphID</td><td>GlyphArray[2]</td></tr><tr><td>0042</td><td>qGlyphID</td><td>GlyphArray[3]</td></tr><tr><td>004A</td><td>yGlyphID</td><td>GlyphArray[4]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730902544"></a>Example 6: CoverageFormat2 Table (GlyphID Ranges)</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.24.1"></a>Specification</h4></div></div></div><p>Example 6 shows a Coverage table that defines ten
+>>>>>>> Rebuild
           numeral glyphs (0 through 9). The table uses the range
           format instead of the list format because the GlyphIDs are
           ordered consecutively in the font. The StartCoverageIndex of
           zero (0) indicates that the first GlyphID, for the zero
           glyph, returns a Coverage Index of 0. The second GlyphID,
           for the numeral one (1) glyph, returns a Coverage Index of
+<<<<<<< HEAD
 <<<<<<< HEAD
           1, and so on.</p><div class="table"><a name="idm7594"></a><p class="title"><strong>Table 21.24. Example 6</strong></p><div class="table-contents"><table class="table" summary="Example 6" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>CoverageFormat2</td><td> </td></tr><tr><td> </td><td>NumeralCoverage</td><td>Coverage table definition</td></tr><tr><td>0002</td><td>2</td><td>CoverageFormat, GlyphID ranges</td></tr><tr><td>0001</td><td>1</td><td>RangeCount RangeRecord[0]</td></tr><tr><td>004E</td><td>0glyphID</td><td>Start GlyphID</td></tr><tr><td>0057</td><td>9glyphID</td><td>End GlyphID</td></tr><tr><td>0000</td><td>0</td><td>StartCoverageIndex, first CoverageIndex =
                   0</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7631"></a>Example 7: ClassDefFormat1 Table (Class Array)</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.25.1"></a>Specification</h4></div></div></div><p>The ClassDef table in Example 7 assigns class values to
@@ -856,6 +1019,14 @@
           Class 0, the ascender glyphs are in Class 1, and the
           descender glyphs are in Class 2. The array begins with the
           index for the lowercase "a" glyph.</p><div class="table"><a name="idm189294746864"></a><p class="title"><strong>Table 21.25. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ClassDefFormat1</td><td> </td></tr><tr><td> </td><td>LowercaseClassDef</td><td>ClassDef table definition</td></tr><tr><td>0001</td><td>1</td><td>ClassFormat</td></tr><tr><td>0032</td><td>aGlyphID</td><td>StartGlyph</td></tr><tr><td>001A</td><td>26</td><td>GlyphCount</td></tr><tr><td>0000</td><td>0</td><td>aGlyph, Xheight Class 0</td></tr><tr><td>0001</td><td>1</td><td>bGlyph, Ascender Class 1</td></tr><tr><td>0000</td><td>0</td><td>cGlyph, Xheight Class 0</td></tr><tr><td>0001</td><td>1</td><td>dGlyph, Ascender Class 1</td></tr><tr><td>0000</td><td>0</td><td>eGlyph, Xheight Class 0</td></tr><tr><td>0001</td><td>1</td><td>fGlyph, Ascender Class 1</td></tr><tr><td>0002</td><td>2</td><td>gGlyph, Descender Class 2</td></tr><tr><td>0001</td><td>1</td><td>hGlyph, Ascender Class 1</td></tr><tr><td>0000</td><td>0</td><td>iGlyph, Ascender Class 1</td></tr><tr><td>0002</td><td>2</td><td>jGlyph, Descender Class 2</td></tr><tr><td>0001</td><td>1</td><td>kGlyph, Ascender Class 1</td></tr><tr><td>0001</td><td>1</td><td>lGlyph, Ascender Class 1</td></tr><tr><td>0000</td><td>0</td><td>mGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>nGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>oGlyph, Xheight Class 0</td></tr><tr><td>0002</td><td>2</td><td>pGlyph, Descender Class 2</td></tr><tr><td>0002</td><td>2</td><td>qGlyph, Descender Class 2</td></tr><tr><td>0000</td><td>0</td><td>rGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>sGlyph, Xheight Class 0</td></tr><tr><td>0001</td><td>1</td><td>tGlyph, Ascender Class 1</td></tr><tr><td>0000</td><td>0</td><td>uGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>vGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>wGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>xGlyph, Xheight Class 0</td></tr><tr><td>0002</td><td>2</td><td>yGlyph, Descender Class 2</td></tr><tr><td>0000</td><td>0</td><td>zGlyph, Xheight Class 0</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294699280"></a>Example 8: ClassDefFormat2 Table (Class Ranges)</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.26.1"></a>Specification</h4></div></div></div><p>In Example 8, the ClassDef table assigns class values to
+>>>>>>> Rebuild
+=======
+          1, and so on.</p><div class="table"><a name="idm62730899856"></a><p class="title"><strong>Table 21.24. Example 6</strong></p><div class="table-contents"><table class="table" summary="Example 6" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>CoverageFormat2</td><td> </td></tr><tr><td> </td><td>NumeralCoverage</td><td>Coverage table definition</td></tr><tr><td>0002</td><td>2</td><td>CoverageFormat, GlyphID ranges</td></tr><tr><td>0001</td><td>1</td><td>RangeCount RangeRecord[0]</td></tr><tr><td>004E</td><td>0glyphID</td><td>Start GlyphID</td></tr><tr><td>0057</td><td>9glyphID</td><td>End GlyphID</td></tr><tr><td>0000</td><td>0</td><td>StartCoverageIndex, first CoverageIndex =
+                  0</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730887536"></a>Example 7: ClassDefFormat1 Table (Class Array)</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.25.1"></a>Specification</h4></div></div></div><p>The ClassDef table in Example 7 assigns class values to
+          the lowercase glyphs in a font. The x-height glyphs are in
+          Class 0, the ascender glyphs are in Class 1, and the
+          descender glyphs are in Class 2. The array begins with the
+          index for the lowercase "a" glyph.</p><div class="table"><a name="idm62730885056"></a><p class="title"><strong>Table 21.25. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ClassDefFormat1</td><td> </td></tr><tr><td> </td><td>LowercaseClassDef</td><td>ClassDef table definition</td></tr><tr><td>0001</td><td>1</td><td>ClassFormat</td></tr><tr><td>0032</td><td>aGlyphID</td><td>StartGlyph</td></tr><tr><td>001A</td><td>26</td><td>GlyphCount</td></tr><tr><td>0000</td><td>0</td><td>aGlyph, Xheight Class 0</td></tr><tr><td>0001</td><td>1</td><td>bGlyph, Ascender Class 1</td></tr><tr><td>0000</td><td>0</td><td>cGlyph, Xheight Class 0</td></tr><tr><td>0001</td><td>1</td><td>dGlyph, Ascender Class 1</td></tr><tr><td>0000</td><td>0</td><td>eGlyph, Xheight Class 0</td></tr><tr><td>0001</td><td>1</td><td>fGlyph, Ascender Class 1</td></tr><tr><td>0002</td><td>2</td><td>gGlyph, Descender Class 2</td></tr><tr><td>0001</td><td>1</td><td>hGlyph, Ascender Class 1</td></tr><tr><td>0000</td><td>0</td><td>iGlyph, Ascender Class 1</td></tr><tr><td>0002</td><td>2</td><td>jGlyph, Descender Class 2</td></tr><tr><td>0001</td><td>1</td><td>kGlyph, Ascender Class 1</td></tr><tr><td>0001</td><td>1</td><td>lGlyph, Ascender Class 1</td></tr><tr><td>0000</td><td>0</td><td>mGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>nGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>oGlyph, Xheight Class 0</td></tr><tr><td>0002</td><td>2</td><td>pGlyph, Descender Class 2</td></tr><tr><td>0002</td><td>2</td><td>qGlyph, Descender Class 2</td></tr><tr><td>0000</td><td>0</td><td>rGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>sGlyph, Xheight Class 0</td></tr><tr><td>0001</td><td>1</td><td>tGlyph, Ascender Class 1</td></tr><tr><td>0000</td><td>0</td><td>uGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>vGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>wGlyph, Xheight Class 0</td></tr><tr><td>0000</td><td>0</td><td>xGlyph, Xheight Class 0</td></tr><tr><td>0002</td><td>2</td><td>yGlyph, Descender Class 2</td></tr><tr><td>0000</td><td>0</td><td>zGlyph, Xheight Class 0</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730838416"></a>Example 8: ClassDefFormat2 Table (Class Ranges)</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.26.1"></a>Specification</h4></div></div></div><p>In Example 8, the ClassDef table assigns class values to
 >>>>>>> Rebuild
           four types of glyphs in the Arabic script: medium-height
           base glyphs, high base glyphs, very high base glyphs, and
@@ -872,6 +1043,7 @@
           value is 1. Class 0 consists of all the medium-height base
           glyphs, which are not explicitly assigned a class
 <<<<<<< HEAD
+<<<<<<< HEAD
           value.</p><div class="table"><a name="idm7775"></a><p class="title"><strong>Table 21.26. Example 8</strong></p><div class="table-contents"><table class="table" summary="Example 8" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ClassDefFormat2</td><td> </td></tr><tr><td> </td><td>GlyphHeightClassDef</td><td>Class table definition</td></tr><tr><td>0002</td><td>2</td><td>Class Format ranges</td></tr><tr><td>0003</td><td>3</td><td>ClassRangeCount ClassRange[0], ordered by
                   StartGlyphID</td></tr><tr><td>0030</td><td>tahGlyphID</td><td>Start first GlyphID in the range</td></tr><tr><td>0031</td><td>dhahGlyphID</td><td>End Last GlyphID in the range</td></tr><tr><td>0002</td><td>2</td><td>Class, high base glyphs, ClassRange[1]</td></tr><tr><td>0040</td><td>cafGlyphID</td><td>Start, first GlyphID in the range</td></tr><tr><td>0041</td><td> gafGlyphID</td><td>End, Last GlyphID in the range</td></tr><tr><td>0003</td><td>3</td><td>Class, very high base glyphs,
                   ClassRange[2]</td></tr><tr><td>00D2</td><td>fathatanDefaultGlyphID</td><td>Start, first GlyphID in the range</td></tr><tr><td>00D3</td><td>dammatanDefaultGlyphID</td><td>End, Last GlyphID in the range</td></tr><tr><td>0001</td><td>1</td><td>Class default marks</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7836"></a>Example 9: Device Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.27.1"></a>Specification</h4></div></div></div><p>Example 9 defines the minimum extent value for a math
@@ -880,14 +1052,23 @@
                   StartGlyphID</td></tr><tr><td>0030</td><td>tahGlyphID</td><td>Start first GlyphID in the range</td></tr><tr><td>0031</td><td>dhahGlyphID</td><td>End Last GlyphID in the range</td></tr><tr><td>0002</td><td>2</td><td>Class, high base glyphs, ClassRange[1]</td></tr><tr><td>0040</td><td>cafGlyphID</td><td>Start, first GlyphID in the range</td></tr><tr><td>0041</td><td> gafGlyphID</td><td>End, Last GlyphID in the range</td></tr><tr><td>0003</td><td>3</td><td>Class, very high base glyphs,
                   ClassRange[2]</td></tr><tr><td>00D2</td><td>fathatanDefaultGlyphID</td><td>Start, first GlyphID in the range</td></tr><tr><td>00D3</td><td>dammatanDefaultGlyphID</td><td>End, Last GlyphID in the range</td></tr><tr><td>0001</td><td>1</td><td>Class default marks</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294673936"></a>Example 9: Device Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.27.1"></a>Specification</h4></div></div></div><p>Example 9 defines the minimum extent value for a math
 >>>>>>> Rebuild
+=======
+          value.</p><div class="table"><a name="idm62730834752"></a><p class="title"><strong>Table 21.26. Example 8</strong></p><div class="table-contents"><table class="table" summary="Example 8" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ClassDefFormat2</td><td> </td></tr><tr><td> </td><td>GlyphHeightClassDef</td><td>Class table definition</td></tr><tr><td>0002</td><td>2</td><td>Class Format ranges</td></tr><tr><td>0003</td><td>3</td><td>ClassRangeCount ClassRange[0], ordered by
+                  StartGlyphID</td></tr><tr><td>0030</td><td>tahGlyphID</td><td>Start first GlyphID in the range</td></tr><tr><td>0031</td><td>dhahGlyphID</td><td>End Last GlyphID in the range</td></tr><tr><td>0002</td><td>2</td><td>Class, high base glyphs, ClassRange[1]</td></tr><tr><td>0040</td><td>cafGlyphID</td><td>Start, first GlyphID in the range</td></tr><tr><td>0041</td><td> gafGlyphID</td><td>End, Last GlyphID in the range</td></tr><tr><td>0003</td><td>3</td><td>Class, very high base glyphs,
+                  ClassRange[2]</td></tr><tr><td>00D2</td><td>fathatanDefaultGlyphID</td><td>Start, first GlyphID in the range</td></tr><tr><td>00D3</td><td>dammatanDefaultGlyphID</td><td>End, Last GlyphID in the range</td></tr><tr><td>0001</td><td>1</td><td>Class default marks</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730813616"></a>Example 9: Device Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.22.27.1"></a>Specification</h4></div></div></div><p>Example 9 defines the minimum extent value for a math
+>>>>>>> Rebuild
           script, using a Device table to adjust the value according
           to the size of the output font. Here, the Device table
           defines single-pixel adjustments for font sizes from 11 ppem
           to 15 ppem. The DeltaFormat is 1, which signifies a packed
           array of signed 2-bit values, eight values per
 <<<<<<< HEAD
+<<<<<<< HEAD
           uint16.</p><div class="table"><a name="idm7841"></a><p class="title"><strong>Table 21.27. Example 9</strong></p><div class="table-contents"><table class="table" summary="Example 9" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>DeviceTableFormat1</td><td> </td></tr><tr><td> </td><td>MinCoordDeviceTable</td><td>Device Table definition</td></tr><tr><td>000B</td><td>11</td><td>StartSize, 11 ppem</td></tr><tr><td>000F</td><td>15</td><td>EndSize, 15 ppem</td></tr><tr><td>0001</td><td>1</td><td>DeltaFormat signed 2 bit value, 8 values per
 =======
           uint16.</p><div class="table"><a name="idm189294671312"></a><p class="title"><strong>Table 21.27. Example 9</strong></p><div class="table-contents"><table class="table" summary="Example 9" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>DeviceTableFormat1</td><td> </td></tr><tr><td> </td><td>MinCoordDeviceTable</td><td>Device Table definition</td></tr><tr><td>000B</td><td>11</td><td>StartSize, 11 ppem</td></tr><tr><td>000F</td><td>15</td><td>EndSize, 15 ppem</td></tr><tr><td>0001</td><td>1</td><td>DeltaFormat signed 2 bit value, 8 values per
+>>>>>>> Rebuild
+=======
+          uint16.</p><div class="table"><a name="idm62730810992"></a><p class="title"><strong>Table 21.27. Example 9</strong></p><div class="table-contents"><table class="table" summary="Example 9" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>DeviceTableFormat1</td><td> </td></tr><tr><td> </td><td>MinCoordDeviceTable</td><td>Device Table definition</td></tr><tr><td>000B</td><td>11</td><td>StartSize, 11 ppem</td></tr><tr><td>000F</td><td>15</td><td>EndSize, 15 ppem</td></tr><tr><td>0001</td><td>1</td><td>DeltaFormat signed 2 bit value, 8 values per
 >>>>>>> Rebuild
                   uint16</td></tr><tr><td> </td><td>1</td><td>increase 11ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 12ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 13ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 14ppem by 1 pixel</td></tr><tr><td>5540</td><td>1</td><td>increase 15ppem by 1 pixel </td></tr></tbody></table></div></div><br class="table-break"/></div></div></div>

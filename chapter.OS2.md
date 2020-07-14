@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.OS2"></a>Chapter 11. OS/2 - OS/2 and Windows Metrics</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm3335"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.12.1.1"></a>Specification</h4></div></div></div><p>The OS/2 table consists of a set of metrics that are
           required in CommonType fonts. The fourth version of the OS/2
           table (version 3) follows:</p><div class="table"><a name="idm3340"></a><p class="title"><strong>Table 11.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>0x0003</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>xAvgCharWidth</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWeightClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWidthClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsType</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutPosition</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sFamilyClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>panose[10]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange3</td><td>Bits 64-95</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange4</td><td>Bits 96-127</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>achVendID[4]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsSelection</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usFirstCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usLastCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoAscender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoDescender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoLineGap</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinAscent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinDescent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sxHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sCapHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usDefaultChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usBreakChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usMaxContext</td><td> </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm3496"></a>version</h5><p>Format: 2-byte unsigned short</p><p>Units: n/a</p><p>Title: OS/2 table version number.</p><p>Description: The version number for this OS/2
@@ -7,14 +8,23 @@
           required in CommonType fonts. The fourth version of the OS/2
           table (version 3) follows:</p><div class="table"><a name="idm189297379584"></a><p class="title"><strong>Table 11.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>0x0003</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>xAvgCharWidth</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWeightClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWidthClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsType</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutPosition</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sFamilyClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>panose[10]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange3</td><td>Bits 64-95</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange4</td><td>Bits 96-127</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>achVendID[4]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsSelection</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usFirstCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usLastCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoAscender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoDescender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoLineGap</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinAscent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinDescent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sxHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sCapHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usDefaultChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usBreakChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usMaxContext</td><td> </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm189297327824"></a>version</h5><p>Format: 2-byte unsigned short</p><p>Units: n/a</p><p>Title: OS/2 table version number.</p><p>Description: The version number for this OS/2
 >>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.OS2"></a>Chapter 11. OS/2 - OS/2 and Windows Metrics</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729851824"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.12.1.1"></a>Specification</h4></div></div></div><p>The OS/2 table consists of a set of metrics that are
+          required in CommonType fonts. The fourth version of the OS/2
+          table (version 3) follows:</p><div class="table"><a name="idm62729849552"></a><p class="title"><strong>Table 11.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>0x0003</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>xAvgCharWidth</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWeightClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWidthClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsType</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutPosition</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sFamilyClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>panose[10]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange3</td><td>Bits 64-95</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange4</td><td>Bits 96-127</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>achVendID[4]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsSelection</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usFirstCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usLastCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoAscender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoDescender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoLineGap</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinAscent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinDescent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sxHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sCapHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usDefaultChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usBreakChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usMaxContext</td><td> </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm62729797792"></a>version</h5><p>Format: 2-byte unsigned short</p><p>Units: n/a</p><p>Title: OS/2 table version number.</p><p>Description: The version number for this OS/2
+>>>>>>> Rebuild
           table.</p><p>Comments: The version number allows for identification
           of the precise contents and layout for the OS/2 table. The
           version number for this layout is three (3). Versions zero
           (0, TrueType rev 1.5), one (1, TrueType rev 1.66) and two
 <<<<<<< HEAD
+<<<<<<< HEAD
           (2, CommonType rev 1.2) have been used previously.</p><h5><a name="idm3502"></a>xAvgCharWidth</h5><p>Format: 2-byte signed short</p><p>Units: Pels / em units</p><p>Title: Average weighted escapement.</p><p>Description: The Average Character Width parameter
 =======
           (2, CommonType rev 1.2) have been used previously.</p><h5><a name="idm189297325008"></a>xAvgCharWidth</h5><p>Format: 2-byte signed short</p><p>Units: Pels / em units</p><p>Title: Average weighted escapement.</p><p>Description: The Average Character Width parameter
+>>>>>>> Rebuild
+=======
+          (2, CommonType rev 1.2) have been used previously.</p><h5><a name="idm62729794976"></a>xAvgCharWidth</h5><p>Format: 2-byte signed short</p><p>Units: Pels / em units</p><p>Title: Average weighted escapement.</p><p>Description: The Average Character Width parameter
 >>>>>>> Rebuild
           specifies the arithmetic average of the escapement (width)
           of all non-zero width glyphs in the font.</p><p>Comments: The value of xAvgCharWidth is calculated by
@@ -23,6 +33,7 @@
 	  strongly recommended that implementers do not rely on this
 	  value for computing layout for lines of text. Especially,
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  for cases where complex scripts are used.</p><h5><a name="idm3508"></a>usWeightClass</h5><p>Format: 2-byte unsigned short</p><p>Title: Weight class. </p><p>Description: Indicates the visual weight (degree of
           blackness or thickness of strokes) of the characters in the
           font. </p><p>Comments:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition (from windows.h)</th></tr></thead><tbody><tr><td>100</td><td>Thin</td><td>FW_THIN</td></tr><tr><td>200</td><td>Extra-light (Ultra-light)</td><td>FW_EXTRALIGHT</td></tr><tr><td>300</td><td>Light</td><td>FW_LIGHT</td></tr><tr><td>400</td><td>Normal (Regular)</td><td>FW_NORMAL</td></tr><tr><td>500</td><td>Medium</td><td>FW_MEDIUM</td></tr><tr><td>600</td><td>Semi-bold (Demi-bold)</td><td>FW_SEMIBOLD</td></tr><tr><td>700</td><td>Bold</td><td>FW_BOLD</td></tr><tr><td>800</td><td>Extra-bold (Ultra-bold)</td><td>FW_EXTRABOLD</td></tr><tr><td>900</td><td>Black (Heavy)</td><td>FW_BLACK</td></tr></tbody></table></div><h5><a name="idm3557"></a>usWidthClass </h5><p>Format: 2-byte unsigned short</p><p>Title: Width class. </p><p>Description: Indicates a relative change from the normal
@@ -30,6 +41,11 @@
 	  for cases where complex scripts are used.</p><h5><a name="idm189297322064"></a>usWeightClass</h5><p>Format: 2-byte unsigned short</p><p>Title: Weight class. </p><p>Description: Indicates the visual weight (degree of
           blackness or thickness of strokes) of the characters in the
           font. </p><p>Comments:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition (from windows.h)</th></tr></thead><tbody><tr><td>100</td><td>Thin</td><td>FW_THIN</td></tr><tr><td>200</td><td>Extra-light (Ultra-light)</td><td>FW_EXTRALIGHT</td></tr><tr><td>300</td><td>Light</td><td>FW_LIGHT</td></tr><tr><td>400</td><td>Normal (Regular)</td><td>FW_NORMAL</td></tr><tr><td>500</td><td>Medium</td><td>FW_MEDIUM</td></tr><tr><td>600</td><td>Semi-bold (Demi-bold)</td><td>FW_SEMIBOLD</td></tr><tr><td>700</td><td>Bold</td><td>FW_BOLD</td></tr><tr><td>800</td><td>Extra-bold (Ultra-bold)</td><td>FW_EXTRABOLD</td></tr><tr><td>900</td><td>Black (Heavy)</td><td>FW_BLACK</td></tr></tbody></table></div><h5><a name="idm189297302336"></a>usWidthClass </h5><p>Format: 2-byte unsigned short</p><p>Title: Width class. </p><p>Description: Indicates a relative change from the normal
+>>>>>>> Rebuild
+=======
+	  for cases where complex scripts are used.</p><h5><a name="idm62729792032"></a>usWeightClass</h5><p>Format: 2-byte unsigned short</p><p>Title: Weight class. </p><p>Description: Indicates the visual weight (degree of
+          blackness or thickness of strokes) of the characters in the
+          font. </p><p>Comments:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition (from windows.h)</th></tr></thead><tbody><tr><td>100</td><td>Thin</td><td>FW_THIN</td></tr><tr><td>200</td><td>Extra-light (Ultra-light)</td><td>FW_EXTRALIGHT</td></tr><tr><td>300</td><td>Light</td><td>FW_LIGHT</td></tr><tr><td>400</td><td>Normal (Regular)</td><td>FW_NORMAL</td></tr><tr><td>500</td><td>Medium</td><td>FW_MEDIUM</td></tr><tr><td>600</td><td>Semi-bold (Demi-bold)</td><td>FW_SEMIBOLD</td></tr><tr><td>700</td><td>Bold</td><td>FW_BOLD</td></tr><tr><td>800</td><td>Extra-bold (Ultra-bold)</td><td>FW_EXTRABOLD</td></tr><tr><td>900</td><td>Black (Heavy)</td><td>FW_BLACK</td></tr></tbody></table></div><h5><a name="idm62729772304"></a>usWidthClass </h5><p>Format: 2-byte unsigned short</p><p>Title: Width class. </p><p>Description: Indicates a relative change from the normal
 >>>>>>> Rebuild
           aspect ratio (width to height ratio) as specified by a font
           designer for the glyphs in a font. </p><p>Comments:  Although every character in a font may have a
@@ -41,9 +57,13 @@
           percentage greater or less than those same characters in the
           normal font -- it is this difference that this parameter
 <<<<<<< HEAD
+<<<<<<< HEAD
           specifies. </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition</th><th>% of normal</th></tr></thead><tbody><tr><td>1</td><td>Ultra-condensed</td><td>FWIDTH_ULTRA_CONDENSED</td><td>50</td></tr><tr><td>2</td><td>Extra-condensed</td><td>FWIDTH_EXTRA_CONDENSED</td><td>62.5</td></tr><tr><td>3</td><td>Condensed</td><td>FWIDTH_CONDENSED</td><td>75</td></tr><tr><td>4</td><td>Semi-condensed</td><td>FWIDTH_SEMI_CONDENSED</td><td>87.5</td></tr><tr><td>5</td><td>Medium (normal)</td><td>FWIDTH_NORMAL</td><td>100</td></tr><tr><td>6</td><td>Semi-expanded</td><td>FWIDTH_SEMI_EXPANDED</td><td>112.5</td></tr><tr><td>7</td><td>Expanded</td><td>FWIDTH_EXPANDED</td><td>125</td></tr><tr><td>8</td><td>Extra-expanded</td><td>FWIDTH_EXTRA_EXPANDED</td><td>150</td></tr><tr><td>9</td><td>Ultra-expanded</td><td>FWIDTH_ULTRA_EXPANDED</td><td>200</td></tr></tbody></table></div><h5><a name="idm3616"></a>fsType</h5><p>Format: 2-byte unsigned short</p><p>Title: Type flags. </p><p>Description: Indicates font embedding licensing rights
 =======
           specifies. </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition</th><th>% of normal</th></tr></thead><tbody><tr><td>1</td><td>Ultra-condensed</td><td>FWIDTH_ULTRA_CONDENSED</td><td>50</td></tr><tr><td>2</td><td>Extra-condensed</td><td>FWIDTH_EXTRA_CONDENSED</td><td>62.5</td></tr><tr><td>3</td><td>Condensed</td><td>FWIDTH_CONDENSED</td><td>75</td></tr><tr><td>4</td><td>Semi-condensed</td><td>FWIDTH_SEMI_CONDENSED</td><td>87.5</td></tr><tr><td>5</td><td>Medium (normal)</td><td>FWIDTH_NORMAL</td><td>100</td></tr><tr><td>6</td><td>Semi-expanded</td><td>FWIDTH_SEMI_EXPANDED</td><td>112.5</td></tr><tr><td>7</td><td>Expanded</td><td>FWIDTH_EXPANDED</td><td>125</td></tr><tr><td>8</td><td>Extra-expanded</td><td>FWIDTH_EXTRA_EXPANDED</td><td>150</td></tr><tr><td>9</td><td>Ultra-expanded</td><td>FWIDTH_ULTRA_EXPANDED</td><td>200</td></tr></tbody></table></div><h5><a name="idm189297278128"></a>fsType</h5><p>Format: 2-byte unsigned short</p><p>Title: Type flags. </p><p>Description: Indicates font embedding licensing rights
+>>>>>>> Rebuild
+=======
+          specifies. </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition</th><th>% of normal</th></tr></thead><tbody><tr><td>1</td><td>Ultra-condensed</td><td>FWIDTH_ULTRA_CONDENSED</td><td>50</td></tr><tr><td>2</td><td>Extra-condensed</td><td>FWIDTH_EXTRA_CONDENSED</td><td>62.5</td></tr><tr><td>3</td><td>Condensed</td><td>FWIDTH_CONDENSED</td><td>75</td></tr><tr><td>4</td><td>Semi-condensed</td><td>FWIDTH_SEMI_CONDENSED</td><td>87.5</td></tr><tr><td>5</td><td>Medium (normal)</td><td>FWIDTH_NORMAL</td><td>100</td></tr><tr><td>6</td><td>Semi-expanded</td><td>FWIDTH_SEMI_EXPANDED</td><td>112.5</td></tr><tr><td>7</td><td>Expanded</td><td>FWIDTH_EXPANDED</td><td>125</td></tr><tr><td>8</td><td>Extra-expanded</td><td>FWIDTH_EXTRA_EXPANDED</td><td>150</td></tr><tr><td>9</td><td>Ultra-expanded</td><td>FWIDTH_ULTRA_EXPANDED</td><td>200</td></tr></tbody></table></div><h5><a name="idm62729748064"></a>fsType</h5><p>Format: 2-byte unsigned short</p><p>Title: Type flags. </p><p>Description: Indicates font embedding licensing rights
 >>>>>>> Rebuild
           for the font. Embeddable fonts may be stored in a document.
           When a document with embedded fonts is opened on a system
@@ -101,9 +121,13 @@
                   considered unembeddable and the embedding services
                   will fail. Other embedding restrictions specified in
 <<<<<<< HEAD
+<<<<<<< HEAD
                   bits 0-3 and 8 also apply.</td></tr><tr><td>10-15</td><td> </td><td>Reserved, must be zero.</td></tr></tbody></table></div><h5><a name="idm3671"></a>ySubscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript horizontal font size. </p><p>Description: The recommended horizontal size in font
 =======
                   bits 0-3 and 8 also apply.</td></tr><tr><td>10-15</td><td> </td><td>Reserved, must be zero.</td></tr></tbody></table></div><h5><a name="idm189297252320"></a>ySubscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript horizontal font size. </p><p>Description: The recommended horizontal size in font
+>>>>>>> Rebuild
+=======
+                  bits 0-3 and 8 also apply.</td></tr><tr><td>10-15</td><td> </td><td>Reserved, must be zero.</td></tr></tbody></table></div><h5><a name="idm62729722288"></a>ySubscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript horizontal font size. </p><p>Description: The recommended horizontal size in font
 >>>>>>> Rebuild
           design units for subscripts for this font.  </p><p>Comments: If a font has two recommended sizes for
           subscripts, e.g., numerics and other, the numeric sizes
@@ -120,9 +144,13 @@
           ySubScriptXSize is set to 205, then the horizontal size for
           a simulated subscript character would be 1/10th the size of
 <<<<<<< HEAD
+<<<<<<< HEAD
           the normal character.</p><h5><a name="idm3678"></a>ySubscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript vertical font size. </p><p>Description: The recommended vertical size in font
 =======
           the normal character.</p><h5><a name="idm189297248384"></a>ySubscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript vertical font size. </p><p>Description: The recommended vertical size in font
+>>>>>>> Rebuild
+=======
+          the normal character.</p><h5><a name="idm62729718352"></a>ySubscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript vertical font size. </p><p>Description: The recommended vertical size in font
 >>>>>>> Rebuild
           design units for subscripts for this font.  </p><p>Comments: If a font has two recommended sizes for
           subscripts, e.g. numerics and other, the numeric sizes
@@ -139,9 +167,13 @@
           ySubScriptYSize is set to 205, then the vertical size for a
           simulated subscript character would be 1/10th the size of
 <<<<<<< HEAD
+<<<<<<< HEAD
           the normal character.</p><h5><a name="idm3685"></a>ySubscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript x offset.</p><p>Description: The recommended horizontal offset in font
 =======
           the normal character.</p><h5><a name="idm189297244464"></a>ySubscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript x offset.</p><p>Description: The recommended horizontal offset in font
+>>>>>>> Rebuild
+=======
+          the normal character.</p><h5><a name="idm62729698176"></a>ySubscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript x offset.</p><p>Description: The recommended horizontal offset in font
 >>>>>>> Rebuild
           design untis for subscripts for this font. </p><p>Comments: The Subscript X Offset parameter specifies a
           font designer's recommended horizontal offset -- from the
@@ -157,9 +189,13 @@
           have an incline (italic characters) the reference point for
           subscript characters is usually adjusted to compensate for
 <<<<<<< HEAD
+<<<<<<< HEAD
           the angle of incline.</p><h5><a name="idm3691"></a>ySubscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript y offset. </p><p>Description: The recommended vertical offset in font
 =======
           the angle of incline.</p><h5><a name="idm189297241008"></a>ySubscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript y offset. </p><p>Description: The recommended vertical offset in font
+>>>>>>> Rebuild
+=======
+          the angle of incline.</p><h5><a name="idm62729694720"></a>ySubscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript y offset. </p><p>Description: The recommended vertical offset in font
 >>>>>>> Rebuild
           design units from the baseline for subscripts for this font.
         </p><p>Comments: The Subscript Y Offset parameter specifies a
@@ -171,9 +207,13 @@
           application, this parameter specifies the recommended
           vertical distance below the character baseline for those
 <<<<<<< HEAD
+<<<<<<< HEAD
           subscript characters.</p><h5><a name="idm3697"></a>ySuperscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript horizontal font size.</p><p>Description: The recommended horizontal size in font
 =======
           subscript characters.</p><h5><a name="idm189297237872"></a>ySuperscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript horizontal font size.</p><p>Description: The recommended horizontal size in font
+>>>>>>> Rebuild
+=======
+          subscript characters.</p><h5><a name="idm62729691584"></a>ySuperscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript horizontal font size.</p><p>Description: The recommended horizontal size in font
 >>>>>>> Rebuild
           design units for superscripts for this font. </p><p>Comments: If a font has two recommended sizes for
           subscripts, e.g., numerics and other, the numeric sizes
@@ -190,9 +230,13 @@
           ySuperScriptXSize is set to 205, then the horizontal size
           for a simulated superscript character would be 1/10th the
 <<<<<<< HEAD
+<<<<<<< HEAD
           size of the normal character.</p><h5><a name="idm3704"></a>ySuperscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript vertical font size.</p><p>Description: The recommended vertical size in font
 =======
           size of the normal character.</p><h5><a name="idm189297233920"></a>ySuperscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript vertical font size.</p><p>Description: The recommended vertical size in font
+>>>>>>> Rebuild
+=======
+          size of the normal character.</p><h5><a name="idm62729687632"></a>ySuperscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript vertical font size.</p><p>Description: The recommended vertical size in font
 >>>>>>> Rebuild
           design units for superscripts for this font. </p><p>Comments: If a font has two recommended sizes for
           subscripts, e.g., numerics and other, the numeric sizes
@@ -209,9 +253,13 @@
           ySuperScriptYSize is set to 205, then the vertical size for
           a simulated superscript character would be 1/10th the size
 <<<<<<< HEAD
+<<<<<<< HEAD
           of the normal character.</p><h5><a name="idm3711"></a>ySuperscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript x offset.</p><p>Description: The recommended horizontal offset in font
 =======
           of the normal character.</p><h5><a name="idm189297229968"></a>ySuperscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript x offset.</p><p>Description: The recommended horizontal offset in font
+>>>>>>> Rebuild
+=======
+          of the normal character.</p><h5><a name="idm62729683680"></a>ySuperscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript x offset.</p><p>Description: The recommended horizontal offset in font
 >>>>>>> Rebuild
           design units for superscripts for this font. </p><p>Comments: The Superscript X Offset parameter specifies a
           font designer's recommended horizontal offset -- from the
@@ -225,9 +273,13 @@
           the characters of a font have an incline (italic characters)
           the reference point for superscript characters is usually
 <<<<<<< HEAD
+<<<<<<< HEAD
           adjusted to compensate for the angle of incline.</p><h5><a name="idm3717"></a>ySuperscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript y offset.</p><p>Description: The recommended vertical offset in font
 =======
           adjusted to compensate for the angle of incline.</p><h5><a name="idm189297227424"></a>ySuperscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript y offset.</p><p>Description: The recommended vertical offset in font
+>>>>>>> Rebuild
+=======
+          adjusted to compensate for the angle of incline.</p><h5><a name="idm62729681136"></a>ySuperscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript y offset.</p><p>Description: The recommended vertical offset in font
 >>>>>>> Rebuild
           design units from the baseline for superscripts for this
           font. </p><p>Comments: The Superscript Y Offset parameter specifies a
@@ -239,9 +291,13 @@
           characters for an application, this parameter specifies the
           recommended vertical distance above the character baseline
 <<<<<<< HEAD
+<<<<<<< HEAD
           for those superscript characters.</p><h5><a name="idm3723"></a>yStrikeoutSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout size.</p><p>Description: Width of the strikeout stroke in font
 =======
           for those superscript characters.</p><h5><a name="idm189297224240"></a>yStrikeoutSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout size.</p><p>Description: Width of the strikeout stroke in font
+>>>>>>> Rebuild
+=======
+          for those superscript characters.</p><h5><a name="idm62729677952"></a>yStrikeoutSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout size.</p><p>Description: Width of the strikeout stroke in font
 >>>>>>> Rebuild
           design units. </p><p>Comments: This field should normally be the width of the
           em dash for the current font. If the size is one, the
@@ -250,9 +306,13 @@
           be the line represented by the strikeout position and the
           line immediately above the strikeout position. For a Roman
 <<<<<<< HEAD
+<<<<<<< HEAD
           font with a 2048 em square, 102 is suggested.</p><h5><a name="idm3729"></a>yStrikeoutPosition</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout position.</p><p>Description: The position of the top of the strikeout
 =======
           font with a 2048 em square, 102 is suggested.</p><h5><a name="idm189297221296"></a>yStrikeoutPosition</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout position.</p><p>Description: The position of the top of the strikeout
+>>>>>>> Rebuild
+=======
+          font with a 2048 em square, 102 is suggested.</p><h5><a name="idm62729675008"></a>yStrikeoutPosition</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout position.</p><p>Description: The position of the top of the strikeout
 >>>>>>> Rebuild
           stroke relative to the baseline in font design units.
         </p><p>Comments: Positive values represent distances above the
@@ -263,9 +323,13 @@
           interfere with the recognition of standard characters, and
           therefore should not line up with crossbars in the font. For
 <<<<<<< HEAD
+<<<<<<< HEAD
           a Roman font with a 2048 em square, 460 is suggested.</p><h5><a name="idm3735"></a>sFamilyClass</h5><p>Format: 2-byte signed short</p><p>Title: Font-family class and subclass.</p><p>Description: This parameter is a classification of
 =======
           a Roman font with a 2048 em square, 460 is suggested.</p><h5><a name="idm189297218208"></a>sFamilyClass</h5><p>Format: 2-byte signed short</p><p>Title: Font-family class and subclass.</p><p>Description: This parameter is a classification of
+>>>>>>> Rebuild
+=======
+          a Roman font with a 2048 em square, 460 is suggested.</p><h5><a name="idm62729671920"></a>sFamilyClass</h5><p>Format: 2-byte signed short</p><p>Title: Font-family class and subclass.</p><p>Description: This parameter is a classification of
 >>>>>>> Rebuild
           font-family design. </p><p>Comments: The font class and font subclass are
           registered values assigned by IBM to each font family. This
@@ -275,9 +339,13 @@
           The high byte of this field contains the family class, while
           the low byte contains the family subclass. More information
 <<<<<<< HEAD
+<<<<<<< HEAD
           about this field.  </p><h5><a name="idm3740"></a>Panose</h5><p>Format: 10 byte array</p><p>Title: PANOSE classification number</p><p>International: Additional specifications are required
 =======
           about this field.  </p><h5><a name="idm189297215584"></a>Panose</h5><p>Format: 10 byte array</p><p>Title: PANOSE classification number</p><p>International: Additional specifications are required
+>>>>>>> Rebuild
+=======
+          about this field.  </p><h5><a name="idm62729669296"></a>Panose</h5><p>Format: 10 byte array</p><p>Title: PANOSE classification number</p><p>International: Additional specifications are required
 >>>>>>> Rebuild
           for PANOSE to classify non-Latin character sets.</p><p>Description: This 10 byte series of numbers is used to
           describe the visual characteristics of a given typeface.
@@ -295,9 +363,13 @@
           in fonts are very valuable to users of the Windows fonts
           folder. The specification for assigning PANOSE values is
 <<<<<<< HEAD
+<<<<<<< HEAD
           located at <a class="ulink" href="http://www.panose.com/hardware/pan2.asp" target="_top">http://www.panose.com/hardware/pan2.asp</a>.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th></tr></thead><tbody><tr><td>BYTE</td><td>bFamilyType</td></tr><tr><td>BYTE</td><td>bSerifStyle</td></tr><tr><td>BYTE</td><td>bWeight</td></tr><tr><td>BYTE</td><td>bProportion;</td></tr><tr><td>BYTE</td><td>bContrast</td></tr><tr><td>BYTE</td><td>bStrokeVariation</td></tr><tr><td>BYTE</td><td>bArmStyle</td></tr><tr><td>BYTE</td><td>bLetterform</td></tr><tr><td>BYTE</td><td>bMidline</td></tr><tr><td>BYTE</td><td>bXHeight</td></tr></tbody></table></div><h5><a name="idm3784"></a>ulUnicodeRange1 (Bits 0-31)</h5><h5><a name="idm3785"></a>ulUnicodeRange2 (Bits 32-63)</h5><h5><a name="idm3786"></a>ulUnicodeRange3 (Bits 64-95)</h5><h5><a name="idm3787"></a>ulUnicodeRange4 (Bits 96-127)</h5><p>Format: 32-bit unsigned long(4 copies) totaling 128
 =======
           located at <a class="ulink" href="http://www.panose.com/hardware/pan2.asp" target="_top">http://www.panose.com/hardware/pan2.asp</a>.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th></tr></thead><tbody><tr><td>BYTE</td><td>bFamilyType</td></tr><tr><td>BYTE</td><td>bSerifStyle</td></tr><tr><td>BYTE</td><td>bWeight</td></tr><tr><td>BYTE</td><td>bProportion;</td></tr><tr><td>BYTE</td><td>bContrast</td></tr><tr><td>BYTE</td><td>bStrokeVariation</td></tr><tr><td>BYTE</td><td>bArmStyle</td></tr><tr><td>BYTE</td><td>bLetterform</td></tr><tr><td>BYTE</td><td>bMidline</td></tr><tr><td>BYTE</td><td>bXHeight</td></tr></tbody></table></div><h5><a name="idm189297196464"></a>ulUnicodeRange1 (Bits 0-31)</h5><h5><a name="idm189297196048"></a>ulUnicodeRange2 (Bits 32-63)</h5><h5><a name="idm189297195632"></a>ulUnicodeRange3 (Bits 64-95)</h5><h5><a name="idm189297195216"></a>ulUnicodeRange4 (Bits 96-127)</h5><p>Format: 32-bit unsigned long(4 copies) totaling 128
+>>>>>>> Rebuild
+=======
+          located at <a class="ulink" href="http://www.panose.com/hardware/pan2.asp" target="_top">http://www.panose.com/hardware/pan2.asp</a>.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th></tr></thead><tbody><tr><td>BYTE</td><td>bFamilyType</td></tr><tr><td>BYTE</td><td>bSerifStyle</td></tr><tr><td>BYTE</td><td>bWeight</td></tr><tr><td>BYTE</td><td>bProportion;</td></tr><tr><td>BYTE</td><td>bContrast</td></tr><tr><td>BYTE</td><td>bStrokeVariation</td></tr><tr><td>BYTE</td><td>bArmStyle</td></tr><tr><td>BYTE</td><td>bLetterform</td></tr><tr><td>BYTE</td><td>bMidline</td></tr><tr><td>BYTE</td><td>bXHeight</td></tr></tbody></table></div><h5><a name="idm62729650176"></a>ulUnicodeRange1 (Bits 0-31)</h5><h5><a name="idm62729649760"></a>ulUnicodeRange2 (Bits 32-63)</h5><h5><a name="idm62729649344"></a>ulUnicodeRange3 (Bits 64-95)</h5><h5><a name="idm62729648928"></a>ulUnicodeRange4 (Bits 96-127)</h5><p>Format: 32-bit unsigned long(4 copies) totaling 128
 >>>>>>> Rebuild
           bits.</p><p>Title: Unicode Character Range</p><p>Description: This field is used to specify the Unicode
           blocks or ranges encompassed by the font file in the <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a>
@@ -312,6 +384,7 @@
           form. See the Basic Multilingual Plane of ISO/IEC 10646-1 or
           the Unicode Standard v.3.0 for the list of Unicode ranges
 <<<<<<< HEAD
+<<<<<<< HEAD
           and characters.  </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Bit</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Basic Latin</td></tr><tr><td>1</td><td>Latin-1 Supplement</td></tr><tr><td>2</td><td>Latin Extended-A</td></tr><tr><td>3</td><td>Latin Extended-B</td></tr><tr><td>4</td><td>IPA Extensions</td></tr><tr><td>5</td><td>Spacing Modifier Letters</td></tr><tr><td>6</td><td>Combining Diacritical Marks</td></tr><tr><td>7</td><td>Greek and Coptic</td></tr><tr><td>8</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>9</td><td>Cyrillic</td></tr><tr><td> </td><td>Cyrillic Supplementary</td></tr><tr><td>10</td><td>Armenian</td></tr><tr><td>11</td><td>Hebrew</td></tr><tr><td>12</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>13</td><td>Arabic</td></tr><tr><td>14</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>15</td><td>Devanagari</td></tr><tr><td>16</td><td>Bengali</td></tr><tr><td>17</td><td>Gurmukhi</td></tr><tr><td>18</td><td>Gujarati</td></tr><tr><td>19</td><td>Oriya</td></tr><tr><td>20</td><td>Tamil</td></tr><tr><td>21</td><td>Telugu</td></tr><tr><td>22</td><td>Kannada</td></tr><tr><td>23</td><td>Malayalam</td></tr><tr><td>24</td><td>Thai</td></tr><tr><td>25</td><td>Lao</td></tr><tr><td>26</td><td>Georgian</td></tr><tr><td>27</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>28</td><td>Hangul Jamo</td></tr><tr><td>29</td><td>Latin Extended Additional</td></tr><tr><td>30</td><td>Greek Extended</td></tr><tr><td>31</td><td>General Punctuation</td></tr><tr><td>32</td><td>Superscripts And Subscripts</td></tr><tr><td>33</td><td>Currency Symbols</td></tr><tr><td>34</td><td>Combining Diacritical Marks For Symbols</td></tr><tr><td>35</td><td>Letterlike Symbols</td></tr><tr><td>36</td><td>Number Forms</td></tr><tr><td>37</td><td>Arrows</td></tr><tr><td> </td><td>Supplemental Arrows-A</td></tr><tr><td> </td><td>Supplemental Arrows-B</td></tr><tr><td>38</td><td>Mathematical Operators</td></tr><tr><td> </td><td>Supplemental Mathematical Operators</td></tr><tr><td> </td><td>Miscellaneous Mathematical Symbols-A</td></tr><tr><td> </td><td>Miscellaneous Mathematical Symbols-B</td></tr><tr><td>39</td><td>Miscellaneous Technical</td></tr><tr><td>40</td><td>Control Pictures</td></tr><tr><td>41</td><td>Optical Character Recognition</td></tr><tr><td>42</td><td>Enclosed Alphanumerics</td></tr><tr><td>43</td><td>Box Drawing</td></tr><tr><td>44</td><td>Block Elements</td></tr><tr><td>45</td><td>Geometric Shapes</td></tr><tr><td>46</td><td>Miscellaneous Symbols</td></tr><tr><td>47</td><td>Dingbats</td></tr><tr><td>48</td><td>CJK Symbols And Punctuation</td></tr><tr><td>49</td><td>Hiragana</td></tr><tr><td>50</td><td>Katakana</td></tr><tr><td> </td><td>Katakana Phonetic Extensions</td></tr><tr><td>51</td><td>Bopomofo</td></tr><tr><td> </td><td>Bopomofo Extended</td></tr><tr><td> </td><td>  Extended Bopomofo</td></tr><tr><td>52</td><td>Hangul Compatibility Jamo</td></tr><tr><td>53</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>54</td><td>Enclosed CJK Letters And Months</td></tr><tr><td>55</td><td>CJK Compatibility</td></tr><tr><td>56</td><td>Hangul Syllables</td></tr><tr><td>57</td><td>Non-Plane 0<a href="#ftn.idm4001" class="footnote" id="idm4001"><sup class="footnote">[a]</sup></a>
               </td></tr><tr><td>58</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>59</td><td>CJK Unified Ideographs</td></tr><tr><td> </td><td>CJK Radicals Supplement</td></tr><tr><td> </td><td>Kangxi Radicals</td></tr><tr><td> </td><td>Ideographic Description Characters</td></tr><tr><td> </td><td>CJK Unified Ideograph Extension A</td></tr><tr><td> </td><td>CJK Unified Ideograph Extension B</td></tr><tr><td> </td><td>Kanbun</td></tr><tr><td>60</td><td>Private Use Area</td></tr><tr><td>61</td><td>CJK Compatibility Ideographs</td></tr><tr><td> </td><td>CJK Compatibility Ideographs Supplement</td></tr><tr><td>62</td><td>Alphabetic Presentation Forms</td></tr><tr><td>63</td><td>Arabic Presentation Forms-A</td></tr><tr><td>64</td><td>Combining Half Marks</td></tr><tr><td>65</td><td>CJK Compatibility Forms</td></tr><tr><td>66</td><td>Small Form Variants</td></tr><tr><td>67</td><td>Arabic Presentation Forms-B</td></tr><tr><td>68</td><td>Halfwidth And Fullwidth Forms</td></tr><tr><td>69</td><td>Specials</td></tr><tr><td>70</td><td>Tibetan</td></tr><tr><td>71</td><td>Syriac</td></tr><tr><td>72</td><td>Thaana</td></tr><tr><td>73</td><td>Sinhala</td></tr><tr><td>74</td><td>Myanmar</td></tr><tr><td>75</td><td>Ethiopic</td></tr><tr><td>76</td><td>Cherokee</td></tr><tr><td>77</td><td>Unified Canadian Aboriginal Syllabics</td></tr><tr><td>78</td><td>Ogham</td></tr><tr><td>79</td><td>Runic</td></tr><tr><td>80</td><td>Khmer</td></tr><tr><td>81</td><td>Mongolian</td></tr><tr><td>82</td><td>Braille Patterns</td></tr><tr><td>83</td><td>Yi Syllables</td></tr><tr><td> </td><td>Yi Radicals</td></tr><tr><td>84</td><td>Tagalog</td></tr><tr><td> </td><td>Hanunoo</td></tr><tr><td> </td><td>Buhid</td></tr><tr><td> </td><td>Tagbanwa</td></tr><tr><td>85</td><td>Old Italic</td></tr><tr><td>86</td><td>Gothic</td></tr><tr><td>87</td><td>Deseret</td></tr><tr><td>88</td><td>Byzantine Musical Symbols</td></tr><tr><td> </td><td>Musical Symbols</td></tr><tr><td>89</td><td>Mathematical Alphanumeric Symbols</td></tr><tr><td>90</td><td>Private Use (plane 15)</td></tr><tr><td> </td><td>Private Use (plane 16)</td></tr><tr><td>91</td><td>Variation Selectors</td></tr><tr><td>92</td><td>Tags</td></tr><tr><td>93-127</td><td>Reserved for Unicode SubRanges</td></tr></tbody><tbody class="footnotes"><tr><td colspan="2"><div id="ftn.idm4001" class="footnote"><p><a href="#idm4001" class="para"><sup class="para">[a] </sup></a>Setting bit 57 implies that there is
                       at least one codepoint beyond the Basic
@@ -323,6 +396,13 @@
                       at least one codepoint beyond the Basic
                       Multilingual Plane that is supported by this
                       font.</p></div></td></tr></tbody></table></div><h5><a name="idm189297053488"></a>achVendID</h5><p>Format: 4-byte character array</p><p>Title: Font Vendor Identification</p><p>Description: The four character identifier for the
+>>>>>>> Rebuild
+=======
+          and characters.  </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Bit</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Basic Latin</td></tr><tr><td>1</td><td>Latin-1 Supplement</td></tr><tr><td>2</td><td>Latin Extended-A</td></tr><tr><td>3</td><td>Latin Extended-B</td></tr><tr><td>4</td><td>IPA Extensions</td></tr><tr><td>5</td><td>Spacing Modifier Letters</td></tr><tr><td>6</td><td>Combining Diacritical Marks</td></tr><tr><td>7</td><td>Greek and Coptic</td></tr><tr><td>8</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>9</td><td>Cyrillic</td></tr><tr><td> </td><td>Cyrillic Supplementary</td></tr><tr><td>10</td><td>Armenian</td></tr><tr><td>11</td><td>Hebrew</td></tr><tr><td>12</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>13</td><td>Arabic</td></tr><tr><td>14</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>15</td><td>Devanagari</td></tr><tr><td>16</td><td>Bengali</td></tr><tr><td>17</td><td>Gurmukhi</td></tr><tr><td>18</td><td>Gujarati</td></tr><tr><td>19</td><td>Oriya</td></tr><tr><td>20</td><td>Tamil</td></tr><tr><td>21</td><td>Telugu</td></tr><tr><td>22</td><td>Kannada</td></tr><tr><td>23</td><td>Malayalam</td></tr><tr><td>24</td><td>Thai</td></tr><tr><td>25</td><td>Lao</td></tr><tr><td>26</td><td>Georgian</td></tr><tr><td>27</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>28</td><td>Hangul Jamo</td></tr><tr><td>29</td><td>Latin Extended Additional</td></tr><tr><td>30</td><td>Greek Extended</td></tr><tr><td>31</td><td>General Punctuation</td></tr><tr><td>32</td><td>Superscripts And Subscripts</td></tr><tr><td>33</td><td>Currency Symbols</td></tr><tr><td>34</td><td>Combining Diacritical Marks For Symbols</td></tr><tr><td>35</td><td>Letterlike Symbols</td></tr><tr><td>36</td><td>Number Forms</td></tr><tr><td>37</td><td>Arrows</td></tr><tr><td> </td><td>Supplemental Arrows-A</td></tr><tr><td> </td><td>Supplemental Arrows-B</td></tr><tr><td>38</td><td>Mathematical Operators</td></tr><tr><td> </td><td>Supplemental Mathematical Operators</td></tr><tr><td> </td><td>Miscellaneous Mathematical Symbols-A</td></tr><tr><td> </td><td>Miscellaneous Mathematical Symbols-B</td></tr><tr><td>39</td><td>Miscellaneous Technical</td></tr><tr><td>40</td><td>Control Pictures</td></tr><tr><td>41</td><td>Optical Character Recognition</td></tr><tr><td>42</td><td>Enclosed Alphanumerics</td></tr><tr><td>43</td><td>Box Drawing</td></tr><tr><td>44</td><td>Block Elements</td></tr><tr><td>45</td><td>Geometric Shapes</td></tr><tr><td>46</td><td>Miscellaneous Symbols</td></tr><tr><td>47</td><td>Dingbats</td></tr><tr><td>48</td><td>CJK Symbols And Punctuation</td></tr><tr><td>49</td><td>Hiragana</td></tr><tr><td>50</td><td>Katakana</td></tr><tr><td> </td><td>Katakana Phonetic Extensions</td></tr><tr><td>51</td><td>Bopomofo</td></tr><tr><td> </td><td>Bopomofo Extended</td></tr><tr><td> </td><td>  Extended Bopomofo</td></tr><tr><td>52</td><td>Hangul Compatibility Jamo</td></tr><tr><td>53</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>54</td><td>Enclosed CJK Letters And Months</td></tr><tr><td>55</td><td>CJK Compatibility</td></tr><tr><td>56</td><td>Hangul Syllables</td></tr><tr><td>57</td><td>Non-Plane 0<a href="#ftn.idm62729565136" class="footnote" id="idm62729565136"><sup class="footnote">[a]</sup></a>
+              </td></tr><tr><td>58</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>59</td><td>CJK Unified Ideographs</td></tr><tr><td> </td><td>CJK Radicals Supplement</td></tr><tr><td> </td><td>Kangxi Radicals</td></tr><tr><td> </td><td>Ideographic Description Characters</td></tr><tr><td> </td><td>CJK Unified Ideograph Extension A</td></tr><tr><td> </td><td>CJK Unified Ideograph Extension B</td></tr><tr><td> </td><td>Kanbun</td></tr><tr><td>60</td><td>Private Use Area</td></tr><tr><td>61</td><td>CJK Compatibility Ideographs</td></tr><tr><td> </td><td>CJK Compatibility Ideographs Supplement</td></tr><tr><td>62</td><td>Alphabetic Presentation Forms</td></tr><tr><td>63</td><td>Arabic Presentation Forms-A</td></tr><tr><td>64</td><td>Combining Half Marks</td></tr><tr><td>65</td><td>CJK Compatibility Forms</td></tr><tr><td>66</td><td>Small Form Variants</td></tr><tr><td>67</td><td>Arabic Presentation Forms-B</td></tr><tr><td>68</td><td>Halfwidth And Fullwidth Forms</td></tr><tr><td>69</td><td>Specials</td></tr><tr><td>70</td><td>Tibetan</td></tr><tr><td>71</td><td>Syriac</td></tr><tr><td>72</td><td>Thaana</td></tr><tr><td>73</td><td>Sinhala</td></tr><tr><td>74</td><td>Myanmar</td></tr><tr><td>75</td><td>Ethiopic</td></tr><tr><td>76</td><td>Cherokee</td></tr><tr><td>77</td><td>Unified Canadian Aboriginal Syllabics</td></tr><tr><td>78</td><td>Ogham</td></tr><tr><td>79</td><td>Runic</td></tr><tr><td>80</td><td>Khmer</td></tr><tr><td>81</td><td>Mongolian</td></tr><tr><td>82</td><td>Braille Patterns</td></tr><tr><td>83</td><td>Yi Syllables</td></tr><tr><td> </td><td>Yi Radicals</td></tr><tr><td>84</td><td>Tagalog</td></tr><tr><td> </td><td>Hanunoo</td></tr><tr><td> </td><td>Buhid</td></tr><tr><td> </td><td>Tagbanwa</td></tr><tr><td>85</td><td>Old Italic</td></tr><tr><td>86</td><td>Gothic</td></tr><tr><td>87</td><td>Deseret</td></tr><tr><td>88</td><td>Byzantine Musical Symbols</td></tr><tr><td> </td><td>Musical Symbols</td></tr><tr><td>89</td><td>Mathematical Alphanumeric Symbols</td></tr><tr><td>90</td><td>Private Use (plane 15)</td></tr><tr><td> </td><td>Private Use (plane 16)</td></tr><tr><td>91</td><td>Variation Selectors</td></tr><tr><td>92</td><td>Tags</td></tr><tr><td>93-127</td><td>Reserved for Unicode SubRanges</td></tr></tbody><tbody class="footnotes"><tr><td colspan="2"><div id="ftn.idm62729565136" class="footnote"><p><a href="#idm62729565136" class="para"><sup class="para">[a] </sup></a>Setting bit 57 implies that there is
+                      at least one codepoint beyond the Basic
+                      Multilingual Plane that is supported by this
+                      font.</p></div></td></tr></tbody></table></div><h5><a name="idm62729507296"></a>achVendID</h5><p>Format: 4-byte character array</p><p>Title: Font Vendor Identification</p><p>Description: The four character identifier for the
 >>>>>>> Rebuild
           vendor of the given type face.</p><p>Comments: This is not the royalty owner of the original
           artwork. This is the company responsible for the marketing
@@ -339,9 +419,13 @@
           Microsoft. Other suppliers can choose their own mixed case
           or lowercase ID's, or leave the field blank.</p><p>For a list of registered Vendor id's see our <a class="ulink" href="http://www.microsoft.com/typography/links/vendorlist.asp" target="_top">Registered
 <<<<<<< HEAD
+<<<<<<< HEAD
             'vendors'</a> links page.</p><h5><a name="idm4158"></a>fsSelection</h5><p>Format: 2-byte bit field.</p><p>Title: Font selection flags.</p><p>Description: Contains information concerning the nature
 =======
             'vendors'</a> links page.</p><h5><a name="idm189297048848"></a>fsSelection</h5><p>Format: 2-byte bit field.</p><p>Title: Font selection flags.</p><p>Description: Contains information concerning the nature
+>>>>>>> Rebuild
+=======
+            'vendors'</a> links page.</p><h5><a name="idm62729502656"></a>fsSelection</h5><p>Format: 2-byte bit field.</p><p>Title: Font selection flags.</p><p>Description: Contains information concerning the nature
 >>>>>>> Rebuild
           of the font patterns, as follows:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Bit #</th><th>macStyle bit</th><th>C Definition</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>bit 1</td><td>ITALIC</td><td>Font contains Italic characters, otherwise they
                   are upright.</td></tr><tr><td>1</td><td> </td><td>UNDERSCORE</td><td>Characters are underscored.</td></tr><tr><td>2</td><td> </td><td>NEGATIVE</td><td>Characters have their foreground and background
@@ -363,9 +447,13 @@
           does not give any indication of whether or not bit 6 of
           fsSelection is clear (e.g., Arial Light would have all bits
 <<<<<<< HEAD
+<<<<<<< HEAD
           cleared; it is not the regular version of Arial). </p><h5><a name="idm4210"></a>usFirstCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The minimum Unicode index (character code)
 =======
           cleared; it is not the regular version of Arial). </p><h5><a name="idm189297010256"></a>usFirstCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The minimum Unicode index (character code)
+>>>>>>> Rebuild
+=======
+          cleared; it is not the regular version of Arial). </p><h5><a name="idm62729480320"></a>usFirstCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The minimum Unicode index (character code)
 >>>>>>> Rebuild
           in this font, according to the cmap subtable for platform ID
           3 and platform- specific encoding ID 0 or 1. For most fonts
@@ -375,9 +463,13 @@
 	  support supplementary characters should set the value in this
 	  field to 0xFFFF if the minimum index value is a supplementary
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  character.</p><h5><a name="idm4213"></a>usLastCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The maximum Unicode index (character code)
 =======
 	  character.</p><h5><a name="idm189297008496"></a>usLastCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The maximum Unicode index (character code)
+>>>>>>> Rebuild
+=======
+	  character.</p><h5><a name="idm62729478560"></a>usLastCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The maximum Unicode index (character code)
 >>>>>>> Rebuild
           in this font, according to the cmap subtable for platform ID
           3 and encoding ID 0 or 1. This value depends on which
@@ -385,9 +477,13 @@
 	  represent supplementary character values (codepoints greater
 	  than 0xFFFF). Fonts that support supplementary characters
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  should set the value in this field to 0xFFFF. </p><h5><a name="idm4216"></a>sTypoAscender</h5><p>Format: SHORT</p><p>Description: The typographic ascender for this font.
 =======
 	  should set the value in this field to 0xFFFF. </p><h5><a name="idm189297006864"></a>sTypoAscender</h5><p>Format: SHORT</p><p>Description: The typographic ascender for this font.
+>>>>>>> Rebuild
+=======
+	  should set the value in this field to 0xFFFF. </p><h5><a name="idm62729476928"></a>sTypoAscender</h5><p>Format: SHORT</p><p>Description: The typographic ascender for this font.
 >>>>>>> Rebuild
           Remember that this is not the same as the Ascender value in
           the <a class="link" href="chapter.hhea.html" title="Chapter 7. hhea - Horizontal Header">hhea</a> table, which Apple defines in a
@@ -415,9 +511,13 @@
           880. Failing to adhere to these requirements will result in
           incorrect vertical layout.</p><p>Also see the Recommendations Section for more on this
 <<<<<<< HEAD
+<<<<<<< HEAD
           field. </p><h5><a name="idm4224"></a>sTypoDescender</h5><p>Format: SHORT</p><p>Description: The typographic descender for this font.
 =======
           field. </p><h5><a name="idm189297001440"></a>sTypoDescender</h5><p>Format: SHORT</p><p>Description: The typographic descender for this font.
+>>>>>>> Rebuild
+=======
+          field. </p><h5><a name="idm62729471504"></a>sTypoDescender</h5><p>Format: SHORT</p><p>Description: The typographic descender for this font.
 >>>>>>> Rebuild
           Remember that this is not the same as the Descender value in
           the <a class="link" href="chapter.hhea.html" title="Chapter 7. hhea - Horizontal Header">hhea</a> table, which Apple defines in a
@@ -446,9 +546,13 @@
           -120. Failing to adhere to these requirements will result in
           incorrect vertical layout.</p><p>Also see the Recommendations Section for more on this
 <<<<<<< HEAD
+<<<<<<< HEAD
           field. </p><h5><a name="idm4233"></a>sTypoLineGap</h5><p>Format: 2-byte SHORT</p><p>Description: The typographic line gap for this font.
 =======
           field. </p><h5><a name="idm189296995312"></a>sTypoLineGap</h5><p>Format: 2-byte SHORT</p><p>Description: The typographic line gap for this font.
+>>>>>>> Rebuild
+=======
+          field. </p><h5><a name="idm62729465376"></a>sTypoLineGap</h5><p>Format: 2-byte SHORT</p><p>Description: The typographic line gap for this font.
 >>>>>>> Rebuild
           Remember that this is not the same as the LineGap value in
           the <a class="link" href="chapter.hhea.html" title="Chapter 7. hhea - Horizontal Header">hhea</a> table, which Apple defines in a
@@ -466,9 +570,13 @@
           access the 'sfnt' resource and parse it to extract this data
           from the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table (unless Apple exposes
 <<<<<<< HEAD
+<<<<<<< HEAD
           the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table through a new API) </p><h5><a name="idm4240"></a>usWinAscent</h5><p>Format: 2-byte USHORT</p><p>Description: The ascender metric for Windows. This, too,
 =======
           the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table through a new API) </p><h5><a name="idm189296990672"></a>usWinAscent</h5><p>Format: 2-byte USHORT</p><p>Description: The ascender metric for Windows. This, too,
+>>>>>>> Rebuild
+=======
+          the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table through a new API) </p><h5><a name="idm62729460736"></a>usWinAscent</h5><p>Format: 2-byte USHORT</p><p>Description: The ascender metric for Windows. This, too,
 >>>>>>> Rebuild
           is distinct from Apple's Ascender value and from the
           usTypoAscender values. usWinAscent is computed as the yMax
@@ -489,9 +597,13 @@
           (against CommonType recommendations), then the value should be
           set appropriately. In such a case, it may result in some
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph bitmaps being clipped.</p><h5><a name="idm4245"></a>usWinDescent</h5><p>Format: 2-byte USHORT</p><p>Description: The descender metric for Windows. This,
 =======
           glyph bitmaps being clipped.</p><h5><a name="idm189296987376"></a>usWinDescent</h5><p>Format: 2-byte USHORT</p><p>Description: The descender metric for Windows. This,
+>>>>>>> Rebuild
+=======
+          glyph bitmaps being clipped.</p><h5><a name="idm62729457440"></a>usWinDescent</h5><p>Format: 2-byte USHORT</p><p>Description: The descender metric for Windows. This,
 >>>>>>> Rebuild
           too, is distinct from Apple's Descender value and from the
           usTypoDescender values. usWinDescent is computed as the
@@ -512,9 +624,13 @@
           (against CommonType recommendations), then the value should be
           set appropriately. In such a case, it may result in some
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph bitmaps being clipped. </p><h5><a name="idm4250"></a>ulCodePageRange1 Bits 0-31</h5><h5><a name="idm4251"></a>ulCodePageRange2 Bits 32-63 </h5><p>Format: 32-bit unsigned long(2 copies) totaling 64
 =======
           glyph bitmaps being clipped. </p><h5><a name="idm189296984064"></a>ulCodePageRange1 Bits 0-31</h5><h5><a name="idm189296983648"></a>ulCodePageRange2 Bits 32-63 </h5><p>Format: 32-bit unsigned long(2 copies) totaling 64
+>>>>>>> Rebuild
+=======
+          glyph bitmaps being clipped. </p><h5><a name="idm62729454128"></a>ulCodePageRange1 Bits 0-31</h5><h5><a name="idm62729453712"></a>ulCodePageRange2 Bits 32-63 </h5><p>Format: 32-bit unsigned long(2 copies) totaling 64
 >>>>>>> Rebuild
           bits.</p><p>Title: Code Page Character Range</p><p>Description: This field is used to specify the code
         pages encompassed by the font file in the
@@ -538,9 +654,13 @@
           Big-Endian form. </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Bit</th><th>Code</th><th>Page Description</th></tr></thead><tbody><tr><td>0</td><td>1252</td><td>Latin 1</td></tr><tr><td>1</td><td>1250</td><td>Latin 2: Eastern Europe</td></tr><tr><td>2</td><td>1251</td><td>Cyrillic</td></tr><tr><td>3</td><td>1253</td><td>Greek</td></tr><tr><td>4</td><td>1254</td><td>Turkish</td></tr><tr><td>5</td><td>1255</td><td>Hebrew</td></tr><tr><td>6</td><td>1256</td><td>Arabic</td></tr><tr><td>7</td><td>1257</td><td>Windows Baltic</td></tr><tr><td>8</td><td>1258</td><td>Vietnamese</td></tr><tr><td>9-15</td><td> </td><td>Reserved for Alternate ANSI</td></tr><tr><td>16</td><td>874</td><td>Thai</td></tr><tr><td>17</td><td>932</td><td>JIS/Japan</td></tr><tr><td>18</td><td>936</td><td>Chinese: Simplified chars--PRC and
                   Singapore</td></tr><tr><td>19</td><td>949</td><td>Korean Wansung</td></tr><tr><td>20</td><td>950</td><td>Chinese: Traditional chars--Taiwan and Hong
 <<<<<<< HEAD
+<<<<<<< HEAD
                   Kong</td></tr><tr><td>21</td><td>1361</td><td>Korean Johab</td></tr><tr><td>22-28</td><td> </td><td>Reserved for Alternate ANSI &amp; OEM</td></tr><tr><td>29</td><td> </td><td>Macintosh Character Set (US Roman)</td></tr><tr><td>30</td><td> </td><td>OEM Character Set</td></tr><tr><td>31</td><td> </td><td>Symbol Character Set</td></tr><tr><td>32-47</td><td> </td><td>Reserved for OEM</td></tr><tr><td>48</td><td>869</td><td>IBM Greek</td></tr><tr><td>49</td><td>866</td><td>MS-DOS Russian</td></tr><tr><td>50</td><td>865</td><td>MS-DOS Nordic</td></tr><tr><td>51</td><td>864</td><td>Arabic</td></tr><tr><td>52</td><td>863</td><td>MS-DOS Canadian French</td></tr><tr><td>53</td><td>862</td><td>Hebrew</td></tr><tr><td>54</td><td>861</td><td>MS-DOS Icelandic</td></tr><tr><td>55</td><td>860</td><td>MS-DOS Portuguese</td></tr><tr><td>56</td><td>857</td><td>IBM Turkish</td></tr><tr><td>57</td><td>855</td><td>IBM Cyrillic; primarily Russian</td></tr><tr><td>58</td><td>852</td><td>Latin 2</td></tr><tr><td>59</td><td>775</td><td>MS-DOS Baltic</td></tr><tr><td>60</td><td>737</td><td>Greek; former 437 G</td></tr><tr><td>61</td><td>708</td><td>Arabic; ASMO 708</td></tr><tr><td>62</td><td>850</td><td>WE/Latin 1</td></tr><tr><td>63</td><td>437</td><td>US</td></tr></tbody></table></div><h5><a name="idm4415"></a>sxHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
 =======
                   Kong</td></tr><tr><td>21</td><td>1361</td><td>Korean Johab</td></tr><tr><td>22-28</td><td> </td><td>Reserved for Alternate ANSI &amp; OEM</td></tr><tr><td>29</td><td> </td><td>Macintosh Character Set (US Roman)</td></tr><tr><td>30</td><td> </td><td>OEM Character Set</td></tr><tr><td>31</td><td> </td><td>Symbol Character Set</td></tr><tr><td>32-47</td><td> </td><td>Reserved for OEM</td></tr><tr><td>48</td><td>869</td><td>IBM Greek</td></tr><tr><td>49</td><td>866</td><td>MS-DOS Russian</td></tr><tr><td>50</td><td>865</td><td>MS-DOS Nordic</td></tr><tr><td>51</td><td>864</td><td>Arabic</td></tr><tr><td>52</td><td>863</td><td>MS-DOS Canadian French</td></tr><tr><td>53</td><td>862</td><td>Hebrew</td></tr><tr><td>54</td><td>861</td><td>MS-DOS Icelandic</td></tr><tr><td>55</td><td>860</td><td>MS-DOS Portuguese</td></tr><tr><td>56</td><td>857</td><td>IBM Turkish</td></tr><tr><td>57</td><td>855</td><td>IBM Cyrillic; primarily Russian</td></tr><tr><td>58</td><td>852</td><td>Latin 2</td></tr><tr><td>59</td><td>775</td><td>MS-DOS Baltic</td></tr><tr><td>60</td><td>737</td><td>Greek; former 437 G</td></tr><tr><td>61</td><td>708</td><td>Arabic; ASMO 708</td></tr><tr><td>62</td><td>850</td><td>WE/Latin 1</td></tr><tr><td>63</td><td>437</td><td>US</td></tr></tbody></table></div><h5><a name="idm189299993424"></a>sxHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
+>>>>>>> Rebuild
+=======
+                  Kong</td></tr><tr><td>21</td><td>1361</td><td>Korean Johab</td></tr><tr><td>22-28</td><td> </td><td>Reserved for Alternate ANSI &amp; OEM</td></tr><tr><td>29</td><td> </td><td>Macintosh Character Set (US Roman)</td></tr><tr><td>30</td><td> </td><td>OEM Character Set</td></tr><tr><td>31</td><td> </td><td>Symbol Character Set</td></tr><tr><td>32-47</td><td> </td><td>Reserved for OEM</td></tr><tr><td>48</td><td>869</td><td>IBM Greek</td></tr><tr><td>49</td><td>866</td><td>MS-DOS Russian</td></tr><tr><td>50</td><td>865</td><td>MS-DOS Nordic</td></tr><tr><td>51</td><td>864</td><td>Arabic</td></tr><tr><td>52</td><td>863</td><td>MS-DOS Canadian French</td></tr><tr><td>53</td><td>862</td><td>Hebrew</td></tr><tr><td>54</td><td>861</td><td>MS-DOS Icelandic</td></tr><tr><td>55</td><td>860</td><td>MS-DOS Portuguese</td></tr><tr><td>56</td><td>857</td><td>IBM Turkish</td></tr><tr><td>57</td><td>855</td><td>IBM Cyrillic; primarily Russian</td></tr><tr><td>58</td><td>852</td><td>Latin 2</td></tr><tr><td>59</td><td>775</td><td>MS-DOS Baltic</td></tr><tr><td>60</td><td>737</td><td>Greek; former 437 G</td></tr><tr><td>61</td><td>708</td><td>Arabic; ASMO 708</td></tr><tr><td>62</td><td>850</td><td>WE/Latin 1</td></tr><tr><td>63</td><td>437</td><td>US</td></tr></tbody></table></div><h5><a name="idm62729388000"></a>sxHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
 >>>>>>> Rebuild
           the baseline and the approximate height of non-ascending
           lowercase letters measured in <em class="glossterm">font unit</em>s. This value would
@@ -553,9 +673,13 @@
           0.</p><p>This metric, if specified, can be used in font
           substitution: the xHeight value of one font can be scaled to
 <<<<<<< HEAD
+<<<<<<< HEAD
           approximate the apparent size of another. </p><h5><a name="idm4420"></a>sCapHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
 =======
           approximate the apparent size of another. </p><h5><a name="idm189299990272"></a>sCapHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
+>>>>>>> Rebuild
+=======
+          approximate the apparent size of another. </p><h5><a name="idm62729384800"></a>sCapHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
 >>>>>>> Rebuild
           the baseline and the approximate height of uppercase letters
           measured in <em class="glossterm">font unit</em>s. This value would normally be specified
@@ -569,9 +693,13 @@
           It can also be used as an alignment metric; the top of a
           drop capital, for instance, can be aligned to the sCapHeight
 <<<<<<< HEAD
+<<<<<<< HEAD
           metric of the first line of text. </p><h5><a name="idm4425"></a>usDefaultChar</h5><p>Format: USHORT</p><p>Description: Whenever a request is made for a character
 =======
           metric of the first line of text. </p><h5><a name="idm189299987440"></a>usDefaultChar</h5><p>Format: USHORT</p><p>Description: Whenever a request is made for a character
+>>>>>>> Rebuild
+=======
+          metric of the first line of text. </p><h5><a name="idm62729381920"></a>usDefaultChar</h5><p>Format: USHORT</p><p>Description: Whenever a request is made for a character
 >>>>>>> Rebuild
           that is not in the font, Windows provides this default
           character. If the value of this field is zero, glyph ID 0 is
@@ -579,18 +707,26 @@
           Unicode encoding of the glyph that Windows uses as the
           default character. This field cannot represent supplementary
 <<<<<<< HEAD
+<<<<<<< HEAD
           character values (codepoints greater than 0xFFFF).</p><h5><a name="idm4428"></a>usBreakChar</h5><p>Format: USHORT</p><p>Description: This is the Unicode encoding of the glyph
 =======
           character values (codepoints greater than 0xFFFF).</p><h5><a name="idm189299985824"></a>usBreakChar</h5><p>Format: USHORT</p><p>Description: This is the Unicode encoding of the glyph
+>>>>>>> Rebuild
+=======
+          character values (codepoints greater than 0xFFFF).</p><h5><a name="idm62729380272"></a>usBreakChar</h5><p>Format: USHORT</p><p>Description: This is the Unicode encoding of the glyph
 >>>>>>> Rebuild
           that Windows uses as the break character. The break
           character is used to separate words and justify text. Most
           fonts specify 'space' as the break character. This field
           cannot represent supplementary character values (codepoints
 <<<<<<< HEAD
+<<<<<<< HEAD
           greater than 0xFFFF).</p><h5><a name="idm4431"></a>usMaxContext</h5><p>Format: USHORT</p><p>Description: The maximum length of a target glyph
 =======
           greater than 0xFFFF).</p><h5><a name="idm189299984304"></a>usMaxContext</h5><p>Format: USHORT</p><p>Description: The maximum length of a target glyph
+>>>>>>> Rebuild
+=======
+          greater than 0xFFFF).</p><h5><a name="idm62729378720"></a>usMaxContext</h5><p>Format: USHORT</p><p>Description: The maximum length of a target glyph
 >>>>>>> Rebuild
           context for any feature in this font. For example, a font
           which has only a pair kerning feature should set this field
@@ -605,18 +741,26 @@
           considered.</p></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.12.1.2"></a>Specification</h4></div></div></div><p>The OS/2 table consists of a set of metrics that are
           required in CommonType fonts. The fourth version of the OS/2
 <<<<<<< HEAD
+<<<<<<< HEAD
           table (version 3) follows:</p><div class="table"><a name="idm4437"></a><p class="title"><strong>Table 11.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>0x0003</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>xAvgCharWidth</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWeightClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWidthClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsType</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutPosition</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sFamilyClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>panose[10]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange3</td><td>Bits 64-95</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange4</td><td>Bits 96-127</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>achVendID[4]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsSelection</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usFirstCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usLastCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoAscender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoDescender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoLineGap</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinAscent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinDescent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sxHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sCapHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usDefaultChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usBreakChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usMaxContext</td><td> </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm4593"></a>version</h5><p>Format: 2-byte unsigned short</p><p>Units: n/a</p><p>Title: OS/2 table version number.</p><p>Description: The version number for this OS/2
 =======
           table (version 3) follows:</p><div class="table"><a name="idm189299980928"></a><p class="title"><strong>Table 11.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>0x0003</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>xAvgCharWidth</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWeightClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWidthClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsType</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutPosition</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sFamilyClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>panose[10]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange3</td><td>Bits 64-95</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange4</td><td>Bits 96-127</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>achVendID[4]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsSelection</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usFirstCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usLastCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoAscender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoDescender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoLineGap</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinAscent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinDescent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sxHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sCapHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usDefaultChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usBreakChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usMaxContext</td><td> </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm189299930880"></a>version</h5><p>Format: 2-byte unsigned short</p><p>Units: n/a</p><p>Title: OS/2 table version number.</p><p>Description: The version number for this OS/2
+>>>>>>> Rebuild
+=======
+          table (version 3) follows:</p><div class="table"><a name="idm62729374960"></a><p class="title"><strong>Table 11.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>0x0003</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>xAvgCharWidth</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWeightClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWidthClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsType</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySubscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptXOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>ySuperscriptYOffset</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutSize</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>yStrikeoutPosition</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sFamilyClass</td><td> </td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>panose[10]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange3</td><td>Bits 64-95</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulUnicodeRange4</td><td>Bits 96-127</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>achVendID[4]</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>fsSelection</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usFirstCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usLastCharIndex</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoAscender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoDescender</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sTypoLineGap</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinAscent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usWinDescent</td><td> </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange1</td><td>Bits 0-31</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulCodePageRange2</td><td>Bits 32-63</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sxHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>sCapHeight</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usDefaultChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usBreakChar</td><td> </td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usMaxContext</td><td> </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm62732508400"></a>version</h5><p>Format: 2-byte unsigned short</p><p>Units: n/a</p><p>Title: OS/2 table version number.</p><p>Description: The version number for this OS/2
 >>>>>>> Rebuild
           table.</p><p>Comments: The version number allows for identification
           of the precise contents and layout for the OS/2 table. The
           version number for this layout is two (2). Versions one (1)
           and zero (0) have been used previously, in rev.1.66 and 1.5,
 <<<<<<< HEAD
+<<<<<<< HEAD
           respectively, of the TrueType specification.</p><h5><a name="idm4599"></a>xAvgCharWidth</h5><p>Format: 2-byte signed short</p><p>Units: Pels / em units</p><p>Title: Average weighted escapement.</p><p>Description: The Average Character Width parameter
 =======
           respectively, of the TrueType specification.</p><h5><a name="idm189299928256"></a>xAvgCharWidth</h5><p>Format: 2-byte signed short</p><p>Units: Pels / em units</p><p>Title: Average weighted escapement.</p><p>Description: The Average Character Width parameter
+>>>>>>> Rebuild
+=======
+          respectively, of the TrueType specification.</p><h5><a name="idm62732505776"></a>xAvgCharWidth</h5><p>Format: 2-byte signed short</p><p>Units: Pels / em units</p><p>Title: Average weighted escapement.</p><p>Description: The Average Character Width parameter
 >>>>>>> Rebuild
           specifies the arithmetic average of the escapement (width)
           of all of the 26 lowercase letters a through z of the Latin
@@ -639,6 +783,7 @@
           formula: Sum the individual character widths multiplied by
           the following weighting factors and then divide by 1000. For
 <<<<<<< HEAD
+<<<<<<< HEAD
           example:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Letter</th><th>Weight Factor</th><td class="auto-generated"> </td><td class="auto-generated"> </td></tr></thead><tbody><tr><td>a</td><td>64</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>b</td><td>14</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>c</td><td>27</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>d</td><td>35</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>e</td><td>100</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>f</td><td>20</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>g</td><td>14</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>h</td><td>42</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>i</td><td>63</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>j</td><td>3</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>k</td><td>6</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>l</td><td>35</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>m</td><td>20</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>n</td><td>56</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>o</td><td>56</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>p</td><td>17</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>q</td><td>4</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>r</td><td>49</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>s</td><td>56</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>t</td><td>71</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>u</td><td>31</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>v</td><td>10</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>w</td><td>18</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>x</td><td>3</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>y</td><td>18</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>z</td><td>2</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>space</td><td>166</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr></tbody></table></div><h5><a name="idm4693"></a>usWeightClass</h5><p>Format: 2-byte unsigned short</p><p>Title: Weight class. </p><p>Description: Indicates the visual weight (degree of
           blackness or thickness of strokes) of the characters in the
           font. </p><p>Comments:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition (from windows.h)</th></tr></thead><tbody><tr><td>100</td><td>Thin</td><td>FW_THIN</td></tr><tr><td>200</td><td>Extra-light (Ultra-light)</td><td>FW_EXTRALIGHT</td></tr><tr><td>300</td><td>Light</td><td>FW_LIGHT</td></tr><tr><td>400</td><td>Normal (Regular)</td><td>FW_NORMAL</td></tr><tr><td>500</td><td>Medium</td><td>FW_MEDIUM</td></tr><tr><td>600</td><td>Semi-bold (Demi-bold)</td><td>FW_SEMIBOLD</td></tr><tr><td>700</td><td>Bold</td><td>FW_BOLD</td></tr><tr><td>800</td><td>Extra-bold (Ultra-bold)</td><td>FW_EXTRABOLD</td></tr><tr><td>900</td><td>Black (Heavy)</td><td>FW_BLACK</td></tr></tbody></table></div><h5><a name="idm4742"></a>usWidthClass </h5><p>Format: 2-byte unsigned short</p><p>Title: Width class. </p><p>Description: Indicates a relative change from the normal
@@ -646,6 +791,11 @@
           example:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Letter</th><th>Weight Factor</th><td class="auto-generated"> </td><td class="auto-generated"> </td></tr></thead><tbody><tr><td>a</td><td>64</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>b</td><td>14</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>c</td><td>27</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>d</td><td>35</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>e</td><td>100</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>f</td><td>20</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>g</td><td>14</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>h</td><td>42</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>i</td><td>63</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>j</td><td>3</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>k</td><td>6</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>l</td><td>35</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>m</td><td>20</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>n</td><td>56</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>o</td><td>56</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>p</td><td>17</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>q</td><td>4</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>r</td><td>49</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>s</td><td>56</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>t</td><td>71</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>u</td><td>31</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>v</td><td>10</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>w</td><td>18</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>x</td><td>3</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>y</td><td>18</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>z</td><td>2</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>space</td><td>166</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr></tbody></table></div><h5><a name="idm189299890576"></a>usWeightClass</h5><p>Format: 2-byte unsigned short</p><p>Title: Weight class. </p><p>Description: Indicates the visual weight (degree of
           blackness or thickness of strokes) of the characters in the
           font. </p><p>Comments:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition (from windows.h)</th></tr></thead><tbody><tr><td>100</td><td>Thin</td><td>FW_THIN</td></tr><tr><td>200</td><td>Extra-light (Ultra-light)</td><td>FW_EXTRALIGHT</td></tr><tr><td>300</td><td>Light</td><td>FW_LIGHT</td></tr><tr><td>400</td><td>Normal (Regular)</td><td>FW_NORMAL</td></tr><tr><td>500</td><td>Medium</td><td>FW_MEDIUM</td></tr><tr><td>600</td><td>Semi-bold (Demi-bold)</td><td>FW_SEMIBOLD</td></tr><tr><td>700</td><td>Bold</td><td>FW_BOLD</td></tr><tr><td>800</td><td>Extra-bold (Ultra-bold)</td><td>FW_EXTRABOLD</td></tr><tr><td>900</td><td>Black (Heavy)</td><td>FW_BLACK</td></tr></tbody></table></div><h5><a name="idm189299871392"></a>usWidthClass </h5><p>Format: 2-byte unsigned short</p><p>Title: Width class. </p><p>Description: Indicates a relative change from the normal
+>>>>>>> Rebuild
+=======
+          example:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Letter</th><th>Weight Factor</th><td class="auto-generated"> </td><td class="auto-generated"> </td></tr></thead><tbody><tr><td>a</td><td>64</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>b</td><td>14</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>c</td><td>27</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>d</td><td>35</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>e</td><td>100</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>f</td><td>20</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>g</td><td>14</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>h</td><td>42</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>i</td><td>63</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>j</td><td>3</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>k</td><td>6</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>l</td><td>35</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>m</td><td>20</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>n</td><td>56</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>o</td><td>56</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>p</td><td>17</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>q</td><td>4</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>r</td><td>49</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>s</td><td>56</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>t</td><td>71</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>u</td><td>31</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>v</td><td>10</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>w</td><td>18</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>x</td><td>3</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>y</td><td>18</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>z</td><td>2</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr><tr><td>space</td><td>166</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr></tbody></table></div><h5><a name="idm62732468000"></a>usWeightClass</h5><p>Format: 2-byte unsigned short</p><p>Title: Weight class. </p><p>Description: Indicates the visual weight (degree of
+          blackness or thickness of strokes) of the characters in the
+          font. </p><p>Comments:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition (from windows.h)</th></tr></thead><tbody><tr><td>100</td><td>Thin</td><td>FW_THIN</td></tr><tr><td>200</td><td>Extra-light (Ultra-light)</td><td>FW_EXTRALIGHT</td></tr><tr><td>300</td><td>Light</td><td>FW_LIGHT</td></tr><tr><td>400</td><td>Normal (Regular)</td><td>FW_NORMAL</td></tr><tr><td>500</td><td>Medium</td><td>FW_MEDIUM</td></tr><tr><td>600</td><td>Semi-bold (Demi-bold)</td><td>FW_SEMIBOLD</td></tr><tr><td>700</td><td>Bold</td><td>FW_BOLD</td></tr><tr><td>800</td><td>Extra-bold (Ultra-bold)</td><td>FW_EXTRABOLD</td></tr><tr><td>900</td><td>Black (Heavy)</td><td>FW_BLACK</td></tr></tbody></table></div><h5><a name="idm62732448816"></a>usWidthClass </h5><p>Format: 2-byte unsigned short</p><p>Title: Width class. </p><p>Description: Indicates a relative change from the normal
 >>>>>>> Rebuild
           aspect ratio (width to height ratio) as specified by a font
           designer for the glyphs in a font. </p><p>Comments:  Although every character in a font may have a
@@ -657,9 +807,13 @@
           percentage greater or less than those same characters in the
           normal font -- it is this difference that this parameter
 <<<<<<< HEAD
+<<<<<<< HEAD
           specifies. </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition</th><th>% of normal</th></tr></thead><tbody><tr><td>1</td><td>Ultra-condensed</td><td>FWIDTH_ULTRA_CONDENSED</td><td>50</td></tr><tr><td>2</td><td>Extra-condensed</td><td>FWIDTH_EXTRA_CONDENSED</td><td>62.5</td></tr><tr><td>3</td><td>Condensed</td><td>FWIDTH_CONDENSED</td><td>75</td></tr><tr><td>4</td><td>Semi-condensed</td><td>FWIDTH_SEMI_CONDENSED</td><td>87.5</td></tr><tr><td>5</td><td>Medium (normal)</td><td>FWIDTH_NORMAL</td><td>100</td></tr><tr><td>6</td><td>Semi-expanded</td><td>FWIDTH_SEMI_EXPANDED</td><td>112.5</td></tr><tr><td>7</td><td>Expanded</td><td>FWIDTH_EXPANDED</td><td>125</td></tr><tr><td>8</td><td>Extra-expanded</td><td>FWIDTH_EXTRA_EXPANDED</td><td>150</td></tr><tr><td>9</td><td>Ultra-expanded</td><td>FWIDTH_ULTRA_EXPANDED</td><td>200</td></tr></tbody></table></div><h5><a name="idm4801"></a>fsType</h5><p>Format: 2-byte unsigned short</p><p>Title: Type flags. </p><p>Description: Indicates font embedding licensing rights
 =======
           specifies. </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition</th><th>% of normal</th></tr></thead><tbody><tr><td>1</td><td>Ultra-condensed</td><td>FWIDTH_ULTRA_CONDENSED</td><td>50</td></tr><tr><td>2</td><td>Extra-condensed</td><td>FWIDTH_EXTRA_CONDENSED</td><td>62.5</td></tr><tr><td>3</td><td>Condensed</td><td>FWIDTH_CONDENSED</td><td>75</td></tr><tr><td>4</td><td>Semi-condensed</td><td>FWIDTH_SEMI_CONDENSED</td><td>87.5</td></tr><tr><td>5</td><td>Medium (normal)</td><td>FWIDTH_NORMAL</td><td>100</td></tr><tr><td>6</td><td>Semi-expanded</td><td>FWIDTH_SEMI_EXPANDED</td><td>112.5</td></tr><tr><td>7</td><td>Expanded</td><td>FWIDTH_EXPANDED</td><td>125</td></tr><tr><td>8</td><td>Extra-expanded</td><td>FWIDTH_EXTRA_EXPANDED</td><td>150</td></tr><tr><td>9</td><td>Ultra-expanded</td><td>FWIDTH_ULTRA_EXPANDED</td><td>200</td></tr></tbody></table></div><h5><a name="idm189299847776"></a>fsType</h5><p>Format: 2-byte unsigned short</p><p>Title: Type flags. </p><p>Description: Indicates font embedding licensing rights
+>>>>>>> Rebuild
+=======
+          specifies. </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Description</th><th>C Definition</th><th>% of normal</th></tr></thead><tbody><tr><td>1</td><td>Ultra-condensed</td><td>FWIDTH_ULTRA_CONDENSED</td><td>50</td></tr><tr><td>2</td><td>Extra-condensed</td><td>FWIDTH_EXTRA_CONDENSED</td><td>62.5</td></tr><tr><td>3</td><td>Condensed</td><td>FWIDTH_CONDENSED</td><td>75</td></tr><tr><td>4</td><td>Semi-condensed</td><td>FWIDTH_SEMI_CONDENSED</td><td>87.5</td></tr><tr><td>5</td><td>Medium (normal)</td><td>FWIDTH_NORMAL</td><td>100</td></tr><tr><td>6</td><td>Semi-expanded</td><td>FWIDTH_SEMI_EXPANDED</td><td>112.5</td></tr><tr><td>7</td><td>Expanded</td><td>FWIDTH_EXPANDED</td><td>125</td></tr><tr><td>8</td><td>Extra-expanded</td><td>FWIDTH_EXTRA_EXPANDED</td><td>150</td></tr><tr><td>9</td><td>Ultra-expanded</td><td>FWIDTH_ULTRA_EXPANDED</td><td>200</td></tr></tbody></table></div><h5><a name="idm62732425200"></a>fsType</h5><p>Format: 2-byte unsigned short</p><p>Title: Type flags. </p><p>Description: Indicates font embedding licensing rights
 >>>>>>> Rebuild
           for the font. Embeddable fonts may be stored in a document.
           When a document with embedded fonts is opened on a system
@@ -721,9 +875,13 @@
           (0x000C). This will permit an application that only supports
           Preview &amp; Print embedding to detect that font embedding is
 <<<<<<< HEAD
+<<<<<<< HEAD
           allowed.</p><h5><a name="idm4856"></a>ySubscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript horizontal font size. </p><p>Description: The recommended horizontal size in font
 =======
           allowed.</p><h5><a name="idm189299822016"></a>ySubscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript horizontal font size. </p><p>Description: The recommended horizontal size in font
+>>>>>>> Rebuild
+=======
+          allowed.</p><h5><a name="idm62732399520"></a>ySubscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript horizontal font size. </p><p>Description: The recommended horizontal size in font
 >>>>>>> Rebuild
           design units for subscripts for this font.  </p><p>Comments: If a font has two recommended sizes for
           subscripts, e.g., numerics and other, the numeric sizes
@@ -740,9 +898,13 @@
           ySubScriptXSize is set to 205, then the horizontal size for
           a simulated subscript character would be 1/10th the size of
 <<<<<<< HEAD
+<<<<<<< HEAD
           the normal character.</p><h5><a name="idm4863"></a>ySubscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript vertical font size. </p><p>Description: The recommended vertical size in font
 =======
           the normal character.</p><h5><a name="idm189299818208"></a>ySubscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript vertical font size. </p><p>Description: The recommended vertical size in font
+>>>>>>> Rebuild
+=======
+          the normal character.</p><h5><a name="idm62732395712"></a>ySubscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript vertical font size. </p><p>Description: The recommended vertical size in font
 >>>>>>> Rebuild
           design units for subscripts for this font.  </p><p>Comments: If a font has two recommended sizes for
           subscripts, e.g. numerics and other, the numeric sizes
@@ -759,9 +921,13 @@
           ySubScriptYSize is set to 205, then the vertical size for a
           simulated subscript character would be 1/10th the size of
 <<<<<<< HEAD
+<<<<<<< HEAD
           the normal character.</p><h5><a name="idm4870"></a>ySubscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript x offset.</p><p>Description: The recommended horizontal offset in font
 =======
           the normal character.</p><h5><a name="idm189299814416"></a>ySubscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript x offset.</p><p>Description: The recommended horizontal offset in font
+>>>>>>> Rebuild
+=======
+          the normal character.</p><h5><a name="idm62732391920"></a>ySubscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript x offset.</p><p>Description: The recommended horizontal offset in font
 >>>>>>> Rebuild
           design untis for subscripts for this font. </p><p>Comments: The Subscript X Offset parameter specifies a
           font designer's recommended horizontal offset -- from the
@@ -777,9 +943,13 @@
           have an incline (italic characters) the reference point for
           subscript characters is usually adjusted to compensate for
 <<<<<<< HEAD
+<<<<<<< HEAD
           the angle of incline.</p><h5><a name="idm4876"></a>ySubscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript y offset. </p><p>Description: The recommended vertical offset in font
 =======
           the angle of incline.</p><h5><a name="idm189299812000"></a>ySubscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript y offset. </p><p>Description: The recommended vertical offset in font
+>>>>>>> Rebuild
+=======
+          the angle of incline.</p><h5><a name="idm62732389504"></a>ySubscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Subscript y offset. </p><p>Description: The recommended vertical offset in font
 >>>>>>> Rebuild
           design units from the baseline for subscripts for this font.
         </p><p>Comments: The Subscript Y Offset parameter specifies a
@@ -791,9 +961,13 @@
           application, this parameter specifies the recommended
           vertical distance below the character baseline for those
 <<<<<<< HEAD
+<<<<<<< HEAD
           subscript characters.</p><h5><a name="idm4882"></a>ySuperscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript horizontal font size.</p><p>Description: The recommended horizontal size in font
 =======
           subscript characters.</p><h5><a name="idm189299808960"></a>ySuperscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript horizontal font size.</p><p>Description: The recommended horizontal size in font
+>>>>>>> Rebuild
+=======
+          subscript characters.</p><h5><a name="idm62732386496"></a>ySuperscriptXSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript horizontal font size.</p><p>Description: The recommended horizontal size in font
 >>>>>>> Rebuild
           design units for superscripts for this font. </p><p>Comments: If a font has two recommended sizes for
           subscripts, e.g., numerics and other, the numeric sizes
@@ -810,9 +984,13 @@
           ySuperScriptXSize is set to 205, then the horizontal size
           for a simulated superscript character would be 1/10th the
 <<<<<<< HEAD
+<<<<<<< HEAD
           size of the normal character.</p><h5><a name="idm4889"></a>ySuperscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript vertical font size.</p><p>Description: The recommended vertical size in font
 =======
           size of the normal character.</p><h5><a name="idm189299805152"></a>ySuperscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript vertical font size.</p><p>Description: The recommended vertical size in font
+>>>>>>> Rebuild
+=======
+          size of the normal character.</p><h5><a name="idm62732382688"></a>ySuperscriptYSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript vertical font size.</p><p>Description: The recommended vertical size in font
 >>>>>>> Rebuild
           design units for superscripts for this font. </p><p>Comments: If a font has two recommended sizes for
           subscripts, e.g., numerics and other, the numeric sizes
@@ -829,9 +1007,13 @@
           ySuperScriptYSize is set to 205, then the vertical size for
           a simulated superscript character would be 1/10th the size
 <<<<<<< HEAD
+<<<<<<< HEAD
           of the normal character.</p><h5><a name="idm4896"></a>ySuperscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript x offset.</p><p>Description: The recommended horizontal offset in font
 =======
           of the normal character.</p><h5><a name="idm189299801344"></a>ySuperscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript x offset.</p><p>Description: The recommended horizontal offset in font
+>>>>>>> Rebuild
+=======
+          of the normal character.</p><h5><a name="idm62732378880"></a>ySuperscriptXOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript x offset.</p><p>Description: The recommended horizontal offset in font
 >>>>>>> Rebuild
           design units for superscripts for this font. </p><p>Comments: The Superscript X Offset parameter specifies a
           font designer's recommended horizontal offset -- from the
@@ -845,9 +1027,13 @@
           the characters of a font have an incline (italic characters)
           the reference point for superscript characters is usually
 <<<<<<< HEAD
+<<<<<<< HEAD
           adjusted to compensate for the angle of incline.</p><h5><a name="idm4902"></a>ySuperscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript y offset.</p><p>Description: The recommended vertical offset in font
 =======
           adjusted to compensate for the angle of incline.</p><h5><a name="idm189299798112"></a>ySuperscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript y offset.</p><p>Description: The recommended vertical offset in font
+>>>>>>> Rebuild
+=======
+          adjusted to compensate for the angle of incline.</p><h5><a name="idm62732375648"></a>ySuperscriptYOffset</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Superscript y offset.</p><p>Description: The recommended vertical offset in font
 >>>>>>> Rebuild
           design units from the baseline for superscripts for this
           font. </p><p>Comments: The Superscript Y Offset parameter specifies a
@@ -859,9 +1045,13 @@
           characters for an application, this parameter specifies the
           recommended vertical distance above the character baseline
 <<<<<<< HEAD
+<<<<<<< HEAD
           for those superscript characters.</p><h5><a name="idm4908"></a>yStrikeoutSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout size.</p><p>Description: Width of the strikeout stroke in font
 =======
           for those superscript characters.</p><h5><a name="idm189299795072"></a>yStrikeoutSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout size.</p><p>Description: Width of the strikeout stroke in font
+>>>>>>> Rebuild
+=======
+          for those superscript characters.</p><h5><a name="idm62732372608"></a>yStrikeoutSize</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout size.</p><p>Description: Width of the strikeout stroke in font
 >>>>>>> Rebuild
           design units. </p><p>Comments: This field should normally be the width of the
           em dash for the current font. If the size is one, the
@@ -870,9 +1060,13 @@
           be the line represented by the strikeout position and the
           line immediately above the strikeout position. For a Roman
 <<<<<<< HEAD
+<<<<<<< HEAD
           font with a 2048 em square, 102 is suggested.</p><h5><a name="idm4914"></a>yStrikeoutPosition</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout position.</p><p>Description: The position of the top of the strikeout
 =======
           font with a 2048 em square, 102 is suggested.</p><h5><a name="idm189299792224"></a>yStrikeoutPosition</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout position.</p><p>Description: The position of the top of the strikeout
+>>>>>>> Rebuild
+=======
+          font with a 2048 em square, 102 is suggested.</p><h5><a name="idm62732369840"></a>yStrikeoutPosition</h5><p>Format: 2-byte signed short</p><p>Units: Font design units</p><p>Title: Strikeout position.</p><p>Description: The position of the top of the strikeout
 >>>>>>> Rebuild
           stroke relative to the baseline in font design units.
         </p><p>Comments: Positive values represent distances above the
@@ -883,9 +1077,13 @@
           interfere with the recognition of standard characters, and
           therefore should not line up with crossbars in the font. For
 <<<<<<< HEAD
+<<<<<<< HEAD
           a Roman font with a 2048 em square, 460 is suggested.</p><h5><a name="idm4920"></a>sFamilyClass</h5><p>Format: 2-byte signed short</p><p>Title: Font-family class and subclass.</p><p>Description: This parameter is a classification of
 =======
           a Roman font with a 2048 em square, 460 is suggested.</p><h5><a name="idm189299789264"></a>sFamilyClass</h5><p>Format: 2-byte signed short</p><p>Title: Font-family class and subclass.</p><p>Description: This parameter is a classification of
+>>>>>>> Rebuild
+=======
+          a Roman font with a 2048 em square, 460 is suggested.</p><h5><a name="idm62732366880"></a>sFamilyClass</h5><p>Format: 2-byte signed short</p><p>Title: Font-family class and subclass.</p><p>Description: This parameter is a classification of
 >>>>>>> Rebuild
           font-family design. </p><p>Comments: The font class and font subclass are
           registered values assigned by IBM to each font family. This
@@ -895,9 +1093,13 @@
           The high byte of this field contains the family class, while
           the low byte contains the family subclass. More information
 <<<<<<< HEAD
+<<<<<<< HEAD
           about this field.  </p><h5><a name="idm4925"></a>Panose</h5><p>Format: 10 byte array</p><p>Title: PANOSE classification number</p><p>International: Additional specifications are required
 =======
           about this field.  </p><h5><a name="idm189299786736"></a>Panose</h5><p>Format: 10 byte array</p><p>Title: PANOSE classification number</p><p>International: Additional specifications are required
+>>>>>>> Rebuild
+=======
+          about this field.  </p><h5><a name="idm62732364352"></a>Panose</h5><p>Format: 10 byte array</p><p>Title: PANOSE classification number</p><p>International: Additional specifications are required
 >>>>>>> Rebuild
           for PANOSE to classify non-Latin character sets.</p><p>Description: This 10 byte series of numbers is used to
           describe the visual characteristics of a given typeface.
@@ -915,9 +1117,13 @@
           in fonts are very valuable to users of the Windows fonts
           folder. The specification for assigning PANOSE values is
 <<<<<<< HEAD
+<<<<<<< HEAD
           located at http://www.fonts.com/hp/panose/greybook/</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th></tr></thead><tbody><tr><td>BYTE</td><td>bFamilyType</td></tr><tr><td>BYTE</td><td>bSerifStyle</td></tr><tr><td>BYTE</td><td>bWeight</td></tr><tr><td>BYTE</td><td>bProportion</td></tr><tr><td>BYTE</td><td>bContrast</td></tr><tr><td>BYTE</td><td>bStrokeVariation</td></tr><tr><td>BYTE</td><td>bArmStyle</td></tr><tr><td>BYTE</td><td>bLetterform</td></tr><tr><td>BYTE</td><td>bMidline</td></tr><tr><td>BYTE</td><td>bXHeight</td></tr></tbody></table></div><h5><a name="idm4968"></a>ulUnicodeRange1 (Bits 0-31)</h5><h5><a name="idm4969"></a>ulUnicodeRange2 (Bits 32-63)</h5><h5><a name="idm4970"></a>ulUnicodeRange3 (Bits 64-95)</h5><h5><a name="idm4971"></a>ulUnicodeRange4 (Bits 96-127)</h5><p>Format: 32-bit unsigned long(4 copies) totaling 128
 =======
           located at http://www.fonts.com/hp/panose/greybook/</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th></tr></thead><tbody><tr><td>BYTE</td><td>bFamilyType</td></tr><tr><td>BYTE</td><td>bSerifStyle</td></tr><tr><td>BYTE</td><td>bWeight</td></tr><tr><td>BYTE</td><td>bProportion</td></tr><tr><td>BYTE</td><td>bContrast</td></tr><tr><td>BYTE</td><td>bStrokeVariation</td></tr><tr><td>BYTE</td><td>bArmStyle</td></tr><tr><td>BYTE</td><td>bLetterform</td></tr><tr><td>BYTE</td><td>bMidline</td></tr><tr><td>BYTE</td><td>bXHeight</td></tr></tbody></table></div><h5><a name="idm189299768736"></a>ulUnicodeRange1 (Bits 0-31)</h5><h5><a name="idm189299768352"></a>ulUnicodeRange2 (Bits 32-63)</h5><h5><a name="idm189299767968"></a>ulUnicodeRange3 (Bits 64-95)</h5><h5><a name="idm189299767584"></a>ulUnicodeRange4 (Bits 96-127)</h5><p>Format: 32-bit unsigned long(4 copies) totaling 128
+>>>>>>> Rebuild
+=======
+          located at http://www.fonts.com/hp/panose/greybook/</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th></tr></thead><tbody><tr><td>BYTE</td><td>bFamilyType</td></tr><tr><td>BYTE</td><td>bSerifStyle</td></tr><tr><td>BYTE</td><td>bWeight</td></tr><tr><td>BYTE</td><td>bProportion</td></tr><tr><td>BYTE</td><td>bContrast</td></tr><tr><td>BYTE</td><td>bStrokeVariation</td></tr><tr><td>BYTE</td><td>bArmStyle</td></tr><tr><td>BYTE</td><td>bLetterform</td></tr><tr><td>BYTE</td><td>bMidline</td></tr><tr><td>BYTE</td><td>bXHeight</td></tr></tbody></table></div><h5><a name="idm62732346352"></a>ulUnicodeRange1 (Bits 0-31)</h5><h5><a name="idm62732345968"></a>ulUnicodeRange2 (Bits 32-63)</h5><h5><a name="idm62732345584"></a>ulUnicodeRange3 (Bits 64-95)</h5><h5><a name="idm62732345200"></a>ulUnicodeRange4 (Bits 96-127)</h5><p>Format: 32-bit unsigned long(4 copies) totaling 128
 >>>>>>> Rebuild
           bits.</p><p>Title: Unicode Character Range</p><p>Description: This field is used to specify the Unicode
           blocks or ranges encompassed by the font file in the <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a>
@@ -933,6 +1139,7 @@
           form. See the Basic Multilingual Plane of ISO/IEC 10646-1 or
           the Unicode Standard v.3.0 for the list of Unicode ranges
 <<<<<<< HEAD
+<<<<<<< HEAD
           and characters.  </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Bit</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Basic Latin</td></tr><tr><td>1</td><td>Latin-1 Supplement</td></tr><tr><td>2</td><td>Latin Extended-A</td></tr><tr><td>3</td><td>Latin Extended-B</td></tr><tr><td>4</td><td>IPA Extensions</td></tr><tr><td>5</td><td>Spacing Modifier Letters</td></tr><tr><td>6</td><td>Combining Diacritical Marks</td></tr><tr><td>7</td><td>Greek</td></tr><tr><td>8</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>9</td><td>Cyrillic</td></tr><tr><td>10</td><td>Armenian</td></tr><tr><td>11</td><td>Hebrew</td></tr><tr><td>12</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>13</td><td>Arabic</td></tr><tr><td>14</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>15</td><td>Devanagari</td></tr><tr><td>16</td><td>Bengali</td></tr><tr><td>17</td><td>Gurmukhi</td></tr><tr><td>18</td><td>Gujarati</td></tr><tr><td>19</td><td>Oriya</td></tr><tr><td>20</td><td>Tamil</td></tr><tr><td>21</td><td>Telugu</td></tr><tr><td>22</td><td>Kannada</td></tr><tr><td>23</td><td>Malayalam</td></tr><tr><td>24</td><td>Thai</td></tr><tr><td>25</td><td>Lao</td></tr><tr><td>26</td><td>Georgian</td></tr><tr><td>27</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>28</td><td>Hangul Jamo</td></tr><tr><td>29</td><td>Latin Extended Additional</td></tr><tr><td>30</td><td>Greek Extended</td></tr><tr><td>31</td><td>General Punctuation</td></tr><tr><td>32</td><td>Superscripts And Subscripts</td></tr><tr><td>33</td><td>Currency Symbols</td></tr><tr><td>34</td><td>Combining Diacritical Marks For Symbols</td></tr><tr><td>35</td><td>Letterlike Symbols</td></tr><tr><td>36</td><td>Number Forms</td></tr><tr><td>37</td><td>Arrows</td></tr><tr><td>38</td><td>Mathematical Operators</td></tr><tr><td>39</td><td>Miscellaneous Technical</td></tr><tr><td>40</td><td>Control Pictures</td></tr><tr><td>41</td><td>Optical Character Recognition</td></tr><tr><td>42</td><td>Enclosed Alphanumerics</td></tr><tr><td>43</td><td>Box Drawing</td></tr><tr><td>44</td><td>Block Elements</td></tr><tr><td>45</td><td>Geometric Shapes</td></tr><tr><td>46</td><td>Miscellaneous Symbols</td></tr><tr><td>47</td><td>Dingbats</td></tr><tr><td>48</td><td>CJK Symbols And Punctuation</td></tr><tr><td>49</td><td>Hiragana</td></tr><tr><td>50</td><td>Katakana</td></tr><tr><td>51</td><td>Bopomofo</td></tr><tr><td> </td><td>  Extended Bopomofo</td></tr><tr><td>52</td><td>Hangul Compatibility Jamo</td></tr><tr><td>53</td><td>CJK Miscellaneous</td></tr><tr><td>54</td><td>Enclosed CJK Letters And Months</td></tr><tr><td>55</td><td>CJK Compatibility</td></tr><tr><td>56</td><td>Hangul</td></tr><tr><td>57</td><td>Surrogates<a href="#ftn.idm5161" class="footnote" id="idm5161"><sup class="footnote">[a]</sup></a>
               </td></tr><tr><td>58</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>59</td><td>CJK Unified Ideographs</td></tr><tr><td> </td><td> CJK Radicals Supplement</td></tr><tr><td> </td><td>  Kangxi Radicals</td></tr><tr><td> </td><td>  Ideographic Description</td></tr><tr><td> </td><td>  CJK Unified Ideograph Extension A</td></tr><tr><td>60</td><td>Private Use Area</td></tr><tr><td>61</td><td>CJK Compatibility Ideographs</td></tr><tr><td>62</td><td>Alphabetic Presentation Forms</td></tr><tr><td>63</td><td>Arabic Presentation Forms-A</td></tr><tr><td>64</td><td>Combining Half Marks</td></tr><tr><td>65</td><td>CJK Compatibility Forms</td></tr><tr><td>66</td><td>Small Form Variants</td></tr><tr><td>67</td><td>Arabic Presentation Forms-B</td></tr><tr><td>68</td><td>Halfwidth And Fullwidth Forms</td></tr><tr><td>69</td><td>Specials</td></tr><tr><td>70</td><td>Tibetan</td></tr><tr><td>71</td><td>Syriac</td></tr><tr><td>72</td><td>Thaana</td></tr><tr><td>73</td><td>Sinhala</td></tr><tr><td>74</td><td>Myanmar</td></tr><tr><td>75</td><td>Ethiopic</td></tr><tr><td>76</td><td>Cherokee</td></tr><tr><td>77</td><td>Unified Canadian Syllabics</td></tr><tr><td>78</td><td>Ogham</td></tr><tr><td>79</td><td>Runic</td></tr><tr><td>80</td><td>Khmer</td></tr><tr><td>81</td><td>Mongolian</td></tr><tr><td>82</td><td>Braille</td></tr><tr><td>83</td><td>Yi</td></tr><tr><td> </td><td>  Yi Radicals</td></tr><tr><td>84-127</td><td>Reserved for Unicode SubRanges</td></tr></tbody><tbody class="footnotes"><tr><td colspan="2"><div id="ftn.idm5161" class="footnote"><p><a href="#idm5161" class="para"><sup class="para">[a] </sup></a>Setting bit 57 implies that there is
                       at least one codepoint beyond the Basic
@@ -944,6 +1151,13 @@
                       at least one codepoint beyond the Basic
                       Multilingual Plane that is supported by this
                       font.</p></div></td></tr></tbody></table></div><h5><a name="idm189299656112"></a>achVendID</h5><p>Format: 4-byte character array</p><p>Title: Font Vendor Identification</p><p>Description: The four character identifier for the
+>>>>>>> Rebuild
+=======
+          and characters.  </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Bit</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Basic Latin</td></tr><tr><td>1</td><td>Latin-1 Supplement</td></tr><tr><td>2</td><td>Latin Extended-A</td></tr><tr><td>3</td><td>Latin Extended-B</td></tr><tr><td>4</td><td>IPA Extensions</td></tr><tr><td>5</td><td>Spacing Modifier Letters</td></tr><tr><td>6</td><td>Combining Diacritical Marks</td></tr><tr><td>7</td><td>Greek</td></tr><tr><td>8</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>9</td><td>Cyrillic</td></tr><tr><td>10</td><td>Armenian</td></tr><tr><td>11</td><td>Hebrew</td></tr><tr><td>12</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>13</td><td>Arabic</td></tr><tr><td>14</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>15</td><td>Devanagari</td></tr><tr><td>16</td><td>Bengali</td></tr><tr><td>17</td><td>Gurmukhi</td></tr><tr><td>18</td><td>Gujarati</td></tr><tr><td>19</td><td>Oriya</td></tr><tr><td>20</td><td>Tamil</td></tr><tr><td>21</td><td>Telugu</td></tr><tr><td>22</td><td>Kannada</td></tr><tr><td>23</td><td>Malayalam</td></tr><tr><td>24</td><td>Thai</td></tr><tr><td>25</td><td>Lao</td></tr><tr><td>26</td><td>Georgian</td></tr><tr><td>27</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>28</td><td>Hangul Jamo</td></tr><tr><td>29</td><td>Latin Extended Additional</td></tr><tr><td>30</td><td>Greek Extended</td></tr><tr><td>31</td><td>General Punctuation</td></tr><tr><td>32</td><td>Superscripts And Subscripts</td></tr><tr><td>33</td><td>Currency Symbols</td></tr><tr><td>34</td><td>Combining Diacritical Marks For Symbols</td></tr><tr><td>35</td><td>Letterlike Symbols</td></tr><tr><td>36</td><td>Number Forms</td></tr><tr><td>37</td><td>Arrows</td></tr><tr><td>38</td><td>Mathematical Operators</td></tr><tr><td>39</td><td>Miscellaneous Technical</td></tr><tr><td>40</td><td>Control Pictures</td></tr><tr><td>41</td><td>Optical Character Recognition</td></tr><tr><td>42</td><td>Enclosed Alphanumerics</td></tr><tr><td>43</td><td>Box Drawing</td></tr><tr><td>44</td><td>Block Elements</td></tr><tr><td>45</td><td>Geometric Shapes</td></tr><tr><td>46</td><td>Miscellaneous Symbols</td></tr><tr><td>47</td><td>Dingbats</td></tr><tr><td>48</td><td>CJK Symbols And Punctuation</td></tr><tr><td>49</td><td>Hiragana</td></tr><tr><td>50</td><td>Katakana</td></tr><tr><td>51</td><td>Bopomofo</td></tr><tr><td> </td><td>  Extended Bopomofo</td></tr><tr><td>52</td><td>Hangul Compatibility Jamo</td></tr><tr><td>53</td><td>CJK Miscellaneous</td></tr><tr><td>54</td><td>Enclosed CJK Letters And Months</td></tr><tr><td>55</td><td>CJK Compatibility</td></tr><tr><td>56</td><td>Hangul</td></tr><tr><td>57</td><td>Surrogates<a href="#ftn.idm62732271648" class="footnote" id="idm62732271648"><sup class="footnote">[a]</sup></a>
+              </td></tr><tr><td>58</td><td>Reserved for Unicode SubRanges</td></tr><tr><td>59</td><td>CJK Unified Ideographs</td></tr><tr><td> </td><td> CJK Radicals Supplement</td></tr><tr><td> </td><td>  Kangxi Radicals</td></tr><tr><td> </td><td>  Ideographic Description</td></tr><tr><td> </td><td>  CJK Unified Ideograph Extension A</td></tr><tr><td>60</td><td>Private Use Area</td></tr><tr><td>61</td><td>CJK Compatibility Ideographs</td></tr><tr><td>62</td><td>Alphabetic Presentation Forms</td></tr><tr><td>63</td><td>Arabic Presentation Forms-A</td></tr><tr><td>64</td><td>Combining Half Marks</td></tr><tr><td>65</td><td>CJK Compatibility Forms</td></tr><tr><td>66</td><td>Small Form Variants</td></tr><tr><td>67</td><td>Arabic Presentation Forms-B</td></tr><tr><td>68</td><td>Halfwidth And Fullwidth Forms</td></tr><tr><td>69</td><td>Specials</td></tr><tr><td>70</td><td>Tibetan</td></tr><tr><td>71</td><td>Syriac</td></tr><tr><td>72</td><td>Thaana</td></tr><tr><td>73</td><td>Sinhala</td></tr><tr><td>74</td><td>Myanmar</td></tr><tr><td>75</td><td>Ethiopic</td></tr><tr><td>76</td><td>Cherokee</td></tr><tr><td>77</td><td>Unified Canadian Syllabics</td></tr><tr><td>78</td><td>Ogham</td></tr><tr><td>79</td><td>Runic</td></tr><tr><td>80</td><td>Khmer</td></tr><tr><td>81</td><td>Mongolian</td></tr><tr><td>82</td><td>Braille</td></tr><tr><td>83</td><td>Yi</td></tr><tr><td> </td><td>  Yi Radicals</td></tr><tr><td>84-127</td><td>Reserved for Unicode SubRanges</td></tr></tbody><tbody class="footnotes"><tr><td colspan="2"><div id="ftn.idm62732271648" class="footnote"><p><a href="#idm62732271648" class="para"><sup class="para">[a] </sup></a>Setting bit 57 implies that there is
+                      at least one codepoint beyond the Basic
+                      Multilingual Plane that is supported by this
+                      font.</p></div></td></tr></tbody></table></div><h5><a name="idm62732233808"></a>achVendID</h5><p>Format: 4-byte character array</p><p>Title: Font Vendor Identification</p><p>Description: The four character identifier for the
 >>>>>>> Rebuild
           vendor of the given type face.</p><p>Comments: This is not the royalty owner of the original
           artwork. This is the company responsible for the marketing
@@ -960,9 +1174,13 @@
           Microsoft. Other suppliers can choose their own mixed case
           or lowercase ID's, or leave the field blank.</p><p>For a list of registered Vendor id's see our <a class="ulink" href="http://www.microsoft.com/typography/links/vendorlist.asp" target="_top">Registered
 <<<<<<< HEAD
+<<<<<<< HEAD
             'vendors'</a> links page.</p><h5><a name="idm5267"></a>fsSelection</h5><p>Format: 2-byte bit field.</p><p>Title: Font selection flags.</p><p>Description: Contains information concerning the nature
 =======
             'vendors'</a> links page.</p><h5><a name="idm189299651744"></a>fsSelection</h5><p>Format: 2-byte bit field.</p><p>Title: Font selection flags.</p><p>Description: Contains information concerning the nature
+>>>>>>> Rebuild
+=======
+            'vendors'</a> links page.</p><h5><a name="idm62732229440"></a>fsSelection</h5><p>Format: 2-byte bit field.</p><p>Title: Font selection flags.</p><p>Description: Contains information concerning the nature
 >>>>>>> Rebuild
           of the font patterns, as follows:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Bit #</th><th>macStyle bit</th><th>C Definition</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>bit 1</td><td>ITALIC</td><td>Font contains Italic characters, otherwise they
                   are upright.</td></tr><tr><td>1</td><td> </td><td>UNDERSCORE</td><td>Characters are underscored.</td></tr><tr><td>2</td><td> </td><td>NEGATIVE</td><td>Characters have their foreground and background
@@ -984,6 +1202,7 @@
           does not give any indication of whether or not bit 6 of
           fsSelection is clear (e.g., Arial Light would have all bits
 <<<<<<< HEAD
+<<<<<<< HEAD
           cleared; it is not the regular version of Arial). </p><h5><a name="idm5319"></a>usFirstCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The minimum Unicode index (character code)
           in this font, according to the cmap subtable for platform ID
           3 and platform- specific encoding ID 0 or 1. For most fonts
@@ -994,13 +1213,20 @@
           character sets the font supports. </p><h5><a name="idm5325"></a>sTypoAscender</h5><p>Format: SHORT</p><p>Description: The typographic ascender for this font.
 =======
           cleared; it is not the regular version of Arial). </p><h5><a name="idm189299629872"></a>usFirstCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The minimum Unicode index (character code)
+=======
+          cleared; it is not the regular version of Arial). </p><h5><a name="idm62732207888"></a>usFirstCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The minimum Unicode index (character code)
+>>>>>>> Rebuild
           in this font, according to the cmap subtable for platform ID
           3 and platform- specific encoding ID 0 or 1. For most fonts
           supporting Win-ANSI or other character sets, this value
-          would be 0x0020. </p><h5><a name="idm189299628416"></a>usLastCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The maximum Unicode index (character code)
+          would be 0x0020. </p><h5><a name="idm62732206432"></a>usLastCharIndex</h5><p>Format: 2-byte USHORT</p><p>Description: The maximum Unicode index (character code)
           in this font, according to the cmap subtable for platform ID
           3 and encoding ID 0 or 1. This value depends on which
+<<<<<<< HEAD
           character sets the font supports. </p><h5><a name="idm189299627024"></a>sTypoAscender</h5><p>Format: SHORT</p><p>Description: The typographic ascender for this font.
+>>>>>>> Rebuild
+=======
+          character sets the font supports. </p><h5><a name="idm62732205040"></a>sTypoAscender</h5><p>Format: SHORT</p><p>Description: The typographic ascender for this font.
 >>>>>>> Rebuild
           Remember that this is not the same as the Ascender value in
           the <a class="link" href="chapter.hhea.html" title="Chapter 7. hhea - Horizontal Header">hhea</a> table, which Apple defines in a
@@ -1028,9 +1254,13 @@
           880. Failing to adhere to these requirements will result in
           incorrect vertical layout.</p><p>Also see the Recommendations Section for more on this
 <<<<<<< HEAD
+<<<<<<< HEAD
           field. </p><h5><a name="idm5333"></a>sTypoDescender</h5><p>Format: SHORT</p><p>Description: The typographic descender for this font.
 =======
           field. </p><h5><a name="idm189299621712"></a>sTypoDescender</h5><p>Format: SHORT</p><p>Description: The typographic descender for this font.
+>>>>>>> Rebuild
+=======
+          field. </p><h5><a name="idm62732199808"></a>sTypoDescender</h5><p>Format: SHORT</p><p>Description: The typographic descender for this font.
 >>>>>>> Rebuild
           Remember that this is not the same as the Descender value in
           the <a class="link" href="chapter.hhea.html" title="Chapter 7. hhea - Horizontal Header">hhea</a> table, which Apple defines in a
@@ -1059,9 +1289,13 @@
           -120. Failing to adhere to these requirements will result in
           incorrect vertical layout.</p><p>Also see the Recommendations Section for more on this
 <<<<<<< HEAD
+<<<<<<< HEAD
           field. </p><h5><a name="idm5342"></a>sTypoLineGap</h5><p>Format: 2-byte SHORT</p><p>Description: The typographic line gap for this font.
 =======
           field. </p><h5><a name="idm189299616512"></a>sTypoLineGap</h5><p>Format: 2-byte SHORT</p><p>Description: The typographic line gap for this font.
+>>>>>>> Rebuild
+=======
+          field. </p><h5><a name="idm62732194688"></a>sTypoLineGap</h5><p>Format: 2-byte SHORT</p><p>Description: The typographic line gap for this font.
 >>>>>>> Rebuild
           Remember that this is not the same as the LineGap value in
           the <a class="link" href="chapter.hhea.html" title="Chapter 7. hhea - Horizontal Header">hhea</a> table, which Apple defines in a
@@ -1079,9 +1313,13 @@
           access the 'sfnt' resource and parse it to extract this data
           from the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table (unless Apple exposes
 <<<<<<< HEAD
+<<<<<<< HEAD
           the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table through a new API) </p><h5><a name="idm5349"></a>usWinAscent</h5><p>Format: 2-byte USHORT</p><p>Description: The ascender metric for Windows. This, too,
 =======
           the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table through a new API) </p><h5><a name="idm189299612096"></a>usWinAscent</h5><p>Format: 2-byte USHORT</p><p>Description: The ascender metric for Windows. This, too,
+>>>>>>> Rebuild
+=======
+          the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table through a new API) </p><h5><a name="idm62732190352"></a>usWinAscent</h5><p>Format: 2-byte USHORT</p><p>Description: The ascender metric for Windows. This, too,
 >>>>>>> Rebuild
           is distinct from Apple's Ascender value and from the
           usTypoAscender values. usWinAscent is computed as the yMax
@@ -1102,9 +1340,13 @@
           (against CommonType recommendations), then the value should be
           set appropriately. In such a case, it may result in some
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph bitmaps being clipped.</p><h5><a name="idm5354"></a>usWinDescent</h5><p>Format: 2-byte USHORT</p><p>Description: The descender metric for Windows. This,
 =======
           glyph bitmaps being clipped.</p><h5><a name="idm189299608848"></a>usWinDescent</h5><p>Format: 2-byte USHORT</p><p>Description: The descender metric for Windows. This,
+>>>>>>> Rebuild
+=======
+          glyph bitmaps being clipped.</p><h5><a name="idm62732187104"></a>usWinDescent</h5><p>Format: 2-byte USHORT</p><p>Description: The descender metric for Windows. This,
 >>>>>>> Rebuild
           too, is distinct from Apple's Descender value and from the
           usTypoDescender values. usWinDescent is computed as the
@@ -1125,9 +1367,13 @@
           (against CommonType recommendations), then the value should be
           set appropriately. In such a case, it may result in some
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph bitmaps being clipped. </p><h5><a name="idm5359"></a>ulCodePageRange1 Bits 0-31</h5><h5><a name="idm5360"></a>ulCodePageRange2 Bits 32-63 </h5><p>Format: 32-bit unsigned long(2 copies) totaling 64
 =======
           glyph bitmaps being clipped. </p><h5><a name="idm189299605584"></a>ulCodePageRange1 Bits 0-31</h5><h5><a name="idm189299605200"></a>ulCodePageRange2 Bits 32-63 </h5><p>Format: 32-bit unsigned long(2 copies) totaling 64
+>>>>>>> Rebuild
+=======
+          glyph bitmaps being clipped. </p><h5><a name="idm62732183840"></a>ulCodePageRange1 Bits 0-31</h5><h5><a name="idm62732183456"></a>ulCodePageRange2 Bits 32-63 </h5><p>Format: 32-bit unsigned long(2 copies) totaling 64
 >>>>>>> Rebuild
           bits.</p><p>Title: Code Page Character Range</p><p>Description: This field is used to specify the code
           pages encompassed by the font file in the <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> subtable
@@ -1151,9 +1397,13 @@
           Big-Endian form. </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Bit</th><th>Code</th><th>Page Description</th></tr></thead><tbody><tr><td>0</td><td>1252</td><td>Latin 1</td></tr><tr><td>1</td><td>1250</td><td>Latin 2: Eastern Europe</td></tr><tr><td>2</td><td>1251</td><td>Cyrillic</td></tr><tr><td>3</td><td>1253</td><td>Greek</td></tr><tr><td>4</td><td>1254</td><td>Turkish</td></tr><tr><td>5</td><td>1255</td><td>Hebrew</td></tr><tr><td>6</td><td>1256</td><td>Arabic</td></tr><tr><td>7</td><td>1257</td><td>Windows Baltic</td></tr><tr><td>8</td><td>1258</td><td>Vietnamese</td></tr><tr><td>9-15</td><td> </td><td>Reserved for Alternate ANSI</td></tr><tr><td>16</td><td>874</td><td>Thai</td></tr><tr><td>17</td><td>932</td><td>JIS/Japan</td></tr><tr><td>18</td><td>936</td><td>Chinese: Simplified chars--PRC and
                   Singapore</td></tr><tr><td>19</td><td>949</td><td>Korean Wansung</td></tr><tr><td>20</td><td>950</td><td>Chinese: Traditional chars--Taiwan and Hong
 <<<<<<< HEAD
+<<<<<<< HEAD
                   Kong</td></tr><tr><td>21</td><td>1361</td><td>Korean Johab</td></tr><tr><td>22-28</td><td> </td><td>Reserved for Alternate ANSI &amp; OEM</td></tr><tr><td>29</td><td> </td><td>Macintosh Character Set (US Roman)</td></tr><tr><td>30</td><td> </td><td>OEM Character Set</td></tr><tr><td>31</td><td> </td><td>Symbol Character Set</td></tr><tr><td>32-47</td><td> </td><td>Reserved for OEM</td></tr><tr><td>48</td><td>869</td><td>IBM Greek</td></tr><tr><td>49</td><td>866</td><td>MS-DOS Russian</td></tr><tr><td>50</td><td>865</td><td>MS-DOS Nordic</td></tr><tr><td>51</td><td>864</td><td>Arabic</td></tr><tr><td>52</td><td>863</td><td>MS-DOS Canadian French</td></tr><tr><td>53</td><td>862</td><td>Hebrew</td></tr><tr><td>54</td><td>861</td><td>MS-DOS Icelandic</td></tr><tr><td>55</td><td>860</td><td>MS-DOS Portuguese</td></tr><tr><td>56</td><td>857</td><td>IBM Turkish</td></tr><tr><td>57</td><td>855</td><td>IBM Cyrillic; primarily Russian</td></tr><tr><td>58</td><td>852</td><td>Latin 2</td></tr><tr><td>59</td><td>775</td><td>MS-DOS Baltic</td></tr><tr><td>60</td><td>737</td><td>Greek; former 437 G</td></tr><tr><td>61</td><td>708</td><td>Arabic; ASMO 708</td></tr><tr><td>62</td><td>850</td><td>WE/Latin 1</td></tr><tr><td>63</td><td>437</td><td>US</td></tr></tbody></table></div><h5><a name="idm5524"></a>sxHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
 =======
                   Kong</td></tr><tr><td>21</td><td>1361</td><td>Korean Johab</td></tr><tr><td>22-28</td><td> </td><td>Reserved for Alternate ANSI &amp; OEM</td></tr><tr><td>29</td><td> </td><td>Macintosh Character Set (US Roman)</td></tr><tr><td>30</td><td> </td><td>OEM Character Set</td></tr><tr><td>31</td><td> </td><td>Symbol Character Set</td></tr><tr><td>32-47</td><td> </td><td>Reserved for OEM</td></tr><tr><td>48</td><td>869</td><td>IBM Greek</td></tr><tr><td>49</td><td>866</td><td>MS-DOS Russian</td></tr><tr><td>50</td><td>865</td><td>MS-DOS Nordic</td></tr><tr><td>51</td><td>864</td><td>Arabic</td></tr><tr><td>52</td><td>863</td><td>MS-DOS Canadian French</td></tr><tr><td>53</td><td>862</td><td>Hebrew</td></tr><tr><td>54</td><td>861</td><td>MS-DOS Icelandic</td></tr><tr><td>55</td><td>860</td><td>MS-DOS Portuguese</td></tr><tr><td>56</td><td>857</td><td>IBM Turkish</td></tr><tr><td>57</td><td>855</td><td>IBM Cyrillic; primarily Russian</td></tr><tr><td>58</td><td>852</td><td>Latin 2</td></tr><tr><td>59</td><td>775</td><td>MS-DOS Baltic</td></tr><tr><td>60</td><td>737</td><td>Greek; former 437 G</td></tr><tr><td>61</td><td>708</td><td>Arabic; ASMO 708</td></tr><tr><td>62</td><td>850</td><td>WE/Latin 1</td></tr><tr><td>63</td><td>437</td><td>US</td></tr></tbody></table></div><h5><a name="idm189299540832"></a>sxHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
+>>>>>>> Rebuild
+=======
+                  Kong</td></tr><tr><td>21</td><td>1361</td><td>Korean Johab</td></tr><tr><td>22-28</td><td> </td><td>Reserved for Alternate ANSI &amp; OEM</td></tr><tr><td>29</td><td> </td><td>Macintosh Character Set (US Roman)</td></tr><tr><td>30</td><td> </td><td>OEM Character Set</td></tr><tr><td>31</td><td> </td><td>Symbol Character Set</td></tr><tr><td>32-47</td><td> </td><td>Reserved for OEM</td></tr><tr><td>48</td><td>869</td><td>IBM Greek</td></tr><tr><td>49</td><td>866</td><td>MS-DOS Russian</td></tr><tr><td>50</td><td>865</td><td>MS-DOS Nordic</td></tr><tr><td>51</td><td>864</td><td>Arabic</td></tr><tr><td>52</td><td>863</td><td>MS-DOS Canadian French</td></tr><tr><td>53</td><td>862</td><td>Hebrew</td></tr><tr><td>54</td><td>861</td><td>MS-DOS Icelandic</td></tr><tr><td>55</td><td>860</td><td>MS-DOS Portuguese</td></tr><tr><td>56</td><td>857</td><td>IBM Turkish</td></tr><tr><td>57</td><td>855</td><td>IBM Cyrillic; primarily Russian</td></tr><tr><td>58</td><td>852</td><td>Latin 2</td></tr><tr><td>59</td><td>775</td><td>MS-DOS Baltic</td></tr><tr><td>60</td><td>737</td><td>Greek; former 437 G</td></tr><tr><td>61</td><td>708</td><td>Arabic; ASMO 708</td></tr><tr><td>62</td><td>850</td><td>WE/Latin 1</td></tr><tr><td>63</td><td>437</td><td>US</td></tr></tbody></table></div><h5><a name="idm62732119328"></a>sxHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
 >>>>>>> Rebuild
           the baseline and the approximate height of non-ascending
           lowercase letters measured in <em class="glossterm">font unit</em>s. This value would
@@ -1166,9 +1416,13 @@
           0.</p><p>This metric, if specified, can be used in font
           substitution: the xHeight value of one font can be scaled to
 <<<<<<< HEAD
+<<<<<<< HEAD
           approximate the apparent size of another. </p><h5><a name="idm5529"></a>sCapHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
 =======
           approximate the apparent size of another. </p><h5><a name="idm189299538112"></a>sCapHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
+>>>>>>> Rebuild
+=======
+          approximate the apparent size of another. </p><h5><a name="idm62732116608"></a>sCapHeight</h5><p>Format: SHORT</p><p>Description: This metric specifies the distance between
 >>>>>>> Rebuild
           the baseline and the approximate height of uppercase letters
           measured in <em class="glossterm">font unit</em>s. This value would normally be specified
@@ -1182,14 +1436,19 @@
           It can also be used as an alignment metric; the top of a
           drop capital, for instance, can be aligned to the sCapHeight
 <<<<<<< HEAD
+<<<<<<< HEAD
           metric of the first line of text. </p><h5><a name="idm5534"></a>usDefaultChar</h5><p>Format: USHORT</p><p>Description: Whenever a request is made for a character
 =======
           metric of the first line of text. </p><h5><a name="idm189299535280"></a>usDefaultChar</h5><p>Format: USHORT</p><p>Description: Whenever a request is made for a character
+>>>>>>> Rebuild
+=======
+          metric of the first line of text. </p><h5><a name="idm62732113776"></a>usDefaultChar</h5><p>Format: USHORT</p><p>Description: Whenever a request is made for a character
 >>>>>>> Rebuild
           that is not in the font, Windows provides this default
           character. If the value of this field is zero, glyph ID 0 is
           to be used for the default character otherwise this is the
           Unicode encoding of the glyph that Windows uses as the
+<<<<<<< HEAD
 <<<<<<< HEAD
           default character. </p><h5><a name="idm5537"></a>usBreakChar</h5><p>Format: USHORT</p><p>Description: This is the Unicode encoding of the glyph
           that Windows uses as the break character. The break
@@ -1200,6 +1459,12 @@
           that Windows uses as the break character. The break
           character is used to separate words and justify text. Most
           fonts specify 'space' as the break character.</p><h5><a name="idm189299532352"></a>usMaxContext</h5><p>Format: USHORT</p><p>Description: The maximum length of a target glyph
+>>>>>>> Rebuild
+=======
+          default character. </p><h5><a name="idm62732112256"></a>usBreakChar</h5><p>Format: USHORT</p><p>Description: This is the Unicode encoding of the glyph
+          that Windows uses as the break character. The break
+          character is used to separate words and justify text. Most
+          fonts specify 'space' as the break character.</p><h5><a name="idm62732110848"></a>usMaxContext</h5><p>Format: USHORT</p><p>Description: The maximum length of a target glyph
 >>>>>>> Rebuild
           context for any feature in this font. For example, a font
           which has only a pair kerning feature should set this field

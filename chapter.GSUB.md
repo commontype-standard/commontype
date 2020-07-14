@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.GSUB"></a>Chapter 25. GSUB - The Glyph Substitution Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14403"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.1.1"></a>Specification</h4></div></div></div><p>The Glyph Substitution table (<a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>)
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.GSUB"></a>Chapter 25. GSUB - The Glyph Substitution Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296204640"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.1.1"></a>Specification</h4></div></div></div><p>The Glyph Substitution table (<a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>)
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.GSUB"></a>Chapter 25. GSUB - The Glyph Substitution Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727465520"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.1.1"></a>Specification</h4></div></div></div><p>The Glyph Substitution table (<a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>)
 >>>>>>> Rebuild
           contains information for substituting glyphs to render the
           scripts and language systems supported in a font. Many
@@ -12,11 +16,16 @@
           substitutes are aesthetic options for the user, such as the
           use of ligature glyphs in the English language (see Figure
 <<<<<<< HEAD
+<<<<<<< HEAD
           2)</p><div class="figure"><a name="idm14409"></a><p class="title"><strong>Figure 25.1. Figure 1: Isolated, initial, medial, and final forms
             of the Arabic character HAH</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig3a.gif" alt="Figure 1: Isolated, initial, medial, and final forms of the Arabic character HAH"/></div></div></div><br class="figure-break"/><div class="figure"><a name="idm14414"></a><p class="title"><strong>Figure 25.2. Figure 2. Two Latin glyphs and their associated
 =======
           2)</p><div class="figure"><a name="idm189296201872"></a><p class="title"><strong>Figure 25.1. Figure 1: Isolated, initial, medial, and final forms
             of the Arabic character HAH</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig3a.gif" alt="Figure 1: Isolated, initial, medial, and final forms of the Arabic character HAH"/></div></div></div><br class="figure-break"/><div class="figure"><a name="idm189296199696"></a><p class="title"><strong>Figure 25.2. Figure 2. Two Latin glyphs and their associated
+>>>>>>> Rebuild
+=======
+          2)</p><div class="figure"><a name="idm62727462752"></a><p class="title"><strong>Figure 25.1. Figure 1: Isolated, initial, medial, and final forms
+            of the Arabic character HAH</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig3a.gif" alt="Figure 1: Isolated, initial, medial, and final forms of the Arabic character HAH"/></div></div></div><br class="figure-break"/><div class="figure"><a name="idm62727460608"></a><p class="title"><strong>Figure 25.2. Figure 2. Two Latin glyphs and their associated
 >>>>>>> Rebuild
             ligature</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig3b.gif" alt="Figure 2. Two Latin glyphs and their associated ligature"/></div></div></div><br class="figure-break"/><p>Many fonts use limited character encoding standards that
           map glyphs to characters one-to-one, assigning a glyph to
@@ -35,9 +44,13 @@
           standards typically encode characters but not glyphs; at the
           same time, fonts typically map from one character to one
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph."</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14424"></a>Substituting Glyphs with CommonType</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.2.1"></a>Specification</h4></div></div></div><p>The CommonType <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table fully
 =======
           glyph."</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296193472"></a>Substituting Glyphs with CommonType</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.2.1"></a>Specification</h4></div></div></div><p>The CommonType <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table fully
+>>>>>>> Rebuild
+=======
+          glyph."</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727454352"></a>Substituting Glyphs with CommonType</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.2.1"></a>Specification</h4></div></div></div><p>The CommonType <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table fully
 >>>>>>> Rebuild
           supports glyph substitution. To access glyph substitutes,
           <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> maps from the glyph index or indices
@@ -60,6 +73,7 @@
               a single glyph with another single glyph. This is used
               to render positional glyph variants in Arabic and
 <<<<<<< HEAD
+<<<<<<< HEAD
               vertical text in the Far East (see Figure 3)</p><div class="figure"><a name="idm14441"></a><p class="title"><strong>Figure 25.3. Figure 3. Alternative forms of parentheses used
                 when positioning Kanji vertically</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig3c.gif" alt="Figure 3. Alternative forms of parentheses used when positioning Kanji vertically"/></div></div></div><br class="figure-break"/></li><li class="listitem"><p>A <span class="emphasis"><em>multiple substitution</em></span>
               replaces a single glyph with more than one glyph. This
@@ -72,6 +86,13 @@
               is used to specify actions such as ligature
               decomposition (see Figure 4)</p><div class="figure"><a name="idm189296180416"></a><p class="title"><strong>Figure 25.4. Figure 4. Decomposing a Latin ligature glyph into
 >>>>>>> Rebuild
+=======
+              vertical text in the Far East (see Figure 3)</p><div class="figure"><a name="idm62727444816"></a><p class="title"><strong>Figure 25.3. Figure 3. Alternative forms of parentheses used
+                when positioning Kanji vertically</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig3c.gif" alt="Figure 3. Alternative forms of parentheses used when positioning Kanji vertically"/></div></div></div><br class="figure-break"/></li><li class="listitem"><p>A <span class="emphasis"><em>multiple substitution</em></span>
+              replaces a single glyph with more than one glyph. This
+              is used to specify actions such as ligature
+              decomposition (see Figure 4)</p><div class="figure"><a name="idm62727441296"></a><p class="title"><strong>Figure 25.4. Figure 4. Decomposing a Latin ligature glyph into
+>>>>>>> Rebuild
                 its individual glyph components</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig3d.gif" alt="Figure 4. Decomposing a Latin ligature glyph into its individual glyph components"/></div></div></div><br class="figure-break"/></li><li class="listitem"><p>An <span class="emphasis"><em>alternate substitution</em></span>
               identifies functionally equivalent but different looking
               forms of a glyph. These glyphs are often referred to as
@@ -80,9 +101,13 @@
               would have a default glyph index in the cmap table. The
               client could use the default glyph or substitute any of
 <<<<<<< HEAD
+<<<<<<< HEAD
               the four alternatives (see Figure 5)</p><div class="figure"><a name="idm14457"></a><p class="title"><strong>Figure 25.5. Figure 5. Alternative ampersand glyphs in a
 =======
               the four alternatives (see Figure 5)</p><div class="figure"><a name="idm189296176560"></a><p class="title"><strong>Figure 25.5. Figure 5. Alternative ampersand glyphs in a
+>>>>>>> Rebuild
+=======
+              the four alternatives (see Figure 5)</p><div class="figure"><a name="idm62727437472"></a><p class="title"><strong>Figure 25.5. Figure 5. Alternative ampersand glyphs in a
 >>>>>>> Rebuild
                 font</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig3e.gif" alt="Figure 5. Alternative ampersand glyphs in a font"/></div></div></div><br class="figure-break"/></li><li class="listitem"><p>A <span class="emphasis"><em>ligature substitution</em></span>
               replaces several glyph indices with a single glyph
@@ -93,9 +118,13 @@
               remaining glyphs in the string are deleted, this
               includes those glyphs that are skipped as a result of
 <<<<<<< HEAD
+<<<<<<< HEAD
               lookup flags.</p><div class="figure"><a name="idm14465"></a><p class="title"><strong>Figure 25.6. Figure 6. Three Arabic glyphs and their
 =======
               lookup flags.</p><div class="figure"><a name="idm189296172736"></a><p class="title"><strong>Figure 25.6. Figure 6. Three Arabic glyphs and their
+>>>>>>> Rebuild
+=======
+              lookup flags.</p><div class="figure"><a name="idm62727433648"></a><p class="title"><strong>Figure 25.6. Figure 6. Three Arabic glyphs and their
 >>>>>>> Rebuild
                 associated ligature glyph</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig3f.gif" alt="Figure 6. Three Arabic glyphs and their associated ligature glyph"/></div></div></div><br class="figure-break"/></li><li class="listitem"><p>
             <span class="emphasis"><em>Contextual substitution</em></span>, the
@@ -134,9 +163,13 @@
           substitution (<span class="emphasis"><em>extension substitution</em></span>)
           does not increase the functionality but is sometimes
 <<<<<<< HEAD
+<<<<<<< HEAD
           necessary for large GSUB tables.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14484"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table begins with a header
 =======
           necessary for large GSUB tables.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296162016"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table begins with a header
+>>>>>>> Rebuild
+=======
+          necessary for large GSUB tables.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727422928"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table begins with a header
 >>>>>>> Rebuild
           that defines offsets to a ScriptList, a FeatureList, and a
           LookupList (see Figure 3g):</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The ScriptList identifies all the scripts and
@@ -146,9 +179,13 @@
               systems.</p></li><li class="listitem"><p>The LookupList contains all the lookup data needed
               to implement each glyph substitution feature.</p></li></ul></div><p>For a detailed discussion of ScriptLists, FeatureLists,
 <<<<<<< HEAD
+<<<<<<< HEAD
           and LookupLists, see the chapter Common Table Formats</p><div class="figure"><a name="idm14498"></a><p class="title"><strong>Figure 25.7. Figure 7. High-level organization of <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>
 =======
           and LookupLists, see the chapter Common Table Formats</p><div class="figure"><a name="idm189296155408"></a><p class="title"><strong>Figure 25.7. Figure 7. High-level organization of <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>
+>>>>>>> Rebuild
+=======
+          and LookupLists, see the chapter Common Table Formats</p><div class="figure"><a name="idm62727416320"></a><p class="title"><strong>Figure 25.7. Figure 7. High-level organization of <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>
 >>>>>>> Rebuild
           table</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig3g.gif" alt="Figure 7. High-level organization of GSUB table"/></div></div></div><br class="figure-break"/><p>This organization helps text-processing clients to
           easily locate the features and lookups that apply to a
@@ -171,9 +208,13 @@
           substitution action used to implement a feature. All
           subtables in a lookup must be of the same LookupType, as
 <<<<<<< HEAD
+<<<<<<< HEAD
           listed in the LookupType Enumeration table:</p><div class="table"><a name="idm14521"></a><p class="title"><strong>Table 25.1. LookupType Enumeration table for glyph
 =======
           listed in the LookupType Enumeration table:</p><div class="table"><a name="idm189296143632"></a><p class="title"><strong>Table 25.1. LookupType Enumeration table for glyph
+>>>>>>> Rebuild
+=======
+          listed in the LookupType Enumeration table:</p><div class="table"><a name="idm62727404544"></a><p class="title"><strong>Table 25.1. LookupType Enumeration table for glyph
 >>>>>>> Rebuild
             substitution</strong></p><div class="table-contents"><table class="table" summary="LookupType Enumeration table for glyph&#10;            substitution" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>1</td><td>Single</td><td>Replace one glyph with one glyph </td></tr><tr><td>2</td><td>Multiple</td><td>Replace one glyph with more than one
                   glyph</td></tr><tr><td>3</td><td>Alternate</td><td>Replace one glyph with one of many
@@ -210,9 +251,13 @@
           including the three formats available for contextual
           substitutions.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.3.2"></a>Annotation</h4></div></div></div><p>Last sentence: the occurrence of 'five' should be
 <<<<<<< HEAD
+<<<<<<< HEAD
           replaced by 'seven'.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14576"></a>GSUB header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.4.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table begins with a header
 =======
           replaced by 'seven'.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296117856"></a>GSUB header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.4.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table begins with a header
+>>>>>>> Rebuild
+=======
+          replaced by 'seven'.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727378800"></a>GSUB header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.4.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table begins with a header
 >>>>>>> Rebuild
           that contains a version number for the table (Version) and
           offsets to a three tables: ScriptList, FeatureList, and
@@ -220,18 +265,26 @@
           the chapter, Common Table Formats. Example 1 at the end of
           this chapter shows a <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> Header table
 <<<<<<< HEAD
+<<<<<<< HEAD
           definition.</p><div class="table"><a name="idm14583"></a><p class="title"><strong>Table 25.2. GSUB Header</strong></p><div class="table-contents"><table class="table" summary="GSUB Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>Version of the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>
 =======
           definition.</p><div class="table"><a name="idm189296113984"></a><p class="title"><strong>Table 25.2. GSUB Header</strong></p><div class="table-contents"><table class="table" summary="GSUB Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>Version of the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>
+>>>>>>> Rebuild
+=======
+          definition.</p><div class="table"><a name="idm62727374928"></a><p class="title"><strong>Table 25.2. GSUB Header</strong></p><div class="table-contents"><table class="table" summary="GSUB Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>Version of the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>
 >>>>>>> Rebuild
               table – initially set to 0x00010000</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ScriptList</td><td>Offset to ScriptList table – from beginning of
               <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>FeatureList</td><td>Offset to FeatureList table – from beginning of
               <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>LookupList</td><td>Offset to LookupList table – from beginning of
               <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.4.2"></a>Annotation</h4></div></div></div><p>There is a typo in the first sentence "... to a three
 <<<<<<< HEAD
+<<<<<<< HEAD
           tables:..."</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14615"></a>Lookup Type 1: Single Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.5.1"></a>Specification</h4></div></div></div><p>Single substitution (SingleSubst) subtables tell a
 =======
           tables:..."</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296100496"></a>Lookup Type 1: Single Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.5.1"></a>Specification</h4></div></div></div><p>Single substitution (SingleSubst) subtables tell a
+>>>>>>> Rebuild
+=======
+          tables:..."</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727361440"></a>Lookup Type 1: Single Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.5.1"></a>Specification</h4></div></div></div><p>Single substitution (SingleSubst) subtables tell a
 >>>>>>> Rebuild
           client to replace a single glyph with another glyph. The
           subtables can be either of two formats. Both formats require
@@ -239,9 +292,13 @@
           glyphs (specified in the Coverage table), and one that
           defines the output glyphs. Format 1 requires less space than
 <<<<<<< HEAD
+<<<<<<< HEAD
           Format 2, but it is less flexible.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.5.2"></a>Annotation</h4></div></div></div><p>None.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14623"></a>Single Substitution Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.6.1"></a>Specification</h4></div></div></div><p>Format 1 calculates the indices of the output glyphs,
 =======
           Format 2, but it is less flexible.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.5.2"></a>Annotation</h4></div></div></div><p>None.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296095616"></a>Single Substitution Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.6.1"></a>Specification</h4></div></div></div><p>Format 1 calculates the indices of the output glyphs,
+>>>>>>> Rebuild
+=======
+          Format 2, but it is less flexible.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.5.2"></a>Annotation</h4></div></div></div><p>None.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727356560"></a>Single Substitution Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.6.1"></a>Specification</h4></div></div></div><p>Format 1 calculates the indices of the output glyphs,
 >>>>>>> Rebuild
           which are not explicitly defined in the subtable. To
           calculate an output glyph index, Format 1 adds a constant
@@ -256,9 +313,13 @@
           input glyph index to calculate the index of the
           corresponding output glyph.</p><p>Example 2 at the end of this chapter uses Format 1 to
 <<<<<<< HEAD
+<<<<<<< HEAD
           replace standard numerals with lining numerals.</p><div class="table"><a name="idm14630"></a><p class="title"><strong>Table 25.3. SingleSubstFormat1 subtable: Calculated output glyph
 =======
           replace standard numerals with lining numerals.</p><div class="table"><a name="idm189296091696"></a><p class="title"><strong>Table 25.3. SingleSubstFormat1 subtable: Calculated output glyph
+>>>>>>> Rebuild
+=======
+          replace standard numerals with lining numerals.</p><div class="table"><a name="idm62727352640"></a><p class="title"><strong>Table 25.3. SingleSubstFormat1 subtable: Calculated output glyph
 >>>>>>> Rebuild
             indices</strong></p><div class="table-contents"><table class="table" summary="SingleSubstFormat1 subtable: Calculated output glyph&#10;            indices" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
               Substitution table</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>DeltaGlyphID</td><td>Add to original GlyphID to get substitute
@@ -275,9 +336,13 @@
       </p><p>The action of this subtable is to replace the glyph
 	  matched by C; if the id of that glyph is g, then the
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  replacement glyph has id (g+DeltaGlyphId) % 0xffff.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14660"></a>Single Substitution Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.7.1"></a>Specification</h4></div></div></div><p>Format 2 is more flexible than Format 1, but requires
 =======
 	  replacement glyph has id (g+DeltaGlyphId) % 0xffff.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296079312"></a>Single Substitution Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.7.1"></a>Specification</h4></div></div></div><p>Format 2 is more flexible than Format 1, but requires
+>>>>>>> Rebuild
+=======
+	  replacement glyph has id (g+DeltaGlyphId) % 0xffff.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727340256"></a>Single Substitution Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.7.1"></a>Specification</h4></div></div></div><p>Format 2 is more flexible than Format 1, but requires
 >>>>>>> Rebuild
           more space. It provides an array of output glyph indices
           (Substitute) explicitly matched to the input glyph indices
@@ -293,9 +358,13 @@
           Coverage table.</p><p>Example 3 at the end of this chapter uses Format 2 to
           substitute vertically oriented glyphs for horizontally
 <<<<<<< HEAD
+<<<<<<< HEAD
           oriented glyphs.</p><div class="table"><a name="idm14668"></a><p class="title"><strong>Table 25.4. SingleSubstFormat2 subtable: Specified output glyph
 =======
           oriented glyphs.</p><div class="table"><a name="idm189296074928"></a><p class="title"><strong>Table 25.4. SingleSubstFormat2 subtable: Specified output glyph
+>>>>>>> Rebuild
+=======
+          oriented glyphs.</p><div class="table"><a name="idm62727335872"></a><p class="title"><strong>Table 25.4. SingleSubstFormat2 subtable: Specified output glyph
 >>>>>>> Rebuild
             indices</strong></p><div class="table-contents"><table class="table" summary="SingleSubstFormat2 subtable: Specified output glyph&#10;            indices" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
               Substitution table</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Number of GlyphIDs in the Substitute
@@ -309,9 +378,13 @@
       </p><p>The action of this subtable is to replace the glyph
 	  matched by C by the corresponding glyph in the Substitute
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  array.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14701"></a>LookupType 2: Multiple Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.8.1"></a>Specification</h4></div></div></div><p>A Multiple Substitution (MultipleSubst) subtable
 =======
 	  array.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296061632"></a>LookupType 2: Multiple Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.8.1"></a>Specification</h4></div></div></div><p>A Multiple Substitution (MultipleSubst) subtable
+>>>>>>> Rebuild
+=======
+	  array.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727322576"></a>LookupType 2: Multiple Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.8.1"></a>Specification</h4></div></div></div><p>A Multiple Substitution (MultipleSubst) subtable
 >>>>>>> Rebuild
           replaces a single glyph with more than one glyph, as when
           multiple glyphs replace a single ligature. The subtable has
@@ -333,6 +406,7 @@
           input glyph is prohibited. GlyphCount should always be
           greater than 0.</p><p>Example 4 at the end of this chapter shows how to
 <<<<<<< HEAD
+<<<<<<< HEAD
           replace a single ligature with three glyphs.</p><div class="table"><a name="idm14711"></a><p class="title"><strong>Table 25.5. MultipleSubstFormat1 subtable: Multiple output glyphs</strong></p><div class="table-contents"><table class="table" summary="MultipleSubstFormat1 subtable: Multiple output glyphs" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
               Substitution table</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>SequenceCount</td><td>Number of Sequence table offsets in the
               Sequence array</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Sequence [SequenceCount]</td><td>Array of offsets to Sequence tables – from
@@ -344,6 +418,13 @@
               Sequence array</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Sequence [SequenceCount]</td><td>Array of offsets to Sequence tables – from
               beginning of Substitution table – ordered by Coverage
               Index</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm189296047232"></a><p class="title"><strong>Table 25.6. Sequence table</strong></p><div class="table-contents"><table class="table" summary="Sequence table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of GlyphIDs in the Substitute array.
+>>>>>>> Rebuild
+=======
+          replace a single ligature with three glyphs.</p><div class="table"><a name="idm62727316912"></a><p class="title"><strong>Table 25.5. MultipleSubstFormat1 subtable: Multiple output glyphs</strong></p><div class="table-contents"><table class="table" summary="MultipleSubstFormat1 subtable: Multiple output glyphs" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
+              Substitution table</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>SequenceCount</td><td>Number of Sequence table offsets in the
+              Sequence array</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Sequence [SequenceCount]</td><td>Array of offsets to Sequence tables – from
+              beginning of Substitution table – ordered by Coverage
+              Index</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62727308176"></a><p class="title"><strong>Table 25.6. Sequence table</strong></p><div class="table-contents"><table class="table" summary="Sequence table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of GlyphIDs in the Substitute array.
 >>>>>>> Rebuild
               This should always be greater than 0.</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>Substitute [GlyphCount]</td><td>String of GlyphIDs to
               substitute</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.8.2"></a>Annotation</h4></div></div></div><p>To adopt a consistent language, the last sentence of the
@@ -357,9 +438,13 @@
 	  matched by C by the Substitute sequence of glyphs in the
 	  corresponding Sequence table, in the order in which they
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  appear in that array.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14761"></a>LookupType 3: Alternate Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.9.1"></a>Specification</h4></div></div></div><p>An Alternate Substitution (AlternateSubst) subtable
 =======
 	  appear in that array.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296037040"></a>LookupType 3: Alternate Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.9.1"></a>Specification</h4></div></div></div><p>An Alternate Substitution (AlternateSubst) subtable
+>>>>>>> Rebuild
+=======
+	  appear in that array.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727297984"></a>LookupType 3: Alternate Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.9.1"></a>Specification</h4></div></div></div><p>An Alternate Substitution (AlternateSubst) subtable
 >>>>>>> Rebuild
         identifies any number of aesthetic alternatives from which a
         user can choose a glyph variant to replace the input
@@ -381,9 +466,13 @@
         array.</p><p>Example 5 at the end of this chapter shows how to
         replace the default ampersand glyph with alternative
 <<<<<<< HEAD
+<<<<<<< HEAD
         glyphs.</p><div class="table"><a name="idm14769"></a><p class="title"><strong>Table 25.7. AlternateSubstFormat1 subtable: Alternative output
 =======
         glyphs.</p><div class="table"><a name="idm189296032832"></a><p class="title"><strong>Table 25.7. AlternateSubstFormat1 subtable: Alternative output
+>>>>>>> Rebuild
+=======
+        glyphs.</p><div class="table"><a name="idm62727293808"></a><p class="title"><strong>Table 25.7. AlternateSubstFormat1 subtable: Alternative output
 >>>>>>> Rebuild
           glyphs</strong></p><div class="table-contents"><table class="table" summary="AlternateSubstFormat1 subtable: Alternative output&#10;          glyphs" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
               Substitution table</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>AlternateSetCount</td><td>Number of AlternateSet tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>AlternateSet
@@ -391,9 +480,13 @@
             offsets to AlternateSet tables – from beginning of
             Substitution table – ordered by Coverage
 <<<<<<< HEAD
+<<<<<<< HEAD
             Index</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm14794"></a><p class="title"><strong>Table 25.8. AlternateSet table</strong></p><div class="table-contents"><table class="table" summary="AlternateSet table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of GlyphIDs in the Alternate
 =======
             Index</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm189296024112"></a><p class="title"><strong>Table 25.8. AlternateSet table</strong></p><div class="table-contents"><table class="table" summary="AlternateSet table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of GlyphIDs in the Alternate
+>>>>>>> Rebuild
+=======
+            Index</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62725713984"></a><p class="title"><strong>Table 25.8. AlternateSet table</strong></p><div class="table-contents"><table class="table" summary="AlternateSet table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of GlyphIDs in the Alternate
 >>>>>>> Rebuild
               array</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>Alternate [GlyphCount]</td><td>Array of alternate GlyphIDs – in arbitrary
               order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.9.2"></a>Annotation</h4></div></div></div><p>To adopt a consistent language, the following should be added
@@ -413,9 +506,13 @@
 	  corresponding to the replaced glyph. The mechanism by which
 	  the client indicates which of those glyphs is used is not
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  specified.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14821"></a>LookupType 4: Ligature Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.10.1"></a>Specification</h4></div></div></div><p>A Ligature Substitution (LigatureSubst) subtable
 =======
 	  specified.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296012592"></a>LookupType 4: Ligature Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.10.1"></a>Specification</h4></div></div></div><p>A Ligature Substitution (LigatureSubst) subtable
+>>>>>>> Rebuild
+=======
+	  specified.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725702704"></a>LookupType 4: Ligature Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.10.1"></a>Specification</h4></div></div></div><p>A Ligature Substitution (LigatureSubst) subtable
 >>>>>>> Rebuild
           identifies ligature substitutions where a single glyph
           replaces multiple glyphs. One LigatureSubst subtable can
@@ -426,9 +523,13 @@
           to LigatureSet tables (LigatureSet). The Coverage table
           specifies only the index of the first glyph component of
 <<<<<<< HEAD
+<<<<<<< HEAD
           each ligature set.</p><div class="table"><a name="idm14827"></a><p class="title"><strong>Table 25.9. LigatureSubstFormat1 subtable: All ligature
 =======
           each ligature set.</p><div class="table"><a name="idm189296009312"></a><p class="title"><strong>Table 25.9. LigatureSubstFormat1 subtable: All ligature
+>>>>>>> Rebuild
+=======
+          each ligature set.</p><div class="table"><a name="idm62725699424"></a><p class="title"><strong>Table 25.9. LigatureSubstFormat1 subtable: All ligature
 >>>>>>> Rebuild
             substitutions in a script</strong></p><div class="table-contents"><table class="table" summary="LigatureSubstFormat1 subtable: All ligature&#10;            substitutions in a script" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
               Substitution table</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>LigSetCount</td><td>Number of LigatureSet tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>LigatureSet [LigSetCount]</td><td>Array of offsets to LigatureSet tables
@@ -452,9 +553,13 @@
           Ligature array would list the offset to the
           “ffl” Ligature table before the offset to the
 <<<<<<< HEAD
+<<<<<<< HEAD
           “ff” Ligature table. </p><div class="table"><a name="idm14854"></a><p class="title"><strong>Table 25.10. LigatureSet table: All ligatures beginning with the
 =======
           “ff” Ligature table. </p><div class="table"><a name="idm189295999584"></a><p class="title"><strong>Table 25.10. LigatureSet table: All ligatures beginning with the
+>>>>>>> Rebuild
+=======
+          “ff” Ligature table. </p><div class="table"><a name="idm62725689696"></a><p class="title"><strong>Table 25.10. LigatureSet table: All ligatures beginning with the
 >>>>>>> Rebuild
           same glyph</strong></p><div class="table-contents"><table class="table" summary="LigatureSet table: All ligatures beginning with the&#10;          same glyph" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LigatureCount</td><td>Number of Ligature tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Ligature [LigatureCount]</td><td>Array of offsets to Ligature tables –
               from beginning of LigatureSet table – ordered by
@@ -471,9 +576,13 @@
         written left to right, the left-most glyph will be
         first.</p><p>Example 6 at the end of this chapter shows how to
 <<<<<<< HEAD
+<<<<<<< HEAD
         replace a string of glyphs with a single ligature.</p><div class="table"><a name="idm14874"></a><p class="title"><strong>Table 25.11. Ligature table: Glyph components for one
 =======
         replace a string of glyphs with a single ligature.</p><div class="table"><a name="idm189295991952"></a><p class="title"><strong>Table 25.11. Ligature table: Glyph components for one
+>>>>>>> Rebuild
+=======
+        replace a string of glyphs with a single ligature.</p><div class="table"><a name="idm62725682064"></a><p class="title"><strong>Table 25.11. Ligature table: Glyph components for one
 >>>>>>> Rebuild
           ligature</strong></p><div class="table-contents"><table class="table" summary="Ligature table: Glyph components for one&#10;          ligature" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>LigGlyph</td><td>GlyphID of ligature to
               substitute</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>CompCount</td><td>Number of components in the
@@ -505,9 +614,13 @@
 	      for k &gt; 0</p></li><li class="listitem"><p>L is LookupFlag</p></li></ul></div><p>
       </p><p>The action of this Ligature table is to replace the entire
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  input sequence by the glyph t.LigGlyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14917"></a>LookupType 5: Contextual Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.11.1"></a>Specification</h4></div></div></div><p>A Contextual Substitution (ContextSubst) subtable
 =======
 	  input sequence by the glyph t.LigGlyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292811728"></a>LookupType 5: Contextual Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.11.1"></a>Specification</h4></div></div></div><p>A Contextual Substitution (ContextSubst) subtable
+>>>>>>> Rebuild
+=======
+	  input sequence by the glyph t.LigGlyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725663824"></a>LookupType 5: Contextual Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.11.1"></a>Specification</h4></div></div></div><p>A Contextual Substitution (ContextSubst) subtable
 >>>>>>> Rebuild
           defines the most powerful type of glyph substitution lookup:
           it describes glyph substitutions in context that replace one
@@ -518,9 +631,13 @@
           for each sequence.</p><p>All three formats of ContextSubst subtables specify
           substitution data in a SubstLookupRecord. A description of
 <<<<<<< HEAD
+<<<<<<< HEAD
           that record follows.</p><div class="table"><a name="idm14924"></a><p class="title"><strong>Table 25.12. SubstLookupRecord</strong></p><div class="table-contents"><table class="table" summary="SubstLookupRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SequenceIndex</td><td>Index into current glyph sequence – first glyph
 =======
           that record follows.</p><div class="table"><a name="idm189292808016"></a><p class="title"><strong>Table 25.12. SubstLookupRecord</strong></p><div class="table-contents"><table class="table" summary="SubstLookupRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SequenceIndex</td><td>Index into current glyph sequence – first glyph
+>>>>>>> Rebuild
+=======
+          that record follows.</p><div class="table"><a name="idm62725660112"></a><p class="title"><strong>Table 25.12. SubstLookupRecord</strong></p><div class="table-contents"><table class="table" summary="SubstLookupRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SequenceIndex</td><td>Index into current glyph sequence – first glyph
 >>>>>>> Rebuild
               = 0</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>LookupListIndex</td><td>Lookup to apply to that
               position – zero-based</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The SequenceIndex in a SubstLookupRecord must take into
@@ -565,9 +682,13 @@
         LookupType 5 description, which is a bit misleading since
         it’s also used in type 6. Recommendation: restore it in
 <<<<<<< HEAD
+<<<<<<< HEAD
         its own section.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14955"></a>Context Substitution Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.12.1"></a>Specification</h4></div></div></div><p>Format 1 defines the context for a glyph substitution
 =======
         its own section.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292792912"></a>Context Substitution Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.12.1"></a>Specification</h4></div></div></div><p>Format 1 defines the context for a glyph substitution
+>>>>>>> Rebuild
+=======
+        its own section.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729318992"></a>Context Substitution Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.12.1"></a>Specification</h4></div></div></div><p>Format 1 defines the context for a glyph substitution
 >>>>>>> Rebuild
           as a particular sequence of glyphs. For example, a context
           could be &lt;xyz&gt;, &lt;holiday&gt;, &lt;!?*#@&gt;, or any other glyph
@@ -632,9 +753,13 @@
           in the Coverage table, the second SubRuleSet in the array
           applies to the second GlyphID listed in the Coverage table,
 <<<<<<< HEAD
+<<<<<<< HEAD
           and so on.</p><div class="table"><a name="idm14969"></a><p class="title"><strong>Table 25.13. ContextSubstFormat1 subtable: Simple context glyph
 =======
           and so on.</p><div class="table"><a name="idm189292782128"></a><p class="title"><strong>Table 25.13. ContextSubstFormat1 subtable: Simple context glyph
+>>>>>>> Rebuild
+=======
+          and so on.</p><div class="table"><a name="idm62729308208"></a><p class="title"><strong>Table 25.13. ContextSubstFormat1 subtable: Simple context glyph
 >>>>>>> Rebuild
             substitution</strong></p><div class="table-contents"><table class="table" summary="ContextSubstFormat1 subtable: Simple context glyph&#10;            substitution" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
               Substitution table</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>SubRuleSetCount</td><td>Number of SubRuleSet tables – must equal
@@ -650,9 +775,13 @@
           changed. If &lt;abcd&gt; comes first in the array, however,
           only &lt;abcd&gt; sequences will be changed, without affecting
 <<<<<<< HEAD
+<<<<<<< HEAD
           any instances of &lt;abc&gt;.</p><div class="table"><a name="idm14995"></a><p class="title"><strong>Table 25.14. SubRuleSet table: All contexts beginning with the
 =======
           any instances of &lt;abc&gt;.</p><div class="table"><a name="idm189292772896"></a><p class="title"><strong>Table 25.14. SubRuleSet table: All contexts beginning with the
+>>>>>>> Rebuild
+=======
+          any instances of &lt;abc&gt;.</p><div class="table"><a name="idm62729298976"></a><p class="title"><strong>Table 25.14. SubRuleSet table: All contexts beginning with the
 >>>>>>> Rebuild
             same glyph</strong></p><div class="table-contents"><table class="table" summary="SubRuleSet table: All contexts beginning with the&#10;            same glyph" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubRuleCount</td><td>Number of SubRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>SubRule [SubRuleCount]</td><td>Array of offsets to SubRule tables – from
               beginning of SubRuleSet table – ordered by
@@ -675,9 +804,13 @@
           array should list records in design order, or the order the
           lookups should be applied to the entire glyph
 <<<<<<< HEAD
+<<<<<<< HEAD
           sequence.</p><div class="table"><a name="idm15016"></a><p class="title"><strong>Table 25.15. SubRule table: One simple context definition</strong></p><div class="table-contents"><table class="table" summary="SubRule table: One simple context definition" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Total number of glyphs in input glyph
 =======
           sequence.</p><div class="table"><a name="idm189292764512"></a><p class="title"><strong>Table 25.15. SubRule table: One simple context definition</strong></p><div class="table-contents"><table class="table" summary="SubRule table: One simple context definition" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Total number of glyphs in input glyph
+>>>>>>> Rebuild
+=======
+          sequence.</p><div class="table"><a name="idm62729290592"></a><p class="title"><strong>Table 25.15. SubRule table: One simple context definition</strong></p><div class="table-contents"><table class="table" summary="SubRule table: One simple context definition" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Total number of glyphs in input glyph
 >>>>>>> Rebuild
               sequence – includes the first glyph</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>SubstCount</td><td>Number of SubstLookupRecords</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>Input [GlyphCount-1]</td><td>Array of input GlyphIDs – start with second
               glyph</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>SubstLookupRecord [SubstCount]</td><td>Array of SubstLookupRecords – in design
@@ -718,9 +851,13 @@
 	      ∖ LookupFlag, for k &gt; 0</p></li><li class="listitem"><p>L is LookupFlag</p></li></ul></div><p>
       </p><p>A SubRule table does not directly modify the glyph
 <<<<<<< HEAD
+<<<<<<< HEAD
 	run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15066"></a>Context Substitution Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.13.1"></a>Specification</h4></div></div></div><p>Format 2, a more flexible format than Format 1,
 =======
 	run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292741888"></a>Context Substitution Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.13.1"></a>Specification</h4></div></div></div><p>Format 2, a more flexible format than Format 1,
+>>>>>>> Rebuild
+=======
+	run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727279520"></a>Context Substitution Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.13.1"></a>Specification</h4></div></div></div><p>Format 2, a more flexible format than Format 1,
 >>>>>>> Rebuild
           describes class-based context substitution. For this format,
           a specific integer, called a class value, must be assigned
@@ -775,9 +912,13 @@
           SubClassRule tables), then the offset to that particular
           SubClassSet in the SubClassSet array will be set to
 <<<<<<< HEAD
+<<<<<<< HEAD
           NULL.</p><div class="table"><a name="idm15076"></a><p class="title"><strong>Table 25.16. ContextSubstFormat2 subtable: Class-based context
 =======
           NULL.</p><div class="table"><a name="idm189292735376"></a><p class="title"><strong>Table 25.16. ContextSubstFormat2 subtable: Class-based context
+>>>>>>> Rebuild
+=======
+          NULL.</p><div class="table"><a name="idm62727273040"></a><p class="title"><strong>Table 25.16. ContextSubstFormat2 subtable: Class-based context
 >>>>>>> Rebuild
             glyph substitution</strong></p><div class="table-contents"><table class="table" summary="ContextSubstFormat2 subtable: Class-based context&#10;            glyph substitution" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
               Substitution table</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ClassDef</td><td>Offset to glyph ClassDef table – from beginning
@@ -793,9 +934,13 @@
           tables (SubClassRule). The SubClassRule tables are ordered
           by preference in the SubClassRule array of the
 <<<<<<< HEAD
+<<<<<<< HEAD
           SubClassSet.</p><div class="table"><a name="idm15107"></a><p class="title"><strong>Table 25.17. SubClassSet subtable</strong></p><div class="table-contents"><table class="table" summary="SubClassSet subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubClassRuleCnt</td><td>Number of SubClassRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>SubClassRule [SubClassRuleCount]</td><td>Array of offsets to SubClassRule tables – from
 =======
           SubClassSet.</p><div class="table"><a name="idm189292723680"></a><p class="title"><strong>Table 25.17. SubClassSet subtable</strong></p><div class="table-contents"><table class="table" summary="SubClassSet subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubClassRuleCnt</td><td>Number of SubClassRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>SubClassRule [SubClassRuleCount]</td><td>Array of offsets to SubClassRule tables – from
+>>>>>>> Rebuild
+=======
+          SubClassSet.</p><div class="table"><a name="idm62727261312"></a><p class="title"><strong>Table 25.17. SubClassSet subtable</strong></p><div class="table-contents"><table class="table" summary="SubClassSet subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubClassRuleCnt</td><td>Number of SubClassRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>SubClassRule [SubClassRuleCount]</td><td>Array of offsets to SubClassRule tables – from
 >>>>>>> Rebuild
               beginning of SubClassSet – ordered by
               preference</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>For each context, a SubClassRule table contains a
@@ -822,9 +967,13 @@
           SubstLookupRecord array lists SubstLookupRecords in design
           order – that is, the order in which lookups should be applied
 <<<<<<< HEAD
+<<<<<<< HEAD
           to the entire glyph sequence.</p><div class="table"><a name="idm15129"></a><p class="title"><strong>Table 25.18. SubClassRule table: Context definition for one
 =======
           to the entire glyph sequence.</p><div class="table"><a name="idm189292714768"></a><p class="title"><strong>Table 25.18. SubClassRule table: Context definition for one
+>>>>>>> Rebuild
+=======
+          to the entire glyph sequence.</p><div class="table"><a name="idm62727252400"></a><p class="title"><strong>Table 25.18. SubClassRule table: Context definition for one
 >>>>>>> Rebuild
             class</strong></p><div class="table-contents"><table class="table" summary="SubClassRule table: Context definition for one&#10;            class" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Total number of classes specified for the
               context in the rule – includes the first
@@ -886,9 +1035,13 @@
 	      [k-1]] ∖ LookupFlag, for k &gt; 0</p></li><li class="listitem"><p>L is LookupFlag</p></li></ul></div><p>
       </p><p>A SubClassRule table does not directly modify the glyph
 <<<<<<< HEAD
+<<<<<<< HEAD
 	run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15179"></a>Context Substitution Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.14.1"></a>Specification</h4></div></div></div><p>Format 3, coverage-based context substitution, defines
 =======
 	run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292692608"></a>Context Substitution Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.14.1"></a>Specification</h4></div></div></div><p>Format 3, coverage-based context substitution, defines
+>>>>>>> Rebuild
+=======
+	run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727230240"></a>Context Substitution Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.14.1"></a>Specification</h4></div></div></div><p>Format 3, coverage-based context substitution, defines
 >>>>>>> Rebuild
           a context rule as a sequence of coverage tables. Each
           position in the sequence may define a different Coverage
@@ -924,9 +1077,13 @@
           which lookups should be applied to the entire glyph
           sequence.</p><p>Example 9 at the end of this chapter substitutes swash
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyphs for two out of three glyphs in a sequence.</p><div class="table"><a name="idm15199"></a><p class="title"><strong>Table 25.19. ChainContextSubstFormat3 subtable: Coverage-based
 =======
           glyphs for two out of three glyphs in a sequence.</p><div class="table"><a name="idm189292681664"></a><p class="title"><strong>Table 25.19. ChainContextSubstFormat3 subtable: Coverage-based
+>>>>>>> Rebuild
+=======
+          glyphs for two out of three glyphs in a sequence.</p><div class="table"><a name="idm62727219296"></a><p class="title"><strong>Table 25.19. ChainContextSubstFormat3 subtable: Coverage-based
 >>>>>>> Rebuild
             context glyph substitution</strong></p><div class="table-contents"><table class="table" summary="ChainContextSubstFormat3 subtable: Coverage-based&#10;            context glyph substitution" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the input glyph
               sequence</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>SubstCount</td><td>Number of SubstLookupRecords</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage [GlyphCount]</td><td>Array of offsets to Coverage table – from
@@ -947,9 +1104,13 @@
 		Coverage [i] ∖ LookupFlag.</p></li><li class="listitem"><p>L is LookupFlag</p></li></ul></div><p>
       </p><p>This table does not directly modify the glyph
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15245"></a>Lookup Type 6: Chaining Contextual Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.15.1"></a>Specification</h4></div></div></div><p>A Chaining Contextual Substitution subtable
 =======
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292663024"></a>Lookup Type 6: Chaining Contextual Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.15.1"></a>Specification</h4></div></div></div><p>A Chaining Contextual Substitution subtable
+>>>>>>> Rebuild
+=======
+	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727200656"></a>Lookup Type 6: Chaining Contextual Substitution Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.15.1"></a>Specification</h4></div></div></div><p>A Chaining Contextual Substitution subtable
 >>>>>>> Rebuild
           (ChainContextSubst) describes glyph substitutions in context
           with an ability to look back and/or look ahead in the
@@ -973,9 +1134,13 @@
 	  the last element in that array is matched against the glyph
 	  as position <span class="emphasis"><em>i + InputGlyphCount +
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  LookaheadGlyphCount - 1</em></span>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15259"></a>Chaining Context Substitution Format 1: Simple Chaining
 =======
 	  LookaheadGlyphCount - 1</em></span>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292654864"></a>Chaining Context Substitution Format 1: Simple Chaining
+>>>>>>> Rebuild
+=======
+	  LookaheadGlyphCount - 1</em></span>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727192496"></a>Chaining Context Substitution Format 1: Simple Chaining
 >>>>>>> Rebuild
         Context Glyph Substitution</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.16.1"></a>Specification</h4></div></div></div><p>Format 1 defines the context for a glyph substitution
           as a particular sequence of glyphs. For example, a context
@@ -1044,9 +1209,13 @@ Lookahead sequence -                   0  1  2  3<br/
           GlyphID listed in the Coverage table, the second
           ChainSubRuleSet in the array applies to the second GlyphID
 <<<<<<< HEAD
+<<<<<<< HEAD
           listed in the Coverage table, and so on.</p><div class="table"><a name="idm15275"></a><p class="title"><strong>Table 25.20. ChainContextSubstFormat1 subtable: Simple context
 =======
           listed in the Coverage table, and so on.</p><div class="table"><a name="idm189292643216"></a><p class="title"><strong>Table 25.20. ChainContextSubstFormat1 subtable: Simple context
+>>>>>>> Rebuild
+=======
+          listed in the Coverage table, and so on.</p><div class="table"><a name="idm62727180848"></a><p class="title"><strong>Table 25.20. ChainContextSubstFormat1 subtable: Simple context
 >>>>>>> Rebuild
             glyph substitution</strong></p><div class="table-contents"><table class="table" summary="ChainContextSubstFormat1 subtable: Simple context&#10;            glyph substitution" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
               Substitution table</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ChainSubRuleSetCount</td><td>Number of ChainSubRuleSet tables – must equal
@@ -1062,9 +1231,13 @@ Lookahead sequence -                   0  1  2  3<br/
           &lt;abcd&gt; – will be changed. If &lt;abcd&gt; comes first in the
           array, however, only &lt;abcd&gt; sequences will be changed,
 <<<<<<< HEAD
+<<<<<<< HEAD
           without affecting any instances of &lt;abc&gt;.</p><div class="table"><a name="idm15302"></a><p class="title"><strong>Table 25.21. ChainSubRuleSet table: All contexts beginning with
 =======
           without affecting any instances of &lt;abc&gt;.</p><div class="table"><a name="idm189292632800"></a><p class="title"><strong>Table 25.21. ChainSubRuleSet table: All contexts beginning with
+>>>>>>> Rebuild
+=======
+          without affecting any instances of &lt;abc&gt;.</p><div class="table"><a name="idm62727170432"></a><p class="title"><strong>Table 25.21. ChainSubRuleSet table: All contexts beginning with
 >>>>>>> Rebuild
             the same glyph</strong></p><div class="table-contents"><table class="table" summary="ChainSubRuleSet table: All contexts beginning with&#10;            the same glyph" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ChainSubRuleCount</td><td>Number of ChainSubRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ChainSubRule [ChainSubRuleCount]</td><td>Array of offsets to ChainSubRule tables – from
               beginning of ChainSubRuleSet table – ordered by
@@ -1088,9 +1261,13 @@ Lookahead sequence -                   0  1  2  3<br/
           array should list records in design order, or the order the
           lookups should be applied to the entire glyph
 <<<<<<< HEAD
+<<<<<<< HEAD
           sequence.</p><div class="table"><a name="idm15323"></a><p class="title"><strong>Table 25.22. ChainSubRule subtable</strong></p><div class="table-contents"><table class="table" summary="ChainSubRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Total number of glyphs in the backtrack
 =======
           sequence.</p><div class="table"><a name="idm189292624320"></a><p class="title"><strong>Table 25.22. ChainSubRule subtable</strong></p><div class="table-contents"><table class="table" summary="ChainSubRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Total number of glyphs in the backtrack
+>>>>>>> Rebuild
+=======
+          sequence.</p><div class="table"><a name="idm62727161952"></a><p class="title"><strong>Table 25.22. ChainSubRule subtable</strong></p><div class="table-contents"><table class="table" summary="ChainSubRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Total number of glyphs in the backtrack
 >>>>>>> Rebuild
               sequence (number of glyphs to be matched before the
               first glyph)</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>Backtrack [BacktrackGlyphCount]</td><td>Array of backtracking GlyphID's (to be
@@ -1156,9 +1333,13 @@ Lookahead sequence -                   0  1  2  3<br/
       </p><p>A SubRule table does not directly modify the glyph
 	  run. Instead, it invokes other lookups at the current
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15404"></a>Chaining Context Substitution Format 2: Class-based Chaining
 =======
 	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292588832"></a>Chaining Context Substitution Format 2: Class-based Chaining
+>>>>>>> Rebuild
+=======
+	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727126464"></a>Chaining Context Substitution Format 2: Class-based Chaining
 >>>>>>> Rebuild
         Context Glyph Substitution</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.17.1"></a>Specification</h4></div></div></div><p>Format 2 describes class-based chaining context
           substitution. For this format, a specific integer, called a
@@ -1189,9 +1370,13 @@ Lookahead sequence -                   0  1  2  3<br/
           if a ChainSubClassSet contains no ChainSubClassRule tables),
           then the offset to that particular ChainSubClassSet in the
 <<<<<<< HEAD
+<<<<<<< HEAD
           ChainSubClassSet array will be set to NULL.</p><div class="table"><a name="idm15413"></a><p class="title"><strong>Table 25.23. ChainContextSubstFormat2 subtable: Class-based
 =======
           ChainSubClassSet array will be set to NULL.</p><div class="table"><a name="idm189292582624"></a><p class="title"><strong>Table 25.23. ChainContextSubstFormat2 subtable: Class-based
+>>>>>>> Rebuild
+=======
+          ChainSubClassSet array will be set to NULL.</p><div class="table"><a name="idm62727120256"></a><p class="title"><strong>Table 25.23. ChainContextSubstFormat2 subtable: Class-based
 >>>>>>> Rebuild
             chaining context glyph substitution</strong></p><div class="table-contents"><table class="table" summary="ChainContextSubstFormat2 subtable: Class-based&#10;            chaining context glyph substitution" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
               Substitution table</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>BacktrackClassDef</td><td>Offset to glyph ClassDef table containing
@@ -1214,9 +1399,13 @@ Lookahead sequence -                   0  1  2  3<br/
           ChainSubClassRule tables (ChainSubClassRule). The
           ChainSubClassRule tables are ordered by preference in the
 <<<<<<< HEAD
+<<<<<<< HEAD
           ChainSubClassRule array of the ChainSubClassSet.</p><div class="table"><a name="idm15452"></a><p class="title"><strong>Table 25.24. ChainSubClassSet subtable</strong></p><div class="table-contents"><table class="table" summary="ChainSubClassSet subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ChainSubClassRuleCnt</td><td>Number of ChainSubClassRule
 =======
           ChainSubClassRule array of the ChainSubClassSet.</p><div class="table"><a name="idm189292566800"></a><p class="title"><strong>Table 25.24. ChainSubClassSet subtable</strong></p><div class="table-contents"><table class="table" summary="ChainSubClassSet subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ChainSubClassRuleCnt</td><td>Number of ChainSubClassRule
+>>>>>>> Rebuild
+=======
+          ChainSubClassRule array of the ChainSubClassSet.</p><div class="table"><a name="idm62727104752"></a><p class="title"><strong>Table 25.24. ChainSubClassSet subtable</strong></p><div class="table-contents"><table class="table" summary="ChainSubClassSet subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ChainSubClassRuleCnt</td><td>Number of ChainSubClassRule
 >>>>>>> Rebuild
               tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ChainSubClassRule [ChainSubClassRuleCount]</td><td>Array of offsets to ChainSubClassRule tables
               – from beginning of ChainSubClassSet –
@@ -1242,9 +1431,13 @@ Lookahead sequence -                   0  1  2  3<br/
           SubstLookupRecord array lists SubstLookupRecords in design
           order – that is, the order in which lookups should be applied
 <<<<<<< HEAD
+<<<<<<< HEAD
           to the entire glyph sequence.</p><div class="table"><a name="idm15474"></a><p class="title"><strong>Table 25.25. ChainSubClassRule table: Chaining context definition
 =======
           to the entire glyph sequence.</p><div class="table"><a name="idm189292558368"></a><p class="title"><strong>Table 25.25. ChainSubClassRule table: Chaining context definition
+>>>>>>> Rebuild
+=======
+          to the entire glyph sequence.</p><div class="table"><a name="idm62727096320"></a><p class="title"><strong>Table 25.25. ChainSubClassRule table: Chaining context definition
 >>>>>>> Rebuild
             for one class</strong></p><div class="table-contents"><table class="table" summary="ChainSubClassRule table: Chaining context definition&#10;            for one class" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Total number of glyphs in the backtrack
               sequence (number of glyphs to be matched before the
@@ -1321,9 +1514,13 @@ Lookahead sequence -                   0  1  2  3<br/
       </p><p>A SubRule table does not directly modify the glyph
 	  run. Instead, it invokes other lookups at the current
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15554"></a>Chaining Context Substitution Format 3: Coverage-based Chaining
 =======
 	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292523984"></a>Chaining Context Substitution Format 3: Coverage-based Chaining
+>>>>>>> Rebuild
+=======
+	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727061936"></a>Chaining Context Substitution Format 3: Coverage-based Chaining
 >>>>>>> Rebuild
         Context Glyph Substitution</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.18.1"></a>Specification</h4></div></div></div><p>Format 3 defines a chaining context rule as a sequence
           of Coverage tables. Each position in the sequence may define
@@ -1343,9 +1540,13 @@ Lookahead sequence -                   0  1  2  3<br/
           (SubstLookupRecord) in design order: that is, the order in
           which lookups should be applied to the entire glyph
 <<<<<<< HEAD
+<<<<<<< HEAD
           sequence. (SubstLookupRecords are described next.)</p><div class="table"><a name="idm15562"></a><p class="title"><strong>Table 25.26. ChainContextSubstFormat3 subtable: Coverage-based
 =======
           sequence. (SubstLookupRecords are described next.)</p><div class="table"><a name="idm189292519280"></a><p class="title"><strong>Table 25.26. ChainContextSubstFormat3 subtable: Coverage-based
+>>>>>>> Rebuild
+=======
+          sequence. (SubstLookupRecords are described next.)</p><div class="table"><a name="idm62727057232"></a><p class="title"><strong>Table 25.26. ChainContextSubstFormat3 subtable: Coverage-based
 >>>>>>> Rebuild
             chaining context glyph substitution</strong></p><div class="table-contents"><table class="table" summary="ChainContextSubstFormat3 subtable: Coverage-based&#10;            chaining context glyph substitution" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier – format = 3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Number of glyphs in the backtracking
               sequence</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage [BacktrackGlyphCount]</td><td>Array of offsets to coverage tables in
@@ -1380,9 +1581,13 @@ Lookahead sequence -                   0  1  2  3<br/
 	      [k] ∖ LookupFlag</p></li><li class="listitem"><p>L is LookupFlag</p></li></ul></div><p>
       </p><p>This table does not directly modify the glyph
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15639"></a>LookupType 7: Extension Substitution</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.19.1"></a>Specification</h4></div></div></div><p>This lookup provides a mechanism whereby any other
 =======
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292488384"></a>LookupType 7: Extension Substitution</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.19.1"></a>Specification</h4></div></div></div><p>This lookup provides a mechanism whereby any other
+>>>>>>> Rebuild
+=======
+	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727026336"></a>LookupType 7: Extension Substitution</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.19.1"></a>Specification</h4></div></div></div><p>This lookup provides a mechanism whereby any other
 >>>>>>> Rebuild
           lookup type's subtables are stored at a 32-bit offset
           location in the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table. This is
@@ -1391,9 +1596,13 @@ Lookahead sequence -                   0  1  2  3<br/
           <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> table. In this specification, the
           subtable stored at the 32-bit offset location is termed the
 <<<<<<< HEAD
+<<<<<<< HEAD
           “extension” subtable.</p><div class="table"><a name="idm15646"></a><p class="title"><strong>Table 25.27. ExtensionSubstFormat1 subtable</strong></p><div class="table-contents"><table class="table" summary="ExtensionSubstFormat1 subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>SubstFormat</td><td>Format identifier. Set to 1.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>ExtensionLookupType</td><td>Lookup type of subtable referenced by
 =======
           “extension” subtable.</p><div class="table"><a name="idm189292484288"></a><p class="title"><strong>Table 25.27. ExtensionSubstFormat1 subtable</strong></p><div class="table-contents"><table class="table" summary="ExtensionSubstFormat1 subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>SubstFormat</td><td>Format identifier. Set to 1.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>ExtensionLookupType</td><td>Lookup type of subtable referenced by
+>>>>>>> Rebuild
+=======
+          “extension” subtable.</p><div class="table"><a name="idm62727022240"></a><p class="title"><strong>Table 25.27. ExtensionSubstFormat1 subtable</strong></p><div class="table-contents"><table class="table" summary="ExtensionSubstFormat1 subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>SubstFormat</td><td>Format identifier. Set to 1.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>ExtensionLookupType</td><td>Lookup type of subtable referenced by
 >>>>>>> Rebuild
               ExtensionOffset (i.e. the extension
               subtable).</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ExtensionOffset</td><td>Offset to the extension subtable, of lookup
@@ -1409,9 +1618,13 @@ Lookahead sequence -                   0  1  2  3<br/
               by ExtensionOffset replaced the LookupType 7 subtable
               that referenced it.</p></li></ul></div></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.19.2"></a>Annotation</h4></div></div></div><p>This subtable does not match a pattern by itself, nor
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  does it have an action by itself.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15677"></a>Lookup Type 8: Reverse Chaining Contextual Single
 =======
 	  does it have an action by itself.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292471616"></a>Lookup Type 8: Reverse Chaining Contextual Single
+>>>>>>> Rebuild
+=======
+	  does it have an action by itself.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727009568"></a>Lookup Type 8: Reverse Chaining Contextual Single
 >>>>>>> Rebuild
 	Substitution</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.20.1"></a>Specification</h4></div></div></div><p>Reverse Chaining Contextual Single Substitution subtable
 	  (ReverseChainSingleSubst) describes single glyph
@@ -1429,9 +1642,13 @@ Lookahead sequence -                   0  1  2  3<br/
 	  last glyph of the "joor", or set of connected glyphs. An
 	  example of this lookup type is defined in Example 10 at the
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  end of this chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15683"></a>Reverse Chaining Contextual Single Substitution Format 1:
 =======
 	  end of this chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292467456"></a>Reverse Chaining Contextual Single Substitution Format 1:
+>>>>>>> Rebuild
+=======
+	  end of this chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727005408"></a>Reverse Chaining Contextual Single Substitution Format 1:
 >>>>>>> Rebuild
 	Coverage Based Reverse Chaining Contextual Single Glyph
 	Substitution.</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.21.1"></a>Specification</h4></div></div></div><p>Format 1 defines a chaining context rule as a sequence
@@ -1459,9 +1676,13 @@ Lookahead sequence -                   0  1  2  3<br/
 	  locate the corresponding output glyph index in the
 	  Substitute array, this format uses the Coverage Index
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  returned from the Coverage table.</p><div class="table"><a name="idm15690"></a><p class="title"><strong>Table 25.28. ReverseChainSingleSubstFormat1 subtable:
 =======
 	  returned from the Coverage table.</p><div class="table"><a name="idm189292462848"></a><p class="title"><strong>Table 25.28. ReverseChainSingleSubstFormat1 subtable:
+>>>>>>> Rebuild
+=======
+	  returned from the Coverage table.</p><div class="table"><a name="idm62727000800"></a><p class="title"><strong>Table 25.28. ReverseChainSingleSubstFormat1 subtable:
 >>>>>>> Rebuild
 	    Coverage-based Reverse Chaining Contextual Single Glyph
 	    substitution.</strong></p><div class="table-contents"><table class="table" summary="ReverseChainSingleSubstFormat1 subtable:&#10;&#9;    Coverage-based Reverse Chaining Contextual Single Glyph&#10;&#9;    substitution." border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SubstFormat</td><td>Format identifier ’ format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
@@ -1470,9 +1691,13 @@ Lookahead sequence -                   0  1  2  3<br/
 	      backtracking sequence, in glyph sequence order</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>LookaheadGlyphCount</td><td>Number of glyphs in lookahead sequence</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage[LookaheadGlyphCount]</td><td>Array of offsets to coverage tables in
 	      lookahead sequence, in glyph sequence order</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Number of GlyphIDs in the Substitute array</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>Substitute[GlyphCount]</td><td>Array of substitute GlyphIDs-ordered by
 <<<<<<< HEAD
+<<<<<<< HEAD
 	      Coverage Index</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15731"></a>Substitution Lookup Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.22.1"></a>Specification</h4></div></div></div><p>All contextual substitution subtables specify the
 =======
 	      Coverage Index</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292447680"></a>Substitution Lookup Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.22.1"></a>Specification</h4></div></div></div><p>All contextual substitution subtables specify the
+>>>>>>> Rebuild
+=======
+	      Coverage Index</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726985632"></a>Substitution Lookup Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.22.1"></a>Specification</h4></div></div></div><p>All contextual substitution subtables specify the
 >>>>>>> Rebuild
           substitution data in a Substitution Lookup Record
           (SubstLookupRecord). Each record contains a SequenceIndex,
@@ -1483,15 +1708,20 @@ Lookahead sequence -                   0  1  2  3<br/
           Examples 7, 8, and 9 at the end of this chapter show
           SubstLookupRecords.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.22.2"></a>Annotation</h4></div></div></div><p>As noted earlier, the description of a SubstLookupRecord
 <<<<<<< HEAD
+<<<<<<< HEAD
           should be moved back in this section.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15740"></a>GSUB Subtable Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.23.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes and illustrates
 =======
           should be moved back in this section.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292442208"></a>GSUB Subtable Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.23.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes and illustrates
+>>>>>>> Rebuild
+=======
+          should be moved back in this section.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726980160"></a>GSUB Subtable Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.23.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes and illustrates
 >>>>>>> Rebuild
           examples of all the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> subtables,
           including each of the three formats available for contextual
           substitutions. All the examples reflect unique parameters
           described below, but the samples provide a useful reference
           for building subtables specific to other situations.</p><p>All the examples have three columns showing hex data,
+<<<<<<< HEAD
 <<<<<<< HEAD
           source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15747"></a>Example 1: GSUB Header Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.24.1"></a>Specification</h4></div></div></div><p>Example 1 shows a typical <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> Header table
           definition.</p><div class="table"><a name="idm15753"></a><p class="title"><strong>Table 25.29. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>GSUBHeader</td><td> </td></tr><tr><td> </td><td>TheGSUBHeader</td><td>GSUBHeader table
@@ -1500,6 +1730,11 @@ Lookahead sequence -                   0  1  2  3<br/
           source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292437936"></a>Example 1: GSUB Header Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.24.1"></a>Specification</h4></div></div></div><p>Example 1 shows a typical <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> Header table
           definition.</p><div class="table"><a name="idm189292435008"></a><p class="title"><strong>Table 25.29. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>GSUBHeader</td><td> </td></tr><tr><td> </td><td>TheGSUBHeader</td><td>GSUBHeader table
                   definition</td></tr><tr><td>00010000</td><td>0x00010000</td><td>version</td></tr><tr><td>000A</td><td>TheScriptList</td><td>offset to ScriptList table</td></tr><tr><td>001E</td><td>TheFeatureList</td><td>offset to FeatureList table</td></tr><tr><td>002C</td><td>TheLookupList</td><td>offset to LookupList table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295650032"></a>Example 2: SingleSubstFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.25.1"></a>Specification</h4></div></div></div><p>Example 2 illustrates the SingleSubstFormat1 subtable,
+>>>>>>> Rebuild
+=======
+          source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726975888"></a>Example 1: GSUB Header Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.24.1"></a>Specification</h4></div></div></div><p>Example 1 shows a typical <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> Header table
+          definition.</p><div class="table"><a name="idm62726972960"></a><p class="title"><strong>Table 25.29. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>GSUBHeader</td><td> </td></tr><tr><td> </td><td>TheGSUBHeader</td><td>GSUBHeader table
+                  definition</td></tr><tr><td>00010000</td><td>0x00010000</td><td>version</td></tr><tr><td>000A</td><td>TheScriptList</td><td>offset to ScriptList table</td></tr><tr><td>001E</td><td>TheFeatureList</td><td>offset to FeatureList table</td></tr><tr><td>002C</td><td>TheLookupList</td><td>offset to LookupList table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726961696"></a>Example 2: SingleSubstFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.25.1"></a>Specification</h4></div></div></div><p>Example 2 illustrates the SingleSubstFormat1 subtable,
 >>>>>>> Rebuild
           which uses ranges to replace single input glyphs with their
           corresponding output glyphs. The indices of the output
@@ -1510,9 +1745,13 @@ Lookahead sequence -                   0  1  2  3<br/
           are in consecutive order in the font. The Coverage table
           specifies one range that contains a StartGlyphID for the "0"
 <<<<<<< HEAD
+<<<<<<< HEAD
           (zero) glyph and an EndGlyphID for the "9" glyph.</p><div class="table"><a name="idm15791"></a><p class="title"><strong>Table 25.30. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SingleSubstFormat1</td><td> </td></tr><tr><td> </td><td>LiningNumeralSubtable</td><td>SingleSubst subtable
 =======
           (zero) glyph and an EndGlyphID for the "9" glyph.</p><div class="table"><a name="idm189295647184"></a><p class="title"><strong>Table 25.30. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SingleSubstFormat1</td><td> </td></tr><tr><td> </td><td>LiningNumeralSubtable</td><td>SingleSubst subtable
+>>>>>>> Rebuild
+=======
+          (zero) glyph and an EndGlyphID for the "9" glyph.</p><div class="table"><a name="idm62726958800"></a><p class="title"><strong>Table 25.30. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SingleSubstFormat1</td><td> </td></tr><tr><td> </td><td>LiningNumeralSubtable</td><td>SingleSubst subtable
 >>>>>>> Rebuild
                   definition</td></tr><tr><td>0001</td><td>1</td><td>SubstFormat, ranges</td></tr><tr><td>0006</td><td>LiningNumeralCoverage</td><td>offset to Coverage table for input
                   glyphs</td></tr><tr><td>00C0</td><td>192</td><td>DeltaGlyphID = 192, add to each input glyph
@@ -1520,9 +1759,13 @@ Lookahead sequence -                   0  1  2  3<br/
                   definition</td></tr><tr><td>0002</td><td>2</td><td>CoverageFormat, ranges   1 RangeCount
                   RangeRecord[0]</td></tr><tr><td>004E</td><td>78</td><td>Start GlyphID for numeral zero glyph</td></tr><tr><td>0058</td><td>87</td><td>End GlyphID for numeral nine glyph</td></tr><tr><td>0000</td><td>0</td><td>StartCoverageIndex first CoverageIndex =
 <<<<<<< HEAD
+<<<<<<< HEAD
                   0</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm15844"></a>Example 3: SingleSubstFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.26.1"></a>Specification</h4></div></div></div><p>Example 3 uses the SingleSubstFormat2 subtable for lists
 =======
                   0</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295629152"></a>Example 3: SingleSubstFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.26.1"></a>Specification</h4></div></div></div><p>Example 3 uses the SingleSubstFormat2 subtable for lists
+>>>>>>> Rebuild
+=======
+                  0</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726940352"></a>Example 3: SingleSubstFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.26.1"></a>Specification</h4></div></div></div><p>Example 3 uses the SingleSubstFormat2 subtable for lists
 >>>>>>> Rebuild
           to substitute punctuation glyphs in Japanese text that is
           written vertically. Horizontally oriented parentheses and
@@ -1534,6 +1777,7 @@ Lookahead sequence -                   0  1  2  3<br/
           listed in the subtable. For correct substitution, the order
           of the glyph indices in the Coverage table (input glyphs)
           must match the order in the Substitute array (output
+<<<<<<< HEAD
 <<<<<<< HEAD
           glyphs).</p><div class="table"><a name="idm15850"></a><p class="title"><strong>Table 25.31. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SingleSubstFormat2</td><td> </td></tr><tr><td> </td><td>VerticalPunctuationSubtable</td><td>SingleSubst
                   subtable definition</td></tr><tr><td>0002</td><td>2</td><td>SubstFormat lists</td></tr><tr><td>000E</td><td>VerticalPunctuationCoverage</td><td>offset to Coverage table</td></tr><tr><td>0004</td><td>4</td><td>GlyphCount, equals GlyphCount in Coverage
@@ -1547,6 +1791,13 @@ Lookahead sequence -                   0  1  2  3<br/
                   Index</td></tr><tr><td>0135</td><td>VerticalClosedBracketGlyph</td><td>Substitute[1]</td></tr><tr><td>013E</td><td>VerticalOpenParenthesisGlyph</td><td>Substitute[2]</td></tr><tr><td>0143</td><td>VerticalClosedParenthesisGlyph</td><td>Substitute[3</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>VerticalPunctuationCoverage</td><td>Coverage table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat lists</td></tr><tr><td>0004</td><td>4</td><td>GlyphCount</td></tr><tr><td>003C</td><td>HorizontalOpenBracketGlyph</td><td>GlyphArray[0], ordered by GlyphID</td></tr><tr><td>0040</td><td>HorizontalClosedBracketGlyph</td><td>GlyphArray[1]</td></tr><tr><td>004B</td><td>HorizontalOpenParenthesisGlyph</td><td>GlyphArray[2]</td></tr><tr><td>004F</td><td>HorizontalClosedParenthesisGlyph</td><td>GlyphArray[3]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295599520"></a>Example 4: MultipleSubstFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.27.1"></a>Specification</h4></div></div></div><p>Example 4 uses a MultipleSubstFormat1 subtable to
 >>>>>>> Rebuild
+=======
+          glyphs).</p><div class="table"><a name="idm62726936976"></a><p class="title"><strong>Table 25.31. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SingleSubstFormat2</td><td> </td></tr><tr><td> </td><td>VerticalPunctuationSubtable</td><td>SingleSubst
+                  subtable definition</td></tr><tr><td>0002</td><td>2</td><td>SubstFormat lists</td></tr><tr><td>000E</td><td>VerticalPunctuationCoverage</td><td>offset to Coverage table</td></tr><tr><td>0004</td><td>4</td><td>GlyphCount, equals GlyphCount in Coverage
+                  table</td></tr><tr><td>0131</td><td>VerticalOpenBracketGlyph</td><td>Substitute[0], ordered by Coverage
+                  Index</td></tr><tr><td>0135</td><td>VerticalClosedBracketGlyph</td><td>Substitute[1]</td></tr><tr><td>013E</td><td>VerticalOpenParenthesisGlyph</td><td>Substitute[2]</td></tr><tr><td>0143</td><td>VerticalClosedParenthesisGlyph</td><td>Substitute[3</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>VerticalPunctuationCoverage</td><td>Coverage table
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat lists</td></tr><tr><td>0004</td><td>4</td><td>GlyphCount</td></tr><tr><td>003C</td><td>HorizontalOpenBracketGlyph</td><td>GlyphArray[0], ordered by GlyphID</td></tr><tr><td>0040</td><td>HorizontalClosedBracketGlyph</td><td>GlyphArray[1]</td></tr><tr><td>004B</td><td>HorizontalOpenParenthesisGlyph</td><td>GlyphArray[2]</td></tr><tr><td>004F</td><td>HorizontalClosedParenthesisGlyph</td><td>GlyphArray[3]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726909792"></a>Example 4: MultipleSubstFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.27.1"></a>Specification</h4></div></div></div><p>Example 4 uses a MultipleSubstFormat1 subtable to
+>>>>>>> Rebuild
           replace a single "ffi" ligature with three individual glyphs
           that form the string &lt;ffi&gt;. The subtable defines a format
           identifier of 1, an offset to a Coverage table that
@@ -1554,6 +1805,7 @@ Lookahead sequence -                   0  1  2  3<br/
           glyph), an offset to a Sequence table that specifies the
           sequence of glyph indices for the &lt;ffi&gt; string in its
           substitute array (the output glyph sequence), and a count of
+<<<<<<< HEAD
 <<<<<<< HEAD
           Sequence table offsets.</p><div class="table"><a name="idm15932"></a><p class="title"><strong>Table 25.32. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MultipleSubstFormat1</td><td> </td></tr><tr><td> </td><td>FfiDecompSubtable</td><td>MultipleSubst subtable
                   definition</td></tr><tr><td>0001</td><td>1</td><td>SubstFormat</td></tr><tr><td>0008</td><td>FfiDecompCoverage</td><td>offset to Coverage table</td></tr><tr><td>0001</td><td>1</td><td>SequenceCount, equals GlyphCount in Coverage
@@ -1567,6 +1819,13 @@ Lookahead sequence -                   0  1  2  3<br/
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat lists</td></tr><tr><td>0001</td><td>1</td><td>GlyphCount</td></tr><tr><td>00F1</td><td>ffiGlyphID</td><td>ligature glyp</td></tr><tr><td> </td><td>Sequence</td><td> </td></tr><tr><td> </td><td>FfiDecompSequence</td><td>Sequence table
                   definition</td></tr><tr><td>0003</td><td>3</td><td>GlyphCount</td></tr><tr><td>001A</td><td>fGlyphID</td><td>first glyph in sequence order</td></tr><tr><td>001A</td><td>fGlyphID</td><td>second glyph</td></tr><tr><td>001D</td><td>iGlyphID</td><td>third glyph</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295571536"></a>Example 5: AlternateSubstFormat 1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.28.1"></a>Specification</h4></div></div></div><p>Example 5 uses the AlternateSubstFormat1 subtable to
 >>>>>>> Rebuild
+=======
+          Sequence table offsets.</p><div class="table"><a name="idm62726907568"></a><p class="title"><strong>Table 25.32. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MultipleSubstFormat1</td><td> </td></tr><tr><td> </td><td>FfiDecompSubtable</td><td>MultipleSubst subtable
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>SubstFormat</td></tr><tr><td>0008</td><td>FfiDecompCoverage</td><td>offset to Coverage table</td></tr><tr><td>0001</td><td>1</td><td>SequenceCount, equals GlyphCount in Coverage
+                  table</td></tr><tr><td>000E</td><td>FfiDecompSequence</td><td>offset to Sequence[0] tabl</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>FfiDecompCoverage</td><td>Coverage table
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat lists</td></tr><tr><td>0001</td><td>1</td><td>GlyphCount</td></tr><tr><td>00F1</td><td>ffiGlyphID</td><td>ligature glyp</td></tr><tr><td> </td><td>Sequence</td><td> </td></tr><tr><td> </td><td>FfiDecompSequence</td><td>Sequence table
+                  definition</td></tr><tr><td>0003</td><td>3</td><td>GlyphCount</td></tr><tr><td>001A</td><td>fGlyphID</td><td>first glyph in sequence order</td></tr><tr><td>001A</td><td>fGlyphID</td><td>second glyph</td></tr><tr><td>001D</td><td>iGlyphID</td><td>third glyph</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726880976"></a>Example 5: AlternateSubstFormat 1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.28.1"></a>Specification</h4></div></div></div><p>Example 5 uses the AlternateSubstFormat1 subtable to
+>>>>>>> Rebuild
           replace the default ampersand glyph (input glyph) with one
           of two alternative ampersand glyphs (output glyph).</p><p>In this case, the Coverage table specifies the index of
           a single glyph, the default ampersand, because it is the
@@ -1576,18 +1835,26 @@ Lookahead sequence -                   0  1  2  3<br/
           table offset in the AlternateSet array is zero (0), which
           correlates with the index position (also zero) of the
 <<<<<<< HEAD
+<<<<<<< HEAD
           default ampersand glyph in the Coverage table.</p><div class="table"><a name="idm16016"></a><p class="title"><strong>Table 25.33. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AlternateSubstFormat1</td><td> </td></tr><tr><td> </td><td>AltAmpersandSubtable</td><td>AlternateSubstFormat1
 =======
           default ampersand glyph in the Coverage table.</p><div class="table"><a name="idm189295567824"></a><p class="title"><strong>Table 25.33. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AlternateSubstFormat1</td><td> </td></tr><tr><td> </td><td>AltAmpersandSubtable</td><td>AlternateSubstFormat1
+>>>>>>> Rebuild
+=======
+          default ampersand glyph in the Coverage table.</p><div class="table"><a name="idm62726877216"></a><p class="title"><strong>Table 25.33. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AlternateSubstFormat1</td><td> </td></tr><tr><td> </td><td>AltAmpersandSubtable</td><td>AlternateSubstFormat1
 >>>>>>> Rebuild
                   subtable definition</td></tr><tr><td>0001</td><td>1</td><td>SubstFormat</td></tr><tr><td>0008</td><td>AltAmpersandCoverage</td><td>offset to Coverage table</td></tr><tr><td>0001</td><td>1</td><td>AlternateSetCnt, equals GlyphCount in Coverage
                   table</td></tr><tr><td>000E</td><td>AltAmpersandSet</td><td>offset to AlternateSet[0] tabl</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>AltAmpersandCoverage</td><td>Coverage table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>GlyphCount</td></tr><tr><td>003A</td><td>DefaultAmpersandGlyphID</td><td>GlyphArray[0</td></tr><tr><td> </td><td>AlternateSet</td><td> </td></tr><tr><td> </td><td>AltAmpersandSet</td><td>AlternateSet table
                   definition</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>00C9</td><td>AltAmpersand1GlyphID</td><td>offset to Alternate[0], in arbitrary
 <<<<<<< HEAD
+<<<<<<< HEAD
                   order</td></tr><tr><td>00CA</td><td>AltAmpersand2GlyphID</td><td>offset to Alternate[1]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm16089"></a>Example 6: LigatureSubstFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.29.1"></a>Specification</h4></div></div></div><p>Example 6 shows a LigatureSubstFormat1 subtable that
 =======
                   order</td></tr><tr><td>00CA</td><td>AltAmpersand2GlyphID</td><td>offset to Alternate[1]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295543360"></a>Example 6: LigatureSubstFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.29.1"></a>Specification</h4></div></div></div><p>Example 6 shows a LigatureSubstFormat1 subtable that
+>>>>>>> Rebuild
+=======
+                  order</td></tr><tr><td>00CA</td><td>AltAmpersand2GlyphID</td><td>offset to Alternate[1]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726852032"></a>Example 6: LigatureSubstFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.29.1"></a>Specification</h4></div></div></div><p>Example 6 shows a LigatureSubstFormat1 subtable that
 >>>>>>> Rebuild
           defines data to replace a string of glyphs with a single
           ligature glyph. Because a LigatureSubstFormat1 subtable can
@@ -1612,9 +1879,13 @@ Lookahead sequence -                   0  1  2  3<br/
           Ligature array lists the "ffi" Ligature table first to
           indicate that the "ffi" ligature is preferred to the "fi"
 <<<<<<< HEAD
+<<<<<<< HEAD
           ligature.</p><div class="table"><a name="idm16098"></a><p class="title"><strong>Table 25.34. Example 6</strong></p><div class="table-contents"><table class="table" summary="Example 6" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>LigatureSubstFormat1</td><td> </td></tr><tr><td> </td><td>LigaturesSubtable</td><td>LigatureSubstFormat1 subtable
 =======
           ligature.</p><div class="table"><a name="idm189295537968"></a><p class="title"><strong>Table 25.34. Example 6</strong></p><div class="table-contents"><table class="table" summary="Example 6" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>LigatureSubstFormat1</td><td> </td></tr><tr><td> </td><td>LigaturesSubtable</td><td>LigatureSubstFormat1 subtable
+>>>>>>> Rebuild
+=======
+          ligature.</p><div class="table"><a name="idm62726846592"></a><p class="title"><strong>Table 25.34. Example 6</strong></p><div class="table-contents"><table class="table" summary="Example 6" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>LigatureSubstFormat1</td><td> </td></tr><tr><td> </td><td>LigaturesSubtable</td><td>LigatureSubstFormat1 subtable
 >>>>>>> Rebuild
                   definition</td></tr><tr><td>0001</td><td>1</td><td>SubstFormat</td></tr><tr><td>000A</td><td>LigaturesCoverage</td><td>offset to Coverage table</td></tr><tr><td>0002</td><td>2</td><td>LigSetCount</td></tr><tr><td>0014</td><td>ELigaturesSet</td><td>offset to LigatureSet[0] table in Coverage
                   Index order</td></tr><tr><td>0020</td><td>FLigaturesSet</td><td>offset to LigatureSet[1] tabl</td></tr><tr><td> </td><td>CoverageFormat2</td><td> </td></tr><tr><td> </td><td>LigaturesCoverage</td><td>Coverage table
@@ -1629,9 +1900,13 @@ Lookahead sequence -                   0  1  2  3<br/
                   ligature</td></tr><tr><td>001D</td><td>iGlyphID</td><td>Component[2], third component in
                   ligatur</td></tr><tr><td> </td><td>Ligature</td><td> </td></tr><tr><td> </td><td>fiLigature</td><td>Ligature table definition</td></tr><tr><td>00F0</td><td>fiGlyphID</td><td>LigGlyph, output GlyphID</td></tr><tr><td>0002</td><td>2</td><td>CompCount</td></tr><tr><td>001D</td><td>iGlyphID</td><td>Component[1] second component in
 <<<<<<< HEAD
+<<<<<<< HEAD
                   ligature</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm16267"></a>Example 7: ContextSubstFormat1 Subtable and
 =======
                   ligature</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295480672"></a>Example 7: ContextSubstFormat1 Subtable and
+>>>>>>> Rebuild
+=======
+                  ligature</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725631728"></a>Example 7: ContextSubstFormat1 Subtable and
 >>>>>>> Rebuild
         SubstLookupRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.30.1"></a>Specification</h4></div></div></div><p>Example 7 uses a ContextSubstFormat1 subtable for glyph
           sequences to replace a string of three glyphs with another
@@ -1663,9 +1938,13 @@ Lookahead sequence -                   0  1  2  3<br/
           where the glyph substitution should occur, and an index to
           the same lookup used in the SpaceAndDashSubRule. The lookup
 <<<<<<< HEAD
+<<<<<<< HEAD
           replaces the SpaceGlyph with a ThinSpaceGlyph.</p><div class="table"><a name="idm16275"></a><p class="title"><strong>Table 25.35. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextSubstFormat1</td><td> </td></tr><tr><td> </td><td>DashSubtable</td><td>ContextSubstFormat1 subtable
 =======
           replaces the SpaceGlyph with a ThinSpaceGlyph.</p><div class="table"><a name="idm189295476352"></a><p class="title"><strong>Table 25.35. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextSubstFormat1</td><td> </td></tr><tr><td> </td><td>DashSubtable</td><td>ContextSubstFormat1 subtable
+>>>>>>> Rebuild
+=======
+          replaces the SpaceGlyph with a ThinSpaceGlyph.</p><div class="table"><a name="idm62725627328"></a><p class="title"><strong>Table 25.35. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextSubstFormat1</td><td> </td></tr><tr><td> </td><td>DashSubtable</td><td>ContextSubstFormat1 subtable
 >>>>>>> Rebuild
                   definition for Lookup[0], DashLookup</td></tr><tr><td>0001</td><td>1</td><td>SubstFormat</td></tr><tr><td>000A</td><td>DashCoverage</td><td>offset to Coverage table</td></tr><tr><td>0002</td><td>2</td><td>SubRuleSetCount</td></tr><tr><td>0012</td><td>SpaceAndDashSubRuleSet</td><td>offset to SubRuleSet[0], ordered by Coverage
                   Index</td></tr><tr><td>0020</td><td>DashAndSpaceSubRuleSet</td><td>offset to SubRuleSet[1</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>DashCoverage</td><td>Coverage table definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat lists</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>0028</td><td>SpaceGlyph</td><td>GlyphArray[0], in numeric order</td></tr><tr><td>005D</td><td>DashGlyph</td><td>GlyphArray[1], dash GlyphI</td></tr><tr><td> </td><td>SubRuleSet</td><td> </td></tr><tr><td> </td><td>SpaceAndDashSubRuleSet</td><td>SubRuleSet[0] table
@@ -1683,9 +1962,13 @@ Lookahead sequence -                   0  1  2  3<br/
                   SubstLookupRecord definition</td></tr><tr><td>0001</td><td>1</td><td>SequenceIndex substitution at second glyph
                   position(1)</td></tr><tr><td>0001</td><td>1</td><td>LookupListIndex for
 <<<<<<< HEAD
+<<<<<<< HEAD
                   SpaceToThinSpaceLookup</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm16424"></a>Example 8: ContextSubstFormat2 Subtable </h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.31.1"></a>Specification</h4></div></div></div><p>Example 8 uses a ContextSubstFormat2 subtable with glyph
 =======
                   SpaceToThinSpaceLookup</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295425408"></a>Example 8: ContextSubstFormat2 Subtable </h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.31.1"></a>Specification</h4></div></div></div><p>Example 8 uses a ContextSubstFormat2 subtable with glyph
+>>>>>>> Rebuild
+=======
+                  SpaceToThinSpaceLookup</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725575136"></a>Example 8: ContextSubstFormat2 Subtable </h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.31.1"></a>Specification</h4></div></div></div><p>Example 8 uses a ContextSubstFormat2 subtable with glyph
 >>>>>>> Rebuild
           classes to replace default mark glyphs with their
           alternative forms. Glyph alternatives are selected depending
@@ -1717,9 +2000,13 @@ Lookahead sequence -                   0  1  2  3<br/
           SubstituteVeryHighMarkLookup at the second position in the
           sequence-that is, a very high mark glyph will replace the
 <<<<<<< HEAD
+<<<<<<< HEAD
           default mark glyph.</p><div class="table"><a name="idm16433"></a><p class="title"><strong>Table 25.36. Example 8</strong></p><div class="table-contents"><table class="table" summary="Example 8" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextSubstFormat2</td><td> </td></tr><tr><td> </td><td>SetMarksHighSubtable</td><td>ContextSubstFormat2
 =======
           default mark glyph.</p><div class="table"><a name="idm189295419584"></a><p class="title"><strong>Table 25.36. Example 8</strong></p><div class="table-contents"><table class="table" summary="Example 8" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextSubstFormat2</td><td> </td></tr><tr><td> </td><td>SetMarksHighSubtable</td><td>ContextSubstFormat2
+>>>>>>> Rebuild
+=======
+          default mark glyph.</p><div class="table"><a name="idm62725569296"></a><p class="title"><strong>Table 25.36. Example 8</strong></p><div class="table-contents"><table class="table" summary="Example 8" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextSubstFormat2</td><td> </td></tr><tr><td> </td><td>SetMarksHighSubtable</td><td>ContextSubstFormat2
 >>>>>>> Rebuild
                   subtable definition</td></tr><tr><td>0002</td><td>2</td><td>SubstFormat</td></tr><tr><td>0010</td><td>SetMarksHighCoverage</td><td>offset to Coverage table</td></tr><tr><td>001C</td><td>SetMarksHighClassDef</td><td>offset to Class Def table</td></tr><tr><td>0004</td><td>4</td><td>SubClassSetCnt</td></tr><tr><td>0000</td><td>NULL</td><td>offset to SubClassSet[0] table, no contexts
                   that begin with Class 0 glyphs are defined</td></tr><tr><td>0000</td><td>NULL</td><td>offset to SubClassSet[1] table no contexts that
@@ -1753,9 +2040,13 @@ Lookahead sequence -                   0  1  2  3<br/
                   SubstLookupRecord array in design order
                   SubstLookupRecord[0]</td></tr><tr><td>0001</td><td>1</td><td>SequenceIndex, apply substitution to position
 <<<<<<< HEAD
+<<<<<<< HEAD
                   2, second glyph class (mark)</td></tr><tr><td>0002</td><td>2</td><td>LookupListIndex</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm16654"></a>Example 9: ContextualSubstFormat3 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.32.1"></a>Specification</h4></div></div></div><p>Example 9 uses the ContextSubstFormat3 subtable with
 =======
                   2, second glyph class (mark)</td></tr><tr><td>0002</td><td>2</td><td>LookupListIndex</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295340368"></a>Example 9: ContextualSubstFormat3 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.32.1"></a>Specification</h4></div></div></div><p>Example 9 uses the ContextSubstFormat3 subtable with
+>>>>>>> Rebuild
+=======
+                  2, second glyph class (mark)</td></tr><tr><td>0002</td><td>2</td><td>LookupListIndex</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724425760"></a>Example 9: ContextualSubstFormat3 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.32.1"></a>Specification</h4></div></div></div><p>Example 9 uses the ContextSubstFormat3 subtable with
 >>>>>>> Rebuild
           Coverage tables to describe a context sequence of three
           lowercase glyphs in the pattern: any ascender or descender
@@ -1778,9 +2069,13 @@ Lookahead sequence -                   0  1  2  3<br/
           The record for position 2 uses a single substitution lookup
           called DescSwashLookup to replace the current descender
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph with a swash descender glyph.</p><div class="table"><a name="idm16661"></a><p class="title"><strong>Table 25.37. Example 9</strong></p><div class="table-contents"><table class="table" summary="Example 9" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextSubstFormat3</td><td> </td></tr><tr><td> </td><td>SwashSubtable</td><td>ContextSubstFormat3 subtable
 =======
           glyph with a swash descender glyph.</p><div class="table"><a name="idm189295335424"></a><p class="title"><strong>Table 25.37. Example 9</strong></p><div class="table-contents"><table class="table" summary="Example 9" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextSubstFormat3</td><td> </td></tr><tr><td> </td><td>SwashSubtable</td><td>ContextSubstFormat3 subtable
+>>>>>>> Rebuild
+=======
+          glyph with a swash descender glyph.</p><div class="table"><a name="idm62724421280"></a><p class="title"><strong>Table 25.37. Example 9</strong></p><div class="table-contents"><table class="table" summary="Example 9" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextSubstFormat3</td><td> </td></tr><tr><td> </td><td>SwashSubtable</td><td>ContextSubstFormat3 subtable
 >>>>>>> Rebuild
                   definition</td></tr><tr><td>0003</td><td>3</td><td>SubstFormat</td></tr><tr><td>0003</td><td>3</td><td>GlyphCount in input glyph sequence</td></tr><tr><td>0002</td><td>2</td><td>SubstCount</td></tr><tr><td>0030</td><td>AscenderDescenderCoverage</td><td>offset to Coverage[0] table in context sequence
                   order</td></tr><tr><td>004C</td><td>XheightCoverage</td><td>offset to Coverage[1] table</td></tr><tr><td>006E</td><td>DescenderCoverage</td><td>offset to Coverage[2] table
@@ -1791,9 +2086,13 @@ Lookahead sequence -                   0  1  2  3<br/
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>000C</td><td>12</td><td>GlyphCount</td></tr><tr><td>0033</td><td>bGlyphID</td><td>GlyphArray[0] in GlyphID order</td></tr><tr><td>0035</td><td>dGlyphID</td><td>GlyphArray[1]</td></tr><tr><td>0037</td><td>fGlyphID</td><td>GlyphArray[2]</td></tr><tr><td>0038</td><td>gGlyphID</td><td>GlyphArray[3]</td></tr><tr><td>0039</td><td>hGlyphID</td><td>GlyphArray[4]</td></tr><tr><td>003B</td><td>jGlyphID</td><td>GlyphArray[5]</td></tr><tr><td>003C</td><td>kGlyphID</td><td>GlyphArray[6]</td></tr><tr><td>003D</td><td>lGlyphID</td><td>GlyphArray[7]</td></tr><tr><td>0041</td><td>pGlyphID</td><td>GlyphArray[8]</td></tr><tr><td>0042</td><td>qGlyphID</td><td>GlyphArray[9]</td></tr><tr><td>0045</td><td>tGlyphID</td><td>GlyphArray[10]</td></tr><tr><td>004A</td><td>yGlyphID</td><td>GlyphArray[11</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>XheightCoverage</td><td>Coverage table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>000F</td><td>15</td><td>GlyphCount</td></tr><tr><td>0032</td><td>aGlyphID</td><td>GlyphArray[0] in GlyphID order</td></tr><tr><td>0034</td><td>cGlyphID</td><td>GlyphArray[1]</td></tr><tr><td>0036</td><td>eGlyphID</td><td>GlyphArray[2]</td></tr><tr><td>003A</td><td>iGlyphID</td><td>GlyphArray[3]</td></tr><tr><td>003E</td><td>mGlyphID</td><td>GlyphArray[4]</td></tr><tr><td>003F</td><td>nGlyphID</td><td>GlyphArray[5]</td></tr><tr><td>0040</td><td>oGlyphID</td><td>GlyphArray[6]</td></tr><tr><td>0043</td><td>rGlyphID</td><td>GlyphArray[7]</td></tr><tr><td>0044</td><td>sGlyphID</td><td>GlyphArray[8]</td></tr><tr><td>0045</td><td>tGlyphID</td><td>GlyphArray[9]</td></tr><tr><td>0046</td><td>uGlyphID</td><td>GlyphArray[10]</td></tr><tr><td>0047</td><td>vGlyphID</td><td>GlyphArray[11]</td></tr><tr><td>0048</td><td>wGlyphID</td><td>GlyphArray[12]</td></tr><tr><td>0049</td><td>xGlyphID</td><td>GlyphArray[13]</td></tr><tr><td>004B</td><td>zGlyphID</td><td>GlyphArray[14</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>DescenderCoverage</td><td>Coverage table
 <<<<<<< HEAD
+<<<<<<< HEAD
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>0005</td><td>5</td><td>GlyphCount</td></tr><tr><td>0038</td><td>gGlyphID</td><td>GlyphArray[0] in GlyphID order</td></tr><tr><td>003B</td><td>jGlyphID</td><td>GlyphArray[1]</td></tr><tr><td>0041</td><td>pGlyphID</td><td>GlyphArray[2]</td></tr><tr><td>0042</td><td>qGlyphID</td><td>GlyphArray[3]</td></tr><tr><td>004A</td><td>yGlyphID</td><td>GlyphArray[4]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm16894"></a>Example 10: ReverseChainSingleSubstFormat1 Subtable
 =======
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>0005</td><td>5</td><td>GlyphCount</td></tr><tr><td>0038</td><td>gGlyphID</td><td>GlyphArray[0] in GlyphID order</td></tr><tr><td>003B</td><td>jGlyphID</td><td>GlyphArray[1]</td></tr><tr><td>0041</td><td>pGlyphID</td><td>GlyphArray[2]</td></tr><tr><td>0042</td><td>qGlyphID</td><td>GlyphArray[3]</td></tr><tr><td>004A</td><td>yGlyphID</td><td>GlyphArray[4]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295252240"></a>Example 10: ReverseChainSingleSubstFormat1 Subtable
+>>>>>>> Rebuild
+=======
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>0005</td><td>5</td><td>GlyphCount</td></tr><tr><td>0038</td><td>gGlyphID</td><td>GlyphArray[0] in GlyphID order</td></tr><tr><td>003B</td><td>jGlyphID</td><td>GlyphArray[1]</td></tr><tr><td>0041</td><td>pGlyphID</td><td>GlyphArray[2]</td></tr><tr><td>0042</td><td>qGlyphID</td><td>GlyphArray[3]</td></tr><tr><td>004A</td><td>yGlyphID</td><td>GlyphArray[4]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724338096"></a>Example 10: ReverseChainSingleSubstFormat1 Subtable
 >>>>>>> Rebuild
 	and SubstLookupRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.26.33.1"></a>Specification</h4></div></div></div><p>Example 10 uses a ReverseChainSingleSubstFormat1
 	  subtable for glyph sequences to glyph with the correct form
@@ -1806,7 +2105,11 @@ Lookahead sequence -                   0  1  2  3<br/
 	  the context that will cause the substitution to take
 	  place.</p><p>The Substitute table maps the glyphs to replace those in
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  the ThickConnectCoverage table.</p><div class="table"><a name="idm16902"></a><p class="title"><strong>Table 25.38. Example 10</strong></p><div class="table-contents"><table class="table" summary="Example 10" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ReverseChainSingleSubstFormat1</td><td> </td></tr><tr><td>ThickConnect</td><td>ReverseChainSingleSubstFormat1</td><td>subtable definition</td></tr><tr><td>0001</td><td>1</td><td>SubstFormat</td></tr><tr><td>0068</td><td>ThickExitCoverage</td><td>offset to Coverage table</td></tr><tr><td>0000</td><td>0</td><td>BacktrackGlyphCount</td></tr><tr><td>0000</td><td>null</td><td>not used offset to BacktrackCoverage[0]</td></tr><tr><td>0001</td><td>1</td><td>LookaheadGlyphCount</td></tr><tr><td>0026</td><td>ThickEntryCoverage</td><td>offset to LookaheadCoverage[0]</td></tr><tr><td>000C</td><td>12</td><td>GlyphCount</td></tr><tr><td>00A7</td><td>BEm2</td><td>Substitute[0], ordered by Coverage Index</td></tr><tr><td>00B9</td><td>BEi3</td><td>Substitute[1]</td></tr><tr><td>00C5</td><td>JIMm3</td><td>Substitute[2]</td></tr><tr><td>00D4</td><td>JIMi2</td><td>Substitute[3]</td></tr><tr><td>00EA</td><td>SINm2</td><td>Substitute[4]</td></tr><tr><td>00F2</td><td>SINi2</td><td>Substitute[5]</td></tr><tr><td>00FD</td><td>SADm2</td><td>Substitute[6]</td></tr><tr><td>010D</td><td>SADi2</td><td>Substitute[7]</td></tr><tr><td>011B</td><td>TOEm3</td><td>Substitute[8]</td></tr><tr><td>012B</td><td>TOEi3</td><td>Substitute[9]</td></tr><tr><td>013B</td><td>AINm2</td><td>Substitute[10]</td></tr><tr><td>0141</td><td>AINi2</td><td>Substitute[11]</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td>ThickEntryCoverage</td><td>Coverage</td><td>table definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>001F</td><td>31</td><td>GlyphCount</td></tr><tr><td>00A5</td><td>ALEFf1</td><td>GlyphArray[0], in GlyphID order</td></tr><tr><td>00A9</td><td>BEm4</td><td>GlyphArray[1]</td></tr><tr><td>00AA</td><td>BEm5</td><td>GlyphArray[2]</td></tr><tr><td>00E2</td><td>DALf1</td><td>GlyphArray[3]</td></tr><tr><td>0167</td><td>KAFf1</td><td>GlyphArray[4]</td></tr><tr><td>0168</td><td>KAFfs1</td><td>GlyphArray[5]</td></tr><tr><td>0169</td><td>KAFm1</td><td>GlyphArray[6]</td></tr><tr><td>016D</td><td>KAFm5</td><td>GlyphArray[7]</td></tr><tr><td>016E</td><td>KAFm6</td><td>GlyphArray[8]</td></tr><tr><td>0170</td><td>KAFm8</td><td>GlyphArray[9]</td></tr><tr><td>0183</td><td>GAFf1</td><td>GlyphArray[10]</td></tr><tr><td>0184</td><td>GAFfs1</td><td>GlyphArray[11]</td></tr><tr><td>0185</td><td>GAFm1</td><td>GlyphArray[12]</td></tr><tr><td>0189</td><td>GAFm5</td><td>GlyphArray[13]</td></tr><tr><td>018A</td><td>GAFm6</td><td>GlyphArray[14]</td></tr><tr><td>018C</td><td>GAFm8</td><td>GlyphArray[15]</td></tr><tr><td>019F</td><td>LAMf1</td><td>GlyphArray[16]</td></tr><tr><td>01A0</td><td>LAMm1</td><td>GlyphArray[17]</td></tr><tr><td>01A1</td><td>LAMm2</td><td>GlyphArray[18]</td></tr><tr><td>01A2</td><td>LAMm3</td><td>GlyphArray[19]</td></tr><tr><td>01A3</td><td>LAMm4</td><td>GlyphArray[20]</td></tr><tr><td>01A4</td><td>LAMm5</td><td>GlyphArray[21]</td></tr><tr><td>01A5</td><td>LAMm6</td><td>GlyphArray[22]</td></tr><tr><td>01A6</td><td>LAMm7</td><td>GlyphArray[23]</td></tr><tr><td>01A7</td><td>LAMm8</td><td>GlyphArray[24]</td></tr><tr><td>01A8</td><td>LAMm9</td><td>GlyphArray[25]</td></tr><tr><td>01A9</td><td>LAMm10</td><td>GlyphArray[26]</td></tr><tr><td>01AA</td><td>LAMm11</td><td>GlyphArray[27]</td></tr><tr><td>01AB</td><td>LAMm12</td><td>GlyphArray[28]</td></tr><tr><td>01AC</td><td>LAMm13</td><td>GlyphArray[29]</td></tr><tr><td>01EC</td><td>HAYf2</td><td>GlyphArray[30]</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td>ThickExitCoverage</td><td>Coverage</td><td>table definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>000C</td><td>12</td><td>GlyphCount</td></tr><tr><td>00A6</td><td>BEm1</td><td>GlyphArray[0], ordered by GlyphID</td></tr><tr><td>00B7</td><td>BEi1</td><td>GlyphArray[1]</td></tr><tr><td>00C3</td><td>JIMm1</td><td>GlyphArray[2]</td></tr><tr><td>00D2</td><td>JIMi1</td><td>GlyphArray[3]</td></tr><tr><td>00E9</td><td>SINm1</td><td>GlyphArray[4]</td></tr><tr><td>00F1</td><td>SINi1</td><td>GlyphArray[5]</td></tr><tr><td>00FC</td><td>SADm1</td><td>GlyphArray[6]</td></tr><tr><td>010C</td><td>SADi1</td><td>GlyphArray[7]</td></tr><tr><td>0119</td><td>TOEm1</td><td>GlyphArray[8]</td></tr><tr><td>0129</td><td>TOEi1</td><td>GlyphArray[9]</td></tr><tr><td>013A</td><td>AINm1</td><td>GlyphArray[10]</td></tr><tr><td>0140</td><td>AINi1</td><td>GlyphArray[11]</td></tr></tbody></table></div></div><br class="table-break"/></div></div></div>
 =======
 	  the ThickConnectCoverage table.</p><div class="table"><a name="idm189295248128"></a><p class="title"><strong>Table 25.38. Example 10</strong></p><div class="table-contents"><table class="table" summary="Example 10" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ReverseChainSingleSubstFormat1</td><td> </td></tr><tr><td>ThickConnect</td><td>ReverseChainSingleSubstFormat1</td><td>subtable definition</td></tr><tr><td>0001</td><td>1</td><td>SubstFormat</td></tr><tr><td>0068</td><td>ThickExitCoverage</td><td>offset to Coverage table</td></tr><tr><td>0000</td><td>0</td><td>BacktrackGlyphCount</td></tr><tr><td>0000</td><td>null</td><td>not used offset to BacktrackCoverage[0]</td></tr><tr><td>0001</td><td>1</td><td>LookaheadGlyphCount</td></tr><tr><td>0026</td><td>ThickEntryCoverage</td><td>offset to LookaheadCoverage[0]</td></tr><tr><td>000C</td><td>12</td><td>GlyphCount</td></tr><tr><td>00A7</td><td>BEm2</td><td>Substitute[0], ordered by Coverage Index</td></tr><tr><td>00B9</td><td>BEi3</td><td>Substitute[1]</td></tr><tr><td>00C5</td><td>JIMm3</td><td>Substitute[2]</td></tr><tr><td>00D4</td><td>JIMi2</td><td>Substitute[3]</td></tr><tr><td>00EA</td><td>SINm2</td><td>Substitute[4]</td></tr><tr><td>00F2</td><td>SINi2</td><td>Substitute[5]</td></tr><tr><td>00FD</td><td>SADm2</td><td>Substitute[6]</td></tr><tr><td>010D</td><td>SADi2</td><td>Substitute[7]</td></tr><tr><td>011B</td><td>TOEm3</td><td>Substitute[8]</td></tr><tr><td>012B</td><td>TOEi3</td><td>Substitute[9]</td></tr><tr><td>013B</td><td>AINm2</td><td>Substitute[10]</td></tr><tr><td>0141</td><td>AINi2</td><td>Substitute[11]</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td>ThickEntryCoverage</td><td>Coverage</td><td>table definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>001F</td><td>31</td><td>GlyphCount</td></tr><tr><td>00A5</td><td>ALEFf1</td><td>GlyphArray[0], in GlyphID order</td></tr><tr><td>00A9</td><td>BEm4</td><td>GlyphArray[1]</td></tr><tr><td>00AA</td><td>BEm5</td><td>GlyphArray[2]</td></tr><tr><td>00E2</td><td>DALf1</td><td>GlyphArray[3]</td></tr><tr><td>0167</td><td>KAFf1</td><td>GlyphArray[4]</td></tr><tr><td>0168</td><td>KAFfs1</td><td>GlyphArray[5]</td></tr><tr><td>0169</td><td>KAFm1</td><td>GlyphArray[6]</td></tr><tr><td>016D</td><td>KAFm5</td><td>GlyphArray[7]</td></tr><tr><td>016E</td><td>KAFm6</td><td>GlyphArray[8]</td></tr><tr><td>0170</td><td>KAFm8</td><td>GlyphArray[9]</td></tr><tr><td>0183</td><td>GAFf1</td><td>GlyphArray[10]</td></tr><tr><td>0184</td><td>GAFfs1</td><td>GlyphArray[11]</td></tr><tr><td>0185</td><td>GAFm1</td><td>GlyphArray[12]</td></tr><tr><td>0189</td><td>GAFm5</td><td>GlyphArray[13]</td></tr><tr><td>018A</td><td>GAFm6</td><td>GlyphArray[14]</td></tr><tr><td>018C</td><td>GAFm8</td><td>GlyphArray[15]</td></tr><tr><td>019F</td><td>LAMf1</td><td>GlyphArray[16]</td></tr><tr><td>01A0</td><td>LAMm1</td><td>GlyphArray[17]</td></tr><tr><td>01A1</td><td>LAMm2</td><td>GlyphArray[18]</td></tr><tr><td>01A2</td><td>LAMm3</td><td>GlyphArray[19]</td></tr><tr><td>01A3</td><td>LAMm4</td><td>GlyphArray[20]</td></tr><tr><td>01A4</td><td>LAMm5</td><td>GlyphArray[21]</td></tr><tr><td>01A5</td><td>LAMm6</td><td>GlyphArray[22]</td></tr><tr><td>01A6</td><td>LAMm7</td><td>GlyphArray[23]</td></tr><tr><td>01A7</td><td>LAMm8</td><td>GlyphArray[24]</td></tr><tr><td>01A8</td><td>LAMm9</td><td>GlyphArray[25]</td></tr><tr><td>01A9</td><td>LAMm10</td><td>GlyphArray[26]</td></tr><tr><td>01AA</td><td>LAMm11</td><td>GlyphArray[27]</td></tr><tr><td>01AB</td><td>LAMm12</td><td>GlyphArray[28]</td></tr><tr><td>01AC</td><td>LAMm13</td><td>GlyphArray[29]</td></tr><tr><td>01EC</td><td>HAYf2</td><td>GlyphArray[30]</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td>ThickExitCoverage</td><td>Coverage</td><td>table definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>000C</td><td>12</td><td>GlyphCount</td></tr><tr><td>00A6</td><td>BEm1</td><td>GlyphArray[0], ordered by GlyphID</td></tr><tr><td>00B7</td><td>BEi1</td><td>GlyphArray[1]</td></tr><tr><td>00C3</td><td>JIMm1</td><td>GlyphArray[2]</td></tr><tr><td>00D2</td><td>JIMi1</td><td>GlyphArray[3]</td></tr><tr><td>00E9</td><td>SINm1</td><td>GlyphArray[4]</td></tr><tr><td>00F1</td><td>SINi1</td><td>GlyphArray[5]</td></tr><tr><td>00FC</td><td>SADm1</td><td>GlyphArray[6]</td></tr><tr><td>010C</td><td>SADi1</td><td>GlyphArray[7]</td></tr><tr><td>0119</td><td>TOEm1</td><td>GlyphArray[8]</td></tr><tr><td>0129</td><td>TOEi1</td><td>GlyphArray[9]</td></tr><tr><td>013A</td><td>AINm1</td><td>GlyphArray[10]</td></tr><tr><td>0140</td><td>AINi1</td><td>GlyphArray[11]</td></tr></tbody></table></div></div><br class="table-break"/></div></div></div>
+>>>>>>> Rebuild
+=======
+	  the ThickConnectCoverage table.</p><div class="table"><a name="idm62724333984"></a><p class="title"><strong>Table 25.38. Example 10</strong></p><div class="table-contents"><table class="table" summary="Example 10" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ReverseChainSingleSubstFormat1</td><td> </td></tr><tr><td>ThickConnect</td><td>ReverseChainSingleSubstFormat1</td><td>subtable definition</td></tr><tr><td>0001</td><td>1</td><td>SubstFormat</td></tr><tr><td>0068</td><td>ThickExitCoverage</td><td>offset to Coverage table</td></tr><tr><td>0000</td><td>0</td><td>BacktrackGlyphCount</td></tr><tr><td>0000</td><td>null</td><td>not used offset to BacktrackCoverage[0]</td></tr><tr><td>0001</td><td>1</td><td>LookaheadGlyphCount</td></tr><tr><td>0026</td><td>ThickEntryCoverage</td><td>offset to LookaheadCoverage[0]</td></tr><tr><td>000C</td><td>12</td><td>GlyphCount</td></tr><tr><td>00A7</td><td>BEm2</td><td>Substitute[0], ordered by Coverage Index</td></tr><tr><td>00B9</td><td>BEi3</td><td>Substitute[1]</td></tr><tr><td>00C5</td><td>JIMm3</td><td>Substitute[2]</td></tr><tr><td>00D4</td><td>JIMi2</td><td>Substitute[3]</td></tr><tr><td>00EA</td><td>SINm2</td><td>Substitute[4]</td></tr><tr><td>00F2</td><td>SINi2</td><td>Substitute[5]</td></tr><tr><td>00FD</td><td>SADm2</td><td>Substitute[6]</td></tr><tr><td>010D</td><td>SADi2</td><td>Substitute[7]</td></tr><tr><td>011B</td><td>TOEm3</td><td>Substitute[8]</td></tr><tr><td>012B</td><td>TOEi3</td><td>Substitute[9]</td></tr><tr><td>013B</td><td>AINm2</td><td>Substitute[10]</td></tr><tr><td>0141</td><td>AINi2</td><td>Substitute[11]</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td>ThickEntryCoverage</td><td>Coverage</td><td>table definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>001F</td><td>31</td><td>GlyphCount</td></tr><tr><td>00A5</td><td>ALEFf1</td><td>GlyphArray[0], in GlyphID order</td></tr><tr><td>00A9</td><td>BEm4</td><td>GlyphArray[1]</td></tr><tr><td>00AA</td><td>BEm5</td><td>GlyphArray[2]</td></tr><tr><td>00E2</td><td>DALf1</td><td>GlyphArray[3]</td></tr><tr><td>0167</td><td>KAFf1</td><td>GlyphArray[4]</td></tr><tr><td>0168</td><td>KAFfs1</td><td>GlyphArray[5]</td></tr><tr><td>0169</td><td>KAFm1</td><td>GlyphArray[6]</td></tr><tr><td>016D</td><td>KAFm5</td><td>GlyphArray[7]</td></tr><tr><td>016E</td><td>KAFm6</td><td>GlyphArray[8]</td></tr><tr><td>0170</td><td>KAFm8</td><td>GlyphArray[9]</td></tr><tr><td>0183</td><td>GAFf1</td><td>GlyphArray[10]</td></tr><tr><td>0184</td><td>GAFfs1</td><td>GlyphArray[11]</td></tr><tr><td>0185</td><td>GAFm1</td><td>GlyphArray[12]</td></tr><tr><td>0189</td><td>GAFm5</td><td>GlyphArray[13]</td></tr><tr><td>018A</td><td>GAFm6</td><td>GlyphArray[14]</td></tr><tr><td>018C</td><td>GAFm8</td><td>GlyphArray[15]</td></tr><tr><td>019F</td><td>LAMf1</td><td>GlyphArray[16]</td></tr><tr><td>01A0</td><td>LAMm1</td><td>GlyphArray[17]</td></tr><tr><td>01A1</td><td>LAMm2</td><td>GlyphArray[18]</td></tr><tr><td>01A2</td><td>LAMm3</td><td>GlyphArray[19]</td></tr><tr><td>01A3</td><td>LAMm4</td><td>GlyphArray[20]</td></tr><tr><td>01A4</td><td>LAMm5</td><td>GlyphArray[21]</td></tr><tr><td>01A5</td><td>LAMm6</td><td>GlyphArray[22]</td></tr><tr><td>01A6</td><td>LAMm7</td><td>GlyphArray[23]</td></tr><tr><td>01A7</td><td>LAMm8</td><td>GlyphArray[24]</td></tr><tr><td>01A8</td><td>LAMm9</td><td>GlyphArray[25]</td></tr><tr><td>01A9</td><td>LAMm10</td><td>GlyphArray[26]</td></tr><tr><td>01AA</td><td>LAMm11</td><td>GlyphArray[27]</td></tr><tr><td>01AB</td><td>LAMm12</td><td>GlyphArray[28]</td></tr><tr><td>01AC</td><td>LAMm13</td><td>GlyphArray[29]</td></tr><tr><td>01EC</td><td>HAYf2</td><td>GlyphArray[30]</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td>ThickExitCoverage</td><td>Coverage</td><td>table definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat, lists</td></tr><tr><td>000C</td><td>12</td><td>GlyphCount</td></tr><tr><td>00A6</td><td>BEm1</td><td>GlyphArray[0], ordered by GlyphID</td></tr><tr><td>00B7</td><td>BEi1</td><td>GlyphArray[1]</td></tr><tr><td>00C3</td><td>JIMm1</td><td>GlyphArray[2]</td></tr><tr><td>00D2</td><td>JIMi1</td><td>GlyphArray[3]</td></tr><tr><td>00E9</td><td>SINm1</td><td>GlyphArray[4]</td></tr><tr><td>00F1</td><td>SINi1</td><td>GlyphArray[5]</td></tr><tr><td>00FC</td><td>SADm1</td><td>GlyphArray[6]</td></tr><tr><td>010C</td><td>SADi1</td><td>GlyphArray[7]</td></tr><tr><td>0119</td><td>TOEm1</td><td>GlyphArray[8]</td></tr><tr><td>0129</td><td>TOEi1</td><td>GlyphArray[9]</td></tr><tr><td>013A</td><td>AINm1</td><td>GlyphArray[10]</td></tr><tr><td>0140</td><td>AINi1</td><td>GlyphArray[11]</td></tr></tbody></table></div></div><br class="table-break"/></div></div></div>
 >>>>>>> Rebuild

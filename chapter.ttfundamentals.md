@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.ttfundamentals"></a>Chapter 44. TrueType fundamentals</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm23927"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.1.1"></a>Specification</h4></div></div></div><p>CommonType fonts are an extension of the TrueType Font
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.ttfundamentals"></a>Chapter 44. TrueType fundamentals</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189288599792"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.1.1"></a>Specification</h4></div></div></div><p>CommonType fonts are an extension of the TrueType Font
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.ttfundamentals"></a>Chapter 44. TrueType fundamentals</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62721600176"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.1.1"></a>Specification</h4></div></div></div><p>CommonType fonts are an extension of the TrueType Font
 >>>>>>> Rebuild
 	File format.</p><p>This chapter introduces the basic concepts needed to
 	create and instruct a TrueType font, or an CommonType font that
@@ -10,18 +14,26 @@
 	creation of a bitmap that can be sent to an output device and
 	follows with a closer look at each of the steps in the
 <<<<<<< HEAD
+<<<<<<< HEAD
 	process.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm23933"></a>From design to font file</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.2.1"></a>Specification</h4></div></div></div><p>A TrueType font can originate as a new design drawn on
 =======
 	process.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189288596304"></a>From design to font file</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.2.1"></a>Specification</h4></div></div></div><p>A TrueType font can originate as a new design drawn on
+>>>>>>> Rebuild
+=======
+	process.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62721596688"></a>From design to font file</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.2.1"></a>Specification</h4></div></div></div><p>A TrueType font can originate as a new design drawn on
 >>>>>>> Rebuild
 	paper or created on a computer screen. TrueType fonts can also
 	be obtained by converting fonts from other formats. Whatever
 	the case, it is necessary to create a TrueType font file that,
 	among other things, describes each glyph in the font as an
 <<<<<<< HEAD
+<<<<<<< HEAD
 	outline in the TrueType format.</p><div class="informalfigure"><div class="mediaobject"><img src="src/images/../../img00288.gif"/></div></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm23942"></a>From Font File to Paper</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.3.1"></a>Specification</h4></div></div></div><p>This section describes the process that allows glyphs
 =======
 	outline in the TrueType format.</p><div class="informalfigure"><div class="mediaobject"><img src="src/images/../../img00288.gif"/></div></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189288591520"></a>From Font File to Paper</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.3.1"></a>Specification</h4></div></div></div><p>This section describes the process that allows glyphs
+>>>>>>> Rebuild
+=======
+	outline in the TrueType format.</p><div class="informalfigure"><div class="mediaobject"><img src="src/images/../../img00288.gif"/></div></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62721591904"></a>From Font File to Paper</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.3.1"></a>Specification</h4></div></div></div><p>This section describes the process that allows glyphs
 >>>>>>> Rebuild
 	from a TrueType font file to be displayed on raster devices.</p><p>First, the outline stored in the font file isscaled to
 	the requested size. Once scaled, the points that make up the
@@ -35,6 +47,7 @@
 	    font file</p></li><li class="listitem"><p>Scaler converts <em class="glossterm">font unit</em>s to pixel coordinates and
 	    scales outline to size requested by application</p></li><li class="listitem"><p>Outline "sized" to new grid</p></li><li class="listitem"><p>Scaled outline with pixel coordinates</p></li><li class="listitem"><p>Interpreter executes instructions associated with
 <<<<<<< HEAD
+<<<<<<< HEAD
 	    glyph "B" and gridfits</p></li><li class="listitem"><p>Grid-fitted outline</p></li><li class="listitem"><p>Grid fitted outline</p></li><li class="listitem"><p>Scan converter decides which pixels to turn on</p></li><li class="listitem"><p>Bitmap is rendered on raster device</p></li></ol></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm23975"></a>Digitizing a Design</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.4.1"></a>Specification</h4></div></div></div><p>This section describes the coordinate system used to
 	establish the locations of the points that define a glyph
 	outline. It also documents the placement of glyphs with
@@ -45,15 +58,25 @@
 	outline. It also documents the placement of glyphs with
 	respect to the coordinate axes.</p><h5><a name="idm189288574224"></a>Outlines</h5><p>In a TrueType font, glyph shapes are described by their
 >>>>>>> Rebuild
+=======
+	    glyph "B" and gridfits</p></li><li class="listitem"><p>Grid-fitted outline</p></li><li class="listitem"><p>Grid fitted outline</p></li><li class="listitem"><p>Scan converter decides which pixels to turn on</p></li><li class="listitem"><p>Bitmap is rendered on raster device</p></li></ol></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62721577024"></a>Digitizing a Design</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.4.1"></a>Specification</h4></div></div></div><p>This section describes the coordinate system used to
+	establish the locations of the points that define a glyph
+	outline. It also documents the placement of glyphs with
+	respect to the coordinate axes.</p><h5><a name="idm62721574608"></a>Outlines</h5><p>In a TrueType font, glyph shapes are described by their
+>>>>>>> Rebuild
 	outlines. A glyph outline consists of a series of contours. A
 	simple glyph may have only one contour. More complex glyphs
 	can have two or more contours. Composite glyphs can be
 	constructed by combining two or more simpler glyphs. Certain
 	control characters that have no visible manifestation will map
 <<<<<<< HEAD
+<<<<<<< HEAD
 	to the glyph with no contours.</p><div class="figure"><a name="idm23982"></a><p class="title"><strong>Figure 44.1. Figure 1-1. Glyphs with one, two, three contours
 =======
 	to the glyph with no contours.</p><div class="figure"><a name="idm189288573040"></a><p class="title"><strong>Figure 44.1. Figure 1-1. Glyphs with one, two, three contours
+>>>>>>> Rebuild
+=======
+	to the glyph with no contours.</p><div class="figure"><a name="idm62721573424"></a><p class="title"><strong>Figure 44.1. Figure 1-1. Glyphs with one, two, three contours
 >>>>>>> Rebuild
 	    respectively</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00290.gif" alt="Figure 1-1. Glyphs with one, two, three contours respectively"/></div><div class="mediaobject"><img src="src/images/../../img00291.gif" alt="Figure 1-1. Glyphs with one, two, three contours respectively"/></div><div class="mediaobject"><img src="src/images/../../img00292.gif" alt="Figure 1-1. Glyphs with one, two, three contours respectively"/></div></div></div><br class="figure-break"/><p>Contours are composed of straight lines and
 	curves. Curves are defined by a series of points that describe
@@ -63,9 +86,13 @@
 	off and on curve points is acceptable when defining a
 	curve. Straight lines are defined by two consecutive on curve
 <<<<<<< HEAD
+<<<<<<< HEAD
 	points.</p><div class="figure"><a name="idm23994"></a><p class="title"><strong>Figure 44.2. Figure 1-2 A glyph description consisting of a series
 =======
 	points.</p><div class="figure"><a name="idm189288567536"></a><p class="title"><strong>Figure 44.2. Figure 1-2 A glyph description consisting of a series
+>>>>>>> Rebuild
+=======
+	points.</p><div class="figure"><a name="idm62721567920"></a><p class="title"><strong>Figure 44.2. Figure 1-2 A glyph description consisting of a series
 >>>>>>> Rebuild
           of on and off curve points</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00293.gif" alt="Figure 1-2 A glyph description consisting of a series of on and off curve points"/></div></div></div><br class="figure-break"/><p>The points that make up a curve must be numbered in
 	consecutive order. It makes a difference whether the order is
@@ -74,9 +101,13 @@
 	has to be such that, if the curve is followed in the direction
 	of increasing point numbers, the black space (the filled area)
 <<<<<<< HEAD
+<<<<<<< HEAD
 	will always be to the right.</p><h5><a name="idm24000"></a><em class="glossterm">font unit</em>s and the em square</h5><p>In a TrueType font file point locations are described in
 =======
 	will always be to the right.</p><h5><a name="idm189288564608"></a><em class="glossterm">font unit</em>s and the em square</h5><p>In a TrueType font file point locations are described in
+>>>>>>> Rebuild
+=======
+	will always be to the right.</p><h5><a name="idm62721564992"></a><em class="glossterm">font unit</em>s and the em square</h5><p>In a TrueType font file point locations are described in
 >>>>>>> Rebuild
 	font units, or <em class="glossterm">font unit</em>s. An <em class="glossterm">font unit</em> is the smallest measurable
 	unit in the em square, an imaginary square that is used to
@@ -94,9 +125,13 @@
 	whose x-axis describes movement in a horizontal direction and
 	whose y-axis describes movement in a vertical direction. This
 <<<<<<< HEAD
+<<<<<<< HEAD
 	is discussed in more detail in the following section.</p><h5><a name="idm24015"></a><em class="glossterm">font unit</em>s and the grid</h5><p>A key decision in digitizing a font is determining the
 =======
 	is discussed in more detail in the following section.</p><h5><a name="idm189288557536"></a><em class="glossterm">font unit</em>s and the grid</h5><p>A key decision in digitizing a font is determining the
+>>>>>>> Rebuild
+=======
+	is discussed in more detail in the following section.</p><h5><a name="idm62721557920"></a><em class="glossterm">font unit</em>s and the grid</h5><p>A key decision in digitizing a font is determining the
 >>>>>>> Rebuild
 	resolution at which the points that make up glyph outlines
 	will be described. The points represent locations in a grid
@@ -111,9 +146,13 @@
 	grid-that is, number of units per em (upem)-is made by the
 	font manufacturer. Outline scaling will be fastest if units
 <<<<<<< HEAD
+<<<<<<< HEAD
 	per em is chosen to be a power of 2, such as 2048.</p><div class="figure"><a name="idm24021"></a><p class="title"><strong>Figure 44.3. Figure 1-4 The coordinate system</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00296.gif" alt="Figure 1-4 The coordinate system"/></div></div></div><br class="figure-break"/><p>The origin of the em square need not have any consistent
 =======
 	per em is chosen to be a power of 2, such as 2048.</p><div class="figure"><a name="idm189288554384"></a><p class="title"><strong>Figure 44.3. Figure 1-4 The coordinate system</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00296.gif" alt="Figure 1-4 The coordinate system"/></div></div></div><br class="figure-break"/><p>The origin of the em square need not have any consistent
+>>>>>>> Rebuild
+=======
+	per em is chosen to be a power of 2, such as 2048.</p><div class="figure"><a name="idm62721554768"></a><p class="title"><strong>Figure 44.3. Figure 1-4 The coordinate system</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00296.gif" alt="Figure 1-4 The coordinate system"/></div></div></div><br class="figure-break"/><p>The origin of the em square need not have any consistent
 >>>>>>> Rebuild
 	relationship to the glyph outlines. In practice, however,
 	applications depend upon the existence of some convention for
@@ -133,9 +172,13 @@
 	has an x-value equal to the left-side-bearing of the
 	glyph. Fonts created in this way may allow some applications
 <<<<<<< HEAD
+<<<<<<< HEAD
 	to print more quickly to PostScript printers.</p><div class="figure"><a name="idm24028"></a><p class="title"><strong>Figure 44.4. Figure 1-5 Two possible choices for the glyph origin
 =======
 	to print more quickly to PostScript printers.</p><div class="figure"><a name="idm189288550368"></a><p class="title"><strong>Figure 44.4. Figure 1-5 Two possible choices for the glyph origin
+>>>>>>> Rebuild
+=======
+	to print more quickly to PostScript printers.</p><div class="figure"><a name="idm62721550752"></a><p class="title"><strong>Figure 44.4. Figure 1-5 Two possible choices for the glyph origin
 >>>>>>> Rebuild
 	  in a Roman font. In the first case (left) the left side
 	  bearing is x-zero. In the second (right), the aesthetic
@@ -151,9 +194,13 @@
 	coordinate system must have integral locations. The greater
 	the number of units per em, the greater the precision
 <<<<<<< HEAD
+<<<<<<< HEAD
 	available in addressing locations within the em square.</p><div class="figure"><a name="idm24038"></a><p class="title"><strong>Figure 44.5. Figure 1-6 Two em squares, 8 units per em (left), 16
 =======
 	available in addressing locations within the em square.</p><div class="figure"><a name="idm189288545392"></a><p class="title"><strong>Figure 44.5. Figure 1-6 Two em squares, 8 units per em (left), 16
+>>>>>>> Rebuild
+=======
+	available in addressing locations within the em square.</p><div class="figure"><a name="idm62721545776"></a><p class="title"><strong>Figure 44.5. Figure 1-6 Two em squares, 8 units per em (left), 16
 >>>>>>> Rebuild
           units per em (right) </strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00298.gif" alt="Figure 1-6 Two em squares, 8 units per em (left), 16 units per em (right)"/></div><div class="mediaobject"><img src="src/images/../../img00299.gif" alt="Figure 1-6 Two em squares, 8 units per em (left), 16 units per em (right)"/></div></div></div><br class="figure-break"/><p><em class="glossterm">font unit</em>s are relative units because they vary in size as
 	the size of the em square changes. The number of units per em
@@ -165,9 +212,13 @@
 	number of units per em does not vary with the point size at
 	which the font is displayed, the absolute size of an <em class="glossterm">font unit</em>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	varies as the point size varies.</p><div class="figure"><a name="idm24049"></a><p class="title"><strong>Figure 44.6. Figure 1-7 72 point M and 127 point M and their em
 =======
 	varies as the point size varies.</p><div class="figure"><a name="idm189288540320"></a><p class="title"><strong>Figure 44.6. Figure 1-7 72 point M and 127 point M and their em
+>>>>>>> Rebuild
+=======
+	varies as the point size varies.</p><div class="figure"><a name="idm62721540704"></a><p class="title"><strong>Figure 44.6. Figure 1-7 72 point M and 127 point M and their em
 >>>>>>> Rebuild
 	    squares. Upem equals 8 in both cases.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00300.gif" alt="Figure 1-7 72 point M and 127 point M and their em squares. Upem equals 8 in both cases."/></div></div></div><br class="figure-break"/><p>Because <em class="glossterm">font unit</em>s are relative to the em square, a given
 	location on a glyph will have the same coordinate location in
@@ -176,6 +227,7 @@
 	instruct outline points once considering only the original
 	outline and have the changes apply to the glyph at whatever
 <<<<<<< HEAD
+<<<<<<< HEAD
 	size and resolution it is ultimately rendered.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm24057"></a>Scaling a glyph</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.5.1"></a>Specification</h4></div></div></div><p>This section describes how glyph outlines are scaled
 	from the master size stored in the font file to the size
 	requested by an application.</p><h5><a name="idm24062"></a>Device space</h5><p>Whatever the resolution of the em square used to define
@@ -183,6 +235,11 @@
 	size and resolution it is ultimately rendered.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189288536016"></a>Scaling a glyph</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.5.1"></a>Specification</h4></div></div></div><p>This section describes how glyph outlines are scaled
 	from the master size stored in the font file to the size
 	requested by an application.</p><h5><a name="idm189288533680"></a>Device space</h5><p>Whatever the resolution of the em square used to define
+>>>>>>> Rebuild
+=======
+	size and resolution it is ultimately rendered.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62721536400"></a>Scaling a glyph</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.5.1"></a>Specification</h4></div></div></div><p>This section describes how glyph outlines are scaled
+	from the master size stored in the font file to the size
+	requested by an application.</p><h5><a name="idm62721534064"></a>Device space</h5><p>Whatever the resolution of the em square used to define
 >>>>>>> Rebuild
 	a glyph outline, before that glyph can be displayed it must be
 	scaled to reflect the size, transformation and the
@@ -194,9 +251,13 @@
 	appear on screen or printer. To allow for greater precision in
 	managing outlines, TrueType describes pixel coordinates to the
 <<<<<<< HEAD
+<<<<<<< HEAD
 	nearest sixty-fourth of a pixel.</p><h5><a name="idm24065"></a>Converting <em class="glossterm">font unit</em>s to pixels</h5><p>Values in the em square are converted to values in the
 =======
 	nearest sixty-fourth of a pixel.</p><h5><a name="idm189288531808"></a>Converting <em class="glossterm">font unit</em>s to pixels</h5><p>Values in the em square are converted to values in the
+>>>>>>> Rebuild
+=======
+	nearest sixty-fourth of a pixel.</p><h5><a name="idm62721532192"></a>Converting <em class="glossterm">font unit</em>s to pixels</h5><p>Values in the em square are converted to values in the
 >>>>>>> Rebuild
 	pixel coordinate system by multiplying them by a scale. This
 	scale is:</p><p>pointSize * resolution / ( 72 points per inch *
@@ -207,9 +268,13 @@
 	in length on a 72 dpi screen at 18 point. There are 2048 units
 	per em. The following calculation reveals that the feature is
 <<<<<<< HEAD
+<<<<<<< HEAD
 	4.83 pixels long.</p><p>550 * 18 * 72 / ( 72 * 2048 ) = 4.83</p><h5><a name="idm24073"></a>Display device characteristics</h5><p>The resolution of any particular display device is
 =======
 	4.83 pixels long.</p><p>550 * 18 * 72 / ( 72 * 2048 ) = 4.83</p><h5><a name="idm189288528016"></a>Display device characteristics</h5><p>The resolution of any particular display device is
+>>>>>>> Rebuild
+=======
+	4.83 pixels long.</p><p>550 * 18 * 72 / ( 72 * 2048 ) = 4.83</p><h5><a name="idm62721528400"></a>Display device characteristics</h5><p>The resolution of any particular display device is
 >>>>>>> Rebuild
 	specified by the number of dots or pixels per inch (dpi) that
 	are displayed. For example, a VGA under Windows is treated as
@@ -223,9 +288,13 @@
 	have 18 pixels per em on a 72 dpi device. Change the
 	resolution to 300 dpi and it has 75 pixels per em, or change
 <<<<<<< HEAD
+<<<<<<< HEAD
 	to 1200 dpi and it has 300 pixels per em.</p><div class="figure"><a name="idm24076"></a><p class="title"><strong>Figure 44.7. Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200 dpi.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00302b.gif" alt="Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200 dpi."/></div></div></div><br class="figure-break"/><p>Displaying type on a particular device at a specific
 =======
 	to 1200 dpi and it has 300 pixels per em.</p><div class="figure"><a name="idm189288526032"></a><p class="title"><strong>Figure 44.7. Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200 dpi.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00302b.gif" alt="Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200 dpi."/></div></div></div><br class="figure-break"/><p>Displaying type on a particular device at a specific
+>>>>>>> Rebuild
+=======
+	to 1200 dpi and it has 300 pixels per em.</p><div class="figure"><a name="idm62721526416"></a><p class="title"><strong>Figure 44.7. Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200 dpi.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00302b.gif" alt="Figure 1-8 18 point figure 8 at 72 dpi, 300 dpi and 1200 dpi."/></div></div></div><br class="figure-break"/><p>Displaying type on a particular device at a specific
 >>>>>>> Rebuild
 	point size yields an effective resolution measured in pixels
 	per em (ppem). The formula for calculating pixels per em
@@ -243,9 +312,13 @@
 	<em class="glossterm">font unit</em>s and pixel space coordinates is:</p><p>pixel_coordinate = em_coordinate * ppem /upem</p><p>An em_coordinate position of (1024, 0) would yield a
 	device_pixels coordinate of (6, 0), given 2048 units per em
 <<<<<<< HEAD
+<<<<<<< HEAD
 	and 12 pixels per em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm24090"></a>Grid-fitting a glyph outline</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.6.1"></a>Specification</h4></div></div></div><p>The fundamental task of instructing a glyph is one of
 =======
 	and 12 pixels per em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189288518688"></a>Grid-fitting a glyph outline</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.6.1"></a>Specification</h4></div></div></div><p>The fundamental task of instructing a glyph is one of
+>>>>>>> Rebuild
+=======
+	and 12 pixels per em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62721519072"></a>Grid-fitting a glyph outline</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.6.1"></a>Specification</h4></div></div></div><p>The fundamental task of instructing a glyph is one of
 >>>>>>> Rebuild
 	identifying the critical characteristics of the original
 	design and using instructions to ensure that those
@@ -262,18 +335,26 @@
 	description to produce a high quality image. This distortion
 	of the outline is known as grid-fitting.</p><p>The figure below illustrates how grid-fitting a
 <<<<<<< HEAD
+<<<<<<< HEAD
 	character distorts the outline found in the original design.</p><div class="figure"><a name="idm24097"></a><p class="title"><strong>Figure 44.8. Figure 1-9 12 point outlines ungrid-fitted (left) and
 =======
 	character distorts the outline found in the original design.</p><div class="figure"><a name="idm189288514688"></a><p class="title"><strong>Figure 44.8. Figure 1-9 12 point outlines ungrid-fitted (left) and
+>>>>>>> Rebuild
+=======
+	character distorts the outline found in the original design.</p><div class="figure"><a name="idm62721515072"></a><p class="title"><strong>Figure 44.8. Figure 1-9 12 point outlines ungrid-fitted (left) and
 >>>>>>> Rebuild
           grid-fitted (right) </strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00304.gif" alt="Figure 1-9 12 point outlines ungrid-fitted (left) and grid-fitted (right)"/></div></div></div><br class="figure-break"/><p>As the illustration above suggests, the grid-fitting
 	employed in TrueType goes well beyond aligning a glyph's left
 	side bearing to the pixel grid. This sophisticated
 	grid-fitting is guided by instructions. The beneficial effects
 <<<<<<< HEAD
+<<<<<<< HEAD
 	of grid-fitting are illustrated in the next figure.</p><div class="figure"><a name="idm24103"></a><p class="title"><strong>Figure 44.9. Figure 1-10 12 point outlines and bitmap
 =======
 	of grid-fitting are illustrated in the next figure.</p><div class="figure"><a name="idm189288511872"></a><p class="title"><strong>Figure 44.9. Figure 1-10 12 point outlines and bitmap
+>>>>>>> Rebuild
+=======
+	of grid-fitting are illustrated in the next figure.</p><div class="figure"><a name="idm62721512256"></a><p class="title"><strong>Figure 44.9. Figure 1-10 12 point outlines and bitmap
 >>>>>>> Rebuild
 	    ungrid-fitted (left) and grid-fitted (right)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00305.gif" alt="Figure 1-10 12 point outlines and bitmap ungrid-fitted (left) and grid-fitted (right)"/></div></div></div><br class="figure-break"/><p>Grid-fitting is the process of stretching the outline of
 	a glyph according to the instructions associated with it. Once
@@ -282,9 +363,13 @@
 	may have shifted. That is, the coordinates for a given point
 	number will, very likely, have changed after a glyph is
 <<<<<<< HEAD
+<<<<<<< HEAD
 	grid-fitted.</p><h5><a name="idm24109"></a>What are instructions?</h5><p>The TrueType instruction set provides a large number of
 =======
 	grid-fitted.</p><h5><a name="idm189288508960"></a>What are instructions?</h5><p>The TrueType instruction set provides a large number of
+>>>>>>> Rebuild
+=======
+	grid-fitted.</p><h5><a name="idm62721509344"></a>What are instructions?</h5><p>The TrueType instruction set provides a large number of
 >>>>>>> Rebuild
 	commands designed to allow designers to specify how character
 	features should be rendered. Instructions are the mechanism by
@@ -331,11 +416,16 @@
 	of stems to pixel centers. In the second glyph, instructions
 	have aligned the stems to the grid so that the glyph suffers
 <<<<<<< HEAD
+<<<<<<< HEAD
 	no similar loss.</p><div class="figure"><a name="idm24116"></a><p class="title"><strong>Figure 44.10. Figure 1-11 9 point Arial m-uninstructed (left),
 	    instructed (right)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00306.gif" alt="Figure 1-11 9 point Arial m-uninstructed (left), instructed (right)"/></div><div class="mediaobject"><img src="src/images/../../img00307.gif" alt="Figure 1-11 9 point Arial m-uninstructed (left), instructed (right)"/></div></div></div><br class="figure-break"/><h5><a name="idm24124"></a>The TrueType interpreter</h5><p>This section describes the actions of the TrueType
 =======
 	no similar loss.</p><div class="figure"><a name="idm189288502912"></a><p class="title"><strong>Figure 44.10. Figure 1-11 9 point Arial m-uninstructed (left),
 	    instructed (right)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00306.gif" alt="Figure 1-11 9 point Arial m-uninstructed (left), instructed (right)"/></div><div class="mediaobject"><img src="src/images/../../img00307.gif" alt="Figure 1-11 9 point Arial m-uninstructed (left), instructed (right)"/></div></div></div><br class="figure-break"/><h5><a name="idm189288499504"></a>The TrueType interpreter</h5><p>This section describes the actions of the TrueType
+>>>>>>> Rebuild
+=======
+	no similar loss.</p><div class="figure"><a name="idm62721503680"></a><p class="title"><strong>Figure 44.10. Figure 1-11 9 point Arial m-uninstructed (left),
+	    instructed (right)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00306.gif" alt="Figure 1-11 9 point Arial m-uninstructed (left), instructed (right)"/></div><div class="mediaobject"><img src="src/images/../../img00307.gif" alt="Figure 1-11 9 point Arial m-uninstructed (left), instructed (right)"/></div></div></div><br class="figure-break"/><h5><a name="idm62721500272"></a>The TrueType interpreter</h5><p>This section describes the actions of the TrueType
 >>>>>>> Rebuild
 	interpreter. It is the interpreter, as the name suggests, that
 	"interprets" or carries out the instructions.</p><p>More concretely, the interpreter processes a stream or
@@ -377,9 +467,13 @@
 		Graphics State variable rp0 is updated using a value
 		taken from the interpreter stack.</p><div class="informalfigure"><div class="mediaobject"><img src="src/images/../../img00311.gif"/></div></div></li></ul></div></li><li class="listitem"><p>The process is repeated until there are no further
 <<<<<<< HEAD
+<<<<<<< HEAD
 	    instructions to be executed. </p></li></ol></div><h5><a name="idm24166"></a>Using instructions</h5><p>Instructions can appear in a number of places in the
 =======
 	    instructions to be executed. </p></li></ol></div><h5><a name="idm189288479536"></a>Using instructions</h5><p>Instructions can appear in a number of places in the
+>>>>>>> Rebuild
+=======
+	    instructions to be executed. </p></li></ol></div><h5><a name="idm62721480304"></a>Using instructions</h5><p>Instructions can appear in a number of places in the
 >>>>>>> Rebuild
 	font file tables that make up a TrueType font. They can appear
 	as part of the Font Program, the CVT Program, or as glyph
@@ -387,18 +481,26 @@
 	font as a whole. Those found in glyph data
 	(<a class="link" href="chapter.glyf.html" title="Chapter 16. glyf - Glyf Data">glyf</a>) apply to individual glyphs within a
 <<<<<<< HEAD
+<<<<<<< HEAD
 	font.</p><h5><a name="idm24169"></a>The Font Program</h5><p>The Font Program consists of a set of instructions that
 =======
 	font.</p><h5><a name="idm189288477760"></a>The Font Program</h5><p>The Font Program consists of a set of instructions that
+>>>>>>> Rebuild
+=======
+	font.</p><h5><a name="idm62721478528"></a>The Font Program</h5><p>The Font Program consists of a set of instructions that
 >>>>>>> Rebuild
 	is executed once, the first time a font is accessed by an
 	application. It is used to create function definitions (FDEFs)
 	and instruction definitions (IDEFs). Functions and
 	instructions defined in the Font Program can be used elsewhere
 <<<<<<< HEAD
+<<<<<<< HEAD
 	in the font file.</p><h5><a name="idm24171"></a>The CVT Program</h5><p>The CVT Program is a sequence of TrueType instructions
 =======
 	in the font file.</p><h5><a name="idm189288476640"></a>The CVT Program</h5><p>The CVT Program is a sequence of TrueType instructions
+>>>>>>> Rebuild
+=======
+	in the font file.</p><h5><a name="idm62721477408"></a>The CVT Program</h5><p>The CVT Program is a sequence of TrueType instructions
 >>>>>>> Rebuild
 	executed every time the point size or transformation
 	change. It is used to make font wide changes rather than to
@@ -411,9 +513,13 @@
 	across a number of glyphs in a font. For example an
 	instruction might refer to a CVT entry whose purpose is to
 <<<<<<< HEAD
+<<<<<<< HEAD
 	regularize stem weights across a font.</p><div class="table"><a name="idm24174"></a><p class="title"><strong>Table 44.1. Figure 1-12 Some sample CVT entries</strong></p><div class="table-contents"><table class="table" summary="Figure 1-12 Some sample CVT entries" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Entry #</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>upper and lower case flat base(base line)</td></tr><tr><td>1</td><td>-39</td><td>upper case round base</td></tr><tr><td>2</td><td>-35</td><td>lower case round base</td></tr><tr><td>3</td><td>-33</td><td>figure round base</td></tr><tr><td>4</td><td>1082</td><td>x-height flat</td></tr><tr><td>5</td><td>1114</td><td>x-height round overlap</td></tr><tr><td>6</td><td>1493</td><td>flat cap</td></tr><tr><td>7</td><td>1522</td><td>round cap</td></tr><tr><td>8</td><td>1463</td><td>numbers flat</td></tr><tr><td>9</td><td>1491</td><td>numbers round top</td></tr><tr><td>10</td><td>1493</td><td>flat ascender</td></tr><tr><td>11</td><td>1514</td><td>round ascender</td></tr><tr><td>12</td><td>157</td><td>x stem weight</td></tr><tr><td>13</td><td>127</td><td>y stem weight</td></tr><tr><td>14</td><td>57</td><td>serif</td></tr><tr><td>15</td><td>83</td><td>space between the dot and the I</td></tr></tbody></table></div></div><br class="table-break"/><p>Instructions that refer to values in the CVT are called
 =======
 	regularize stem weights across a font.</p><div class="table"><a name="idm189288474720"></a><p class="title"><strong>Table 44.1. Figure 1-12 Some sample CVT entries</strong></p><div class="table-contents"><table class="table" summary="Figure 1-12 Some sample CVT entries" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Entry #</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>upper and lower case flat base(base line)</td></tr><tr><td>1</td><td>-39</td><td>upper case round base</td></tr><tr><td>2</td><td>-35</td><td>lower case round base</td></tr><tr><td>3</td><td>-33</td><td>figure round base</td></tr><tr><td>4</td><td>1082</td><td>x-height flat</td></tr><tr><td>5</td><td>1114</td><td>x-height round overlap</td></tr><tr><td>6</td><td>1493</td><td>flat cap</td></tr><tr><td>7</td><td>1522</td><td>round cap</td></tr><tr><td>8</td><td>1463</td><td>numbers flat</td></tr><tr><td>9</td><td>1491</td><td>numbers round top</td></tr><tr><td>10</td><td>1493</td><td>flat ascender</td></tr><tr><td>11</td><td>1514</td><td>round ascender</td></tr><tr><td>12</td><td>157</td><td>x stem weight</td></tr><tr><td>13</td><td>127</td><td>y stem weight</td></tr><tr><td>14</td><td>57</td><td>serif</td></tr><tr><td>15</td><td>83</td><td>space between the dot and the I</td></tr></tbody></table></div></div><br class="table-break"/><p>Instructions that refer to values in the CVT are called
+>>>>>>> Rebuild
+=======
+	regularize stem weights across a font.</p><div class="table"><a name="idm62721475488"></a><p class="title"><strong>Table 44.1. Figure 1-12 Some sample CVT entries</strong></p><div class="table-contents"><table class="table" summary="Figure 1-12 Some sample CVT entries" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Entry #</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>upper and lower case flat base(base line)</td></tr><tr><td>1</td><td>-39</td><td>upper case round base</td></tr><tr><td>2</td><td>-35</td><td>lower case round base</td></tr><tr><td>3</td><td>-33</td><td>figure round base</td></tr><tr><td>4</td><td>1082</td><td>x-height flat</td></tr><tr><td>5</td><td>1114</td><td>x-height round overlap</td></tr><tr><td>6</td><td>1493</td><td>flat cap</td></tr><tr><td>7</td><td>1522</td><td>round cap</td></tr><tr><td>8</td><td>1463</td><td>numbers flat</td></tr><tr><td>9</td><td>1491</td><td>numbers round top</td></tr><tr><td>10</td><td>1493</td><td>flat ascender</td></tr><tr><td>11</td><td>1514</td><td>round ascender</td></tr><tr><td>12</td><td>157</td><td>x stem weight</td></tr><tr><td>13</td><td>127</td><td>y stem weight</td></tr><tr><td>14</td><td>57</td><td>serif</td></tr><tr><td>15</td><td>83</td><td>space between the dot and the I</td></tr></tbody></table></div></div><br class="table-break"/><p>Instructions that refer to values in the CVT are called
 >>>>>>> Rebuild
 	indirect instructions as opposed to the direct instructions
 	which take their values from the glyph outline.</p><p>As part of the TrueType font file, the values in the CVT
@@ -423,9 +529,13 @@
 	value that is in the original <em class="glossterm">font unit</em>s (using WCVTF). The
 	interpreter will scale all values appropriately. Values read
 <<<<<<< HEAD
+<<<<<<< HEAD
 	from the CVT are always in pixels (F26Dot6).</p><h5><a name="idm24253"></a>The Storage Area</h5><p>The interpreter also maintains a Storage Area consisting
 =======
 	from the CVT are always in pixels (F26Dot6).</p><h5><a name="idm189288442832"></a>The Storage Area</h5><p>The interpreter also maintains a Storage Area consisting
+>>>>>>> Rebuild
+=======
+	from the CVT are always in pixels (F26Dot6).</p><h5><a name="idm62721443472"></a>The Storage Area</h5><p>The interpreter also maintains a Storage Area consisting
 >>>>>>> Rebuild
 	of a portion of memory that can be used for temporary storage
 	of data from the interpreter stack. Instructions exist that
@@ -434,9 +544,13 @@
 	n-1 where n is the value established in the maxStorage entry
 	in the maxProfile table of the font file. Values are 32 bit
 <<<<<<< HEAD
+<<<<<<< HEAD
 	numbers</p><div class="table"><a name="idm24255"></a><p class="title"><strong>Table 44.2. Figure 1-13 Some storage area entries</strong></p><div class="table-contents"><table class="table" summary="Figure 1-13 Some storage area entries" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Address</th><th>Value</th></tr></thead><tbody><tr><td>0</td><td>343</td></tr><tr><td>1</td><td>241</td></tr><tr><td>2</td><td>-27</td></tr><tr><td>3</td><td>4654</td></tr><tr><td>4</td><td>125</td></tr><tr><td>5</td><td>11</td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm24281"></a>The Graphics State</h5><p>The Graphics State consists of a table of variables and
 =======
 	numbers</p><div class="table"><a name="idm189288441584"></a><p class="title"><strong>Table 44.2. Figure 1-13 Some storage area entries</strong></p><div class="table-contents"><table class="table" summary="Figure 1-13 Some storage area entries" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Address</th><th>Value</th></tr></thead><tbody><tr><td>0</td><td>343</td></tr><tr><td>1</td><td>241</td></tr><tr><td>2</td><td>-27</td></tr><tr><td>3</td><td>4654</td></tr><tr><td>4</td><td>125</td></tr><tr><td>5</td><td>11</td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm189288431248"></a>The Graphics State</h5><p>The Graphics State consists of a table of variables and
+>>>>>>> Rebuild
+=======
+	numbers</p><div class="table"><a name="idm62721442224"></a><p class="title"><strong>Table 44.2. Figure 1-13 Some storage area entries</strong></p><div class="table-contents"><table class="table" summary="Figure 1-13 Some storage area entries" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Address</th><th>Value</th></tr></thead><tbody><tr><td>0</td><td>343</td></tr><tr><td>1</td><td>241</td></tr><tr><td>2</td><td>-27</td></tr><tr><td>3</td><td>4654</td></tr><tr><td>4</td><td>125</td></tr><tr><td>5</td><td>11</td></tr></tbody></table></div></div><br class="table-break"/><h5><a name="idm62721431920"></a>The Graphics State</h5><p>The Graphics State consists of a table of variables and
 >>>>>>> Rebuild
 	their values. All instructions act within the context of the
 	Graphics State. Graphics State variables have default values
@@ -450,9 +564,13 @@
 	memory. Changing the value of a Graphics State variable while
 	processing an individual glyph will result in a change that
 <<<<<<< HEAD
+<<<<<<< HEAD
 	remains in effect only for that glyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm24284"></a>The scan converter</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.7.1"></a>Specification</h4></div></div></div><p>The TrueType scan converter takes an outline description
 =======
 	remains in effect only for that glyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189288428672"></a>The scan converter</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.7.1"></a>Specification</h4></div></div></div><p>The TrueType scan converter takes an outline description
+>>>>>>> Rebuild
+=======
+	remains in effect only for that glyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62721429344"></a>The scan converter</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.45.7.1"></a>Specification</h4></div></div></div><p>The TrueType scan converter takes an outline description
 >>>>>>> Rebuild
 	of a glyph and produces a bitmap image for that glyph.</p><p>The TrueType scan converter offers two modes. In the
 	first mode, the scan converter uses a simple algorithm for
@@ -481,6 +599,7 @@
 	p2, undergoes an off transition followed by an on transition
 	followed by an off transition yielding a winding number of
 <<<<<<< HEAD
+<<<<<<< HEAD
 	+1. The point is in the interior of the glyph.</p><div class="figure"><a name="idm24295"></a><p class="title"><strong>Figure 44.11. Figure 1-14 Determining the winding number of a point.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00312.gif" alt="Figure 1-14 Determining the winding number of a point."/></div></div></div><br class="figure-break"/><h5><a name="idm24300"></a>What is a dropout?</h5><p>A dropout occurs whenever there is a connected region of
 	a glyph interior that contains two black pixels that cannot be
 	connected by a straight line that only passes through black
@@ -490,6 +609,12 @@
 	a glyph interior that contains two black pixels that cannot be
 	connected by a straight line that only passes through black
 	pixels.</p><div class="figure"><a name="idm189288419168"></a><p class="title"><strong>Figure 44.12. Figure 1-15 The letter m with two dropouts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00313.gif" alt="Figure 1-15 The letter m with two dropouts."/></div></div></div><br class="figure-break"/><h5><a name="idm189288417072"></a>Preventing dropouts</h5><p>The TrueType instructions are designed to allow you to
+>>>>>>> Rebuild
+=======
+	+1. The point is in the interior of the glyph.</p><div class="figure"><a name="idm62721422944"></a><p class="title"><strong>Figure 44.11. Figure 1-14 Determining the winding number of a point.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00312.gif" alt="Figure 1-14 Determining the winding number of a point."/></div></div></div><br class="figure-break"/><h5><a name="idm62721420832"></a>What is a dropout?</h5><p>A dropout occurs whenever there is a connected region of
+	a glyph interior that contains two black pixels that cannot be
+	connected by a straight line that only passes through black
+	pixels.</p><div class="figure"><a name="idm62721419840"></a><p class="title"><strong>Figure 44.12. Figure 1-15 The letter m with two dropouts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../img00313.gif" alt="Figure 1-15 The letter m with two dropouts."/></div></div></div><br class="figure-break"/><h5><a name="idm62721417744"></a>Preventing dropouts</h5><p>The TrueType instructions are designed to allow you to
 >>>>>>> Rebuild
 	gridfit a glyph so that the desired pixels will be turned on
 	by the simple scan converter regardless of the point size or

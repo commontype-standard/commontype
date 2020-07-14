@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<chapter xmlns:xlink="http://www.w3.org/1999/xlink" id="chapter.processing">
+<chapter id="chapter.processing" xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>Processing Model</title>
   <!--======================================================================-->
   <section role="fragment">

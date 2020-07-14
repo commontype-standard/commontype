@@ -7,7 +7,7 @@ open IN, "docbook/commontype.docbook" or die $!;
 my $last_url;
 while (<IN>) {
     next unless /chapter|title/;
-    if (m{<chapter id="(chapter.[^"]+)".*>}) { $last_url = $1; }
+    if (m{<chapter.*id="(chapter.[^"]+)".*>}) { $last_url = $1; }
     if (m{<title.*>(.*)</title>} and $last_url) {
         print OUT qq{    - title: "$1"\n};
         print OUT qq{      url: "$last_url"\n};

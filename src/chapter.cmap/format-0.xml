@@ -41,7 +41,7 @@
         is the less.
       </para>
 
-      <section role="fragment">
+      <section>
         <title>Mapping Process for Font Consumers</title>
         <para>
           To map codepoints to glyph IDs in a format 0 subtable, each input

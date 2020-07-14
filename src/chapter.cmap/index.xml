@@ -2,9 +2,6 @@
 <section xmlns:web="http://aots.adobe.com/2001/web" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:ots="http://aots.adobe.com/2001/ots" xmlns:aots="http://aots.adobe.com/2001/aots" id="chapter.cmap">
   <title>cmap - Character to Glyph Index Mapping Table</title>
   <!--======================================================================-->
-  <section role="fragment">
-    <title>Introduction</title>
-    <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
       <para>This table specifies how character codes in an input text should
@@ -115,17 +112,19 @@
     </section>
   </section>
   <!--======================================================================-->
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-0.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-2.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-4.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-6.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-8.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-10.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-12.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-14.xml"/>
+  <section>
+    <title>cmap Subtable Formats</title>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-0.xml"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-2.xml"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-4.xml"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-6.xml"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-8.xml"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-10.xml"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-12.xml"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-14.xml"/>
+  </section>
   <!--======================================================================-->
-  <section role="fragment">
+  <section>
     <title>Mapping Process for Font Consumers</title>
     <section role="specification">
       <title>Specification</title>
@@ -143,7 +142,6 @@
           .notdef.</para>
       </section>
   </section>
-
       <!--____________________________________________________________________-->
   <section role="discussion">
       <title>Discussion</title>

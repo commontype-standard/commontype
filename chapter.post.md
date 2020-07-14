@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.post"></a>Chapter 13. post - PostScript</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm5798"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.14.1.1"></a>Specification</h4></div></div></div><p>This table contains additional information needed to use
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.post"></a>Chapter 13. post - PostScript</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189299393312"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.14.1.1"></a>Specification</h4></div></div></div><p>This table contains additional information needed to use
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.post"></a>Chapter 13. post - PostScript</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62731973328"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.14.1.1"></a>Specification</h4></div></div></div><p>This table contains additional information needed to use
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.post"></a>Chapter 13. post - PostScript</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465835833472"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.14.1.1"></a>Specification</h4></div></div></div><p>This table contains additional information needed to use
->>>>>>> Rebuild
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.post"></a>Chapter 13. post - PostScript</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239468418656"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.14.1.1"></a>Specification</h4></div></div></div><p>This table contains additional information needed to use
         TrueType or CommonType fonts on PostScript printers.  This
         includes data for the FontInfo dictionary entry and the
         PostScript names of all the glyphs. For more information about
@@ -18,19 +6,7 @@
         and Glyph Names</a>.</p><p>Versions 1.0, 2.0, and 2.5 refer to TrueType fonts and
           CommonType fonts with TrueType data. CommonType fonts with
           TrueType data may also use Version 3.0. CommonType fonts with
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          CFF data use Version 3.0 only.</p><p>The table begins as follows:</p><div class="table"><a name="idm5806"></a><p class="title"><strong>Table 13.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>
-=======
-          CFF data use Version 3.0 only.</p><p>The table begins as follows:</p><div class="table"><a name="idm189299389392"></a><p class="title"><strong>Table 13.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>
->>>>>>> Rebuild
-=======
-          CFF data use Version 3.0 only.</p><p>The table begins as follows:</p><div class="table"><a name="idm62731969408"></a><p class="title"><strong>Table 13.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>
->>>>>>> Rebuild
-=======
-          CFF data use Version 3.0 only.</p><p>The table begins as follows:</p><div class="table"><a name="idm465835829296"></a><p class="title"><strong>Table 13.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>
->>>>>>> Rebuild
+          CFF data use Version 3.0 only.</p><p>The table begins as follows:</p><div class="table"><a name="idm239468414576"></a><p class="title"><strong>Table 13.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>
             <table border="0" summary="Simple list" class="simplelist"><tr><td>0x00010000 for version 1.0</td></tr><tr><td>0x00020000 for version 2.0</td></tr><tr><td>0x00025000 for version 2.5
                   (deprecated)</td></tr><tr><td>0x00030000 for version 3.0</td></tr></table>
           </td><td class="auto-generated"> </td></tr><tr><td>Fixed</td><td>italicAngle</td><td>Italic angle in counter-clockwise degrees
@@ -64,40 +40,13 @@
           additional entries for versions 2.0 and 2.5 are shown below.
           Apple has defined a version 4.0 for use with Apple's AAT
           (Apple Advanced Typography), which is described in their
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          documentation.</p><h5><a name="idm5858"></a>Version 1.0</h5><p>This TrueType-based font file contains exactly the 258
-=======
-          documentation.</p><h5><a name="idm189299369408"></a>Version 1.0</h5><p>This TrueType-based font file contains exactly the 258
->>>>>>> Rebuild
-=======
-          documentation.</p><h5><a name="idm62731949584"></a>Version 1.0</h5><p>This TrueType-based font file contains exactly the 258
->>>>>>> Rebuild
-=======
-          documentation.</p><h5><a name="idm465835808704"></a>Version 1.0</h5><p>This TrueType-based font file contains exactly the 258
->>>>>>> Rebuild
+          documentation.</p><h5><a name="idm239468394304"></a>Version 1.0</h5><p>This TrueType-based font file contains exactly the 258
           glyphs in the standard Macintosh TrueType font file (see
           <a class="ulink" href="http://www.microsoft.com/typography/otspec/WGL4.htm" target="_top">The
             WGL4.0 Character Set</a> chapter for a list of the
           Macintosh glyphs). As a result, the glyph names are taken
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          from the system with no storage required by the font.</p><h5><a name="idm5861"></a>Version 2.0</h5><p>This is the version required by TrueType-based fonts to
-          be used on Windows.</p><div class="table"><a name="idm5863"></a><p class="title"><strong>Table 13.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs (this should be the same as
-=======
-          from the system with no storage required by the font.</p><h5><a name="idm189299367728"></a>Version 2.0</h5><p>This is the version required by TrueType-based fonts to
-          be used on Windows.</p><div class="table"><a name="idm189299366864"></a><p class="title"><strong>Table 13.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs (this should be the same as
->>>>>>> Rebuild
-=======
-          from the system with no storage required by the font.</p><h5><a name="idm62731947904"></a>Version 2.0</h5><p>This is the version required by TrueType-based fonts to
-          be used on Windows.</p><div class="table"><a name="idm62731947040"></a><p class="title"><strong>Table 13.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs (this should be the same as
->>>>>>> Rebuild
-=======
-          from the system with no storage required by the font.</p><h5><a name="idm465835806896"></a>Version 2.0</h5><p>This is the version required by TrueType-based fonts to
-          be used on Windows.</p><div class="table"><a name="idm465835806016"></a><p class="title"><strong>Table 13.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs (this should be the same as
->>>>>>> Rebuild
+          from the system with no storage required by the font.</p><h5><a name="idm239468392512"></a>Version 2.0</h5><p>This is the version required by TrueType-based fonts to
+          be used on Windows.</p><div class="table"><a name="idm239468391648"></a><p class="title"><strong>Table 13.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs (this should be the same as
               numGlyphs in <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a>
               table).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>glyphNameIndex [numGlyphs]</td><td>This is not an offset, but is the ordinal
               number of the glyph in <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> string
@@ -115,35 +64,11 @@
           some to its own names.</p><p>Index numbers 32768 through 65535 are reserved for
           future use. If you do not want to associate a PostScript
           name with a particular glyph, use index number 0 which
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          points the name .notdef.</p><h5><a name="idm5887"></a>Version 2.5</h5><p>This version of the <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> table has
+          points the name .notdef.</p><h5><a name="idm239468382160"></a>Version 2.5</h5><p>This version of the <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> table has
           been deprecated as of CommonType Specification v1.3.</p><p>This version provides a space saving table for
           TrueType-based fonts which contain a pure subset of, or a
           simple reordering of, the standard Macintosh glyph
-          set.</p><div class="table"><a name="idm5891"></a><p class="title"><strong>Table 13.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>offset [numGlyphs]</td><td>Difference between graphic index and standard
-=======
-          points the name .notdef.</p><h5><a name="idm189299357504"></a>Version 2.5</h5><p>This version of the <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> table has
-          been deprecated as of CommonType Specification v1.3.</p><p>This version provides a space saving table for
-          TrueType-based fonts which contain a pure subset of, or a
-          simple reordering of, the standard Macintosh glyph
-          set.</p><div class="table"><a name="idm189299355472"></a><p class="title"><strong>Table 13.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>offset [numGlyphs]</td><td>Difference between graphic index and standard
->>>>>>> Rebuild
-=======
-          points the name .notdef.</p><h5><a name="idm62731937920"></a>Version 2.5</h5><p>This version of the <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> table has
-          been deprecated as of CommonType Specification v1.3.</p><p>This version provides a space saving table for
-          TrueType-based fonts which contain a pure subset of, or a
-          simple reordering of, the standard Macintosh glyph
-          set.</p><div class="table"><a name="idm62731935968"></a><p class="title"><strong>Table 13.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>offset [numGlyphs]</td><td>Difference between graphic index and standard
->>>>>>> Rebuild
-=======
-          points the name .notdef.</p><h5><a name="idm465835796336"></a>Version 2.5</h5><p>This version of the <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> table has
-          been deprecated as of CommonType Specification v1.3.</p><p>This version provides a space saving table for
-          TrueType-based fonts which contain a pure subset of, or a
-          simple reordering of, the standard Macintosh glyph
-          set.</p><div class="table"><a name="idm465835794224"></a><p class="title"><strong>Table 13.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>offset [numGlyphs]</td><td>Difference between graphic index and standard
->>>>>>> Rebuild
+          set.</p><div class="table"><a name="idm239468380096"></a><p class="title"><strong>Table 13.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>numberOfGlyphs</td><td>Number of glyphs</td><td class="auto-generated"> </td></tr><tr><td>CHAR</td><td>offset [numGlyphs]</td><td>Difference between graphic index and standard
               order of glyph</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This version is useful for TrueType-based font files
           that contain only glyphs in the standard Macintosh glyph set
           but which have those glyphs arranged in a non-standard order
@@ -155,19 +80,7 @@
           37th, 38th, and 39th glyphs in the standard ordering, the
           <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> table would contain the bytes +36,
           +36, +36. This format has been deprecated by Apple, as of
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          February 2000.</p><h5><a name="idm5909"></a>Version 3.0</h5><p>This version is used by CommonType fonts with TrueType or
-=======
-          February 2000.</p><h5><a name="idm189299348832"></a>Version 3.0</h5><p>This version is used by CommonType fonts with TrueType or
->>>>>>> Rebuild
-=======
-          February 2000.</p><h5><a name="idm62731929408"></a>Version 3.0</h5><p>This version is used by CommonType fonts with TrueType or
->>>>>>> Rebuild
-=======
-          February 2000.</p><h5><a name="idm465835787376"></a>Version 3.0</h5><p>This version is used by CommonType fonts with TrueType or
->>>>>>> Rebuild
+          February 2000.</p><h5><a name="idm239468373392"></a>Version 3.0</h5><p>This version is used by CommonType fonts with TrueType or
           CFF data. The version makes it possible to create a special
           font that is not burdened with a large
           <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> table set of glyph names.</p><p>This version specifies that no PostScript name

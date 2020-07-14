@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.JSTF"></a>Chapter 27. JSTF - The Justification Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17207"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.1.1"></a>Specification</h4></div></div></div><p>The Justification table (<a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>)
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.JSTF"></a>Chapter 27. JSTF - The Justification Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295135648"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.1.1"></a>Specification</h4></div></div></div><p>The Justification table (<a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>)
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.JSTF"></a>Chapter 27. JSTF - The Justification Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724221504"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.1.1"></a>Specification</h4></div></div></div><p>The Justification table (<a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>)
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.JSTF"></a>Chapter 27. JSTF - The Justification Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830764192"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.1.1"></a>Specification</h4></div></div></div><p>The Justification table (<a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>)
->>>>>>> Rebuild
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.JSTF"></a>Chapter 27. JSTF - The Justification Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462887456"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.1.1"></a>Specification</h4></div></div></div><p>The Justification table (<a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>)
         provides font developers with additional control over glyph
         substitution and positioning in justified text.
         Text-processing clients now have more options to expand or
@@ -22,19 +10,7 @@
         characters, justification can produce large gaps between
         words, cramped or extended glyph spacing, uneven line break
         patterns, and other jarring visual effects. For
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        example:</p><div class="figure"><a name="idm17214"></a><p class="title"><strong>Figure 27.1. Figure 6a. Poorly justified text</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig6a.gif" alt="Figure 6a. Poorly justified text"/></div></div></div><br class="figure-break"/><p>To offset these effects, text-processing clients have
-=======
-        example:</p><div class="figure"><a name="idm189295131744"></a><p class="title"><strong>Figure 27.1. Figure 6a. Poorly justified text</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig6a.gif" alt="Figure 6a. Poorly justified text"/></div></div></div><br class="figure-break"/><p>To offset these effects, text-processing clients have
->>>>>>> Rebuild
-=======
-        example:</p><div class="figure"><a name="idm62724217600"></a><p class="title"><strong>Figure 27.1. Figure 6a. Poorly justified text</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig6a.gif" alt="Figure 6a. Poorly justified text"/></div></div></div><br class="figure-break"/><p>To offset these effects, text-processing clients have
->>>>>>> Rebuild
-=======
-        example:</p><div class="figure"><a name="idm465830760288"></a><p class="title"><strong>Figure 27.1. Figure 6a. Poorly justified text</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig6a.gif" alt="Figure 6a. Poorly justified text"/></div></div></div><br class="figure-break"/><p>To offset these effects, text-processing clients have
->>>>>>> Rebuild
+        example:</p><div class="figure"><a name="idm239462883552"></a><p class="title"><strong>Figure 27.1. Figure 6a. Poorly justified text</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig6a.gif" alt="Figure 6a. Poorly justified text"/></div></div></div><br class="figure-break"/><p>To offset these effects, text-processing clients have
         used justification algorithms that redistribute the space with
         a series of glyph spacing adjustments that progress from least
         to most obvious. Typically, the client will begin by expanding
@@ -54,36 +30,12 @@
         include repositioning the individual glyphs in the line,
         expanding the space between specific pairs of glyphs, and
         decreasing the spacing within particular glyph
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        sequences.</p><div class="figure"><a name="idm17223"></a><p class="title"><strong>Figure 27.2. Figure 6b. <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> shortens the top
-=======
-        sequences.</p><div class="figure"><a name="idm189295126480"></a><p class="title"><strong>Figure 27.2. Figure 6b. <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> shortens the top
->>>>>>> Rebuild
-=======
-        sequences.</p><div class="figure"><a name="idm62724212336"></a><p class="title"><strong>Figure 27.2. Figure 6b. <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> shortens the top
->>>>>>> Rebuild
-=======
-        sequences.</p><div class="figure"><a name="idm465830755024"></a><p class="title"><strong>Figure 27.2. Figure 6b. <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> shortens the top
->>>>>>> Rebuild
+        sequences.</p><div class="figure"><a name="idm239462878288"></a><p class="title"><strong>Figure 27.2. Figure 6b. <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> shortens the top
           line of this example by using the "ffi" ligature</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig6b.gif" alt="Figure 6b. JSTF shortens the top line of this example by using the &quot;ffi&quot; ligature"/></div></div></div><br class="figure-break"/><p>The font designer or developer defines
         <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> data as prioritized suggestions. Each
         suggestion lists the particular actions that the client can
         use to adjust the line of text. Justification actions may
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        apply to both vertical and horizonal text.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17231"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table organizes data by
-=======
-        apply to both vertical and horizonal text.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295121840"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table organizes data by
->>>>>>> Rebuild
-=======
-        apply to both vertical and horizonal text.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724207696"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table organizes data by
->>>>>>> Rebuild
-=======
-        apply to both vertical and horizonal text.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830750384"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table organizes data by
->>>>>>> Rebuild
+        apply to both vertical and horizonal text.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462873648"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table organizes data by
         script and language system, as do the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a>
         and <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> tables.  The
         <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table begins with a header that lists
@@ -94,19 +46,7 @@
               applies to the entire script in the absence of any
               language-specific information.</p></li><li class="listitem"><p>A justification language system table (JstfLangSys)
               stores the justification data for each language
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-              system.</p></li></ul></div><div class="figure"><a name="idm17245"></a><p class="title"><strong>Figure 27.3. Figure 6c. High-level organization of <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>
-=======
-              system.</p></li></ul></div><div class="figure"><a name="idm189295114400"></a><p class="title"><strong>Figure 27.3. Figure 6c. High-level organization of <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>
->>>>>>> Rebuild
-=======
-              system.</p></li></ul></div><div class="figure"><a name="idm62724200256"></a><p class="title"><strong>Figure 27.3. Figure 6c. High-level organization of <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>
->>>>>>> Rebuild
-=======
-              system.</p></li></ul></div><div class="figure"><a name="idm465830742944"></a><p class="title"><strong>Figure 27.3. Figure 6c. High-level organization of <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>
->>>>>>> Rebuild
+              system.</p></li></ul></div><div class="figure"><a name="idm239462866208"></a><p class="title"><strong>Figure 27.3. Figure 6c. High-level organization of <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>
             table</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig6c.gif" alt="Figure 6c. High-level organization of JSTF table"/></div></div></div><br class="figure-break"/><p>A JstfLangSys table contains a list of justification
         suggestions. Each suggestion consists of a list of
         <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> or <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> LookupList
@@ -142,19 +82,7 @@
               ExtenderGlyph table.</p></li><li class="listitem"><p>Language system information includes the JstfLangSys
               table, JstfPriority table (and its associated
               JstfDataRecord), the JstfModList table, and the JstfMax
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-              table.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17272"></a>JSTF Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table begins with a header
-=======
-              table.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295098176"></a>JSTF Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table begins with a header
->>>>>>> Rebuild
-=======
-              table.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724184032"></a>JSTF Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table begins with a header
->>>>>>> Rebuild
-=======
-              table.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830726720"></a>JSTF Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table begins with a header
->>>>>>> Rebuild
+              table.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462849984"></a>JSTF Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table begins with a header
           that contains a version number for the table (Version), a
           count of the number of scripts used in the font
           (JstfScriptCount), and an array of records
@@ -164,33 +92,12 @@
           ScriptTags listed in the <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and
           <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> tables.</p><p>Example 1 at the end of this chapter shows a
           <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> Header table and
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          JstfScriptRecord.</p><div class="table"><a name="idm17283"></a><p class="title"><strong>Table 27.1. JSTF header</strong></p><div class="table-contents"><table class="table" summary="JSTF header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>fixed32</td><td>Version</td><td>Version of the <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>
+          JstfScriptRecord.</p><div class="table"><a name="idm239462843840"></a><p class="title"><strong>Table 27.1. JSTF header</strong></p><div class="table-contents"><table class="table" summary="JSTF header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>fixed32</td><td>Version</td><td>Version of the <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>
               table-initially set to 0x00010000</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>JstfScriptCount</td><td>Number of JstfScriptRecords in this
               table</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>JstfScriptRecord [JstfScriptCount]</td><td>Array of JstfScriptRecords-in alphabetical
-              order, by JstfScriptTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm17305"></a><p class="title"><strong>Table 27.2. JstfScriptRecord</strong></p><div class="table-contents"><table class="table" summary="JstfScriptRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>JstfScriptTag</td><td>4-byte JstfScript
+              order, by JstfScriptTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm239462836288"></a><p class="title"><strong>Table 27.2. JstfScriptRecord</strong></p><div class="table-contents"><table class="table" summary="JstfScriptRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>JstfScriptTag</td><td>4-byte JstfScript
               identification</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfScript</td><td>Offset to JstfScript table-from beginning of
-              <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> Header</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.3.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62628"></a><code class="classname">JST</code> ==
-=======
-          JstfScriptRecord.</p><div class="table"><a name="idm189295092032"></a><p class="title"><strong>Table 27.1. JSTF header</strong></p><div class="table-contents"><table class="table" summary="JSTF header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>fixed32</td><td>Version</td><td>Version of the <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>
-=======
-          JstfScriptRecord.</p><div class="table"><a name="idm62724177888"></a><p class="title"><strong>Table 27.1. JSTF header</strong></p><div class="table-contents"><table class="table" summary="JSTF header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>fixed32</td><td>Version</td><td>Version of the <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>
->>>>>>> Rebuild
-=======
-          JstfScriptRecord.</p><div class="table"><a name="idm465830720576"></a><p class="title"><strong>Table 27.1. JSTF header</strong></p><div class="table-contents"><table class="table" summary="JSTF header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>fixed32</td><td>Version</td><td>Version of the <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a>
->>>>>>> Rebuild
-              table-initially set to 0x00010000</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>JstfScriptCount</td><td>Number of JstfScriptRecords in this
-              table</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>JstfScriptRecord [JstfScriptCount]</td><td>Array of JstfScriptRecords-in alphabetical
-              order, by JstfScriptTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm465830713024"></a><p class="title"><strong>Table 27.2. JstfScriptRecord</strong></p><div class="table-contents"><table class="table" summary="JstfScriptRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>JstfScriptTag</td><td>4-byte JstfScript
-              identification</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfScript</td><td>Offset to JstfScript table-from beginning of
-<<<<<<< HEAD
-              <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> Header</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.3.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62239"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
-=======
               <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> Header</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.3.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62242"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
       
   JSTF =
     element JSTF {
@@ -283,19 +190,7 @@
 
       conf.ch.endElement ("JSTF"); }
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17337"></a>Justification Script Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.4.1"></a>Specification</h4></div></div></div><p>A Justification Script (JstfScript) table describes the
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295070304"></a>Justification Script Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.4.1"></a>Specification</h4></div></div></div><p>A Justification Script (JstfScript) table describes the
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724156128"></a>Justification Script Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.4.1"></a>Specification</h4></div></div></div><p>A Justification Script (JstfScript) table describes the
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830698848"></a>Justification Script Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.4.1"></a>Specification</h4></div></div></div><p>A Justification Script (JstfScript) table describes the
->>>>>>> Rebuild
+</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462822112"></a>Justification Script Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.4.1"></a>Specification</h4></div></div></div><p>A Justification Script (JstfScript) table describes the
         justification information for a single script. It consists of
         an offset to a table that defines extender glyphs
         (ExtenderGlyph), an offset to a default justification table
@@ -315,34 +210,12 @@
         script data; the data is stored in the DefJstfLangSys table
         instead.</p><p>Example 2 at the end of the chapter shows a JstfScript
         table for the Arabic script and a JstfLangSysRecord for the
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Farsi language system.</p><div class="table"><a name="idm17345"></a><p class="title"><strong>Table 27.3. JstfScript table</strong></p><div class="table-contents"><table class="table" summary="JstfScript table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>ExtenderGlyph</td><td>Offset to ExtenderGlyph table-from beginning
+        Farsi language system.</p><div class="table"><a name="idm239462817328"></a><p class="title"><strong>Table 27.3. JstfScript table</strong></p><div class="table-contents"><table class="table" summary="JstfScript table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>ExtenderGlyph</td><td>Offset to ExtenderGlyph table-from beginning
               of JstfScript table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>DefJstfLangSys</td><td>Offset to Default JstfLangSys table-from
               beginning of JstfScript table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>JstfLangSysCount</td><td>Number of JstfLangSysRecords in this table-
               may be zero (0)</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>JstfLangSysRecord [JstfLangSysCount]</td><td>Array of JstfLangSysRecords-in alphabetical
-              order, by JstfLangSysTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm17370"></a><p class="title"><strong>Table 27.4. JstfLangSysRecord</strong></p><div class="table-contents"><table class="table" summary="JstfLangSysRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>JstfLangSysTag</td><td>4-byte JstfLangSys identifier</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfLangSys</td><td>Offset to JstfLangSys table-from beginning of
-              JstfScript table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.4.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62796"></a><code class="classname">JST</code> ==
-=======
-        Farsi language system.</p><div class="table"><a name="idm189295065520"></a><p class="title"><strong>Table 27.3. JstfScript table</strong></p><div class="table-contents"><table class="table" summary="JstfScript table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>ExtenderGlyph</td><td>Offset to ExtenderGlyph table-from beginning
-              of JstfScript table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>DefJstfLangSys</td><td>Offset to Default JstfLangSys table-from
-              beginning of JstfScript table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>JstfLangSysCount</td><td>Number of JstfLangSysRecords in this table-
-              may be zero (0)</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>JstfLangSysRecord [JstfLangSysCount]</td><td>Array of JstfLangSysRecords-in alphabetical
-              order, by JstfLangSysTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm189295056992"></a><p class="title"><strong>Table 27.4. JstfLangSysRecord</strong></p><div class="table-contents"><table class="table" summary="JstfLangSysRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>JstfLangSysTag</td><td>4-byte JstfLangSys identifier</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfLangSys</td><td>Offset to JstfLangSys table-from beginning of
-              JstfScript table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.4.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62407"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
-=======
-        Farsi language system.</p><div class="table"><a name="idm62724151344"></a><p class="title"><strong>Table 27.3. JstfScript table</strong></p><div class="table-contents"><table class="table" summary="JstfScript table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>ExtenderGlyph</td><td>Offset to ExtenderGlyph table-from beginning
-=======
-        Farsi language system.</p><div class="table"><a name="idm465830694064"></a><p class="title"><strong>Table 27.3. JstfScript table</strong></p><div class="table-contents"><table class="table" summary="JstfScript table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>ExtenderGlyph</td><td>Offset to ExtenderGlyph table-from beginning
->>>>>>> Rebuild
-              of JstfScript table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>DefJstfLangSys</td><td>Offset to Default JstfLangSys table-from
-              beginning of JstfScript table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>JstfLangSysCount</td><td>Number of JstfLangSysRecords in this table-
-              may be zero (0)</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>JstfLangSysRecord [JstfLangSysCount]</td><td>Array of JstfLangSysRecords-in alphabetical
-              order, by JstfLangSysTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm465830685536"></a><p class="title"><strong>Table 27.4. JstfLangSysRecord</strong></p><div class="table-contents"><table class="table" summary="JstfLangSysRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>JstfLangSysTag</td><td>4-byte JstfLangSys identifier</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfLangSys</td><td>Offset to JstfLangSys table-from beginning of
+              order, by JstfLangSysTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm239462808800"></a><p class="title"><strong>Table 27.4. JstfLangSysRecord</strong></p><div class="table-contents"><table class="table" summary="JstfLangSysRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>JstfLangSysTag</td><td>4-byte JstfLangSys identifier</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfLangSys</td><td>Offset to JstfLangSys table-from beginning of
               JstfScript table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.4.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62410"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
       
   jstfScriptTable =
     element extenderGlyph { extenderGlyphTableOffset }?,
@@ -356,44 +229,16 @@
     element jstfScriptTable { attribute id { text }, jstfScriptTable }
 
   jstfScriptTableOffset = attribute name { text } | jstfScriptTable
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17393"></a>Extender Glyph Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.5.1"></a>Specification</h4></div></div></div><p>The Extender Glyph table (ExtenderGlyph) lists indices
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295048288"></a>Extender Glyph Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.5.1"></a>Specification</h4></div></div></div><p>The Extender Glyph table (ExtenderGlyph) lists indices
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724134112"></a>Extender Glyph Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.5.1"></a>Specification</h4></div></div></div><p>The Extender Glyph table (ExtenderGlyph) lists indices
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830676832"></a>Extender Glyph Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.5.1"></a>Specification</h4></div></div></div><p>The Extender Glyph table (ExtenderGlyph) lists indices
->>>>>>> Rebuild
+</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462800096"></a>Extender Glyph Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.5.1"></a>Specification</h4></div></div></div><p>The Extender Glyph table (ExtenderGlyph) lists indices
         of glyphs, such as Arabic kashidas, that a client may insert
         to extend the length of the line for justification. The table
         consists of a count of the extender glyphs for the script
         (GlyphCount) and an array of extender glyph indices
         (ExtenderGlyph), arranged in increasing numerical
         order.</p><p>Example 2 at the end of this chapter shows an
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	ExtenderGlyph table for Arabic kashida glyphs.</p><div class="table"><a name="idm17399"></a><p class="title"><strong>Table 27.5. ExtenderGlyph table</strong></p><div class="table-contents"><table class="table" summary="ExtenderGlyph table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of Extender Glyphs in this
-              script</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>ExtenderGlyph [GlyphCount]</td><td>GlyphIDs-in increasing numerical
-              order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.5.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62868"></a><code class="classname">JST</code> ==
-=======
-	ExtenderGlyph table for Arabic kashida glyphs.</p><div class="table"><a name="idm189295045200"></a><p class="title"><strong>Table 27.5. ExtenderGlyph table</strong></p><div class="table-contents"><table class="table" summary="ExtenderGlyph table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of Extender Glyphs in this
-              script</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>ExtenderGlyph [GlyphCount]</td><td>GlyphIDs-in increasing numerical
-              order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.5.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62479"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
-=======
-	ExtenderGlyph table for Arabic kashida glyphs.</p><div class="table"><a name="idm62724131024"></a><p class="title"><strong>Table 27.5. ExtenderGlyph table</strong></p><div class="table-contents"><table class="table" summary="ExtenderGlyph table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of Extender Glyphs in this
-=======
-	ExtenderGlyph table for Arabic kashida glyphs.</p><div class="table"><a name="idm465830673744"></a><p class="title"><strong>Table 27.5. ExtenderGlyph table</strong></p><div class="table-contents"><table class="table" summary="ExtenderGlyph table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of Extender Glyphs in this
->>>>>>> Rebuild
+	ExtenderGlyph table for Arabic kashida glyphs.</p><div class="table"><a name="idm239462797008"></a><p class="title"><strong>Table 27.5. ExtenderGlyph table</strong></p><div class="table-contents"><table class="table" summary="ExtenderGlyph table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of Extender Glyphs in this
               script</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>ExtenderGlyph [GlyphCount]</td><td>GlyphIDs-in increasing numerical
               order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.5.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62482"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
       
   extenderGlyphTable =
     attribute glyphs { text }
@@ -402,19 +247,7 @@
     element extenderGlyphTable { attribute id { text }, extenderGlyphTable }
 
   extenderGlyphTableOffset = attribute name { text } | extenderGlyphTable
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17422"></a>Justification Language System Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.6.1"></a>Specification</h4></div></div></div><p>The Justification Language System (JstfLangSys) table
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295036608"></a>Justification Language System Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.6.1"></a>Specification</h4></div></div></div><p>The Justification Language System (JstfLangSys) table
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724122432"></a>Justification Language System Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.6.1"></a>Specification</h4></div></div></div><p>The Justification Language System (JstfLangSys) table
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830665152"></a>Justification Language System Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.6.1"></a>Specification</h4></div></div></div><p>The Justification Language System (JstfLangSys) table
->>>>>>> Rebuild
+</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462788416"></a>Justification Language System Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.6.1"></a>Specification</h4></div></div></div><p>The Justification Language System (JstfLangSys) table
         contains an array of justification suggestions, ordered by
         priority. A text-processing client doing justification should
         begin with the suggestion that has a zero (0) priority, and
@@ -426,25 +259,9 @@
         priority levels (JstfPriorityCnt) and an array of offsets to
         Justification Priority tables (JstfPriority), stored in
         priority order. Example 2 at the end of the chapter shows how
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        to define a JstfLangSys table.</p><div class="table"><a name="idm17428"></a><p class="title"><strong>Table 27.6. JstfLangSys table</strong></p><div class="table-contents"><table class="table" summary="JstfLangSys table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>JstfPriorityCnt</td><td>Number of JstfPriority tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfPriority [JstfPriorityCnt]</td><td>Array of offsets to JstfPriority tables-from
-              beginning of JstfLangSys table-in priority
-              order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.6.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62941"></a><code class="classname">JST</code> ==
-=======
-        to define a JstfLangSys table.</p><div class="table"><a name="idm189295033136"></a><p class="title"><strong>Table 27.6. JstfLangSys table</strong></p><div class="table-contents"><table class="table" summary="JstfLangSys table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>JstfPriorityCnt</td><td>Number of JstfPriority tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfPriority [JstfPriorityCnt]</td><td>Array of offsets to JstfPriority tables-from
-              beginning of JstfLangSys table-in priority
-              order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.6.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62552"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
-=======
-        to define a JstfLangSys table.</p><div class="table"><a name="idm62724118960"></a><p class="title"><strong>Table 27.6. JstfLangSys table</strong></p><div class="table-contents"><table class="table" summary="JstfLangSys table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>JstfPriorityCnt</td><td>Number of JstfPriority tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfPriority [JstfPriorityCnt]</td><td>Array of offsets to JstfPriority tables-from
-=======
-        to define a JstfLangSys table.</p><div class="table"><a name="idm465830661680"></a><p class="title"><strong>Table 27.6. JstfLangSys table</strong></p><div class="table-contents"><table class="table" summary="JstfLangSys table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>JstfPriorityCnt</td><td>Number of JstfPriority tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfPriority [JstfPriorityCnt]</td><td>Array of offsets to JstfPriority tables-from
->>>>>>> Rebuild
+        to define a JstfLangSys table.</p><div class="table"><a name="idm239462784944"></a><p class="title"><strong>Table 27.6. JstfLangSys table</strong></p><div class="table-contents"><table class="table" summary="JstfLangSys table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>JstfPriorityCnt</td><td>Number of JstfPriority tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>JstfPriority [JstfPriorityCnt]</td><td>Array of offsets to JstfPriority tables-from
               beginning of JstfLangSys table-in priority
               order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.6.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62555"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
       
   jstfLangSysTable =
     element priority {
@@ -455,19 +272,7 @@
     element jstfLangSysTable { attribute id { text }, jstfLanSysTable }
 
   jstfLangSysTableOffset = attribute name { text } | jstfLangSysTable
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17451"></a>Justification Priority Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.7.1"></a>Specification</h4></div></div></div><p>A Justification Priority (JstfPriority) table defines
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189295024496"></a>Justification Priority Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.7.1"></a>Specification</h4></div></div></div><p>A Justification Priority (JstfPriority) table defines
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724110320"></a>Justification Priority Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.7.1"></a>Specification</h4></div></div></div><p>A Justification Priority (JstfPriority) table defines
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830653040"></a>Justification Priority Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.7.1"></a>Specification</h4></div></div></div><p>A Justification Priority (JstfPriority) table defines
->>>>>>> Rebuild
+</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462776304"></a>Justification Priority Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.7.1"></a>Specification</h4></div></div></div><p>A Justification Priority (JstfPriority) table defines
           justification suggestions for a single priority level. Each
           priority level specifies whether to enable or disable
           <a class="link" href="chapter.GSUB.html" title="Chapter 25. GSUB - The Glyph Substitution Table">GSUB</a> and <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> lookups
@@ -480,19 +285,7 @@
           JstfGPOSModList tables also are defined for line
           extension.</p><p>Example 3 at the end of this chapter demonstrates two
           JstfPriority tables for two justification
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          suggestions.</p><div class="table"><a name="idm17460"></a><p class="title"><strong>Table 27.7. JstfPriority table</strong></p><div class="table-contents"><table class="table" summary="JstfPriority table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>ShrinkageEnableGSUB</td><td>Offset to Shrinkage Enable JstfGSUBModList
-=======
-          suggestions.</p><div class="table"><a name="idm189295019360"></a><p class="title"><strong>Table 27.7. JstfPriority table</strong></p><div class="table-contents"><table class="table" summary="JstfPriority table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>ShrinkageEnableGSUB</td><td>Offset to Shrinkage Enable JstfGSUBModList
->>>>>>> Rebuild
-=======
-          suggestions.</p><div class="table"><a name="idm62724105184"></a><p class="title"><strong>Table 27.7. JstfPriority table</strong></p><div class="table-contents"><table class="table" summary="JstfPriority table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>ShrinkageEnableGSUB</td><td>Offset to Shrinkage Enable JstfGSUBModList
->>>>>>> Rebuild
-=======
-          suggestions.</p><div class="table"><a name="idm465830647904"></a><p class="title"><strong>Table 27.7. JstfPriority table</strong></p><div class="table-contents"><table class="table" summary="JstfPriority table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>ShrinkageEnableGSUB</td><td>Offset to Shrinkage Enable JstfGSUBModList
->>>>>>> Rebuild
+          suggestions.</p><div class="table"><a name="idm239462771168"></a><p class="title"><strong>Table 27.7. JstfPriority table</strong></p><div class="table-contents"><table class="table" summary="JstfPriority table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>ShrinkageEnableGSUB</td><td>Offset to Shrinkage Enable JstfGSUBModList
               table-from beginning of JstfPriority table-may be
               NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ShrinkageDisableGSUB</td><td>Offset to Shrinkage Disable JstfGSUBModList
               table-from beginning of JstfPriority table-may be
@@ -510,15 +303,7 @@
               table-from beginning of JstfPriority table-may be
               NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ExtensionJstfMax</td><td>Offset to Extension JstfMax table-from
               beginning of JstfPriority table -may be
-<<<<<<< HEAD
-<<<<<<< HEAD
-              NULL</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.7.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e63143"></a><code class="classname">JST</code> ==
-=======
-              NULL</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.7.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62754"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
-=======
               NULL</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.7.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62757"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
       
   jstfPriorityTable =
     element shrinkage {
@@ -539,19 +324,7 @@
     element jstfPriority { attribute id { text }, jstfPriorityTable }
 
   jstfPriorityTableOffset = attribute name { text } | jstfPriorityTable
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17515"></a>Justification Modification List Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.8.1"></a>Specification</h4></div></div></div><p>The Justification Modification List tables
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294997552"></a>Justification Modification List Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.8.1"></a>Specification</h4></div></div></div><p>The Justification Modification List tables
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724083376"></a>Justification Modification List Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.8.1"></a>Specification</h4></div></div></div><p>The Justification Modification List tables
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830609840"></a>Justification Modification List Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.8.1"></a>Specification</h4></div></div></div><p>The Justification Modification List tables
->>>>>>> Rebuild
+</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462749360"></a>Justification Modification List Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.8.1"></a>Specification</h4></div></div></div><p>The Justification Modification List tables
           (JstfGSUBModList and JstfGPOSModList) contain lists of
           indices into the lookup lists of either the GSUB or GPOS
           tables. The client can enable or disable the lookups to
@@ -570,31 +343,11 @@
           <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> suggestion to an unmodified version
           of the glyph string.</p><p>Example 3 at the end of this chapter shows
           JstfGSUBModList and JstfGPOSModList tables with data for
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          shrinking and extending text line lengths.</p><div class="table"><a name="idm17529"></a><p class="title"><strong>Table 27.8. JstfGSUBModList table</strong></p><div class="table-contents"><table class="table" summary="JstfGSUBModList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups for this
+          shrinking and extending text line lengths.</p><div class="table"><a name="idm239462741104"></a><p class="title"><strong>Table 27.8. JstfGSUBModList table</strong></p><div class="table-contents"><table class="table" summary="JstfGSUBModList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups for this
               modification</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GSUBLookupIndex [LookupCount]</td><td>Array of LookupIndex identifiers in GSUB-in
-              increasing numerical order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm17546"></a><p class="title"><strong>Table 27.9. JstfGPOSModList table</strong></p><div class="table-contents"><table class="table" summary="JstfGPOSModList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups for this
+              increasing numerical order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm239462735712"></a><p class="title"><strong>Table 27.9. JstfGPOSModList table</strong></p><div class="table-contents"><table class="table" summary="JstfGPOSModList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups for this
               modification</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GPOSLookupIndex [LookupCount]</td><td>Array of LookupIndex identifiers in GPOS-in
-              increasing numerical order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.8.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e63276"></a><code class="classname">JST</code> ==
-=======
-          shrinking and extending text line lengths.</p><div class="table"><a name="idm189294989296"></a><p class="title"><strong>Table 27.8. JstfGSUBModList table</strong></p><div class="table-contents"><table class="table" summary="JstfGSUBModList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups for this
-=======
-          shrinking and extending text line lengths.</p><div class="table"><a name="idm62724075120"></a><p class="title"><strong>Table 27.8. JstfGSUBModList table</strong></p><div class="table-contents"><table class="table" summary="JstfGSUBModList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups for this
->>>>>>> Rebuild
-=======
-          shrinking and extending text line lengths.</p><div class="table"><a name="idm465830601584"></a><p class="title"><strong>Table 27.8. JstfGSUBModList table</strong></p><div class="table-contents"><table class="table" summary="JstfGSUBModList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups for this
->>>>>>> Rebuild
-              modification</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GSUBLookupIndex [LookupCount]</td><td>Array of LookupIndex identifiers in GSUB-in
-              increasing numerical order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm465830596192"></a><p class="title"><strong>Table 27.9. JstfGPOSModList table</strong></p><div class="table-contents"><table class="table" summary="JstfGPOSModList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookups for this
-              modification</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GPOSLookupIndex [LookupCount]</td><td>Array of LookupIndex identifiers in GPOS-in
-<<<<<<< HEAD
-              increasing numerical order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.8.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62887"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
-=======
               increasing numerical order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.8.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62890"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
       
   jstfModList =
     attribute lookups { text }
@@ -603,19 +356,7 @@
     element jstfModList { attribute id { text }, jstfModList }
 
   jstfModListOffset = attribute name { text } | jstfModList
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17569"></a>Justification Maximum Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.9.1"></a>Specification</h4></div></div></div><p>A Justification Maximum table (JstfMax) consists of an
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294975312"></a>Justification Maximum Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.9.1"></a>Specification</h4></div></div></div><p>A Justification Maximum table (JstfMax) consists of an
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724061136"></a>Justification Maximum Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.9.1"></a>Specification</h4></div></div></div><p>A Justification Maximum table (JstfMax) consists of an
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830587600"></a>Justification Maximum Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.9.1"></a>Specification</h4></div></div></div><p>A Justification Maximum table (JstfMax) consists of an
->>>>>>> Rebuild
+</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462727120"></a>Justification Maximum Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.9.1"></a>Specification</h4></div></div></div><p>A Justification Maximum table (JstfMax) consists of an
           array of offsets to justification lookups (Lookup) and a
           count of the defined lookups (Lookup). JstfMax lookups
           typically are located after the JstfMax table in the font
@@ -637,28 +378,10 @@
           positioning by any amount from zero (0) to the specified
           maximum.</p><p>Example 4 at the end of this chapter shows a JstfMax
           table. It defines a justification lookup to change the size
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          of the word space glyph to extend line lengths.</p><div class="table"><a name="idm17582"></a><p class="title"><strong>Table 27.10. JstfMax table</strong></p><div class="table-contents"><table class="table" summary="JstfMax table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookup Indices for this
-              modification</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Lookup [LookupCount]</td><td>Array of offsets to
-              <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>-type lookup tables-from
-              beginning of JstfMax table-in design order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.9.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e63374"></a><code class="classname">JST</code> ==
-=======
-          of the word space glyph to extend line lengths.</p><div class="table"><a name="idm189294967472"></a><p class="title"><strong>Table 27.10. JstfMax table</strong></p><div class="table-contents"><table class="table" summary="JstfMax table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookup Indices for this
-              modification</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Lookup [LookupCount]</td><td>Array of offsets to
-              <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>-type lookup tables-from
-              beginning of JstfMax table-in design order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.9.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62985"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
-=======
-          of the word space glyph to extend line lengths.</p><div class="table"><a name="idm62724053296"></a><p class="title"><strong>Table 27.10. JstfMax table</strong></p><div class="table-contents"><table class="table" summary="JstfMax table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookup Indices for this
-=======
-          of the word space glyph to extend line lengths.</p><div class="table"><a name="idm465830579760"></a><p class="title"><strong>Table 27.10. JstfMax table</strong></p><div class="table-contents"><table class="table" summary="JstfMax table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookup Indices for this
->>>>>>> Rebuild
+          of the word space glyph to extend line lengths.</p><div class="table"><a name="idm239462719280"></a><p class="title"><strong>Table 27.10. JstfMax table</strong></p><div class="table-contents"><table class="table" summary="JstfMax table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LookupCount</td><td>Number of lookup Indices for this
               modification</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Lookup [LookupCount]</td><td>Array of offsets to
               <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>-type lookup tables-from
               beginning of JstfMax table-in design order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="zzzxml-representation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.9.2"></a>XML Representation</h4></div></div></div><pre class="programlisting"><a name="d1e62988"></a><code class="classname">JST</code> ==
->>>>>>> Rebuild
       
   jstfMaxTable =
     element lookup {
@@ -674,52 +397,16 @@
     element lookupTable { attribute id { text }, GPOSJSTlookupTable
 
   GPOSJSTFlookupTableOffset = attribute name { text } | GPOSJSTFlookupTable
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17606"></a>JSTF Table Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.10.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes examples of all the
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294958000"></a>JSTF Table Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.10.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes examples of all the
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724043824"></a>JSTF Table Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.10.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes examples of all the
->>>>>>> Rebuild
-=======
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830570288"></a>JSTF Table Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.10.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes examples of all the
->>>>>>> Rebuild
+</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462709808"></a>JSTF Table Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.10.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes examples of all the
           <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> table formats. All the examples reflect unique
           parameters described below, but the samples provide a useful
           reference for building tables specific to other
           situations.</p><p>The examples have three columns showing hex data,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17613"></a>Example 1: JSTF Header Table and JstfScriptRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.11.1"></a>Specification</h4></div></div></div><p>Example 1 demonstrates how a script is defined in the
+          source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462705632"></a>Example 1: JSTF Header Table and JstfScriptRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.11.1"></a>Specification</h4></div></div></div><p>Example 1 demonstrates how a script is defined in the
           <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> Header with a JstfScriptRecord that
           identifies the script and references its JstfScript
-          table.</p><div class="table"><a name="idm17619"></a><p class="title"><strong>Table 27.11. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JSTFHeader</td><td> </td></tr><tr><td> </td><td>TheJSTFHeader</td><td>JSTFHeader table
-                  definition</td></tr><tr><td>00010000</td><td>0x00010000</td><td>version</td></tr><tr><td>0001</td><td>1</td><td>JstfScriptCount JstfScriptRecord[0]</td></tr><tr><td>74686169</td><td>"thai"</td><td>JstfScriptTag</td></tr><tr><td>000C</td><td>ThaiScript</td><td>offset to JstfScript table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17652"></a>Example 2: JstfScript Table, ExtenderGlyph Table,
-=======
-          source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294953824"></a>Example 1: JSTF Header Table and JstfScriptRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.11.1"></a>Specification</h4></div></div></div><p>Example 1 demonstrates how a script is defined in the
-          <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> Header with a JstfScriptRecord that
-          identifies the script and references its JstfScript
-          table.</p><div class="table"><a name="idm189294950736"></a><p class="title"><strong>Table 27.11. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JSTFHeader</td><td> </td></tr><tr><td> </td><td>TheJSTFHeader</td><td>JSTFHeader table
-                  definition</td></tr><tr><td>00010000</td><td>0x00010000</td><td>version</td></tr><tr><td>0001</td><td>1</td><td>JstfScriptCount JstfScriptRecord[0]</td></tr><tr><td>74686169</td><td>"thai"</td><td>JstfScriptTag</td></tr><tr><td>000C</td><td>ThaiScript</td><td>offset to JstfScript table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294939488"></a>Example 2: JstfScript Table, ExtenderGlyph Table,
->>>>>>> Rebuild
-=======
-          source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724039648"></a>Example 1: JSTF Header Table and JstfScriptRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.11.1"></a>Specification</h4></div></div></div><p>Example 1 demonstrates how a script is defined in the
-          <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> Header with a JstfScriptRecord that
-          identifies the script and references its JstfScript
-          table.</p><div class="table"><a name="idm62724036560"></a><p class="title"><strong>Table 27.11. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JSTFHeader</td><td> </td></tr><tr><td> </td><td>TheJSTFHeader</td><td>JSTFHeader table
-                  definition</td></tr><tr><td>00010000</td><td>0x00010000</td><td>version</td></tr><tr><td>0001</td><td>1</td><td>JstfScriptCount JstfScriptRecord[0]</td></tr><tr><td>74686169</td><td>"thai"</td><td>JstfScriptTag</td></tr><tr><td>000C</td><td>ThaiScript</td><td>offset to JstfScript table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62724025312"></a>Example 2: JstfScript Table, ExtenderGlyph Table,
->>>>>>> Rebuild
-=======
-          source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830566112"></a>Example 1: JSTF Header Table and JstfScriptRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.11.1"></a>Specification</h4></div></div></div><p>Example 1 demonstrates how a script is defined in the
-          <a class="link" href="chapter.JSTF.html" title="Chapter 27. JSTF - The Justification Table">JSTF</a> Header with a JstfScriptRecord that
-          identifies the script and references its JstfScript
-          table.</p><div class="table"><a name="idm465830563024"></a><p class="title"><strong>Table 27.11. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JSTFHeader</td><td> </td></tr><tr><td> </td><td>TheJSTFHeader</td><td>JSTFHeader table
-                  definition</td></tr><tr><td>00010000</td><td>0x00010000</td><td>version</td></tr><tr><td>0001</td><td>1</td><td>JstfScriptCount JstfScriptRecord[0]</td></tr><tr><td>74686169</td><td>"thai"</td><td>JstfScriptTag</td></tr><tr><td>000C</td><td>ThaiScript</td><td>offset to JstfScript table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830551776"></a>Example 2: JstfScript Table, ExtenderGlyph Table,
->>>>>>> Rebuild
+          table.</p><div class="table"><a name="idm239462702544"></a><p class="title"><strong>Table 27.11. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JSTFHeader</td><td> </td></tr><tr><td> </td><td>TheJSTFHeader</td><td>JSTFHeader table
+                  definition</td></tr><tr><td>00010000</td><td>0x00010000</td><td>version</td></tr><tr><td>0001</td><td>1</td><td>JstfScriptCount JstfScriptRecord[0]</td></tr><tr><td>74686169</td><td>"thai"</td><td>JstfScriptTag</td></tr><tr><td>000C</td><td>ThaiScript</td><td>offset to JstfScript table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462691296"></a>Example 2: JstfScript Table, ExtenderGlyph Table,
         JstfLangSysRecord, and JstfLangSys Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.12.1"></a>Specification</h4></div></div></div><p>Example 2 shows a JstfScript table for the Arabic script
           and the tables it references. The DefJstfLangSys table
           defines justification data to apply to the script in the
@@ -730,35 +417,11 @@
           identifies the language and references its JstfLangSys
           table. The FarsiJstfLangSys lists one suggestion for
           justifying Farsi text.</p><p>The ExtenderGlyph table in JstfScript lists the indices
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          of all the extender glyphs used in the script.</p><div class="table"><a name="idm17659"></a><p class="title"><strong>Table 27.12. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfScript</td><td> </td></tr><tr><td> </td><td>ArabicScript</td><td>JstfScript table
+          of all the extender glyphs used in the script.</p><div class="table"><a name="idm239462687472"></a><p class="title"><strong>Table 27.12. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfScript</td><td> </td></tr><tr><td> </td><td>ArabicScript</td><td>JstfScript table
                   definition</td></tr><tr><td>000C</td><td>ArabicExtenders</td><td>ExtenderGlyph</td></tr><tr><td>0012</td><td>ArabicDefJstfLangSys</td><td>offset to DefJstfLangSys table</td></tr><tr><td>0001</td><td>1</td><td>JstfLangSysCount JstfLangSysRecord[0]</td></tr><tr><td>50455220</td><td>"FAR</td><td>" JstfLangSysTag</td></tr><tr><td>0018</td><td>FarsiJstfLangSys</td><td>JstfLangSy</td></tr><tr><td> </td><td>ExtenderGlyph</td><td> </td></tr><tr><td> </td><td>ArabicExtenders</td><td>ExtenderGlyph table
                   definition</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>01D3</td><td>TatweelGlyphID</td><td>ExtenderGlyph[0]</td></tr><tr><td>01D4</td><td>LongTatweelGlyphID</td><td>ExtenderGlyph[1</td></tr><tr><td> </td><td>JstfLangSys</td><td> </td></tr><tr><td> </td><td>ArabicDefJstfLangSys</td><td>JstfLangSys table
                   definition</td></tr><tr><td>0002</td><td>2</td><td>JstfPriorityCnt</td></tr><tr><td>000A</td><td>ArabicScriptJstfPriority1</td><td>offset to JstfPriority[0] table</td></tr><tr><td>001E</td><td>ArabicScriptJstfPriority2</td><td>offset to JstfPriority[1] tabl</td></tr><tr><td> </td><td>JstfLangSys</td><td> </td></tr><tr><td> </td><td>FarsiJstfLangSys</td><td>JstfLangSys table
-                  definition</td></tr><tr><td>0001</td><td>1</td><td>JstfPriorityCnt</td></tr><tr><td>002C</td><td>FarsiLangJstfPriority1</td><td>offset to JstfPriority[0] table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17752"></a>Example 3: JstfPriority Table, JstfGSUBModList Table, and
-=======
-          of all the extender glyphs used in the script.</p><div class="table"><a name="idm189291773680"></a><p class="title"><strong>Table 27.12. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfScript</td><td> </td></tr><tr><td> </td><td>ArabicScript</td><td>JstfScript table
-                  definition</td></tr><tr><td>000C</td><td>ArabicExtenders</td><td>ExtenderGlyph</td></tr><tr><td>0012</td><td>ArabicDefJstfLangSys</td><td>offset to DefJstfLangSys table</td></tr><tr><td>0001</td><td>1</td><td>JstfLangSysCount JstfLangSysRecord[0]</td></tr><tr><td>50455220</td><td>"FAR</td><td>" JstfLangSysTag</td></tr><tr><td>0018</td><td>FarsiJstfLangSys</td><td>JstfLangSy</td></tr><tr><td> </td><td>ExtenderGlyph</td><td> </td></tr><tr><td> </td><td>ArabicExtenders</td><td>ExtenderGlyph table
-                  definition</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>01D3</td><td>TatweelGlyphID</td><td>ExtenderGlyph[0]</td></tr><tr><td>01D4</td><td>LongTatweelGlyphID</td><td>ExtenderGlyph[1</td></tr><tr><td> </td><td>JstfLangSys</td><td> </td></tr><tr><td> </td><td>ArabicDefJstfLangSys</td><td>JstfLangSys table
-                  definition</td></tr><tr><td>0002</td><td>2</td><td>JstfPriorityCnt</td></tr><tr><td>000A</td><td>ArabicScriptJstfPriority1</td><td>offset to JstfPriority[0] table</td></tr><tr><td>001E</td><td>ArabicScriptJstfPriority2</td><td>offset to JstfPriority[1] tabl</td></tr><tr><td> </td><td>JstfLangSys</td><td> </td></tr><tr><td> </td><td>FarsiJstfLangSys</td><td>JstfLangSys table
-                  definition</td></tr><tr><td>0001</td><td>1</td><td>JstfPriorityCnt</td></tr><tr><td>002C</td><td>FarsiLangJstfPriority1</td><td>offset to JstfPriority[0] table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291741616"></a>Example 3: JstfPriority Table, JstfGSUBModList Table, and
->>>>>>> Rebuild
-=======
-          of all the extender glyphs used in the script.</p><div class="table"><a name="idm62724021488"></a><p class="title"><strong>Table 27.12. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfScript</td><td> </td></tr><tr><td> </td><td>ArabicScript</td><td>JstfScript table
-                  definition</td></tr><tr><td>000C</td><td>ArabicExtenders</td><td>ExtenderGlyph</td></tr><tr><td>0012</td><td>ArabicDefJstfLangSys</td><td>offset to DefJstfLangSys table</td></tr><tr><td>0001</td><td>1</td><td>JstfLangSysCount JstfLangSysRecord[0]</td></tr><tr><td>50455220</td><td>"FAR</td><td>" JstfLangSysTag</td></tr><tr><td>0018</td><td>FarsiJstfLangSys</td><td>JstfLangSy</td></tr><tr><td> </td><td>ExtenderGlyph</td><td> </td></tr><tr><td> </td><td>ArabicExtenders</td><td>ExtenderGlyph table
-                  definition</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>01D3</td><td>TatweelGlyphID</td><td>ExtenderGlyph[0]</td></tr><tr><td>01D4</td><td>LongTatweelGlyphID</td><td>ExtenderGlyph[1</td></tr><tr><td> </td><td>JstfLangSys</td><td> </td></tr><tr><td> </td><td>ArabicDefJstfLangSys</td><td>JstfLangSys table
-                  definition</td></tr><tr><td>0002</td><td>2</td><td>JstfPriorityCnt</td></tr><tr><td>000A</td><td>ArabicScriptJstfPriority1</td><td>offset to JstfPriority[0] table</td></tr><tr><td>001E</td><td>ArabicScriptJstfPriority2</td><td>offset to JstfPriority[1] tabl</td></tr><tr><td> </td><td>JstfLangSys</td><td> </td></tr><tr><td> </td><td>FarsiJstfLangSys</td><td>JstfLangSys table
-                  definition</td></tr><tr><td>0001</td><td>1</td><td>JstfPriorityCnt</td></tr><tr><td>002C</td><td>FarsiLangJstfPriority1</td><td>offset to JstfPriority[0] table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62723989424"></a>Example 3: JstfPriority Table, JstfGSUBModList Table, and
->>>>>>> Rebuild
-=======
-          of all the extender glyphs used in the script.</p><div class="table"><a name="idm465830547952"></a><p class="title"><strong>Table 27.12. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfScript</td><td> </td></tr><tr><td> </td><td>ArabicScript</td><td>JstfScript table
-                  definition</td></tr><tr><td>000C</td><td>ArabicExtenders</td><td>ExtenderGlyph</td></tr><tr><td>0012</td><td>ArabicDefJstfLangSys</td><td>offset to DefJstfLangSys table</td></tr><tr><td>0001</td><td>1</td><td>JstfLangSysCount JstfLangSysRecord[0]</td></tr><tr><td>50455220</td><td>"FAR</td><td>" JstfLangSysTag</td></tr><tr><td>0018</td><td>FarsiJstfLangSys</td><td>JstfLangSy</td></tr><tr><td> </td><td>ExtenderGlyph</td><td> </td></tr><tr><td> </td><td>ArabicExtenders</td><td>ExtenderGlyph table
-                  definition</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>01D3</td><td>TatweelGlyphID</td><td>ExtenderGlyph[0]</td></tr><tr><td>01D4</td><td>LongTatweelGlyphID</td><td>ExtenderGlyph[1</td></tr><tr><td> </td><td>JstfLangSys</td><td> </td></tr><tr><td> </td><td>ArabicDefJstfLangSys</td><td>JstfLangSys table
-                  definition</td></tr><tr><td>0002</td><td>2</td><td>JstfPriorityCnt</td></tr><tr><td>000A</td><td>ArabicScriptJstfPriority1</td><td>offset to JstfPriority[0] table</td></tr><tr><td>001E</td><td>ArabicScriptJstfPriority2</td><td>offset to JstfPriority[1] tabl</td></tr><tr><td> </td><td>JstfLangSys</td><td> </td></tr><tr><td> </td><td>FarsiJstfLangSys</td><td>JstfLangSys table
-                  definition</td></tr><tr><td>0001</td><td>1</td><td>JstfPriorityCnt</td></tr><tr><td>002C</td><td>FarsiLangJstfPriority1</td><td>offset to JstfPriority[0] table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830515888"></a>Example 3: JstfPriority Table, JstfGSUBModList Table, and
->>>>>>> Rebuild
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>JstfPriorityCnt</td></tr><tr><td>002C</td><td>FarsiLangJstfPriority1</td><td>offset to JstfPriority[0] table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462655408"></a>Example 3: JstfPriority Table, JstfGSUBModList Table, and
         JstfGPOSModList Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.13.1"></a>Specification</h4></div></div></div><p>Example 3 shows the JstfPriority and JstfModList table
           definitions for two justification suggestions defined in
           priority order. The first suggestion uses ligature
@@ -771,19 +434,7 @@
           line lenths and disables glyph kerning to extend line
           lengths. Each action uses three lookups. This suggestion
           also includes a JstfMax table to extend line lengths, called
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          WordSpaceExpandMax, which is described in Example 4.</p><div class="table"><a name="idm17758"></a><p class="title"><strong>Table 27.13. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfPriority</td><td> </td></tr><tr><td> </td><td>USEnglishFirstJstfPriority</td><td>JstfPriority table
-=======
-          WordSpaceExpandMax, which is described in Example 4.</p><div class="table"><a name="idm189291738080"></a><p class="title"><strong>Table 27.13. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfPriority</td><td> </td></tr><tr><td> </td><td>USEnglishFirstJstfPriority</td><td>JstfPriority table
->>>>>>> Rebuild
-=======
-          WordSpaceExpandMax, which is described in Example 4.</p><div class="table"><a name="idm62723985888"></a><p class="title"><strong>Table 27.13. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfPriority</td><td> </td></tr><tr><td> </td><td>USEnglishFirstJstfPriority</td><td>JstfPriority table
->>>>>>> Rebuild
-=======
-          WordSpaceExpandMax, which is described in Example 4.</p><div class="table"><a name="idm465830512352"></a><p class="title"><strong>Table 27.13. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfPriority</td><td> </td></tr><tr><td> </td><td>USEnglishFirstJstfPriority</td><td>JstfPriority table
->>>>>>> Rebuild
+          WordSpaceExpandMax, which is described in Example 4.</p><div class="table"><a name="idm239462651872"></a><p class="title"><strong>Table 27.13. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfPriority</td><td> </td></tr><tr><td> </td><td>USEnglishFirstJstfPriority</td><td>JstfPriority table
                   definition</td></tr><tr><td>0028</td><td>EnableGSUBLookupsToShrink</td><td>offset to ShrinkageEnableGSUB JstfGSUBModList
                   table</td></tr><tr><td>0000</td><td>NULL</td><td>offset to ShrinkageDisableGSUB JstfGSUBModList
                   table</td></tr><tr><td>0000</td><td>NULL</td><td>offset to ShrinkageEnableGPOS JstfGPOSModList
@@ -809,19 +460,7 @@
                   table definition, disable three ligature
                   substitution lookups</td></tr><tr><td>0003</td><td>3</td><td>LookupCount</td></tr><tr><td>002E</td><td>46</td><td>LookupIndex[0]</td></tr><tr><td>0035</td><td>53</td><td>LookupIndex[1]</td></tr><tr><td>0063</td><td>99</td><td>LookupIndex[2</td></tr><tr><td> </td><td>JstfGPOSModList</td><td> </td></tr><tr><td> </td><td>EnableGPOSLookupsToExtend</td><td>JstfGPOSModList table
                   definition enable three tight kerning
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  lookups</td></tr><tr><td>0003</td><td>3</td><td>LookupCount</td></tr><tr><td>006C</td><td>108</td><td>LookupIndex[0]</td></tr><tr><td>006E</td><td>110</td><td>LookupIndex[1]</td></tr><tr><td>0070</td><td>112</td><td>LookupIndex[2]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm17959"></a>Example 4: JstfMax Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.14.1"></a>Specification</h4></div></div></div><p>The JstfMax table in Example 4 defines a lookup to
-=======
-                  lookups</td></tr><tr><td>0003</td><td>3</td><td>LookupCount</td></tr><tr><td>006C</td><td>108</td><td>LookupIndex[0]</td></tr><tr><td>006E</td><td>110</td><td>LookupIndex[1]</td></tr><tr><td>0070</td><td>112</td><td>LookupIndex[2]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291666368"></a>Example 4: JstfMax Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.14.1"></a>Specification</h4></div></div></div><p>The JstfMax table in Example 4 defines a lookup to
->>>>>>> Rebuild
-=======
-                  lookups</td></tr><tr><td>0003</td><td>3</td><td>LookupCount</td></tr><tr><td>006C</td><td>108</td><td>LookupIndex[0]</td></tr><tr><td>006E</td><td>110</td><td>LookupIndex[1]</td></tr><tr><td>0070</td><td>112</td><td>LookupIndex[2]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62723914112"></a>Example 4: JstfMax Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.14.1"></a>Specification</h4></div></div></div><p>The JstfMax table in Example 4 defines a lookup to
->>>>>>> Rebuild
-=======
-                  lookups</td></tr><tr><td>0003</td><td>3</td><td>LookupCount</td></tr><tr><td>006C</td><td>108</td><td>LookupIndex[0]</td></tr><tr><td>006E</td><td>110</td><td>LookupIndex[1]</td></tr><tr><td>0070</td><td>112</td><td>LookupIndex[2]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830440544"></a>Example 4: JstfMax Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.14.1"></a>Specification</h4></div></div></div><p>The JstfMax table in Example 4 defines a lookup to
->>>>>>> Rebuild
+                  lookups</td></tr><tr><td>0003</td><td>3</td><td>LookupCount</td></tr><tr><td>006C</td><td>108</td><td>LookupIndex[0]</td></tr><tr><td>006E</td><td>110</td><td>LookupIndex[1]</td></tr><tr><td>0070</td><td>112</td><td>LookupIndex[2]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239462580128"></a>Example 4: JstfMax Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.28.14.1"></a>Specification</h4></div></div></div><p>The JstfMax table in Example 4 defines a lookup to
           expand the advance width of the word space glyph and extend
           line lengths. The lookup definition is identical to the
           SinglePos lookup type in the <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table
@@ -830,19 +469,7 @@
           an XAdvance adjustment of 360 units, which is the maximum
           value the font developer recommends for acceptable text
           rendering. The text-processing client may implement the
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          lookup using any value between zero and the maximum.</p><div class="table"><a name="idm17965"></a><p class="title"><strong>Table 27.14. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfMax</td><td> </td></tr><tr><td> </td><td>WordSpaceExpandMax</td><td>JstfMax table
-=======
-          lookup using any value between zero and the maximum.</p><div class="table"><a name="idm189291662864"></a><p class="title"><strong>Table 27.14. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfMax</td><td> </td></tr><tr><td> </td><td>WordSpaceExpandMax</td><td>JstfMax table
->>>>>>> Rebuild
-=======
-          lookup using any value between zero and the maximum.</p><div class="table"><a name="idm62723910608"></a><p class="title"><strong>Table 27.14. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfMax</td><td> </td></tr><tr><td> </td><td>WordSpaceExpandMax</td><td>JstfMax table
->>>>>>> Rebuild
-=======
-          lookup using any value between zero and the maximum.</p><div class="table"><a name="idm465830437040"></a><p class="title"><strong>Table 27.14. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfMax</td><td> </td></tr><tr><td> </td><td>WordSpaceExpandMax</td><td>JstfMax table
->>>>>>> Rebuild
+          lookup using any value between zero and the maximum.</p><div class="table"><a name="idm239462576624"></a><p class="title"><strong>Table 27.14. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>JstfMax</td><td> </td></tr><tr><td> </td><td>WordSpaceExpandMax</td><td>JstfMax table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>LookupCount</td></tr><tr><td>0004</td><td>WordSpaceExpandLookup</td><td>offset to Jstf Lookup[0] tabl</td></tr><tr><td> </td><td>Lookup</td><td> </td></tr><tr><td> </td><td>WordSpaceExpandLookup</td><td>Jstf Lookup table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>LookupType, SinglePos Lookup</td></tr><tr><td>0000</td><td>0x0000</td><td>LookupFlag</td></tr><tr><td>0001</td><td>1</td><td>SubTableCount</td></tr><tr><td>0008</td><td>WordSpaceExpandSubtable</td><td>offset to Subtable[0], SinglePos
                   subtabl</td></tr><tr><td> </td><td>SinglePosFormat1</td><td> </td></tr><tr><td> </td><td>WordSpaceExpandSubtable</td><td>SinglePos subtable

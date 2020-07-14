@@ -1,42 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.recommendations"></a>Chapter 41. Recommendations for CommonType Fonts</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20650"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.1.1"></a>Specification</h4></div></div></div><p>This chapter outlines recommendations for creating
-          CommonType fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20655"></a>Byte Ordering</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.2.1"></a>Specification</h4></div></div></div><p>All CommonType fonts use Motorola-style byte ordering (Big
-          Endian).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20660"></a>'sfnt' Version</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.3.1"></a>Specification</h4></div></div></div><p>CommonType fonts that contain TrueType outlines should use
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.recommendations"></a>Chapter 41. Recommendations for CommonType Fonts</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461834224"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.1.1"></a>Specification</h4></div></div></div><p>This chapter outlines recommendations for creating
+          CommonType fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461831488"></a>Byte Ordering</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.2.1"></a>Specification</h4></div></div></div><p>All CommonType fonts use Motorola-style byte ordering (Big
+          Endian).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461828656"></a>'sfnt' Version</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.3.1"></a>Specification</h4></div></div></div><p>CommonType fonts that contain TrueType outlines should use
           the value of 1.0 for the sfnt version. CommonType fonts
           containing CFF data should use the tag 'OTTO' as the sfnt
-          version number.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20665"></a>Mixing Outline Formats</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.4.1"></a>Specification</h4></div></div></div><p>Both Microsoft and Adobe recommend against mixing
+          version number.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461825680"></a>Mixing Outline Formats</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.4.1"></a>Specification</h4></div></div></div><p>Both Microsoft and Adobe recommend against mixing
           outline formats within a single font. Choose the format that
-          meets your feature requirements.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20670"></a>Filenames</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.5.1"></a>Specification</h4></div></div></div><p>CommonType fonts may have the extension .OTF, .TTF, or .TTC,
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.recommendations"></a>Chapter 41. Recommendations for CommonType Fonts</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291861152"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.1.1"></a>Specification</h4></div></div></div><p>This chapter outlines recommendations for creating
-          CommonType fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291858416"></a>Byte Ordering</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.2.1"></a>Specification</h4></div></div></div><p>All CommonType fonts use Motorola-style byte ordering (Big
-          Endian).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291855584"></a>'sfnt' Version</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.3.1"></a>Specification</h4></div></div></div><p>CommonType fonts that contain TrueType outlines should use
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.recommendations"></a>Chapter 41. Recommendations for CommonType Fonts</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62722791744"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.1.1"></a>Specification</h4></div></div></div><p>This chapter outlines recommendations for creating
-          CommonType fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62722789008"></a>Byte Ordering</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.2.1"></a>Specification</h4></div></div></div><p>All CommonType fonts use Motorola-style byte ordering (Big
-          Endian).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729270736"></a>'sfnt' Version</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.3.1"></a>Specification</h4></div></div></div><p>CommonType fonts that contain TrueType outlines should use
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.recommendations"></a>Chapter 41. Recommendations for CommonType Fonts</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834364288"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.1.1"></a>Specification</h4></div></div></div><p>This chapter outlines recommendations for creating
-          CommonType fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834361552"></a>Byte Ordering</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.2.1"></a>Specification</h4></div></div></div><p>All CommonType fonts use Motorola-style byte ordering (Big
-          Endian).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834358720"></a>'sfnt' Version</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.3.1"></a>Specification</h4></div></div></div><p>CommonType fonts that contain TrueType outlines should use
->>>>>>> Rebuild
-          the value of 1.0 for the sfnt version. CommonType fonts
-          containing CFF data should use the tag 'OTTO' as the sfnt
-          version number.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834355744"></a>Mixing Outline Formats</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.4.1"></a>Specification</h4></div></div></div><p>Both Microsoft and Adobe recommend against mixing
-          outline formats within a single font. Choose the format that
-<<<<<<< HEAD
-<<<<<<< HEAD
-          meets your feature requirements.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291849664"></a>Filenames</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.5.1"></a>Specification</h4></div></div></div><p>CommonType fonts may have the extension .OTF, .TTF, or .TTC,
->>>>>>> Rebuild
-=======
-          meets your feature requirements.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729264816"></a>Filenames</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.5.1"></a>Specification</h4></div></div></div><p>CommonType fonts may have the extension .OTF, .TTF, or .TTC,
->>>>>>> Rebuild
-=======
-          meets your feature requirements.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834352800"></a>Filenames</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.5.1"></a>Specification</h4></div></div></div><p>CommonType fonts may have the extension .OTF, .TTF, or .TTC,
->>>>>>> Rebuild
+          meets your feature requirements.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461822736"></a>Filenames</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.5.1"></a>Specification</h4></div></div></div><p>CommonType fonts may have the extension .OTF, .TTF, or .TTC,
           depending on the type of outlines in the font and the
 	  presence of CommonType layout tables.</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Fonts with CFF data always have an .OTF
               extension.</p></li><li class="listitem"><p>Fonts containing TrueType outlines that have
@@ -46,19 +15,7 @@
             compatibility issues should use the .TTF
             extension. TrueType Collection fonts should have a .TTC
             extension whether or not the fonts have CommonType layout
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            tables present.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20680"></a>Table Alignment and Length</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.6.1"></a>Specification</h4></div></div></div><p>All tables should be aligned to begin at offsets which
-=======
-            tables present.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291844256"></a>Table Alignment and Length</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.6.1"></a>Specification</h4></div></div></div><p>All tables should be aligned to begin at offsets which
->>>>>>> Rebuild
-=======
-            tables present.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729259408"></a>Table Alignment and Length</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.6.1"></a>Specification</h4></div></div></div><p>All tables should be aligned to begin at offsets which
->>>>>>> Rebuild
-=======
-            tables present.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834347392"></a>Table Alignment and Length</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.6.1"></a>Specification</h4></div></div></div><p>All tables should be aligned to begin at offsets which
->>>>>>> Rebuild
+            tables present.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461817328"></a>Table Alignment and Length</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.6.1"></a>Specification</h4></div></div></div><p>All tables should be aligned to begin at offsets which
           are multiples of four bytes. While this is not required by
           the TrueType rasterizer, it does prevent ambiguous checksum
           calculations and greatly speeds table access on some
@@ -67,37 +24,13 @@
           calculated correctly, it is suggested that tables begin on
           LONG word boundries. Any extra space after a table (and
           before the next LONG word boundry) should be padded with
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          zeros.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20686"></a>First Four Glyphs in Fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.7.1"></a>Specification</h4></div></div></div><p>TrueType outline fonts should have the following four
-=======
-          zeros.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291840464"></a>First Four Glyphs in Fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.7.1"></a>Specification</h4></div></div></div><p>TrueType outline fonts should have the following four
->>>>>>> Rebuild
-=======
-          zeros.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729255616"></a>First Four Glyphs in Fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.7.1"></a>Specification</h4></div></div></div><p>TrueType outline fonts should have the following four
->>>>>>> Rebuild
-=======
-          zeros.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834343600"></a>First Four Glyphs in Fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.7.1"></a>Specification</h4></div></div></div><p>TrueType outline fonts should have the following four
->>>>>>> Rebuild
+          zeros.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461813536"></a>First Four Glyphs in Fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.7.1"></a>Specification</h4></div></div></div><p>TrueType outline fonts should have the following four
 	  glyphs at the glyph ID indicated. These were listed in
 	  Apple's original TrueType specification. These glyphs are
 	  recommended to allow for the same version of the font to
 	  work on both Windows and Macintosh. Fonts used on the Mac
 	  should be put in a suitcase for the best user
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  experience.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Glyph ID</th><th>Glyph name</th><th>Unicode value</th></tr></thead><tbody><tr><td>0</td><td>.notdef</td><td>undefined</td></tr><tr><td>1</td><td>.null</td><td>U+0000</td></tr><tr><td>2</td><td>CR</td><td>U+000D</td></tr><tr><td>3</td><td>space</td><td>U+0020</td></tr></tbody></table></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20715"></a>Shape of .notdef glyph</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.8.1"></a>Specification</h4></div></div></div><p>The .notdef glyph is very important for providing the
-=======
-	  experience.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Glyph ID</th><th>Glyph name</th><th>Unicode value</th></tr></thead><tbody><tr><td>0</td><td>.notdef</td><td>undefined</td></tr><tr><td>1</td><td>.null</td><td>U+0000</td></tr><tr><td>2</td><td>CR</td><td>U+000D</td></tr><tr><td>3</td><td>space</td><td>U+0020</td></tr></tbody></table></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291827696"></a>Shape of .notdef glyph</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.8.1"></a>Specification</h4></div></div></div><p>The .notdef glyph is very important for providing the
->>>>>>> Rebuild
-=======
-	  experience.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Glyph ID</th><th>Glyph name</th><th>Unicode value</th></tr></thead><tbody><tr><td>0</td><td>.notdef</td><td>undefined</td></tr><tr><td>1</td><td>.null</td><td>U+0000</td></tr><tr><td>2</td><td>CR</td><td>U+000D</td></tr><tr><td>3</td><td>space</td><td>U+0020</td></tr></tbody></table></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729242848"></a>Shape of .notdef glyph</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.8.1"></a>Specification</h4></div></div></div><p>The .notdef glyph is very important for providing the
->>>>>>> Rebuild
-=======
-	  experience.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Glyph ID</th><th>Glyph name</th><th>Unicode value</th></tr></thead><tbody><tr><td>0</td><td>.notdef</td><td>undefined</td></tr><tr><td>1</td><td>.null</td><td>U+0000</td></tr><tr><td>2</td><td>CR</td><td>U+000D</td></tr><tr><td>3</td><td>space</td><td>U+0020</td></tr></tbody></table></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834330832"></a>Shape of .notdef glyph</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.8.1"></a>Specification</h4></div></div></div><p>The .notdef glyph is very important for providing the
->>>>>>> Rebuild
+	  experience.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Glyph ID</th><th>Glyph name</th><th>Unicode value</th></tr></thead><tbody><tr><td>0</td><td>.notdef</td><td>undefined</td></tr><tr><td>1</td><td>.null</td><td>U+0000</td></tr><tr><td>2</td><td>CR</td><td>U+000D</td></tr><tr><td>3</td><td>space</td><td>U+0020</td></tr></tbody></table></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461800768"></a>Shape of .notdef glyph</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.8.1"></a>Specification</h4></div></div></div><p>The .notdef glyph is very important for providing the
 	  user feedback that a glyph is not found in the font. This
 	  glyph should not be left without an outline as the user will
 	  only see what looks like a space if a glyph is missing and
@@ -106,19 +39,7 @@
 	  inside of it, or a rectangle with an "X". Creative shapes,
 	  like swirls or other symbols, may not be recognized by users
 	  as indicating that a glyph is missing from the font and is
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  not being displayed at that location.</p><div class="figure"><a name="idm20721"></a><p class="title"><strong>Figure 41.1. Suggested shapes of .notdef glyph</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../notdef.gif" alt="Suggested shapes of .notdef glyph"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20726"></a>
-=======
-	  not being displayed at that location.</p><div class="figure"><a name="idm189291824448"></a><p class="title"><strong>Figure 41.1. Suggested shapes of .notdef glyph</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../notdef.gif" alt="Suggested shapes of .notdef glyph"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291821792"></a>
->>>>>>> Rebuild
-=======
-	  not being displayed at that location.</p><div class="figure"><a name="idm62729239600"></a><p class="title"><strong>Figure 41.1. Suggested shapes of .notdef glyph</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../notdef.gif" alt="Suggested shapes of .notdef glyph"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729236944"></a>
->>>>>>> Rebuild
-=======
-	  not being displayed at that location.</p><div class="figure"><a name="idm465834327584"></a><p class="title"><strong>Figure 41.1. Suggested shapes of .notdef glyph</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../notdef.gif" alt="Suggested shapes of .notdef glyph"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834324928"></a>
->>>>>>> Rebuild
+	  not being displayed at that location.</p><div class="figure"><a name="idm239461797520"></a><p class="title"><strong>Figure 41.1. Suggested shapes of .notdef glyph</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../notdef.gif" alt="Suggested shapes of .notdef glyph"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461794864"></a>
       BASE Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.9.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table allows for different
           scripts in the font to specify different values for the same
           baseline tag.  This situation could arise when a developer
@@ -136,19 +57,7 @@
           construct their fonts so that all scripts in the
           <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table record the same value for a
           particular baseline if they want their fonts to work as
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          expected in the above situations.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20736"></a>
-=======
-          expected in the above situations.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291815120"></a>
->>>>>>> Rebuild
-=======
-          expected in the above situations.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729230272"></a>
->>>>>>> Rebuild
-=======
-          expected in the above situations.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834318256"></a>
->>>>>>> Rebuild
+          expected in the above situations.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461788192"></a>
       cmap Table </h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.10.1"></a>Specification</h4></div></div></div><p>When building a Unicode font for Windows, the platform
           ID should be 3 and the encoding ID should be 1 (this
           subtable must use cmap format 4). When building a symbol
@@ -177,54 +86,18 @@
           indices less than 256 (since the <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> subtable format 0
           uses BYTE indices and therefore cannot index any glyph above
           255).</p><p>The Apple <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> subtable should be constructed
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          according to Apple guidelines.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20752"></a>
+          according to Apple guidelines.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461778032"></a>
       cvt Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.11.1"></a>Specification</h4></div></div></div><p>Should be defined only if required by font
-          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20757"></a>
+          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461775184"></a>
       fpgm Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.12.1"></a>Specification</h4></div></div></div><p>Should be defined only if required by TrueType font
-          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20762"></a>
-=======
-          according to Apple guidelines.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291804672"></a>
-=======
-          according to Apple guidelines.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729220112"></a>
->>>>>>> Rebuild
-=======
-          according to Apple guidelines.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834308096"></a>
->>>>>>> Rebuild
-      cvt Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.11.1"></a>Specification</h4></div></div></div><p>Should be defined only if required by font
-          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834305248"></a>
-      fpgm Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.12.1"></a>Specification</h4></div></div></div><p>Should be defined only if required by TrueType font
-<<<<<<< HEAD
-<<<<<<< HEAD
-          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291798976"></a>
->>>>>>> Rebuild
-=======
-          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729214416"></a>
->>>>>>> Rebuild
-=======
-          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834302400"></a>
->>>>>>> Rebuild
+          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461772336"></a>
       glyf Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.13.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.glyf.html" title="Chapter 16. glyf - Glyf Data">glyf</a> table contains TrueType
           outline data, and can be optimized by Agfa MicroType
           Compression. Microsoft recommends that developers perform
           this optimization, using a tool provided by Microsoft, prior
           to finalizing and adding a digital signature to the font.
           This is necessary for the creator's signature to remain
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          valid in embedded CommonType fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20768"></a>
-=======
-          valid in embedded CommonType fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291795136"></a>
->>>>>>> Rebuild
-=======
-          valid in embedded CommonType fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729210576"></a>
->>>>>>> Rebuild
-=======
-          valid in embedded CommonType fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834298560"></a>
->>>>>>> Rebuild
+          valid in embedded CommonType fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461768496"></a>
       hdmx Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.14.1"></a>Specification</h4></div></div></div><p>This table improves the performance of CommonType fonts
           with TrueType outlines. This table is not necessary at all
           unless instructions are used to control the "phantom
@@ -248,19 +121,7 @@
           file. However, there will be a significant improvement in
           speed when a client requests advance widths covered by these
           device records.</p><p>If the font includes an <a class="link" href="chapter.LTSH.html" title="Chapter 35. LTSH - Linear Threshold">LTSH</a> table, the hdmx values
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          are not needed above the linearity threshold.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20783"></a>
-=======
-          are not needed above the linearity threshold.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290720432"></a>
->>>>>>> Rebuild
-=======
-          are not needed above the linearity threshold.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729200704"></a>
->>>>>>> Rebuild
-=======
-          are not needed above the linearity threshold.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834288688"></a>
->>>>>>> Rebuild
+          are not needed above the linearity threshold.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461758624"></a>
       head Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.15.1"></a>Specification</h4></div></div></div><p>Although historical usage of the fontRevision value is
           varied, the recommended use of the field is to set it as a
           Fixed 16.16 value, and to report it rounded and zero-padded
@@ -269,45 +130,15 @@
           is set as 0x00010041 and is reported as "1.001". All data
           required. If the font has been compressed with Agfa
           MicroType Compression, this must be indicated in the flags
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          field of the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20789"></a>
+          field of the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461754640"></a>
       hhead Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.16.1"></a>Specification</h4></div></div></div><p>All data required. It is suggested that monospaced fonts
-          set numberOfHMetrics to three (see hmtx).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20794"></a>
-=======
-          field of the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290716448"></a>
-      hhead Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.16.1"></a>Specification</h4></div></div></div><p>All data required. It is suggested that monospaced fonts
-          set numberOfHMetrics to three (see hmtx).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290713568"></a>
->>>>>>> Rebuild
-=======
-          field of the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729196720"></a>
-      hhead Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.16.1"></a>Specification</h4></div></div></div><p>All data required. It is suggested that monospaced fonts
-          set numberOfHMetrics to three (see hmtx).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729193840"></a>
->>>>>>> Rebuild
-=======
-          field of the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834284704"></a>
-      hhead Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.16.1"></a>Specification</h4></div></div></div><p>All data required. It is suggested that monospaced fonts
-          set numberOfHMetrics to three (see hmtx).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834281824"></a>
->>>>>>> Rebuild
+          set numberOfHMetrics to three (see hmtx).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461751760"></a>
       hmtx Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.17.1"></a>Specification</h4></div></div></div><p>All data required. It is suggested that monospaced fonts
           have three entries in the numberOfHMetrics field. CommonType
           fonts that include CFF data must set numberOfHMetrics equal
           to the number of glyphs in the font and therefore cannot use
           the "repeat last width" optimization normally available
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          within the <a class="link" href="chapter.hmtx.html" title="Chapter 8. hmtx - Horizontal Metrics">hmtx</a> table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20800"></a>
-=======
-          within the <a class="link" href="chapter.hmtx.html" title="Chapter 8. hmtx - Horizontal Metrics">hmtx</a> table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290709776"></a>
->>>>>>> Rebuild
-=======
-          within the <a class="link" href="chapter.hmtx.html" title="Chapter 8. hmtx - Horizontal Metrics">hmtx</a> table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729190048"></a>
->>>>>>> Rebuild
-=======
-          within the <a class="link" href="chapter.hmtx.html" title="Chapter 8. hmtx - Horizontal Metrics">hmtx</a> table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834278032"></a>
->>>>>>> Rebuild
+          within the <a class="link" href="chapter.hmtx.html" title="Chapter 8. hmtx - Horizontal Metrics">hmtx</a> table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461747968"></a>
       kern Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.18.1"></a>Specification</h4></div></div></div><p>Should contain a single kerning pair subtable (format
           0). Windows will not support format 2 (two-dimensional array
           of kern values by class); nor multiple tables (only the
@@ -316,19 +147,7 @@
           cross stream, and override). CommonType fonts containing CFF
           data do not support the <a class="link" href="chapter.kern.html" title="Chapter 34. kern - Kerning">kern</a> table and should therefore
           specify kerning data using the <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          (LookupType=2).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20807"></a>
-=======
-          (LookupType=2).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290705152"></a>
->>>>>>> Rebuild
-=======
-          (LookupType=2).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729185424"></a>
->>>>>>> Rebuild
-=======
-          (LookupType=2).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834273408"></a>
->>>>>>> Rebuild
+          (LookupType=2).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461743344"></a>
       loca Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.19.1"></a>Specification</h4></div></div></div><p>All data required for fonts with TrueType outlines. We
           recommend that local offsets should be word-aligned, in both
           the short and long formats of this table.</p><p>The actual ordering of the glyphs in the font can be
@@ -337,39 +156,13 @@
           font file. Additionally, glyphs that are often used together
           should be grouped together in the file. The will help to
           minimize the amount of swapping required when the font is
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          loaded into memory.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20813"></a>
+          loaded into memory.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461739568"></a>
       LTSH Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.20.1"></a>Specification</h4></div></div></div><p>This table improves the performance of CommonType fonts
           with TrueType outlines. The table should be used if bit 2 or
-          4 of flags in <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> is set.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20819"></a>
+          4 of flags in <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> is set.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461735984"></a>
       maxp Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.21.1"></a>Specification</h4></div></div></div><p>All data required for a font with TrueType outlines.
           Fonts with CFF data must only fill the numGlyphs
-          field.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20824"></a>'name' Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.22.1"></a>Specification</h4></div></div></div><p>Platform and encoding ID's in the name table should be
-=======
-          loaded into memory.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290701376"></a>
-=======
-          loaded into memory.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729181648"></a>
->>>>>>> Rebuild
-=======
-          loaded into memory.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834269632"></a>
->>>>>>> Rebuild
-      LTSH Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.20.1"></a>Specification</h4></div></div></div><p>This table improves the performance of CommonType fonts
-          with TrueType outlines. The table should be used if bit 2 or
-          4 of flags in <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> is set.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834266048"></a>
-      maxp Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.21.1"></a>Specification</h4></div></div></div><p>All data required for a font with TrueType outlines.
-          Fonts with CFF data must only fill the numGlyphs
-<<<<<<< HEAD
-<<<<<<< HEAD
-          field.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290694880"></a>'name' Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.22.1"></a>Specification</h4></div></div></div><p>Platform and encoding ID's in the name table should be
->>>>>>> Rebuild
-=======
-          field.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729175152"></a>'name' Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.22.1"></a>Specification</h4></div></div></div><p>Platform and encoding ID's in the name table should be
->>>>>>> Rebuild
-=======
-          field.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834263136"></a>'name' Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.22.1"></a>Specification</h4></div></div></div><p>Platform and encoding ID's in the name table should be
->>>>>>> Rebuild
+          field.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461733072"></a>'name' Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.22.1"></a>Specification</h4></div></div></div><p>Platform and encoding ID's in the name table should be
           consistent with those in the cmap table. If they are not,
           the font will not load in Windows. When building a Unicode
           font for Windows, the platform ID should be 3 and the
@@ -404,19 +197,7 @@
           concatenation of strings 1 and 2. However, if the font is
           'Regular' as indicated in string 2, then use only the family
           name contained in string 1. This is the font name that
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          Windows will expose to users.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20837"></a>
-=======
-          Windows will expose to users.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290686256"></a>
->>>>>>> Rebuild
-=======
-          Windows will expose to users.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729166528"></a>
->>>>>>> Rebuild
-=======
-          Windows will expose to users.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834254512"></a>
->>>>>>> Rebuild
+          Windows will expose to users.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461724448"></a>
       OS/2 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.23.1"></a>Specification</h4></div></div></div><p>All data required. We recommend applying PANOSE values
           to fonts to improve the user's experience when using the
           Windows fonts folder or other font management utilities. If
@@ -457,19 +238,7 @@
           expression is approximately 120% of the em. The application
           can use this value as the default horizontal line
           spacing. The Minion Pro font family (designed on a 1000-unit
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          em), for example, sets sTypoLineGap = 200.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20852"></a>
-=======
-          em), for example, sets sTypoLineGap = 200.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290676128"></a>
->>>>>>> Rebuild
-=======
-          em), for example, sets sTypoLineGap = 200.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729156400"></a>
->>>>>>> Rebuild
-=======
-          em), for example, sets sTypoLineGap = 200.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834244384"></a>
->>>>>>> Rebuild
+          em), for example, sets sTypoLineGap = 200.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461714320"></a>
       post Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.24.1"></a>Specification</h4></div></div></div><p>All information required, although the VM Usage fields
           may be set to zero. CommonType fonts containing CFF outlines
           use only format 3.0 of the <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> table. Glyph names must be
@@ -479,44 +248,14 @@
           standard Unicode values such as certain ligatures or glyphic
           variants. Note that names for all glyphs must be supplied as
           it cannot be assumed that all Microsoft platforms will
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          support the default names supplied on the Macintosh.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20858"></a>
+          support the default names supplied on the Macintosh.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461710224"></a>
       prep Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.25.1"></a>Specification</h4></div></div></div><p>Should be defined only if required by the TrueType font
-          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20863"></a>
-=======
-          support the default names supplied on the Macintosh.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290672032"></a>
-      prep Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.25.1"></a>Specification</h4></div></div></div><p>Should be defined only if required by the TrueType font
-          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290669184"></a>
->>>>>>> Rebuild
-=======
-          support the default names supplied on the Macintosh.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729152304"></a>
-      prep Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.25.1"></a>Specification</h4></div></div></div><p>Should be defined only if required by the TrueType font
-          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729149456"></a>
->>>>>>> Rebuild
-=======
-          support the default names supplied on the Macintosh.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834240288"></a>
-      prep Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.25.1"></a>Specification</h4></div></div></div><p>Should be defined only if required by the TrueType font
-          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834237440"></a>
->>>>>>> Rebuild
+          instructions.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461707376"></a>
       VDMX Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.26.1"></a>Specification</h4></div></div></div><p>This table improves the performance of CommonType fonts
           with TrueType outlines. It Should be present if hints cause
           the font to scale non-linearly. If not present, the font is
           assumed to scale linearly. Clipping may occur if values in
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          this table are absent and font exceeds linear height.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20868"></a>Optimized Table Ordering</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.27.1"></a>Specification</h4></div></div></div><p>CommonType fonts with TrueType outlines are more efficient
-=======
-          this table are absent and font exceeds linear height.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290666080"></a>Optimized Table Ordering</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.27.1"></a>Specification</h4></div></div></div><p>CommonType fonts with TrueType outlines are more efficient
->>>>>>> Rebuild
-=======
-          this table are absent and font exceeds linear height.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729146352"></a>Optimized Table Ordering</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.27.1"></a>Specification</h4></div></div></div><p>CommonType fonts with TrueType outlines are more efficient
->>>>>>> Rebuild
-=======
-          this table are absent and font exceeds linear height.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834234336"></a>Optimized Table Ordering</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.27.1"></a>Specification</h4></div></div></div><p>CommonType fonts with TrueType outlines are more efficient
->>>>>>> Rebuild
+          this table are absent and font exceeds linear height.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461704272"></a>Optimized Table Ordering</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.27.1"></a>Specification</h4></div></div></div><p>CommonType fonts with TrueType outlines are more efficient
           in the Windows operating system when the tables are ordered
           as follows (from first to last):</p><p>head, hhea, maxp, OS/2, hmtx, LTSH, VDMX, hdmx, cmap,
           fpgm, prep, cvt, loca, <a class="link" href="chapter.glyf.html" title="Chapter 16. glyf - Glyf Data">glyf</a>, kern, name,
@@ -524,19 +263,7 @@
           data will be more efficiently handled if the following sfnt
           table ordering is used within the body of the sfnt (listed
           from first to last):</p><p>head, hhea, maxp, OS/2, name, cmap, post, CFF, (other
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          tables, as convenient)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20877"></a>Non-Standard (Symbol) Fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.28.1"></a>Specification</h4></div></div></div><p>Non-standard fonts such as Symbol or Wingdings(tm) have
-=======
-          tables, as convenient)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290660864"></a>Non-Standard (Symbol) Fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.28.1"></a>Specification</h4></div></div></div><p>Non-standard fonts such as Symbol or Wingdings(tm) have
->>>>>>> Rebuild
-=======
-          tables, as convenient)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729141136"></a>Non-Standard (Symbol) Fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.28.1"></a>Specification</h4></div></div></div><p>Non-standard fonts such as Symbol or Wingdings(tm) have
->>>>>>> Rebuild
-=======
-          tables, as convenient)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834229120"></a>Non-Standard (Symbol) Fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.28.1"></a>Specification</h4></div></div></div><p>Non-standard fonts such as Symbol or Wingdings(tm) have
->>>>>>> Rebuild
+          tables, as convenient)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461699056"></a>Non-Standard (Symbol) Fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.28.1"></a>Specification</h4></div></div></div><p>Non-standard fonts such as Symbol or Wingdings(tm) have
           special requirements for Microsoft platforms. These
           requirements affect the 'cmap,' 'name,' and <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> tables;
           the requirements and recommendations for all other tables
@@ -560,36 +287,12 @@
           these start, but 0xF020 is suggested. The usFirstCharIndex
           and usLastCharIndex values in the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table would be set
           based on the actual minimum and maximum character indices
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          used.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20893"></a>Device Resolutions</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.29.1"></a>Specification</h4></div></div></div><p>Windows makes use of a logical device resolution. The
-=======
-          used.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290650368"></a>Device Resolutions</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.29.1"></a>Specification</h4></div></div></div><p>Windows makes use of a logical device resolution. The
->>>>>>> Rebuild
-=======
-          used.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729130640"></a>Device Resolutions</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.29.1"></a>Specification</h4></div></div></div><p>Windows makes use of a logical device resolution. The
->>>>>>> Rebuild
-=======
-          used.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834218624"></a>Device Resolutions</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.29.1"></a>Specification</h4></div></div></div><p>Windows makes use of a logical device resolution. The
->>>>>>> Rebuild
+          used.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461688560"></a>Device Resolutions</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.29.1"></a>Specification</h4></div></div></div><p>Windows makes use of a logical device resolution. The
           physical resolution of a device is also available, but fonts
           will be rendered based on the logical resolution. The table
           below lists some important logical resolutions in dots per
           inch (Horizontal x Vertical). The most important ratios (in
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          order) are 1:1, 1.67:1 and 1.33:1.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Device</th><th>Resolution</th><th>Aspect Ratio</th></tr></thead><tbody><tr><td>CGA</td><td>96 x 48</td><td>2:1</td></tr><tr><td>EGA</td><td>96 x 72</td><td>1.33:1</td></tr><tr><td>VGA</td><td>96 x 96</td><td>1:1</td></tr><tr><td>8514</td><td>120 x 120</td><td>1:1</td></tr><tr><td>Dot Matrix</td><td>120 x 72</td><td>1.67:1</td></tr><tr><td>Laser Printer</td><td>300 x 300</td><td>1:1</td></tr><tr><td>Laser Printer</td><td>600 x 600</td><td>1:1</td></tr></tbody></table></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20934"></a>Baseline to Baseline Distances</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.30.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table fields sTypoAscender, sTypoDescender,
-=======
-          order) are 1:1, 1.67:1 and 1.33:1.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Device</th><th>Resolution</th><th>Aspect Ratio</th></tr></thead><tbody><tr><td>CGA</td><td>96 x 48</td><td>2:1</td></tr><tr><td>EGA</td><td>96 x 72</td><td>1.33:1</td></tr><tr><td>VGA</td><td>96 x 96</td><td>1:1</td></tr><tr><td>8514</td><td>120 x 120</td><td>1:1</td></tr><tr><td>Dot Matrix</td><td>120 x 72</td><td>1.67:1</td></tr><tr><td>Laser Printer</td><td>300 x 300</td><td>1:1</td></tr><tr><td>Laser Printer</td><td>600 x 600</td><td>1:1</td></tr></tbody></table></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189290632752"></a>Baseline to Baseline Distances</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.30.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table fields sTypoAscender, sTypoDescender,
->>>>>>> Rebuild
-=======
-          order) are 1:1, 1.67:1 and 1.33:1.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Device</th><th>Resolution</th><th>Aspect Ratio</th></tr></thead><tbody><tr><td>CGA</td><td>96 x 48</td><td>2:1</td></tr><tr><td>EGA</td><td>96 x 72</td><td>1.33:1</td></tr><tr><td>VGA</td><td>96 x 96</td><td>1:1</td></tr><tr><td>8514</td><td>120 x 120</td><td>1:1</td></tr><tr><td>Dot Matrix</td><td>120 x 72</td><td>1.67:1</td></tr><tr><td>Laser Printer</td><td>300 x 300</td><td>1:1</td></tr><tr><td>Laser Printer</td><td>600 x 600</td><td>1:1</td></tr></tbody></table></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729113088"></a>Baseline to Baseline Distances</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.30.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table fields sTypoAscender, sTypoDescender,
->>>>>>> Rebuild
-=======
-          order) are 1:1, 1.67:1 and 1.33:1.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Device</th><th>Resolution</th><th>Aspect Ratio</th></tr></thead><tbody><tr><td>CGA</td><td>96 x 48</td><td>2:1</td></tr><tr><td>EGA</td><td>96 x 72</td><td>1.33:1</td></tr><tr><td>VGA</td><td>96 x 96</td><td>1:1</td></tr><tr><td>8514</td><td>120 x 120</td><td>1:1</td></tr><tr><td>Dot Matrix</td><td>120 x 72</td><td>1.67:1</td></tr><tr><td>Laser Printer</td><td>300 x 300</td><td>1:1</td></tr><tr><td>Laser Printer</td><td>600 x 600</td><td>1:1</td></tr></tbody></table></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834201168"></a>Baseline to Baseline Distances</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.30.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table fields sTypoAscender, sTypoDescender,
->>>>>>> Rebuild
+          order) are 1:1, 1.67:1 and 1.33:1.</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Device</th><th>Resolution</th><th>Aspect Ratio</th></tr></thead><tbody><tr><td>CGA</td><td>96 x 48</td><td>2:1</td></tr><tr><td>EGA</td><td>96 x 72</td><td>1.33:1</td></tr><tr><td>VGA</td><td>96 x 96</td><td>1:1</td></tr><tr><td>8514</td><td>120 x 120</td><td>1:1</td></tr><tr><td>Dot Matrix</td><td>120 x 72</td><td>1.67:1</td></tr><tr><td>Laser Printer</td><td>300 x 300</td><td>1:1</td></tr><tr><td>Laser Printer</td><td>600 x 600</td><td>1:1</td></tr></tbody></table></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461671072"></a>Baseline to Baseline Distances</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.30.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table fields sTypoAscender, sTypoDescender,
           and sTypoLineGap free applications from Macintosh- or
           Windows-specific metrics which are constrained by backward
           compatibility requirements. The following discussion only
@@ -618,19 +321,7 @@
           that all pixels fit within these limitations; this is true
           for screen display only.</p><p>Making Them Match</p><p>If you perform some simple algebra, you will see that
           the suggested BTBD across both Macintosh and Windows will be
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          identical if and only if:</p><p>LineGap &gt;= (yMax - yMin) - (Ascender - Descender)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20991"></a>Style Bits</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.31.1"></a>Specification</h4></div></div></div><p>For backwards compatibility with previous versions of
-=======
-          identical if and only if:</p><p>LineGap &gt;= (yMax - yMin) - (Ascender - Descender)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293103856"></a>Style Bits</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.31.1"></a>Specification</h4></div></div></div><p>For backwards compatibility with previous versions of
->>>>>>> Rebuild
-=======
-          identical if and only if:</p><p>LineGap &gt;= (yMax - yMin) - (Ascender - Descender)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62729086032"></a>Style Bits</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.31.1"></a>Specification</h4></div></div></div><p>For backwards compatibility with previous versions of
->>>>>>> Rebuild
-=======
-          identical if and only if:</p><p>LineGap &gt;= (yMax - yMin) - (Ascender - Descender)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834174112"></a>Style Bits</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.31.1"></a>Specification</h4></div></div></div><p>For backwards compatibility with previous versions of
->>>>>>> Rebuild
+          identical if and only if:</p><p>LineGap &gt;= (yMax - yMin) - (Ascender - Descender)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461644016"></a>Style Bits</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.31.1"></a>Specification</h4></div></div></div><p>For backwards compatibility with previous versions of
           Windows, the macStyle bits in the <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a> table will be used
           to determine whetr or not a font is regular, bold or
           italic (in the absence of an <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table). This is
@@ -638,19 +329,7 @@
           information in the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a> table, the ItalicAngle in the
           <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a> table, and all other related metrics. If the <a class="link" href="chapter.OS2.html" title="Chapter 11. OS/2 - OS/2 and Windows Metrics">OS/2</a>
           table is present, then the fsSelection bits are used to
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          determine this information.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm21001"></a>Drop-out Control</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.32.1"></a>Specification</h4></div></div></div><p>Drop-out control is needed if there is a difference in
-=======
-          determine this information.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293097344"></a>Drop-out Control</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.32.1"></a>Specification</h4></div></div></div><p>Drop-out control is needed if there is a difference in
->>>>>>> Rebuild
-=======
-          determine this information.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726809552"></a>Drop-out Control</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.32.1"></a>Specification</h4></div></div></div><p>Drop-out control is needed if there is a difference in
->>>>>>> Rebuild
-=======
-          determine this information.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834167600"></a>Drop-out Control</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.32.1"></a>Specification</h4></div></div></div><p>Drop-out control is needed if there is a difference in
->>>>>>> Rebuild
+          determine this information.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461637504"></a>Drop-out Control</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.32.1"></a>Specification</h4></div></div></div><p>Drop-out control is needed if there is a difference in
           bitmaps with dropout control on and off. Two cases where
           drop-out control is needed are when the font is rotated or
           when the size of the font is at or below 8 ppem. Do not use
@@ -659,19 +338,7 @@
           per em (ppem) when the font is not under rotation. SCANCTRL
           should not be used for "stretched" fonts (e.g. fonts
           displayed at non-square aspect ratios, like that found on an
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          EGA).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm21006"></a>Embedded Bitmaps</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.33.1"></a>Specification</h4></div></div></div><p>Three tables are used to embed bitmaps in CommonType
-=======
-          EGA).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293093952"></a>Embedded Bitmaps</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.33.1"></a>Specification</h4></div></div></div><p>Three tables are used to embed bitmaps in CommonType
->>>>>>> Rebuild
-=======
-          EGA).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726806160"></a>Embedded Bitmaps</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.33.1"></a>Specification</h4></div></div></div><p>Three tables are used to embed bitmaps in CommonType
->>>>>>> Rebuild
-=======
-          EGA).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834164208"></a>Embedded Bitmaps</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.33.1"></a>Specification</h4></div></div></div><p>Three tables are used to embed bitmaps in CommonType
->>>>>>> Rebuild
+          EGA).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461634112"></a>Embedded Bitmaps</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.33.1"></a>Specification</h4></div></div></div><p>Three tables are used to embed bitmaps in CommonType
           fonts. They are the <a class="link" href="chapter.EBLC.html" title="Chapter 29. EBLC - Embedded Bitmap Location Table">EBLC</a> table for
           embedded bitmap locators, the <a class="link" href="chapter.EBDT.html" title="Chapter 28. EBDT - Embedded Bitmap Data Table">EBDT</a> table
           for embedded bitmap data, and the <a class="link" href="chapter.EBSC.html" title="Chapter 30. EBSC - Embedded Bitmap Scaling Table">EBSC</a>
@@ -691,19 +358,7 @@
           defined.</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>These metrics are returned as part of the logical
               font data structure by the GDI CreateLogFont()
               API.</p></li><li class="listitem"><p>These metrics are returned by the Apple Advanced
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-              Typography (AAT) GetFontInfo() API.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm21025"></a>CommonType CJK Font Guidelines</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.34.1"></a>Specification</h4></div></div></div><p>This section provides a checklist of links to various
-=======
-              Typography (AAT) GetFontInfo() API.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293082816"></a>CommonType CJK Font Guidelines</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.34.1"></a>Specification</h4></div></div></div><p>This section provides a checklist of links to various
->>>>>>> Rebuild
-=======
-              Typography (AAT) GetFontInfo() API.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726795024"></a>CommonType CJK Font Guidelines</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.34.1"></a>Specification</h4></div></div></div><p>This section provides a checklist of links to various
->>>>>>> Rebuild
-=======
-              Typography (AAT) GetFontInfo() API.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834153072"></a>CommonType CJK Font Guidelines</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.34.1"></a>Specification</h4></div></div></div><p>This section provides a checklist of links to various
->>>>>>> Rebuild
+              Typography (AAT) GetFontInfo() API.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239461622976"></a>CommonType CJK Font Guidelines</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.42.34.1"></a>Specification</h4></div></div></div><p>This section provides a checklist of links to various
           CJK-related sections of the CommonType specification. Some
           items are requirements; others, recommendations:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The ideographic em-box of an CommonType font will be
               determined as described in the section "Ideographic

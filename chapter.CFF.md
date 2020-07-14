@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.CFF"></a>Chapter 19. CFF - PostScript font program (Compact Font Format) table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6244"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.20.1.1"></a>Specification</h4></div></div></div><p>This table contains a compact representation of a
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.CFF"></a>Chapter 19. CFF - PostScript font program (Compact Font Format) table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189299210400"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.20.1.1"></a>Specification</h4></div></div></div><p>This table contains a compact representation of a
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.CFF"></a>Chapter 19. CFF - PostScript font program (Compact Font Format) table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728629856"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.20.1.1"></a>Specification</h4></div></div></div><p>This table contains a compact representation of a
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.CFF"></a>Chapter 19. CFF - PostScript font program (Compact Font Format) table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465835642864"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.20.1.1"></a>Specification</h4></div></div></div><p>This table contains a compact representation of a
->>>>>>> Rebuild
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.CFF"></a>Chapter 19. CFF - PostScript font program (Compact Font Format) table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239468214768"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.20.1.1"></a>Specification</h4></div></div></div><p>This table contains a compact representation of a
           PostScript Type 1, or CIDFont and is structured according to
           Adobe Technical Note #5176: <a class="ulink" href="http://partners.adobe.com/asn/developer/pdfs/tn/5176.CFF.pdf" target="_top">The
             Compact Font Format Specification</a> and Adobe

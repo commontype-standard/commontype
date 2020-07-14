@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.advanced"></a>Chapter 20. Advanced Typographic Extensions – CommonType Layout</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6265"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.1.1"></a>Specification</h4></div></div></div><p>The Advanced Typographic tables (CommonType Layout tables)
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.advanced"></a>Chapter 20. Advanced Typographic Extensions – CommonType Layout</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189299197536"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.1.1"></a>Specification</h4></div></div></div><p>The Advanced Typographic tables (CommonType Layout tables)
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.advanced"></a>Chapter 20. Advanced Typographic Extensions – CommonType Layout</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728616992"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.1.1"></a>Specification</h4></div></div></div><p>The Advanced Typographic tables (CommonType Layout tables)
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.advanced"></a>Chapter 20. Advanced Typographic Extensions – CommonType Layout</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465835628976"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.1.1"></a>Specification</h4></div></div></div><p>The Advanced Typographic tables (CommonType Layout tables)
->>>>>>> Rebuild
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.advanced"></a>Chapter 20. Advanced Typographic Extensions – CommonType Layout</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239468200880"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.1.1"></a>Specification</h4></div></div></div><p>The Advanced Typographic tables (CommonType Layout tables)
 	  extend the functionality of fonts with either TrueType or CFF
 	outlines. CommonType Layout fonts contain additional information
 	that extends the capabilities of the fonts to support
@@ -32,19 +20,7 @@
 	  section of the CommonType specification.</p><p>CommonType Layout Common Table Formats are documented in
 	  the chapter "CommonType Layout Common Table Formats".</p><p>Registered CommonType Layout Tags for scripts, languages,
 	  and baselines, are documented in the chapter "CommonType
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  Layout Registered Features". </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6282"></a>CommonType Layout at a Glance</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.2.1"></a>Specification</h4></div></div></div><p>CommonType Layout addresses complex typographical issues
-=======
-	  Layout Registered Features". </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189299188976"></a>CommonType Layout at a Glance</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.2.1"></a>Specification</h4></div></div></div><p>CommonType Layout addresses complex typographical issues
->>>>>>> Rebuild
-=======
-	  Layout Registered Features". </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728608608"></a>CommonType Layout at a Glance</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.2.1"></a>Specification</h4></div></div></div><p>CommonType Layout addresses complex typographical issues
->>>>>>> Rebuild
-=======
-	  Layout Registered Features". </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465835620304"></a>CommonType Layout at a Glance</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.2.1"></a>Specification</h4></div></div></div><p>CommonType Layout addresses complex typographical issues
->>>>>>> Rebuild
+	  Layout Registered Features". </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239468192208"></a>CommonType Layout at a Glance</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.2.1"></a>Specification</h4></div></div></div><p>CommonType Layout addresses complex typographical issues
 	  that especially affect people using text-processing
 	  applications in multi-lingual and non-Latin
 	  environments.</p><p>CommonType Layout fonts may contain alternative forms of
@@ -55,36 +31,12 @@
 	  it stands alone or whether it falls at the beginning,
 	  middle, or end of a word. CommonType Layout helps a
 	  text-processing application determine which variant to
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  substitute when composing text. </p><div class="figure"><a name="idm6288"></a><p class="title"><strong>Figure 20.1. Figure 1a. Isolated, initial, medial, and final forms
-=======
-	  substitute when composing text. </p><div class="figure"><a name="idm189299185824"></a><p class="title"><strong>Figure 20.1. Figure 1a. Isolated, initial, medial, and final forms
->>>>>>> Rebuild
-=======
-	  substitute when composing text. </p><div class="figure"><a name="idm62728605456"></a><p class="title"><strong>Figure 20.1. Figure 1a. Isolated, initial, medial, and final forms
->>>>>>> Rebuild
-=======
-	  substitute when composing text. </p><div class="figure"><a name="idm465835616992"></a><p class="title"><strong>Figure 20.1. Figure 1a. Isolated, initial, medial, and final forms
->>>>>>> Rebuild
+	  substitute when composing text. </p><div class="figure"><a name="idm239468188896"></a><p class="title"><strong>Figure 20.1. Figure 1a. Isolated, initial, medial, and final forms
 	    of the Arabic character ha.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1a.gif" alt="Figure 1a. Isolated, initial, medial, and final forms of the Arabic character ha."/></div></div></div><br class="figure-break"/><p> Similarly, CommonType Layout helps an application use the
 	  correct forms of characters when text is positioned
 	  vertically instead of horizontally, such as with Kanji. For
 	  example, Kanji uses alternative forms of parentheses when
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  positioned vertically.</p><div class="figure"><a name="idm6294"></a><p class="title"><strong>Figure 20.2. Figure 1b. Alternative forms of parentheses used when
-=======
-	  positioned vertically.</p><div class="figure"><a name="idm189299183056"></a><p class="title"><strong>Figure 20.2. Figure 1b. Alternative forms of parentheses used when
->>>>>>> Rebuild
-=======
-	  positioned vertically.</p><div class="figure"><a name="idm62728602688"></a><p class="title"><strong>Figure 20.2. Figure 1b. Alternative forms of parentheses used when
->>>>>>> Rebuild
-=======
-	  positioned vertically.</p><div class="figure"><a name="idm465835614160"></a><p class="title"><strong>Figure 20.2. Figure 1b. Alternative forms of parentheses used when
->>>>>>> Rebuild
+	  positioned vertically.</p><div class="figure"><a name="idm239468186032"></a><p class="title"><strong>Figure 20.2. Figure 1b. Alternative forms of parentheses used when
 	    positioning Kanji vertically.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1b.gif" alt="Figure 1b. Alternative forms of parentheses used when positioning Kanji vertically."/></div></div></div><br class="figure-break"/><p> The CommonType Layout font format also supports the
 	  composition and decomposition of ligatures. For example,
 	  English, French, and other languages based on Latin can
@@ -93,23 +45,8 @@
 	  the individual "f" and "i" glyphs could replace the
 	  ligature, possibly to give a text-processing application
 	  more flexibility when spacing glyphs to fill a line of
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  justified text.</p><div class="figure"><a name="idm6300"></a><p class="title"><strong>Figure 20.3. Figure 1c. Two Latin glyphs and their associated
-	    ligature.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1c.gif" alt="Figure 1c. Two Latin glyphs and their associated ligature."/></div></div></div><br class="figure-break"/><div class="figure"><a name="idm6305"></a><p class="title"><strong>Figure 20.4. Figure 1d. Three Arabic glyphs and their associated
-=======
-	  justified text.</p><div class="figure"><a name="idm189299180080"></a><p class="title"><strong>Figure 20.3. Figure 1c. Two Latin glyphs and their associated
-	    ligature.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1c.gif" alt="Figure 1c. Two Latin glyphs and their associated ligature."/></div></div></div><br class="figure-break"/><div class="figure"><a name="idm189299178064"></a><p class="title"><strong>Figure 20.4. Figure 1d. Three Arabic glyphs and their associated
->>>>>>> Rebuild
-=======
-	  justified text.</p><div class="figure"><a name="idm62728599712"></a><p class="title"><strong>Figure 20.3. Figure 1c. Two Latin glyphs and their associated
-	    ligature.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1c.gif" alt="Figure 1c. Two Latin glyphs and their associated ligature."/></div></div></div><br class="figure-break"/><div class="figure"><a name="idm62728597696"></a><p class="title"><strong>Figure 20.4. Figure 1d. Three Arabic glyphs and their associated
->>>>>>> Rebuild
-=======
-	  justified text.</p><div class="figure"><a name="idm465835611152"></a><p class="title"><strong>Figure 20.3. Figure 1c. Two Latin glyphs and their associated
-	    ligature.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1c.gif" alt="Figure 1c. Two Latin glyphs and their associated ligature."/></div></div></div><br class="figure-break"/><div class="figure"><a name="idm465835609040"></a><p class="title"><strong>Figure 20.4. Figure 1d. Three Arabic glyphs and their associated
->>>>>>> Rebuild
+	  justified text.</p><div class="figure"><a name="idm239468183024"></a><p class="title"><strong>Figure 20.3. Figure 1c. Two Latin glyphs and their associated
+	    ligature.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1c.gif" alt="Figure 1c. Two Latin glyphs and their associated ligature."/></div></div></div><br class="figure-break"/><div class="figure"><a name="idm239468180912"></a><p class="title"><strong>Figure 20.4. Figure 1d. Three Arabic glyphs and their associated
 	    ligature</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1d.gif" alt="Figure 1d. Three Arabic glyphs and their associated ligature"/></div></div></div><br class="figure-break"/><p>Glyph substitution is just one way CommonType Layout
 	  extends font capabilities. Using precise X and Y coordinates
 	  for positioning glyphs, CommonType Layout fonts also can
@@ -120,23 +57,8 @@
 	  horizontally or vertically. Because baselines may vary from
 	  one script (set of characters) to another, this information
 	  is especially useful for aligning text that mixes glyphs
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  from scripts for different languages.</p><div class="figure"><a name="idm6312"></a><p class="title"><strong>Figure 20.5. Figure 1c. A line of text, baselines adjusted, mixing
-	    Latin and Arabic scripts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1e.gif" alt="Figure 1c. A line of text, baselines adjusted, mixing Latin and Arabic scripts."/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6317"></a>TrueType versus CommonType Layout</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.3.1"></a>Specification</h4></div></div></div><p>A TrueType font is a collection of several tables that
-=======
-	  from scripts for different languages.</p><div class="figure"><a name="idm189299174624"></a><p class="title"><strong>Figure 20.5. Figure 1c. A line of text, baselines adjusted, mixing
-	    Latin and Arabic scripts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1e.gif" alt="Figure 1c. A line of text, baselines adjusted, mixing Latin and Arabic scripts."/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189299171968"></a>TrueType versus CommonType Layout</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.3.1"></a>Specification</h4></div></div></div><p>A TrueType font is a collection of several tables that
->>>>>>> Rebuild
-=======
-	  from scripts for different languages.</p><div class="figure"><a name="idm62728594256"></a><p class="title"><strong>Figure 20.5. Figure 1c. A line of text, baselines adjusted, mixing
-	    Latin and Arabic scripts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1e.gif" alt="Figure 1c. A line of text, baselines adjusted, mixing Latin and Arabic scripts."/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728591760"></a>TrueType versus CommonType Layout</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.3.1"></a>Specification</h4></div></div></div><p>A TrueType font is a collection of several tables that
->>>>>>> Rebuild
-=======
-	  from scripts for different languages.</p><div class="figure"><a name="idm465835605488"></a><p class="title"><strong>Figure 20.5. Figure 1c. A line of text, baselines adjusted, mixing
-	    Latin and Arabic scripts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1e.gif" alt="Figure 1c. A line of text, baselines adjusted, mixing Latin and Arabic scripts."/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465835602784"></a>TrueType versus CommonType Layout</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.3.1"></a>Specification</h4></div></div></div><p>A TrueType font is a collection of several tables that
->>>>>>> Rebuild
+	  from scripts for different languages.</p><div class="figure"><a name="idm239468177360"></a><p class="title"><strong>Figure 20.5. Figure 1c. A line of text, baselines adjusted, mixing
+	    Latin and Arabic scripts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1e.gif" alt="Figure 1c. A line of text, baselines adjusted, mixing Latin and Arabic scripts."/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239468174656"></a>TrueType versus CommonType Layout</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.3.1"></a>Specification</h4></div></div></div><p>A TrueType font is a collection of several tables that
 	  contain different types of data: glyph outlines, metrics,
 	  bitmaps, mapping information, and much more. CommonType Layout
 	  fonts contain all this basic information, plus additional
@@ -152,23 +74,8 @@
 	  language or the typography of a particular script. Such
 	  information that would be replicated across all fonts in a
 	  given language belongs in the text-processing application
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  for that language, not in the fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6324"></a>CommonType Layout Terminology</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.4.1"></a>Specification</h4></div></div></div><p>The CommonType Layout model is organized around glyphs,
-	  scripts, language systems, and features</p><h5><a name="idm6329"></a>Characters versus glyphs</h5><p>Users don't view or print characters: a user views or
-=======
-	  for that language, not in the fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189299167616"></a>CommonType Layout Terminology</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.4.1"></a>Specification</h4></div></div></div><p>The CommonType Layout model is organized around glyphs,
-	  scripts, language systems, and features</p><h5><a name="idm189299165424"></a>Characters versus glyphs</h5><p>Users don't view or print characters: a user views or
->>>>>>> Rebuild
-=======
-	  for that language, not in the fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728587488"></a>CommonType Layout Terminology</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.4.1"></a>Specification</h4></div></div></div><p>The CommonType Layout model is organized around glyphs,
-	  scripts, language systems, and features</p><h5><a name="idm62728585296"></a>Characters versus glyphs</h5><p>Users don't view or print characters: a user views or
->>>>>>> Rebuild
-=======
-	  for that language, not in the fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465835598192"></a>CommonType Layout Terminology</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.4.1"></a>Specification</h4></div></div></div><p>The CommonType Layout model is organized around glyphs,
-	  scripts, language systems, and features</p><h5><a name="idm465835595872"></a>Characters versus glyphs</h5><p>Users don't view or print characters: a user views or
->>>>>>> Rebuild
+	  for that language, not in the fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239468170064"></a>CommonType Layout Terminology</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.4.1"></a>Specification</h4></div></div></div><p>The CommonType Layout model is organized around glyphs,
+	  scripts, language systems, and features</p><h5><a name="idm239468167744"></a>Characters versus glyphs</h5><p>Users don't view or print characters: a user views or
 	  prints glyphs. A glyph is a representation of a
 	  character. The character "capital letter A" is represented
 	  by the glyph "A" in Times New Roman Bold and "A" in Arial
@@ -184,40 +91,13 @@
 	  of a word, so a font would need several different glyphs to
 	  represent a single character. CommonType Layout fonts contain
 	  a table that provides a client with information about
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  possible glyph substitutions.</p><div class="figure"><a name="idm6332"></a><p class="title"><strong>Figure 20.6. Figure 1f. Multiple glyphs for the ampersand character.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1f.gif" alt="Figure 1f. Multiple glyphs for the ampersand character."/></div></div></div><br class="figure-break"/><h5><a name="idm6337"></a>Scripts</h5><p>A script is composed of a group of related characters,
-=======
-	  possible glyph substitutions.</p><div class="figure"><a name="idm189299163248"></a><p class="title"><strong>Figure 20.6. Figure 1f. Multiple glyphs for the ampersand character.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1f.gif" alt="Figure 1f. Multiple glyphs for the ampersand character."/></div></div></div><br class="figure-break"/><h5><a name="idm189299161232"></a>Scripts</h5><p>A script is composed of a group of related characters,
->>>>>>> Rebuild
-=======
-	  possible glyph substitutions.</p><div class="figure"><a name="idm62728583120"></a><p class="title"><strong>Figure 20.6. Figure 1f. Multiple glyphs for the ampersand character.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1f.gif" alt="Figure 1f. Multiple glyphs for the ampersand character."/></div></div></div><br class="figure-break"/><h5><a name="idm62728581104"></a>Scripts</h5><p>A script is composed of a group of related characters,
->>>>>>> Rebuild
-=======
-	  possible glyph substitutions.</p><div class="figure"><a name="idm465835593664"></a><p class="title"><strong>Figure 20.6. Figure 1f. Multiple glyphs for the ampersand character.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1f.gif" alt="Figure 1f. Multiple glyphs for the ampersand character."/></div></div></div><br class="figure-break"/><h5><a name="idm465835591552"></a>Scripts</h5><p>A script is composed of a group of related characters,
->>>>>>> Rebuild
+	  possible glyph substitutions.</p><div class="figure"><a name="idm239468165536"></a><p class="title"><strong>Figure 20.6. Figure 1f. Multiple glyphs for the ampersand character.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1f.gif" alt="Figure 1f. Multiple glyphs for the ampersand character."/></div></div></div><br class="figure-break"/><h5><a name="idm239468163424"></a>Scripts</h5><p>A script is composed of a group of related characters,
 	  which may be used by one or more languages. Latin, Arabic,
 	  and Thai are examples of scripts. A font may use a single
 	  script, or it may use many scripts. Within an CommonType
 	  Layout font, scripts are identified by unique 4-byte
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  tags.</p><div class="figure"><a name="idm6339"></a><p class="title"><strong>Figure 20.7. Figure 1g. Glyphs in the Latin, Kanji, and Arabic
-	    scripts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig2a.gif" alt="Figure 1g. Glyphs in the Latin, Kanji, and Arabic scripts."/></div></div></div><br class="figure-break"/><h5><a name="idm6344"></a>Language systems</h5><p>Scripts, in turn, may be divided into language
-=======
-	  tags.</p><div class="figure"><a name="idm189299160160"></a><p class="title"><strong>Figure 20.7. Figure 1g. Glyphs in the Latin, Kanji, and Arabic
-	    scripts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig2a.gif" alt="Figure 1g. Glyphs in the Latin, Kanji, and Arabic scripts."/></div></div></div><br class="figure-break"/><h5><a name="idm189299158144"></a>Language systems</h5><p>Scripts, in turn, may be divided into language
->>>>>>> Rebuild
-=======
-	  tags.</p><div class="figure"><a name="idm62728580032"></a><p class="title"><strong>Figure 20.7. Figure 1g. Glyphs in the Latin, Kanji, and Arabic
-	    scripts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig2a.gif" alt="Figure 1g. Glyphs in the Latin, Kanji, and Arabic scripts."/></div></div></div><br class="figure-break"/><h5><a name="idm62728578016"></a>Language systems</h5><p>Scripts, in turn, may be divided into language
->>>>>>> Rebuild
-=======
-	  tags.</p><div class="figure"><a name="idm465835590464"></a><p class="title"><strong>Figure 20.7. Figure 1g. Glyphs in the Latin, Kanji, and Arabic
-	    scripts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig2a.gif" alt="Figure 1g. Glyphs in the Latin, Kanji, and Arabic scripts."/></div></div></div><br class="figure-break"/><h5><a name="idm465835588352"></a>Language systems</h5><p>Scripts, in turn, may be divided into language
->>>>>>> Rebuild
+	  tags.</p><div class="figure"><a name="idm239468162336"></a><p class="title"><strong>Figure 20.7. Figure 1g. Glyphs in the Latin, Kanji, and Arabic
+	    scripts.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig2a.gif" alt="Figure 1g. Glyphs in the Latin, Kanji, and Arabic scripts."/></div></div></div><br class="figure-break"/><h5><a name="idm239468160224"></a>Language systems</h5><p>Scripts, in turn, may be divided into language
 	  systems. For example, the Latin script is used to write
 	  English, French, or German, but each language has its own
 	  special requirements for text processing. A font developer
@@ -228,23 +108,8 @@
 	  operating system needs to identify the language
 	  system. Otherwise, the client will use the default
 	  language-system information provided with each
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  script.</p><div class="figure"><a name="idm6347"></a><p class="title"><strong>Figure 20.8. Figure 1h. Differences in the English, French, and
-	    German language system.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1h.gif" alt="Figure 1h. Differences in the English, French, and German language system."/></div></div></div><br class="figure-break"/><h5><a name="idm6352"></a>Features</h5><p>Features define the basic functionality of the font. A
-=======
-	  script.</p><div class="figure"><a name="idm189299156304"></a><p class="title"><strong>Figure 20.8. Figure 1h. Differences in the English, French, and
-	    German language system.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1h.gif" alt="Figure 1h. Differences in the English, French, and German language system."/></div></div></div><br class="figure-break"/><h5><a name="idm189299154288"></a>Features</h5><p>Features define the basic functionality of the font. A
->>>>>>> Rebuild
-=======
-	  script.</p><div class="figure"><a name="idm62728576176"></a><p class="title"><strong>Figure 20.8. Figure 1h. Differences in the English, French, and
-	    German language system.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1h.gif" alt="Figure 1h. Differences in the English, French, and German language system."/></div></div></div><br class="figure-break"/><h5><a name="idm62728574160"></a>Features</h5><p>Features define the basic functionality of the font. A
->>>>>>> Rebuild
-=======
-	  script.</p><div class="figure"><a name="idm465835586480"></a><p class="title"><strong>Figure 20.8. Figure 1h. Differences in the English, French, and
-	    German language system.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1h.gif" alt="Figure 1h. Differences in the English, French, and German language system."/></div></div></div><br class="figure-break"/><h5><a name="idm465835584352"></a>Features</h5><p>Features define the basic functionality of the font. A
->>>>>>> Rebuild
+	  script.</p><div class="figure"><a name="idm239468158352"></a><p class="title"><strong>Figure 20.8. Figure 1h. Differences in the English, French, and
+	    German language system.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1h.gif" alt="Figure 1h. Differences in the English, French, and German language system."/></div></div></div><br class="figure-break"/><h5><a name="idm239468156224"></a>Features</h5><p>Features define the basic functionality of the font. A
 	  font that contains tables to handle diacritical marks will
 	  have a "mark" feature. A font that supports substitution of
 	  vertical glyphs will have a "vert" feature.</p><p>The CommonType Layout feature model provides great
@@ -253,27 +118,9 @@
 	  developers can work with application developers to determine
 	  useful features for fonts, add such features to CommonType
 	  Layout fonts, and enable client applications to support such
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  features.</p><div class="figure"><a name="idm6355"></a><p class="title"><strong>Figure 20.9. Figure 1i. The relationship of scripts, language
+	  features.</p><div class="figure"><a name="idm239468154432"></a><p class="title"><strong>Figure 20.9. Figure 1i. The relationship of scripts, language
 	    systems, features, and lookups for substitution and
-	    positioning tables.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1i.gif" alt="Figure 1i. The relationship of scripts, language systems, features, and lookups for substitution and positioning tables."/></div></div></div><br class="figure-break"/><h5><a name="idm6360"></a>CommonType Layout tables</h5><p>CommonType Layout comprises five new tables: GSUB, GPOS,
-=======
-	  features.</p><div class="figure"><a name="idm189299152512"></a><p class="title"><strong>Figure 20.9. Figure 1i. The relationship of scripts, language
-	    systems, features, and lookups for substitution and
-	    positioning tables.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1i.gif" alt="Figure 1i. The relationship of scripts, language systems, features, and lookups for substitution and positioning tables."/></div></div></div><br class="figure-break"/><h5><a name="idm189299150352"></a>CommonType Layout tables</h5><p>CommonType Layout comprises five new tables: GSUB, GPOS,
->>>>>>> Rebuild
-=======
-	  features.</p><div class="figure"><a name="idm62728572384"></a><p class="title"><strong>Figure 20.9. Figure 1i. The relationship of scripts, language
-	    systems, features, and lookups for substitution and
-	    positioning tables.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1i.gif" alt="Figure 1i. The relationship of scripts, language systems, features, and lookups for substitution and positioning tables."/></div></div></div><br class="figure-break"/><h5><a name="idm62728570224"></a>CommonType Layout tables</h5><p>CommonType Layout comprises five new tables: GSUB, GPOS,
->>>>>>> Rebuild
-=======
-	  features.</p><div class="figure"><a name="idm465835582560"></a><p class="title"><strong>Figure 20.9. Figure 1i. The relationship of scripts, language
-	    systems, features, and lookups for substitution and
-	    positioning tables.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1i.gif" alt="Figure 1i. The relationship of scripts, language systems, features, and lookups for substitution and positioning tables."/></div></div></div><br class="figure-break"/><h5><a name="idm465835580368"></a>CommonType Layout tables</h5><p>CommonType Layout comprises five new tables: GSUB, GPOS,
->>>>>>> Rebuild
+	    positioning tables.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig1i.gif" alt="Figure 1i. The relationship of scripts, language systems, features, and lookups for substitution and positioning tables."/></div></div></div><br class="figure-break"/><h5><a name="idm239468152240"></a>CommonType Layout tables</h5><p>CommonType Layout comprises five new tables: GSUB, GPOS,
 	  BASE, JSTF, and GDEF. These tables and their formats are
 	  discussed in detail in the chapters that follow this
 	  overview.</p><p>GSUB: Contains information about glyph substitutions to
@@ -289,19 +136,7 @@
 	  in the font: type (simple glyph, ligature, or combining
 	  mark), attachment points (if any), and ligature caret (if a
 	  ligature glyph).</p><p>Common Table Formats: Several common table formats are
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  used by the CommonType Layout tables.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6368"></a>Text processing with CommonType Layout fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.5.1"></a>Specification</h4></div></div></div><p>A text-processing client follows a standard process to
-=======
-	  used by the CommonType Layout tables.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189299145584"></a>Text processing with CommonType Layout fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.5.1"></a>Specification</h4></div></div></div><p>A text-processing client follows a standard process to
->>>>>>> Rebuild
-=======
-	  used by the CommonType Layout tables.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728565616"></a>Text processing with CommonType Layout fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.5.1"></a>Specification</h4></div></div></div><p>A text-processing client follows a standard process to
->>>>>>> Rebuild
-=======
-	  used by the CommonType Layout tables.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465835575552"></a>Text processing with CommonType Layout fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.5.1"></a>Specification</h4></div></div></div><p>A text-processing client follows a standard process to
->>>>>>> Rebuild
+	  used by the CommonType Layout tables.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239468147424"></a>Text processing with CommonType Layout fonts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.5.1"></a>Specification</h4></div></div></div><p>A text-processing client follows a standard process to
 	  convert the string of characters entered by a user into
 	  positioned glyphs. To produce text with CommonType Layout
 	  fonts:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Using the cmap table in the font, the client
@@ -334,53 +169,21 @@
 	  part of this specification. However, there is some
 	  connection since the GSUB and GPOS programs do operate on
 	  that structure. We capture here this connection in the form
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  of an interface:</p><pre class="programlisting"><a name="d1e22131"></a><code class="classname">GlyphRun interface</code> ==
-=======
-	  of an interface:</p><pre class="programlisting"><a name="d1e21742"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
-=======
 	  of an interface:</p><pre class="programlisting"><a name="d1e21745"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
       
 package com.adobe.aots.CommonType;
 
 public interface GlyphRun {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <code class="classname">glyphrun.methods: <a class="link" href="chapter.advanced.html#d1e22143">1</a>, <a class="link" href="chapter.advanced.html#d1e22152">2</a>, <a class="link" href="chapter.advanced.html#d1e22161">3</a>, <a class="link" href="chapter.advanced.html#d1e22171">4</a>, <a class="link" href="chapter.advanced.html#d1e22180">5</a>, <a class="link" href="chapter.advanced.html#d1e22189">6</a></code>
-}
-</pre><p>First, we have two simple methods to access the number
-	  of glyphs in the run and the ID of glyph at a specific
-	  position:</p><pre class="programlisting"><a name="d1e22143"></a><code class="classname">GlyphRun interface</code> ==
-=======
-  <code class="classname">glyphrun.methods: <a class="link" href="chapter.advanced.html#d1e21754">1</a>, <a class="link" href="chapter.advanced.html#d1e21763">2</a>, <a class="link" href="chapter.advanced.html#d1e21772">3</a>, <a class="link" href="chapter.advanced.html#d1e21782">4</a>, <a class="link" href="chapter.advanced.html#d1e21791">5</a>, <a class="link" href="chapter.advanced.html#d1e21800">6</a></code>
-}
-</pre><p>First, we have two simple methods to access the number
-	  of glyphs in the run and the ID of glyph at a specific
-	  position:</p><pre class="programlisting"><a name="d1e21754"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
-=======
   <code class="classname">glyphrun.methods: <a class="link" href="chapter.advanced.html#d1e21757">1</a>, <a class="link" href="chapter.advanced.html#d1e21766">2</a>, <a class="link" href="chapter.advanced.html#d1e21775">3</a>, <a class="link" href="chapter.advanced.html#d1e21785">4</a>, <a class="link" href="chapter.advanced.html#d1e21794">5</a>, <a class="link" href="chapter.advanced.html#d1e21803">6</a></code>
 }
 </pre><p>First, we have two simple methods to access the number
 	  of glyphs in the run and the ID of glyph at a specific
 	  position:</p><pre class="programlisting"><a name="d1e21757"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
       
   public int glyphCount ();
   public int glyphAt (int pos);
 </pre><p>Another pair of accessors, this time to get the position
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  of a glyph:</p><pre class="programlisting"><a name="d1e22152"></a><code class="classname">GlyphRun interface</code> ==
-=======
-	  of a glyph:</p><pre class="programlisting"><a name="d1e21763"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
-=======
 	  of a glyph:</p><pre class="programlisting"><a name="d1e21766"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
       
   public int getXPos (int g);
   public int getYPos (int g);
@@ -394,77 +197,30 @@ public interface GlyphRun {
 	  between the last glyph subject to 'onum' and the glyph
 	  followin it. Thus, a GPOS/GSUB engine needs
 	  to figure out if a given lookup is to be applied at a given
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  position:</p><pre class="programlisting"><a name="d1e22161"></a><code class="classname">GlyphRun interface</code> ==
-=======
-	  position:</p><pre class="programlisting"><a name="d1e21772"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
-=======
 	  position:</p><pre class="programlisting"><a name="d1e21775"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
       
   public boolean isLookupApplied (int lookupIndex, int start, int stop);
 </pre><p>The MarkToLigature GPOS lookup type has the implicit
 	  notion of ligature component, and of the component to which
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  a mark following a ligature attaches to:</p><pre class="programlisting"><a name="d1e22171"></a><code class="classname">GlyphRun interface</code> ==
-=======
-	  a mark following a ligature attaches to:</p><pre class="programlisting"><a name="d1e21782"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
-=======
 	  a mark following a ligature attaches to:</p><pre class="programlisting"><a name="d1e21785"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
       
   public void setLigComponents (int[] components);
   public int getLigComponent (int g);
 </pre><p>The GSUB lookups result in the replaced of one or more
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  glyphs by one or more glyphs:</p><pre class="programlisting"><a name="d1e22180"></a><code class="classname">GlyphRun interface</code> ==
-=======
-	  glyphs by one or more glyphs:</p><pre class="programlisting"><a name="d1e21791"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
-=======
 	  glyphs by one or more glyphs:</p><pre class="programlisting"><a name="d1e21794"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
       
   public void replace (int position, int replacementGlyph);
   public void replace (int position, int[] replacementGlyphs);
   public void replace (int[] positions, int replacementGlyph);
 </pre><p>The GPOS lookups result in the adjustment of a glyph
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  position:</p><pre class="programlisting"><a name="d1e22189"></a><code class="classname">GlyphRun interface</code> ==
-      
-  public void adjustPlacementAndAdvance (int g, ValueRecord vr);
-  public void move (int g, int x, int y);
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm6432"></a>CommonType Layout fonts in Windows 95</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.6.1"></a>Specification</h4></div></div></div><p>The core system fonts in the Middle East and Far East
-	  versions of Windows 95 are CommonType Layout fonts. These
-	  fonts demonstrate aspects of CommonType Layout's
-	  versatility.</p><h5><a name="idm6437"></a>Middle East Windows 95</h5><p>Middle East Windows 95 uses several Arabic CommonType
-=======
-	  position:</p><pre class="programlisting"><a name="d1e21800"></a><code class="classname">GlyphRun interface</code> ==
-=======
 	  position:</p><pre class="programlisting"><a name="d1e21803"></a><code class="classname">GlyphRun interface</code> ==
->>>>>>> Rebuild
       
   public void adjustPlacementAndAdvance (int g, ValueRecord vr);
   public void move (int g, int x, int y);
-</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465835546672"></a>CommonType Layout fonts in Windows 95</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.6.1"></a>Specification</h4></div></div></div><p>The core system fonts in the Middle East and Far East
+</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239468118512"></a>CommonType Layout fonts in Windows 95</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.21.6.1"></a>Specification</h4></div></div></div><p>The core system fonts in the Middle East and Far East
 	  versions of Windows 95 are CommonType Layout fonts. These
 	  fonts demonstrate aspects of CommonType Layout's
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  versatility.</p><h5><a name="idm189295953296"></a>Middle East Windows 95</h5><p>Middle East Windows 95 uses several Arabic CommonType
->>>>>>> Rebuild
-=======
-	  versatility.</p><h5><a name="idm62728535840"></a>Middle East Windows 95</h5><p>Middle East Windows 95 uses several Arabic CommonType
->>>>>>> Rebuild
-=======
-	  versatility.</p><h5><a name="idm465835544256"></a>Middle East Windows 95</h5><p>Middle East Windows 95 uses several Arabic CommonType
->>>>>>> Rebuild
+	  versatility.</p><h5><a name="idm239468116096"></a>Middle East Windows 95</h5><p>Middle East Windows 95 uses several Arabic CommonType
 	  Layout fonts: fixed regular weight, proportional regular
 	  weight, fixed bold, and proportional bold. These fonts take
 	  advantage of many glyph substitution features available in
@@ -472,19 +228,7 @@ public interface GlyphRun {
 	  contextual), ligature substitution (many-to-one), and mark
 	  set substitutions. In Middle East Windows 95, the operating
 	  system itself handles glyph substitution, using data in the
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	  GSUB table of each font.</p><h5><a name="idm6439"></a>Far East Windows 95</h5><p>Far East Windows 95 also uses several CommonType Layout
-=======
-	  GSUB table of each font.</p><h5><a name="idm189295952000"></a>Far East Windows 95</h5><p>Far East Windows 95 also uses several CommonType Layout
->>>>>>> Rebuild
-=======
-	  GSUB table of each font.</p><h5><a name="idm62728534544"></a>Far East Windows 95</h5><p>Far East Windows 95 also uses several CommonType Layout
->>>>>>> Rebuild
-=======
-	  GSUB table of each font.</p><h5><a name="idm465835542928"></a>Far East Windows 95</h5><p>Far East Windows 95 also uses several CommonType Layout
->>>>>>> Rebuild
+	  GSUB table of each font.</p><h5><a name="idm239468114768"></a>Far East Windows 95</h5><p>Far East Windows 95 also uses several CommonType Layout
 	  fonts: fixed serif, proportional serif, fixed sans serif,
 	  and proportional sans serif. The Japanese fonts take
 	  advantage of a subset of CommonType Layout features, including

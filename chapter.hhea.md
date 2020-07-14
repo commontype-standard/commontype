@@ -1,33 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.hhea"></a>Chapter 7. hhea - Horizontal Header</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm1865"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.8.1.1"></a>Specification</h4></div></div></div><p>This table contains information for horizontal layout.
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.hhea"></a>Chapter 7. hhea - Horizontal Header</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189297653008"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.8.1.1"></a>Specification</h4></div></div></div><p>This table contains information for horizontal layout.
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.hhea"></a>Chapter 7. hhea - Horizontal Header</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730074032"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.8.1.1"></a>Specification</h4></div></div></div><p>This table contains information for horizontal layout.
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.hhea"></a>Chapter 7. hhea - Horizontal Header</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847813936"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.8.1.1"></a>Specification</h4></div></div></div><p>This table contains information for horizontal layout.
->>>>>>> Rebuild
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.hhea"></a>Chapter 7. hhea - Horizontal Header</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239471442176"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.8.1.1"></a>Specification</h4></div></div></div><p>This table contains information for horizontal layout.
           The values in the minRightSidebearing, minLeftSideBearing
           and xMaxExtent should be computed using
           <span class="emphasis"><em>only</em></span> glyphs that have contours. Glyphs
           with no contours should be ignored for the purposes of these
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          calculations. All reserved areas must be set to 0.</p><div class="table"><a name="idm1871"></a><p class="title"><strong>Table 7.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Table</td><td>version number 0x00010000 for version
-=======
-          calculations. All reserved areas must be set to 0.</p><div class="table"><a name="idm189297650064"></a><p class="title"><strong>Table 7.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Table</td><td>version number 0x00010000 for version
->>>>>>> Rebuild
-=======
-          calculations. All reserved areas must be set to 0.</p><div class="table"><a name="idm62730070992"></a><p class="title"><strong>Table 7.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Table</td><td>version number 0x00010000 for version
->>>>>>> Rebuild
-=======
-          calculations. All reserved areas must be set to 0.</p><div class="table"><a name="idm465847811072"></a><p class="title"><strong>Table 7.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Table</td><td>version number 0x00010000 for version
->>>>>>> Rebuild
+          calculations. All reserved areas must be set to 0.</p><div class="table"><a name="idm239471439232"></a><p class="title"><strong>Table 7.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Table</td><td>version number 0x00010000 for version
               1.0.</td><td class="auto-generated"> </td></tr><tr><td>FWORD</td><td>Ascender</td><td>Typographic ascent (<a class="ulink" href="http://developer.apple.com/fonts/TTRefMan/RM06/Chap6hhea.html" target="_top">Distance
             from baseline to highest ascender</a>)</td><td class="auto-generated"> </td></tr><tr><td>FWORD</td><td>Descender</td><td>Typographic descent(<a class="ulink" href="http://developer.apple.com/fonts/TTRefMan/RM06/Chap6hhea.html" target="_top">Distance
             from baseline to highest ascender</a>)</td><td class="auto-generated"> </td></tr><tr><td>FWORD</td><td>LineGap</td><td>Typographic line gap. Negative LineGap values are

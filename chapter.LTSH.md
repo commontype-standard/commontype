@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.LTSH"></a>Chapter 35. LTSH - Linear Threshold</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm19423"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.36.1.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.LTSH.html" title="Chapter 35. LTSH - Linear Threshold">LTSH</a> table relates to CommonType
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.LTSH"></a>Chapter 35. LTSH - Linear Threshold</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292121504"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.36.1.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.LTSH.html" title="Chapter 35. LTSH - Linear Threshold">LTSH</a> table relates to CommonType
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.LTSH"></a>Chapter 35. LTSH - Linear Threshold</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62723300768"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.36.1.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.LTSH.html" title="Chapter 35. LTSH - Linear Threshold">LTSH</a> table relates to CommonType
->>>>>>> Rebuild
-=======
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.LTSH"></a>Chapter 35. LTSH - Linear Threshold</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465829843488"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.36.1.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.LTSH.html" title="Chapter 35. LTSH - Linear Threshold">LTSH</a> table relates to CommonType
->>>>>>> Rebuild
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.LTSH"></a>Chapter 35. LTSH - Linear Threshold</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm239470750048"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.36.1.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.LTSH.html" title="Chapter 35. LTSH - Linear Threshold">LTSH</a> table relates to CommonType
         fonts containing TrueType outlines. There are noticeable
         improvements to fonts on the screen when instructions are
         carefully applied to the sidebearings. The gain in readability
@@ -35,19 +23,7 @@
           and above the recorded threshold size, the glyph remain
           linear in its scaling (i.e., not legal to set threshold at
           55 ppem if glyph becomes nonlinear again at 90 ppem). The
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          format for the table is:</p><div class="table"><a name="idm19439"></a><p class="title"><strong>Table 35.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Version number (starts at 0).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numGlyphs</td><td>Number of glyphs (from "numGlyphs" in <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a>
-=======
-          format for the table is:</p><div class="table"><a name="idm189292112752"></a><p class="title"><strong>Table 35.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Version number (starts at 0).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numGlyphs</td><td>Number of glyphs (from "numGlyphs" in <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a>
->>>>>>> Rebuild
-=======
-          format for the table is:</p><div class="table"><a name="idm62723292016"></a><p class="title"><strong>Table 35.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Version number (starts at 0).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numGlyphs</td><td>Number of glyphs (from "numGlyphs" in <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a>
->>>>>>> Rebuild
-=======
-          format for the table is:</p><div class="table"><a name="idm465829834736"></a><p class="title"><strong>Table 35.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Version number (starts at 0).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numGlyphs</td><td>Number of glyphs (from "numGlyphs" in <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a>
->>>>>>> Rebuild
+          format for the table is:</p><div class="table"><a name="idm239470741296"></a><p class="title"><strong>Table 35.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Version number (starts at 0).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numGlyphs</td><td>Number of glyphs (from "numGlyphs" in <a class="link" href="chapter.maxp.html" title="Chapter 9. maxp - Maximum Profile">maxp</a>
               table).</td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>yPels [numGlyphs]</td><td>The vertical pel height at which the glyph
               can be assumed to scale linearly. On a per glyph
               basis.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Note that glyphs which do not have instructions on their

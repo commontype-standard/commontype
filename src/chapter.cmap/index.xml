@@ -116,23 +116,14 @@
   </section>
   <!--======================================================================-->
 
-  <section role="fragment">
-    <title>cmap Subtable Formats</title>
-    <para>
-      XXX Introductory thing here. format 8, 10 and 12; which directly support 4-byte character
-          codes. A major change introduced with these three formats is
-          a more pure 32-bit orientation.
-    </para>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-0.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-2.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-4.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-6.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-8.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-10.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-12.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-14.xml"/>
-  </section>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-0.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-4.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-6.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-8.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-10.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-12.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-14.xml"/>
   <!--======================================================================-->
   <section role="fragment">
     <title>Mapping Process for Font Consumers</title>

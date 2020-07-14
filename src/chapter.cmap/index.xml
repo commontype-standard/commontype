@@ -107,10 +107,7 @@
           add Windows ANSI (CharSet 0) to the list of CharSets
           supported by the font; and (c) consider the value of the
           encoding ID to be a Windows CharSet value and add it to the
-          list of CharSets supported by the font. Note: The
-          <ottable>cmap</ottable> subtable must use Format 0 or 6 for
-          its subtable, and the encoding must be identical to the
-          CFF's encoding.</para>
+          list of CharSets supported by the font.</para>
       <para>This <ottable>cmap</ottable> encoding provides a
           compatibility mechanism for non-Unicode applications that use
           the font as if it were Windows ANSI encoded.</para>
@@ -124,7 +121,6 @@
       XXX Introductory thing here. format 8, 10 and 12; which directly support 4-byte character
           codes. A major change introduced with these three formats is
           a more pure 32-bit orientation.
-          XXX compatibility
     </para>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="format-0.xml"/>
@@ -168,19 +164,28 @@
         to glyph ID assignments compatible with the MacRoman encoding should be
         made using platform ID 1 platform encoding 0.
       </para>
-      <para>All Microsoft Unicode encodings (Platform ID = 3,
-          Encoding ID = 1) must provide at least a Format 4
-          <ottable>cmap</ottable> subtable. If the font is meant to
-          support supplementary Unicode characters, it will additionally
-          need a Format 12 subtable with a platform encoding ID 10.
-          The contents of the Format 12 subtable need to be a superset
-          of the contents of the Format 4 subtable. Microsoft
-          <emphasis>strongly</emphasis> recommends using a Unicode
-          <ottable>cmap</ottable> for all fonts.</para>
+      <para>
+        The choice of subtable format is not entirely a free one, as certain combinations of platform and platform encoding mandate particular
+        formats:
+      </para>
+      <itemizedlist>
+        <listitem>
+          When the platform ID is 0 and platform encoding is 5 (Unicode Variation Sequences), the subtable must be format 10.
+        </listitem>
+        <listitem>
+          When platform ID is 3 and platform encoding ID is 1 (Windows Unicode),
+          the subtable must be format 4.
+        </listitem>
+        <listitem>
+          When the platform ID is 3 and platform encoding is 10 (Windows full-range
+          Unicode) to access codepoints beyond the Basic Multilingual Plane,
+          the subtable must be format 12.
+        </listitem>
+        <listitem>
+          When the platform ID is 4 (Custom), the subtable must be format 0 or format 6.
+        </listitem>
 
-      <para>Unicode Variation Sequences supported by the font may be
-        specified in the cmap table under platform ID 0 and encoding
-        ID 5, using a format 14 cmap subtable.</para>
+      </itemizedlist>
 
       <para>It is legal to have a single subtable which is referenced
           from multiple entries? This is useful when a given character

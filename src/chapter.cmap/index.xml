@@ -45,75 +45,7 @@
           <emphasis>strongly</emphasis> recommends using a Unicode
           <ottable>cmap</ottable> for all fonts. However, some other
           encodings that appear in current fonts follow:</para>
-      <table>
-        <title>Microsoft Encodings</title>
-        <tgroup cols="3">
-          <thead>
-            <row>
-              <entry>Platform ID</entry>
-              <entry>Encoding ID</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            <row>
-              <entry>3</entry>
-              <entry>0</entry>
-              <entry>Symbol</entry>
-            </row>
-            <row>
-              <entry>3</entry>
-              <entry>1</entry>
-              <entry>Unicode</entry>
-            </row>
-            <row>
-              <entry>3</entry>
-              <entry>2</entry>
-              <entry>ShiftJIS</entry>
-            </row>
-            <row>
-              <entry>3</entry>
-              <entry>3</entry>
-              <entry>PRC</entry>
-            </row>
-            <row>
-              <entry>3</entry>
-              <entry>4</entry>
-              <entry>Big5</entry>
-            </row>
-            <row>
-              <entry>3</entry>
-              <entry>5</entry>
-              <entry>Wansung</entry>
-            </row>
-            <row>
-              <entry>3</entry>
-              <entry>6</entry>
-              <entry>Johab</entry>
-            </row>
-            <row>
-              <entry>3</entry>
-              <entry>7</entry>
-              <entry>Reserved</entry>
-            </row>
-            <row>
-              <entry>3</entry>
-              <entry>9</entry>
-              <entry>Reserved</entry>
-            </row>
-            <row>
-              <entry>3</entry>
-              <entry>9</entry>
-              <entry>Reserved</entry>
-            </row>
-            <row>
-              <entry>3</entry>
-              <entry>10</entry>
-              <entry>UCS-4</entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </table>
+
       <para>Unicode Variation Sequences supported by the font may be
         specified in the cmap table under platform ID 0 and encoding
         ID 5, using a format 14 cmap subtable.</para>
@@ -1415,6 +1347,18 @@ If the intent is really for a Unicode encodings,
         </listitem>
       </itemizedlist>
     </section>
+    <section>
+      <title>Discussion</title>
+      <para>
+        In practice, font producers creating fonts with characters entirely
+        within the Basic Multilingual Plane should generate <ottable>cmap</ottable>
+        table entries with Unicode codepoint encoding using platform ID 0
+        platform encoding ID 3, and platform ID 3 platform encoding 1. Character
+        to glyph ID assignments compatible with the MacRoman encoding should be
+        made using platform ID 1 platform encoding 0.
+      </para>
+    </section>
+
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-9.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-9.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-9.xml"/>

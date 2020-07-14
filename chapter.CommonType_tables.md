@@ -1,6 +1,6 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.CommonType_tables"></a>Chapter 3. CommonType Tables</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm551"></a>CommonType Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.4.1.1"></a>Specification</h4></div></div></div><p>Whether TrueType or PostScript outlines are used in an
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.CommonType_tables"></a>Chapter 3. CommonType Tables</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm332057795216"></a>CommonType Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.4.1.1"></a>Specification</h4></div></div></div><p>Whether TrueType or PostScript outlines are used in an
         CommonType font, the following tables are required for the font
-        to function correctly:</p><div class="table"><a name="idm556"></a><p class="title"><strong>Table 3.1. Required Tables</strong></p><div class="table-contents"><table class="table" summary="Required Tables" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
+        to function correctly:</p><div class="table"><a name="idm332057792944"></a><p class="title"><strong>Table 3.1. Required Tables</strong></p><div class="table-contents"><table class="table" summary="Required Tables" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
                 <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a>
               </td><td>Character to glyph mapping</td></tr><tr><td>
                 <a class="link" href="chapter.head.html" title="Chapter 6. head - Font Header">head</a>
@@ -17,7 +17,7 @@
               </td><td>OS/2 and Windows specific metrics</td></tr><tr><td>
                 <a class="link" href="chapter.post.html" title="Chapter 13. post - PostScript">post</a>
               </td><td>PostScript information</td></tr></tbody></table></div></div><br class="table-break"/><p>For CommonType fonts based on TrueType outlines, the
-        following tables are used:</p><div class="table"><a name="idm597"></a><p class="title"><strong>Table 3.2. Tables Related to TrueType Outlines</strong></p><div class="table-contents"><table class="table" summary="Tables Related to TrueType Outlines" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
+        following tables are used:</p><div class="table"><a name="idm332059567712"></a><p class="title"><strong>Table 3.2. Tables Related to TrueType Outlines</strong></p><div class="table-contents"><table class="table" summary="Tables Related to TrueType Outlines" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
                 <a class="link" href="chapter.cvt.html" title="Chapter 14. cvt - Control Value Table">cvt</a>
               </td><td>Control Value Table</td></tr><tr><td>
                 <a class="link" href="chapter.fpgm.html" title="Chapter 15. fpgm - Font Program">fpgm</a>
@@ -29,7 +29,7 @@
                 <a class="link" href="chapter.prep.html" title="Chapter 18. prep - Control Value Program">prep</a>
               </td><td>CVT Program</td></tr></tbody></table></div></div><br class="table-break"/><p>The PostScript font extensions define a new set of
         tables containing data specific to PostScript fonts that are
-        used instead of the tables listed above.</p><div class="table"><a name="idm626"></a><p class="title"><strong>Table 3.3. Tables Related to PostScript Outlines</strong></p><div class="table-contents"><table class="table" summary="Tables Related to PostScript Outlines" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
+        used instead of the tables listed above.</p><div class="table"><a name="idm332059555056"></a><p class="title"><strong>Table 3.3. Tables Related to PostScript Outlines</strong></p><div class="table-contents"><table class="table" summary="Tables Related to PostScript Outlines" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
                 <a class="link" href="chapter.CFF.html" title="Chapter 19. CFF - PostScript font program (Compact Font Format) table">CFF</a>
               </td><td>PostScript font program (compact font format)</td></tr><tr><td>
                 <a class="link" href="chapter.VORG.html" title="Chapter 40. VORG - Vertical Origin Table">VORG</a>
@@ -38,7 +38,7 @@
           'fvar', 'MMSD', 'MMFX' tables have hence been
           removed.</p><p>There are also several optional tables that support
         vertical layout as well as other advanced typographic
-        functions:</p><div class="table"><a name="idm644"></a><p class="title"><strong>Table 3.4. Advanced Typographic Tables</strong></p><div class="table-contents"><table class="table" summary="Advanced Typographic Tables" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
+        functions:</p><div class="table"><a name="idm332059547136"></a><p class="title"><strong>Table 3.4. Advanced Typographic Tables</strong></p><div class="table-contents"><table class="table" summary="Advanced Typographic Tables" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
                 <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>
               </td><td>Baseline data</td></tr><tr><td>
                 <a class="link" href="chapter.GDEF.html" title="Chapter 23. GDEF - The Glyph Definition Table">GDEF</a>
@@ -56,13 +56,13 @@
           very small sizes. If a bitmap for a particular size is
           provided in a font, it will be used by the system instead of
           the outline when rendering the glyph. (Note: ATM does not
-          currently support hinted bitmaps in CommonType fonts.)</p><div class="table"><a name="idm675"></a><p class="title"><strong>Table 3.5. Tables Related to Bitmap Glyphs</strong></p><div class="table-contents"><table class="table" summary="Tables Related to Bitmap Glyphs" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
+          currently support hinted bitmaps in CommonType fonts.)</p><div class="table"><a name="idm332059532608"></a><p class="title"><strong>Table 3.5. Tables Related to Bitmap Glyphs</strong></p><div class="table-contents"><table class="table" summary="Tables Related to Bitmap Glyphs" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
                 <a class="link" href="chapter.EBDT.html" title="Chapter 28. EBDT - Embedded Bitmap Data Table">EBDT</a>
               </td><td>Embedded bitmap data</td></tr><tr><td>
                 <a class="link" href="chapter.EBLC.html" title="Chapter 29. EBLC - Embedded Bitmap Location Table">EBLC</a>
               </td><td>Embedded bitmap location data</td></tr><tr><td>
                 <a class="link" href="chapter.EBSC.html" title="Chapter 30. EBSC - Embedded Bitmap Scaling Table">EBSC</a>
-              </td><td>Embedded bitmap scaling data</td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm695"></a><p class="title"><strong>Table 3.6. Other CommonType Tables</strong></p><div class="table-contents"><table class="table" summary="Other CommonType Tables" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
+              </td><td>Embedded bitmap scaling data</td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm332059523904"></a><p class="title"><strong>Table 3.6. Other CommonType Tables</strong></p><div class="table-contents"><table class="table" summary="Other CommonType Tables" border="1"><colgroup><col/><col/></colgroup><thead><tr><th>Tag</th><th>Name</th></tr></thead><tbody><tr><td>
                 <a class="link" href="chapter.DSIG.html" title="Chapter 31. DSIG - Digital Signature Table">DSIG</a>
               </td><td>Digital signature</td></tr><tr><td>
                 <a class="link" href="chapter.gasp.html" title="Chapter 32. gasp - Grid-fitting And Scan-conversion Procedure">gasp</a>

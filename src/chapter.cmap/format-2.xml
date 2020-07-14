@@ -4,22 +4,14 @@
     <!--____________________________________________________________________-->
     <section role="specification">
       <title>Specification</title>
-      <para>This subtable is useful for the national character code
-          standards used for Japanese, Chinese, and Korean characters.
-          These code standards use a mixed 8/16-bit encoding, in which
-          certain byte values signal the first byte of a 2-byte
-          character (but these values are also legal as the second
-          byte of a 2-byte character).</para>
-      <para>In addition, even for the 2-byte characters, the mapping
-          of character codes to glyph index values depends heavily on
-          the first byte. Consequently, the table begins with an array
-          that maps the first byte to a 4-word subHeader. For 2-byte
-          character codes, the subHeader is used to map the second
-          byte's value through a subArray, as described below. When
-          processing mixed 8/16-bit text, subHeader 0 is special: it
-          is used for single-byte character codes. When subHeader zero
-          is used, a second byte is not needed; the single byte value
-          is mapped through the subArray.</para>
+      <para>This subtable is designed to faciliate mapping characters to glyphs
+          within the encoding mechanisms which use a mixed 8/16-bit encoding,
+          such as the legacy national character code standards used for Japanese,
+          Chinese, and Korean characters.
+      </para>
+      <para>In a mixed encoding, codepoints may be represented either by a one
+          byte integer or a two byte integer, with certain values of the initial
+          byte acting as a continuation signal.</para>
       <otformat>
         <otfield>
           <otfieldoffs>0</otfieldoffs>
@@ -31,16 +23,13 @@
           <otfieldoffs>2</otfieldoffs>
           <otfieldtype>USHORT</otfieldtype>
           <otfieldname>length</otfieldname>
-          <otfielddesc>This is the length in bytes of the
-              subtable.</otfielddesc>
+          <otfielddesc>Length in bytes of the subtable.</otfielddesc>
         </otfield>
         <otfield>
           <otfieldoffs>4</otfieldoffs>
           <otfieldtype>USHORT</otfieldtype>
           <otfieldname>language</otfieldname>
-          <otfielddesc>Please see <link linkend="language_note">Note
-                on the language field in <ottable>cmap</ottable> subtables</link> in
-              this document.</otfielddesc>
+          <otfielddesc>Language ID (for Macintosh language-specific mappings)</otfielddesc>
         </otfield>
         <otfield>
           <otfieldoffs>6</otfieldoffs>
@@ -57,7 +46,7 @@
               structures.</otfielddesc>
         </otfield>
         <otfield>
-          <otfieldoffs>?</otfieldoffs>
+          <otfieldoffs></otfieldoffs>
           <otfieldtype>USHORT</otfieldtype>
           <otfieldname>glyphIndexArray []</otfieldname>
           <otfielddesc>Variable-length array containing subarrays
@@ -65,6 +54,7 @@
               characters.</otfielddesc>
         </otfield>
       </otformat>
+
       <para>A subHeader is structured as follows:</para>
       <otformat>
         <otfield>
@@ -94,32 +84,76 @@
           <otfielddesc>See text below.</otfielddesc>
         </otfield>
       </otformat>
-      <para>The firstCode and entryCount values specify a subrange
-          that begins at firstCode and has a length equal to the value
-          of entryCount. This subrange stays within the 0-255 range of
-          the byte being mapped. Bytes outside of this subrange are
-          mapped to glyph index 0 (missing glyph). The offset of the
-          byte within this subrange is then used as index into a
-          corresponding subarray of glyphIndexArray. This subarray is
-          also of length entryCount. The value of the idRangeOffset is
-          the number of bytes past the actual location of the
-          idRangeOffset word where the glyphIndexArray element
-          corresponding to firstCode appears.</para>
-      <para>Finally, if the value obtained from the subarray is not
-          0 (which indicates the missing glyph), you should add
-          idDelta to it in order to get the glyphIndex. The value
-          idDelta permits the same subarray to be used for several
-          different subheaders. The idDelta arithmetic is modulo
-          65536.</para>
+
+      <para>The firstCode and entryCount values specify the range of low-byte
+          values handled by this subheader. Bytes outside of this range are
+          mapped to glyph index 0.
+      </para>
+      <para>
+          The value of idRangeOffset points to the element of the
+          glyphElement array corresponding to the firstCode. Note that
+          unlike most offset values in this standard, the idRangeOffset
+          counts the number of bytes from <emphasis>the byte position of
+          the idRangeOffset record itself</emphasis> to the target element,
+          rather than from the start of the subtable header.
+      </para>
+      <para>
+          The value of idDelta specifies a delta to be added the glyph ID,
+          modulo 65536, to permits the same subarray to be used for several
+          different subheaders.
+      </para>
+
+      <para>subHeader 0 must contain the following values:</para>
+      <informaltable>
+        <tgroup cols="2">
+          <tbody>
+            <row><entry>firstCode</entry><entry>0</entry></row>
+            <row><entry>entryCount</entry><entry>256</entry></row>
+            <row><entry>idDelta</entry><entry>0</entry></row>
+            <row><entry>idRangeOffset</entry><entry>offset to start of glyphIndexArray</entry></row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+
+      <section role="fragment">
+        <title>Mapping Process for Font Consumers</title>
+        <para>
+          To map codepoints to glyph IDs in a format 0 subtable, the font
+          consumer should consume the input character stream one byte at a time,
+          and perform the following sequence of operations.
+        </para>
+        <para>
+          First, the input byte is used to index the subHeaderKeys array to
+          obtain a <emphasis>subheader key</emphasis>.
+        </para>
+        <para>
+          Where the subheader key is 0, this indicates that the
+          input byte is the only byte in this codepoint. The input byte is
+          then directly looked up in the glyphIndexArray to obtain the glyph ID.
+        </para>
+        <para>
+          Where the subheader key is greater than 0, this indicates a two-byte
+          character. First, the subheader key should be divided by 8,
+          and the font consumer should then use this to index into the subheader
+          array to obtain the appropriate subheader.
+        </para>
+        <para>
+          Next, the font consumer should consume another input byte, the <emphasis>low byte</emphasis>, and ensure that the value of the low byte is within
+          the range of this subheader - that is, that the low byte is more than or
+          equal to firstCode and less than firstCode+entryCount. If the low byte
+          is not within the range of the subheader, glyph ID 0 is returned.
+        </para>
+        <para>firstCode is then subtracted from the low byte to determine the
+          <emphasis>index offset</emphasis>. The font consumer will then advance
+          idRangeOffset bytes from the position of the idRangeOffset element in
+          the subheader to find the beginning of the glyph mapping subrange, and
+          then also advance by the index offset to determine the glyph ID.</para>
+        <para>Finally, if the glyph ID is non-zero and idDelta is non-zero,
+          idDelta is added to the glyph ID module 65536 to return the final glyph ID.
+        </para>
+      </section>
     </section>
     <!--____________________________________________________________________-->
-    <section role="annotation">
-      <title>Annotation</title>
-      <para>How about an intelligible description of the use of this
-        format? Assuming that it intends to describe the same
-        structure as the Apple True Type format, simply switching to
-        their version would already be a vast improvement.</para>
-    </section>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-3.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-3.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-3.xml"/>

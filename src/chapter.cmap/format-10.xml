@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <section role="fragment">
+    <title>Format 10: Trimmed array</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Format 10 is a bit like format 6, in that it defines a
+        trimmed array for a tight range of 32-bit character
+        codes:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Subtable format; set to 10.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Reserved; set to 0</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>Byte length of this subtable (including the
+              header) </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> startCharCode</otfieldname>
+          <otfielddesc> First character code covered </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> numChars</otfieldname>
+          <otfielddesc> Number of character codes covered
+            </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>20</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname> glyphs []</otfieldname>
+          <otfielddesc> Array of glyph indices for the character
+              codes covered </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This format is not supported by Microsoft.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>For coherence with the other formats, the description of
+        the format field should be "Format number is set to 10" and the
+        description of the length field should be "This is the length
+        in bytes of the subtable."</para>
+    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-7.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-7.xml"/>
+  </section>

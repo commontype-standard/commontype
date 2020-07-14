@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <section role="fragment">
+    <title>Format 0: Byte encoding table</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This is the Apple standard character to glyph index
+          mapping table.</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Format number is set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>This is the length in bytes of the
+              subtable.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in cmap subtables</link> in this
+              document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>glyphIdArray[256]</otfieldname>
+          <otfielddesc>An array that maps character codes to glyph
+              index values.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This is a simple 1 to 1 mapping of character codes to
+          glyph indices. The glyph set is limited to 256. Note that if
+          this format is used to index into a larger glyph set, only
+          the first 256 glyphs will be accessible.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>As the declaration stands, the length field seems
+          superfluous, since the table appears to always be 262 bytes
+          long. This can be explained in one of two ways:
+
+          <itemizedlist>
+          <listitem>
+            <para>the length field is included to make the first three
+                words of all cmap subtables similar; it must always be
+                262.</para>
+          </listitem>
+          <listitem>
+            <para>the glyphIdArray does not need to be always 256
+                elements long, it can be shorter.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>In the spirit of "generate conservatively, accept
+          liberally", we recommend that font designers always put 256
+          entries in glyphIdArray (and consequently set length to 262), and
+          that font consumers be ready to handle fonts where the
+          glyphIdArray contains length - 6 entries (but no more than
+          256).</para>
+    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-2.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-2.xml"/>
+  </section>
+ 

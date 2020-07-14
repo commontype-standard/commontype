@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <section role="fragment">
+    <title>Format 12: Segmented coverage</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This is the Microsoft standard character to glyph index
+          mapping table for fonts supporting the UCS-4 characters in
+          the Unicode Surrogates Area (U+D800 - U+DFFF). It is a bit
+          like format 4, in that it defines segments for sparse
+          representation in 4-byte character space. Here's the
+          subtable format:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Subtable format; set to 12.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Reserved; set to 0</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>Byte length of this subtable (including the
+              header) </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>nGroups</otfieldname>
+          <otfielddesc>Number of groupings which follow
+            </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Fonts providing Unicode encoded UCS-4 character support
+          for Windows 2000 and later, need to have a subtable with
+          platform ID 3, platform specific encoding ID 1 in format 4;
+          and in addition, need to have a subtable for platform ID 3,
+          platform specific encoding ID 10 in format 12. Please note,
+          that the content of format 12 subtable, needs to be a super
+          set of the content in the format 4 subtable. The format 4
+          subtable needs to be in the cmap table to enable backward
+          compatibility needs.</para>
+      <para>Here follow the individual groups, each of which has the
+          following format:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>startCharCode</otfieldname>
+          <otfielddesc>First character code in this group
+            </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>endCharCode</otfieldname>
+          <otfielddesc>Last character code in this group
+            </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>startGlyphID</otfieldname>
+          <otfielddesc>Glyph index corresponding to the starting
+              character code </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Groups must be sorted by increasing startCharCode. A
+          group's endCharCode must be less than the startCharCode of
+          the following group, if any. The endCharCode is used, rather
+          than a count, because comparisons for group matching are
+          usually done on an existing character code, and having the
+          endCharCode be there explicitly saves the necessity of an
+          addition per group.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>First paragraph, first sentence should be reworded: "...
+          for fonts supporting Unicode supplemental characters."
+          Similarly, second paragraph, first sentence should be
+          reworded: "Fonts providing support for Unicode supplemental
+          characters..."</para>
+      <para>For coherence with the other formats, the description of
+          the format field should be "Format number is set to 12" and
+          the description of the length field should be "This is the
+          length in bytes of the subtable."</para>
+    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-8.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-8.xml"/>
+  </section>

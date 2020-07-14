@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <section role="fragment">
+    <title>Format 2: High-byte mapping through table </title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This subtable is useful for the national character code
+          standards used for Japanese, Chinese, and Korean characters.
+          These code standards use a mixed 8/16-bit encoding, in which
+          certain byte values signal the first byte of a 2-byte
+          character (but these values are also legal as the second
+          byte of a 2-byte character).</para>
+      <para>In addition, even for the 2-byte characters, the mapping
+          of character codes to glyph index values depends heavily on
+          the first byte. Consequently, the table begins with an array
+          that maps the first byte to a 4-word subHeader. For 2-byte
+          character codes, the subHeader is used to map the second
+          byte's value through a subArray, as described below. When
+          processing mixed 8/16-bit text, subHeader 0 is special: it
+          is used for single-byte character codes. When subHeader zero
+          is used, a second byte is not needed; the single byte value
+          is mapped through the subArray.</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Format number is set to 2.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>This is the length in bytes of the
+              subtable.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>subHeaderKeys [256]</otfieldname>
+          <otfielddesc>Array that maps high bytes to subHeaders:
+              value is subHeader index * 8.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>518</otfieldoffs>
+          <otfieldtype>4 words struct</otfieldtype>
+          <otfieldname>subHeaders []</otfieldname>
+          <otfielddesc>Variable-length array of subHeader
+              structures.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>?</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>glyphIndexArray []</otfieldname>
+          <otfielddesc>Variable-length array containing subarrays
+              used for mapping the low byte of 2-byte
+              characters.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>A subHeader is structured as follows:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>firstCode</otfieldname>
+          <otfielddesc>First valid low byte for this
+              subHeader.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>entryCount</otfieldname>
+          <otfielddesc>Number of valid low bytes for this
+              subHeader.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>idDelta</otfieldname>
+          <otfielddesc>See text below.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>idRangeOffset</otfieldname>
+          <otfielddesc>See text below.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The firstCode and entryCount values specify a subrange
+          that begins at firstCode and has a length equal to the value
+          of entryCount. This subrange stays within the 0-255 range of
+          the byte being mapped. Bytes outside of this subrange are
+          mapped to glyph index 0 (missing glyph). The offset of the
+          byte within this subrange is then used as index into a
+          corresponding subarray of glyphIndexArray. This subarray is
+          also of length entryCount. The value of the idRangeOffset is
+          the number of bytes past the actual location of the
+          idRangeOffset word where the glyphIndexArray element
+          corresponding to firstCode appears.</para>
+      <para>Finally, if the value obtained from the subarray is not
+          0 (which indicates the missing glyph), you should add
+          idDelta to it in order to get the glyphIndex. The value
+          idDelta permits the same subarray to be used for several
+          different subheaders. The idDelta arithmetic is modulo
+          65536.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>How about an intelligible description of the use of this
+        format? Assuming that it intends to describe the same
+        structure as the Apple True Type format, simply switching to
+        their version would already be a vast improvement.</para>
+    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-3.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-3.xml"/>
+  </section>

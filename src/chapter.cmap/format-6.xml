@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <section role="fragment">
+    <title>Format 6: Trimmed table mapping </title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Format number is set to 6.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>This is the length in bytes of the
+              subtable.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>firstCode</otfieldname>
+          <otfielddesc>First character code of
+              subrange.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>entryCount</otfieldname>
+          <otfielddesc>Number of character codes in
+              subrange.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>10</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>glyphIdArray [entryCount]</otfieldname>
+          <otfielddesc>Array of glyph index values for character
+              codes in the range. </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The firstCode and entryCount values specify a subrange
+          (beginning at firstCode, length = entryCount) within the
+          range of possible character codes. Codes outside of this
+          subrange are mapped to glyph index 0. The offset of the code
+          (from the first code) within this subrange is used as index
+          to the glyphIdArray, which provides the glyph index
+          value.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>It is unclear whether the entryCount can be 0. We assume
+          it can and recommend to add a sentence to that
+          effect.</para>
+      <para>This format is very similar to format 0, in that there
+          is an explicit list of glyph indices for a contiguous range
+          of character code. However, there are two intersting
+          properties: the range can be bigger than 256; and more
+          importantly, the glyph indices are USHORT instead of
+          BYTE. So this format can be used for byte encodings to reach
+          glyphs other than the first 256 glyphs.</para>
+    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-5.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-5.xml"/>
+  </section>

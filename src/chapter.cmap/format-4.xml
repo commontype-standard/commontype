@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <!--======================================================================-->
+  <section role="fragment">
+    <title>Format 4: Segment mapping to delta values</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>This is the Microsoft standard character to glyph index
+          mapping table for fonts that support Unicode ranges other
+          than the range [U+D800 - U+DFFF] (defined as Surrogates
+          Area, in Unicode v 3.0) which is used for UCS-4
+          characters. If a font supports this character range (i.e. in
+          turn supports the UCS-4 characters) a subtable in this
+          format with a platform specific encoding ID 1 is yet needed,
+          in addition to a subtable in format 12 with a platform
+          specific encoding ID 10. Please see details on format 12
+          below, for fonts that support UCS-4 characters on
+          Windows.</para>
+      <para>This format is used when the character codes for the
+          characters represented by a font fall into several
+          contiguous ranges, possibly with holes in some or all of the
+          ranges (that is, some of the codes in a range may not have a
+          representation in the font). The format-dependent data is
+          divided into three parts, which must occur in the following
+          order:</para>
+      <orderedlist>
+        <listitem>
+          <para>A four-word header gives parameters for an optimized
+              search of the segment list;</para>
+        </listitem>
+        <listitem>
+          <para>Four parallel arrays describe the segments (one
+              segment for each contiguous range of codes);</para>
+        </listitem>
+        <listitem>
+          <para>A variable-length array of glyph IDs (unsigned
+              words).</para>
+        </listitem>
+      </orderedlist>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Format number is set to 4.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>This is the length in bytes of the
+              subtable.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>segCountX2</otfieldname>
+          <otfielddesc>2 x segCount.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>searchRange</otfieldname>
+          <otfielddesc>2 x (2**floor(log2(segCount)))</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>10</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>entrySelector</otfieldname>
+          <otfielddesc>log2(searchRange/2)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>rangeShift</otfieldname>
+          <otfielddesc>2 x segCount - searchRange</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>14</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>endCount [segCount]</otfieldname>
+          <otfielddesc>End characterCode for each segment,
+              last=0xFFFF.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>14+2i</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>reservedPad</otfieldname>
+          <otfielddesc>Set to 0.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16+2i</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>startCount [segCount]</otfieldname>
+          <otfielddesc>Start character code for each
+              segment.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16+4i</otfieldoffs>
+          <otfieldtype>SHORT</otfieldtype>
+          <otfieldname>idDelta [segCount]</otfieldname>
+          <otfielddesc>Delta for all character codes in
+              segment.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16+6i</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>idRangeOffset [segCount]</otfieldname>
+          <otfielddesc>Offsets into glyphIdArray or 0</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>16+8i</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>glyphIdArray []</otfieldname>
+          <otfielddesc>Glyph index array (arbitrary length)
+            </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The number of segments is specified by segCount, which
+          is not explicitly in the header; however, all of the header
+          parameters are derived from it. The searchRange value is
+          twice the largest power of 2 that is less than or equal to
+          segCount. For example, if segCount=39, we have the
+          following:</para>
+      <informaltable>
+        <tgroup cols="3">
+          <tbody>
+            <row>
+              <entry>segCountX2</entry>
+              <entry>78</entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>searchRange</entry>
+              <entry>64</entry>
+              <entry>(2 * largest power of 2 &lt;=39)</entry>
+            </row>
+            <row>
+              <entry>entrySelector</entry>
+              <entry>5</entry>
+              <entry>log2 (32)</entry>
+            </row>
+            <row>
+              <entry>rangeShift</entry>
+              <entry>14</entry>
+              <entry>2 x 39 - 64</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>Each segment is described by a startCode and endCode,
+          along with an idDelta and an idRangeOffset, which are used
+          for mapping the character codes in the segment. The segments
+          are sorted in order of increasing endCode values, and the
+          segment values are specified in four parallel arrays. You
+          search for the first endCode that is greater than or equal
+          to the character code you want to map. If the corresponding
+          startCode is less than or equal to the character code, then
+          you use the corresponding idDelta and idRangeOffset to map
+          the character code to a glyph index (otherwise, the
+          missingGlyph is returned). For the search to terminate, the
+          final endCode value must be 0xFFFF. This segment need not
+          contain any valid mappings. (It can just map the single
+          character code 0xFFFF to missingGlyph). However, the segment
+          must be present.</para>
+      <para>If the idRangeOffset value for the segment is not 0, the
+          mapping of character codes relies on glyphIdArray. The
+          character code offset from startCode is added to the
+          idRangeOffset value. This sum is used as an offset from the
+          current location within idRangeOffset itself to index out
+          the correct glyphIdArray value. This obscure indexing trick
+          works because glyphIdArray immediately follows idRangeOffset
+          in the font file. The C expression that yields the glyph
+          index is:</para>
+      <literallayout>
+  *(idRangeOffset[i]/2
+    + (c - startCount[i])
+    + &amp;idRangeOffset[i])
+    </literallayout>
+      <para>The value c is the character code in question, and i is
+          the segment index in which c appears. If the value obtained
+          from the indexing operation is not 0 (which indicates
+          missingGlyph), idDelta[i] is added to it to get the glyph
+          index. The idDelta arithmetic is modulo 65536.</para>
+      <para>If the idRangeOffset is 0, the idDelta value is added
+          directly to the character code offset (i.e. idDelta[i] + c)
+          to get the corresponding glyph index. Again, the idDelta
+          arithmetic is modulo 65536.</para>
+      <para>As an example, the variant part of the table to map
+          characters 10-20, 30-90, and 153-480 onto a contiguous range
+          of glyph indices may look like this:</para>
+      <informaltable>
+        <tgroup cols="5">
+          <tbody>
+            <row>
+              <entry>segCountX2:</entry>
+              <entry>8</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>searchRange:</entry>
+              <entry>8</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>entrySelector:</entry>
+              <entry>4</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>rangeShift:</entry>
+              <entry>0</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>endCode:</entry>
+              <entry>20</entry>
+              <entry>90</entry>
+              <entry>480</entry>
+              <entry>0Xffff</entry>
+            </row>
+            <row>
+              <entry>reservedPad:</entry>
+              <entry>0</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>startCode:</entry>
+              <entry>10</entry>
+              <entry>30</entry>
+              <entry>153</entry>
+              <entry>0Xffff</entry>
+            </row>
+            <row>
+              <entry>idDelta:</entry>
+              <entry>-9</entry>
+              <entry>-18</entry>
+              <entry>-27</entry>
+              <entry>1</entry>
+            </row>
+            <row>
+              <entry>idRangeOffset:</entry>
+              <entry>0</entry>
+              <entry>0</entry>
+              <entry>0</entry>
+              <entry>0</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>This table performs the following mappings:</para>
+      <literallayout>
+10 -&gt; 10 - 9 = 1
+20 -&gt; 20 - 9 = 11
+30 -&gt; 30 - 18 = 12
+90 -&gt; 90 - 18 = 72
+...and so on.
+</literallayout>
+      <para>Note that the delta values could be reworked so as to
+          reorder the segments.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>The first sentence should probably be changed to
+        "... for fonts that support Unicode BMP characters".</para>
+      <para>In the table that describes the fields, it seems that
+          the fields startCount and endCount should instead be
+          startCode and endCode. These are better names, and are the
+          names used in the text.</para>
+      <para>In the example, the idDelta of the third range should
+          probably be -80, so that the character code 153 is mapped to
+          the glyphID 153-80 = 73.</para>
+      <para>The meaning of the last sentence escapes me. May be it
+        should be removed?</para>
+      <para>It seems a necessary property of this format that the
+          segments be disjoint, yet it is not mentionned
+          explicitly.</para>
+    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-4.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="validation-4.xml"/>
+  </section>

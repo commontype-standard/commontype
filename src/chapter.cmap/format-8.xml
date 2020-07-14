@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <section role="fragment">
+    <title>Format 8: mixed 16-bit and 32-bit coverage</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Format 8 is a bit like format 2, in that it provides for
+          mixed-length character codes. If a font contains characters
+          from the Unicode Surrogates Area (U+D800-U+DFFF), which are
+          UCS-4 characters; it's likely that it will also include
+          other, regular 16-bit Unicodes as well. We therefore need a
+          format to map a mixture of 16-bit and 32-bit character
+          codes, just as format 2 allows a mixture of 8-bit and 16-bit
+          codes. A simplifying assumption is made: namely, that there
+          are no 32-bit character codes which share the same first 16
+          bits as any 16-bit character code. This means that the
+          determination as to whether a particular 16-bit value is a
+          standalone character code or the start of a 32-bit character
+          code can be made by looking at the 16-bit value directly,
+          with no further information required.</para>
+      <para>Here's the format 8 subtable format:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Subtable format; set to 8.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>reserved</otfieldname>
+          <otfielddesc>Reserved; set to 0</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>Byte length of this subtable (including the
+              header)</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>language</otfieldname>
+          <otfielddesc>Please see <link linkend="language_note">Note
+                on the language field in <ottable>cmap</ottable> subtables</link> in
+              this document.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>12</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>is32 [8192]</otfieldname>
+          <otfielddesc>Tightly packed array of bits (8K bytes total)
+              indicating whether the particular 16-bit (index) value
+              is the start of a 32-bit character code
+                </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8204</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> nGroups</otfieldname>
+          <otfielddesc> Number of groupings which follow
+            </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>Here follow the individual groups. Each group has the
+          following format:</para>
+      <otformat>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> startCharCode</otfieldname>
+          <otfielddesc> First character code in this group; note
+              that if this group is for one or more 16-bit character
+              codes (which is determined from the is32 array), this
+              32-bit value will have the high 16-bits set to zero
+            </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> endCharCode</otfieldname>
+          <otfielddesc> Last character code in this group; same
+              condition as listed above for the startCharCode
+                </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>8</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname> startGlyphID</otfieldname>
+          <otfielddesc> Glyph index corresponding to the starting
+              character code </otfielddesc>
+        </otfield>
+      </otformat>
+      <para>A few notes here. The endCharCode is used, rather than a
+          count, because comparisons for group matching are usually
+          done on an existing character code, and having the
+          endCharCode be there explicitly saves the necessity of an
+          addition per group. Groups must be sorted by increasing
+          startCharCode. A group's endCharCode must be less than the
+          startCharCode of the following group, if any.</para>
+      <para>To determine if a particular word (cp) is the first half
+          of 32-bit code points, one can use an expression such as (
+          is32[ cp / 8 ] &amp; ( 1 &lt;&lt; ( 7 - ( cp % 8 ) ) ) ). If this is
+          non-zero, then the word is the first half of a 32-bit code
+          point.</para>
+      <para>0 is not a special value for the high word of a 32-bit
+          code point. A font may not have both a glyph for the code
+          point 0x0000 and glyphs for code points with a high word of
+          0x0000.</para>
+      <para>The presence of the packed array of bits indicating
+          whether a particular 16-bit value is the start of a 32-bit
+          character code is useful even when the font contains no
+          glyphs for a particular 16-bit start value. This is because
+          the system software often needs to know how many bytes ahead
+          the next character begins, even if the current character
+          maps to the missing glyph. By including this information
+          explicitly in this table, no "secret" knowledge needs to be
+          encoded into the OS.</para>
+      <para>Although this format might work advantageously on some
+          platforms for non-Unicode encodings, Microsoft does not
+          support it for Unicode encoded UCS-4 characters.</para>
+    </section>
+    <!--____________________________________________________________________-->
+    <section role="annotation">
+      <title>Annotation</title>
+      <para>First paragraph, second sentence, should be: "If a font
+          maps Unicode supplemental characters, it's likely to map
+          Unicode BMP characters as well."</para>
+      <para>For coherence with the other formats, the description of
+          the format field should be "Format number is set to 8" and
+          the description of the length field should be "This is the
+          length in bytes of the subtable."</para>
+      <para>This format is dubious and would probably best be
+          deprecated. If For Unicode encodings, it is useful only for
+          UTF-16 (the only version that has 16 bit code units), so
+          spending 8K bytes to is
+
+If the intent is really for a Unicode encodings,
+          then it is known </para>
+    </section>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-6.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-6.xml"/>
+  </section>

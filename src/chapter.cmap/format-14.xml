@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <section role="fragment">
+    <title>Format 14: Unicode Variation Sequences</title>
+    <!--____________________________________________________________________-->
+    <section role="specification">
+      <title>Specification</title>
+      <para>Subtable format 14 specifies the Unicode Variation
+        Sequences (UVSes) supported by the font. A Variation Sequence,
+        according to the Unicode Standard, comprises a base character
+        followed by a variation selector; e.g. &lt;U+82A6,
+        U+E0101&gt;.</para>
+      <para>The subtable partitions the UVSes supported by the font
+        into two categories: “default” and
+        “non-default” UVSes. Given a UVS, if the glyph
+        obtained by looking up the base character of that sequence in
+        the Unicode cmap subtable (i.e. the UCS-4 or the BMP cmap
+        subtable) is the glyph to use for that sequence, then the
+        sequence is a “default” UVS; otherwise it is a
+        “non-defaultJ=f UVS, and the glyph to use for that
+        sequence is specified in the format 14 subtable itself.</para>
+      <para>The example below shows how a font vendor can use format
+        14 for a JIS-2004-aware font.</para>
+      <otformat>
+        <title>Format 14 header</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>format</otfieldname>
+          <otfielddesc>Subtable format; set to 14.</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>2</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>length</otfieldname>
+          <otfielddesc>Byte length of this subtable (including the
+              header) </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>6</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>numVarSelectorRecords</otfieldname>
+          <otfielddesc>Number of Variation Selector Records</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This is immediately followed by 'numVarSelectorRecords'
+        Variation Selector Records.</para>
+      <otformat>
+        <title>Variation Selector Record</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>UINT24</otfieldtype>
+          <otfieldname>varSelector</otfieldname>
+          <otfielddesc>Variation selector</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>3</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>defaultUVSOffset</otfieldname>
+          <otfielddesc>Offset to Default UVS Table. May be 0. </otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>4</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>nonDefaultUVSOffset</otfieldname>
+          <otfielddesc>Offset to Non-Default UVS Table. May be 0.</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The Variation Selector Records are sorted in increasing
+        order of 'varSelector'. No two records may have the same
+        'varSelector'. All offsets in a record are relative to the
+        beginning of the format 14 cmap subtable.</para>
+      <para>A Variation Selector Record and the data its offsets
+        point to specify those UVSes supported by the font for which
+        the variation selector is the 'varSelector' value of the
+        record. The base characters of the UVSes are stored in the
+        tables pointed to by the offsets. The UVSes are partitioned by
+        whether they are default or non-default UVSes.</para>
+      <para>Glyph IDs to be used for non-default UVSes are specified
+        in the Non-Default UVS table.</para>
+      <para>Default UVS Table</para>
+      <para>A Default UVS Table is simply a range-compressed list of
+        Unicode scalar values, representing the base characters of the
+        default UVSes which use the 'varSelector' of the associated
+        Variation Selector Record.</para>
+      <otformat>
+        <title>Default UVS Table header</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>numUnicodeValueRanges</otfieldname>
+          <otfielddesc>Number of ranges that follow</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This is immediately followed by 'numUnicodeValueRanges'
+        Unicode Value Ranges, each of which represents a contiguous
+        range of Unicode values.</para>
+      <otformat>
+        <title>Unicode Value Range</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>UINT24</otfieldtype>
+          <otfieldname>startUnicodeValue</otfieldname>
+          <otfielddesc>First value in this range</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>3</otfieldoffs>
+          <otfieldtype>BYTE</otfieldtype>
+          <otfieldname>additionalCount</otfieldname>
+          <otfielddesc>Number of <emphasis>additional</emphasis>
+            values in this range</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>For example, the range U+4E4D...U+4E4F (3 values) will
+        set 'startUnicodeValue' to 0x004E4D and 'additionalCount' to
+        2. A singleton range will set 'additionalCount' to 0.</para>
+      <para>('startUnicodeValue' + 'additionalCount') must not
+        exceed 0xFFFFFF.</para>
+      <para>The Unicode Value Ranges are sorted in increasing order
+        of 'startUnicodeValue'. The ranges must not overlap; i.e.,
+        ('startUnicodeValue' + 'additionalCount') must be less than
+        the 'startUnicodeValue' of the following range (if
+        any).</para>
+      <para>Non-Default UVS Table</para>
+      <para>A Non-Default UVS Table is a list of pairs of Unicode
+        scalar values and glyph IDs. The Unicode values represent the
+        base characters of all non-default UVSes which use the
+        'varSelector' of the associated Variation Selector Record, and
+        the glyph IDs specify the glyph IDs to use for the
+        UVSes.</para>
+      <otformat>
+        <title>Non-Default UVS Table header</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>ULONG</otfieldtype>
+          <otfieldname>numUVSMappings</otfieldname>
+          <otfielddesc>Number of UVS Mappings that follow</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>This is immediately followed by 'numUVSMappings' UVS
+        Mappings.</para>
+      <otformat>
+        <title>UVS Mapping</title>
+        <otfield>
+          <otfieldoffs>0</otfieldoffs>
+          <otfieldtype>UINT24</otfieldtype>
+          <otfieldname>unicodeValue</otfieldname>
+          <otfielddesc>Base Unicode value of the UVS</otfielddesc>
+        </otfield>
+        <otfield>
+          <otfieldoffs>3</otfieldoffs>
+          <otfieldtype>USHORT</otfieldtype>
+          <otfieldname>glyphID</otfieldname>
+          <otfielddesc>Glyph ID of the UVS</otfielddesc>
+        </otfield>
+      </otformat>
+      <para>The UVS Mappings are sorted in increasing order of
+        'unicodeValue'. No two mappings in this table may have the
+        same 'unicodeValue' values.</para>
+      <para>Example</para>
+      <para>Here is an example of how a format 14 cmap subtable may
+        be used in a font that is aware of JIS-2004 variant
+        glyphs. The CIDs (character IDs) in this example refer to
+        those in the Adobe Character Collection 'Adobe-Japan1', and
+        may be assumed to be identical to the glyph IDs in the font in
+        our example.</para>
+      <para>JIS-2004 changed the default glyph variants for some of
+        its code points. For example:</para>
+      <para>JIS-90: U+82A6 -&gt; CID 1142</para>
+      <para>JIS-2004: U+82A6 -&gt; CID 7961</para>
+      <para>Both of these glyph variants are supported through the
+        use of UVSes, as the following examples from Unicode's UVS
+        registry show:</para>
+      <para>U+82A6 U+E0100 -&gt; CID 1142</para>
+      <para>U+82A6 U+E0101 -&gt; CID 7961</para>
+      <para>If the font wants to support the JIS-2004 variants by
+        default, it will:</para>
+      <itemizedlist>
+        <listitem>
+          <para>encode glyph ID 7961 at U+82A6 in the Unicode cmap
+            subtable,</para>
+        </listitem>
+        <listitem>
+          <para>specify &lt;U+82A6, U+E0101&gt; in the UVS cmap
+            subtable's Default UVS Table ('varSelector' will be
+            0x0E0101 and 'defaultUVSOffset' will point to data
+            containing a 0x0082A6 Unicode value)</para>
+        </listitem>
+        <listitem>
+          <para>specify &lt;U+82A6, U+E0100&gt; -&gt; glyph ID 1142 in the
+            UVS cmap subtable's Non-Default UVS Table ('varSelector'
+            will be 0x0E0100 and 'nonDefaultBaseUVOffset' will point
+            to data containing a 'unicodeValue' 0x82A6 and 'glyphID'
+            1142). </para>
+        </listitem>
+      </itemizedlist>
+      <para>If, however, the font wants to support the JIS-90
+        variants by default, it will:</para>
+      <itemizedlist>
+        <listitem>
+          <para>encode glyph ID 1142 at U+82A6 in the Unicode cmap
+            subtable,</para>
+          <para>specify &lt;U+82A6, U+E0100&gt; in the
+            UVS cmap subtable's Default UVS Table</para>
+        </listitem>
+        <listitem>
+          <para>specify &lt;U+82A6, U+E0101&gt; -&gt; glyph ID 7961 in the
+            UVS cmap subtables Non-Default UVS Table </para>
+        </listitem>
+      </itemizedlist>
+    </section>
+ 
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xml-representation-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="compiler-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="decompiler-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="implementation-9.xml"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="test-suite-9.xml"/>
+  </section>

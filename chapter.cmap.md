@@ -1,16 +1,16 @@
-<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.cmap"></a>Chapter 5. cmap - Character to Glyph Index Mapping Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm1692"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.6.1.1"></a>Specification</h4></div></div></div><p>This table specifies how character codes in an input text should
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.cmap"></a>Chapter 5. cmap - Character to Glyph Index Mapping Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm272797736880"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.6.1.1"></a>Specification</h4></div></div></div><p>This table specifies how character codes in an input text should
           be mapped to glyph indices. The table may contain more than one mapping,
           to support a variety of character encoding schemes used by font consumers. Each mapping is stored in a subtable, and the table header
           indicates the character encodings for which subtables are present.
       </p><div class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.1.1.1"></a>Header</h5></div></div></div><p>The Character To Glyph Index Mapping Table begins with
-          a header.</p><div class="table"><a name="idm1700"></a><p class="title"><strong>Table 5.1. cmap Header</strong></p><div class="table-contents"><table class="table" summary="cmap Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Table version number (0).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numTables</td><td>Number of encoding records.</td><td class="auto-generated"> </td></tr><tr><td>EncodingRecord</td><td>encodingRecords[numTables]</td><td>Encoding records.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The encoding records specify an encoding and
-    the offset to the subtable for that encoding, as follows:</p><div class="table"><a name="idm1722"></a><p class="title"><strong>Table 5.2. Encoding Record</strong></p><div class="table-contents"><table class="table" summary="Encoding Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>platformID</td><td>Platform ID.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>encodingID</td><td>Platform-specific encoding ID.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>offset</td><td>Byte offset to subtable.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The <a class="link" href="chapter.common_structures.html#common_structures.platformencoding" title="Platform and Encoding Identifiers">platform
+          a header.</p><div class="table"><a name="idm272797733040"></a><p class="title"><strong>Table 5.1. cmap Header</strong></p><div class="table-contents"><table class="table" summary="cmap Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>version</td><td>Table version number (0).</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>numTables</td><td>Number of encoding records.</td><td class="auto-generated"> </td></tr><tr><td>EncodingRecord</td><td>encodingRecords[numTables]</td><td>Encoding records.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The encoding records specify an encoding and
+    the offset to the subtable for that encoding, as follows:</p><div class="table"><a name="idm272797725792"></a><p class="title"><strong>Table 5.2. Encoding Record</strong></p><div class="table-contents"><table class="table" summary="Encoding Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>platformID</td><td>Platform ID.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>encodingID</td><td>Platform-specific encoding ID.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>offset</td><td>Byte offset to subtable.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The <a class="link" href="chapter.common_structures.html#common_structures.platformencoding" title="Platform and Encoding Identifiers">platform
         ID and platform-specific encoding ID</a> values in the
           encoding record are used to specify the character repertoire and
           encoding used by the subtable.
         </p><p>Subtables also contain a language ID field. For
           <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> subtables with platform ID 1 (Macintosh)
-          which contain language-specific mappings, this ID field should be set
+          which contain language-specific mappings, this ID field must be set
           to the
           <a class="link" href="chapter.common_structures.html#common_structures.languageid" title="Language Identifiers">Macintosh language ID</a>
           of the language <span class="emphasis"><em>plus one</em></span>.
@@ -19,7 +19,7 @@
           platform ID, then by platform-specific encoding ID, and then by
           language ID in the corresponding subtable. Each platform
           ID, platform-specific encoding ID, and language ID
-          combination may appear only once in the
+          combination must appear only once in the
           <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> table.</p><p>The offset is measured from the start of the cmap table.</p></div></div></div><div role="fragment deprecated" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="cmap_cust"></a>OTF Windows NT compatibility mapping</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.6.2.1"></a>Specification</h4></div></div></div><p>If a platform ID 4 (custom), encoding ID 0-255 (OTF
           Windows NT compatibility mapping) <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a>
           encoding is present in an CommonType font with CFF outlines,
@@ -32,69 +32,41 @@
           encoding ID to be a Windows CharSet value and add it to the
           list of CharSets supported by the font.</p><p>This <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> encoding provides a
           compatibility mechanism for non-Unicode applications that use
-          the font as if it were Windows ANSI encoded.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm1760"></a>cmap Subtable Formats</h3></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm1762"></a>Format 0: Byte encoding table</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.1.1"></a>Specification</h5></div></div></div><p>This is the Apple standard character to glyph index
-          mapping table.</p><div class="table"><a name="idm1767"></a><p class="title"><strong>Table 5.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Format number is set to 0.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>This is the length in bytes of the
-              subtable.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>language</td><td>Please see <a class="link" href="">Note
-                on the language field in cmap subtables</a> in this
-              document.</td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>glyphIdArray[256]</td><td>An array that maps character codes to glyph
-              index values.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This is a simple 1 to 1 mapping of character codes to
-          glyph indices. The glyph set is limited to 256. Note that if
-          this format is used to index into a larger glyph set, only
-          the first 256 glyphs will be accessible.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.1.2"></a>Annotation</h5></div></div></div><p>As the declaration stands, the length field seems
-          superfluous, since the table appears to always be 262 bytes
-          long. This can be explained in one of two ways:
-
-          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>the length field is included to make the first three
-                words of all cmap subtables similar; it must always be
-                262.</p></li><li class="listitem"><p>the glyphIdArray does not need to be always 256
-                elements long, it can be shorter.</p></li></ul></div><p>
-      </p><p>In the spirit of "generate conservatively, accept
-          liberally", we recommend that font designers always put 256
-          entries in glyphIdArray (and consequently set length to 262), and
-          that font consumers be ready to handle fonts where the
-          glyphIdArray contains length - 6 entries (but no more than
-          256).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm1802"></a>Format 2: High-byte mapping through table </h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.2.1"></a>Specification</h5></div></div></div><p>This subtable is useful for the national character code
-          standards used for Japanese, Chinese, and Korean characters.
-          These code standards use a mixed 8/16-bit encoding, in which
-          certain byte values signal the first byte of a 2-byte
-          character (but these values are also legal as the second
-          byte of a 2-byte character).</p><p>In addition, even for the 2-byte characters, the mapping
-          of character codes to glyph index values depends heavily on
-          the first byte. Consequently, the table begins with an array
-          that maps the first byte to a 4-word subHeader. For 2-byte
-          character codes, the subHeader is used to map the second
-          byte's value through a subArray, as described below. When
-          processing mixed 8/16-bit text, subHeader 0 is special: it
-          is used for single-byte character codes. When subHeader zero
-          is used, a second byte is not needed; the single byte value
-          is mapped through the subArray.</p><div class="table"><a name="idm1808"></a><p class="title"><strong>Table 5.4. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Format number is set to 2.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>This is the length in bytes of the
-              subtable.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>language</td><td>Please see <a class="link" href="">Note
-                on the language field in cmap subtables</a> in
-              this document.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>subHeaderKeys [256]</td><td>Array that maps high bytes to subHeaders:
+          the font as if it were Windows ANSI encoded.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm272797706528"></a>cmap Subtable Formats</h3></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm272797705872"></a>Format 0: Byte encoding table</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.1.1"></a>Specification</h5></div></div></div><p>This is a simple character to glyph index mapping table. It is
+        limited to 256 character codepoints and can only access glyph IDs
+        between 0 and 255.
+      </p><div class="table"><a name="idm272797703232"></a><p class="title"><strong>Table 5.3. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Format number is set to 0.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>Length in bytes of the subtable.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>language</td><td>Language ID (for Macintosh language-specific mappings)</td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>glyphIdArray[256]</td><td>An array that maps character codes to glyph
+              index values.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Font producers must include 256 elements in the glyphIdArray
+        and set the length to 262. Glyph consumers, however, must read the
+        length field and read either (length - 6) glyph IDs or 256, whichever
+        is the less.
+      </p><div role="fragment" class="section"><div class="titlepage"><div><div><h6 class="title"><a name="idm272797694544"></a>Mapping Process for Font Consumers</h6></div></div></div></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm272797693744"></a>Format 2: High-byte mapping through table </h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.2.1"></a>Specification</h5></div></div></div><p>This subtable is designed to faciliate mapping characters to glyphs
+          within the encoding mechanisms which use a mixed 8/16-bit encoding,
+          such as the legacy national character code standards used for Japanese,
+          Chinese, and Korean characters.
+      </p><p>In a mixed encoding, codepoints may be represented either by a one
+          byte integer or a two byte integer, with certain values of the initial
+          byte acting as a continuation signal.</p><div class="table"><a name="idm272797690304"></a><p class="title"><strong>Table 5.4. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Format number is set to 2.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>Length in bytes of the subtable.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>language</td><td>Language ID (for Macintosh language-specific mappings)</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>subHeaderKeys [256]</td><td>Array that maps high bytes to subHeaders:
               value is subHeader index * 8.</td><td class="auto-generated"> </td></tr><tr><td>4 words struct</td><td>subHeaders []</td><td>Variable-length array of subHeader
               structures.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>glyphIndexArray []</td><td>Variable-length array containing subarrays
               used for mapping the low byte of 2-byte
-              characters.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>A subHeader is structured as follows:</p><div class="table"><a name="idm1843"></a><p class="title"><strong>Table 5.5. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>firstCode</td><td>First valid low byte for this
+              characters.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>A subHeader is structured as follows:</p><div class="table"><a name="idm272797678720"></a><p class="title"><strong>Table 5.5. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>firstCode</td><td>First valid low byte for this
               subHeader.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>entryCount</td><td>Number of valid low bytes for this
-              subHeader.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>idDelta</td><td>See text below.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>idRangeOffset</td><td>See text below.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The firstCode and entryCount values specify a subrange
-          that begins at firstCode and has a length equal to the value
-          of entryCount. This subrange stays within the 0-255 range of
-          the byte being mapped. Bytes outside of this subrange are
-          mapped to glyph index 0 (missing glyph). The offset of the
-          byte within this subrange is then used as index into a
-          corresponding subarray of glyphIndexArray. This subarray is
-          also of length entryCount. The value of the idRangeOffset is
-          the number of bytes past the actual location of the
-          idRangeOffset word where the glyphIndexArray element
-          corresponding to firstCode appears.</p><p>Finally, if the value obtained from the subarray is not
-          0 (which indicates the missing glyph), you should add
-          idDelta to it in order to get the glyphIndex. The value
-          idDelta permits the same subarray to be used for several
-          different subheaders. The idDelta arithmetic is modulo
-          65536.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.2.2"></a>Annotation</h5></div></div></div><p>How about an intelligible description of the use of this
-        format? Assuming that it intends to describe the same
-        structure as the Apple True Type format, simply switching to
-        their version would already be a vast improvement.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm1872"></a>Format 4: Segment mapping to delta values</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.3.1"></a>Specification</h5></div></div></div><p>This is the Microsoft standard character to glyph index
+              subHeader.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>idDelta</td><td>See text below.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>idRangeOffset</td><td>See text below.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The firstCode and entryCount values specify the range of low-byte
+          values handled by this subheader. Bytes outside of this range are
+          mapped to glyph index 0.
+      </p><p>
+          The value of idRangeOffset points to the element of the
+          glyphElement array corresponding to the firstCode. Note that
+          unlike most offset values in this standard, the idRangeOffset
+          counts the number of bytes from <span class="emphasis"><em>the byte position of
+          the idRangeOffset record itself</em></span> to the target element,
+          rather than from the start of the subtable header.
+      </p><p>
+          The value of idDelta specifies a delta to be added the glyph ID,
+          modulo 65536, to permits the same subarray to be used for several
+          different subheaders.
+      </p><p>subHeader 0 must contain the following values:</p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col/><col/></colgroup><tbody><tr><td>firstCode</td><td>0</td></tr><tr><td>entryCount</td><td>256</td></tr><tr><td>idDelta</td><td>0</td></tr><tr><td>idRangeOffset</td><td>offset to start of glyphIndexArray</td></tr></tbody></table></div><div role="fragment" class="section"><div class="titlepage"><div><div><h6 class="title"><a name="idm272797663424"></a>Mapping Process for Font Consumers</h6></div></div></div></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm272797662624"></a>Format 4: Segment mapping to delta values</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.3.1"></a>Specification</h5></div></div></div><p>This is the Microsoft standard character to glyph index
           mapping table for fonts that support Unicode ranges other
           than the range [U+D800 - U+DFFF] (defined as Surrogates
           Area, in Unicode v 3.0) which is used for UCS-4
@@ -113,7 +85,7 @@
           order:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>A four-word header gives parameters for an optimized
               search of the segment list;</p></li><li class="listitem"><p>Four parallel arrays describe the segments (one
               segment for each contiguous range of codes);</p></li><li class="listitem"><p>A variable-length array of glyph IDs (unsigned
-              words).</p></li></ol></div><div class="table"><a name="idm1885"></a><p class="title"><strong>Table 5.6. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Format number is set to 4.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>This is the length in bytes of the
+              words).</p></li></ol></div><div class="table"><a name="idm272797655616"></a><p class="title"><strong>Table 5.6. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Format number is set to 4.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>This is the length in bytes of the
               subtable.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>language</td><td>Please see <a class="link" href="">Note
                 on the language field in cmap subtables</a> in
               this document.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>segCountX2</td><td>2 x segCount.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>searchRange</td><td>2 x (2**floor(log2(segCount)))</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>entrySelector</td><td>log2(searchRange/2)</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>rangeShift</td><td>2 x segCount - searchRange</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>endCount [segCount]</td><td>End characterCode for each segment,
@@ -176,7 +148,7 @@
           the glyphID 153-80 = 73.</p><p>The meaning of the last sentence escapes me. May be it
         should be removed?</p><p>It seems a necessary property of this format that the
           segments be disjoint, yet it is not mentionned
-          explicitly.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm2040"></a>Format 6: Trimmed table mapping </h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.4.1"></a>Specification</h5></div></div></div><div class="table"><a name="idm2044"></a><p class="title"><strong>Table 5.7. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Format number is set to 6.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>This is the length in bytes of the
+          explicitly.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm272797594128"></a>Format 6: Trimmed table mapping </h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.4.1"></a>Specification</h5></div></div></div><div class="table"><a name="idm272797591952"></a><p class="title"><strong>Table 5.7. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Format number is set to 6.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>length</td><td>This is the length in bytes of the
               subtable.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>language</td><td>Please see <a class="link" href="">Note
                 on the language field in cmap subtables</a> in
               this document.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>firstCode</td><td>First character code of
@@ -196,7 +168,7 @@
           properties: the range can be bigger than 256; and more
           importantly, the glyph indices are USHORT instead of
           BYTE. So this format can be used for byte encodings to reach
-          glyphs other than the first 256 glyphs.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm2083"></a>Format 8: mixed 16-bit and 32-bit coverage</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.5.1"></a>Specification</h5></div></div></div><p>Format 8 is a bit like format 2, in that it provides for
+          glyphs other than the first 256 glyphs.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm272797576160"></a>Format 8: mixed 16-bit and 32-bit coverage</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.5.1"></a>Specification</h5></div></div></div><p>Format 8 is a bit like format 2, in that it provides for
           mixed-length character codes. If a font contains characters
           from the Unicode Surrogates Area (U+D800-U+DFFF), which are
           UCS-4 characters; it's likely that it will also include
@@ -209,7 +181,7 @@
           determination as to whether a particular 16-bit value is a
           standalone character code or the start of a 32-bit character
           code can be made by looking at the 16-bit value directly,
-          with no further information required.</p><p>Here's the format 8 subtable format:</p><div class="table"><a name="idm2089"></a><p class="title"><strong>Table 5.8. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Subtable format; set to 8.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>reserved</td><td>Reserved; set to 0</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>length</td><td>Byte length of this subtable (including the
+          with no further information required.</p><p>Here's the format 8 subtable format:</p><div class="table"><a name="idm272797572224"></a><p class="title"><strong>Table 5.8. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Subtable format; set to 8.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>reserved</td><td>Reserved; set to 0</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>length</td><td>Byte length of this subtable (including the
               header)</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>language</td><td>Please see <a class="link" href="">Note
                 on the language field in cmap subtables</a> in
               this document.</td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>is32 [8192]</td><td>Tightly packed array of bits (8K bytes total)
@@ -217,7 +189,7 @@
               is the start of a 32-bit character code
                 </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td> nGroups</td><td> Number of groupings which follow
             </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Here follow the individual groups. Each group has the
-          following format:</p><div class="table"><a name="idm2124"></a><p class="title"><strong>Table 5.9. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td> startCharCode</td><td> First character code in this group; note
+          following format:</p><div class="table"><a name="idm272797559280"></a><p class="title"><strong>Table 5.9. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td> startCharCode</td><td> First character code in this group; note
               that if this group is for one or more 16-bit character
               codes (which is determined from the is32 array), this
               32-bit value will have the high 16-bits set to zero
@@ -258,9 +230,9 @@
           spending 8K bytes to is
 
 If the intent is really for a Unicode encodings,
-          then it is known </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm2154"></a>Format 10: Trimmed array</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.6.1"></a>Specification</h5></div></div></div><p>Format 10 is a bit like format 6, in that it defines a
+          then it is known </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm272797545632"></a>Format 10: Trimmed array</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.6.1"></a>Specification</h5></div></div></div><p>Format 10 is a bit like format 6, in that it defines a
         trimmed array for a tight range of 32-bit character
-        codes:</p><div class="table"><a name="idm2159"></a><p class="title"><strong>Table 5.10. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Subtable format; set to 10.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>reserved</td><td>Reserved; set to 0</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>length</td><td>Byte length of this subtable (including the
+        codes:</p><div class="table"><a name="idm272797542944"></a><p class="title"><strong>Table 5.10. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Subtable format; set to 10.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>reserved</td><td>Reserved; set to 0</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>length</td><td>Byte length of this subtable (including the
               header) </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>language</td><td>Please see <a class="link" href="">Note
                 on the language field in cmap subtables</a> in
               this document.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td> startCharCode</td><td> First character code covered </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td> numChars</td><td> Number of character codes covered
@@ -268,12 +240,12 @@ If the intent is really for a Unicode encodings,
               codes covered </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This format is not supported by Microsoft.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.6.2"></a>Annotation</h5></div></div></div><p>For coherence with the other formats, the description of
         the format field should be "Format number is set to 10" and the
         description of the length field should be "This is the length
-        in bytes of the subtable."</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm2201"></a>Format 12: Segmented coverage</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.7.1"></a>Specification</h5></div></div></div><p>This is the Microsoft standard character to glyph index
+        in bytes of the subtable."</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm272797526816"></a>Format 12: Segmented coverage</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.7.1"></a>Specification</h5></div></div></div><p>This is the Microsoft standard character to glyph index
           mapping table for fonts supporting the UCS-4 characters in
           the Unicode Surrogates Area (U+D800 - U+DFFF). It is a bit
           like format 4, in that it defines segments for sparse
           representation in 4-byte character space. Here's the
-          subtable format:</p><div class="table"><a name="idm2206"></a><p class="title"><strong>Table 5.11. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Subtable format; set to 12.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>reserved</td><td>Reserved; set to 0</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>length</td><td>Byte length of this subtable (including the
+          subtable format:</p><div class="table"><a name="idm272797523920"></a><p class="title"><strong>Table 5.11. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Subtable format; set to 12.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>reserved</td><td>Reserved; set to 0</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>length</td><td>Byte length of this subtable (including the
               header) </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>language</td><td>Please see <a class="link" href="">Note
                 on the language field in cmap subtables</a> in
               this document.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>nGroups</td><td>Number of groupings which follow
@@ -286,7 +258,7 @@ If the intent is really for a Unicode encodings,
           set of the content in the format 4 subtable. The format 4
           subtable needs to be in the cmap table to enable backward
           compatibility needs.</p><p>Here follow the individual groups, each of which has the
-          following format:</p><div class="table"><a name="idm2238"></a><p class="title"><strong>Table 5.12. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>startCharCode</td><td>First character code in this group
+          following format:</p><div class="table"><a name="idm272797511648"></a><p class="title"><strong>Table 5.12. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>startCharCode</td><td>First character code in this group
             </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>endCharCode</td><td>Last character code in this group
             </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>startGlyphID</td><td>Glyph index corresponding to the starting
               character code </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Groups must be sorted by increasing startCharCode. A
@@ -302,7 +274,7 @@ If the intent is really for a Unicode encodings,
           characters..."</p><p>For coherence with the other formats, the description of
           the format field should be "Format number is set to 12" and
           the description of the length field should be "This is the
-          length in bytes of the subtable."</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm2263"></a>Format 14: Unicode Variation Sequences</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.8.1"></a>Specification</h5></div></div></div><p>Subtable format 14 specifies the Unicode Variation
+          length in bytes of the subtable."</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm272797501744"></a>Format 14: Unicode Variation Sequences</h4></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h5 class="title"><a name="section.6.3.8.1"></a>Specification</h5></div></div></div><p>Subtable format 14 specifies the Unicode Variation
         Sequences (UVSes) supported by the font. A Variation Sequence,
         according to the Unicode Standard, comprises a base character
         followed by a variation selector; e.g. &lt;U+82A6,
@@ -315,9 +287,9 @@ If the intent is really for a Unicode encodings,
         sequence is a “default” UVS; otherwise it is a
         “non-defaultJ=f UVS, and the glyph to use for that
         sequence is specified in the format 14 subtable itself.</p><p>The example below shows how a font vendor can use format
-        14 for a JIS-2004-aware font.</p><div class="table"><a name="idm2270"></a><p class="title"><strong>Table 5.13. Format 14 header</strong></p><div class="table-contents"><table class="table" summary="Format 14 header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Subtable format; set to 14.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>length</td><td>Byte length of this subtable (including the
+        14 for a JIS-2004-aware font.</p><div class="table"><a name="idm272797497040"></a><p class="title"><strong>Table 5.13. Format 14 header</strong></p><div class="table-contents"><table class="table" summary="Format 14 header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>format</td><td>Subtable format; set to 14.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>length</td><td>Byte length of this subtable (including the
               header) </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>numVarSelectorRecords</td><td>Number of Variation Selector Records</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This is immediately followed by 'numVarSelectorRecords'
-        Variation Selector Records.</p><div class="table"><a name="idm2292"></a><p class="title"><strong>Table 5.14. Variation Selector Record</strong></p><div class="table-contents"><table class="table" summary="Variation Selector Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>UINT24</td><td>varSelector</td><td>Variation selector</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>defaultUVSOffset</td><td>Offset to Default UVS Table. May be 0. </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>nonDefaultUVSOffset</td><td>Offset to Non-Default UVS Table. May be 0.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The Variation Selector Records are sorted in increasing
+        Variation Selector Records.</p><div class="table"><a name="idm272797489728"></a><p class="title"><strong>Table 5.14. Variation Selector Record</strong></p><div class="table-contents"><table class="table" summary="Variation Selector Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>UINT24</td><td>varSelector</td><td>Variation selector</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>defaultUVSOffset</td><td>Offset to Default UVS Table. May be 0. </td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>nonDefaultUVSOffset</td><td>Offset to Non-Default UVS Table. May be 0.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The Variation Selector Records are sorted in increasing
         order of 'varSelector'. No two records may have the same
         'varSelector'. All offsets in a record are relative to the
         beginning of the format 14 cmap subtable.</p><p>A Variation Selector Record and the data its offsets
@@ -329,9 +301,9 @@ If the intent is really for a Unicode encodings,
         in the Non-Default UVS table.</p><p>Default UVS Table</p><p>A Default UVS Table is simply a range-compressed list of
         Unicode scalar values, representing the base characters of the
         default UVSes which use the 'varSelector' of the associated
-        Variation Selector Record.</p><div class="table"><a name="idm2318"></a><p class="title"><strong>Table 5.15. Default UVS Table header</strong></p><div class="table-contents"><table class="table" summary="Default UVS Table header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>numUnicodeValueRanges</td><td>Number of ranges that follow</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This is immediately followed by 'numUnicodeValueRanges'
+        Variation Selector Record.</p><div class="table"><a name="idm272797480000"></a><p class="title"><strong>Table 5.15. Default UVS Table header</strong></p><div class="table-contents"><table class="table" summary="Default UVS Table header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>numUnicodeValueRanges</td><td>Number of ranges that follow</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This is immediately followed by 'numUnicodeValueRanges'
         Unicode Value Ranges, each of which represents a contiguous
-        range of Unicode values.</p><div class="table"><a name="idm2332"></a><p class="title"><strong>Table 5.16. Unicode Value Range</strong></p><div class="table-contents"><table class="table" summary="Unicode Value Range" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>UINT24</td><td>startUnicodeValue</td><td>First value in this range</td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>additionalCount</td><td>Number of <span class="emphasis"><em>additional</em></span>
+        range of Unicode values.</p><div class="table"><a name="idm272797475632"></a><p class="title"><strong>Table 5.16. Unicode Value Range</strong></p><div class="table-contents"><table class="table" summary="Unicode Value Range" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>UINT24</td><td>startUnicodeValue</td><td>First value in this range</td><td class="auto-generated"> </td></tr><tr><td>BYTE</td><td>additionalCount</td><td>Number of <span class="emphasis"><em>additional</em></span>
             values in this range</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>For example, the range U+4E4D...U+4E4F (3 values) will
         set 'startUnicodeValue' to 0x004E4D and 'additionalCount' to
         2. A singleton range will set 'additionalCount' to 0.</p><p>('startUnicodeValue' + 'additionalCount') must not
@@ -344,8 +316,8 @@ If the intent is really for a Unicode encodings,
         base characters of all non-default UVSes which use the
         'varSelector' of the associated Variation Selector Record, and
         the glyph IDs specify the glyph IDs to use for the
-        UVSes.</p><div class="table"><a name="idm2355"></a><p class="title"><strong>Table 5.17. Non-Default UVS Table header</strong></p><div class="table-contents"><table class="table" summary="Non-Default UVS Table header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>numUVSMappings</td><td>Number of UVS Mappings that follow</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This is immediately followed by 'numUVSMappings' UVS
-        Mappings.</p><div class="table"><a name="idm2369"></a><p class="title"><strong>Table 5.18. UVS Mapping</strong></p><div class="table-contents"><table class="table" summary="UVS Mapping" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>UINT24</td><td>unicodeValue</td><td>Base Unicode value of the UVS</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>glyphID</td><td>Glyph ID of the UVS</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The UVS Mappings are sorted in increasing order of
+        UVSes.</p><div class="table"><a name="idm272797467072"></a><p class="title"><strong>Table 5.17. Non-Default UVS Table header</strong></p><div class="table-contents"><table class="table" summary="Non-Default UVS Table header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>numUVSMappings</td><td>Number of UVS Mappings that follow</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This is immediately followed by 'numUVSMappings' UVS
+        Mappings.</p><div class="table"><a name="idm272797462784"></a><p class="title"><strong>Table 5.18. UVS Mapping</strong></p><div class="table-contents"><table class="table" summary="UVS Mapping" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>UINT24</td><td>unicodeValue</td><td>Base Unicode value of the UVS</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>glyphID</td><td>Glyph ID of the UVS</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>The UVS Mappings are sorted in increasing order of
         'unicodeValue'. No two mappings in this table may have the
         same 'unicodeValue' values.</p><p>Example</p><p>Here is an example of how a format 14 cmap subtable may
         be used in a font that is aware of JIS-2004 variant
@@ -368,7 +340,7 @@ If the intent is really for a Unicode encodings,
         variants by default, it will:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>encode glyph ID 1142 at U+82A6 in the Unicode cmap
             subtable,</p><p>specify &lt;U+82A6, U+E0100&gt; in the
             UVS cmap subtable's Default UVS Table</p></li><li class="listitem"><p>specify &lt;U+82A6, U+E0101&gt; -&gt; glyph ID 7961 in the
-            UVS cmap subtables Non-Default UVS Table </p></li></ul></div></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm2410"></a>Mapping Process for Font Consumers</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.6.4.1"></a>Specification</h4></div></div></div><p>XXX</p><p>When a text is being shaped by a font consumer,
+            UVS cmap subtables Non-Default UVS Table </p></li></ul></div></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm272797444704"></a>Mapping Process for Font Consumers</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.6.4.1"></a>Specification</h4></div></div></div><p>When a text is being shaped by a font consumer,
           character codes that are not mapped to any glyph in the font
           by the data in this table (either because there is no subtable for their encoding or
           or because the subtable in a format not supported by the
@@ -410,4 +382,4 @@ If the intent is really for a Unicode encodings,
           since the Macintosh language ID for Turkish is 17. A Mac OS
           Roman <a class="link" href="chapter.cmap.html" title="Chapter 5. cmap - Character to Glyph Index Mapping Table">cmap</a> subtable must set this field
           to 0, since Mac OS Roman is not a language-specific
-          encoding.</p></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm2430"></a>Various test fonts</h3></div></div></div></div></div>
+          encoding.</p></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm272797432160"></a>Various test fonts</h3></div></div></div></div></div>

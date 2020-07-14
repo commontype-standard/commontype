@@ -49,7 +49,7 @@ chapters:
       url: "chapter.GPOS"
     - title: "GSUB - The Glyph Substitution Table"
       url: "chapter.GSUB"
-    - title: "OpenType Layout processing model"
+    - title: "Processing Model"
       url: "chapter.processing"
     - title: "JSTF - The Justification Table"
       url: "chapter.JSTF"

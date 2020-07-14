@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.head"></a>Chapter 6. head - Font Header</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm1742"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.7.1.1"></a>Specification</h4></div></div></div><p>This table gives global information about the font. The
           bounding box values should be computed using
           <span class="emphasis"><em>only</em></span> glyphs that have contours. Glyphs
@@ -18,6 +19,13 @@
           <span class="emphasis"><em>only</em></span> glyphs that have contours. Glyphs
           with no contours should be ignored for the purposes of these
           calculations.</p><div class="table"><a name="idm62730120320"></a><p class="title"><strong>Table 6.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Table version number</td><td>0x00010000 for version 1.0.</td><td class="auto-generated"> </td></tr><tr><td>Fixed</td><td>fontRevision</td><td>Set by font manufacturer.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>checkSumAdjustment</td><td>To compute: set it to 0, sum the entire font
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.head"></a>Chapter 6. head - Font Header</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465838064640"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.7.1.1"></a>Specification</h4></div></div></div><p>This table gives global information about the font. The
+          bounding box values should be computed using
+          <span class="emphasis"><em>only</em></span> glyphs that have contours. Glyphs
+          with no contours should be ignored for the purposes of these
+          calculations.</p><div class="table"><a name="idm465838061952"></a><p class="title"><strong>Table 6.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Table version number</td><td>0x00010000 for version 1.0.</td><td class="auto-generated"> </td></tr><tr><td>Fixed</td><td>fontRevision</td><td>Set by font manufacturer.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>checkSumAdjustment</td><td>To compute: set it to 0, sum the entire font
 >>>>>>> Rebuild
               as ULONG, then store 0xB1B0AFBA - sum.</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>magicNumber</td><td>Set to 0x5F0F3CF5.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>flags</td><td>
             <table border="0" summary="Simple list" class="simplelist"><tr><td>Bit 0: baseline for font at y=0;</td></tr><tr><td>Bit 1: left sidebearing at x=0;</td></tr><tr><td>Bit 2: instructions may depend on point
@@ -43,6 +51,7 @@
                       neutrals;</td></tr><tr><td>-1: Only strongly right to left;</td></tr><tr><td>-2: Like -1 but also contains
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       neutrals<a href="#ftn.idm1844" class="footnote" id="idm1844"><sup class="footnote">[a]</sup></a>.</td></tr></table>
           </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>indexToLocFormat</td><td>0 for short offsets, 1 for
               long.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>glyphDataFormat</td><td>0 for current format.</td><td class="auto-generated"> </td></tr></tbody><tbody class="footnotes"><tr><td colspan="4"><div id="ftn.idm1844" class="footnote"><p><a href="#idm1844" class="para"><sup class="para">[a] </sup></a>A neutral character has no inherent
@@ -55,6 +64,11 @@
                       neutrals<a href="#ftn.idm62730083856" class="footnote" id="idm62730083856"><sup class="footnote">[a]</sup></a>.</td></tr></table>
           </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>indexToLocFormat</td><td>0 for short offsets, 1 for
               long.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>glyphDataFormat</td><td>0 for current format.</td><td class="auto-generated"> </td></tr></tbody><tbody class="footnotes"><tr><td colspan="4"><div id="ftn.idm62730083856" class="footnote"><p><a href="#idm62730083856" class="para"><sup class="para">[a] </sup></a>A neutral character has no inherent
+>>>>>>> Rebuild
+=======
+                      neutrals<a href="#ftn.idm465838026752" class="footnote" id="idm465838026752"><sup class="footnote">[a]</sup></a>.</td></tr></table>
+          </td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>indexToLocFormat</td><td>0 for short offsets, 1 for
+              long.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>glyphDataFormat</td><td>0 for current format.</td><td class="auto-generated"> </td></tr></tbody><tbody class="footnotes"><tr><td colspan="4"><div id="ftn.idm465838026752" class="footnote"><p><a href="#idm465838026752" class="para"><sup class="para">[a] </sup></a>A neutral character has no inherent
 >>>>>>> Rebuild
                           directionality; it is not a character with
                           zero (0) width. Spaces and punctuation are

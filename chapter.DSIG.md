@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.DSIG"></a>Chapter 31. DSIG - Digital Signature Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm18870"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.1.1"></a>Specification</h4></div></div></div><p>The DSIG table contains the digital signature of the
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.DSIG"></a>Chapter 31. DSIG - Digital Signature Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292351776"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.1.1"></a>Specification</h4></div></div></div><p>The DSIG table contains the digital signature of the
 >>>>>>> Rebuild
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.DSIG"></a>Chapter 31. DSIG - Digital Signature Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62723547296"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.1.1"></a>Specification</h4></div></div></div><p>The DSIG table contains the digital signature of the
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.DSIG"></a>Chapter 31. DSIG - Digital Signature Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830073760"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.1.1"></a>Specification</h4></div></div></div><p>The DSIG table contains the digital signature of the
 >>>>>>> Rebuild
           CommonType font. Signature formats are widely documented and
           rely on a key pair architecture. Software developers, or
@@ -31,12 +35,16 @@
           Cybertrust, free or at a very low cost.</p><p>The DSIG table is organized as follows. The first
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           portion of the table is the header:</p><div class="table"><a name="idm18885"></a><p class="title"><strong>Table 31.1. DSIG Header</strong></p><div class="table-contents"><table class="table" summary="DSIG Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulVersion</td><td>Version number of the DSIG
 =======
           portion of the table is the header:</p><div class="table"><a name="idm189292344032"></a><p class="title"><strong>Table 31.1. DSIG Header</strong></p><div class="table-contents"><table class="table" summary="DSIG Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulVersion</td><td>Version number of the DSIG
 >>>>>>> Rebuild
 =======
           portion of the table is the header:</p><div class="table"><a name="idm62723539552"></a><p class="title"><strong>Table 31.1. DSIG Header</strong></p><div class="table-contents"><table class="table" summary="DSIG Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulVersion</td><td>Version number of the DSIG
+>>>>>>> Rebuild
+=======
+          portion of the table is the header:</p><div class="table"><a name="idm465830066016"></a><p class="title"><strong>Table 31.1. DSIG Header</strong></p><div class="table-contents"><table class="table" summary="DSIG Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulVersion</td><td>Version number of the DSIG
 >>>>>>> Rebuild
               table (0x00000001)</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usNumSigs</td><td>Number of signatures in the
               table</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usFlag</td><td>
@@ -54,6 +62,7 @@
           of the signatures in the table specifying format and offset
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           information:</p><div class="table"><a name="idm18912"></a><p class="title"><strong>Table 31.2. Format/Offset Table</strong></p><div class="table-contents"><table class="table" summary="Format/Offset Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulFormat</td><td>format of the signature</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulLength</td><td>Length of signature in bytes</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulOffset</td><td>Offset to the signature block from the
               beginning of the table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This information is then followed by one or more
           signature blocks:</p><div class="table"><a name="idm18934"></a><p class="title"><strong>Table 31.3. Signature Block</strong></p><div class="table-contents"><table class="table" summary="Signature Block" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>usReserved1</td><td>Reserved for later use; 0 for
@@ -66,6 +75,11 @@
           information:</p><div class="table"><a name="idm62723529728"></a><p class="title"><strong>Table 31.2. Format/Offset Table</strong></p><div class="table-contents"><table class="table" summary="Format/Offset Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulFormat</td><td>format of the signature</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulLength</td><td>Length of signature in bytes</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulOffset</td><td>Offset to the signature block from the
               beginning of the table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This information is then followed by one or more
           signature blocks:</p><div class="table"><a name="idm62723522464"></a><p class="title"><strong>Table 31.3. Signature Block</strong></p><div class="table-contents"><table class="table" summary="Signature Block" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>usReserved1</td><td>Reserved for later use; 0 for
+>>>>>>> Rebuild
+=======
+          information:</p><div class="table"><a name="idm465830056192"></a><p class="title"><strong>Table 31.2. Format/Offset Table</strong></p><div class="table-contents"><table class="table" summary="Format/Offset Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ULONG</td><td>ulFormat</td><td>format of the signature</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulLength</td><td>Length of signature in bytes</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ulOffset</td><td>Offset to the signature block from the
+              beginning of the table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This information is then followed by one or more
+          signature blocks:</p><div class="table"><a name="idm465830048928"></a><p class="title"><strong>Table 31.3. Signature Block</strong></p><div class="table-contents"><table class="table" summary="Signature Block" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>usReserved1</td><td>Reserved for later use; 0 for
 >>>>>>> Rebuild
               now</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>usReserved2</td><td>Reserved for later use; 0 for
               now</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>cbSignature</td><td>Length (in bytes) of the PKCS#7 packet in
@@ -115,12 +129,16 @@
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 </pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm18980"></a>Format 1: For whole fonts, with either TrueType outlines
 =======
 </pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292306944"></a>Format 1: For whole fonts, with either TrueType outlines
 >>>>>>> Rebuild
 =======
 </pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62723502464"></a>Format 1: For whole fonts, with either TrueType outlines
+>>>>>>> Rebuild
+=======
+</pre></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830028928"></a>Format 1: For whole fonts, with either TrueType outlines
 >>>>>>> Rebuild
         and/or CFF data</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.2.1"></a>Specification</h4></div></div></div><p>PKCS#7 or PKCS#9. The signed content digest is created
           as follows:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>If there is an existing DSIG table in the
@@ -148,12 +166,16 @@
               length is not greater than the size of the file.</p></li><li class="listitem"><p>The checksums of all tables are correct.</p></li><li class="listitem"><p>The head table's checkSumAdjustment field is
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               correct.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm19029"></a>Signatures for TrueType Collections</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.DSIG.html" title="Chapter 31. DSIG - Digital Signature Table">DSIG</a> table for a TrueType
 =======
               correct.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189292284304"></a>Signatures for TrueType Collections</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.DSIG.html" title="Chapter 31. DSIG - Digital Signature Table">DSIG</a> table for a TrueType
 >>>>>>> Rebuild
 =======
               correct.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62723479824"></a>Signatures for TrueType Collections</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.DSIG.html" title="Chapter 31. DSIG - Digital Signature Table">DSIG</a> table for a TrueType
+>>>>>>> Rebuild
+=======
+              correct.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465830006288"></a>Signatures for TrueType Collections</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.32.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.DSIG.html" title="Chapter 31. DSIG - Digital Signature Table">DSIG</a> table for a TrueType
 >>>>>>> Rebuild
 	  Collection (TTC) must be the last table in the TTC file. The
 	  offset and checksum to the table is put in the TTCHeader

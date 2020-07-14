@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.VORG"></a>Chapter 40. VORG - Vertical Origin Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20569"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.41.1.1"></a>Specification</h4></div></div></div><p>This table specifies the y coordinate of the vertical
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.VORG"></a>Chapter 40. VORG - Vertical Origin Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291900176"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.41.1.1"></a>Specification</h4></div></div></div><p>This table specifies the y coordinate of the vertical
 >>>>>>> Rebuild
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.VORG"></a>Chapter 40. VORG - Vertical Origin Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62722828768"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.41.1.1"></a>Specification</h4></div></div></div><p>This table specifies the y coordinate of the vertical
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.VORG"></a>Chapter 40. VORG - Vertical Origin Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834403312"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.41.1.1"></a>Specification</h4></div></div></div><p>This table specifies the y coordinate of the vertical
 >>>>>>> Rebuild
           origin of every glyph in the font.</p><p>This table may be optionally present only in CFF
           CommonType fonts. If present in TrueType CommonType fonts it
@@ -43,12 +47,16 @@
           information about constructing CJK (Chinese, Japanese, and
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           Korean) fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm20596"></a>Vertical Origin Table Format</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.41.2.1"></a>Specification</h4></div></div></div><div class="table"><a name="idm20600"></a><p class="title"><strong>Table 40.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>majorVersion</td><td>Major version (starting at 1). Set to
 =======
           Korean) fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189291883600"></a>Vertical Origin Table Format</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.41.2.1"></a>Specification</h4></div></div></div><div class="table"><a name="idm189291881776"></a><p class="title"><strong>Table 40.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>majorVersion</td><td>Major version (starting at 1). Set to
 >>>>>>> Rebuild
 =======
           Korean) fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62722812192"></a>Vertical Origin Table Format</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.41.2.1"></a>Specification</h4></div></div></div><div class="table"><a name="idm62722810368"></a><p class="title"><strong>Table 40.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>majorVersion</td><td>Major version (starting at 1). Set to
+>>>>>>> Rebuild
+=======
+          Korean) fonts.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834386736"></a>Vertical Origin Table Format</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.41.2.1"></a>Specification</h4></div></div></div><div class="table"><a name="idm465834384912"></a><p class="title"><strong>Table 40.1. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>majorVersion</td><td>Major version (starting at 1). Set to
 >>>>>>> Rebuild
               1.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>minorVersion</td><td>Minor version (starting at 0). Set to
               0.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>defaultVertOriginY</td><td>The y coordinate of a glyph's vertical
@@ -60,12 +68,16 @@
           numVertOriginYMetrics elements of the following
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           format:</p><div class="table"><a name="idm20625"></a><p class="title"><strong>Table 40.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>glyphIndex</td><td> Glyph index.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>vertOriginY</td><td>Y coordinate, in the font's design coordinate
 =======
           format:</p><div class="table"><a name="idm189291872912"></a><p class="title"><strong>Table 40.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>glyphIndex</td><td> Glyph index.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>vertOriginY</td><td>Y coordinate, in the font's design coordinate
 >>>>>>> Rebuild
 =======
           format:</p><div class="table"><a name="idm62722803504"></a><p class="title"><strong>Table 40.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>glyphIndex</td><td> Glyph index.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>vertOriginY</td><td>Y coordinate, in the font's design coordinate
+>>>>>>> Rebuild
+=======
+          format:</p><div class="table"><a name="idm465834376048"></a><p class="title"><strong>Table 40.2. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>glyphIndex</td><td> Glyph index.</td><td class="auto-generated"> </td></tr><tr><td>SHORT</td><td>vertOriginY</td><td>Y coordinate, in the font's design coordinate
 >>>>>>> Rebuild
               system, of the vertical origin of glyph with index
               glyphIndex.</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>This array must be sorted by increasing glyphIndex, and

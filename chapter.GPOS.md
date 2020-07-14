@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.GPOS"></a>Chapter 24. GPOS - The Glyph Positioning Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10138"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.1.1"></a>Specification</h4></div></div></div><p>The Glyph Positioning table (<a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>)
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.GPOS"></a>Chapter 24. GPOS - The Glyph Positioning Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294086432"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.1.1"></a>Specification</h4></div></div></div><p>The Glyph Positioning table (<a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>)
 >>>>>>> Rebuild
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.GPOS"></a>Chapter 24. GPOS - The Glyph Positioning Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733367712"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.1.1"></a>Specification</h4></div></div></div><p>The Glyph Positioning table (<a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>)
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.GPOS"></a>Chapter 24. GPOS - The Glyph Positioning Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833484320"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.1.1"></a>Specification</h4></div></div></div><p>The Glyph Positioning table (<a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>)
 >>>>>>> Rebuild
           provides precise control over glyph placement for
           sophisticated text layout and rendering in each script and
@@ -16,12 +20,16 @@
           relation to one another for legibility and linguistic
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           accuracy.</p><div class="figure"><a name="idm10145"></a><p class="title"><strong>Figure 24.1. Figure 4a. Vietnamese words with marks.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4a.gif" alt="Figure 4a. Vietnamese words with marks."/></div></div></div><br class="figure-break"/><p>Other writing systems require sophisticated glyph
 =======
           accuracy.</p><div class="figure"><a name="idm189294082736"></a><p class="title"><strong>Figure 24.1. Figure 4a. Vietnamese words with marks.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4a.gif" alt="Figure 4a. Vietnamese words with marks."/></div></div></div><br class="figure-break"/><p>Other writing systems require sophisticated glyph
 >>>>>>> Rebuild
 =======
           accuracy.</p><div class="figure"><a name="idm62733364016"></a><p class="title"><strong>Figure 24.1. Figure 4a. Vietnamese words with marks.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4a.gif" alt="Figure 4a. Vietnamese words with marks."/></div></div></div><br class="figure-break"/><p>Other writing systems require sophisticated glyph
+>>>>>>> Rebuild
+=======
+          accuracy.</p><div class="figure"><a name="idm465833480624"></a><p class="title"><strong>Figure 24.1. Figure 4a. Vietnamese words with marks.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4a.gif" alt="Figure 4a. Vietnamese words with marks."/></div></div></div><br class="figure-break"/><p>Other writing systems require sophisticated glyph
 >>>>>>> Rebuild
           positioning for correct typographic composition. For
           instance, Urdu glyphs are calligraphic and connect to one
@@ -30,12 +38,16 @@
           text-processing client must modify both the horizontal (X)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           and vertical (Y) positions of each glyph.</p><div class="figure"><a name="idm10151"></a><p class="title"><strong>Figure 24.2. Figure 4b. Urdu layout requires glyph positioning
 =======
           and vertical (Y) positions of each glyph.</p><div class="figure"><a name="idm189294079392"></a><p class="title"><strong>Figure 24.2. Figure 4b. Urdu layout requires glyph positioning
 >>>>>>> Rebuild
 =======
           and vertical (Y) positions of each glyph.</p><div class="figure"><a name="idm62733360672"></a><p class="title"><strong>Figure 24.2. Figure 4b. Urdu layout requires glyph positioning
+>>>>>>> Rebuild
+=======
+          and vertical (Y) positions of each glyph.</p><div class="figure"><a name="idm465833477280"></a><p class="title"><strong>Figure 24.2. Figure 4b. Urdu layout requires glyph positioning
 >>>>>>> Rebuild
             control, as well as contextual substitution</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4b.gif" alt="Figure 4b. Urdu layout requires glyph positioning control, as well as contextual substitution"/></div></div></div><br class="figure-break"/><p>With the <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table, a font developer
           can define a complete set of positioning adjustment features
@@ -52,12 +64,16 @@
           bearing, and advance corresponds to the advance
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           width.</p><div class="figure"><a name="idm10161"></a><p class="title"><strong>Figure 24.3. Figure 4c. Glyph positioning with TrueType</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4c.gif" alt="Figure 4c. Glyph positioning with TrueType"/></div></div></div><br class="figure-break"/><p>TrueType specifies placement and advance only in the X
 =======
           width.</p><div class="figure"><a name="idm189294073840"></a><p class="title"><strong>Figure 24.3. Figure 4c. Glyph positioning with TrueType</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4c.gif" alt="Figure 4c. Glyph positioning with TrueType"/></div></div></div><br class="figure-break"/><p>TrueType specifies placement and advance only in the X
 >>>>>>> Rebuild
 =======
           width.</p><div class="figure"><a name="idm62733355120"></a><p class="title"><strong>Figure 24.3. Figure 4c. Glyph positioning with TrueType</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4c.gif" alt="Figure 4c. Glyph positioning with TrueType"/></div></div></div><br class="figure-break"/><p>TrueType specifies placement and advance only in the X
+>>>>>>> Rebuild
+=======
+          width.</p><div class="figure"><a name="idm465833471728"></a><p class="title"><strong>Figure 24.3. Figure 4c. Glyph positioning with TrueType</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4c.gif" alt="Figure 4c. Glyph positioning with TrueType"/></div></div></div><br class="figure-break"/><p>TrueType specifies placement and advance only in the X
 >>>>>>> Rebuild
           direction for horizontal layout and only in the Y direction
           for vertical layout. For simple Latin text layout, these two
@@ -105,12 +121,16 @@
           to be attached. For instance, a base glyph could have
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           attachment points for different diacritical marks.</p><div class="figure"><a name="idm10177"></a><p class="title"><strong>Figure 24.4. Base glyph with multiple attachment points.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../attach.gif" alt="Base glyph with multiple attachment points."/></div></div></div><br class="figure-break"/><p>To reduce the size of the font file, a base glyph may
 =======
           attachment points for different diacritical marks.</p><div class="figure"><a name="idm189294064016"></a><p class="title"><strong>Figure 24.4. Base glyph with multiple attachment points.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../attach.gif" alt="Base glyph with multiple attachment points."/></div></div></div><br class="figure-break"/><p>To reduce the size of the font file, a base glyph may
 >>>>>>> Rebuild
 =======
           attachment points for different diacritical marks.</p><div class="figure"><a name="idm62733345328"></a><p class="title"><strong>Figure 24.4. Base glyph with multiple attachment points.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../attach.gif" alt="Base glyph with multiple attachment points."/></div></div></div><br class="figure-break"/><p>To reduce the size of the font file, a base glyph may
+>>>>>>> Rebuild
+=======
+          attachment points for different diacritical marks.</p><div class="figure"><a name="idm465833461936"></a><p class="title"><strong>Figure 24.4. Base glyph with multiple attachment points.</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../attach.gif" alt="Base glyph with multiple attachment points."/></div></div></div><br class="figure-break"/><p>To reduce the size of the font file, a base glyph may
 >>>>>>> Rebuild
           use the same attachment point for all mark glyphs assigned
           to a particular class. For example, a base glyph could have
@@ -126,12 +146,16 @@
           attachment feature and define explicit exit and entry
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           attachment points for each glyph (see Figure 4d).</p><div class="figure"><a name="idm10184"></a><p class="title"><strong>Figure 24.5. Figure 4d. Entry and exit points marked on contextual
 =======
           attachment points for each glyph (see Figure 4d).</p><div class="figure"><a name="idm189294060240"></a><p class="title"><strong>Figure 24.5. Figure 4d. Entry and exit points marked on contextual
 >>>>>>> Rebuild
 =======
           attachment points for each glyph (see Figure 4d).</p><div class="figure"><a name="idm62733341504"></a><p class="title"><strong>Figure 24.5. Figure 4d. Entry and exit points marked on contextual
+>>>>>>> Rebuild
+=======
+          attachment points for each glyph (see Figure 4d).</p><div class="figure"><a name="idm465833458112"></a><p class="title"><strong>Figure 24.5. Figure 4d. Entry and exit points marked on contextual
 >>>>>>> Rebuild
             Urdu glyph variations</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4d.gif" alt="Figure 4d. Entry and exit points marked on contextual Urdu glyph variations"/></div></div></div><br class="figure-break"/><p>The <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table supports eight types
           of actions for positioning and attaching glyphs:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>A <span class="emphasis"><em>single adjustment</em></span> positions
@@ -165,12 +189,16 @@
               glyphs. One or more positioning operations may be
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               performed on "input" context sequences.</p></li></ul></div><div class="figure"><a name="idm10216"></a><p class="title"><strong>Figure 24.6. Figure 4e. Contextual positioning lowered the accent
 =======
               performed on "input" context sequences.</p></li></ul></div><div class="figure"><a name="idm189294045392"></a><p class="title"><strong>Figure 24.6. Figure 4e. Contextual positioning lowered the accent
 >>>>>>> Rebuild
 =======
               performed on "input" context sequences.</p></li></ul></div><div class="figure"><a name="idm62733326672"></a><p class="title"><strong>Figure 24.6. Figure 4e. Contextual positioning lowered the accent
+>>>>>>> Rebuild
+=======
+              performed on "input" context sequences.</p></li></ul></div><div class="figure"><a name="idm465833443280"></a><p class="title"><strong>Figure 24.6. Figure 4e. Contextual positioning lowered the accent
 >>>>>>> Rebuild
             over a vowel glyph that followed an overhanging uppercase
             glyph</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4e.gif" alt="Figure 4e. Contextual positioning lowered the accent over a vowel glyph that followed an overhanging uppercase glyph"/></div></div></div><br class="figure-break"/><p>Table Organization</p><p>The <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table begins with a header
@@ -185,12 +213,16 @@
           following discussion summarizes how the <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           works.</p><div class="figure"><a name="idm10233"></a><p class="title"><strong>Figure 24.7. Figure 4f. High-level organization of <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>
 =======
           works.</p><div class="figure"><a name="idm189294037264"></a><p class="title"><strong>Figure 24.7. Figure 4f. High-level organization of <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>
 >>>>>>> Rebuild
 =======
           works.</p><div class="figure"><a name="idm62733318544"></a><p class="title"><strong>Figure 24.7. Figure 4f. High-level organization of <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>
+>>>>>>> Rebuild
+=======
+          works.</p><div class="figure"><a name="idm465833435152"></a><p class="title"><strong>Figure 24.7. Figure 4f. High-level organization of <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>
 >>>>>>> Rebuild
             table</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig4f.gif" alt="Figure 4f. High-level organization of GPOS table"/></div></div></div><br class="figure-break"/><p>The <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table is organized so text
           processing clients can easily locate the features and
@@ -216,12 +248,16 @@
           the same LookupType, as listed in the LookupType Enumeration
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           table:</p><div class="table"><a name="idm10259"></a><p class="title"><strong>Table 24.1. LookupType Enumeration table for glyph
 =======
           table:</p><div class="table"><a name="idm189294023872"></a><p class="title"><strong>Table 24.1. LookupType Enumeration table for glyph
 >>>>>>> Rebuild
 =======
           table:</p><div class="table"><a name="idm62733305152"></a><p class="title"><strong>Table 24.1. LookupType Enumeration table for glyph
+>>>>>>> Rebuild
+=======
+          table:</p><div class="table"><a name="idm465833421760"></a><p class="title"><strong>Table 24.1. LookupType Enumeration table for glyph
 >>>>>>> Rebuild
             positioning</strong></p><div class="table-contents"><table class="table" summary="LookupType Enumeration table for glyph&#10;            positioning" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Value</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>1</td><td>Single adjustment</td><td>Adjust position of a single glyph</td></tr><tr><td>2</td><td>Pair adjustment</td><td>Adjust position of a pair of glyphs</td></tr><tr><td>3</td><td>Cursive attachment</td><td>Attach cursive glyphs</td></tr><tr><td>4</td><td>MarkToBase attachment</td><td>Attach a combining mark to a base glyph</td></tr><tr><td>5</td><td>MarkToLigature attachment</td><td>Attach a combining mark to a ligature</td></tr><tr><td>6</td><td>MarkToMark attachment</td><td>Attach a combining mark to another mark</td></tr><tr><td>7</td><td>Context positioning</td><td>Position one or more glyphs in context</td></tr><tr><td>8</td><td>Chained Context positioning</td><td>Position one or more glyphs in chained
                   context</td></tr><tr><td>9</td><td>Extension positioning</td><td>Extension mechanism for other positionings</td></tr><tr><td>10+</td><td>Reserved</td><td>For future use</td></tr></tbody></table></div></div><br class="table-break"/><p>Each LookupType is defined by one or more subtables,
@@ -256,6 +292,7 @@
           MarkArrays. For easy reference, the shared tables are
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           described at the end of this chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10315"></a>GPOS Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table begins with a header
 =======
           described at the end of this chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293998560"></a>GPOS Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table begins with a header
@@ -263,11 +300,15 @@
 =======
           described at the end of this chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733279840"></a>GPOS Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table begins with a header
 >>>>>>> Rebuild
+=======
+          described at the end of this chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833396480"></a>GPOS Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table begins with a header
+>>>>>>> Rebuild
           that contains a version number (Version) initially set to
           1.0 (0x00010000) and offsets to three tables: ScriptList,
           FeatureList, and LookupList. For descriptions of these
           tables, see the chapter, Common Table Formats. Example 1 at
           the end of this chapter shows a <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           Header table definition.</p><div class="table"><a name="idm10322"></a><p class="title"><strong>Table 24.2. GPOS Header</strong></p><div class="table-contents"><table class="table" summary="GPOS Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>Version of the <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>
@@ -289,6 +330,13 @@
               <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table </td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>LookupList</td><td>Offset to LookupList table-from beginning of
               <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.2.2"></a>Annotation</h4></div></div></div><p>Nothing to note.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733262784"></a>Lookup Type 1: Single Adjustment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.3.1"></a>Specification</h4></div></div></div><p>A single adjustment positioning subtable (SinglePos) is
 >>>>>>> Rebuild
+=======
+          Header table definition.</p><div class="table"><a name="idm465833392592"></a><p class="title"><strong>Table 24.2. GPOS Header</strong></p><div class="table-contents"><table class="table" summary="GPOS Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Fixed</td><td>Version</td><td>Version of the <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>
+              table-initially = 0x00010000</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ScriptList</td><td>Offset to ScriptList table-from beginning of
+              <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>FeatureList</td><td>Offset to FeatureList table-from beginning of
+              <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table </td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>LookupList</td><td>Offset to LookupList table-from beginning of
+              <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.2.2"></a>Annotation</h4></div></div></div><p>Nothing to note.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833379424"></a>Lookup Type 1: Single Adjustment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.3.1"></a>Specification</h4></div></div></div><p>A single adjustment positioning subtable (SinglePos) is
+>>>>>>> Rebuild
           used to adjust the position of a single glyph, such as a
           subscript or superscript. In addition, a SinglePos subtable
           is commonly used to implement lookup data for contextual
@@ -297,12 +345,16 @@
           one that applies a different adjustment for each unique
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.3.2"></a>Annotation</h4></div></div></div><p>None</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10363"></a>Single Adjustment Positioning: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.4.1"></a>Specification</h4></div></div></div><p>A SinglePosFormat1 subtable applies the same positioning
 =======
           glyph.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.3.2"></a>Annotation</h4></div></div></div><p>None</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293976176"></a>Single Adjustment Positioning: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.4.1"></a>Specification</h4></div></div></div><p>A SinglePosFormat1 subtable applies the same positioning
 >>>>>>> Rebuild
 =======
           glyph.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.3.2"></a>Annotation</h4></div></div></div><p>None</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733257456"></a>Single Adjustment Positioning: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.4.1"></a>Specification</h4></div></div></div><p>A SinglePosFormat1 subtable applies the same positioning
+>>>>>>> Rebuild
+=======
+          glyph.</p></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.3.2"></a>Annotation</h4></div></div></div><p>None</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833374096"></a>Single Adjustment Positioning: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.4.1"></a>Specification</h4></div></div></div><p>A SinglePosFormat1 subtable applies the same positioning
 >>>>>>> Rebuild
           value or values to each glyph listed in its Coverage table.
           For instance, when a font uses old-style numerals, this
@@ -319,12 +371,16 @@
 	  SinglePosFormat1 subtable used to adjust the placement of
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  subscript glyphs.</p><div class="table"><a name="idm10371"></a><p class="title"><strong>Table 24.3. SinglePosFormat1 subtable: Single positioning value</strong></p><div class="table-contents"><table class="table" summary="SinglePosFormat1 subtable: Single positioning value" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
 =======
 	  subscript glyphs.</p><div class="table"><a name="idm189293971776"></a><p class="title"><strong>Table 24.3. SinglePosFormat1 subtable: Single positioning value</strong></p><div class="table-contents"><table class="table" summary="SinglePosFormat1 subtable: Single positioning value" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
 >>>>>>> Rebuild
 =======
 	  subscript glyphs.</p><div class="table"><a name="idm62733253056"></a><p class="title"><strong>Table 24.3. SinglePosFormat1 subtable: Single positioning value</strong></p><div class="table-contents"><table class="table" summary="SinglePosFormat1 subtable: Single positioning value" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
+>>>>>>> Rebuild
+=======
+	  subscript glyphs.</p><div class="table"><a name="idm465833369696"></a><p class="title"><strong>Table 24.3. SinglePosFormat1 subtable: Single positioning value</strong></p><div class="table-contents"><table class="table" summary="SinglePosFormat1 subtable: Single positioning value" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
 >>>>>>> Rebuild
               SinglePos subtable</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ValueFormat</td><td>Defines the types of data in the
               ValueRecord</td><td class="auto-generated"> </td></tr><tr><td>ValueRecord</td><td>Value</td><td>Defines positioning value(s) – applied to all
@@ -334,12 +390,16 @@
       </p><p>The action of this subtable is to adjust the glyph
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  matched by C by {ValueFormat, Value}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10403"></a>Single Adjustment Positioning: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.5.1"></a>Specification</h4></div></div></div><p>A SinglePosFormat2 subtable provides an array of
 =======
 	  matched by C by {ValueFormat, Value}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293959136"></a>Single Adjustment Positioning: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.5.1"></a>Specification</h4></div></div></div><p>A SinglePosFormat2 subtable provides an array of
 >>>>>>> Rebuild
 =======
 	  matched by C by {ValueFormat, Value}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733240416"></a>Single Adjustment Positioning: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.5.1"></a>Specification</h4></div></div></div><p>A SinglePosFormat2 subtable provides an array of
+>>>>>>> Rebuild
+=======
+	  matched by C by {ValueFormat, Value}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833357056"></a>Single Adjustment Positioning: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.5.1"></a>Specification</h4></div></div></div><p>A SinglePosFormat2 subtable provides an array of
 >>>>>>> Rebuild
           ValueRecords that contains one positioning value for each
           glyph in the Coverage table. This format is more flexible
@@ -372,12 +432,16 @@
           the spacing of three dash glyphs with a SinglePosFormat2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           subtable.</p><div class="table"><a name="idm10418"></a><p class="title"><strong>Table 24.4. SinglePosFormat2 subtable: Array of positioning values</strong></p><div class="table-contents"><table class="table" summary="SinglePosFormat2 subtable: Array of positioning values" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
 =======
           subtable.</p><div class="table"><a name="idm189293950944"></a><p class="title"><strong>Table 24.4. SinglePosFormat2 subtable: Array of positioning values</strong></p><div class="table-contents"><table class="table" summary="SinglePosFormat2 subtable: Array of positioning values" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
 >>>>>>> Rebuild
 =======
           subtable.</p><div class="table"><a name="idm62733232224"></a><p class="title"><strong>Table 24.4. SinglePosFormat2 subtable: Array of positioning values</strong></p><div class="table-contents"><table class="table" summary="SinglePosFormat2 subtable: Array of positioning values" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
+>>>>>>> Rebuild
+=======
+          subtable.</p><div class="table"><a name="idm465833348864"></a><p class="title"><strong>Table 24.4. SinglePosFormat2 subtable: Array of positioning values</strong></p><div class="table-contents"><table class="table" summary="SinglePosFormat2 subtable: Array of positioning values" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table – from beginning of
 >>>>>>> Rebuild
               SinglePos subtable</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ValueFormat</td><td>Defines the types of data in the
               ValueRecord</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ValueCount</td><td>Number of ValueRecords</td><td class="auto-generated"> </td></tr><tr><td>ValueRecord</td><td>Value [ValueCount]</td><td>Array of ValueRecords – positioning values
@@ -389,12 +453,16 @@
 	  matched by C by {ValueFormat, Value [Coverage[g]]}, where g
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  is the glyph id of the matched glyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10455"></a>Lookup Type 2: Pair Adjustment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.6.1"></a>Specification</h4></div></div></div><p>A pair adjustment positioning subtable (PairPos) is used
 =======
 	  is the glyph id of the matched glyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293936272"></a>Lookup Type 2: Pair Adjustment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.6.1"></a>Specification</h4></div></div></div><p>A pair adjustment positioning subtable (PairPos) is used
 >>>>>>> Rebuild
 =======
 	  is the glyph id of the matched glyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733217552"></a>Lookup Type 2: Pair Adjustment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.6.1"></a>Specification</h4></div></div></div><p>A pair adjustment positioning subtable (PairPos) is used
+>>>>>>> Rebuild
+=======
+	  is the glyph id of the matched glyph.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833334192"></a>Lookup Type 2: Pair Adjustment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.6.1"></a>Specification</h4></div></div></div><p>A pair adjustment positioning subtable (PairPos) is used
 >>>>>>> Rebuild
           to adjust the positions of two glyphs in relation to one
           another-for instance, to specify kerning data for pairs of
@@ -410,12 +478,16 @@
           identifies glyphs individually by index (Format 1), or one
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           that identifies glyphs by class (Format 2).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10461"></a>Pair Positioning Adjustment: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.7.1"></a>Specification</h4></div></div></div><p>Format 1 uses glyph indices to access positioning data
 =======
           that identifies glyphs by class (Format 2).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293932144"></a>Pair Positioning Adjustment: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.7.1"></a>Specification</h4></div></div></div><p>Format 1 uses glyph indices to access positioning data
 >>>>>>> Rebuild
 =======
           that identifies glyphs by class (Format 2).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733213424"></a>Pair Positioning Adjustment: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.7.1"></a>Specification</h4></div></div></div><p>Format 1 uses glyph indices to access positioning data
+>>>>>>> Rebuild
+=======
+          that identifies glyphs by class (Format 2).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833330064"></a>Pair Positioning Adjustment: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.7.1"></a>Specification</h4></div></div></div><p>Format 1 uses glyph indices to access positioning data
 >>>>>>> Rebuild
           for one or more specific pairs of glyphs. All pairs are
           specified in the order determined by the layout direction of
@@ -441,12 +513,16 @@
           each glyph listed in the Coverage table and uses the same
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           order as the Coverage Index.</p><div class="table"><a name="idm10476"></a><p class="title"><strong>Table 24.5. PairPosFormat1 subtable: Adjustments for glyph pairs</strong></p><div class="table-contents"><table class="table" summary="PairPosFormat1 subtable: Adjustments for glyph pairs" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
 =======
           order as the Coverage Index.</p><div class="table"><a name="idm189293924288"></a><p class="title"><strong>Table 24.5. PairPosFormat1 subtable: Adjustments for glyph pairs</strong></p><div class="table-contents"><table class="table" summary="PairPosFormat1 subtable: Adjustments for glyph pairs" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
 >>>>>>> Rebuild
 =======
           order as the Coverage Index.</p><div class="table"><a name="idm62733205568"></a><p class="title"><strong>Table 24.5. PairPosFormat1 subtable: Adjustments for glyph pairs</strong></p><div class="table-contents"><table class="table" summary="PairPosFormat1 subtable: Adjustments for glyph pairs" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
+>>>>>>> Rebuild
+=======
+          order as the Coverage Index.</p><div class="table"><a name="idm465833322208"></a><p class="title"><strong>Table 24.5. PairPosFormat1 subtable: Adjustments for glyph pairs</strong></p><div class="table-contents"><table class="table" summary="PairPosFormat1 subtable: Adjustments for glyph pairs" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
 >>>>>>> Rebuild
               PairPos subtable - only the first glyph in each
               pair</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ValueFormat1</td><td>Defines the types of data in ValueRecord1 - for
@@ -462,12 +538,16 @@
           in each pair. PairValueCount specifies the number of
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           PairValueRecords in the set.</p><div class="table"><a name="idm10510"></a><p class="title"><strong>Table 24.6. PairSet table</strong></p><div class="table-contents"><table class="table" summary="PairSet table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PairValueCount</td><td>Number of PairValueRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>PairValueRecord
 =======
           PairValueRecords in the set.</p><div class="table"><a name="idm189293911936"></a><p class="title"><strong>Table 24.6. PairSet table</strong></p><div class="table-contents"><table class="table" summary="PairSet table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PairValueCount</td><td>Number of PairValueRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>PairValueRecord
 >>>>>>> Rebuild
 =======
           PairValueRecords in the set.</p><div class="table"><a name="idm62733193216"></a><p class="title"><strong>Table 24.6. PairSet table</strong></p><div class="table-contents"><table class="table" summary="PairSet table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PairValueCount</td><td>Number of PairValueRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>PairValueRecord
+>>>>>>> Rebuild
+=======
+          PairValueRecords in the set.</p><div class="table"><a name="idm465833309856"></a><p class="title"><strong>Table 24.6. PairSet table</strong></p><div class="table-contents"><table class="table" summary="PairSet table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PairValueCount</td><td>Number of PairValueRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>PairValueRecord
 >>>>>>> Rebuild
               [PairValueCount]</td><td>Array of PairValueRecords - ordered by GlyphID
               of the second glyph</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>A PairValueRecord specifies the second glyph in a pair
@@ -478,12 +558,16 @@
           PairPosFormat1 subtable that defines two cases of pair
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           kerning.</p><div class="table"><a name="idm10529"></a><p class="title"><strong>Table 24.7. PairValueRecord</strong></p><div class="table-contents"><table class="table" summary="PairValueRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>SecondGlyph</td><td>GlyphID of second glyph in the pair-first
 =======
           kerning.</p><div class="table"><a name="idm189293905344"></a><p class="title"><strong>Table 24.7. PairValueRecord</strong></p><div class="table-contents"><table class="table" summary="PairValueRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>SecondGlyph</td><td>GlyphID of second glyph in the pair-first
 >>>>>>> Rebuild
 =======
           kerning.</p><div class="table"><a name="idm62733186624"></a><p class="title"><strong>Table 24.7. PairValueRecord</strong></p><div class="table-contents"><table class="table" summary="PairValueRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>SecondGlyph</td><td>GlyphID of second glyph in the pair-first
+>>>>>>> Rebuild
+=======
+          kerning.</p><div class="table"><a name="idm465833303264"></a><p class="title"><strong>Table 24.7. PairValueRecord</strong></p><div class="table-contents"><table class="table" summary="PairValueRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>GlyphID</td><td>SecondGlyph</td><td>GlyphID of second glyph in the pair-first
 >>>>>>> Rebuild
               glyph is listed in the Coverage table</td><td class="auto-generated"> </td></tr><tr><td>ValueRecord</td><td>Value1</td><td>Positioning data for the first glyph in the
               pair</td><td class="auto-generated"> </td></tr><tr><td>ValueRecord</td><td>Value2</td><td>Positioning data for the second glyph in the
@@ -507,12 +591,16 @@
 	  I<sub>1</sub> by {ValueFormat2,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  r.Value2}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10572"></a>Pair Positioning Adjustment: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.8.1"></a>Specification</h4></div></div></div><p>Format 2 defines a pair as a set of two glyph classes
 =======
 	  r.Value2}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296841728"></a>Pair Positioning Adjustment: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.8.1"></a>Specification</h4></div></div></div><p>Format 2 defines a pair as a set of two glyph classes
 >>>>>>> Rebuild
 =======
 	  r.Value2}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733168864"></a>Pair Positioning Adjustment: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.8.1"></a>Specification</h4></div></div></div><p>Format 2 defines a pair as a set of two glyph classes
+>>>>>>> Rebuild
+=======
+	  r.Value2}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833285504"></a>Pair Positioning Adjustment: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.8.1"></a>Specification</h4></div></div></div><p>Format 2 defines a pair as a set of two glyph classes
 >>>>>>> Rebuild
           and modifies the positions of all the glyphs in a class. For
           example, this format is useful in Japanese scripts that
@@ -560,12 +648,16 @@
             Class1Record enumerates pairs that begin with a Class1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             glyph, and so on.</p></blockquote></div><div class="table"><a name="idm10589"></a><p class="title"><strong>Table 24.8. PairPosFormat2 subtable: Class pair adjustment</strong></p><div class="table-contents"><table class="table" summary="PairPosFormat2 subtable: Class pair adjustment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
 =======
             glyph, and so on.</p></blockquote></div><div class="table"><a name="idm189296831600"></a><p class="title"><strong>Table 24.8. PairPosFormat2 subtable: Class pair adjustment</strong></p><div class="table-contents"><table class="table" summary="PairPosFormat2 subtable: Class pair adjustment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
 >>>>>>> Rebuild
 =======
             glyph, and so on.</p></blockquote></div><div class="table"><a name="idm62733158736"></a><p class="title"><strong>Table 24.8. PairPosFormat2 subtable: Class pair adjustment</strong></p><div class="table-contents"><table class="table" summary="PairPosFormat2 subtable: Class pair adjustment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
+>>>>>>> Rebuild
+=======
+            glyph, and so on.</p></blockquote></div><div class="table"><a name="idm465833275376"></a><p class="title"><strong>Table 24.8. PairPosFormat2 subtable: Class pair adjustment</strong></p><div class="table-contents"><table class="table" summary="PairPosFormat2 subtable: Class pair adjustment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
 >>>>>>> Rebuild
               PairPos subtable - for the first glyph of the
               pair</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ValueFormat1</td><td>ValueRecord definition - for the first glyph of
@@ -582,12 +674,16 @@
           Class2Record must be declared for each class in the
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           ClassDef2 table, including Class 0.</p><div class="table"><a name="idm10635"></a><p class="title"><strong>Table 24.9. Class1Record</strong></p><div class="table-contents"><table class="table" summary="Class1Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>struct</td><td>Class2Record [Class2Count]</td><td>Array of Class2 records - ordered by
 =======
           ClassDef2 table, including Class 0.</p><div class="table"><a name="idm189296814816"></a><p class="title"><strong>Table 24.9. Class1Record</strong></p><div class="table-contents"><table class="table" summary="Class1Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>struct</td><td>Class2Record [Class2Count]</td><td>Array of Class2 records - ordered by
 >>>>>>> Rebuild
 =======
           ClassDef2 table, including Class 0.</p><div class="table"><a name="idm62733141952"></a><p class="title"><strong>Table 24.9. Class1Record</strong></p><div class="table-contents"><table class="table" summary="Class1Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>struct</td><td>Class2Record [Class2Count]</td><td>Array of Class2 records - ordered by
+>>>>>>> Rebuild
+=======
+          ClassDef2 table, including Class 0.</p><div class="table"><a name="idm465833258592"></a><p class="title"><strong>Table 24.9. Class1Record</strong></p><div class="table-contents"><table class="table" summary="Class1Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>struct</td><td>Class2Record [Class2Count]</td><td>Array of Class2 records - ordered by
 >>>>>>> Rebuild
               Class2</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>A Class2Record consists of two ValueRecords, one for the
           first glyph in a class pair (Value1) and one for the second
@@ -597,12 +693,16 @@
           kerning with glyph classes in a PairPosFormat2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           subtable.</p><div class="table"><a name="idm10650"></a><p class="title"><strong>Table 24.10. Class2Record</strong></p><div class="table-contents"><table class="table" summary="Class2Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ValueRecord</td><td>Value1</td><td>Positioning for first glyph - empty if
 =======
           subtable.</p><div class="table"><a name="idm189296809728"></a><p class="title"><strong>Table 24.10. Class2Record</strong></p><div class="table-contents"><table class="table" summary="Class2Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ValueRecord</td><td>Value1</td><td>Positioning for first glyph - empty if
 >>>>>>> Rebuild
 =======
           subtable.</p><div class="table"><a name="idm62733136864"></a><p class="title"><strong>Table 24.10. Class2Record</strong></p><div class="table-contents"><table class="table" summary="Class2Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ValueRecord</td><td>Value1</td><td>Positioning for first glyph - empty if
+>>>>>>> Rebuild
+=======
+          subtable.</p><div class="table"><a name="idm465833253504"></a><p class="title"><strong>Table 24.10. Class2Record</strong></p><div class="table-contents"><table class="table" summary="Class2Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>ValueRecord</td><td>Value1</td><td>Positioning for first glyph - empty if
 >>>>>>> Rebuild
               ValueFormat1 = 0</td><td class="auto-generated"> </td></tr><tr><td>ValueRecord</td><td>Value2</td><td>Positioning for second glyph - empty if
               ValueFormat2 = 0</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.8.2"></a>Annotation</h4></div></div></div><p>It is unclear whether ValueFormat1 and ValueFormat2 can
@@ -617,12 +717,16 @@
 	the glyph matched by I<sub>1</sub> by
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	{ValueFormat2, r.Value2}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10685"></a>Lookup Type 3: Cursive Attachment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.9.1"></a>Specification</h4></div></div></div><p>Some cursive fonts are designed so that adjacent glyphs
 =======
 	{ValueFormat2, r.Value2}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296795600"></a>Lookup Type 3: Cursive Attachment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.9.1"></a>Specification</h4></div></div></div><p>Some cursive fonts are designed so that adjacent glyphs
 >>>>>>> Rebuild
 =======
 	{ValueFormat2, r.Value2}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733122736"></a>Lookup Type 3: Cursive Attachment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.9.1"></a>Specification</h4></div></div></div><p>Some cursive fonts are designed so that adjacent glyphs
+>>>>>>> Rebuild
+=======
+	{ValueFormat2, r.Value2}.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833239376"></a>Lookup Type 3: Cursive Attachment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.9.1"></a>Specification</h4></div></div></div><p>Some cursive fonts are designed so that adjacent glyphs
 >>>>>>> Rebuild
           join when rendered with their default positioning. However,
           if positioning adjustments are needed to join the glyphs, a
@@ -638,12 +742,16 @@
           records in the same order as the Coverage Index
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           (EntryExitRecord).</p><div class="table"><a name="idm10692"></a><p class="title"><strong>Table 24.11. CursivePosFormat1 subtable: Cursive attachment</strong></p><div class="table-contents"><table class="table" summary="CursivePosFormat1 subtable: Cursive attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
 =======
           (EntryExitRecord).</p><div class="table"><a name="idm189296791616"></a><p class="title"><strong>Table 24.11. CursivePosFormat1 subtable: Cursive attachment</strong></p><div class="table-contents"><table class="table" summary="CursivePosFormat1 subtable: Cursive attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
 >>>>>>> Rebuild
 =======
           (EntryExitRecord).</p><div class="table"><a name="idm62726540608"></a><p class="title"><strong>Table 24.11. CursivePosFormat1 subtable: Cursive attachment</strong></p><div class="table-contents"><table class="table" summary="CursivePosFormat1 subtable: Cursive attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
+>>>>>>> Rebuild
+=======
+          (EntryExitRecord).</p><div class="table"><a name="idm465833235392"></a><p class="title"><strong>Table 24.11. CursivePosFormat1 subtable: Cursive attachment</strong></p><div class="table-contents"><table class="table" summary="CursivePosFormat1 subtable: Cursive attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table - from beginning of
 >>>>>>> Rebuild
               CursivePos subtable</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>EntryExitCount</td><td>Number of EntryExit records</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>EntryExitRecord [EntryExitCount]</td><td>Array of EntryExit records - in Coverage Index
               order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Each EntryExitRecord consists of two offsets: one to an
@@ -658,12 +766,16 @@
           or ExitAnchor offset may be NULL.</p><p>At the end of this chapter, Example 6 describes cursive
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph attachment in the Urdu language.</p><div class="table"><a name="idm10720"></a><p class="title"><strong>Table 24.12. EntryExitRecord</strong></p><div class="table-contents"><table class="table" summary="EntryExitRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>EntryAnchor</td><td>Offset to EntryAnchor table-from beginning of
 =======
           glyph attachment in the Urdu language.</p><div class="table"><a name="idm189296781312"></a><p class="title"><strong>Table 24.12. EntryExitRecord</strong></p><div class="table-contents"><table class="table" summary="EntryExitRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>EntryAnchor</td><td>Offset to EntryAnchor table-from beginning of
 >>>>>>> Rebuild
 =======
           glyph attachment in the Urdu language.</p><div class="table"><a name="idm62726530544"></a><p class="title"><strong>Table 24.12. EntryExitRecord</strong></p><div class="table-contents"><table class="table" summary="EntryExitRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>EntryAnchor</td><td>Offset to EntryAnchor table-from beginning of
+>>>>>>> Rebuild
+=======
+          glyph attachment in the Urdu language.</p><div class="table"><a name="idm465833225088"></a><p class="title"><strong>Table 24.12. EntryExitRecord</strong></p><div class="table-contents"><table class="table" summary="EntryExitRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>EntryAnchor</td><td>Offset to EntryAnchor table-from beginning of
 >>>>>>> Rebuild
               CursivePos subtable-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ExitAnchor</td><td>Offset to ExitAnchor table-from beginning of
               CursivePos subtable-may be NULL</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.9.2"></a>Annotation</h4></div></div></div><p>The specification indicates that under some
@@ -687,12 +799,16 @@
 	  cursive attachment.</p><p>[All this is obviously wrong, but I need more work to
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  figure out how this lookup type really works.]</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10743"></a>Lookup Type 4: MarkToBase Attachment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.10.1"></a>Specification</h4></div></div></div><p>The MarkToBase attachment (MarkBasePos) subtable is used
 =======
 	  figure out how this lookup type really works.]</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296770896"></a>Lookup Type 4: MarkToBase Attachment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.10.1"></a>Specification</h4></div></div></div><p>The MarkToBase attachment (MarkBasePos) subtable is used
 >>>>>>> Rebuild
 =======
 	  figure out how this lookup type really works.]</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726520352"></a>Lookup Type 4: MarkToBase Attachment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.10.1"></a>Specification</h4></div></div></div><p>The MarkToBase attachment (MarkBasePos) subtable is used
+>>>>>>> Rebuild
+=======
+	  figure out how this lookup type really works.]</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833214672"></a>Lookup Type 4: MarkToBase Attachment Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.10.1"></a>Specification</h4></div></div></div><p>The MarkToBase attachment (MarkBasePos) subtable is used
 >>>>>>> Rebuild
           to position combining mark glyphs with respect to base
           glyphs. For example, the Arabic, Hebrew, and Thai scripts
@@ -729,12 +845,16 @@
           MarkRecords, see the end of this chapter.)</p><p>The MarkBasePosFormat1 subtable also contains an offset
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           to a BaseArray table (BaseArray).</p><div class="table"><a name="idm10755"></a><p class="title"><strong>Table 24.13. MarkBasePosFormat1 subtable: MarkToBase attachment point</strong></p><div class="table-contents"><table class="table" summary="MarkBasePosFormat1 subtable: MarkToBase attachment point" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier –format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkCoverage</td><td>Offset to MarkCoverage table – from beginning
 =======
           to a BaseArray table (BaseArray).</p><div class="table"><a name="idm189296763392"></a><p class="title"><strong>Table 24.13. MarkBasePosFormat1 subtable: MarkToBase attachment point</strong></p><div class="table-contents"><table class="table" summary="MarkBasePosFormat1 subtable: MarkToBase attachment point" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier –format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkCoverage</td><td>Offset to MarkCoverage table – from beginning
 >>>>>>> Rebuild
 =======
           to a BaseArray table (BaseArray).</p><div class="table"><a name="idm62726512624"></a><p class="title"><strong>Table 24.13. MarkBasePosFormat1 subtable: MarkToBase attachment point</strong></p><div class="table-contents"><table class="table" summary="MarkBasePosFormat1 subtable: MarkToBase attachment point" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier –format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkCoverage</td><td>Offset to MarkCoverage table – from beginning
+>>>>>>> Rebuild
+=======
+          to a BaseArray table (BaseArray).</p><div class="table"><a name="idm465833206896"></a><p class="title"><strong>Table 24.13. MarkBasePosFormat1 subtable: MarkToBase attachment point</strong></p><div class="table-contents"><table class="table" summary="MarkBasePosFormat1 subtable: MarkToBase attachment point" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier –format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkCoverage</td><td>Offset to MarkCoverage table – from beginning
 >>>>>>> Rebuild
               of MarkBasePos subtable</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>BaseCoverage</td><td>Offset to BaseCoverage table – from beginning
               of MarkBasePos subtable</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ClassCount</td><td>Number of classes defined for
@@ -746,12 +866,16 @@
           Each base glyph in the BaseCoverage table has a
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           BaseRecord.</p><div class="table"><a name="idm10789"></a><p class="title"><strong>Table 24.14. BaseArray table</strong></p><div class="table-contents"><table class="table" summary="BaseArray table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCount</td><td>Number of BaseRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>BaseRecord [BaseCount]</td><td>Array of BaseRecords – in order of BaseCoverage
 =======
           BaseRecord.</p><div class="table"><a name="idm189296750896"></a><p class="title"><strong>Table 24.14. BaseArray table</strong></p><div class="table-contents"><table class="table" summary="BaseArray table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCount</td><td>Number of BaseRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>BaseRecord [BaseCount]</td><td>Array of BaseRecords – in order of BaseCoverage
 >>>>>>> Rebuild
 =======
           BaseRecord.</p><div class="table"><a name="idm62726500384"></a><p class="title"><strong>Table 24.14. BaseArray table</strong></p><div class="table-contents"><table class="table" summary="BaseArray table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCount</td><td>Number of BaseRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>BaseRecord [BaseCount]</td><td>Array of BaseRecords – in order of BaseCoverage
+>>>>>>> Rebuild
+=======
+          BaseRecord.</p><div class="table"><a name="idm465833194400"></a><p class="title"><strong>Table 24.14. BaseArray table</strong></p><div class="table-contents"><table class="table" summary="BaseArray table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCount</td><td>Number of BaseRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>BaseRecord [BaseCount]</td><td>Array of BaseRecords – in order of BaseCoverage
 >>>>>>> Rebuild
               Index</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>A BaseRecord declares one Anchor table for each mark
           class (including Class 0) identified in the MarkRecords of
@@ -768,12 +892,16 @@
           positioning above and below base glyphs with a
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           MarkBasePosFormat1 subtable.</p><div class="table"><a name="idm10810"></a><p class="title"><strong>Table 24.15. BaseRecord</strong></p><div class="table-contents"><table class="table" summary="BaseRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseAnchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
 =======
           MarkBasePosFormat1 subtable.</p><div class="table"><a name="idm189293868592"></a><p class="title"><strong>Table 24.15. BaseRecord</strong></p><div class="table-contents"><table class="table" summary="BaseRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseAnchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
 >>>>>>> Rebuild
 =======
           MarkBasePosFormat1 subtable.</p><div class="table"><a name="idm62726492688"></a><p class="title"><strong>Table 24.15. BaseRecord</strong></p><div class="table-contents"><table class="table" summary="BaseRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseAnchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
+>>>>>>> Rebuild
+=======
+          MarkBasePosFormat1 subtable.</p><div class="table"><a name="idm465833186512"></a><p class="title"><strong>Table 24.15. BaseRecord</strong></p><div class="table-contents"><table class="table" summary="BaseRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseAnchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
 >>>>>>> Rebuild
               tables – from beginning of BaseArray table
 	      – ordered by class – zero-based</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.10.2"></a>Annotation</h4></div></div></div><p>The 'text-processing' client refered to in the fourth
@@ -855,12 +983,16 @@
 	  with the anchor BaseArray.BaseRecord [BaseCoverage
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  [b]].BaseAnchor [MarkArray.MarkRecord[m].Class] of b.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10853"></a>Lookup Type 5: MarkToLigature Attachment Positioning
 =======
 	  [b]].BaseAnchor [MarkArray.MarkRecord[m].Class] of b.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293845952"></a>Lookup Type 5: MarkToLigature Attachment Positioning
 >>>>>>> Rebuild
 =======
 	  [b]].BaseAnchor [MarkArray.MarkRecord[m].Class] of b.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726470096"></a>Lookup Type 5: MarkToLigature Attachment Positioning
+>>>>>>> Rebuild
+=======
+	  [b]].BaseAnchor [MarkArray.MarkRecord[m].Class] of b.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833163632"></a>Lookup Type 5: MarkToLigature Attachment Positioning
 >>>>>>> Rebuild
         Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.11.1"></a>Specification</h4></div></div></div><p>The MarkToLigature attachment (MarkLigPos) subtable is
           used to position combining mark glyphs with respect to
@@ -909,12 +1041,16 @@
           chapter.)</p><p>The MarkLigPosFormat1 subtable also contains an offset
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           to a LigatureArray table (LigatureArray).</p><div class="table"><a name="idm10866"></a><p class="title"><strong>Table 24.16. MarkLigPosFormat1 subtable: MarkToLigature attachment</strong></p><div class="table-contents"><table class="table" summary="MarkLigPosFormat1 subtable: MarkToLigature attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkCoverage</td><td>Offset to Mark Coverage table – from beginning
 =======
           to a LigatureArray table (LigatureArray).</p><div class="table"><a name="idm189293837280"></a><p class="title"><strong>Table 24.16. MarkLigPosFormat1 subtable: MarkToLigature attachment</strong></p><div class="table-contents"><table class="table" summary="MarkLigPosFormat1 subtable: MarkToLigature attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkCoverage</td><td>Offset to Mark Coverage table – from beginning
 >>>>>>> Rebuild
 =======
           to a LigatureArray table (LigatureArray).</p><div class="table"><a name="idm62726461504"></a><p class="title"><strong>Table 24.16. MarkLigPosFormat1 subtable: MarkToLigature attachment</strong></p><div class="table-contents"><table class="table" summary="MarkLigPosFormat1 subtable: MarkToLigature attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkCoverage</td><td>Offset to Mark Coverage table – from beginning
+>>>>>>> Rebuild
+=======
+          to a LigatureArray table (LigatureArray).</p><div class="table"><a name="idm465833154960"></a><p class="title"><strong>Table 24.16. MarkLigPosFormat1 subtable: MarkToLigature attachment</strong></p><div class="table-contents"><table class="table" summary="MarkLigPosFormat1 subtable: MarkToLigature attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier – format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkCoverage</td><td>Offset to Mark Coverage table – from beginning
 >>>>>>> Rebuild
               of MarkLigPos subtable</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>LigatureCoverage</td><td>Offset to Ligature Coverage table – from
               beginning of MarkLigPos subtable</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ClassCount</td><td>Number of defined mark classes</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkArray</td><td>Offset to MarkArray table – from beginning of
@@ -925,12 +1061,16 @@
           listed in the LigatureCoverage table, in the same order as
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           the LigatureCoverage Index.</p><div class="table"><a name="idm10901"></a><p class="title"><strong>Table 24.17. LigatureArray table</strong></p><div class="table-contents"><table class="table" summary="LigatureArray table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LigatureCount</td><td>Number of LigatureAttach table
 =======
           the LigatureCoverage Index.</p><div class="table"><a name="idm189293824304"></a><p class="title"><strong>Table 24.17. LigatureArray table</strong></p><div class="table-contents"><table class="table" summary="LigatureArray table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LigatureCount</td><td>Number of LigatureAttach table
 >>>>>>> Rebuild
 =======
           the LigatureCoverage Index.</p><div class="table"><a name="idm62726448832"></a><p class="title"><strong>Table 24.17. LigatureArray table</strong></p><div class="table-contents"><table class="table" summary="LigatureArray table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LigatureCount</td><td>Number of LigatureAttach table
+>>>>>>> Rebuild
+=======
+          the LigatureCoverage Index.</p><div class="table"><a name="idm465833141984"></a><p class="title"><strong>Table 24.17. LigatureArray table</strong></p><div class="table-contents"><table class="table" summary="LigatureArray table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>LigatureCount</td><td>Number of LigatureAttach table
 >>>>>>> Rebuild
               offsets</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>LigatureAttach [LigatureCount]</td><td>Array of offsets to LigatureAttach
               tables – from beginning of LigatureArray table – ordered by
@@ -943,12 +1083,16 @@
           right, the first component is on the left; for text written
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           right to left, the first component is on the right.</p><div class="table"><a name="idm10919"></a><p class="title"><strong>Table 24.18. LigatureAttach table</strong></p><div class="table-contents"><table class="table" summary="LigatureAttach table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ComponentCount</td><td>Number of ComponentRecords in this
 =======
           right to left, the first component is on the right.</p><div class="table"><a name="idm189293817808"></a><p class="title"><strong>Table 24.18. LigatureAttach table</strong></p><div class="table-contents"><table class="table" summary="LigatureAttach table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ComponentCount</td><td>Number of ComponentRecords in this
 >>>>>>> Rebuild
 =======
           right to left, the first component is on the right.</p><div class="table"><a name="idm62726442512"></a><p class="title"><strong>Table 24.18. LigatureAttach table</strong></p><div class="table-contents"><table class="table" summary="LigatureAttach table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ComponentCount</td><td>Number of ComponentRecords in this
+>>>>>>> Rebuild
+=======
+          right to left, the first component is on the right.</p><div class="table"><a name="idm465833135488"></a><p class="title"><strong>Table 24.18. LigatureAttach table</strong></p><div class="table-contents"><table class="table" summary="LigatureAttach table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ComponentCount</td><td>Number of ComponentRecords in this
 >>>>>>> Rebuild
               ligature</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>ComponentRecord [ComponentCount]</td><td>Array of Component records – ordered in writing
               direction</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>A ComponentRecord, one for each component in the
@@ -966,12 +1110,16 @@
           MarkLisPosFormat1 subtable used to attach mark accents to a
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           ligature glyph in the Arabic script.</p><div class="table"><a name="idm10939"></a><p class="title"><strong>Table 24.19. ComponentRecord</strong></p><div class="table-contents"><table class="table" summary="ComponentRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>LigatureAnchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
 =======
           ligature glyph in the Arabic script.</p><div class="table"><a name="idm189293810208"></a><p class="title"><strong>Table 24.19. ComponentRecord</strong></p><div class="table-contents"><table class="table" summary="ComponentRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>LigatureAnchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
 >>>>>>> Rebuild
 =======
           ligature glyph in the Arabic script.</p><div class="table"><a name="idm62726435056"></a><p class="title"><strong>Table 24.19. ComponentRecord</strong></p><div class="table-contents"><table class="table" summary="ComponentRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>LigatureAnchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
+>>>>>>> Rebuild
+=======
+          ligature glyph in the Arabic script.</p><div class="table"><a name="idm465833127888"></a><p class="title"><strong>Table 24.19. ComponentRecord</strong></p><div class="table-contents"><table class="table" summary="ComponentRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>LigatureAnchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
 >>>>>>> Rebuild
             tables – from beginning of LigatureAttach table
             – ordered by class – NULL if a component
@@ -1058,12 +1206,16 @@
 	  [MarkArray.MarkRecord[m].Class] of b. It is up to the client
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  to determine to which component the mark should be attached.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm10981"></a>Lookup Type 6: MarkToMark Attachment Positioning
 =======
 	  to determine to which component the mark should be attached.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293788160"></a>Lookup Type 6: MarkToMark Attachment Positioning
 >>>>>>> Rebuild
 =======
 	  to determine to which component the mark should be attached.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726413328"></a>Lookup Type 6: MarkToMark Attachment Positioning
+>>>>>>> Rebuild
+=======
+	  to determine to which component the mark should be attached.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833105904"></a>Lookup Type 6: MarkToMark Attachment Positioning
 >>>>>>> Rebuild
         Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.12.1"></a>Specification</h4></div></div></div><p>The MarkToMark attachment (MarkMarkPos) subtable is
           identical in form to the MarkToBase attachment subtable,
@@ -1110,12 +1262,16 @@
               Mark2Records.</p></li></ul></div><p>For details about MarkArrays and MarkRecords, see the
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           end of this chapter.</p><div class="table"><a name="idm10997"></a><p class="title"><strong>Table 24.20. MarkMarkPosFormat1 subtable: MarkToMark attachment</strong></p><div class="table-contents"><table class="table" summary="MarkMarkPosFormat1 subtable: MarkToMark attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Mark1Coverage</td><td>Offset to Combining Mark Coverage table-from
 =======
           end of this chapter.</p><div class="table"><a name="idm189293778608"></a><p class="title"><strong>Table 24.20. MarkMarkPosFormat1 subtable: MarkToMark attachment</strong></p><div class="table-contents"><table class="table" summary="MarkMarkPosFormat1 subtable: MarkToMark attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Mark1Coverage</td><td>Offset to Combining Mark Coverage table-from
 >>>>>>> Rebuild
 =======
           end of this chapter.</p><div class="table"><a name="idm62726403792"></a><p class="title"><strong>Table 24.20. MarkMarkPosFormat1 subtable: MarkToMark attachment</strong></p><div class="table-contents"><table class="table" summary="MarkMarkPosFormat1 subtable: MarkToMark attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Mark1Coverage</td><td>Offset to Combining Mark Coverage table-from
+>>>>>>> Rebuild
+=======
+          end of this chapter.</p><div class="table"><a name="idm465833096288"></a><p class="title"><strong>Table 24.20. MarkMarkPosFormat1 subtable: MarkToMark attachment</strong></p><div class="table-contents"><table class="table" summary="MarkMarkPosFormat1 subtable: MarkToMark attachment" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Mark1Coverage</td><td>Offset to Combining Mark Coverage table-from
 >>>>>>> Rebuild
               beginning of MarkMarkPos subtable</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Mark2Coverage</td><td>Offset to Base Mark Coverage table-from
               beginning of MarkMarkPos subtable</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ClassCount</td><td>Number of Combining Mark classes
@@ -1126,12 +1282,16 @@
           stores the records in the same order as the Mark2Coverage
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           Index.</p><div class="table"><a name="idm11031"></a><p class="title"><strong>Table 24.21. Mark2Array table</strong></p><div class="table-contents"><table class="table" summary="Mark2Array table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>Mark2Count</td><td>Number of Mark2 records</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>Mark2Record [Mark2Count]</td><td>Array of Mark2 records-in Coverage
 =======
           Index.</p><div class="table"><a name="idm189293766528"></a><p class="title"><strong>Table 24.21. Mark2Array table</strong></p><div class="table-contents"><table class="table" summary="Mark2Array table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>Mark2Count</td><td>Number of Mark2 records</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>Mark2Record [Mark2Count]</td><td>Array of Mark2 records-in Coverage
 >>>>>>> Rebuild
 =======
           Index.</p><div class="table"><a name="idm62726392000"></a><p class="title"><strong>Table 24.21. Mark2Array table</strong></p><div class="table-contents"><table class="table" summary="Mark2Array table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>Mark2Count</td><td>Number of Mark2 records</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>Mark2Record [Mark2Count]</td><td>Array of Mark2 records-in Coverage
+>>>>>>> Rebuild
+=======
+          Index.</p><div class="table"><a name="idm465833084208"></a><p class="title"><strong>Table 24.21. Mark2Array table</strong></p><div class="table-contents"><table class="table" summary="Mark2Array table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>Mark2Count</td><td>Number of Mark2 records</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>Mark2Record [Mark2Count]</td><td>Array of Mark2 records-in Coverage
 >>>>>>> Rebuild
               order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>Each Mark2Record contains an array of offsets to Anchor
           tables (Mark2Anchor). The array of zero-based offsets,
@@ -1147,12 +1307,16 @@
           MarkMarkPosFormat1 subtable for attaching one mark to
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           another in the Arabic script.</p><div class="table"><a name="idm11051"></a><p class="title"><strong>Table 24.22. Mark2Record</strong></p><div class="table-contents"><table class="table" summary="Mark2Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>Mark2Anchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
 =======
           another in the Arabic script.</p><div class="table"><a name="idm189293759168"></a><p class="title"><strong>Table 24.22. Mark2Record</strong></p><div class="table-contents"><table class="table" summary="Mark2Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>Mark2Anchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
 >>>>>>> Rebuild
 =======
           another in the Arabic script.</p><div class="table"><a name="idm62726384848"></a><p class="title"><strong>Table 24.22. Mark2Record</strong></p><div class="table-contents"><table class="table" summary="Mark2Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>Mark2Anchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
+>>>>>>> Rebuild
+=======
+          another in the Arabic script.</p><div class="table"><a name="idm465833076848"></a><p class="title"><strong>Table 24.22. Mark2Record</strong></p><div class="table-contents"><table class="table" summary="Mark2Record" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>Mark2Anchor [ClassCount]</td><td>Array of offsets (one per class) to Anchor
 >>>>>>> Rebuild
               tables-from beginning of Mark2Array table-zero-based
               array</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.12.2"></a>Annotation</h4></div></div></div><p>The annotation of the Mark2Record field should probably
@@ -1167,12 +1331,16 @@
 	  with the anchor Mark2Array.Mark2Record [Mark2Coverage
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  [m2]].Mark2Anchor [Mark1Array.MarkRecord[m].Class] of m2.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11076"></a>Lookup Type 7: Contextual Positioning Subtables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.13.1"></a>Specification</h4></div></div></div><p>A Contextual Positioning (ContextPos) subtable defines
 =======
 	  [m2]].Mark2Anchor [Mark1Array.MarkRecord[m].Class] of m2.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293748736"></a>Lookup Type 7: Contextual Positioning Subtables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.13.1"></a>Specification</h4></div></div></div><p>A Contextual Positioning (ContextPos) subtable defines
 >>>>>>> Rebuild
 =======
 	  [m2]].Mark2Anchor [Mark1Array.MarkRecord[m].Class] of m2.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726374640"></a>Lookup Type 7: Contextual Positioning Subtables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.13.1"></a>Specification</h4></div></div></div><p>A Contextual Positioning (ContextPos) subtable defines
+>>>>>>> Rebuild
+=======
+	  [m2]].Mark2Anchor [Mark1Array.MarkRecord[m].Class] of m2.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833066416"></a>Lookup Type 7: Contextual Positioning Subtables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.13.1"></a>Specification</h4></div></div></div><p>A Contextual Positioning (ContextPos) subtable defines
 >>>>>>> Rebuild
           the most powerful type of glyph positioning lookup. It
           describes glyph positioning in context so a text-processing
@@ -1187,12 +1355,16 @@
           in terms of sets of glyphs (Format 3).</p><p>All ContextPos subtables specify positioning data in a
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           PosLookupRecord. A description of that record follows.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11083"></a>PosLookupRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.14.1"></a>Specification</h4></div></div></div><p>All contextual positioning subtables specify the
 =======
           PosLookupRecord. A description of that record follows.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293744208"></a>PosLookupRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.14.1"></a>Specification</h4></div></div></div><p>All contextual positioning subtables specify the
 >>>>>>> Rebuild
 =======
           PosLookupRecord. A description of that record follows.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726370176"></a>PosLookupRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.14.1"></a>Specification</h4></div></div></div><p>All contextual positioning subtables specify the
+>>>>>>> Rebuild
+=======
+          PosLookupRecord. A description of that record follows.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833061888"></a>PosLookupRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.14.1"></a>Specification</h4></div></div></div><p>All contextual positioning subtables specify the
 >>>>>>> Rebuild
           positioning data in a PosLookupRecord. Each record contains
           a SequenceIndex, which indicates where the positioning
@@ -1202,6 +1374,7 @@
           glyph sequence, called the "design order," can be
           significant, so PosLookupRecord data should be defined
           accordingly.</p><p>The contextual substitution subtables defined in
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           Examples 10, 11, and 12 show PosLookupRecords.</p><div class="table"><a name="idm11090"></a><p class="title"><strong>Table 24.23. PosLookupRecord</strong></p><div class="table-contents"><table class="table" summary="PosLookupRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SequenceIndex</td><td>Index to input glyph sequence-first glyph =
@@ -1216,6 +1389,11 @@
           Examples 10, 11, and 12 show PosLookupRecords.</p><div class="table"><a name="idm62726366576"></a><p class="title"><strong>Table 24.23. PosLookupRecord</strong></p><div class="table-contents"><table class="table" summary="PosLookupRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SequenceIndex</td><td>Index to input glyph sequence-first glyph =
               0</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>LookupListIndex</td><td>Lookup to apply to that
               position-zero-based</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726360848"></a>Context Positioning Subtable: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.15.1"></a>Specification</h4></div></div></div><p>Format 1 defines the context for a glyph positioning
+>>>>>>> Rebuild
+=======
+          Examples 10, 11, and 12 show PosLookupRecords.</p><div class="table"><a name="idm465833058224"></a><p class="title"><strong>Table 24.23. PosLookupRecord</strong></p><div class="table-contents"><table class="table" summary="PosLookupRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>SequenceIndex</td><td>Index to input glyph sequence-first glyph =
+              0</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>LookupListIndex</td><td>Lookup to apply to that
+              position-zero-based</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833052336"></a>Context Positioning Subtable: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.15.1"></a>Specification</h4></div></div></div><p>Format 1 defines the context for a glyph positioning
 >>>>>>> Rebuild
           operation as a particular sequence of glyphs. For example, a
           context could be &lt;To&gt;, &lt;xyzabc&gt;, &lt;!?*#@&gt;, or any
@@ -1277,12 +1455,16 @@
           to the second GlyphID listed in the Coverage table, and so
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           on.</p><div class="table"><a name="idm11121"></a><p class="title"><strong>Table 24.24. ContextPosFormat1 subtable: Simple context positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat1 subtable: Simple context positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
 =======
           on.</p><div class="table"><a name="idm189293724208"></a><p class="title"><strong>Table 24.24. ContextPosFormat1 subtable: Simple context positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat1 subtable: Simple context positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
 >>>>>>> Rebuild
 =======
           on.</p><div class="table"><a name="idm62726350448"></a><p class="title"><strong>Table 24.24. ContextPosFormat1 subtable: Simple context positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat1 subtable: Simple context positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
+>>>>>>> Rebuild
+=======
+          on.</p><div class="table"><a name="idm465833041888"></a><p class="title"><strong>Table 24.24. ContextPosFormat1 subtable: Simple context positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat1 subtable: Simple context positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
 >>>>>>> Rebuild
               ContextPos subtable</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>PosRuleSetCount</td><td>Number of PosRuleSet tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>PosRuleSet [PosRuleSetCount]</td><td>Array of offsets to PosRuleSet tables-from
               beginning of ContextPos subtable-ordered by Coverage
@@ -1291,12 +1473,16 @@
           of the PosRule tables defined in the set
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           (PosRuleCount).</p><div class="table"><a name="idm11147"></a><p class="title"><strong>Table 24.25. PosRuleSet table: All contexts beginning with the
 =======
           (PosRuleCount).</p><div class="table"><a name="idm189293715184"></a><p class="title"><strong>Table 24.25. PosRuleSet table: All contexts beginning with the
 >>>>>>> Rebuild
 =======
           (PosRuleCount).</p><div class="table"><a name="idm62726341696"></a><p class="title"><strong>Table 24.25. PosRuleSet table: All contexts beginning with the
+>>>>>>> Rebuild
+=======
+          (PosRuleCount).</p><div class="table"><a name="idm465833032864"></a><p class="title"><strong>Table 24.25. PosRuleSet table: All contexts beginning with the
 >>>>>>> Rebuild
             same glyph</strong></p><div class="table-contents"><table class="table" summary="PosRuleSet table: All contexts beginning with the&#10;            same glyph" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosRuleCount</td><td>Number of PosRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>PosRule [PosRuleCount]</td><td>Array of offsets to PosRule tables-from
               beginning of PosRuleSet-ordered by
@@ -1322,12 +1508,16 @@
           should be applied to the entire glyph sequence.</p><p>Example 10 at the end of this chapter demonstrates glyph
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           kerning in context with a ContextPosFormat1 subtable.</p><div class="table"><a name="idm11167"></a><p class="title"><strong>Table 24.26. PosRule subtable</strong></p><div class="table-contents"><table class="table" summary="PosRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the Input glyph
 =======
           kerning in context with a ContextPosFormat1 subtable.</p><div class="table"><a name="idm189293707120"></a><p class="title"><strong>Table 24.26. PosRule subtable</strong></p><div class="table-contents"><table class="table" summary="PosRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the Input glyph
 >>>>>>> Rebuild
 =======
           kerning in context with a ContextPosFormat1 subtable.</p><div class="table"><a name="idm62726333808"></a><p class="title"><strong>Table 24.26. PosRule subtable</strong></p><div class="table-contents"><table class="table" summary="PosRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the Input glyph
+>>>>>>> Rebuild
+=======
+          kerning in context with a ContextPosFormat1 subtable.</p><div class="table"><a name="idm465833024800"></a><p class="title"><strong>Table 24.26. PosRule subtable</strong></p><div class="table-contents"><table class="table" summary="PosRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the Input glyph
 >>>>>>> Rebuild
               sequence</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>PosCount</td><td>Number of PosLookupRecords</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>Input [GlyphCount-1]</td><td>Array of input GlyphIDs-starting with the
               second glyph</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>PosLookupRecord [PosCount]</td><td>Array of positioning lookups-in design
@@ -1342,12 +1532,16 @@
       </p><p>A PosRule table does not directly modify the glyph
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11210"></a>Context Positioning Subtable: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.16.1"></a>Specification</h4></div></div></div><p>Format 2, more flexible than Format 1, describes
 =======
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293690176"></a>Context Positioning Subtable: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.16.1"></a>Specification</h4></div></div></div><p>Format 2, more flexible than Format 1, describes
 >>>>>>> Rebuild
 =======
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726317312"></a>Context Positioning Subtable: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.16.1"></a>Specification</h4></div></div></div><p>Format 2, more flexible than Format 1, describes
+>>>>>>> Rebuild
+=======
+	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465833007824"></a>Context Positioning Subtable: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.16.1"></a>Specification</h4></div></div></div><p>Format 2, more flexible than Format 1, describes
 >>>>>>> Rebuild
           class-based context positioning. For this format, a specific
           integer, called a class value, must be assigned to each
@@ -1405,12 +1599,16 @@
           PosClassSet in the PosClassSet array will be set to
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           NULL.</p><div class="table"><a name="idm11221"></a><p class="title"><strong>Table 24.27. ContextPosFormat2 subtable: Class-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat2 subtable: Class-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
 =======
           NULL.</p><div class="table"><a name="idm189293682416"></a><p class="title"><strong>Table 24.27. ContextPosFormat2 subtable: Class-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat2 subtable: Class-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
 >>>>>>> Rebuild
 =======
           NULL.</p><div class="table"><a name="idm62726309632"></a><p class="title"><strong>Table 24.27. ContextPosFormat2 subtable: Class-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat2 subtable: Class-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
+>>>>>>> Rebuild
+=======
+          NULL.</p><div class="table"><a name="idm465833000096"></a><p class="title"><strong>Table 24.27. ContextPosFormat2 subtable: Class-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat2 subtable: Class-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
 >>>>>>> Rebuild
               ContextPos subtable</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ClassDef</td><td>Offset to ClassDef table-from beginning of
               ContextPos subtable</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>PosClassSetCnt</td><td>Number of PosClassSet tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>PosClassSet [PosClassSetCnt]</td><td>Array of offsets to PosClassSet tables-from
@@ -1430,12 +1628,16 @@
           preference in the PosClassRule array of the
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           PosClassSet.</p><div class="table"><a name="idm11253"></a><p class="title"><strong>Table 24.28. PosClassSet table: All contexts beginning with the same class</strong></p><div class="table-contents"><table class="table" summary="PosClassSet table: All contexts beginning with the same class" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosClassRuleCnt</td><td>Number of PosClassRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>PosClassRule [PosClassRuleCnt]</td><td>Array of offsets to PosClassRule tables-from
 =======
           PosClassSet.</p><div class="table"><a name="idm189293670416"></a><p class="title"><strong>Table 24.28. PosClassSet table: All contexts beginning with the same class</strong></p><div class="table-contents"><table class="table" summary="PosClassSet table: All contexts beginning with the same class" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosClassRuleCnt</td><td>Number of PosClassRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>PosClassRule [PosClassRuleCnt]</td><td>Array of offsets to PosClassRule tables-from
 >>>>>>> Rebuild
 =======
           PosClassSet.</p><div class="table"><a name="idm62726297872"></a><p class="title"><strong>Table 24.28. PosClassSet table: All contexts beginning with the same class</strong></p><div class="table-contents"><table class="table" summary="PosClassSet table: All contexts beginning with the same class" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosClassRuleCnt</td><td>Number of PosClassRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>PosClassRule [PosClassRuleCnt]</td><td>Array of offsets to PosClassRule tables-from
+>>>>>>> Rebuild
+=======
+          PosClassSet.</p><div class="table"><a name="idm465834694720"></a><p class="title"><strong>Table 24.28. PosClassSet table: All contexts beginning with the same class</strong></p><div class="table-contents"><table class="table" summary="PosClassSet table: All contexts beginning with the same class" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosClassRuleCnt</td><td>Number of PosClassRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>PosClassRule [PosClassRuleCnt]</td><td>Array of offsets to PosClassRule tables-from
 >>>>>>> Rebuild
               beginning of PosClassSet-ordered by
               preference</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>For each context, a PosClassRule table contains a count
@@ -1470,12 +1672,16 @@
           ContextPosFormat2 subtable that uses glyph classes to modify
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           accent positions in glyph strings.</p><div class="table"><a name="idm11276"></a><p class="title"><strong>Table 24.29. PosClassRule table: One class context definition</strong></p><div class="table-contents"><table class="table" summary="PosClassRule table: One class context definition" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs to be matched</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>PosCount</td><td>Number of PosLookupRecords</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>Class [GlyphCount-1]</td><td>Array of classes-beginning with the second
 =======
           accent positions in glyph strings.</p><div class="table"><a name="idm189293660592"></a><p class="title"><strong>Table 24.29. PosClassRule table: One class context definition</strong></p><div class="table-contents"><table class="table" summary="PosClassRule table: One class context definition" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs to be matched</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>PosCount</td><td>Number of PosLookupRecords</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>Class [GlyphCount-1]</td><td>Array of classes-beginning with the second
 >>>>>>> Rebuild
 =======
           accent positions in glyph strings.</p><div class="table"><a name="idm62726288224"></a><p class="title"><strong>Table 24.29. PosClassRule table: One class context definition</strong></p><div class="table-contents"><table class="table" summary="PosClassRule table: One class context definition" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs to be matched</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>PosCount</td><td>Number of PosLookupRecords</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>Class [GlyphCount-1]</td><td>Array of classes-beginning with the second
+>>>>>>> Rebuild
+=======
+          accent positions in glyph strings.</p><div class="table"><a name="idm465834684912"></a><p class="title"><strong>Table 24.29. PosClassRule table: One class context definition</strong></p><div class="table-contents"><table class="table" summary="PosClassRule table: One class context definition" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs to be matched</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>PosCount</td><td>Number of PosLookupRecords</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>Class [GlyphCount-1]</td><td>Array of classes-beginning with the second
 >>>>>>> Rebuild
               class-to be matched to the input glyph
               sequence</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>PosLookupRecord [PosCount]</td><td>Array of positioning lookups-in design
@@ -1491,12 +1697,16 @@
       </p><p>A SubClassRule table does not directly modify the glyph
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11319"></a>Context Positioning Subtable: Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.17.1"></a>Specification</h4></div></div></div><p>Format 3, coverage-based context positioning, defines a
 =======
 	run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293643520"></a>Context Positioning Subtable: Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.17.1"></a>Specification</h4></div></div></div><p>Format 3, coverage-based context positioning, defines a
 >>>>>>> Rebuild
 =======
 	run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726271600"></a>Context Positioning Subtable: Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.17.1"></a>Specification</h4></div></div></div><p>Format 3, coverage-based context positioning, defines a
+>>>>>>> Rebuild
+=======
+	run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834667840"></a>Context Positioning Subtable: Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.17.1"></a>Specification</h4></div></div></div><p>Format 3, coverage-based context positioning, defines a
 >>>>>>> Rebuild
           context rule as a sequence of coverages. Each position in
           the sequence may specify a different Coverage table for the
@@ -1532,12 +1742,16 @@
           positions of math sign glyphs in math equations with a
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           ContextPosFormat3 subtable.</p><div class="table"><a name="idm11337"></a><p class="title"><strong>Table 24.30. ContextPosFormat3 subtable: Coverage-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat3 subtable: Coverage-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the input
 =======
           ContextPosFormat3 subtable.</p><div class="table"><a name="idm189293633744"></a><p class="title"><strong>Table 24.30. ContextPosFormat3 subtable: Coverage-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat3 subtable: Coverage-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the input
 >>>>>>> Rebuild
 =======
           ContextPosFormat3 subtable.</p><div class="table"><a name="idm62726261872"></a><p class="title"><strong>Table 24.30. ContextPosFormat3 subtable: Coverage-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat3 subtable: Coverage-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the input
+>>>>>>> Rebuild
+=======
+          ContextPosFormat3 subtable.</p><div class="table"><a name="idm465834658064"></a><p class="title"><strong>Table 24.30. ContextPosFormat3 subtable: Coverage-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ContextPosFormat3 subtable: Coverage-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>GlyphCount</td><td>Number of glyphs in the input
 >>>>>>> Rebuild
               sequence</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>PosCount</td><td>Number of PosLookupRecords</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage [GlyphCount]</td><td>Array of offsets to Coverage tables-from
               beginning of ContextPos subtable</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>PosLookupRecord [PosCount]</td><td>Array of positioning lookups-in design
@@ -1551,12 +1765,16 @@
       </p><p>This table does not directly modify the glyph
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11381"></a>Lookup Type 8: Chaining Contextual Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.18.1"></a>Specification</h4></div></div></div><p>A Chaining Contextual Positioning
 =======
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293616608"></a>Lookup Type 8: Chaining Contextual Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.18.1"></a>Specification</h4></div></div></div><p>A Chaining Contextual Positioning
 >>>>>>> Rebuild
 =======
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726245200"></a>Lookup Type 8: Chaining Contextual Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.18.1"></a>Specification</h4></div></div></div><p>A Chaining Contextual Positioning
+>>>>>>> Rebuild
+=======
+	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834640928"></a>Lookup Type 8: Chaining Contextual Positioning Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.18.1"></a>Specification</h4></div></div></div><p>A Chaining Contextual Positioning
 >>>>>>> Rebuild
           subtable(ChainContextPos)describes glyph positioning in
           context with an ability to look back and/or look ahead in
@@ -1606,12 +1824,16 @@ Lookahead sequence                           0   
 	  as position <span class="emphasis"><em>i + InputGlyphCount +
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  LookaheadGlyphCount - 1</em></span>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11399"></a>Chaining Context Positioning Format 1: Simple Chaining
 =======
 	  LookaheadGlyphCount - 1</em></span>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293604784"></a>Chaining Context Positioning Format 1: Simple Chaining
 >>>>>>> Rebuild
 =======
 	  LookaheadGlyphCount - 1</em></span>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726234016"></a>Chaining Context Positioning Format 1: Simple Chaining
+>>>>>>> Rebuild
+=======
+	  LookaheadGlyphCount - 1</em></span>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834629520"></a>Chaining Context Positioning Format 1: Simple Chaining
 >>>>>>> Rebuild
         Context Glyph Positioning</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.19.1"></a>Specification</h4></div></div></div><p>This Format is identical to Format 1 of Context
           Positioning lookup except that the PosRule table is replaced
@@ -1622,6 +1844,7 @@ Lookahead sequence                           0   
           lists offsets to ChainPosRuleSet subtables instead of
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           PosRuleSet subtables.)</p><div class="table"><a name="idm11404"></a><p class="title"><strong>Table 24.31. ChainContextPosFormat1 subtable: Simple context
 =======
           PosRuleSet subtables.)</p><div class="table"><a name="idm189293602016"></a><p class="title"><strong>Table 24.31. ChainContextPosFormat1 subtable: Simple context
@@ -1629,12 +1852,16 @@ Lookahead sequence                           0   
 =======
           PosRuleSet subtables.)</p><div class="table"><a name="idm62726231296"></a><p class="title"><strong>Table 24.31. ChainContextPosFormat1 subtable: Simple context
 >>>>>>> Rebuild
+=======
+          PosRuleSet subtables.)</p><div class="table"><a name="idm465834626752"></a><p class="title"><strong>Table 24.31. ChainContextPosFormat1 subtable: Simple context
+>>>>>>> Rebuild
             positioning</strong></p><div class="table-contents"><table class="table" summary="ChainContextPosFormat1 subtable: Simple context&#10;            positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
               ContextPos subtable</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>ChainPosRuleSetCount</td><td>Number of ChainPosRuleSet tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ChainPosRuleSet [ChainPosRuleSetCount]</td><td>Array of offsets to ChainPosRuleSet tables-from
               beginning of ContextPos subtable-ordered by Coverage
               Index</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>A ChainPosRuleSet table consists of an array of offsets
           to ChainPosRule tables (ChainPosRule), ordered by
           preference, and a count of the ChainPosRule tables defined
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           in the set (ChainPosRuleCount).</p><div class="table"><a name="idm11430"></a><p class="title"><strong>Table 24.32. ChainPosRuleSet table: All contexts beginning with
@@ -1652,6 +1879,12 @@ Lookahead sequence                           0   
             the same glyph</strong></p><div class="table-contents"><table class="table" summary="ChainPosRuleSet table: All contexts beginning with&#10;            the same glyph" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ChainPosRuleCount</td><td>Number of ChainPosRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ChainPosRule [ChainPosRuleCount]</td><td>Array of offsets to ChainPosRule tables-from
               beginning of ChainPosRuleSet-ordered by
               preference</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62726217088"></a><p class="title"><strong>Table 24.33. ChainPosRule subtable</strong></p><div class="table-contents"><table class="table" summary="ChainPosRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Total number of glyphs in the backtrack
+>>>>>>> Rebuild
+=======
+          in the set (ChainPosRuleCount).</p><div class="table"><a name="idm465834617632"></a><p class="title"><strong>Table 24.32. ChainPosRuleSet table: All contexts beginning with
+            the same glyph</strong></p><div class="table-contents"><table class="table" summary="ChainPosRuleSet table: All contexts beginning with&#10;            the same glyph" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ChainPosRuleCount</td><td>Number of ChainPosRule tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ChainPosRule [ChainPosRuleCount]</td><td>Array of offsets to ChainPosRule tables-from
+              beginning of ChainPosRuleSet-ordered by
+              preference</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm465834612160"></a><p class="title"><strong>Table 24.33. ChainPosRule subtable</strong></p><div class="table-contents"><table class="table" summary="ChainPosRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Total number of glyphs in the backtrack
 >>>>>>> Rebuild
               sequence (number of glyphs to be matched before the
               first glyph)</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>Backtrack [BacktrackGlyphCount]</td><td>Array of backtracking GlyphID's (to be
@@ -1676,12 +1909,16 @@ Lookahead sequence                           0   
 	  run. Instead, it invokes other lookups at the current
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11520"></a>Chaining Context Positioning Format 2: Class-based
 =======
 	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293558512"></a>Chaining Context Positioning Format 2: Class-based
 >>>>>>> Rebuild
 =======
 	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726188320"></a>Chaining Context Positioning Format 2: Class-based
+>>>>>>> Rebuild
+=======
+	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834583248"></a>Chaining Context Positioning Format 2: Class-based
 >>>>>>> Rebuild
         Chaining Context Glyph Positioning</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.20.1"></a>Specification</h4></div></div></div><p>This lookup Format is parallel to the Context
           Positioning format 2, with PosClassSet subtable changed to
@@ -1690,12 +1927,16 @@ Lookahead sequence                           0   
           ClassDef table: Backtrack ClassDef, Input ClassDef, and
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           Lookahead ClassDef.</p><div class="table"><a name="idm11526"></a><p class="title"><strong>Table 24.34. ChainContextPosFormat2 subtable: Chaining class-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ChainContextPosFormat2 subtable: Chaining class-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
 =======
           Lookahead ClassDef.</p><div class="table"><a name="idm189293555456"></a><p class="title"><strong>Table 24.34. ChainContextPosFormat2 subtable: Chaining class-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ChainContextPosFormat2 subtable: Chaining class-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
 >>>>>>> Rebuild
 =======
           Lookahead ClassDef.</p><div class="table"><a name="idm62726185264"></a><p class="title"><strong>Table 24.34. ChainContextPosFormat2 subtable: Chaining class-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ChainContextPosFormat2 subtable: Chaining class-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
+>>>>>>> Rebuild
+=======
+          Lookahead ClassDef.</p><div class="table"><a name="idm465834580192"></a><p class="title"><strong>Table 24.34. ChainContextPosFormat2 subtable: Chaining class-based context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ChainContextPosFormat2 subtable: Chaining class-based context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage</td><td>Offset to Coverage table-from beginning of
 >>>>>>> Rebuild
               ChainContextPos subtable</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>BacktrackClassDef</td><td>Offset to ClassDef table containing backtrack
               sequence context-from beginning of ChainContextPos
@@ -1713,6 +1954,7 @@ Lookahead sequence                           0   
           ChainPosClassSet table identifies the class of a context's
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           first component.</p><div class="table"><a name="idm11564"></a><p class="title"><strong>Table 24.35. ChainPosClassSet table: All contexts beginning with the same class</strong></p><div class="table-contents"><table class="table" summary="ChainPosClassSet table: All contexts beginning with the same class" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ChainPosClassRuleCnt</td><td>Number of ChainPosClassRule
               tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ChainPosClassRule [ChainPosClassRuleCnt]</td><td>Array of offsets to ChainPosClassRule
               tables-from beginning of ChainPosClassSet-ordered by
@@ -1728,6 +1970,12 @@ Lookahead sequence                           0   
               tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ChainPosClassRule [ChainPosClassRuleCnt]</td><td>Array of offsets to ChainPosClassRule
               tables-from beginning of ChainPosClassSet-ordered by
               preference</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62726165744"></a><p class="title"><strong>Table 24.36. ChainPosClassRule subtable</strong></p><div class="table-contents"><table class="table" summary="ChainPosClassRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Total number of glyphs in the backtrack
+>>>>>>> Rebuild
+=======
+          first component.</p><div class="table"><a name="idm465832984992"></a><p class="title"><strong>Table 24.35. ChainPosClassSet table: All contexts beginning with the same class</strong></p><div class="table-contents"><table class="table" summary="ChainPosClassSet table: All contexts beginning with the same class" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>ChainPosClassRuleCnt</td><td>Number of ChainPosClassRule
+              tables</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>ChainPosClassRule [ChainPosClassRuleCnt]</td><td>Array of offsets to ChainPosClassRule
+              tables-from beginning of ChainPosClassSet-ordered by
+              preference</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm465832979472"></a><p class="title"><strong>Table 24.36. ChainPosClassRule subtable</strong></p><div class="table-contents"><table class="table" summary="ChainPosClassRule subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Total number of glyphs in the backtrack
 >>>>>>> Rebuild
               sequence (number of glyphs to be matched before the
               first glyph)</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>Backtrack [BacktrackGlyphCount]</td><td>Array of backtracking classes(to be matched
@@ -1756,12 +2004,16 @@ Lookahead sequence                           0   
 	  run. Instead, it invokes other lookups at the current
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11654"></a>Chaining Context Positioning Format 3: Coverage-based Chaining
 =======
 	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293506816"></a>Chaining Context Positioning Format 3: Coverage-based Chaining
 >>>>>>> Rebuild
 =======
 	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726136624"></a>Chaining Context Positioning Format 3: Coverage-based Chaining
+>>>>>>> Rebuild
+=======
+	  position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832950352"></a>Chaining Context Positioning Format 3: Coverage-based Chaining
 >>>>>>> Rebuild
         Context Glyph Positioning</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.21.1"></a>Specification</h4></div></div></div><p>Format 3 defines a chaining context rule as a sequence
           of Coverage tables. Each position in the sequence may define
@@ -1782,12 +2034,16 @@ Lookahead sequence                           0   
           which lookups should be applied to the entire glyph
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           sequence.</p><div class="table"><a name="idm11662"></a><p class="title"><strong>Table 24.37. ChainContextPosFormat3 subtable: Coverage-based chaining context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ChainContextPosFormat3 subtable: Coverage-based chaining context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Number of glyphs in the backtracking
 =======
           sequence.</p><div class="table"><a name="idm189293502656"></a><p class="title"><strong>Table 24.37. ChainContextPosFormat3 subtable: Coverage-based chaining context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ChainContextPosFormat3 subtable: Coverage-based chaining context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Number of glyphs in the backtracking
 >>>>>>> Rebuild
 =======
           sequence.</p><div class="table"><a name="idm62726132496"></a><p class="title"><strong>Table 24.37. ChainContextPosFormat3 subtable: Coverage-based chaining context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ChainContextPosFormat3 subtable: Coverage-based chaining context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Number of glyphs in the backtracking
+>>>>>>> Rebuild
+=======
+          sequence.</p><div class="table"><a name="idm465832946224"></a><p class="title"><strong>Table 24.37. ChainContextPosFormat3 subtable: Coverage-based chaining context glyph positioning</strong></p><div class="table-contents"><table class="table" summary="ChainContextPosFormat3 subtable: Coverage-based chaining context glyph positioning" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>PosFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>BacktrackGlyphCount</td><td>Number of glyphs in the backtracking
 >>>>>>> Rebuild
               sequence</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>Coverage [BacktrackGlyphCount]</td><td>Array of offsets to coverage tables in
               backtracking sequence, in glyph sequence
@@ -1822,12 +2078,16 @@ Lookahead sequence                           0   
       </p><p>This table does not directly modify the glyph
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11739"></a>Lookup Type 9: Extension Positioning</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.22.1"></a>Specification</h4></div></div></div><p>This lookup provides a mechanism whereby any other
 =======
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293471904"></a>Lookup Type 9: Extension Positioning</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.22.1"></a>Specification</h4></div></div></div><p>This lookup provides a mechanism whereby any other
 >>>>>>> Rebuild
 =======
 	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726101712"></a>Lookup Type 9: Extension Positioning</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.22.1"></a>Specification</h4></div></div></div><p>This lookup provides a mechanism whereby any other
+>>>>>>> Rebuild
+=======
+	  run. Instead, it invokes other lookups at the current position.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832915440"></a>Lookup Type 9: Extension Positioning</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.22.1"></a>Specification</h4></div></div></div><p>This lookup provides a mechanism whereby any other
 >>>>>>> Rebuild
           lookup type's subtables are stored at a 32-bit offset
           location in the <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table. This is
@@ -1837,12 +2097,16 @@ Lookahead sequence                           0   
           subtable stored at the 32-bit offset location is termed the
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "extension" subtable.</p><div class="table"><a name="idm11746"></a><p class="title"><strong>Table 24.38. ExtensionPosFormat1 subtable</strong></p><div class="table-contents"><table class="table" summary="ExtensionPosFormat1 subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>PosFormat</td><td>Format identifier. Set to 1.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>ExtensionLookupType</td><td>Lookup type of subtable referenced by
 =======
           "extension" subtable.</p><div class="table"><a name="idm189296747792"></a><p class="title"><strong>Table 24.38. ExtensionPosFormat1 subtable</strong></p><div class="table-contents"><table class="table" summary="ExtensionPosFormat1 subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>PosFormat</td><td>Format identifier. Set to 1.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>ExtensionLookupType</td><td>Lookup type of subtable referenced by
 >>>>>>> Rebuild
 =======
           "extension" subtable.</p><div class="table"><a name="idm62726097760"></a><p class="title"><strong>Table 24.38. ExtensionPosFormat1 subtable</strong></p><div class="table-contents"><table class="table" summary="ExtensionPosFormat1 subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>PosFormat</td><td>Format identifier. Set to 1.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>ExtensionLookupType</td><td>Lookup type of subtable referenced by
+>>>>>>> Rebuild
+=======
+          "extension" subtable.</p><div class="table"><a name="idm465832911488"></a><p class="title"><strong>Table 24.38. ExtensionPosFormat1 subtable</strong></p><div class="table-contents"><table class="table" summary="ExtensionPosFormat1 subtable" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>USHORT</td><td>PosFormat</td><td>Format identifier. Set to 1.</td><td class="auto-generated"> </td></tr><tr><td>USHORT</td><td>ExtensionLookupType</td><td>Lookup type of subtable referenced by
 >>>>>>> Rebuild
               ExtensionOffset (i.e. the extension
               subtable).</td><td class="auto-generated"> </td></tr><tr><td>ULONG</td><td>ExtensionOffset</td><td>Offset to the extension subtable, of lookup
@@ -1859,12 +2123,16 @@ Lookahead sequence                           0   
               that referenced it.</p></li></ul></div></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.22.2"></a>Annotation</h4></div></div></div><p>This subtable does not match a pattern by itself, nor
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  does it have an action by itself.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11777"></a>Shared Tables: ValueRecord, Anchor Table, and MarkArray</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.23.1"></a>Specification</h4></div></div></div><p>Several lookup subtables described earlier in this
 =======
 	  does it have an action by itself.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296735120"></a>Shared Tables: ValueRecord, Anchor Table, and MarkArray</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.23.1"></a>Specification</h4></div></div></div><p>Several lookup subtables described earlier in this
 >>>>>>> Rebuild
 =======
 	  does it have an action by itself.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726085088"></a>Shared Tables: ValueRecord, Anchor Table, and MarkArray</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.23.1"></a>Specification</h4></div></div></div><p>Several lookup subtables described earlier in this
+>>>>>>> Rebuild
+=======
+	  does it have an action by itself.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832898816"></a>Shared Tables: ValueRecord, Anchor Table, and MarkArray</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.23.1"></a>Specification</h4></div></div></div><p>Several lookup subtables described earlier in this
 >>>>>>> Rebuild
           chapter refer to one or more of the same tables for
           positioning data: ValueRecord, Anchor table, and MarkArray.
@@ -1873,12 +2141,16 @@ Lookahead sequence                           0   
           table and ValueRecord to specify positioning values in
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11784"></a>ValueRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.24.1"></a>Specification</h4></div></div></div><p>
 =======
           <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296730880"></a>ValueRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.24.1"></a>Specification</h4></div></div></div><p>
 >>>>>>> Rebuild
 =======
           <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726080848"></a>ValueRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.24.1"></a>Specification</h4></div></div></div><p>
+>>>>>>> Rebuild
+=======
+          <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832894576"></a>ValueRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.24.1"></a>Specification</h4></div></div></div><p>
 >>>>>>> Rebuild
         <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> subtables use ValueRecords to
           describe all the variables and values used to adjust the
@@ -1896,12 +2168,16 @@ Lookahead sequence                           0   
           purposes, the sizes and contents of ValueRecords may vary
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           from subtable to subtable.</p><div class="table"><a name="idm11793"></a><p class="title"><strong>Table 24.39. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>int16</td><td>XPlacement</td><td>Horizontal adjustment for placement-in design
 =======
           from subtable to subtable.</p><div class="table"><a name="idm189296725424"></a><p class="title"><strong>Table 24.39. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>int16</td><td>XPlacement</td><td>Horizontal adjustment for placement-in design
 >>>>>>> Rebuild
 =======
           from subtable to subtable.</p><div class="table"><a name="idm62726075392"></a><p class="title"><strong>Table 24.39. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>int16</td><td>XPlacement</td><td>Horizontal adjustment for placement-in design
+>>>>>>> Rebuild
+=======
+          from subtable to subtable.</p><div class="table"><a name="idm465832889120"></a><p class="title"><strong>Table 24.39. </strong></p><div class="table-contents"><table class="table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>int16</td><td>XPlacement</td><td>Horizontal adjustment for placement-in design
 >>>>>>> Rebuild
                   units</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>YPlacement</td><td>Vertical adjustment for placement-in design
                   units</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>XAdvance</td><td>Horizontal adjustment for advance-in design
@@ -1939,12 +2215,16 @@ Lookahead sequence                           0   
           both values in the order they are listed in the ValueRecord
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           definition.</p><div class="table"><a name="idm11847"></a><p class="title"><strong>Table 24.40. ValueFormat bit enumeration (indicates which fields
 =======
           definition.</p><div class="table"><a name="idm189293464688"></a><p class="title"><strong>Table 24.40. ValueFormat bit enumeration (indicates which fields
 >>>>>>> Rebuild
 =======
           definition.</p><div class="table"><a name="idm62726053216"></a><p class="title"><strong>Table 24.40. ValueFormat bit enumeration (indicates which fields
+>>>>>>> Rebuild
+=======
+          definition.</p><div class="table"><a name="idm465832866944"></a><p class="title"><strong>Table 24.40. ValueFormat bit enumeration (indicates which fields
 >>>>>>> Rebuild
             are present)</strong></p><div class="table-contents"><table class="table" summary="ValueFormat bit enumeration (indicates which fields&#10;            are present)" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>Mask</th><th>Name</th><th>Description</th></tr></thead><tbody><tr><td>0x0001</td><td>XPlacement</td><td>Includes horizontal adjustment for
                   placement</td></tr><tr><td>0x0002</td><td>YPlacement</td><td>Includes vertical adjustment for
@@ -1956,12 +2236,16 @@ Lookahead sequence                           0   
                   advance</td></tr><tr><td>0x0080</td><td>YAdvDevice</td><td>Includes vertical Device table for
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   advance</td></tr><tr><td>0xF000</td><td>Reserved</td><td>For future use</td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.24.2"></a>Annotation</h4></div></div></div><p>None</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11895"></a>Anchor Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.25.1"></a>Specification</h4></div></div></div><p>A <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table uses anchor points to
 =======
                   advance</td></tr><tr><td>0xF000</td><td>Reserved</td><td>For future use</td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.24.2"></a>Annotation</h4></div></div></div><p>None</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293444016"></a>Anchor Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.25.1"></a>Specification</h4></div></div></div><p>A <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table uses anchor points to
 >>>>>>> Rebuild
 =======
                   advance</td></tr><tr><td>0xF000</td><td>Reserved</td><td>For future use</td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.24.2"></a>Annotation</h4></div></div></div><p>None</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726032544"></a>Anchor Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.25.1"></a>Specification</h4></div></div></div><p>A <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table uses anchor points to
+>>>>>>> Rebuild
+=======
+                  advance</td></tr><tr><td>0xF000</td><td>Reserved</td><td>For future use</td></tr></tbody></table></div></div><br class="table-break"/></div><div role="annotation" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.24.2"></a>Annotation</h4></div></div></div><p>None</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832846272"></a>Anchor Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.25.1"></a>Specification</h4></div></div></div><p>A <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table uses anchor points to
 >>>>>>> Rebuild
         position one glyph with respect to another. Each glyph defines
         an anchor point, and the text-processing client attaches the
@@ -1971,6 +2255,7 @@ Lookahead sequence                           0   
         refine the location of the anchor point using contour points
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         (Format 2) or Device tables (Format 3).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm11902"></a>Anchor Table: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.26.1"></a>Specification</h4></div></div></div><p>AnchorFormat1 consists of a format identifier
 =======
         (Format 2) or Device tables (Format 3).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293439680"></a>Anchor Table: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.26.1"></a>Specification</h4></div></div></div><p>AnchorFormat1 consists of a format identifier
@@ -1978,11 +2263,15 @@ Lookahead sequence                           0   
 =======
         (Format 2) or Device tables (Format 3).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726028208"></a>Anchor Table: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.26.1"></a>Specification</h4></div></div></div><p>AnchorFormat1 consists of a format identifier
 >>>>>>> Rebuild
+=======
+        (Format 2) or Device tables (Format 3).</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832841936"></a>Anchor Table: Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.26.1"></a>Specification</h4></div></div></div><p>AnchorFormat1 consists of a format identifier
+>>>>>>> Rebuild
           (AnchorFormat) and a pair of design unit coordinates
           (XCoordinate and YCoordinate) that specify the location of
           the anchor point. This format has the benefits of small size
           and simplicity, but the anchor point cannot be hinted to
           adjust its position for different device resolutions.</p><p>Example 15 at the end of this chapter uses
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           AnchorFormat1.</p><div class="table"><a name="idm11908"></a><p class="title"><strong>Table 24.41. AnchorFormat1 table: Design units only</strong></p><div class="table-contents"><table class="table" summary="AnchorFormat1 table: Design units only" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>AnchorFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>XCoordinate</td><td>Horizontal value-in design
@@ -1995,6 +2284,10 @@ Lookahead sequence                           0   
           AnchorFormat1.</p><div class="table"><a name="idm62726025152"></a><p class="title"><strong>Table 24.41. AnchorFormat1 table: Design units only</strong></p><div class="table-contents"><table class="table" summary="AnchorFormat1 table: Design units only" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>AnchorFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>XCoordinate</td><td>Horizontal value-in design
               units</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>YCoordinate</td><td>Vertical value-in design units</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726017808"></a>Anchor Table: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.27.1"></a>Specification</h4></div></div></div><p>Like AnchorFormat1, AnchorFormat2 specifies a format
 >>>>>>> Rebuild
+=======
+          AnchorFormat1.</p><div class="table"><a name="idm465832838880"></a><p class="title"><strong>Table 24.41. AnchorFormat1 table: Design units only</strong></p><div class="table-contents"><table class="table" summary="AnchorFormat1 table: Design units only" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>AnchorFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>XCoordinate</td><td>Horizontal value-in design
+              units</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>YCoordinate</td><td>Vertical value-in design units</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832831536"></a>Anchor Table: Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.27.1"></a>Specification</h4></div></div></div><p>Like AnchorFormat1, AnchorFormat2 specifies a format
+>>>>>>> Rebuild
           identifier (AnchorFormat) and a pair of design unit
           coordinates for the anchor point (Xcoordinate and
           Ycoordinate).</p><p>For fine-tuning the location of the anchor point,
@@ -2003,6 +2296,7 @@ Lookahead sequence                           0   
           (AnchorPoint). Hinting can be used to move the AnchorPoint.
           In the rendered text, the AnchorPoint will provide the final
           positioning data for a given ppem size.</p><p>Example 16 at the end of this chapter uses
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           AnchorFormat2.</p><div class="table"><a name="idm11936"></a><p class="title"><strong>Table 24.42. AnchorFormat2 table: Design units plus contour
@@ -2018,6 +2312,11 @@ Lookahead sequence                           0   
             point</strong></p><div class="table-contents"><table class="table" summary="AnchorFormat2 table: Design units plus contour&#10;            point" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>AnchorFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>XCoordinate</td><td>Horizontal value-in design
               units</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>YCoordinate</td><td>Vertical value-in design units</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>AnchorPoint</td><td>Index to glyph contour point</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62726004944"></a>Anchor Table: Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.28.1"></a>Specification</h4></div></div></div><p>Like AnchorFormat1, AnchorFormat3 specifies a format
 >>>>>>> Rebuild
+=======
+          AnchorFormat2.</p><div class="table"><a name="idm465832827520"></a><p class="title"><strong>Table 24.42. AnchorFormat2 table: Design units plus contour
+            point</strong></p><div class="table-contents"><table class="table" summary="AnchorFormat2 table: Design units plus contour&#10;            point" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>AnchorFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>XCoordinate</td><td>Horizontal value-in design
+              units</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>YCoordinate</td><td>Vertical value-in design units</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>AnchorPoint</td><td>Index to glyph contour point</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832818672"></a>Anchor Table: Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.28.1"></a>Specification</h4></div></div></div><p>Like AnchorFormat1, AnchorFormat3 specifies a format
+>>>>>>> Rebuild
           identifier (AnchorFormat) and locates an anchor point
           (Xcoordinate and Ycoordinate). And, like AnchorFormat 2, it
           permits fine adjustments to the coordinate values. However,
@@ -2029,6 +2328,7 @@ Lookahead sequence                           0   
           (YDeviceTable). If only one coordinate requires adjustment,
           the offset to the Device table may be set to NULL for the
           other coordinate.</p><p>Example 17 at the end of the chapter shows an
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           AnchorFormat3 table.</p><div class="table"><a name="idm11968"></a><p class="title"><strong>Table 24.43. AnchorFormat3 table: Design units plus Device
@@ -2050,6 +2350,13 @@ Lookahead sequence                           0   
               beginning of Anchor table (may be NULL)</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>YDeviceTable</td><td>Offset to Device table for Y coordinate- from
               beginning of Anchor table (may be NULL)</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725990608"></a>Mark Array</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.29.1"></a>Specification</h4></div></div></div><p>The MarkArray table defines the class and the anchor
 >>>>>>> Rebuild
+=======
+          AnchorFormat3 table.</p><div class="table"><a name="idm465832814816"></a><p class="title"><strong>Table 24.43. AnchorFormat3 table: Design units plus Device
+            tables</strong></p><div class="table-contents"><table class="table" summary="AnchorFormat3 table: Design units plus Device&#10;            tables" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>AnchorFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>XCoordinate</td><td>Horizontal value-in design
+              units</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>YCoordinate</td><td>Vertical value-in design units</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>XDeviceTable</td><td>Offset to Device table for X coordinate- from
+              beginning of Anchor table (may be NULL)</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>YDeviceTable</td><td>Offset to Device table for Y coordinate- from
+              beginning of Anchor table (may be NULL)</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832804336"></a>Mark Array</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.29.1"></a>Specification</h4></div></div></div><p>The MarkArray table defines the class and the anchor
+>>>>>>> Rebuild
           point for a mark glyph. Three <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a>
           subtables – MarkToBase, MarkToLigature, and
           MarkToMark Attachment – use the MarkArray table to
@@ -2066,6 +2373,7 @@ Lookahead sequence                           0   
           arrays that contain data for each mark class.</p><p>In Example 18 at the end of the chapter, a MarkArray
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           table and two MarkRecords define two mark classes.</p><div class="table"><a name="idm12007"></a><p class="title"><strong>Table 24.44. MarkArray table</strong></p><div class="table-contents"><table class="table" summary="MarkArray table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>MarkCount</td><td>Number of MarkRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>MarkRecord [MarkCount]</td><td>Array of MarkRecords – in Coverage
               order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm12024"></a><p class="title"><strong>Table 24.45. MarkRecord</strong></p><div class="table-contents"><table class="table" summary="MarkRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>Class</td><td>Class defined for this mark</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkAnchor</td><td>Offset to Anchor table – from beginning of
               MarkArray table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm12041"></a>GPOS Subtable Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.30.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes examples of all the
@@ -2079,11 +2387,17 @@ Lookahead sequence                           0   
               order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62725979344"></a><p class="title"><strong>Table 24.45. MarkRecord</strong></p><div class="table-contents"><table class="table" summary="MarkRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>Class</td><td>Class defined for this mark</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkAnchor</td><td>Offset to Anchor table – from beginning of
               MarkArray table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725973392"></a>GPOS Subtable Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.30.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes examples of all the
 >>>>>>> Rebuild
+=======
+          table and two MarkRecords define two mark classes.</p><div class="table"><a name="idm465832798448"></a><p class="title"><strong>Table 24.44. MarkArray table</strong></p><div class="table-contents"><table class="table" summary="MarkArray table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>MarkCount</td><td>Number of MarkRecords</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>MarkRecord [MarkCount]</td><td>Array of MarkRecords – in Coverage
+              order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm465832793072"></a><p class="title"><strong>Table 24.45. MarkRecord</strong></p><div class="table-contents"><table class="table" summary="MarkRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>Class</td><td>Class defined for this mark</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MarkAnchor</td><td>Offset to Anchor table – from beginning of
+              MarkArray table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832787120"></a>GPOS Subtable Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.30.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes examples of all the
+>>>>>>> Rebuild
           <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> subtable formats, including each of
           the three formats available for contextual positioning. All
           the examples reflect unique parameters described below, but
           the samples provide a useful reference for building
           subtables specific to other situations.</p><p>All the examples have three columns showing hex data,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm12048"></a>Example 1: GPOS Header Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.31.1"></a>Specification</h4></div></div></div><p>Example 1 shows a typical <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> Header
@@ -2102,12 +2416,19 @@ Lookahead sequence                           0   
           and LookupList.</p><div class="table"><a name="idm62725966128"></a><p class="title"><strong>Table 24.46. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>GPOSHeader</td><td> </td></tr><tr><td> </td><td>TheGPOSHeader</td><td>GPOSHeader table
                   definition</td></tr><tr><td>00010000</td><td>0x00010000</td><td>Version</td></tr><tr><td>000A</td><td>TheScriptList</td><td>offset to ScriptList table</td></tr><tr><td>001E</td><td>TheFeatureList</td><td>offset to FeatureList table</td></tr><tr><td>002C</td><td>TheLookupList</td><td>offset to LookupList table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725954864"></a>Example 2: SinglePosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.32.1"></a>Specification</h4></div></div></div><p>Example 2 uses the SinglePosFormat1 subtable to lower
 >>>>>>> Rebuild
+=======
+          source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832782848"></a>Example 1: GPOS Header Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.31.1"></a>Specification</h4></div></div></div><p>Example 1 shows a typical <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> Header
+          table definition with offsets to a ScriptList, FeatureList,
+          and LookupList.</p><div class="table"><a name="idm465832779856"></a><p class="title"><strong>Table 24.46. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>GPOSHeader</td><td> </td></tr><tr><td> </td><td>TheGPOSHeader</td><td>GPOSHeader table
+                  definition</td></tr><tr><td>00010000</td><td>0x00010000</td><td>Version</td></tr><tr><td>000A</td><td>TheScriptList</td><td>offset to ScriptList table</td></tr><tr><td>001E</td><td>TheFeatureList</td><td>offset to FeatureList table</td></tr><tr><td>002C</td><td>TheLookupList</td><td>offset to LookupList table</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832768592"></a>Example 2: SinglePosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.32.1"></a>Specification</h4></div></div></div><p>Example 2 uses the SinglePosFormat1 subtable to lower
+>>>>>>> Rebuild
           the Y placement of subscript glyphs in a font. The
           LowerSubscriptsSubTable defines one Coverage table, called
           LowerSubscriptsCoverage, which lists one range of glyph
           indices for the numeral/numeric subscript glyphs. The
           subtable's ValueFormat setting indicates that the
           ValueRecord specifies only the YPlacement value, lowering
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           each subscript glyph by 80 design units.</p><div class="table"><a name="idm12092"></a><p class="title"><strong>Table 24.47. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SinglePosFormat1</td><td> </td></tr><tr><td> </td><td>LowerSubscriptsSubTable</td><td>SinglePos subtable definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>0008</td><td>LowerSubscriptsCoverage</td><td>offset to Coverage table</td></tr><tr><td>0002</td><td>0x0002</td><td>ValueFormat, YPlacement,Value[0], move Y
@@ -2123,6 +2444,11 @@ Lookahead sequence                           0   
                   position down</td></tr><tr><td>FFB0</td><td>-80</td><td> </td></tr><tr><td> </td><td>CoverageFormat2</td><td> </td></tr><tr><td> </td><td>LowerSubscriptsCoverage</td><td>Coverage table
                   definition</td></tr><tr><td>0002</td><td>2</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>RangeCount RangeRecord[0]</td></tr><tr><td>01B3</td><td>ZeroSubscriptGlyphID</td><td>Start, first glyphID</td></tr><tr><td>01BC</td><td>NineSubscriptGlyphID</td><td>End, last glyphID</td></tr><tr><td>0000</td><td>0</td><td>StartCoverageIndex</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725931104"></a>Example 3: SinglePosFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.33.1"></a>Specification</h4></div></div></div><p>This example uses a SinglePosFormat2 subtable to adjust
 >>>>>>> Rebuild
+=======
+          each subscript glyph by 80 design units.</p><div class="table"><a name="idm465832765872"></a><p class="title"><strong>Table 24.47. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SinglePosFormat1</td><td> </td></tr><tr><td> </td><td>LowerSubscriptsSubTable</td><td>SinglePos subtable definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>0008</td><td>LowerSubscriptsCoverage</td><td>offset to Coverage table</td></tr><tr><td>0002</td><td>0x0002</td><td>ValueFormat, YPlacement,Value[0], move Y
+                  position down</td></tr><tr><td>FFB0</td><td>-80</td><td> </td></tr><tr><td> </td><td>CoverageFormat2</td><td> </td></tr><tr><td> </td><td>LowerSubscriptsCoverage</td><td>Coverage table
+                  definition</td></tr><tr><td>0002</td><td>2</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>RangeCount RangeRecord[0]</td></tr><tr><td>01B3</td><td>ZeroSubscriptGlyphID</td><td>Start, first glyphID</td></tr><tr><td>01BC</td><td>NineSubscriptGlyphID</td><td>End, last glyphID</td></tr><tr><td>0000</td><td>0</td><td>StartCoverageIndex</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832744832"></a>Example 3: SinglePosFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.33.1"></a>Specification</h4></div></div></div><p>This example uses a SinglePosFormat2 subtable to adjust
+>>>>>>> Rebuild
           the spacing of three dash glyphs by different amounts. The
           em dash spacing changes by 10 units, the en dash spacing
           changes by 25 units, and spacing of the standard dash
@@ -2132,6 +2458,7 @@ Lookahead sequence                           0   
           ValueFormat to modify the XPlacement and XAdvance values of
           each glyph. The ValueFormat bit setting of 0x0005 is
           produced by adding the XPlacement and XAdvance bit
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           settings.</p><div class="table"><a name="idm12159"></a><p class="title"><strong>Table 24.48. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SinglePosFormat2</td><td> </td></tr><tr><td> </td><td>DashSpacingSubTable</td><td>SinglePos subtable
@@ -2147,6 +2474,11 @@ Lookahead sequence                           0   
                   definition</td></tr><tr><td>0002</td><td>2</td><td>PosFormat</td></tr><tr><td>0014</td><td>DashSpacingCoverage</td><td>offset to Coverage table</td></tr><tr><td>0005</td><td>0x0005</td><td>ValueFormat for XPlacement and XAdvance</td></tr><tr><td>0003</td><td>3</td><td>ValueCount Value[0], for dash glyph</td></tr><tr><td>0032</td><td>50</td><td>XPlacement</td></tr><tr><td>0032</td><td>50</td><td>XAdvance Value[1], for en dash glyph</td></tr><tr><td>0019</td><td>25</td><td>XPlacement</td></tr><tr><td>0019</td><td>25</td><td>XAdvance Value[2], for em dash glyph</td></tr><tr><td>000A</td><td>10</td><td>XPlacement</td></tr><tr><td>000A</td><td>10</td><td>XAdvanc</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>DashSpacingCoverage</td><td>Coverage table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0003</td><td>3</td><td>GlyphCount</td></tr><tr><td>004F</td><td>DashGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>0125</td><td>EnDashGlyphID</td><td>GlyphArray[1]</td></tr><tr><td>0129</td><td>EmDashGlyphID</td><td>GlyphArray[2]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725897600"></a>Example 4: PairPosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.34.1"></a>Specification</h4></div></div></div><p>Example 4 uses a PairPosFormat1 subtable to kern two
 >>>>>>> Rebuild
+=======
+          settings.</p><div class="table"><a name="idm465832724816"></a><p class="title"><strong>Table 24.48. Example 3</strong></p><div class="table-contents"><table class="table" summary="Example 3" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SinglePosFormat2</td><td> </td></tr><tr><td> </td><td>DashSpacingSubTable</td><td>SinglePos subtable
+                  definition</td></tr><tr><td>0002</td><td>2</td><td>PosFormat</td></tr><tr><td>0014</td><td>DashSpacingCoverage</td><td>offset to Coverage table</td></tr><tr><td>0005</td><td>0x0005</td><td>ValueFormat for XPlacement and XAdvance</td></tr><tr><td>0003</td><td>3</td><td>ValueCount Value[0], for dash glyph</td></tr><tr><td>0032</td><td>50</td><td>XPlacement</td></tr><tr><td>0032</td><td>50</td><td>XAdvance Value[1], for en dash glyph</td></tr><tr><td>0019</td><td>25</td><td>XPlacement</td></tr><tr><td>0019</td><td>25</td><td>XAdvance Value[2], for em dash glyph</td></tr><tr><td>000A</td><td>10</td><td>XPlacement</td></tr><tr><td>000A</td><td>10</td><td>XAdvanc</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>DashSpacingCoverage</td><td>Coverage table
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0003</td><td>3</td><td>GlyphCount</td></tr><tr><td>004F</td><td>DashGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>0125</td><td>EnDashGlyphID</td><td>GlyphArray[1]</td></tr><tr><td>0129</td><td>EmDashGlyphID</td><td>GlyphArray[2]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832695072"></a>Example 4: PairPosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.34.1"></a>Specification</h4></div></div></div><p>Example 4 uses a PairPosFormat1 subtable to kern two
+>>>>>>> Rebuild
           glyph pairs - "Po" and "To" - by adjusting the XAdvance of
           the first glyph and the XPlacement of the second glyph. Two
           ValueFormats are defined, one for each glyph. The subtable
@@ -2161,12 +2493,16 @@ Lookahead sequence                           0   
           PairValueRecord that lists the second glyph in the "To" pair
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           and two ValueRecords, one for each glyph.</p><div class="table"><a name="idm12250"></a><p class="title"><strong>Table 24.49. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>PairPosFormat1</td><td> </td></tr><tr><td> </td><td>PairKerningSubTable</td><td>PairPos subtable
 =======
           and two ValueRecords, one for each glyph.</p><div class="table"><a name="idm189296605328"></a><p class="title"><strong>Table 24.49. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>PairPosFormat1</td><td> </td></tr><tr><td> </td><td>PairKerningSubTable</td><td>PairPos subtable
 >>>>>>> Rebuild
 =======
           and two ValueRecords, one for each glyph.</p><div class="table"><a name="idm62725894016"></a><p class="title"><strong>Table 24.49. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>PairPosFormat1</td><td> </td></tr><tr><td> </td><td>PairKerningSubTable</td><td>PairPos subtable
+>>>>>>> Rebuild
+=======
+          and two ValueRecords, one for each glyph.</p><div class="table"><a name="idm465832691488"></a><p class="title"><strong>Table 24.49. Example 4</strong></p><div class="table-contents"><table class="table" summary="Example 4" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>PairPosFormat1</td><td> </td></tr><tr><td> </td><td>PairKerningSubTable</td><td>PairPos subtable
 >>>>>>> Rebuild
                   definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>001E</td><td>PairKerningCoverage</td><td>offset to Coverage table</td></tr><tr><td>0004</td><td>0x0004</td><td>ValueFormat1 XAdvance only</td></tr><tr><td>0001</td><td>0x0001</td><td>ValueFormat2 XPlacement only</td></tr><tr><td>0002</td><td>2</td><td>PairSetCount</td></tr><tr><td>000E</td><td>PPairSetTable</td><td>PairSet[0]</td></tr><tr><td>0016</td><td>TPairSetTable</td><td>PairSet[1</td></tr><tr><td> </td><td>PairSetTable</td><td> </td></tr><tr><td> </td><td>PPairSetTable</td><td>PairSet table definition</td></tr><tr><td>0001</td><td>1</td><td>PairValueCount, one pair in set
                   PairValueRecord[0]</td></tr><tr><td>0059</td><td>LowercaseOGlyphID</td><td>SecondGlyph</td></tr><tr><td>FFE2</td><td>-30</td><td>Value 1, XAdvance adjustment for first
@@ -2177,12 +2513,16 @@ Lookahead sequence                           0   
                   glyp</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>PairKerningCoverage</td><td>Coverage table
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>002D</td><td>UppercasePGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>0031</td><td>UppercaseTGlyphID</td><td>GlyphArray[1]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm12367"></a>Example 5: PairPosFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.35.1"></a>Specification</h4></div></div></div><p>The PairPosFormat2 subtable in this example defines
 =======
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>002D</td><td>UppercasePGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>0031</td><td>UppercaseTGlyphID</td><td>GlyphArray[1]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296564400"></a>Example 5: PairPosFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.35.1"></a>Specification</h4></div></div></div><p>The PairPosFormat2 subtable in this example defines
 >>>>>>> Rebuild
 =======
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>002D</td><td>UppercasePGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>0031</td><td>UppercaseTGlyphID</td><td>GlyphArray[1]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725853056"></a>Example 5: PairPosFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.35.1"></a>Specification</h4></div></div></div><p>The PairPosFormat2 subtable in this example defines
+>>>>>>> Rebuild
+=======
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>002D</td><td>UppercasePGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>0031</td><td>UppercaseTGlyphID</td><td>GlyphArray[1]</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832650528"></a>Example 5: PairPosFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.35.1"></a>Specification</h4></div></div></div><p>The PairPosFormat2 subtable in this example defines
 >>>>>>> Rebuild
           pairs composed of two glyph classes. Two ClassDef tables are
           defined, one for each glyph class. The first glyph in each
@@ -2206,12 +2546,16 @@ Lookahead sequence                           0   
           all pairs that contain a Class1 glyph followed by a Class2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph.</p><div class="table"><a name="idm12375"></a><p class="title"><strong>Table 24.50. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>PairPosFormat2</td><td> </td></tr><tr><td> </td><td>PunctKerningSubTable</td><td>PairPos subtable
 =======
           glyph.</p><div class="table"><a name="idm189296559424"></a><p class="title"><strong>Table 24.50. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>PairPosFormat2</td><td> </td></tr><tr><td> </td><td>PunctKerningSubTable</td><td>PairPos subtable
 >>>>>>> Rebuild
 =======
           glyph.</p><div class="table"><a name="idm62725848080"></a><p class="title"><strong>Table 24.50. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>PairPosFormat2</td><td> </td></tr><tr><td> </td><td>PunctKerningSubTable</td><td>PairPos subtable
+>>>>>>> Rebuild
+=======
+          glyph.</p><div class="table"><a name="idm465832645552"></a><p class="title"><strong>Table 24.50. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>PairPosFormat2</td><td> </td></tr><tr><td> </td><td>PunctKerningSubTable</td><td>PairPos subtable
 >>>>>>> Rebuild
                   definition</td></tr><tr><td>0002</td><td>2</td><td>PosFormat</td></tr><tr><td>0018</td><td>PunctKerningCoverage</td><td>offset to Coverage table</td></tr><tr><td>0004</td><td>0x0004</td><td>ValueFormat1 XAdvance only</td></tr><tr><td>0000</td><td>0</td><td>ValueFormat2 no ValueRecord for second
                   glyph</td></tr><tr><td>0022</td><td>LowercaseClassDef</td><td>offset to ClassDef1 table for first class in
@@ -2229,12 +2573,16 @@ Lookahead sequence                           0   
                   definition</td></tr><tr><td>0002</td><td>2</td><td>ClassFormat</td></tr><tr><td>0002</td><td>2</td><td>ClassRangeCount ClassRangeRecord[0]</td></tr><tr><td>0046</td><td>LowercaseVGlyphID</td><td>Start</td></tr><tr><td>0047</td><td>LowercaseWGlyphID</td><td>End</td></tr><tr><td>0001</td><td>1</td><td>Class ClassRangeRecord[1]</td></tr><tr><td>0049</td><td>LowercaseYGlyphID</td><td>Start</td></tr><tr><td>0049</td><td>LowercaseYGlyphID</td><td>End</td></tr><tr><td>0001</td><td>1</td><td>Clas</td></tr><tr><td> </td><td>ClassDefFormat2</td><td> </td></tr><tr><td> </td><td>PunctuationClassDef</td><td>ClassDef table
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   definition</td></tr><tr><td>0002</td><td>2</td><td>ClassFormat</td></tr><tr><td>0001</td><td>1</td><td>ClassRangeCount ClassRangeRecord[0]</td></tr><tr><td>006A</td><td>PeriodPunctGlyphID</td><td>Start</td></tr><tr><td>006B</td><td>CommaPunctGlyphID</td><td>End</td></tr><tr><td>0001</td><td>1</td><td>Class</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm12536"></a>Example 6: CursivePosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.36.1"></a>Specification</h4></div></div></div><p>In Example 6, the Urdu language system uses a
 =======
                   definition</td></tr><tr><td>0002</td><td>2</td><td>ClassFormat</td></tr><tr><td>0001</td><td>1</td><td>ClassRangeCount ClassRangeRecord[0]</td></tr><tr><td>006A</td><td>PeriodPunctGlyphID</td><td>Start</td></tr><tr><td>006B</td><td>CommaPunctGlyphID</td><td>End</td></tr><tr><td>0001</td><td>1</td><td>Class</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296501936"></a>Example 6: CursivePosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.36.1"></a>Specification</h4></div></div></div><p>In Example 6, the Urdu language system uses a
 >>>>>>> Rebuild
 =======
                   definition</td></tr><tr><td>0002</td><td>2</td><td>ClassFormat</td></tr><tr><td>0001</td><td>1</td><td>ClassRangeCount ClassRangeRecord[0]</td></tr><tr><td>006A</td><td>PeriodPunctGlyphID</td><td>Start</td></tr><tr><td>006B</td><td>CommaPunctGlyphID</td><td>End</td></tr><tr><td>0001</td><td>1</td><td>Class</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733110224"></a>Example 6: CursivePosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.36.1"></a>Specification</h4></div></div></div><p>In Example 6, the Urdu language system uses a
+>>>>>>> Rebuild
+=======
+                  definition</td></tr><tr><td>0002</td><td>2</td><td>ClassFormat</td></tr><tr><td>0001</td><td>1</td><td>ClassRangeCount ClassRangeRecord[0]</td></tr><tr><td>006A</td><td>PeriodPunctGlyphID</td><td>Start</td></tr><tr><td>006B</td><td>CommaPunctGlyphID</td><td>End</td></tr><tr><td>0001</td><td>1</td><td>Class</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832588032"></a>Example 6: CursivePosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.36.1"></a>Specification</h4></div></div></div><p>In Example 6, the Urdu language system uses a
 >>>>>>> Rebuild
           CursivePosFormat1 subtable to attach glyphs along a diagonal
           baseline that descends from right to left. Two glyphs are
@@ -2246,6 +2594,7 @@ Lookahead sequence                           0   
           coordinate values. To render Urdu down and diagonally, the
           entry point's Y coordinate is above the baseline and the
           exit point's Y coordinate is located below the
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           baseline.</p><div class="table"><a name="idm12541"></a><p class="title"><strong>Table 24.51. Example 6</strong></p><div class="table-contents"><table class="table" summary="Example 6" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>CursivePosFormat1</td><td> </td></tr><tr><td> </td><td>DiagonalWritingSubTable</td><td>CursivePos subtable
@@ -2267,6 +2616,13 @@ Lookahead sequence                           0   
                   for Ha glyph</td></tr><tr><td>0022</td><td>HaEntryAnchor</td><td>offset to EntryAnchor table</td></tr><tr><td>0028</td><td>HaExitAnchor</td><td>offset to ExitAnchor tabl</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>DiagonalWritingCoverage</td><td>Coverage table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>0203</td><td>KafGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>027E</td><td>HaGlyphID</td><td>GlyphArray[1</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>KafEntryAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>05DC</td><td>1500</td><td>XCoordinate</td></tr><tr><td>002C</td><td>44</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td>KafExitAnchor</td><td>Anchor</td><td>table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0000</td><td>0</td><td>XCoordinate</td></tr><tr><td>FFEC</td><td>-20</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>HaEntryAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>05DC</td><td>1500</td><td>XCoordinate</td></tr><tr><td>002C</td><td>44</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>HaExitAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0000</td><td>0</td><td>XCoordinate</td></tr><tr><td>FFEC</td><td>-20</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62733055792"></a>Example 7: MarkBasePosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.37.1"></a>Specification</h4></div></div></div><p>The MarkBasePosFormat1 subtable in Example 7 defines one
 >>>>>>> Rebuild
+=======
+          baseline.</p><div class="table"><a name="idm465832585072"></a><p class="title"><strong>Table 24.51. Example 6</strong></p><div class="table-contents"><table class="table" summary="Example 6" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>CursivePosFormat1</td><td> </td></tr><tr><td> </td><td>DiagonalWritingSubTable</td><td>CursivePos subtable
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>000E</td><td>DiagonalWritingCoverage</td><td>offset to Coverage table</td></tr><tr><td>0002</td><td>2</td><td>EntryExitCount EntryExitRecord[0] for Kaf
+                  glyph</td></tr><tr><td>0016</td><td>KafEntryAnchor</td><td>offset to EntryAnchor table</td></tr><tr><td>001C</td><td>KafExitAnchor</td><td>offset to ExitAnchor table EntryExitRecord[1]
+                  for Ha glyph</td></tr><tr><td>0022</td><td>HaEntryAnchor</td><td>offset to EntryAnchor table</td></tr><tr><td>0028</td><td>HaExitAnchor</td><td>offset to ExitAnchor tabl</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>DiagonalWritingCoverage</td><td>Coverage table
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>0203</td><td>KafGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>027E</td><td>HaGlyphID</td><td>GlyphArray[1</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>KafEntryAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>05DC</td><td>1500</td><td>XCoordinate</td></tr><tr><td>002C</td><td>44</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td>KafExitAnchor</td><td>Anchor</td><td>table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0000</td><td>0</td><td>XCoordinate</td></tr><tr><td>FFEC</td><td>-20</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>HaEntryAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>05DC</td><td>1500</td><td>XCoordinate</td></tr><tr><td>002C</td><td>44</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>HaExitAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0000</td><td>0</td><td>XCoordinate</td></tr><tr><td>FFEC</td><td>-20</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832533504"></a>Example 7: MarkBasePosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.37.1"></a>Specification</h4></div></div></div><p>The MarkBasePosFormat1 subtable in Example 7 defines one
+>>>>>>> Rebuild
           Arabic base glyph, Tah, and two Arabic mark glyphs: a
           fathatan mark above the base glyph, and a kasra mark below
           the base glyph. The BaseGlyphsCoverage table lists the base
@@ -2282,12 +2638,16 @@ Lookahead sequence                           0   
           placed above the Tah base glyph, and BelowBaseAnchor defines
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           an attachment point for marks placed below it.</p><div class="table"><a name="idm12697"></a><p class="title"><strong>Table 24.52. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkBasePosFormat1</td><td> </td></tr><tr><td> </td><td>MarkBaseAttachSubTable</td><td>MarkBasePos subtable
 =======
           an attachment point for marks placed below it.</p><div class="table"><a name="idm189295676016"></a><p class="title"><strong>Table 24.52. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkBasePosFormat1</td><td> </td></tr><tr><td> </td><td>MarkBaseAttachSubTable</td><td>MarkBasePos subtable
 >>>>>>> Rebuild
 =======
           an attachment point for marks placed below it.</p><div class="table"><a name="idm62733051744"></a><p class="title"><strong>Table 24.52. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkBasePosFormat1</td><td> </td></tr><tr><td> </td><td>MarkBaseAttachSubTable</td><td>MarkBasePos subtable
+>>>>>>> Rebuild
+=======
+          an attachment point for marks placed below it.</p><div class="table"><a name="idm465832529456"></a><p class="title"><strong>Table 24.52. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkBasePosFormat1</td><td> </td></tr><tr><td> </td><td>MarkBaseAttachSubTable</td><td>MarkBasePos subtable
 >>>>>>> Rebuild
                   definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>000C</td><td>MarkGlyphsCoverage</td><td>offset to MarkCoverage table</td></tr><tr><td>0014</td><td>BaseGlyphsCoverage</td><td>offset to BaseCoverage table</td></tr><tr><td>0002</td><td>2</td><td>ClassCount</td></tr><tr><td>001A</td><td>MarkGlyphsArray</td><td>offset to MarkArray table</td></tr><tr><td>0030</td><td>BaseGlyphsArray</td><td>offset to BaseArray tabl</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>MarkGlyphsCoverage</td><td>Coverage table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>0333</td><td>fathatanMarkGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>033F</td><td>kasraMarkGlyphID</td><td>GlyphArray[1</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>BaseGlyphsCoverage</td><td>Coverage table
@@ -2297,12 +2657,16 @@ Lookahead sequence                           0   
                   definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>015A</td><td>346</td><td>XCoordinate</td></tr><tr><td>FF9E</td><td>-98</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>kasraMarkAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0105</td><td>261</td><td>XCoordinate</td></tr><tr><td>0058</td><td>88</td><td>YCoordinat</td></tr><tr><td> </td><td>BaseArray</td><td> </td></tr><tr><td> </td><td>BaseGlyphsArray</td><td>BaseArray table
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCount BaseRecord[0]</td></tr><tr><td>0006</td><td>AboveBaseAnchor</td><td>BaseAnchor[0]</td></tr><tr><td>000C</td><td>BelowBaseAnchor</td><td>BaseAnchor[1]</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>AboveBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>033E</td><td>830</td><td>XCoordinate</td></tr><tr><td>0640</td><td>1600</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>BelowBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>033E</td><td>830</td><td>XCoordinate</td></tr><tr><td>FFAD</td><td>-83</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm12910"></a>Example 8: MarkLigPosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.38.1"></a>Specification</h4></div></div></div><p>Example 8 uses the MarkLigPosFormat1 subtable to attach
 =======
                   definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCount BaseRecord[0]</td></tr><tr><td>0006</td><td>AboveBaseAnchor</td><td>BaseAnchor[0]</td></tr><tr><td>000C</td><td>BelowBaseAnchor</td><td>BaseAnchor[1]</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>AboveBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>033E</td><td>830</td><td>XCoordinate</td></tr><tr><td>0640</td><td>1600</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>BelowBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>033E</td><td>830</td><td>XCoordinate</td></tr><tr><td>FFAD</td><td>-83</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293371856"></a>Example 8: MarkLigPosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.38.1"></a>Specification</h4></div></div></div><p>Example 8 uses the MarkLigPosFormat1 subtable to attach
 >>>>>>> Rebuild
 =======
                   definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCount BaseRecord[0]</td></tr><tr><td>0006</td><td>AboveBaseAnchor</td><td>BaseAnchor[0]</td></tr><tr><td>000C</td><td>BelowBaseAnchor</td><td>BaseAnchor[1]</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>AboveBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>033E</td><td>830</td><td>XCoordinate</td></tr><tr><td>0640</td><td>1600</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>BelowBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>033E</td><td>830</td><td>XCoordinate</td></tr><tr><td>FFAD</td><td>-83</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62732978160"></a>Example 8: MarkLigPosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.38.1"></a>Specification</h4></div></div></div><p>Example 8 uses the MarkLigPosFormat1 subtable to attach
+>>>>>>> Rebuild
+=======
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCount BaseRecord[0]</td></tr><tr><td>0006</td><td>AboveBaseAnchor</td><td>BaseAnchor[0]</td></tr><tr><td>000C</td><td>BelowBaseAnchor</td><td>BaseAnchor[1]</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>AboveBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>033E</td><td>830</td><td>XCoordinate</td></tr><tr><td>0640</td><td>1600</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>BelowBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>033E</td><td>830</td><td>XCoordinate</td></tr><tr><td>FFAD</td><td>-83</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832455872"></a>Example 8: MarkLigPosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.38.1"></a>Specification</h4></div></div></div><p>Example 8 uses the MarkLigPosFormat1 subtable to attach
 >>>>>>> Rebuild
           marks to a ligature glyph in the Arabic script. The
           hypothetical ligature is composed of three glyph components:
@@ -2328,12 +2692,16 @@ Lookahead sequence                           0   
           but not above. The third component, jeem, has no attachment
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           points since the example defines no accents for it.</p><div class="table"><a name="idm12918"></a><p class="title"><strong>Table 24.53. Example 8</strong></p><div class="table-contents"><table class="table" summary="Example 8" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkLigPosFormat1</td><td> </td></tr><tr><td> </td><td>MarkLigAttachSubTable</td><td>MarkLigPos subtable
 =======
           points since the example defines no accents for it.</p><div class="table"><a name="idm189293366800"></a><p class="title"><strong>Table 24.53. Example 8</strong></p><div class="table-contents"><table class="table" summary="Example 8" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkLigPosFormat1</td><td> </td></tr><tr><td> </td><td>MarkLigAttachSubTable</td><td>MarkLigPos subtable
 >>>>>>> Rebuild
 =======
           points since the example defines no accents for it.</p><div class="table"><a name="idm62732973104"></a><p class="title"><strong>Table 24.53. Example 8</strong></p><div class="table-contents"><table class="table" summary="Example 8" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkLigPosFormat1</td><td> </td></tr><tr><td> </td><td>MarkLigAttachSubTable</td><td>MarkLigPos subtable
+>>>>>>> Rebuild
+=======
+          points since the example defines no accents for it.</p><div class="table"><a name="idm465832450816"></a><p class="title"><strong>Table 24.53. Example 8</strong></p><div class="table-contents"><table class="table" summary="Example 8" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkLigPosFormat1</td><td> </td></tr><tr><td> </td><td>MarkLigAttachSubTable</td><td>MarkLigPos subtable
 >>>>>>> Rebuild
                   definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>000C</td><td>MarkGlyphsCoverage</td><td>offset to MarkCoverage table</td></tr><tr><td>0014</td><td>LigGlyphsCoverage</td><td>offset to LigatureCoverage table</td></tr><tr><td>0002</td><td>2</td><td>ClassCount</td></tr><tr><td>001A</td><td>MarkGlyphsArray</td><td>offset to MarkArray table</td></tr><tr><td>0030</td><td>LigGlyphsArray</td><td>offset to LigatureArray tabl</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>MarkGlyphsCoverage</td><td>Coverage table definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>033C</td><td>sukunMarkGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>033F</td><td>kasratanMarkGlyphID</td><td>GlyphArray[1</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>LigGlyphsCoverage</td><td>Coverage table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>GlyphCount</td></tr><tr><td>0234</td><td>LamWithMeemWithJeem</td><td>LigatureGlyphID GlyphArray[0</td></tr><tr><td> </td><td>MarkArray</td><td> </td></tr><tr><td> </td><td>MarkGlyphsArray</td><td>MarkArray table
@@ -2350,12 +2718,16 @@ Lookahead sequence                           0   
                   points for Class0 marks</td></tr><tr><td>0000</td><td>NULL</td><td>offset to LigatureAnchor table no attachment
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   points for Class1 mark</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>AboveLamAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0271</td><td>625</td><td>XCoordinate</td></tr><tr><td>0708</td><td>1800</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>BelowMeemAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0178</td><td>376</td><td>XCoordinate</td></tr><tr><td>FE90</td><td>-368</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm13163"></a>Example 9: MarkMarkPosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.39.1"></a>Specification</h4></div></div></div><p>The MarkMarkPosFormat1 subtable in Example 9 defines two
 =======
                   points for Class1 mark</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>AboveLamAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0271</td><td>625</td><td>XCoordinate</td></tr><tr><td>0708</td><td>1800</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>BelowMeemAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0178</td><td>376</td><td>XCoordinate</td></tr><tr><td>FE90</td><td>-368</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293281264"></a>Example 9: MarkMarkPosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.39.1"></a>Specification</h4></div></div></div><p>The MarkMarkPosFormat1 subtable in Example 9 defines two
 >>>>>>> Rebuild
 =======
                   points for Class1 mark</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>AboveLamAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0271</td><td>625</td><td>XCoordinate</td></tr><tr><td>0708</td><td>1800</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>BelowMeemAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0178</td><td>376</td><td>XCoordinate</td></tr><tr><td>FE90</td><td>-368</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62732887536"></a>Example 9: MarkMarkPosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.39.1"></a>Specification</h4></div></div></div><p>The MarkMarkPosFormat1 subtable in Example 9 defines two
+>>>>>>> Rebuild
+=======
+                  points for Class1 mark</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>AboveLamAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0271</td><td>625</td><td>XCoordinate</td></tr><tr><td>0708</td><td>1800</td><td>YCoordinat</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>BelowMeemAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>0178</td><td>376</td><td>XCoordinate</td></tr><tr><td>FE90</td><td>-368</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832365312"></a>Example 9: MarkMarkPosFormat1 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.39.1"></a>Specification</h4></div></div></div><p>The MarkMarkPosFormat1 subtable in Example 9 defines two
 >>>>>>> Rebuild
           Arabic marks glyphs. The hanza mark, the base mark (Mark2),
           is identified in the Mark2GlyphsCoverage table. The damma
@@ -2373,12 +2745,16 @@ Lookahead sequence                           0   
           coordinate value for attaching the damma mark above the
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           hanza base mark.</p><div class="table"><a name="idm13170"></a><p class="title"><strong>Table 24.54. Example 9</strong></p><div class="table-contents"><table class="table" summary="Example 9" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkMarkPosFormat1</td><td> </td></tr><tr><td> </td><td>MarkMarkAttachSubTable</td><td>MarkMarkPos subtable
 =======
           hanza base mark.</p><div class="table"><a name="idm189293276768"></a><p class="title"><strong>Table 24.54. Example 9</strong></p><div class="table-contents"><table class="table" summary="Example 9" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkMarkPosFormat1</td><td> </td></tr><tr><td> </td><td>MarkMarkAttachSubTable</td><td>MarkMarkPos subtable
 >>>>>>> Rebuild
 =======
           hanza base mark.</p><div class="table"><a name="idm62732883040"></a><p class="title"><strong>Table 24.54. Example 9</strong></p><div class="table-contents"><table class="table" summary="Example 9" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkMarkPosFormat1</td><td> </td></tr><tr><td> </td><td>MarkMarkAttachSubTable</td><td>MarkMarkPos subtable
+>>>>>>> Rebuild
+=======
+          hanza base mark.</p><div class="table"><a name="idm465832360816"></a><p class="title"><strong>Table 24.54. Example 9</strong></p><div class="table-contents"><table class="table" summary="Example 9" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkMarkPosFormat1</td><td> </td></tr><tr><td> </td><td>MarkMarkAttachSubTable</td><td>MarkMarkPos subtable
 >>>>>>> Rebuild
                   definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>000C</td><td>Mark1GlyphsCoverage</td><td>offset to Mark1Coverage table</td></tr><tr><td>0012</td><td>Mark2GlyphsCoverage</td><td>offset to Mark2Coverage table</td></tr><tr><td>0001</td><td>1</td><td>ClassCount</td></tr><tr><td>0018</td><td>Mark1GlyphsArray</td><td>offset to Mark1Array table</td></tr><tr><td>0024</td><td>Mark2GlyphsArray</td><td>offset to Mark2Array tabl</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>Mark1GlyphsCoverage</td><td>Coverage table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>GlyphCount</td></tr><tr><td>0296</td><td>dammaMarkGlyphID</td><td>GlyphArray[0</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>Mark2GlyphsCoverage</td><td>Coverage table
@@ -2388,12 +2764,16 @@ Lookahead sequence                           0   
                   definition</td></tr><tr><td>0001</td><td>1</td><td>Mark2Count Mark2Record[0]</td></tr><tr><td>0004</td><td>AboveMark2Anchor</td><td>offset to Anchor table[0</td></tr><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>AboveMark2Anchor</td><td>Anchor table
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>00DD</td><td>221</td><td>XCoordinate</td></tr><tr><td>012D</td><td>301</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm13327"></a>Example 10: ContextPosFormat1 Subtable and
 =======
                   definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>00DD</td><td>221</td><td>XCoordinate</td></tr><tr><td>012D</td><td>301</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189293222560"></a>Example 10: ContextPosFormat1 Subtable and
 >>>>>>> Rebuild
 =======
                   definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>00DD</td><td>221</td><td>XCoordinate</td></tr><tr><td>012D</td><td>301</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725472608"></a>Example 10: ContextPosFormat1 Subtable and
+>>>>>>> Rebuild
+=======
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>00DD</td><td>221</td><td>XCoordinate</td></tr><tr><td>012D</td><td>301</td><td>Ycoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832306608"></a>Example 10: ContextPosFormat1 Subtable and
 >>>>>>> Rebuild
         PosLookupRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.40.1"></a>Specification</h4></div></div></div><p>Example 10 uses a ContextPosFormat1 subtable to adjust
           the spacing between three Arabic glyphs in a word. The
@@ -2413,6 +2793,7 @@ Lookahead sequence                           0   
           the example) at position 2 to reduce the spacing between the
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyphs.</p><div class="table"><a name="idm13334"></a><p class="title"><strong>Table 24.55. Example 10</strong></p><div class="table-contents"><table class="table" summary="Example 10" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextPosFormat1</td><td> </td></tr><tr><td> </td><td>MoveHehInSubtable</td><td>ContextPos subtable
                   definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>0008</td><td>WordCoverage</td><td>offset to Coverage table</td></tr><tr><td>0001</td><td>1</td><td>PosRuleSetCount</td></tr><tr><td>000E</td><td>WordPosRuleSet</td><td>offset to PosRuleSet[0] tabl</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>WordCoverage</td><td>Coverage table offset</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>GlyphCount</td></tr><tr><td>02A6</td><td>hehInitialGlyphID</td><td>GlyphArray[0</td></tr><tr><td> </td><td>PosRuleSet</td><td> </td></tr><tr><td> </td><td>WordPosRuleSet</td><td>PosRuleSet table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>PosRuleCount</td></tr><tr><td>0004</td><td>WordPosRule</td><td>Offset to PosRule[0] tabl</td></tr><tr><td> </td><td>PosRule</td><td> </td></tr><tr><td> </td><td>WordPosRule</td><td>PosRule table definition</td></tr><tr><td>0003</td><td>3</td><td>GlyphCount</td></tr><tr><td>0001</td><td>1</td><td>PosCount</td></tr><tr><td>02DD</td><td>thalFinalGlyphID</td><td>Input[1]</td></tr><tr><td>02C6</td><td>hehIsolatedGlyphID</td><td>Input[0] PosLookupRecord[0]</td></tr><tr><td>0002</td><td>2</td><td>SequenceIndex</td></tr><tr><td>0001</td><td>1</td><td>LookupListIndex</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm13435"></a>Example 11: ContextPosFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.41.1"></a>Specification</h4></div></div></div><p>The ContextPosFormat2 subtable in Example 11 defines
@@ -2425,6 +2806,11 @@ Lookahead sequence                           0   
           glyphs.</p><div class="table"><a name="idm62725468400"></a><p class="title"><strong>Table 24.55. Example 10</strong></p><div class="table-contents"><table class="table" summary="Example 10" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextPosFormat1</td><td> </td></tr><tr><td> </td><td>MoveHehInSubtable</td><td>ContextPos subtable
                   definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>0008</td><td>WordCoverage</td><td>offset to Coverage table</td></tr><tr><td>0001</td><td>1</td><td>PosRuleSetCount</td></tr><tr><td>000E</td><td>WordPosRuleSet</td><td>offset to PosRuleSet[0] tabl</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>WordCoverage</td><td>Coverage table offset</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>GlyphCount</td></tr><tr><td>02A6</td><td>hehInitialGlyphID</td><td>GlyphArray[0</td></tr><tr><td> </td><td>PosRuleSet</td><td> </td></tr><tr><td> </td><td>WordPosRuleSet</td><td>PosRuleSet table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>PosRuleCount</td></tr><tr><td>0004</td><td>WordPosRule</td><td>Offset to PosRule[0] tabl</td></tr><tr><td> </td><td>PosRule</td><td> </td></tr><tr><td> </td><td>WordPosRule</td><td>PosRule table definition</td></tr><tr><td>0003</td><td>3</td><td>GlyphCount</td></tr><tr><td>0001</td><td>1</td><td>PosCount</td></tr><tr><td>02DD</td><td>thalFinalGlyphID</td><td>Input[1]</td></tr><tr><td>02C6</td><td>hehIsolatedGlyphID</td><td>Input[0] PosLookupRecord[0]</td></tr><tr><td>0002</td><td>2</td><td>SequenceIndex</td></tr><tr><td>0001</td><td>1</td><td>LookupListIndex</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725433648"></a>Example 11: ContextPosFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.41.1"></a>Specification</h4></div></div></div><p>The ContextPosFormat2 subtable in Example 11 defines
+>>>>>>> Rebuild
+=======
+          glyphs.</p><div class="table"><a name="idm465832302400"></a><p class="title"><strong>Table 24.55. Example 10</strong></p><div class="table-contents"><table class="table" summary="Example 10" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextPosFormat1</td><td> </td></tr><tr><td> </td><td>MoveHehInSubtable</td><td>ContextPos subtable
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>0008</td><td>WordCoverage</td><td>offset to Coverage table</td></tr><tr><td>0001</td><td>1</td><td>PosRuleSetCount</td></tr><tr><td>000E</td><td>WordPosRuleSet</td><td>offset to PosRuleSet[0] tabl</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>WordCoverage</td><td>Coverage table offset</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>GlyphCount</td></tr><tr><td>02A6</td><td>hehInitialGlyphID</td><td>GlyphArray[0</td></tr><tr><td> </td><td>PosRuleSet</td><td> </td></tr><tr><td> </td><td>WordPosRuleSet</td><td>PosRuleSet table
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>PosRuleCount</td></tr><tr><td>0004</td><td>WordPosRule</td><td>Offset to PosRule[0] tabl</td></tr><tr><td> </td><td>PosRule</td><td> </td></tr><tr><td> </td><td>WordPosRule</td><td>PosRule table definition</td></tr><tr><td>0003</td><td>3</td><td>GlyphCount</td></tr><tr><td>0001</td><td>1</td><td>PosCount</td></tr><tr><td>02DD</td><td>thalFinalGlyphID</td><td>Input[1]</td></tr><tr><td>02C6</td><td>hehIsolatedGlyphID</td><td>Input[0] PosLookupRecord[0]</td></tr><tr><td>0002</td><td>2</td><td>SequenceIndex</td></tr><tr><td>0001</td><td>1</td><td>LookupListIndex</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832267648"></a>Example 11: ContextPosFormat2 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.41.1"></a>Specification</h4></div></div></div><p>The ContextPosFormat2 subtable in Example 11 defines
 >>>>>>> Rebuild
           context strings for five glyph classes: Class1 consists of
           uppercase glyphs that overhang and create a wide open space
@@ -2469,12 +2855,16 @@ Lookahead sequence                           0   
           increases the advance width of the overhanging uppercase
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           glyph in position 0 in the context string.</p><div class="table"><a name="idm13444"></a><p class="title"><strong>Table 24.56. Example 11</strong></p><div class="table-contents"><table class="table" summary="Example 11" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextPosFormat2</td><td> </td></tr><tr><td> </td><td>MoveAccentsSubtable</td><td>ContextPos subtable
 =======
           glyph in position 0 in the context string.</p><div class="table"><a name="idm189293177472"></a><p class="title"><strong>Table 24.56. Example 11</strong></p><div class="table-contents"><table class="table" summary="Example 11" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextPosFormat2</td><td> </td></tr><tr><td> </td><td>MoveAccentsSubtable</td><td>ContextPos subtable
 >>>>>>> Rebuild
 =======
           glyph in position 0 in the context string.</p><div class="table"><a name="idm62725427552"></a><p class="title"><strong>Table 24.56. Example 11</strong></p><div class="table-contents"><table class="table" summary="Example 11" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextPosFormat2</td><td> </td></tr><tr><td> </td><td>MoveAccentsSubtable</td><td>ContextPos subtable
+>>>>>>> Rebuild
+=======
+          glyph in position 0 in the context string.</p><div class="table"><a name="idm465832261552"></a><p class="title"><strong>Table 24.56. Example 11</strong></p><div class="table-contents"><table class="table" summary="Example 11" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextPosFormat2</td><td> </td></tr><tr><td> </td><td>MoveAccentsSubtable</td><td>ContextPos subtable
 >>>>>>> Rebuild
                   definition</td></tr><tr><td>0002</td><td>2</td><td>PosFormat</td></tr><tr><td>0012</td><td>MoveAccentsCoverage</td><td>Offset to Coverage table</td></tr><tr><td>0020</td><td>MoveAccentsClassDef</td><td>Offset to ClassDef</td></tr><tr><td>0005</td><td>5</td><td>PosClassSetCnt</td></tr><tr><td>0000</td><td>NULL</td><td>PosClassSet[0], no contexts begin with Class0
                   glyphs</td></tr><tr><td>0060</td><td>UCWideOverhangPosClass1Set</td><td>PosClassSet[1] contexts beginning with Class1
@@ -2492,12 +2882,16 @@ Lookahead sequence                           0   
                   definition</td></tr><tr><td>0003</td><td>3</td><td>GlyphCount</td></tr><tr><td>0001</td><td>1</td><td>PosCount</td></tr><tr><td>0003</td><td>3</td><td>Class[1], lowercase vowel</td></tr><tr><td>0004</td><td>4</td><td>Class[2], accent PosLookupRecord[0]</td></tr><tr><td>0000</td><td>0</td><td>SequenceIndex</td></tr><tr><td>0002</td><td>2</td><td>LookupListIndex increase overhang advance
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   width</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm13765"></a>Example 12: ContextPosFormat3 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.42.1"></a>Specification</h4></div></div></div><p>Example 12 uses a ContextPosFormat3 subtable to lower
 =======
                   width</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296406416"></a>Example 12: ContextPosFormat3 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.42.1"></a>Specification</h4></div></div></div><p>Example 12 uses a ContextPosFormat3 subtable to lower
 >>>>>>> Rebuild
 =======
                   width</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725313040"></a>Example 12: ContextPosFormat3 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.42.1"></a>Specification</h4></div></div></div><p>Example 12 uses a ContextPosFormat3 subtable to lower
+>>>>>>> Rebuild
+=======
+                  width</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832147040"></a>Example 12: ContextPosFormat3 Subtable</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.42.1"></a>Specification</h4></div></div></div><p>Example 12 uses a ContextPosFormat3 subtable to lower
 >>>>>>> Rebuild
           the position of math signs in math equations consisting of a
           lowercase descender or x-height glyph, a math sign glyph,
@@ -2508,6 +2902,7 @@ Lookahead sequence                           0   
           LCCoverage), one for each position in the context glyph
           string. When the client finds the context in the text
           stream, it applies the PosLookupRecord data at position 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           and repositions the math sign.</p><div class="table"><a name="idm13771"></a><p class="title"><strong>Table 24.57. Example 12</strong></p><div class="table-contents"><table class="table" summary="Example 12" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextPosFormat3</td><td> </td></tr><tr><td> </td><td>LowerMathSignsSubtable</td><td>ContextPos subtable
@@ -2524,18 +2919,25 @@ Lookahead sequence                           0   
 =======
           and repositions the math sign.</p><div class="table"><a name="idm62725309664"></a><p class="title"><strong>Table 24.57. Example 12</strong></p><div class="table-contents"><table class="table" summary="Example 12" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextPosFormat3</td><td> </td></tr><tr><td> </td><td>LowerMathSignsSubtable</td><td>ContextPos subtable
 >>>>>>> Rebuild
+=======
+          and repositions the math sign.</p><div class="table"><a name="idm465832143664"></a><p class="title"><strong>Table 24.57. Example 12</strong></p><div class="table-contents"><table class="table" summary="Example 12" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>ContextPosFormat3</td><td> </td></tr><tr><td> </td><td>LowerMathSignsSubtable</td><td>ContextPos subtable
+>>>>>>> Rebuild
                   definition</td></tr><tr><td>0003</td><td>3</td><td>PosFormat</td></tr><tr><td>0003</td><td>3</td><td>GlyphCount</td></tr><tr><td>0001</td><td>1</td><td>PosLookup</td></tr><tr><td>0010</td><td>XhtDescLCCoverage</td><td>Offset to Coverage[0] table</td></tr><tr><td>003C</td><td>MathSignCoverage</td><td>Offset to Coverage[1] table</td></tr><tr><td>0044</td><td>LCCoverage</td><td>Offset to Coverage[2] table
                   PosLookupRecord[0]</td></tr><tr><td>0001</td><td>1</td><td>SequenceIndex</td></tr><tr><td>0001</td><td>1</td><td>LookupListInde</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>XhtDescLCCoverage</td><td>Coverage table
                   definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0014</td><td>20</td><td>GlyphCount</td></tr><tr><td>0033</td><td>LCaGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>0035</td><td>LCcGlyphID</td><td>GlyphArray[1]</td></tr><tr><td>0037</td><td>LCeGlyphID</td><td>GlyphArray[2]</td></tr><tr><td>0039</td><td>LCgGlyphID</td><td>GlyphArray[3]</td></tr><tr><td>003B</td><td>LCiGlyphID</td><td>GlyphArray[4]</td></tr><tr><td>003C</td><td>LCjGlyphID</td><td>GlyphArray[5]</td></tr><tr><td>003F</td><td>LCmGlyphID</td><td>GlyphArray[6]</td></tr><tr><td>0040</td><td>LCnGlyphID</td><td>GlyphArray[7]</td></tr><tr><td>0041</td><td>LCoGlyphID</td><td>GlyphArray[8]</td></tr><tr><td>0042</td><td>LCpGlyphID</td><td>GlyphArray[9]</td></tr><tr><td>0043</td><td>LCqGlyphID</td><td>GlyphArray[10]</td></tr><tr><td>0044</td><td>LCrGlyphID</td><td>GlyphArray[11]</td></tr><tr><td>0045</td><td>LCsGlyphID</td><td>GlyphArray[12]</td></tr><tr><td>0046</td><td>LCtGlyphID</td><td>GlyphArray[13]</td></tr><tr><td>0047</td><td>LCuGlyphID</td><td>GlyphArray[14]</td></tr><tr><td>0048</td><td>LCvGlyphID</td><td>GlyphArray[15]</td></tr><tr><td>0049</td><td>LCwGlyphID</td><td>GlyphArray[16]</td></tr><tr><td>004A</td><td>LCxGlyphID</td><td>GlyphArray[17]</td></tr><tr><td>004B</td><td>LCyGlyphID</td><td>GlyphArray[18]</td></tr><tr><td>004C</td><td>LCzGlyphID</td><td>GlyphArray[19</td></tr><tr><td> </td><td>CoverageFormat1</td><td> </td></tr><tr><td> </td><td>MathSignCoverage</td><td>Coverage table
-                  definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>011E</td><td>EqualsSignGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>012D</td><td>PlusSignGlyphID</td><td>GlyphArray[1</td></tr><tr><td> </td><td>CoverageFormat2</td><td> </td></tr><tr><td> </td><td>LCCoverage</td><td>Coverage table definition</td></tr><tr><td>0002</td><td>2</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>RangeCount RangeRecord[0]</td></tr><tr><td>0033</td><td>LCaGlyphID</td><td>Start</td></tr><tr><td>004C</td><td>LCzGlyphID</td><td>End</td></tr><tr><td>0000</td><td>0</td><td>StartCoverageIndex</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725242768"></a>Example 13: PosLookupRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.43.1"></a>Specification</h4></div></div></div><p>The PosLookupRecord in Example 13 identifies a lookup to
+                  definition</td></tr><tr><td>0001</td><td>1</td><td>CoverageFormat</td></tr><tr><td>0002</td><td>2</td><td>GlyphCount</td></tr><tr><td>011E</td><td>EqualsSignGlyphID</td><td>GlyphArray[0]</td></tr><tr><td>012D</td><td>PlusSignGlyphID</td><td>GlyphArray[1</td></tr><tr><td> </td><td>CoverageFormat2</td><td> </td></tr><tr><td> </td><td>LCCoverage</td><td>Coverage table definition</td></tr><tr><td>0002</td><td>2</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>RangeCount RangeRecord[0]</td></tr><tr><td>0033</td><td>LCaGlyphID</td><td>Start</td></tr><tr><td>004C</td><td>LCzGlyphID</td><td>End</td></tr><tr><td>0000</td><td>0</td><td>StartCoverageIndex</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832073920"></a>Example 13: PosLookupRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.43.1"></a>Specification</h4></div></div></div><p>The PosLookupRecord in Example 13 identifies a lookup to
           apply at the second glyph position in a context glyph
-          string.</p><div class="table"><a name="idm62727529024"></a><p class="title"><strong>Table 24.58. Example 13</strong></p><div class="table-contents"><table class="table" summary="Example 13" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>PosLookupRecord</td><td> </td></tr><tr><td> </td><td>PosLookupRecord</td><td>0] PosLookupRecord
+          string.</p><div class="table"><a name="idm465832071568"></a><p class="title"><strong>Table 24.58. Example 13</strong></p><div class="table-contents"><table class="table" summary="Example 13" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>PosLookupRecord</td><td> </td></tr><tr><td> </td><td>PosLookupRecord</td><td>0] PosLookupRecord
                   definition</td></tr><tr><td>0001</td><td>1</td><td>SequenceIndex for second glyph position</td></tr><tr><td>0001</td><td>1</td><td>LookupListIndex, apply this lookup to second
+<<<<<<< HEAD
 <<<<<<< HEAD
                   glyph position</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296348864"></a>Example 14: ValueFormat Table and ValueRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.44.1"></a>Specification</h4></div></div></div><p>Example 14 demonstrates how to specify positioning
 >>>>>>> Rebuild
 =======
                   glyph position</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725795792"></a>Example 14: ValueFormat Table and ValueRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.44.1"></a>Specification</h4></div></div></div><p>Example 14 demonstrates how to specify positioning
+>>>>>>> Rebuild
+=======
+                  glyph position</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832063200"></a>Example 14: ValueFormat Table and ValueRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.44.1"></a>Specification</h4></div></div></div><p>Example 14 demonstrates how to specify positioning
 >>>>>>> Rebuild
           values in the <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table. Here, a
           SinglePosFormat1 subtable defines the ValueFormat and
@@ -2543,6 +2945,7 @@ Lookahead sequence                           0   
           the corresponding ValueRecord contains values for a glyph's
           XPlacement and YAdvance. Device tables specify pixel
           adjustments for these values at font sizes from 11 ppem to
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           15 ppem.</p><div class="table"><a name="idm14004"></a><p class="title"><strong>Table 24.59. Example 14</strong></p><div class="table-contents"><table class="table" summary="Example 14" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SinglePosFormat1</td><td> </td></tr><tr><td> </td><td>OnesSubtable</td><td>SinglePos subtable
@@ -2555,19 +2958,27 @@ Lookahead sequence                           0   
 =======
           15 ppem.</p><div class="table"><a name="idm62725792464"></a><p class="title"><strong>Table 24.59. Example 14</strong></p><div class="table-contents"><table class="table" summary="Example 14" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SinglePosFormat1</td><td> </td></tr><tr><td> </td><td>OnesSubtable</td><td>SinglePos subtable
 >>>>>>> Rebuild
+=======
+          15 ppem.</p><div class="table"><a name="idm465832059872"></a><p class="title"><strong>Table 24.59. Example 14</strong></p><div class="table-contents"><table class="table" summary="Example 14" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>SinglePosFormat1</td><td> </td></tr><tr><td> </td><td>OnesSubtable</td><td>SinglePos subtable
+>>>>>>> Rebuild
                   definition</td></tr><tr><td>0001</td><td>1</td><td>PosFormat</td></tr><tr><td>000E</td><td>Cov</td><td>Offset to Coverage table</td></tr><tr><td>0099</td><td>0x0099</td><td>ValueFormat, for XPlacement, YAdvance,
-                  XPlaDevice, YAdvaDevice Value</td></tr><tr><td>0050</td><td>80</td><td>Xplacement value</td></tr><tr><td>00D2</td><td>210</td><td>Yadvance value</td></tr><tr><td>0018</td><td>XPlaDeviceTable</td><td>Offset to XPlaDevice table</td></tr><tr><td>0020</td><td>YAdvDeviceTable</td><td>Offset to YAdvDevice tabl</td></tr><tr><td> </td><td>CoverageFormat2</td><td> </td></tr><tr><td> </td><td>Cov</td><td>Coverage table definition</td></tr><tr><td>0002</td><td>2</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>RangeCount RangeRecord[0]</td></tr><tr><td>00C8</td><td>200</td><td>Start, first glyph ID in range</td></tr><tr><td>00D1</td><td>209</td><td>End, last glyph ID in range</td></tr><tr><td>0000</td><td>0</td><td>StartCoverageInde</td></tr><tr><td> </td><td>DeviceTableFormat1</td><td> </td></tr><tr><td> </td><td>XPlaDeviceTable</td><td>Device Table definition</td></tr><tr><td>000B</td><td>11</td><td>StartSize</td></tr><tr><td>000F</td><td>15</td><td>EndSize</td></tr><tr><td>0001</td><td>1</td><td>DeltaFormat</td></tr><tr><td> </td><td>1</td><td>increase 11ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 12ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 13ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 14ppem by 1 pixel</td></tr><tr><td>5540</td><td>1</td><td>increase 15ppem by 1 pixe</td></tr><tr><td> </td><td>DeviceTableFormat1</td><td> </td></tr><tr><td> </td><td>YAdvDeviceTable</td><td>Device Table definition</td></tr><tr><td>000B</td><td>11</td><td>StartSize</td></tr><tr><td>000F</td><td>15</td><td>EndSize</td></tr><tr><td>0001</td><td>1</td><td>DeltaFormat</td></tr><tr><td> </td><td>1</td><td>increase 11ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 12ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 13ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 14ppem by 1 pixel</td></tr><tr><td>5540</td><td>1</td><td>increase 15ppem by 1 pixel</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725739936"></a>Example 15: AnchorFormat1 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.45.1"></a>Specification</h4></div></div></div><p>Example 15 illustrates an Anchor table for the damma
+                  XPlaDevice, YAdvaDevice Value</td></tr><tr><td>0050</td><td>80</td><td>Xplacement value</td></tr><tr><td>00D2</td><td>210</td><td>Yadvance value</td></tr><tr><td>0018</td><td>XPlaDeviceTable</td><td>Offset to XPlaDevice table</td></tr><tr><td>0020</td><td>YAdvDeviceTable</td><td>Offset to YAdvDevice tabl</td></tr><tr><td> </td><td>CoverageFormat2</td><td> </td></tr><tr><td> </td><td>Cov</td><td>Coverage table definition</td></tr><tr><td>0002</td><td>2</td><td>CoverageFormat</td></tr><tr><td>0001</td><td>1</td><td>RangeCount RangeRecord[0]</td></tr><tr><td>00C8</td><td>200</td><td>Start, first glyph ID in range</td></tr><tr><td>00D1</td><td>209</td><td>End, last glyph ID in range</td></tr><tr><td>0000</td><td>0</td><td>StartCoverageInde</td></tr><tr><td> </td><td>DeviceTableFormat1</td><td> </td></tr><tr><td> </td><td>XPlaDeviceTable</td><td>Device Table definition</td></tr><tr><td>000B</td><td>11</td><td>StartSize</td></tr><tr><td>000F</td><td>15</td><td>EndSize</td></tr><tr><td>0001</td><td>1</td><td>DeltaFormat</td></tr><tr><td> </td><td>1</td><td>increase 11ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 12ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 13ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 14ppem by 1 pixel</td></tr><tr><td>5540</td><td>1</td><td>increase 15ppem by 1 pixe</td></tr><tr><td> </td><td>DeviceTableFormat1</td><td> </td></tr><tr><td> </td><td>YAdvDeviceTable</td><td>Device Table definition</td></tr><tr><td>000B</td><td>11</td><td>StartSize</td></tr><tr><td>000F</td><td>15</td><td>EndSize</td></tr><tr><td>0001</td><td>1</td><td>DeltaFormat</td></tr><tr><td> </td><td>1</td><td>increase 11ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 12ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 13ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 14ppem by 1 pixel</td></tr><tr><td>5540</td><td>1</td><td>increase 15ppem by 1 pixel</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465832007312"></a>Example 15: AnchorFormat1 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.45.1"></a>Specification</h4></div></div></div><p>Example 15 illustrates an Anchor table for the damma
           mark glyph in the Arabic script. Format1 is used to specify
+<<<<<<< HEAD
 <<<<<<< HEAD
           X and Y coordinate values in design units.</p><div class="table"><a name="idm189296290656"></a><p class="title"><strong>Table 24.60. Example 15</strong></p><div class="table-contents"><table class="table" summary="Example 15" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>dammaMarkAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>00BD</td><td>189</td><td>XCoordinate</td></tr><tr><td>FF99</td><td>-103</td><td>YCoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189296280944"></a>Example 16: AnchorFormat2 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.46.1"></a>Specification</h4></div></div></div><p>Example 16 shows an AnchorFormat2 table for an
 >>>>>>> Rebuild
 =======
           X and Y coordinate values in design units.</p><div class="table"><a name="idm62725737552"></a><p class="title"><strong>Table 24.60. Example 15</strong></p><div class="table-contents"><table class="table" summary="Example 15" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>dammaMarkAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>00BD</td><td>189</td><td>XCoordinate</td></tr><tr><td>FF99</td><td>-103</td><td>YCoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725728640"></a>Example 16: AnchorFormat2 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.46.1"></a>Specification</h4></div></div></div><p>Example 16 shows an AnchorFormat2 table for an
 >>>>>>> Rebuild
+=======
+          X and Y coordinate values in design units.</p><div class="table"><a name="idm465832004928"></a><p class="title"><strong>Table 24.60. Example 15</strong></p><div class="table-contents"><table class="table" summary="Example 15" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AnchorFormat1</td><td> </td></tr><tr><td> </td><td>dammaMarkAnchor</td><td>Anchor table definition</td></tr><tr><td>0001</td><td>1</td><td>AnchorFormat</td></tr><tr><td>00BD</td><td>189</td><td>XCoordinate</td></tr><tr><td>FF99</td><td>-103</td><td>YCoordinate</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465831995216"></a>Example 16: AnchorFormat2 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.46.1"></a>Specification</h4></div></div></div><p>Example 16 shows an AnchorFormat2 table for an
+>>>>>>> Rebuild
           attachment point placed above a base glyph. With this
           format, the coordinate value for the Anchor depends on the
           final position of a specific contour point on the base glyph
           after hinting. The coordinates are specified in design
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           units.</p><div class="table"><a name="idm14196"></a><p class="title"><strong>Table 24.61. Example 16</strong></p><div class="table-contents"><table class="table" summary="Example 16" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AnchorFormat2</td><td> </td></tr><tr><td> </td><td>AboveBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0002</td><td>2</td><td>AnchorFormat</td></tr><tr><td>0142</td><td>322</td><td>XCoordinate</td></tr><tr><td>0384</td><td>900</td><td>Ycoordinate</td></tr><tr><td>000D</td><td>13</td><td>AnchorPoint glyph contour point index</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm14229"></a>Example 17: AnchorFormat3 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.47.1"></a>Specification</h4></div></div></div><p>Example 17 shows an AnchorFormat3 table that specifies
@@ -2577,10 +2988,14 @@ Lookahead sequence                           0   
 =======
           units.</p><div class="table"><a name="idm62725726096"></a><p class="title"><strong>Table 24.61. Example 16</strong></p><div class="table-contents"><table class="table" summary="Example 16" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AnchorFormat2</td><td> </td></tr><tr><td> </td><td>AboveBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0002</td><td>2</td><td>AnchorFormat</td></tr><tr><td>0142</td><td>322</td><td>XCoordinate</td></tr><tr><td>0384</td><td>900</td><td>Ycoordinate</td></tr><tr><td>000D</td><td>13</td><td>AnchorPoint glyph contour point index</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62725714928"></a>Example 17: AnchorFormat3 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.47.1"></a>Specification</h4></div></div></div><p>Example 17 shows an AnchorFormat3 table that specifies
 >>>>>>> Rebuild
+=======
+          units.</p><div class="table"><a name="idm465831992672"></a><p class="title"><strong>Table 24.61. Example 16</strong></p><div class="table-contents"><table class="table" summary="Example 16" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AnchorFormat2</td><td> </td></tr><tr><td> </td><td>AboveBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0002</td><td>2</td><td>AnchorFormat</td></tr><tr><td>0142</td><td>322</td><td>XCoordinate</td></tr><tr><td>0384</td><td>900</td><td>Ycoordinate</td></tr><tr><td>000D</td><td>13</td><td>AnchorPoint glyph contour point index</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465831981504"></a>Example 17: AnchorFormat3 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.47.1"></a>Specification</h4></div></div></div><p>Example 17 shows an AnchorFormat3 table that specifies
+>>>>>>> Rebuild
           an attachment point above a base glyph. Device tables modify
           the X and Y coordinates of the Anchor for the point size and
           resolution of the output font. Here, the Device tables
           define pixel adjustments for font sizes from 12 ppem to 17
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           ppem.</p><div class="table"><a name="idm14234"></a><p class="title"><strong>Table 24.62. Example 17</strong></p><div class="table-contents"><table class="table" summary="Example 17" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AnchorFormat3</td><td> </td></tr><tr><td> </td><td>AboveBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0003</td><td>3</td><td>AnchorFormat</td></tr><tr><td>0117</td><td>279</td><td>XCoordinate</td></tr><tr><td>0515</td><td>1301</td><td>YCoordinate</td></tr><tr><td>000A</td><td>XDevice</td><td>offset to DeviceTable for X coordinate (may be
@@ -2596,6 +3011,11 @@ Lookahead sequence                           0   
                   NULL)</td></tr><tr><td>0014</td><td>YDevice</td><td>offset to Device table for Y coordinate (may be
                   NULL</td></tr><tr><td> </td><td>DeviceTableFormat2</td><td> </td></tr><tr><td> </td><td>XDevice</td><td>Device Table definition</td></tr><tr><td>000C</td><td>12</td><td>StartSize</td></tr><tr><td>0011</td><td>17</td><td>EndSize</td></tr><tr><td>0002</td><td>2</td><td>DeltaFormat</td></tr><tr><td> </td><td>1</td><td>increase 12ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 13ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 14ppem by 1 pixel</td></tr><tr><td>1111</td><td>1</td><td>increase 15ppem by 1 pixel</td></tr><tr><td> </td><td>2</td><td>increase 16ppem by 1 pixel</td></tr><tr><td>2200</td><td>2</td><td>increase 17ppem by 1 pixe</td></tr><tr><td> </td><td>DeviceTableFormat2</td><td> </td></tr><tr><td> </td><td>YDevice</td><td>Device Table definition</td></tr><tr><td>000C</td><td>12</td><td>StartSize</td></tr><tr><td>0011</td><td>17</td><td>EndSize</td></tr><tr><td>0002</td><td>2</td><td>DeltaFormat</td></tr><tr><td> </td><td>1</td><td>increase 12ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 13ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 14ppem by 1 pixel</td></tr><tr><td>1111</td><td>1</td><td>increase 15ppem by 1 pixel</td></tr><tr><td> </td><td>2</td><td>increase 16ppem by 1 pixel</td></tr><tr><td>2200</td><td>2</td><td>increase 17ppem by 1 pixel</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727482784"></a>Example 18: MarkArray Table and MarkRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.48.1"></a>Specification</h4></div></div></div><p>Example 18 shows a MarkArray table with class and
 >>>>>>> Rebuild
+=======
+          ppem.</p><div class="table"><a name="idm465831978944"></a><p class="title"><strong>Table 24.62. Example 17</strong></p><div class="table-contents"><table class="table" summary="Example 17" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>AnchorFormat3</td><td> </td></tr><tr><td> </td><td>AboveBaseAnchor</td><td>Anchor table definition</td></tr><tr><td>0003</td><td>3</td><td>AnchorFormat</td></tr><tr><td>0117</td><td>279</td><td>XCoordinate</td></tr><tr><td>0515</td><td>1301</td><td>YCoordinate</td></tr><tr><td>000A</td><td>XDevice</td><td>offset to DeviceTable for X coordinate (may be
+                  NULL)</td></tr><tr><td>0014</td><td>YDevice</td><td>offset to Device table for Y coordinate (may be
+                  NULL</td></tr><tr><td> </td><td>DeviceTableFormat2</td><td> </td></tr><tr><td> </td><td>XDevice</td><td>Device Table definition</td></tr><tr><td>000C</td><td>12</td><td>StartSize</td></tr><tr><td>0011</td><td>17</td><td>EndSize</td></tr><tr><td>0002</td><td>2</td><td>DeltaFormat</td></tr><tr><td> </td><td>1</td><td>increase 12ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 13ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 14ppem by 1 pixel</td></tr><tr><td>1111</td><td>1</td><td>increase 15ppem by 1 pixel</td></tr><tr><td> </td><td>2</td><td>increase 16ppem by 1 pixel</td></tr><tr><td>2200</td><td>2</td><td>increase 17ppem by 1 pixe</td></tr><tr><td> </td><td>DeviceTableFormat2</td><td> </td></tr><tr><td> </td><td>YDevice</td><td>Device Table definition</td></tr><tr><td>000C</td><td>12</td><td>StartSize</td></tr><tr><td>0011</td><td>17</td><td>EndSize</td></tr><tr><td>0002</td><td>2</td><td>DeltaFormat</td></tr><tr><td> </td><td>1</td><td>increase 12ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 13ppem by 1 pixel</td></tr><tr><td> </td><td>1</td><td>increase 14ppem by 1 pixel</td></tr><tr><td>1111</td><td>1</td><td>increase 15ppem by 1 pixel</td></tr><tr><td> </td><td>2</td><td>increase 16ppem by 1 pixel</td></tr><tr><td>2200</td><td>2</td><td>increase 17ppem by 1 pixel</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465831936176"></a>Example 18: MarkArray Table and MarkRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.25.48.1"></a>Specification</h4></div></div></div><p>Example 18 shows a MarkArray table with class and
+>>>>>>> Rebuild
           attachment point data for two accent marks, a grave and a
           cedilla. Two MarkRecords are defined, one for each covered
           mark glyph. The first MarkRecord assigns a mark class value
@@ -2605,12 +3025,16 @@ Lookahead sequence                           0   
           positioned below base glyphs, such as the cedilla, and has
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           an offset to a cedillaMarkAnchor table.</p><div class="table"><a name="idm14364"></a><p class="title"><strong>Table 24.63. Example 18</strong></p><div class="table-contents"><table class="table" summary="Example 18" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkArray</td><td> </td></tr><tr><td> </td><td>MarkGlyphsArray</td><td>MarkArray table
 =======
           an offset to a cedillaMarkAnchor table.</p><div class="table"><a name="idm189296219088"></a><p class="title"><strong>Table 24.63. Example 18</strong></p><div class="table-contents"><table class="table" summary="Example 18" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkArray</td><td> </td></tr><tr><td> </td><td>MarkGlyphsArray</td><td>MarkArray table
 >>>>>>> Rebuild
 =======
           an offset to a cedillaMarkAnchor table.</p><div class="table"><a name="idm62727479968"></a><p class="title"><strong>Table 24.63. Example 18</strong></p><div class="table-contents"><table class="table" summary="Example 18" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkArray</td><td> </td></tr><tr><td> </td><td>MarkGlyphsArray</td><td>MarkArray table
+>>>>>>> Rebuild
+=======
+          an offset to a cedillaMarkAnchor table.</p><div class="table"><a name="idm465831933360"></a><p class="title"><strong>Table 24.63. Example 18</strong></p><div class="table-contents"><table class="table" summary="Example 18" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MarkArray</td><td> </td></tr><tr><td> </td><td>MarkGlyphsArray</td><td>MarkArray table
 >>>>>>> Rebuild
                   definition</td></tr><tr><td>0002</td><td>2</td><td>MarkCount MarkRecord[0] for first mark in
                   MarkCoverage table, grave</td></tr><tr><td>0000</td><td>0</td><td>Class, for marks placed above base

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.proposed_features"></a>Chapter 43. Proposed CommonType features</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm23890"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.44.1.1"></a>Specification</h4></div></div></div><p>Proposals for new features are posted here for
 	review. If you have questions, comments or concerns regarding
 	any of the proposals listed please post them to the CommonType
@@ -15,6 +16,12 @@
 	review. If you have questions, comments or concerns regarding
 	any of the proposals listed please post them to the CommonType
 	discussion mailing list.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62721615328"></a>Proposing new features</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.44.2.1"></a>Specification</h4></div></div></div><p> Microsoft and Adobe welcome nominations for new
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.proposed_features"></a>Chapter 43. Proposed CommonType features</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465827602080"></a>Introduction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.44.1.1"></a>Specification</h4></div></div></div><p>Proposals for new features are posted here for
+	review. If you have questions, comments or concerns regarding
+	any of the proposals listed please post them to the CommonType
+	discussion mailing list.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465827599216"></a>Proposing new features</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.44.2.1"></a>Specification</h4></div></div></div><p> Microsoft and Adobe welcome nominations for new
 >>>>>>> Rebuild
 	  features and feature tags. To qualify for registration, a
 	  feature must have a single function that is clearly

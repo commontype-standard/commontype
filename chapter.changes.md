@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.changes"></a>Chapter 47. Changes log</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28331"></a>Version 1.4</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.1.1"></a>Specification</h4></div></div></div><p>Released October 11, 2002</p><p>baselinetags.htm
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.changes"></a>Chapter 47. Changes log</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189288036048"></a>Version 1.4</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.1.1"></a>Specification</h4></div></div></div><p>Released October 11, 2002</p><p>baselinetags.htm
 >>>>>>> Rebuild
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.changes"></a>Chapter 47. Changes log</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62719077056"></a>Version 1.4</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.1.1"></a>Specification</h4></div></div></div><p>Released October 11, 2002</p><p>baselinetags.htm
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.changes"></a>Chapter 47. Changes log</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465826317472"></a>Version 1.4</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.1.1"></a>Specification</h4></div></div></div><p>Released October 11, 2002</p><p>baselinetags.htm
 >>>>>>> Rebuild
 	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Corrected typographic error.</p></li><li class="listitem"><p>Changed hanging baseline references from Hindi to
 	      Tibetan.</p></li></ul></div><p>
@@ -102,12 +106,16 @@
 		footnote.</p></li></ul></div><p>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28502"></a>Version 1.3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.2.1"></a>Specification</h4></div></div></div><p>Released April, 2001.</p><p>Multiple Master support in CommonType, discontinued. The
 =======
       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189287965120"></a>Version 1.3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.2.1"></a>Specification</h4></div></div></div><p>Released April, 2001.</p><p>Multiple Master support in CommonType, discontinued. The
 >>>>>>> Rebuild
 =======
       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62719006128"></a>Version 1.3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.2.1"></a>Specification</h4></div></div></div><p>Released April, 2001.</p><p>Multiple Master support in CommonType, discontinued. The
+>>>>>>> Rebuild
+=======
+      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465826246544"></a>Version 1.3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.2.1"></a>Specification</h4></div></div></div><p>Released April, 2001.</p><p>Multiple Master support in CommonType, discontinued. The
 >>>>>>> Rebuild
 	  following tables pertaining to it have been removed from this
 	  version of the CommonType specification: 'fvar', 'MMSD',
@@ -302,12 +310,16 @@
 	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Added a missing asterisk for PostScriptName.macron</p></li><li class="listitem"><p>Added the U+02dc (tilde)-- was missing from the list.</p></li></ul></div><p>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28784"></a>Version 1.25</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.3.1"></a>Specification</h4></div></div></div><p>Released July, 2000</p><p>feattags.htm (Feature Tags)
 =======
       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189287842160"></a>Version 1.25</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.3.1"></a>Specification</h4></div></div></div><p>Released July, 2000</p><p>feattags.htm (Feature Tags)
 >>>>>>> Rebuild
 =======
       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62720084624"></a>Version 1.25</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.3.1"></a>Specification</h4></div></div></div><p>Released July, 2000</p><p>feattags.htm (Feature Tags)
+>>>>>>> Rebuild
+=======
+      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465826123584"></a>Version 1.25</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.3.1"></a>Specification</h4></div></div></div><p>Released July, 2000</p><p>feattags.htm (Feature Tags)
 >>>>>>> Rebuild
 	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Features added: abvm (Above-base Mark Positioning); abvs
 		(Above-base Substitutions); akhn (Akhand); blwf (Below-base
@@ -369,12 +381,16 @@
 		non-null offset (the size feature uses it).</p></li></ul></div><p>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28803"></a>Version 1.2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.4.1"></a>Specification</h4></div></div></div><p>Released November, 1998</p><p>Data type notation and spelling corrected
 =======
       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189287832544"></a>Version 1.2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.4.1"></a>Specification</h4></div></div></div><p>Released November, 1998</p><p>Data type notation and spelling corrected
 >>>>>>> Rebuild
 =======
       </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62720075008"></a>Version 1.2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.4.1"></a>Specification</h4></div></div></div><p>Released November, 1998</p><p>Data type notation and spelling corrected
+>>>>>>> Rebuild
+=======
+      </p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465826113968"></a>Version 1.2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.4.1"></a>Specification</h4></div></div></div><p>Released November, 1998</p><p>Data type notation and spelling corrected
 >>>>>>> Rebuild
 	throughout</p><p>base.htm - added BaseCoord Table Format 4</p><p>chapter2.htm - corrected example 3; refined description
 	of next glyph; reserved RightToLeft lookup flag; corrected
@@ -410,12 +426,16 @@
 	  1999)</p><p>head.htm - Data type of xMin corrected (29 January
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  1999)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28831"></a>Version 1.1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.5.1"></a>Specification</h4></div></div></div><p>Released April, 1999</p><p>CFF and Type2 specs updated</p><p>chapter2.htm - corrected typo in figure 2d
 =======
 	  1999)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189287818320"></a>Version 1.1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.5.1"></a>Specification</h4></div></div></div><p>Released April, 1999</p><p>CFF and Type2 specs updated</p><p>chapter2.htm - corrected typo in figure 2d
 >>>>>>> Rebuild
 =======
 	  1999)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62720060784"></a>Version 1.1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.5.1"></a>Specification</h4></div></div></div><p>Released April, 1999</p><p>CFF and Type2 specs updated</p><p>chapter2.htm - corrected typo in figure 2d
+>>>>>>> Rebuild
+=======
+	  1999)</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465826099744"></a>Version 1.1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.5.1"></a>Specification</h4></div></div></div><p>Released April, 1999</p><p>CFF and Type2 specs updated</p><p>chapter2.htm - corrected typo in figure 2d
 >>>>>>> Rebuild
 	(fig2d.gif)</p><p>dsig.htm - added info about location of DSIG table;
 	  added list of sfnt structural requirements</p><p>feattags.htm - created more comprehensive list and
@@ -430,12 +450,16 @@
 	  2; updated registered vendors</p><p>otff.htm - general editing; added description of two
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  types of TTC headers, and DSIG table location</p><p>recom.htm - general editing</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28848"></a>Version 1.01</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.6.1"></a>Specification</h4></div></div></div><p>Released October, 1997</p><p>mmfx.htm, fvar.htm, mmsd.htm, otover.htm, recom.htm -
 =======
 	  types of TTC headers, and DSIG table location</p><p>recom.htm - general editing</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189287809808"></a>Version 1.01</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.6.1"></a>Specification</h4></div></div></div><p>Released October, 1997</p><p>mmfx.htm, fvar.htm, mmsd.htm, otover.htm, recom.htm -
 >>>>>>> Rebuild
 =======
 	  types of TTC headers, and DSIG table location</p><p>recom.htm - general editing</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62720052272"></a>Version 1.01</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.6.1"></a>Specification</h4></div></div></div><p>Released October, 1997</p><p>mmfx.htm, fvar.htm, mmsd.htm, otover.htm, recom.htm -
+>>>>>>> Rebuild
+=======
+	  types of TTC headers, and DSIG table location</p><p>recom.htm - general editing</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465826091232"></a>Version 1.01</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.6.1"></a>Specification</h4></div></div></div><p>Released October, 1997</p><p>mmfx.htm, fvar.htm, mmsd.htm, otover.htm, recom.htm -
 >>>>>>> Rebuild
 	  edits throughout</p><p>loca.htm - changed long-aligned to word-aligned for
 	  local offsets</p><p>wgl4.htm - added reference to Euro symbol</p><p>dsig.htm - added note about system use of dsig table to
@@ -444,10 +468,14 @@
 	  offset</p><p>kern.htm - gpos clarification</p><p>name.htm - added name id's 13 and 14</p><p>ltsh.htm - clarified option for fixed-pitch fonts</p><p>dmx.htm - version 1 added to vdmx table</p><p>os2.htm - added codepage range 8 for Vietnamese; added
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	  new vendor id's, including UNKN</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm28866"></a>Version 1.0</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.7.1"></a>Specification</h4></div></div></div><p>Released April, 1997</p></div></div></div>
 =======
 	  new vendor id's, including UNKN</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189287801200"></a>Version 1.0</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.7.1"></a>Specification</h4></div></div></div><p>Released April, 1997</p></div></div></div>
 >>>>>>> Rebuild
 =======
 	  new vendor id's, including UNKN</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62720043664"></a>Version 1.0</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.7.1"></a>Specification</h4></div></div></div><p>Released April, 1997</p></div></div></div>
+>>>>>>> Rebuild
+=======
+	  new vendor id's, including UNKN</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465826082624"></a>Version 1.0</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.48.7.1"></a>Specification</h4></div></div></div><p>Released April, 1997</p></div></div></div>
 >>>>>>> Rebuild

@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.BASE"></a>Chapter 22. BASE - Baseline Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7892"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.1.1"></a>Specification</h4></div></div></div><p>The Baseline table (<a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>) provides
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.BASE"></a>Chapter 22. BASE - Baseline Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294653280"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.1.1"></a>Specification</h4></div></div></div><p>The Baseline table (<a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>) provides
 >>>>>>> Rebuild
 =======
 <div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.BASE"></a>Chapter 22. BASE - Baseline Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730792960"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.1.1"></a>Specification</h4></div></div></div><p>The Baseline table (<a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>) provides
+>>>>>>> Rebuild
+=======
+<div xmlns="http://www.w3.org/1999/xhtml" class="chapter"><div class="titlepage"><div><div><h2 class="title"><a name="chapter.BASE"></a>Chapter 22. BASE - Baseline Table</h2></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834941264"></a>Overview</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.1.1"></a>Specification</h4></div></div></div><p>The Baseline table (<a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>) provides
 >>>>>>> Rebuild
           information used to align glyphs of different scripts and
           sizes in a line of text, whether the glyphs are in the same
@@ -21,12 +25,16 @@
           diacritical marks, math symbols, subscripts, and
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           superscripts may be clipped.</p><div class="figure"><a name="idm7899"></a><p class="title"><strong>Figure 22.1. Figure 5a. Incorrect alignment of glyphs from Latin
 =======
           superscripts may be clipped.</p><div class="figure"><a name="idm189294649248"></a><p class="title"><strong>Figure 22.1. Figure 5a. Incorrect alignment of glyphs from Latin
 >>>>>>> Rebuild
 =======
           superscripts may be clipped.</p><div class="figure"><a name="idm62730788928"></a><p class="title"><strong>Figure 22.1. Figure 5a. Incorrect alignment of glyphs from Latin
+>>>>>>> Rebuild
+=======
+          superscripts may be clipped.</p><div class="figure"><a name="idm465834937232"></a><p class="title"><strong>Figure 22.1. Figure 5a. Incorrect alignment of glyphs from Latin
 >>>>>>> Rebuild
             and Kanji (Latin dominant)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig5a.gif" alt="Figure 5a. Incorrect alignment of glyphs from Latin and Kanji (Latin dominant)"/></div></div></div><br class="figure-break"/><p>In addition, different baselines can cause text lines to
           waver visually as glyphs from different scripts are placed
@@ -40,6 +48,7 @@
           min/max extents can be modified for particular language
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           systems or features.</p><div class="figure"><a name="idm7907"></a><p class="title"><strong>Figure 22.2. Figure 5b. Proper alignment of glyphs from Latin and
             Kanji (Latin dominant)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig5b.gif" alt="Figure 5b. Proper alignment of glyphs from Latin and Kanji (Latin dominant)"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7912"></a>Baseline Values</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table uses a model that
 =======
@@ -49,6 +58,10 @@
 =======
           systems or features.</p><div class="figure"><a name="idm62730784640"></a><p class="title"><strong>Figure 22.2. Figure 5b. Proper alignment of glyphs from Latin and
             Kanji (Latin dominant)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig5b.gif" alt="Figure 5b. Proper alignment of glyphs from Latin and Kanji (Latin dominant)"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730781936"></a>Baseline Values</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table uses a model that
+>>>>>>> Rebuild
+=======
+          systems or features.</p><div class="figure"><a name="idm465834932944"></a><p class="title"><strong>Figure 22.2. Figure 5b. Proper alignment of glyphs from Latin and
+            Kanji (Latin dominant)</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig5b.gif" alt="Figure 5b. Proper alignment of glyphs from Latin and Kanji (Latin dominant)"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834930240"></a>Baseline Values</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.2.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table uses a model that
 >>>>>>> Rebuild
           assumes one script at one size is the "dominant run" during
           text processing-that is, all other baselines are defined in
@@ -64,6 +77,7 @@
           instance, the client may want to assign baseline positions
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           different from those in the font.</p><div class="figure"><a name="idm7921"></a><p class="title"><strong>Figure 22.3. Figure 5c. Comparing Latin and Kanji baselines, with
             characters aligned according to the dominant run</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig5c.gif" alt="Figure 5c. Comparing Latin and Kanji baselines, with characters aligned according to the dominant run"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7926"></a>Min/Max Extent Values</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table gives clients the
 =======
@@ -73,6 +87,10 @@
 =======
           different from those in the font.</p><div class="figure"><a name="idm62730776752"></a><p class="title"><strong>Figure 22.3. Figure 5c. Comparing Latin and Kanji baselines, with
             characters aligned according to the dominant run</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig5c.gif" alt="Figure 5c. Comparing Latin and Kanji baselines, with characters aligned according to the dominant run"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730774016"></a>Min/Max Extent Values</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table gives clients the
+>>>>>>> Rebuild
+=======
+          different from those in the font.</p><div class="figure"><a name="idm465834925056"></a><p class="title"><strong>Figure 22.3. Figure 5c. Comparing Latin and Kanji baselines, with
+            characters aligned according to the dominant run</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig5c.gif" alt="Figure 5c. Comparing Latin and Kanji baselines, with characters aligned according to the dominant run"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834922320"></a>Min/Max Extent Values</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.3.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table gives clients the
 >>>>>>> Rebuild
           option of using script, language system, or feature-specific
           extent values to improve composition (see figure 5c). For
@@ -95,12 +113,16 @@
           values and apply them only when that feature is enabled in
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           the Farsi language.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7936"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.4.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table begins with offsets to
 =======
           the Farsi language.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294627264"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.4.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table begins with offsets to
 >>>>>>> Rebuild
 =======
           the Farsi language.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62730766944"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.4.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table begins with offsets to
+>>>>>>> Rebuild
+=======
+          the Farsi language.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834915248"></a>Table Organization</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.4.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table begins with offsets to
 >>>>>>> Rebuild
           Axis tables that describe layout data for the horizontal and
           vertical layout directions of text. A font can provide
@@ -117,6 +139,7 @@
           baseline of rotated Latin text.</p><p>Figure 5d shows how the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table is
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         organized.</p><div class="figure"><a name="idm7950"></a><p class="title"><strong>Figure 22.4. Figure 5d. High-level organization of <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>
             table</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig5d.gif" alt="Figure 5d. High-level organization of BASE table"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7956"></a>Text Direction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.5.1"></a>Specification</h4></div></div></div><p>The HorizAxis and VertAxis tables organize layout
 =======
@@ -126,6 +149,10 @@
 =======
         organized.</p><div class="figure"><a name="idm62727597808"></a><p class="title"><strong>Figure 22.4. Figure 5d. High-level organization of <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>
             table</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig5d.gif" alt="Figure 5d. High-level organization of BASE table"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727594480"></a>Text Direction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.5.1"></a>Specification</h4></div></div></div><p>The HorizAxis and VertAxis tables organize layout
+>>>>>>> Rebuild
+=======
+        organized.</p><div class="figure"><a name="idm465834908096"></a><p class="title"><strong>Figure 22.4. Figure 5d. High-level organization of <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>
+            table</strong></p><div class="figure-contents"><div class="mediaobject"><img src="src/images/../../fig5d.gif" alt="Figure 5d. High-level organization of BASE table"/></div></div></div><br class="figure-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834904768"></a>Text Direction</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.5.1"></a>Specification</h4></div></div></div><p>The HorizAxis and VertAxis tables organize layout
 >>>>>>> Rebuild
           information by script in BaseScriptList tables. A
           BaseScriptList enumerates all scripts in the font that are
@@ -137,12 +164,16 @@
           are rendered vertically, so those two scripts are defined in
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           the BaseScriptList of the VertAxis table, too.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7962"></a>Baseline Data</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.6.1"></a>Specification</h4></div></div></div><p>Each Axis table also references a BaseTagList, which
 =======
           the BaseScriptList of the VertAxis table, too.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294612992"></a>Baseline Data</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.6.1"></a>Specification</h4></div></div></div><p>Each Axis table also references a BaseTagList, which
 >>>>>>> Rebuild
 =======
           the BaseScriptList of the VertAxis table, too.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727590688"></a>Baseline Data</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.6.1"></a>Specification</h4></div></div></div><p>Each Axis table also references a BaseTagList, which
+>>>>>>> Rebuild
+=======
+          the BaseScriptList of the VertAxis table, too.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834900976"></a>Baseline Data</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.6.1"></a>Specification</h4></div></div></div><p>Each Axis table also references a BaseTagList, which
 >>>>>>> Rebuild
           identifies all the baselines for all scripts written in the
           same direction (horizontal or vertical). The BaseTagList may
@@ -174,12 +205,16 @@
               coordinates for both baselines and specify the
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               ideographic baseline as the default.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7975"></a>Min/Max Extents</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.7.1"></a>Specification</h4></div></div></div><p>The BaseScript table can define minimum and maximum
 =======
               ideographic baseline as the default.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294605024"></a>Min/Max Extents</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.7.1"></a>Specification</h4></div></div></div><p>The BaseScript table can define minimum and maximum
 >>>>>>> Rebuild
 =======
               ideographic baseline as the default.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727582720"></a>Min/Max Extents</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.7.1"></a>Specification</h4></div></div></div><p>The BaseScript table can define minimum and maximum
+>>>>>>> Rebuild
+=======
+              ideographic baseline as the default.</p></li></ul></div></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834893008"></a>Min/Max Extents</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.7.1"></a>Specification</h4></div></div></div><p>The BaseScript table can define minimum and maximum
 >>>>>>> Rebuild
           extent values for each script, language system, or feature.
           (These values are distinct from the min/max extent values
@@ -206,12 +241,16 @@
           tables and lists that illustrate typical data for a font are
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           supplied at the end of the chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm7992"></a>BASE Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.8.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table begins with a header
 =======
           supplied at the end of the chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294595136"></a>BASE Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.8.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table begins with a header
 >>>>>>> Rebuild
 =======
           supplied at the end of the chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727573136"></a>BASE Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.8.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table begins with a header
+>>>>>>> Rebuild
+=======
+          supplied at the end of the chapter.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834883424"></a>BASE Header</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.8.1"></a>Specification</h4></div></div></div><p>The <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table begins with a header
 >>>>>>> Rebuild
           that consists of a version number for the table (Version),
           initially set to 1.0 (0x00010000), and offsets to horizontal
@@ -225,6 +264,7 @@
           direction will be set to NULL.</p><p>Example 1 at the end of this chapter shows a sample
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> Header.</p><div class="table"><a name="idm8002"></a><p class="title"><strong>Table 22.1. BASE Header</strong></p><div class="table-contents"><table class="table" summary="BASE Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>fixed32</td><td>Version</td><td>Version of the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>
 =======
           <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> Header.</p><div class="table"><a name="idm189294589680"></a><p class="title"><strong>Table 22.1. BASE Header</strong></p><div class="table-contents"><table class="table" summary="BASE Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>fixed32</td><td>Version</td><td>Version of the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>
@@ -232,10 +272,14 @@
 =======
           <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> Header.</p><div class="table"><a name="idm62727567680"></a><p class="title"><strong>Table 22.1. BASE Header</strong></p><div class="table-contents"><table class="table" summary="BASE Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>fixed32</td><td>Version</td><td>Version of the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>
 >>>>>>> Rebuild
+=======
+          <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> Header.</p><div class="table"><a name="idm465834877968"></a><p class="title"><strong>Table 22.1. BASE Header</strong></p><div class="table-contents"><table class="table" summary="BASE Header" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>fixed32</td><td>Version</td><td>Version of the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a>
+>>>>>>> Rebuild
               table-initially 0x00010000</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>HorizAxis</td><td>Offset to horizontal Axis table-from
               beginning of <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table-may be
               NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>VertAxis</td><td>Offset to vertical Axis table-from beginning
               of <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table-may be
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
               NULL</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8026"></a>Axis Tables: HorizAxis and VertAxis</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.9.1"></a>Specification</h4></div></div></div><p>An Axis table is used to render scripts either
@@ -245,6 +289,9 @@
 =======
               NULL</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727558256"></a>Axis Tables: HorizAxis and VertAxis</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.9.1"></a>Specification</h4></div></div></div><p>An Axis table is used to render scripts either
 >>>>>>> Rebuild
+=======
+              NULL</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834868544"></a>Axis Tables: HorizAxis and VertAxis</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.9.1"></a>Specification</h4></div></div></div><p>An Axis table is used to render scripts either
+>>>>>>> Rebuild
           horizontally or vertically. It consists of offsets, measured
           from the beginning of the Axis table, to a BaseTagList and a
           BaseScriptList:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The BaseScriptList enumerates all scripts rendered
@@ -253,6 +300,7 @@
               baseline data is available for a text direction, the
               offset to the corresponding BaseTagList may be set to
               NULL.</p></li></ul></div><p>Example 1 at the end of this chapter shows an example of
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           an Axis table.</p><div class="table"><a name="idm8037"></a><p class="title"><strong>Table 22.2. Axis Table</strong></p><div class="table-contents"><table class="table" summary="Axis Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseTagList</td><td>Offset to BaseTagList table-from beginning of
@@ -267,6 +315,11 @@
           an Axis table.</p><div class="table"><a name="idm62727553024"></a><p class="title"><strong>Table 22.2. Axis Table</strong></p><div class="table-contents"><table class="table" summary="Axis Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseTagList</td><td>Offset to BaseTagList table-from beginning of
               Axis table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>BaseScriptList</td><td>Offset to BaseScriptList table-from beginning
               of Axis table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727547088"></a>BaseTagList Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.10.1"></a>Specification</h4></div></div></div><p>The BaseTagList table identifies the baselines for all
+>>>>>>> Rebuild
+=======
+          an Axis table.</p><div class="table"><a name="idm465834863312"></a><p class="title"><strong>Table 22.2. Axis Table</strong></p><div class="table-contents"><table class="table" summary="Axis Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseTagList</td><td>Offset to BaseTagList table-from beginning of
+              Axis table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>BaseScriptList</td><td>Offset to BaseScriptList table-from beginning
+              of Axis table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834857376"></a>BaseTagList Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.10.1"></a>Specification</h4></div></div></div><p>The BaseTagList table identifies the baselines for all
 >>>>>>> Rebuild
           scripts in the font that are rendered in the same text
           direction. Each baseline is identified with a 4-byte
@@ -288,6 +341,7 @@
           array (BaseTagCount).</p><p>Example 1 at the end of this chapter shows a sample
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           BaseTagList table.</p><div class="table"><a name="idm8063"></a><p class="title"><strong>Table 22.3. BaseTagList table</strong></p><div class="table-contents"><table class="table" summary="BaseTagList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseTagCount</td><td>Number of baseline identification tags in
               this text direction-may be zero (0)</td><td class="auto-generated"> </td></tr><tr><td>Tag</td><td>BaselineTag [BaseTagCount]</td><td>Array of 4-byte baseline identification
               tags-must be in alphabetical order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8080"></a>BaseScriptList Table and BaseScript Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.11.1"></a>Specification</h4></div></div></div><p>The BaseScriptList table identifies all scripts in the
@@ -301,6 +355,11 @@
               this text direction-may be zero (0)</td><td class="auto-generated"> </td></tr><tr><td>Tag</td><td>BaselineTag [BaseTagCount]</td><td>Array of 4-byte baseline identification
               tags-must be in alphabetical order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727535712"></a>BaseScriptList Table and BaseScript Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.11.1"></a>Specification</h4></div></div></div><p>The BaseScriptList table identifies all scripts in the
 >>>>>>> Rebuild
+=======
+          BaseTagList table.</p><div class="table"><a name="idm465834851968"></a><p class="title"><strong>Table 22.3. BaseTagList table</strong></p><div class="table-contents"><table class="table" summary="BaseTagList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseTagCount</td><td>Number of baseline identification tags in
+              this text direction-may be zero (0)</td><td class="auto-generated"> </td></tr><tr><td>Tag</td><td>BaselineTag [BaseTagCount]</td><td>Array of 4-byte baseline identification
+              tags-must be in alphabetical order</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834846000"></a>BaseScriptList Table and BaseScript Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.11.1"></a>Specification</h4></div></div></div><p>The BaseScriptList table identifies all scripts in the
+>>>>>>> Rebuild
           font that are rendered in the same layout direction. If a
           script is not listed here, then the text-processing client
           will render the script using the layout information
@@ -312,12 +371,16 @@
           the total number of BaseScriptRecords in the array.</p><p>Example 1 at the end of this chapter shows a sample
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           BaseScriptList table.</p><div class="table"><a name="idm8087"></a><p class="title"><strong>Table 22.4. BaseScriptList table</strong></p><div class="table-contents"><table class="table" summary="BaseScriptList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseScriptCount</td><td>Number of BaseScriptRecords
 =======
           BaseScriptList table.</p><div class="table"><a name="idm189296915280"></a><p class="title"><strong>Table 22.4. BaseScriptList table</strong></p><div class="table-contents"><table class="table" summary="BaseScriptList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseScriptCount</td><td>Number of BaseScriptRecords
 >>>>>>> Rebuild
 =======
           BaseScriptList table.</p><div class="table"><a name="idm62733462544"></a><p class="title"><strong>Table 22.4. BaseScriptList table</strong></p><div class="table-contents"><table class="table" summary="BaseScriptList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseScriptCount</td><td>Number of BaseScriptRecords
+>>>>>>> Rebuild
+=======
+          BaseScriptList table.</p><div class="table"><a name="idm465834842208"></a><p class="title"><strong>Table 22.4. BaseScriptList table</strong></p><div class="table-contents"><table class="table" summary="BaseScriptList table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseScriptCount</td><td>Number of BaseScriptRecords
 >>>>>>> Rebuild
               defined</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>BaseScriptRecord [BaseScriptCount]</td><td>Array of BaseScriptRecords-in alphabetical
               order by BaseScriptTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><p>A BaseScriptRecord contains a script identification tag
@@ -327,6 +390,7 @@
           Each record also must include an offset to a BaseScript
           table that defines the baseline and min/max extent data for
           the script.</p><p>Example 1 at the end of this chapter shows a sample
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           BaseScriptRecord.</p><div class="table"><a name="idm8108"></a><p class="title"><strong>Table 22.5. BaseScriptRecord</strong></p><div class="table-contents"><table class="table" summary="BaseScriptRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>BaseScriptTag</td><td>4-byte script identification
@@ -341,6 +405,11 @@
           BaseScriptRecord.</p><div class="table"><a name="idm62733454624"></a><p class="title"><strong>Table 22.5. BaseScriptRecord</strong></p><div class="table-contents"><table class="table" summary="BaseScriptRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>BaseScriptTag</td><td>4-byte script identification
             tag</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>BaseScript</td><td>Offset to BaseScript table-from beginning of
             BaseScriptList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728290496"></a>BaseScript Table and BaseLangSys Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.12.1"></a>Specification</h4></div></div></div><p>A BaseScript table organizes and specifies the baseline
+>>>>>>> Rebuild
+=======
+          BaseScriptRecord.</p><div class="table"><a name="idm465834818032"></a><p class="title"><strong>Table 22.5. BaseScriptRecord</strong></p><div class="table-contents"><table class="table" summary="BaseScriptRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>BaseScriptTag</td><td>4-byte script identification
+            tag</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>BaseScript</td><td>Offset to BaseScript table-from beginning of
+            BaseScriptList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834812144"></a>BaseScript Table and BaseLangSys Record</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.12.1"></a>Specification</h4></div></div></div><p>A BaseScript table organizes and specifies the baseline
 >>>>>>> Rebuild
           data and min/max extent data for one script. Within a
           BaseScript table, the BaseValues table contains baseline
@@ -388,12 +457,16 @@
               the BaseLangSysCount may be set to zero (0).</p></li></ul></div><p>Example 2 at the end of this chapter shows a sample
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           BaseScript table.</p><div class="table"><a name="idm8145"></a><p class="title"><strong>Table 22.6. BaseScript Table</strong></p><div class="table-contents"><table class="table" summary="BaseScript Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseValues</td><td>Offset to BaseValues table-from beginning of
 =======
           BaseScript table.</p><div class="table"><a name="idm189296891152"></a><p class="title"><strong>Table 22.6. BaseScript Table</strong></p><div class="table-contents"><table class="table" summary="BaseScript Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseValues</td><td>Offset to BaseValues table-from beginning of
 >>>>>>> Rebuild
 =======
           BaseScript table.</p><div class="table"><a name="idm62728280048"></a><p class="title"><strong>Table 22.6. BaseScript Table</strong></p><div class="table-contents"><table class="table" summary="BaseScript Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseValues</td><td>Offset to BaseValues table-from beginning of
+>>>>>>> Rebuild
+=======
+          BaseScript table.</p><div class="table"><a name="idm465834801472"></a><p class="title"><strong>Table 22.6. BaseScript Table</strong></p><div class="table-contents"><table class="table" summary="BaseScript Table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>BaseValues</td><td>Offset to BaseValues table-from beginning of
 >>>>>>> Rebuild
               BaseScript table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>DefaultMinMax</td><td>Offset to MinMax table- from beginning of
               BaseScript table-may be NULL</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>BaseLangSysCount</td><td>Number of BaseLangSysRecords defined-may be
@@ -404,6 +477,7 @@
           (BaseLangSysTag) and an offset to a MinMax table (MinMax)
           that defines extent coordinate values for the language
           system and references feature-specific extent data.</p><p>Example 2 at the end of this chapter shows a
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           BaseLangSysRecord.</p><div class="table"><a name="idm8172"></a><p class="title"><strong>Table 22.7. BaseLangSysRecord</strong></p><div class="table-contents"><table class="table" summary="BaseLangSysRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>BaseLangSysTag</td><td>4-byte language system identification
@@ -418,6 +492,11 @@
           BaseLangSysRecord.</p><div class="table"><a name="idm62728270576"></a><p class="title"><strong>Table 22.7. BaseLangSysRecord</strong></p><div class="table-contents"><table class="table" summary="BaseLangSysRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>BaseLangSysTag</td><td>4-byte language system identification
               tag</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MinMax</td><td>Offset to MinMax table-from beginning of
               BaseScript table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728264896"></a>BaseValues Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.13.1"></a>Specification</h4></div></div></div><p>A BaseValues table lists the coordinate positions of all
+>>>>>>> Rebuild
+=======
+          BaseLangSysRecord.</p><div class="table"><a name="idm465834791744"></a><p class="title"><strong>Table 22.7. BaseLangSysRecord</strong></p><div class="table-contents"><table class="table" summary="BaseLangSysRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>BaseLangSysTag</td><td>4-byte language system identification
+              tag</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MinMax</td><td>Offset to MinMax table-from beginning of
+              BaseScript table</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834785840"></a>BaseValues Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.13.1"></a>Specification</h4></div></div></div><p>A BaseValues table lists the coordinate positions of all
 >>>>>>> Rebuild
           baselines named in the BaselineTag array of the
           corresponding BaseTagList and identifies a default baseline
@@ -473,6 +552,7 @@
           with different baseline positions defined for several
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           scripts.</p><div class="table"><a name="idm8202"></a><p class="title"><strong>Table 22.8. BaseValues table</strong></p><div class="table-contents"><table class="table" summary="BaseValues table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>DefaultIndex</td><td>Index number of default baseline for this
 =======
           scripts.</p><div class="table"><a name="idm189296866400"></a><p class="title"><strong>Table 22.8. BaseValues table</strong></p><div class="table-contents"><table class="table" summary="BaseValues table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>DefaultIndex</td><td>Index number of default baseline for this
@@ -480,10 +560,14 @@
 =======
           scripts.</p><div class="table"><a name="idm62728255872"></a><p class="title"><strong>Table 22.8. BaseValues table</strong></p><div class="table-contents"><table class="table" summary="BaseValues table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>DefaultIndex</td><td>Index number of default baseline for this
 >>>>>>> Rebuild
+=======
+          scripts.</p><div class="table"><a name="idm465834776688"></a><p class="title"><strong>Table 22.8. BaseValues table</strong></p><div class="table-contents"><table class="table" summary="BaseValues table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>DefaultIndex</td><td>Index number of default baseline for this
+>>>>>>> Rebuild
               script-equals index position of baseline tag in
               BaselineArray of the BaseTagList</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>BaseCoordCount</td><td>Number of BaseCoord tables defined-should
               equal BaseTagCount in the BaseTagList</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>BaseCoord [BaseCoordCount]</td><td>Array of offsets to BaseCoord-from beginning
               of BaseValues table-order matches BaselineTag array in
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
               the BaseTagList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8223"></a>The MinMax Table and FeatMinMaxRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.14.1"></a>Specification</h4></div></div></div><p>The MinMax table specifies extents for scripts and
@@ -492,6 +576,9 @@
 >>>>>>> Rebuild
 =======
               the BaseTagList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728248544"></a>The MinMax Table and FeatMinMaxRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.14.1"></a>Specification</h4></div></div></div><p>The MinMax table specifies extents for scripts and
+>>>>>>> Rebuild
+=======
+              the BaseTagList</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834769056"></a>The MinMax Table and FeatMinMaxRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.14.1"></a>Specification</h4></div></div></div><p>The MinMax table specifies extents for scripts and
 >>>>>>> Rebuild
           language systems. It also contains an array of
           FeatMinMaxRecords used to define feature-specific
@@ -535,6 +622,7 @@
           but otherwise the language system and script extent values
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           match.</p><div class="table"><a name="idm8254"></a><p class="title"><strong>Table 22.9. MinMax table</strong></p><div class="table-contents"><table class="table" summary="MinMax table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>MinCoord</td><td>Offset to BaseCoord table-defines minimum
 =======
           match.</p><div class="table"><a name="idm189304838960"></a><p class="title"><strong>Table 22.9. MinMax table</strong></p><div class="table-contents"><table class="table" summary="MinMax table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>MinCoord</td><td>Offset to BaseCoord table-defines minimum
@@ -542,11 +630,15 @@
 =======
           match.</p><div class="table"><a name="idm62728233072"></a><p class="title"><strong>Table 22.9. MinMax table</strong></p><div class="table-contents"><table class="table" summary="MinMax table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>MinCoord</td><td>Offset to BaseCoord table-defines minimum
 >>>>>>> Rebuild
+=======
+          match.</p><div class="table"><a name="idm465834753248"></a><p class="title"><strong>Table 22.9. MinMax table</strong></p><div class="table-contents"><table class="table" summary="MinMax table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Offset</td><td>MinCoord</td><td>Offset to BaseCoord table-defines minimum
+>>>>>>> Rebuild
               extent value-from the beginning of MinMax table-may be
               NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MaxCoord</td><td>Offset to BaseCoord table-defines maximum
               extent value-from the beginning of MinMax table-may be
               NULL</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>FeatMinMaxCount</td><td>Number of FeatMinMaxRecords-may be zero
               (0)</td><td class="auto-generated"> </td></tr><tr><td>struct</td><td>FeatMinMaxRecord [FeatMinMaxCount]</td><td>Array of FeatMinMaxRecords-in alphabetical
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
               order, by FeatureTableTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm8279"></a><p class="title"><strong>Table 22.10. FeatMinMaxRecord</strong></p><div class="table-contents"><table class="table" summary="FeatMinMaxRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>FeatureTableTag</td><td>4-byte feature identification tag-must match
@@ -556,10 +648,14 @@
 =======
               order, by FeatureTableTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62728224816"></a><p class="title"><strong>Table 22.10. FeatMinMaxRecord</strong></p><div class="table-contents"><table class="table" summary="FeatMinMaxRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>FeatureTableTag</td><td>4-byte feature identification tag-must match
 >>>>>>> Rebuild
+=======
+              order, by FeatureTableTag</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm465834744688"></a><p class="title"><strong>Table 22.10. FeatMinMaxRecord</strong></p><div class="table-contents"><table class="table" summary="FeatMinMaxRecord" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>Tag</td><td>FeatureTableTag</td><td>4-byte feature identification tag-must match
+>>>>>>> Rebuild
               FeatureTag in FeatureList</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MinCoord</td><td>Offset to BaseCoord table-defines minimum
               extent value-from beginning of MinMax table-may be
               NULL</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>MaxCoord</td><td>Offset to BaseCoord table-defines maximum
               extent value-from beginning of MinMax table-may be
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
               NULL</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8300"></a>BaseCoord Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.15.1"></a>Specification</h4></div></div></div><p>Within the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table, a BaseCoord table defines
@@ -568,6 +664,9 @@
 >>>>>>> Rebuild
 =======
               NULL</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728217456"></a>BaseCoord Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.15.1"></a>Specification</h4></div></div></div><p>Within the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table, a BaseCoord table defines
+>>>>>>> Rebuild
+=======
+              NULL</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834737136"></a>BaseCoord Tables</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.15.1"></a>Specification</h4></div></div></div><p>Within the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table, a BaseCoord table defines
 >>>>>>> Rebuild
           baseline and min/max extent values. Each BaseCoord table
           defines one X or Y value:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>If defined within the HorizAxis table, then the
@@ -579,6 +678,7 @@
           formats also support fine adjustments to the X or Y values
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           based on a contour point or a Device table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8313"></a>BaseCoord Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.16.1"></a>Specification</h4></div></div></div><p>The first BaseCoord format (BaseCoordFormat1) consists
 =======
           based on a contour point or a Device table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189305021056"></a>BaseCoord Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.16.1"></a>Specification</h4></div></div></div><p>The first BaseCoord format (BaseCoordFormat1) consists
@@ -586,11 +686,15 @@
 =======
           based on a contour point or a Device table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728210816"></a>BaseCoord Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.16.1"></a>Specification</h4></div></div></div><p>The first BaseCoord format (BaseCoordFormat1) consists
 >>>>>>> Rebuild
+=======
+          based on a contour point or a Device table.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834730224"></a>BaseCoord Format 1</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.16.1"></a>Specification</h4></div></div></div><p>The first BaseCoord format (BaseCoordFormat1) consists
+>>>>>>> Rebuild
           of a format identifier, followed by a single design unit
           coordinate that specifies the BaseCoord value. This format
           has the benefits of small size and simplicity, but the
           BaseCoord value cannot be hinted for fine adjustments at
           different sizes or device resolutions.</p><p>Example 5 at the end of the chapter shows a sample of a
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           BaseCoordFormat1 table.</p><div class="table"><a name="idm8319"></a><p class="title"><strong>Table 22.11. BaseCoordFormat1 table: Design units only</strong></p><div class="table-contents"><table class="table" summary="BaseCoordFormat1 table: Design units only" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCoordFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>Coordinate</td><td>X or Y value, in design units</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8336"></a>BaseCoord Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.17.1"></a>Specification</h4></div></div></div><p>The second BaseCoord format (BaseCoordFormat2) specifies
@@ -600,6 +704,9 @@
 =======
           BaseCoordFormat1 table.</p><div class="table"><a name="idm62728207872"></a><p class="title"><strong>Table 22.11. BaseCoordFormat1 table: Design units only</strong></p><div class="table-contents"><table class="table" summary="BaseCoordFormat1 table: Design units only" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCoordFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>Coordinate</td><td>X or Y value, in design units</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728202352"></a>BaseCoord Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.17.1"></a>Specification</h4></div></div></div><p>The second BaseCoord format (BaseCoordFormat2) specifies
 >>>>>>> Rebuild
+=======
+          BaseCoordFormat1 table.</p><div class="table"><a name="idm465834727152"></a><p class="title"><strong>Table 22.11. BaseCoordFormat1 table: Design units only</strong></p><div class="table-contents"><table class="table" summary="BaseCoordFormat1 table: Design units only" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCoordFormat</td><td>Format identifier-format = 1</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>Coordinate</td><td>X or Y value, in design units</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834721296"></a>BaseCoord Format 2</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.17.1"></a>Specification</h4></div></div></div><p>The second BaseCoord format (BaseCoordFormat2) specifies
+>>>>>>> Rebuild
           the BaseCoord value in design units, but also supplies a
           glyph index and a contour point for reference. During font
           hinting, the contour point on the glyph outline may move.
@@ -607,6 +714,7 @@
           value for rendering a given font size.</p><div class="blockquote"><blockquote class="blockquote"><p>Note: Glyph positioning operations defined in the
             <a class="link" href="chapter.GPOS.html" title="Chapter 24. GPOS - The Glyph Positioning Table">GPOS</a> table do not affect the point's
             final position.</p></blockquote></div><p>Example 6 shows a sample of a BaseCoordFormat2
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           table.</p><div class="table"><a name="idm8345"></a><p class="title"><strong>Table 22.12. BaseCoordFormat2 table: Design units plus contour point</strong></p><div class="table-contents"><table class="table" summary="BaseCoordFormat2 table: Design units plus contour point" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCoordFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>Coordinate</td><td>X or Y value, in design units</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>ReferenceGlyph</td><td>GlyphID of control glyph</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>BaseCoordPoint</td><td>Index of contour point on the
@@ -619,12 +727,17 @@
           table.</p><div class="table"><a name="idm62728198128"></a><p class="title"><strong>Table 22.12. BaseCoordFormat2 table: Design units plus contour point</strong></p><div class="table-contents"><table class="table" summary="BaseCoordFormat2 table: Design units plus contour point" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCoordFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>Coordinate</td><td>X or Y value, in design units</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>ReferenceGlyph</td><td>GlyphID of control glyph</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>BaseCoordPoint</td><td>Index of contour point on the
               ReferenceGlyph</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728189792"></a>BaseCoord Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.18.1"></a>Specification</h4></div></div></div><p>The third BaseCoord format (BaseCoordFormat3) also
 >>>>>>> Rebuild
+=======
+          table.</p><div class="table"><a name="idm465834716720"></a><p class="title"><strong>Table 22.12. BaseCoordFormat2 table: Design units plus contour point</strong></p><div class="table-contents"><table class="table" summary="BaseCoordFormat2 table: Design units plus contour point" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCoordFormat</td><td>Format identifier-format = 2</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>Coordinate</td><td>X or Y value, in design units</td><td class="auto-generated"> </td></tr><tr><td>GlyphID</td><td>ReferenceGlyph</td><td>GlyphID of control glyph</td><td class="auto-generated"> </td></tr><tr><td>uint16</td><td>BaseCoordPoint</td><td>Index of contour point on the
+              ReferenceGlyph</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834707872"></a>BaseCoord Format 3</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.18.1"></a>Specification</h4></div></div></div><p>The third BaseCoord format (BaseCoordFormat3) also
+>>>>>>> Rebuild
           specifies the BaseCoord value in design units, but it uses a
           Device table rather than a contour point to adjust the
           value. This format offers the advantage of fine-tuning the
           BaseCoord value for any font size and device resolution.
           (For more information about Device tables, see the chapter,
           Common Table Formats.)</p><p>Example 7 at the end of this chapter shows a sample of a
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           BaseCoordFormat3 table.</p><div class="table"><a name="idm8376"></a><p class="title"><strong>Table 22.13. BaseCoordFormat3 table: Design units plus Device table</strong></p><div class="table-contents"><table class="table" summary="BaseCoordFormat3 table: Design units plus Device table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCoordFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>Coordinate</td><td>X or Y value, in design units</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>DeviceTable</td><td>Offset to Device table for X or Y
@@ -637,10 +750,15 @@
           BaseCoordFormat3 table.</p><div class="table"><a name="idm62728186800"></a><p class="title"><strong>Table 22.13. BaseCoordFormat3 table: Design units plus Device table</strong></p><div class="table-contents"><table class="table" summary="BaseCoordFormat3 table: Design units plus Device table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCoordFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>Coordinate</td><td>X or Y value, in design units</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>DeviceTable</td><td>Offset to Device table for X or Y
               value</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728179872"></a>BASE Table Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.19.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes and illustrates
 >>>>>>> Rebuild
+=======
+          BaseCoordFormat3 table.</p><div class="table"><a name="idm465834704752"></a><p class="title"><strong>Table 22.13. BaseCoordFormat3 table: Design units plus Device table</strong></p><div class="table-contents"><table class="table" summary="BaseCoordFormat3 table: Design units plus Device table" border="1"><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>Type</th><th>Name</th><th>Description</th><td class="auto-generated"> </td></tr></thead><tbody><tr><td>uint16</td><td>BaseCoordFormat</td><td>Format identifier-format = 3</td><td class="auto-generated"> </td></tr><tr><td>int16</td><td>Coordinate</td><td>X or Y value, in design units</td><td class="auto-generated"> </td></tr><tr><td>Offset</td><td>DeviceTable</td><td>Offset to Device table for X or Y
+              value</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465834697376"></a>BASE Table Examples</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.19.1"></a>Specification</h4></div></div></div><p>The rest of this chapter describes and illustrates
+>>>>>>> Rebuild
           examples of all the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> tables. All the
           examples reflect unique parameters described below, but the
           samples provide a useful reference for building tables
           specific to other situations.</p><p>Most of the examples have three columns showing hex
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           data, source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8404"></a>Example 1: BASE Header Table, Axis Table, BaseTagList
@@ -649,6 +767,9 @@
 >>>>>>> Rebuild
 =======
           data, source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728175952"></a>Example 1: BASE Header Table, Axis Table, BaseTagList
+>>>>>>> Rebuild
+=======
+          data, source, and comments.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465836974832"></a>Example 1: BASE Header Table, Axis Table, BaseTagList
 >>>>>>> Rebuild
         Table, BaseScriptList Table, and BaseScriptRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.20.1"></a>Specification</h4></div></div></div><p>Example 1 describes a sample font that contains four
           scripts: Cyrillic, Devanagari, Han, and Latin. All four
@@ -667,12 +788,16 @@
           Han, and its BaseTagList would specify the vertically
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           centered baseline for rendering the Han script.</p><div class="table"><a name="idm8412"></a><p class="title"><strong>Table 22.14. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>
 =======
           centered baseline for rendering the Han script.</p><div class="table"><a name="idm189304889312"></a><p class="title"><strong>Table 22.14. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>
 >>>>>>> Rebuild
 =======
           centered baseline for rendering the Han script.</p><div class="table"><a name="idm62728171312"></a><p class="title"><strong>Table 22.14. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>
+>>>>>>> Rebuild
+=======
+          centered baseline for rendering the Han script.</p><div class="table"><a name="idm465847800560"></a><p class="title"><strong>Table 22.14. Example 1</strong></p><div class="table-contents"><table class="table" summary="Example 1" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>
 >>>>>>> Rebuild
             <span class="emphasis"><em>BASEHeader</em></span>
           </td><td> </td></tr><tr><td> </td><td>TheBASEHeader</td><td>
@@ -683,12 +808,16 @@
                   BaseScriptRecord[3]</td></tr><tr><td>6C61746E</td><td>"latn"</td><td>BaseScriptTag for Latin script</td></tr><tr><td>00B4</td><td>HorizLatinBaseScriptTable</td><td>Offset to BaseScript table for Latin
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   script</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8527"></a>Example 2: BaseScript Table and BaseLangSysRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.21.1"></a>Specification</h4></div></div></div><p>Example 2 shows the BaseScript table and
 =======
                   script</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189304780224"></a>Example 2: BaseScript Table and BaseLangSysRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.21.1"></a>Specification</h4></div></div></div><p>Example 2 shows the BaseScript table and
 >>>>>>> Rebuild
 =======
                   script</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728132192"></a>Example 2: BaseScript Table and BaseLangSysRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.21.1"></a>Specification</h4></div></div></div><p>Example 2 shows the BaseScript table and
+>>>>>>> Rebuild
+=======
+                  script</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847759808"></a>Example 2: BaseScript Table and BaseLangSysRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.21.1"></a>Specification</h4></div></div></div><p>Example 2 shows the BaseScript table and
 >>>>>>> Rebuild
           BaseLangSysRecord for the Cyrillic script, one of the four
           scripts included in the sample font described in Example 1.
@@ -700,6 +829,7 @@
           information for the script, and the
           HorizCyrillicDefaultMinMax table contains the default script
           extents. In addition, a BaseLangSysRecord defines min/max
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           extent data for the Russian language system.</p><div class="table"><a name="idm8533"></a><p class="title"><strong>Table 22.15. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseScript</td><td> </td></tr><tr><td> </td><td>HorizCyrillicBaseScriptTable</td><td>BaseScript table definition for Cyrillic
@@ -721,6 +851,13 @@
                   BaseLangSysRecord[0] in alphabetical order</td></tr><tr><td>52555320</td><td>"RUS "</td><td>BaseLangSysTag, Russian language system</td></tr><tr><td>0030</td><td>HorizRussianMinMaxTable</td><td>Offset to MinMax table feature-specific
                   extents</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728116384"></a>Example 3: BaseValues Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.22.1"></a>Specification</h4></div></div></div><p>Example 3 extends the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table
 >>>>>>> Rebuild
+=======
+          extent data for the Russian language system.</p><div class="table"><a name="idm465847756368"></a><p class="title"><strong>Table 22.15. Example 2</strong></p><div class="table-contents"><table class="table" summary="Example 2" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseScript</td><td> </td></tr><tr><td> </td><td>HorizCyrillicBaseScriptTable</td><td>BaseScript table definition for Cyrillic
+                  script</td></tr><tr><td>000C</td><td>HorizCyrillicBaseValuesTable</td><td>Offset to BaseValues table</td></tr><tr><td>0022</td><td>HorizCyrillicDefaultMinMaxTable</td><td>Offset to DefaultMinMax table default script
+                  extents</td></tr><tr><td>0001</td><td>1</td><td>BaseLangSysCount, feature-specific extents
+                  BaseLangSysRecord[0] in alphabetical order</td></tr><tr><td>52555320</td><td>"RUS "</td><td>BaseLangSysTag, Russian language system</td></tr><tr><td>0030</td><td>HorizRussianMinMaxTable</td><td>Offset to MinMax table feature-specific
+                  extents</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847743344"></a>Example 3: BaseValues Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.22.1"></a>Specification</h4></div></div></div><p>Example 3 extends the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table
+>>>>>>> Rebuild
           definition for the Cyrillic script described in Examples 1
           and 2. It contains two parts:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Example 3A illustrates a fully defined BaseValues
               table for Cyrillic. The table includes the corresponding
@@ -729,12 +866,16 @@
               in the sample font.</p></li></ul></div><p>The examples show only horizontal text-layout data, and
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           the font uses 2,048 design units/em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8582"></a>Example 3A: BaseValues Table for Cyrillic</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.23.1"></a>Specification</h4></div></div></div><p>The BaseValues table of Example 3A identifies the
 =======
           the font uses 2,048 design units/em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189304758336"></a>Example 3A: BaseValues Table for Cyrillic</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.23.1"></a>Specification</h4></div></div></div><p>The BaseValues table of Example 3A identifies the
 >>>>>>> Rebuild
 =======
           the font uses 2,048 design units/em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728110352"></a>Example 3A: BaseValues Table for Cyrillic</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.23.1"></a>Specification</h4></div></div></div><p>The BaseValues table of Example 3A identifies the
+>>>>>>> Rebuild
+=======
+          the font uses 2,048 design units/em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847737024"></a>Example 3A: BaseValues Table for Cyrillic</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.23.1"></a>Specification</h4></div></div></div><p>The BaseValues table of Example 3A identifies the
 >>>>>>> Rebuild
           default baseline for Cyrillic and specifies coordinate
           positions for each baseline listed in the BaseTagList shown
@@ -745,12 +886,16 @@
               and Cyrillic scripts, and its position lies between the
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               hanging and ideographic baselines.</p></li></ul></div><div class="table"><a name="idm8594"></a><p class="title"><strong>Table 22.16. Example 3A</strong></p><div class="table-contents"><table class="table" summary="Example 3A" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseValues</td><td> </td></tr><tr><td> </td><td>HorizCyrillicBaseValuesTable</td><td>BaseValues table definition for Cyrillic
 =======
               hanging and ideographic baselines.</p></li></ul></div><div class="table"><a name="idm189304752800"></a><p class="title"><strong>Table 22.16. Example 3A</strong></p><div class="table-contents"><table class="table" summary="Example 3A" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseValues</td><td> </td></tr><tr><td> </td><td>HorizCyrillicBaseValuesTable</td><td>BaseValues table definition for Cyrillic
 >>>>>>> Rebuild
 =======
               hanging and ideographic baselines.</p></li></ul></div><div class="table"><a name="idm62728104912"></a><p class="title"><strong>Table 22.16. Example 3A</strong></p><div class="table-contents"><table class="table" summary="Example 3A" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseValues</td><td> </td></tr><tr><td> </td><td>HorizCyrillicBaseValuesTable</td><td>BaseValues table definition for Cyrillic
+>>>>>>> Rebuild
+=======
+              hanging and ideographic baselines.</p></li></ul></div><div class="table"><a name="idm465847731440"></a><p class="title"><strong>Table 22.16. Example 3A</strong></p><div class="table-contents"><table class="table" summary="Example 3A" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseValues</td><td> </td></tr><tr><td> </td><td>HorizCyrillicBaseValuesTable</td><td>BaseValues table definition for Cyrillic
 >>>>>>> Rebuild
                   script</td></tr><tr><td>0002</td><td>2</td><td>DefaultIndex, roman baseline BaselineTag
                   index</td></tr><tr><td>0003</td><td>3</td><td>BaseCoordCount, equals BaseTagCount</td></tr><tr><td>000A</td><td>HorizHangingBaseCoordForCyrl</td><td>Offset to BaseCoord[0] table hanging baseline
@@ -759,12 +904,16 @@
                   baseline coordinate</td></tr><tr><td>0012</td><td>HorizromanBaseCoordForCyrl</td><td>Offset to BaseCoord[2] table roman baseline
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   coordinat</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizHangingBaseCoordForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat design units only</td></tr><tr><td>05DC</td><td>1500</td><td>Coordinate Y value, in design unit</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizideographicBaseCoordForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat design units only</td></tr><tr><td>FEE0</td><td>-288</td><td>Coordinate Y value, in design unit</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizromanBaseCoordinateForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat, design units only</td></tr><tr><td>0000</td><td>0</td><td>Coordinate, Y value, in design units</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8679"></a>Example 3B: Baseline Values for Four Scripts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.24.1"></a>Specification</h4></div></div></div><p>Example 3B shows two tables that contain baseline values
 =======
                   coordinat</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizHangingBaseCoordForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat design units only</td></tr><tr><td>05DC</td><td>1500</td><td>Coordinate Y value, in design unit</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizideographicBaseCoordForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat design units only</td></tr><tr><td>FEE0</td><td>-288</td><td>Coordinate Y value, in design unit</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizromanBaseCoordinateForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat, design units only</td></tr><tr><td>0000</td><td>0</td><td>Coordinate, Y value, in design units</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189304723888"></a>Example 3B: Baseline Values for Four Scripts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.24.1"></a>Specification</h4></div></div></div><p>Example 3B shows two tables that contain baseline values
 >>>>>>> Rebuild
 =======
                   coordinat</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizHangingBaseCoordForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat design units only</td></tr><tr><td>05DC</td><td>1500</td><td>Coordinate Y value, in design unit</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizideographicBaseCoordForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat design units only</td></tr><tr><td>FEE0</td><td>-288</td><td>Coordinate Y value, in design unit</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizromanBaseCoordinateForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat, design units only</td></tr><tr><td>0000</td><td>0</td><td>Coordinate, Y value, in design units</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728076512"></a>Example 3B: Baseline Values for Four Scripts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.24.1"></a>Specification</h4></div></div></div><p>Example 3B shows two tables that contain baseline values
+>>>>>>> Rebuild
+=======
+                  coordinat</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizHangingBaseCoordForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat design units only</td></tr><tr><td>05DC</td><td>1500</td><td>Coordinate Y value, in design unit</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizideographicBaseCoordForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat design units only</td></tr><tr><td>FEE0</td><td>-288</td><td>Coordinate Y value, in design unit</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizromanBaseCoordinateForCyrl</td><td>BaseCoord table definition</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat, design units only</td></tr><tr><td>0000</td><td>0</td><td>Coordinate, Y value, in design units</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847701856"></a>Example 3B: Baseline Values for Four Scripts</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.24.1"></a>Specification</h4></div></div></div><p>Example 3B shows two tables that contain baseline values
 >>>>>>> Rebuild
           for each of the four scripts in the sample font described in
           Example 1:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The first table shows what might happen if the
@@ -779,6 +928,7 @@
               (0) coordinate.</p></li></ul></div><p>Either method of assigning baseline values can be used
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           in the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table.</p><div class="table"><a name="idm8691"></a><p class="title"><strong>Table 22.17. Example 3B: Identical baseline values</strong></p><div class="table-contents"><table class="table" summary="Example 3B: Identical baseline values" border="1"><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>Baseline type</th><th>Han</th><th>Latin</th><th>Cyrillic</th><th>Devanagari</th></tr></thead><tbody><tr><td>hanging</td><td>1500</td><td>1500</td><td>1500</td><td>1500</td></tr><tr><td>roman</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>ideographic</td><td>-288</td><td>-288</td><td>-288</td><td>-288</td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm8720"></a><p class="title"><strong>Table 22.18. Example 3B: Assigned baseline values with default
             baselines at 0</strong></p><div class="table-contents"><table class="table" summary="Example 3B: Assigned baseline values with default&#10;            baselines at 0" border="1"><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>Baseline type</th><th>Han</th><th>Latin</th><th>Cyrillic</th><th>Devanagari</th></tr></thead><tbody><tr><td>hanging</td><td>1788</td><td>1500</td><td>1500</td><td>0</td></tr><tr><td>roman</td><td>288</td><td>0</td><td>0</td><td>-1500</td></tr><tr><td>ideographic</td><td>0</td><td>-288</td><td>-288</td><td>-1788</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8749"></a>Example 4: MinMax Table and FeatMinMaxRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.25.1"></a>Specification</h4></div></div></div><p>Example 4 shows MinMax table and FeatMinMaxRecord
 =======
@@ -789,6 +939,10 @@
           in the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table.</p><div class="table"><a name="idm62728070736"></a><p class="title"><strong>Table 22.17. Example 3B: Identical baseline values</strong></p><div class="table-contents"><table class="table" summary="Example 3B: Identical baseline values" border="1"><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>Baseline type</th><th>Han</th><th>Latin</th><th>Cyrillic</th><th>Devanagari</th></tr></thead><tbody><tr><td>hanging</td><td>1500</td><td>1500</td><td>1500</td><td>1500</td></tr><tr><td>roman</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>ideographic</td><td>-288</td><td>-288</td><td>-288</td><td>-288</td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm62728059376"></a><p class="title"><strong>Table 22.18. Example 3B: Assigned baseline values with default
             baselines at 0</strong></p><div class="table-contents"><table class="table" summary="Example 3B: Assigned baseline values with default&#10;            baselines at 0" border="1"><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>Baseline type</th><th>Han</th><th>Latin</th><th>Cyrillic</th><th>Devanagari</th></tr></thead><tbody><tr><td>hanging</td><td>1788</td><td>1500</td><td>1500</td><td>0</td></tr><tr><td>roman</td><td>288</td><td>0</td><td>0</td><td>-1500</td></tr><tr><td>ideographic</td><td>0</td><td>-288</td><td>-288</td><td>-1788</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728047392"></a>Example 4: MinMax Table and FeatMinMaxRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.25.1"></a>Specification</h4></div></div></div><p>Example 4 shows MinMax table and FeatMinMaxRecord
 >>>>>>> Rebuild
+=======
+          in the <a class="link" href="chapter.BASE.html" title="Chapter 22. BASE - Baseline Table">BASE</a> table.</p><div class="table"><a name="idm465847695808"></a><p class="title"><strong>Table 22.17. Example 3B: Identical baseline values</strong></p><div class="table-contents"><table class="table" summary="Example 3B: Identical baseline values" border="1"><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>Baseline type</th><th>Han</th><th>Latin</th><th>Cyrillic</th><th>Devanagari</th></tr></thead><tbody><tr><td>hanging</td><td>1500</td><td>1500</td><td>1500</td><td>1500</td></tr><tr><td>roman</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>ideographic</td><td>-288</td><td>-288</td><td>-288</td><td>-288</td></tr></tbody></table></div></div><br class="table-break"/><div class="table"><a name="idm465847684160"></a><p class="title"><strong>Table 22.18. Example 3B: Assigned baseline values with default
+            baselines at 0</strong></p><div class="table-contents"><table class="table" summary="Example 3B: Assigned baseline values with default&#10;            baselines at 0" border="1"><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>Baseline type</th><th>Han</th><th>Latin</th><th>Cyrillic</th><th>Devanagari</th></tr></thead><tbody><tr><td>hanging</td><td>1788</td><td>1500</td><td>1500</td><td>0</td></tr><tr><td>roman</td><td>288</td><td>0</td><td>0</td><td>-1500</td></tr><tr><td>ideographic</td><td>0</td><td>-288</td><td>-288</td><td>-1788</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847671936"></a>Example 4: MinMax Table and FeatMinMaxRecord</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.25.1"></a>Specification</h4></div></div></div><p>Example 4 shows MinMax table and FeatMinMaxRecord
+>>>>>>> Rebuild
           definitions for the same Cyrillic script described in the
           previous example. It contains two parts:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Example 4A defines tables with different script,
               language system, and feature extents.</p></li><li class="listitem"><p>Example 4B shows these same table definitions
@@ -798,12 +952,16 @@
               is implemented.</p></li></ul></div><p>The examples show only horizontal text-layout data, and
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           the font uses 2,048 design units/em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8760"></a>Example 4A: Min/Max Extents For Cyrillic Script, Russian
 =======
           the font uses 2,048 design units/em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189304688544"></a>Example 4A: Min/Max Extents For Cyrillic Script, Russian
 >>>>>>> Rebuild
 =======
           the font uses 2,048 design units/em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62728041856"></a>Example 4A: Min/Max Extents For Cyrillic Script, Russian
+>>>>>>> Rebuild
+=======
+          the font uses 2,048 design units/em.</p></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847666160"></a>Example 4A: Min/Max Extents For Cyrillic Script, Russian
 >>>>>>> Rebuild
         Language, and Russian Feature</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.26.1"></a>Specification</h4></div></div></div><p>Example 4A shows two MinMax tables and a
           FeatMinMaxRecord for the Cyrillic script, along with sample
@@ -817,12 +975,16 @@
           language system that substitutes a tall integral math symbol
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           when required.</p><div class="table"><a name="idm8766"></a><p class="title"><strong>Table 22.19. Example 4A</strong></p><div class="table-contents"><table class="table" summary="Example 4A" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MinMax</td><td> </td></tr><tr><td> </td><td>HorizCyrillicDefaultMinMaxTable</td><td>DefaultMinMax table definition, Cyrillic
 =======
           when required.</p><div class="table"><a name="idm189304685248"></a><p class="title"><strong>Table 22.19. Example 4A</strong></p><div class="table-contents"><table class="table" summary="Example 4A" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MinMax</td><td> </td></tr><tr><td> </td><td>HorizCyrillicDefaultMinMaxTable</td><td>DefaultMinMax table definition, Cyrillic
 >>>>>>> Rebuild
 =======
           when required.</p><div class="table"><a name="idm62728038608"></a><p class="title"><strong>Table 22.19. Example 4A</strong></p><div class="table-contents"><table class="table" summary="Example 4A" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MinMax</td><td> </td></tr><tr><td> </td><td>HorizCyrillicDefaultMinMaxTable</td><td>DefaultMinMax table definition, Cyrillic
+>>>>>>> Rebuild
+=======
+          when required.</p><div class="table"><a name="idm465847662816"></a><p class="title"><strong>Table 22.19. Example 4A</strong></p><div class="table-contents"><table class="table" summary="Example 4A" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>MinMax</td><td> </td></tr><tr><td> </td><td>HorizCyrillicDefaultMinMaxTable</td><td>DefaultMinMax table definition, Cyrillic
 >>>>>>> Rebuild
                   script</td></tr><tr><td>0006</td><td>HorizCyrillicMinCoordTable</td><td>MinCoord offset to BaseCoord table</td></tr><tr><td>000A</td><td>HorizCyrillicMaxCoordTable</td><td>MaxCoord offset to BaseCoord table</td></tr><tr><td>0000</td><td>0</td><td>FeatMinMaxCount no default feature extents
                   FeatMinMaxRecord[], no FeatMinMaxRecord</td></tr><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizCyrillicMinCoordTable</td><td>BaseCoord table definition, default Cyrillic
@@ -846,12 +1008,16 @@
                   Max extent beyond default Cyrillic script and
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   Russian language max extents</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm8923"></a>Example 4B: Min/Max Extents For Cyrillic Script and
 =======
                   Russian language max extents</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm189294561744"></a>Example 4B: Min/Max Extents For Cyrillic Script and
 >>>>>>> Rebuild
 =======
                   Russian language max extents</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727985232"></a>Example 4B: Min/Max Extents For Cyrillic Script and
+>>>>>>> Rebuild
+=======
+                  Russian language max extents</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847607376"></a>Example 4B: Min/Max Extents For Cyrillic Script and
 >>>>>>> Rebuild
         Russian Feature</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.27.1"></a>Specification</h4></div></div></div><p>A particular language system does not need to define
           min/max extent coordinates if its extents match the default
@@ -876,12 +1042,16 @@
           min/max coordinates for the Russian feature and specifies
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           the correct FeatureTableTag.</p><div class="table"><a name="idm8930"></a><p class="title"><strong>Table 22.20. Example 4B</strong></p><div class="table-contents"><table class="table" summary="Example 4B" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseScript</td><td> </td></tr><tr><td> </td><td>HorizCyrillicBaseScriptTable</td><td>BaseScript table
 =======
           the correct FeatureTableTag.</p><div class="table"><a name="idm189294557248"></a><p class="title"><strong>Table 22.20. Example 4B</strong></p><div class="table-contents"><table class="table" summary="Example 4B" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseScript</td><td> </td></tr><tr><td> </td><td>HorizCyrillicBaseScriptTable</td><td>BaseScript table
 >>>>>>> Rebuild
 =======
           the correct FeatureTableTag.</p><div class="table"><a name="idm62727980912"></a><p class="title"><strong>Table 22.20. Example 4B</strong></p><div class="table-contents"><table class="table" summary="Example 4B" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseScript</td><td> </td></tr><tr><td> </td><td>HorizCyrillicBaseScriptTable</td><td>BaseScript table
+>>>>>>> Rebuild
+=======
+          the correct FeatureTableTag.</p><div class="table"><a name="idm465847602880"></a><p class="title"><strong>Table 22.20. Example 4B</strong></p><div class="table-contents"><table class="table" summary="Example 4B" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseScript</td><td> </td></tr><tr><td> </td><td>HorizCyrillicBaseScriptTable</td><td>BaseScript table
 >>>>>>> Rebuild
                   definition Cyrillic script</td></tr><tr><td>0000</td><td>NULL</td><td>offset to BaseValues table</td></tr><tr><td>000C</td><td>HorizCyrillicDefault MinMaxTable</td><td>offset to DefaultMinMax table for default
                   script extents</td></tr><tr><td>0001</td><td>1</td><td>BaseLangSysCount</td></tr><tr><td> </td><td> </td><td>BaseLangSysRecord[0] for Russian
@@ -908,6 +1078,7 @@
                   Max extent beyond default Cyrillic Max
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   extent</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm9087"></a>Example 5: BaseCoordFormat1 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.28.1"></a>Specification</h4></div></div></div><p>Example 5 illustrates BaseCoordFormat1, which specifies
           single coordinate values in design units only. The font uses
           2,048 design units/em. The example defines the default
@@ -927,10 +1098,18 @@
           minimum extent coordinate for a math script.</p><div class="table"><a name="idm62727925008"></a><p class="title"><strong>Table 22.21. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizMathMinCoordTable</td><td>Definition of BaseCoord
                   table for Math Min coordinate</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat, design units only</td></tr><tr><td>FEE8</td><td>-280</td><td>Coordinate Y value, in design units</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727916976"></a>Example 6: BaseCoordFormat2 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.29.1"></a>Specification</h4></div></div></div><p>Example 6 illustrates the BaseCoord Format 2. Like
 >>>>>>> Rebuild
+=======
+                  extent</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847547408"></a>Example 5: BaseCoordFormat1 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.28.1"></a>Specification</h4></div></div></div><p>Example 5 illustrates BaseCoordFormat1, which specifies
+          single coordinate values in design units only. The font uses
+          2,048 design units/em. The example defines the default
+          minimum extent coordinate for a math script.</p><div class="table"><a name="idm465847544928"></a><p class="title"><strong>Table 22.21. Example 5</strong></p><div class="table-contents"><table class="table" summary="Example 5" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseCoordFormat1</td><td> </td></tr><tr><td> </td><td>HorizMathMinCoordTable</td><td>Definition of BaseCoord
+                  table for Math Min coordinate</td></tr><tr><td>0001</td><td>1</td><td>BaseCoordFormat, design units only</td></tr><tr><td>FEE8</td><td>-280</td><td>Coordinate Y value, in design units</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847536512"></a>Example 6: BaseCoordFormat2 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.29.1"></a>Specification</h4></div></div></div><p>Example 6 illustrates the BaseCoord Format 2. Like
+>>>>>>> Rebuild
           Example 5, it specifies the minimum extent coordinate for a
           math script. With this format, the coordinate value depends
           on the final position of a specific contour point on one
           glyph, the integral math symbol, after hinting. Again, the
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           value is in design units (2,048 units/em).</p><div class="table"><a name="idm9122"></a><p class="title"><strong>Table 22.22. Example 6</strong></p><div class="table-contents"><table class="table" summary="Example 6" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseCoordFormat2</td><td> </td></tr><tr><td> </td><td>HorizMathMinCoordTable</td><td>BaseCoord table
@@ -949,6 +1128,12 @@
                   point</td></tr><tr><td>FEE8</td><td>-280</td><td>Coordinate Y value, in design units</td></tr><tr><td>0128</td><td>IntegralSignGlyphID</td><td>ReferenceGlyph math integral sign</td></tr><tr><td>0043</td><td>67</td><td>BaseCoordPoint glyph contour point
                   index</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm62727903584"></a>Example 7: BaseCoordFormat3 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.30.1"></a>Specification</h4></div></div></div><p>Example 7 illustrates the BaseCoord Format 3. Like
 >>>>>>> Rebuild
+=======
+          value is in design units (2,048 units/em).</p><div class="table"><a name="idm465847533904"></a><p class="title"><strong>Table 22.22. Example 6</strong></p><div class="table-contents"><table class="table" summary="Example 6" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseCoordFormat2</td><td> </td></tr><tr><td> </td><td>HorizMathMinCoordTable</td><td>BaseCoord table
+                  definition for Math Min coordinate</td></tr><tr><td>0002</td><td>2</td><td>BaseCoordFormat design units plus contour
+                  point</td></tr><tr><td>FEE8</td><td>-280</td><td>Coordinate Y value, in design units</td></tr><tr><td>0128</td><td>IntegralSignGlyphID</td><td>ReferenceGlyph math integral sign</td></tr><tr><td>0043</td><td>67</td><td>BaseCoordPoint glyph contour point
+                  index</td></tr></tbody></table></div></div><br class="table-break"/></div></div><div role="fragment" class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm465847522464"></a>Example 7: BaseCoordFormat3 Table</h3></div></div></div><div role="specification" class="section"><div class="titlepage"><div><div><h4 class="title"><a name="section.23.30.1"></a>Specification</h4></div></div></div><p>Example 7 illustrates the BaseCoord Format 3. Like
+>>>>>>> Rebuild
           Examples 5 and 6, it specifies the minimum extent coordinate
           for a math script in design units (2,048 units/em). This
           format, however, uses a Device table to modify the
@@ -957,12 +1142,16 @@
           adjustments for font sizes from 11 ppem to 15 ppem. The
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           adjustments add one pixel at each size.</p><div class="table"><a name="idm9160"></a><p class="title"><strong>Table 22.23. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseCoordFormat3</td><td> </td></tr><tr><td> </td><td>HorizMathMinCoordTable</td><td>BaseCoord table
 =======
           adjustments add one pixel at each size.</p><div class="table"><a name="idm189294474112"></a><p class="title"><strong>Table 22.23. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseCoordFormat3</td><td> </td></tr><tr><td> </td><td>HorizMathMinCoordTable</td><td>BaseCoord table
 >>>>>>> Rebuild
 =======
           adjustments add one pixel at each size.</p><div class="table"><a name="idm62727901008"></a><p class="title"><strong>Table 22.23. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseCoordFormat3</td><td> </td></tr><tr><td> </td><td>HorizMathMinCoordTable</td><td>BaseCoord table
+>>>>>>> Rebuild
+=======
+          adjustments add one pixel at each size.</p><div class="table"><a name="idm465847519744"></a><p class="title"><strong>Table 22.23. Example 7</strong></p><div class="table-contents"><table class="table" summary="Example 7" border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th>HexData</th><th>Source</th><th>Comment</th></tr></thead><tbody><tr><td> </td><td>BaseCoordFormat3</td><td> </td></tr><tr><td> </td><td>HorizMathMinCoordTable</td><td>BaseCoord table
 >>>>>>> Rebuild
                   definition for Math Min coordinate</td></tr><tr><td>0003</td><td>3</td><td>BaseCoordFormat design units plus device
                   table</td></tr><tr><td> </td><td>-280</td><td>Coordinate Y value, in design

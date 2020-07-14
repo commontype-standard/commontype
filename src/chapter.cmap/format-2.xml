@@ -99,7 +99,7 @@
       </para>
       <para>
           The value of idDelta specifies a delta to be added the glyph ID,
-          modulo 65536, to permits the same subarray to be used for several
+          modulo 65536, to permit the same range to be used for several
           different subheaders.
       </para>
 

@@ -34,6 +34,10 @@ However, we have recognized that the AOTS project includes a liberally licensed 
 
 ## CommonType goals
 
+> Clean up house, remodel, then extend it, and live while doing it!
+
+— @twardoch
+
 The **CommonType** project provides a [publicly accessible rendition](http://commontype.org/) of the AOTS text, and aims to improve and extend it. We are using the term “CommonType” as a working name, as we do not guarantee that the content of the project will fully match OpenType, TrueType or OFF.
 
 We want CommonType to be **open**: liberally licensed, open source and based on open and transparent procedures. 

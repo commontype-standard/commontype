@@ -116,8 +116,8 @@ Provide opportunities to submit the additions/extensions to the more formally-dr
 
 CommonType is currently a personal project of select individuals who have an interest in font technology:
 
-- [Simon Cozens](https://github.com/simoncozens)
-- [Adam Twardoch](https://github.com/twardoch)
-- [Dave Crossland](https://github.com/davelab6)
+- [Simon Cozens](https://github.com/simoncozens) _@simoncozens_
+- [Adam Twardoch](https://github.com/twardoch) _@twardoch_
+- [Dave Crossland](https://github.com/davelab6) _@davelab6_
 
 CommonType is not currently backed or endorsed by any organization or company. We are looking forward to your comments and discussion.

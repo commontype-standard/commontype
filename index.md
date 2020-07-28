@@ -7,8 +7,7 @@
           developed jointly by Adobe and Microsoft. Because OpenType is
           itself an extension of TrueType, there is also information in
           this document that was originally authored by Apple.</p><p class="remark"><em><span class="remark">
-          <p>This specification is an editor's draft. It does not
-          necessarily represent the consensus of the CommonType committee.
+          <p>This specification is work in progress. See [README](https://github.com/commontype-standard/commontype-standard.github.io/blob/source/README.md) for more info about the project goals.
           </p>
     </span></em></p><p>If you have comments or suggestions about this document,
           please create an annotation by selecting the text on the page and

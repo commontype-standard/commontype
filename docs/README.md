@@ -105,7 +105,7 @@ Provide opportunities to submit the additions/extensions to the more formally-dr
 ## Current structure
 
 - The [commontype.org](http://commontype.org/) website contains the specification text in readable form, and lets you comment on the text right in the browser using [hypothes.is](http://hypothes.is/)
-- The [`master`](https://github.com/commontype-standard/commontype/tree/master) branch contains a Markdown representation of the text.
+- The [`docs`](tree/master/docs) folder contains a Markdown representation of the text.
 - The [`source`](https://github.com/commontype-standard/commontype/tree/source) branch contains the AOTS sources
 
 ## Discussion

@@ -2,7 +2,7 @@ name: Rebuild gh-pages
 on:
   push:
     branches:
-      - source
+      - master
 
 jobs:
   run:
@@ -17,14 +17,6 @@ jobs:
 
     - name: Install dependencies
       run: sudo apt-get install xsltproc rename docbook-xsl libfile-slurp-perl
-
-    - name: Merge
-      uses: devmasx/merge-branch@v1.1.0
-      with:
-        type: now
-        target_branch: 'master'
-      env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: Rebuild site
       run: make mdhtml DB=/usr/share/xml/docbook/stylesheet/docbook-xsl/

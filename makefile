@@ -16,13 +16,9 @@ clean::
 htmls: html/commontype.html html/cff.html html/type2.html
 
 publish:
-	git checkout master
-	git merge --strategy-option theirs source -m "Merge source"
 	make mdhtml
-	git add *.md
-	git commit -m "Rebuild" *.md
-	git push
-	git checkout source
+	git add docs/*.md
+	git commit -m "Rebuild" docs/*.md
 
 docbooks: docbook/commontype.docbook docbook/cff.docbook docbook/type2.docbook
 
@@ -44,6 +40,7 @@ mdhtml : docbook/commontype.docbook
 		--stringparam chunker.standalone 1 \
 		--stringparam chunker.output.omit-xml-declaration yes \
 		--stringparam use.id.as.filename 1 \
+        --stringparam base.dir docs/ \
 		 xsl/mychunk.xsl docbook/commontype.docbook
 	perl src/build-navigation.pl
 	rename -f 's/.html/.md/' *.html

@@ -42,7 +42,7 @@ Here are some goals that we have. This is work in progress, these goals may chan
 
 ### Phase A: describe today’s fonts better
 
-#### Make a documentation, perhaps specification
+#### Documentation first, specify later
 
 First, we consider the CommonType content as **documentation** (docs): we document the existing world: we document the SFNT-based font formats (OpenType, TrueType, OFF), we document the real-life behavior of implementations, and, as much as possible, we document the texts that affect that behavior, i.e. the the “normative specs” of these formats. At this point we avoid using the terms **specification** (spec) or **standard**. We use these terms conservatively, when it’s appropriate. We consider using these terms more when a portion of the CommonType docs becomes formalized.
 
@@ -50,7 +50,7 @@ First, we consider the CommonType content as **documentation** (docs): we docume
 
 Provide a liberally licensed rendition of the documentation (text) that describes SFNT-based font formats (OpenType, TrueType, OFF). The documentation should use easily-reusable text formats such as Markdown. Makers of fonts and of tools that work with fonts should be able to create non-normative texts based on the current documentation: quote from the text, translate it, summarize it, annotate it. 
 
-#### Bring the documentation to parity with normative “specifications”
+#### Make parity with normative “specs”
 
 The CommonType documentation should describe all aspects of the SFNT-based font formats (OpenType, TrueType, OFF) that the normative “specifications” or “standards” of these formats describe. 
 
@@ -76,6 +76,14 @@ Slim down, not just add. Get rid of legacy baggage. Deprecate unneeded stuff or 
 
 ### Phase B: make tomorrow’s fonts better
 
+#### Clarify procedures
+
+Create transparent procedures for working on the documentation.
+
+#### Invite additions
+
+Use CommonType as a platform for discussion about future font formats. Provide a platform for proposing functional additions/extensions to the documentation, and for drafting proposals that extend the SFNT-housed font formats.
+
 #### Plan a remake
 
 Devise a plan for a comprehensive overhaul of the documentation: split the text if needed into a mandatory formal portion (clear specification of the format),  and more freeform annexes, annotations, recommendations for font developers and for implementers of software that uses fonts.
@@ -83,14 +91,6 @@ Devise a plan for a comprehensive overhaul of the documentation: split the text 
 #### Help developers
 
 Give some implementers the chance to implement CommonType in addition to or as an alternative to the other formats. Create versioned profiles of the spec so that implementers can actually build tests and implement towards realistic goals. Work with developers on conformance suites. Conceptual analogy: PDF/X or PDF/A formats, which are stricter subsets of PDF.
-
-#### Invite additions
-
-Use CommonType as a platform for discussion about future font formats. Provide a platform for proposing functional additions/extensions to the documentation, and for drafting proposals that extend the SFNT-housed font formats.
-
-#### Clarify procedures
-
-Create transparent procedures for working on the documentation.
 
 #### Help the future
 

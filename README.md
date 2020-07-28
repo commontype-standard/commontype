@@ -36,17 +36,61 @@ However, we have recognized that the AOTS project includes a liberally licensed 
 
 The **CommonType** project provides a [publicly accessible rendition](http://commontype.org/) of the AOTS text, and aims to improve and extend it. We are using the term “CommonType” as a working name, as we do not guarantee that the content of the project will fully match OpenType, TrueType or OFF.
 
-We want CommonType to be **open**: liberally licensed, open source and based on open and transparent procedures. We want to:
+We want CommonType to be **open**: liberally licensed, open source and based on open and transparent procedures. 
 
-- review the documentation (spec), identify weaknesses, for example ambiguous terminology
-- bring the documentation on-par with OpenType, TrueType and/or OFF
-- revise the documentation: formalize the language, improve writing clarity, remove inaccurate legacy language outdated by later revisions
-- possibly reorganize the documentation, provide a clear specification of the format, and separately, provide recommendations for font developers and for implementers of software that uses fonts
-- develop the documentation further
-- create transparent procedures for working on the documentation
-- use CommonType as a platform for discussion about future font formats, and for drafting proposals that extend the SFNT-housed font formats
+Here are some goals that we have. This is work in progress, these goals may change. 
 
-These goals may change.
+### Phase A: describe today’s fonts better
+
+#### Make the documentation accessible
+
+Provide a liberally licensed rendition of the documentation (text) that describes SFNT-based font formats (OpenType, TrueType, OFF). The documentation should use easily-reusable text formats such as Markdown. Makers of fonts and of tools that work with fonts should be able to create non-normative texts based on the current documentation: quote from the text, translate it, summarize it, annotate it. 
+
+#### Bring the documentation to parity with normative specs
+
+The CommonType documentation should describe all aspects of the SFNT-based font formats (OpenType, TrueType, OFF) that the normative specs of these formats describe. 
+
+#### Find formal weaknesses
+
+Identify weak language and logic in the existing documentation, for example ambiguous terminology or contradictory statements.
+
+#### Fix formal weaknesses
+
+Improve the editorial quality of the documentation. Formalize the language, improve writing clarity, remove inaccurate legacy language outdated by later revisions, unify terminology, remove logical contradictions.
+
+#### Invite review and discussion
+
+Create a platform where interested parties can annotate and comment the spec.
+
+#### Bring in knowledge
+
+Bring in real-life knowledge about existing implementations and their quirks.
+
+#### Remove old baggage
+
+Slim down, not just add. Get rid of legacy baggage. Deprecate unneeded stuff or move it to archival content. Examples: `kern` table, the MacOS classic `name`. 
+
+### Phase B: make tomorrow’s fonts better
+
+#### Plan a remake
+
+Devise a plan for a comprehensive overhaul of the documentation: split the text if needed into a mandatory formal portion (clear specification of the format),  and more freeform annexes, annotations, recommendations for font developers and for implementers of software that uses fonts.
+
+#### Help developers
+
+Give some implementers the chance to implement CommonType in addition to or as an alternative to the other formats. Create versioned profiles of the spec so that implementers can actually build tests and implement towards realistic goals. Work with developers on conformance suites. Conceptual analogy: PDF/X or PDF/A formats, which are stricter subsets of PDF.
+
+#### Invite additions
+
+Use CommonType as a platform for discussion about future font formats. Provide a platform for proposing functional additions/extensions to the documentation, and for drafting proposals that extend the SFNT-housed font formats.
+
+#### Clarify procedures
+
+Create transparent procedures for working on the documentation.
+
+#### Help the future
+
+Provide opportunities to submit the additions/extensions to the more formally-driven bodies (OpenType, ISO OFF), so the owners of these specs can adopt the work of the CommonType community. 
 
 ## Current structure
 

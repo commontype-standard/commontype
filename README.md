@@ -42,13 +42,17 @@ Here are some goals that we have. This is work in progress, these goals may chan
 
 ### Phase A: describe today’s fonts better
 
+#### Make a documentation, perhaps specification
+
+First, we consider the CommonType content as **documentation** (docs): we document the existing world: we document the SFNT-based font formats (OpenType, TrueType, OFF), we document the real-life behavior of implementations, and, as much as possible, we document the texts that affect that behavior, i.e. the the “normative specs” of these formats. At this point we avoid using the terms **specification** (spec) or **standard**. We use these terms conservatively, when it’s appropriate. We consider using these terms more when a portion of the CommonType docs becomes formalized.
+
 #### Make the documentation accessible
 
 Provide a liberally licensed rendition of the documentation (text) that describes SFNT-based font formats (OpenType, TrueType, OFF). The documentation should use easily-reusable text formats such as Markdown. Makers of fonts and of tools that work with fonts should be able to create non-normative texts based on the current documentation: quote from the text, translate it, summarize it, annotate it. 
 
-#### Bring the documentation to parity with normative specs
+#### Bring the documentation to parity with normative “specifications”
 
-The CommonType documentation should describe all aspects of the SFNT-based font formats (OpenType, TrueType, OFF) that the normative specs of these formats describe. 
+The CommonType documentation should describe all aspects of the SFNT-based font formats (OpenType, TrueType, OFF) that the normative “specifications” or “standards” of these formats describe. 
 
 #### Find formal weaknesses
 

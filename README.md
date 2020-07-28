@@ -14,7 +14,7 @@ However, over the last two decades, many people in the font technology world exp
 
 > While I’ve enjoyed being part of a few ad-hoc groups over the past few years, at the same time it has worried me that they’ve increasingly been “ad-hoc”. When working with font makers & font tool makers, I know that a lot of energy goes into working around problems introed by OS makers and end-user app makers, and I know these problems are often because there is no real font format spec.
 
-To which @davelab replied:
+To which @davelab6 replied:
 
 > We will make one
 

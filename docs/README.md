@@ -10,7 +10,9 @@ Currently, SFNT-based fonts are specified in several places:
 2. **The TrueType® format**. TrueType® is a [registered trademark](https://www.apple.com/legal/intellectual-property/trademark/appletmlist.html) of [Apple® Inc.](https://www.apple.com/) The **[TrueType® Reference Manual](https://developer.apple.com/fonts/TrueType-Reference-Manual/)** is available at no charge on the Apple website. The text of the reference manual is © Apple Inc.
 3. **The Open Font Format standard**. The Open Font Format standard is an international standard published as ISO/IEC 14496-22:2019 “Information technology — Coding of audio-visual objects — Part 22: Open Font Format” by [ISO®](https://www.iso.org/) (International Organization for Standardization) and [IEC](https://www.iec.ch/) (International Electrotechnical Commission). The **[Open Font Format standard](https://standards.iso.org/ittf/PubliclyAvailableStandards/c074461_ISO_IEC_14496-22_2019.zip)** is available at no charge on the ISO website. The text of the standard is © ISO.
 
-However, over the last two decades, many people in the font technology world expressed concerns about the quality of the specifications. The SFNT-housed fonts “work”, but the way they work in various environments is often the result of developers reading the specs and then relying on a lot of fragmented knowledge that is not easily accessible. In June 2020, @simoncozens forked AOTS and @twardoch [tweeted](https://twitter.com/adamtwar/status/1274803202450436096): 
+However, over the last two decades, many people in the font technology world expressed concerns about the quality of the specifications. The SFNT-housed fonts “work”, but the way they work in various environments is often the result of developers reading the specs and then relying on a lot of fragmented knowledge that is not easily accessible. The [CommonType Containers](https://github.com/commontype-standard/commontype/wiki/CommonType-Containers) wiki article attempts to give a high-level overview. 
+
+In June 2020, @simoncozens forked AOTS and @twardoch [tweeted](https://twitter.com/adamtwar/status/1274803202450436096): 
 
 > While I’ve enjoyed being part of a few ad-hoc groups over the past few years, at the same time it has worried me that they’ve increasingly been “ad-hoc”. When working with font makers & font tool makers, I know that a lot of energy goes into working around problems introed by OS makers and end-user app makers, and I know these problems are often because there is no real font format spec.
 
@@ -103,14 +105,14 @@ Provide opportunities to submit the additions/extensions to the more formally-dr
 ## Current structure
 
 - The [commontype.org](http://commontype.org/) website contains the specification text in readable form, and lets you comment on the text right in the browser using [hypothes.is](http://hypothes.is/)
-- The [`master`](https://github.com/commontype-standard/commontype-standard.github.io/tree/master) branch contains a Markdown representation of the text.
-- The [`source`](https://github.com/commontype-standard/commontype-standard.github.io/tree/source) branch contains the AOTS sources
+- The [`master`](https://github.com/commontype-standard/commontype/tree/master) branch contains a Markdown representation of the text.
+- The [`source`](https://github.com/commontype-standard/commontype/tree/source) branch contains the AOTS sources
 
 ## Discussion
 
 - Use the _hypothes.is annotations_ on the right side [commontype.org](http://commontype.org/) website for brief comments
-- Use the [issues](https://github.com/commontype-standard/commontype-standard.github.io/issues) to discuss
-- Use the [wiki](https://github.com/commontype-standard/commontype-standard.github.io/wiki) for drafting texts, but keep in mind that the wiki content may be removed or changed without notice (we want to keep the wiki a “sketchboard”)
+- Use the [issues](https://github.com/commontype-standard/commontype/issues) to discuss
+- Use the [wiki](https://github.com/commontype-standard/commontype/wiki) for drafting texts, but keep in mind that the wiki content may be removed or changed without notice (we want to keep the wiki a “sketchboard”)
 
 ## Team
 

@@ -42,7 +42,7 @@ interface CmapFormat4Subtable {
   <dd>An array of `segCount` codepoints representing the final codepoint in each segment.
   <dt><dfn>startCode</dfn></dt>
   <dd>An array of `segCount` codepoints representing the initial codepoint in each segment.
-  <dt><dfn>startCode</dfn></dt>
+  <dt><dfn>idDelta</dfn></dt>
   <dd>An array of `segCount` 16-bit values representing the delta to be added to each codepoint in the segment.
   <dt><dfn>idRangeOffset</dfn></dt>
   <dd>An array of `segCount` unsigned 16-bit values representing the offset into the {{glyphIdArray}} for this segment.

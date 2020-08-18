@@ -305,43 +305,16 @@ PlatformID values 240 through 255 are reserved for user-defined
 platforms.
 
 <div class="note">
-* Platform IDs and platform encoding IDs are used in two OpenType
-tables: [=cmap=] and name. cmap contains mappings between glyph IDs and
-codepoints in some operating system character encoding. name contains
-strings encoded in particular character encodings. Prior to the
-widespread adoption of Unicode as a common character encoding, the
-platform-specific nature of character encodings meant that data needed
-to be tagged with its platform character encoding so that it could be
-properly interpreted. Additionally, for fonts to operate correctly on
-multiple platforms, glyph mappings and text strings needed to be
-specified in multiple encodings, one for each platform on which the font
-was expected to operate.
+* Platform IDs and platform encoding IDs are used in two OpenType tables: [=cmap=] and name. cmap contains mappings between glyph IDs and codepoints in some operating system character encoding. name contains strings encoded in particular character encodings. Prior to the widespread adoption of Unicode as a common character encoding, the platform-specific nature of character encodings meant that data needed to be tagged with its platform character encoding so that it could be properly interpreted. Additionally, for fonts to operate correctly on multiple platforms, glyph mappings and text strings needed to be specified in multiple encodings, one for each platform on which the font was expected to operate.
 
-* Platform ID 3 platform encoding ID 0 refers to the character repertoire
-and encoding used by the [Wingdings
-font](https://en.wikipedia.org/wiki/Wingdings#Character_set). It should
-only be used for symbol fonts following this encoding.
+* Platform ID 3 platform encoding ID 0 refers to the character repertoire and encoding used by the [Wingdings font](https://en.wikipedia.org/wiki/Wingdings#Character_set). It should only be used for symbol fonts following this encoding.
 
-* The Unicode platform was introduced to allow for cross-platform
-encoding. However, the Unicode character assignments did not stabilize
-until backwards compatibility was guaranteed after the release of
-Unicode 2.0. For example, in Unicode 1.0, codepoint U+370 was allocated
-as Greek Non-Spacing Iota Below. In Unicode 1.1, this character was
-moved to codepoint U+345. Hence data using the Unicode platform must
-also specify the version of the Unicode Standard for which they are
-encoded. Despite the current prevalence of Unicode, the platform ID
-system is still required for the name table, as will be explained in the
-appropriate chapter.
+* The Unicode platform was introduced to allow for cross-platform encoding. However, the Unicode character assignments did not stabilize until backwards compatibility was guaranteed after the release of Unicode 2.0. For example, in Unicode 1.0, codepoint U+370 was allocated as Greek Non-Spacing Iota Below. In Unicode 1.1, this character was moved to codepoint U+345. Hence data using the Unicode platform must also specify the version of the Unicode Standard for which they are encoded. Despite the current prevalence of Unicode, the platform ID system is still required for the name table, as will be explained in the appropriate chapter.
 
-* Platform ID 2 (ISO) was introduced to accommodate the character
-repertoire of ISO/IEC 10646, but when this standard was released it used
-the same character repertoire as Unicode and so this platform became
-redundant. Its use is discouraged by CommonType: font producers should not
-use it, and font consumers should use an alternative name/cmap entry instead.
+* Platform ID 2 (ISO) was introduced to accommodate the character repertoire of ISO/IEC 10646, but when this standard was released it used the same character repertoire as Unicode and so this platform became redundant. Its use is discouraged by CommonType: font producers should not use it, and font consumers should use an alternative name/cmap entry instead.
 
-* Platform 4 was introduced as a compatibility measure for Windows NT to
-allow non-Unicode applications to use fonts as though they were Windows
-ANSI encoded. Its use is discouraged by CommonType: font producers should not use it.
+* Platform 4 was introduced as a compatibility measure for Windows NT to allow non-Unicode applications to use fonts as though they were Windows ANSI encoded. Its use is discouraged by CommonType: font producers should not use it.
+
 </div>
 
 <h4><dfn>Language Identifier</dfn></h4>

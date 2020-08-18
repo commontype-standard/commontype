@@ -140,6 +140,7 @@ For each axis (horizontal and vertical) specified in the table:
     * {{defaultMinMaxOffset}}, a pointer to a default glyph extents table (a {{MinMax}} table) for this script.
     * and a list of {{BaseLangSysRecord}} tables which specify language-specific glyph extents by mapping between [=language tag=] and a {{MinMax}} table.
 * Each glyph extents table (the {{MinMax}} table) may also provide alternative extent values to be used when certain OpenType features are enabled.
+
 </div>
 
 <h4 id="base-in-prod">Implementation notes for font producers</h4>
@@ -155,4 +156,5 @@ Let us assume that we have a font file which only contains Latin script glyphs. 
     * A second {{BaseCoordFormat1}} table with {{BaseCoordFormat1/baseCoordFormat}}=1 and {{BaseCoordFormat1/coordinate}}=-163 to represent the ideographic baseline.
 * Create an {{BaseAxisTable}} containing offsets to the {{BaseTagList}} and {{BaseScriptList}} tables.
 * Create a {{BaseTableHeaderVersion10}} with {{tableMajorVersion}}=1 and {{tableMinorVersion}}=0, and with {{horizAxisOffset}} pointing to the {{BaseAxisTable}}.
+
 </div>

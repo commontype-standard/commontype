@@ -133,20 +133,20 @@ interface IndexSubtable1 :IndexSubtableCommon {
 interface IndexSubtable2 :IndexSubtableCommon {
   attribute ULONG imageSize;
   attribute BigGlyphMetrics bigMetrics;
-}
+};
 
 interface IndexSubtable3 :IndexSubtableCommon {
   attribute Offset32[] offsetArray;
-}
+};
 
 interface GlyphIdOffsetPair {
   attribute USHORT glyphID;
   attribute Offset16 offset;
-}
+};
 
 interface IndexSubtable4 :IndexSubtableCommon {
   attribute ULONG numGlyphs;
   attribute GlyphIdOffsetPair[] glyphArray;
-}
+};
 </pre>
 

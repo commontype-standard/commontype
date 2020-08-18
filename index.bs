@@ -16,7 +16,7 @@ Abstract: CommonType describes and annotates the file format and processing requ
 
 <pre class=include>path: 00-overview.md</pre>
 
-# File format
+<h2 id="file-format">File format</h2>
 
 <pre class=include>path: 01-font_file.md</pre>
 <pre class=include>path: 02-common_structures.md</pre>

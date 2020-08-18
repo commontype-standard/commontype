@@ -11,7 +11,7 @@
 
 These tables provide a mechanism for specifying color glyphs by layering outlines from different glyph IDs on top of one another and applying colorisation from a color palette. A *base glyph*, specified by glyph ID, is mapped to a contiguous subarray of *layer records*, each containing the index of a layer glyph and color palette value.
 
-<h4>COLR table</h4>
+<h4 id="COLR">COLR table</h4>
 
 <pre class="idl">
 interface COLRTable {
@@ -46,7 +46,7 @@ interface LayerRecord {
   <dd>Index into the {{LayerRecord}} array of the first layer of the colorized glyph.</dd>
 </dl>
 
-<h4>CPAL table</h4>
+<h4 id="CPAL">CPAL table</h4>
 
 <pre class="idl">
 typedef (CPALTableVersion0 or CPALTableVersion1) CPALTable;
@@ -81,7 +81,7 @@ interface ColorRecord {
 
 * All palettes must contain the same number of entries.
 
-* The colors in each palette are indexed from 0, and are found by multiplying the selected palette ID by {{numPaletteEntries}}, adding the selected color ID, and using the result as an index into the {{colorRecordIndices}} array. The resulting index is used to index the {{ColorRecords}} array.
+* The colors in each palette are indexed from 0, and are found by multiplying the selected palette ID by {{numPaletteEntries}}, adding the selected color ID, and using the result as an index into the {{colorRecordIndices}} array. The resulting index is used to index the {{ColorRecord}} array.
 
 </div>
 
@@ -121,10 +121,10 @@ interface PaletteEntryLabelsArray {
     Note that each of the {{offsetPaletteTypeArray}}, {{offsetPaletteLabelArray}} and {{offsetPaletteEntryLabelArray}} entries in the {{CPALTableVersion1}} table may be set to zero if no information is to be provided.
 </div>
 
-<h4 id="cmap.in-cons">Implementation notes for font producers</h4>
+<h4 id="COLR.in-prod">Implementation notes for font producers</h4>
 
 * All glyphs referenced by a {{BaseGlyphRecord}} must have the same horizontal advance value.
 
-<h4 id="cmap.in-cons">Implementation notes for font consumers</h4>
+<h4 id="COLR.in-cons">Implementation notes for font consumers</h4>
 
 See [=Processing Color Fonts=].

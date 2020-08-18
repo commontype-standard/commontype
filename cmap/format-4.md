@@ -1,4 +1,4 @@
-<h4>Format 4 cmap subtable</h4>
+<h4 id="format-4-cmap-subtable">Format 4 cmap subtable</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>
@@ -58,7 +58,7 @@ Note that unlike most offset values in the file format, the {{idRangeOffset}} co
     It is a security vulnerability for font consumers to trust the values of {{searchRange}}, {{entrySelector}} and {{rangeShift}}, instead of computing them afresh from the {{segCountX2}} value. Their use is therefore *discouraged* by CommonType.
 </div>
 
-<h5>Implementation notes for font producers</h5>
+<h5 id="cmap-10-impl-prod">Implementation notes for font producers</h5>
 
 The final segment must have an endCode value of `0xFFFF`.
 This segment need not contain any valid mappings, but must be present.

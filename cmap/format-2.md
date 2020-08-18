@@ -1,4 +1,4 @@
-<h4>Format 2 cmap subtable</h4>
+<h4 id="format-2-cmap-subtable">Format 2 cmap subtable</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>
@@ -48,7 +48,7 @@ interface CmapFormat2Subheader {
   <dd>Number of low-byte values handled by this subheader.</dd>
 
   <dt><dfn>idRangeOffset</dfn></dt>
-  <dd>The element of the {{glyphElement}} array corresponding to the {{firstCode}}. Note that unlike most offset values in this standard, the {{idRangeOffset}} counts the number of bytes from <emphasis>the byte position of the {{idRangeOffset}} record itself</emphasis> to the target element, rather than from the start of the subtable header.</dd>
+  <dd>The element of the {{glyphIndexArray}} array corresponding to the {{firstCode}}. Note that unlike most offset values in this standard, the {{idRangeOffset}} counts the number of bytes from <emphasis>the byte position of the {{idRangeOffset}} record itself</emphasis> to the target element, rather than from the start of the subtable header.</dd>
 
 </dl>
 

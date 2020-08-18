@@ -1,6 +1,6 @@
-<h3><dfn>Processing Color Fonts</dfn></h3>
+<h3 id="consumer-color"><dfn>Processing Color Fonts</dfn></h3>
 
-<h4>Processing a COLR/CPAL table</h4>
+<h4 id="consumer-colr">Processing a COLR/CPAL table</h4>
 
 When rendering glyphs in a font containing a [=COLR table=] and [=CPAL table=], the font consumer should perform the following procedure:
 
@@ -13,4 +13,4 @@ When rendering glyphs in a font containing a [=COLR table=] and [=CPAL table=], 
 * For each {{LayerRecord}} entry, in order:
     * Retrieve the glyph indexed by {{gid}}.
     * If the {{paletteIndex}} is `0xFFFF`, render the glyph in the current foreground text color.
-    * If not, use {{paletteIndex}} + `paletteBase` to index the {{colorRecordIndices}} array in the `CPAL` table, and use the resulting value to index the {{ColorRecords}} array. Render the glyph in the color returned.
+    * If not, use {{paletteIndex}} + `paletteBase` to index the {{colorRecordIndices}} array in the `CPAL` table, and use the resulting value to index the {{ColorRecord}} array. Render the glyph in the color returned.

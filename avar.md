@@ -52,4 +52,4 @@ interface AxisValueMap {
 
 <h4 id="avar.in-cons">Implementation notes for font consumers</h4>
 
-See [=Processing Variable Fonts=].
+See [[#processing-variable-fonts]].

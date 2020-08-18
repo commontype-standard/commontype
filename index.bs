@@ -11,6 +11,9 @@ Markup Shorthands: markdown yes
 Abstract: CommonType describes and annotates the file format and processing requirements for font files.
 </pre>
 
+<div boilerplate="copyright">
+</div>
+
 <pre class=include>path: 00-overview.md</pre>
 
 # File format

@@ -1,3 +1,4 @@
+<link href="style.css" rel="stylesheet"></link>
 <pre class='metadata'>
 Title: CommonType
 Shortname: commontype

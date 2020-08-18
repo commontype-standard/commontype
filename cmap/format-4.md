@@ -33,11 +33,11 @@ interface CmapFormat4Subtable {
   <dt><dfn>segCountX2</dfn></dt>
   <dd>The number of segments multiplied by two.</dd>
   <dt><dfn>searchRange</dfn></dt>
-  <dd>Intended for optimization, this value is defined by OpenType as `2 x (2**floor(log2(segCount)))`, but see note below.
+  <dd>Intended for optimization, this value is defined as `2 x (2**floor(log2(segCount)))`, but see note below.
   <dt><dfn>entrySelector</dfn></dt>
-  <dd>Intended for optimization, this value is defined by OpenType as `log2(searchRange/2)`, but see note below.
+  <dd>Intended for optimization, this value is defined as `log2(searchRange/2)`, but see note below.
   <dt><dfn>rangeShift</dfn></dt>
-  <dd>Intended for optimization, this value is defined by OpenType as `2 x segCount - searchRange`, but see note below.
+  <dd>Intended for optimization, this value is defined as `2 x segCount - searchRange`, but see note below.
   <dt><dfn>endCode</dfn></dt>
   <dd>An array of `segCount` codepoints representing the final codepoint in each segment.
   <dt><dfn>startCode</dfn></dt>
@@ -48,7 +48,7 @@ interface CmapFormat4Subtable {
   <dd>An array of `segCount` unsigned 16-bit values representing the offset into the {{glyphIdArray}} for this segment.
 
 <div class="note">
-Note that unlike most offset values in OpenType, the {{idRangeOffset}} counts the number of bytes from *the byte position of the* {{idRangeOffset}} *record itself* to the target element, rather than from the start of the subtable header.
+Note that unlike most offset values in the file format, the {{idRangeOffset}} counts the number of bytes from *the byte position of the* {{idRangeOffset}} *record itself* to the target element, rather than from the start of the subtable header.
 </div>
 
   </dd>
@@ -65,7 +65,7 @@ This segment need not contain any valid mappings, but must be present.
 
 <div class="example">
 Here is an example of filling in the header information for a table with
-39 segments according to the OpenType specification:
+39 segments according to the formal definition:
 
 <table>
   <tr><th>segCountX2</th><td>78</td></tr>

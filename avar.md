@@ -9,7 +9,7 @@
     <tr><th>Dependencies</th> <td> </td> </tr>
 </table>
 
-The `avar` table describes a function for OpenType Font Variations axes to map between a linear axis value and a set of piecewise linear functions.
+The `avar` table describes a function for variable font axes to map between a linear axis value and a set of piecewise linear functions.
 
 <pre class="idl">
 interface AvarTable {
@@ -52,4 +52,4 @@ interface AxisValueMap {
 
 <h4 id="avar.in-cons">Implementation notes for font consumers</h4>
 
-See [=Processing OpenType Variations=].
+See [=Processing Variable Fonts=].

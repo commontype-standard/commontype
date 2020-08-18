@@ -1,6 +1,6 @@
-<h3><dfn>Processing OpenType Variations</dfn></h3>
+<h3><dfn>Processing Variable Fonts</dfn></h3>
 
-When processing OpenType Variation Fonts, font consumers must take note of the following requirements:
+When processing variable fonts, font consumers must take note of the following requirements:
 
 * XXX rounding
 

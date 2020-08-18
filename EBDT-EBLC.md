@@ -26,6 +26,7 @@ interface EBDTTable {
   <dt><dfn>data</dfn></dt>
   <dd>Bitmap and metric data, indexed by the `EBLC` table.</dd>
 </dl>
+
 <pre class="idl">
 interface EBLCTable {
     attribute USHORT tableMajorVersion;
@@ -62,6 +63,19 @@ interface SbitLineMetrics {
     attribute int8 pad2;
 };
 </pre>
+<dl dfn-type=attribute dfn-for=EBLCTable>
+  <dt><dfn>tableMajorVersion</dfn></dt>
+  <dd>Table version. Must be 2.</dd>
+  <dt><dfn>tableMinorVersion</dfn></dt>
+  <dd>Table version. Must be 0.</dd>
+  <dt><dfn>strikes</dfn></dt>
+  <dd>Specifies bitmaps used at a particular size.</dd>
+</dl>
+<dl dfn-type=attribute dfn-for=BitmapSize>
+    <dt><dfn>indexSubTableArrayOffset</dfn></dt>
+    <dd>Offset to the {{IndexSubtableArray}} describing the range of glyph IDs covered by this strike, measured from the beginning of the `EBLC` table.</dd>
+    
+
 
 
 

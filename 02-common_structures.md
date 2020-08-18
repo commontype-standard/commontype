@@ -305,7 +305,7 @@ PlatformID values 240 through 255 are reserved for user-defined
 platforms.
 
 <div class="note">
-* Platform IDs and platform encoding IDs are used in two OpenType tables: [=cmap=] and name. cmap contains mappings between glyph IDs and codepoints in some operating system character encoding. name contains strings encoded in particular character encodings. Prior to the widespread adoption of Unicode as a common character encoding, the platform-specific nature of character encodings meant that data needed to be tagged with its platform character encoding so that it could be properly interpreted. Additionally, for fonts to operate correctly on multiple platforms, glyph mappings and text strings needed to be specified in multiple encodings, one for each platform on which the font was expected to operate.
+* Platform IDs and platform encoding IDs are used in two tables: [=cmap=] and name. cmap contains mappings between glyph IDs and codepoints in some operating system character encoding. name contains strings encoded in particular character encodings. Prior to the widespread adoption of Unicode as a common character encoding, the platform-specific nature of character encodings meant that data needed to be tagged with its platform character encoding so that it could be properly interpreted. Additionally, for fonts to operate correctly on multiple platforms, glyph mappings and text strings needed to be specified in multiple encodings, one for each platform on which the font was expected to operate.
 
 * Platform ID 3 platform encoding ID 0 refers to the character repertoire and encoding used by the [Wingdings font](https://en.wikipedia.org/wiki/Wingdings#Character_set). It should only be used for symbol fonts following this encoding.
 

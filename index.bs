@@ -8,7 +8,7 @@ URL: http://www.commontype.org/
 Editor: Simon Cozens, Corvel Software, simon@simon-cozens.org
 Issue Tracking: GitHub https://github.com/commontype-standard/commontype/issues
 Markup Shorthands: markdown yes
-Abstract: CommonType describes and annotates the file format and processing requirements for OpenType fonts.
+Abstract: CommonType describes and annotates the file format and processing requirements for font files.
 </pre>
 
 <pre class=include>path: 00-overview.md</pre>

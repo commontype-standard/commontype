@@ -90,9 +90,9 @@ interface BaseLangSysRecord {
 };
 </pre>
 
-* The {{BaseTagList/tag}} value in the {{BaseTagList}} table must be a valid [=baseline tag=].
-* The {{BaseScriptList/tag}} value in the {{BaseScriptList}} table must be a valid [=script tag=].
-* The {{BaseLangSysRecord/tag}} value in the {{BaseLangSysRecord}} table must be a valid [=language tag=]. {{baseLangSysRecords}} must be specified in alphabetic order of language tag.
+* The {{BaseTagList/baseLineTags}} values must be a valid [=baseline tag=].
+* The {{baseScriptTag}} value in the {{BaseScriptList}} table must be a valid [=script tag=].
+* The {{BaseLangSysRecord/baseLangSysTag}} value in the {{BaseLangSysRecord}} table must be a valid [=language tag=]. {{baseLangSysRecords}} must be specified in alphabetic order of language tag.
 * The {{BaseValues/baseCoordCount}} value must be equal to the {{BaseTagList/baseTagCount}} value.
 * The {{MinMax/minCoord}} and {{MinMax/maxCoord}} offsets point to a {{BaseCoord}} table in one of the following formats:
 
@@ -150,7 +150,7 @@ Let us assume that we have a font file which only contains Latin script glyphs. 
 
 * Create a {{BaseTagList}} table with {{baseTagCount}}=2 and two tag entries, `romn` and `ideo`.
 * No script-specific baselines are to defined, so only one {{BaseScriptRecord}} record will be needed. Create a {{BaseScriptList}} table with {{baseScriptCount}}=1, and a {{BaseScriptRecord}} table with {{baseScriptTag}}=`DFLT`.
-* Create a {{BaseScript}} table. As we are not adjusting glyph extents (neither for the script itself or for language-specific variations), its {{defaultMinMaxOffset}} and the {{baseLangSysCount}} will both be zero. Set the {{baseScriptOffse}} in the {{BaseScriptRecord}} to point to this table.
+* Create a {{BaseScript}} table. As we are not adjusting glyph extents (neither for the script itself or for language-specific variations), its {{defaultMinMaxOffset}} and the {{baseLangSysCount}} will both be zero. Set the {{baseScriptOffset}} in the {{BaseScriptRecord}} to point to this table.
 * Create a {{BaseValues}} table with baseline values for each of the baselines we are defining. Set {{baseCoordCount}}=2 and, as the default baseline for this font will be the Roman baseline, set {{defaultBaselineIndex}}=0. The {{baseCoords}} array will point to two {{BaseCoord}} tables, one for each of the two baselines in turn:
     * One {{BaseCoordFormat1}} table with {{BaseCoordFormat1/baseCoordFormat}}=1 and {{BaseCoordFormat1/coordinate}}=0 to represent the Roman baseline.
     * A second {{BaseCoordFormat1}} table with {{BaseCoordFormat1/baseCoordFormat}}=1 and {{BaseCoordFormat1/coordinate}}=-163 to represent the ideographic baseline.

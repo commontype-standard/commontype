@@ -1,6 +1,6 @@
-<h3>Common Structures and Data</h3>
+<h3 id="common-structures">Common Structures and Data</h3>
 
-<h4><dfn>Platform and Encoding Identifiers</dfn></h4>
+<h4 id="platform-and-encoding-ids"><dfn>Platform and Encoding Identifiers</dfn></h4>
 
 Data entries in the [=cmap table=] and [=name table=] are designated as being for the
 consumption of particular combinations of *platform* and *platform encoding*. The *platform encoding* selects a character repertoire and
@@ -305,7 +305,7 @@ PlatformID values 240 through 255 are reserved for user-defined
 platforms.
 
 <div class="note">
-* Platform IDs and platform encoding IDs are used in two tables: [=cmap=] and name. cmap contains mappings between glyph IDs and codepoints in some operating system character encoding. name contains strings encoded in particular character encodings. Prior to the widespread adoption of Unicode as a common character encoding, the platform-specific nature of character encodings meant that data needed to be tagged with its platform character encoding so that it could be properly interpreted. Additionally, for fonts to operate correctly on multiple platforms, glyph mappings and text strings needed to be specified in multiple encodings, one for each platform on which the font was expected to operate.
+* Platform IDs and platform encoding IDs are used in two tables: the [=cmap table=] and the [=name table=]. `cmap` contains mappings between glyph IDs and codepoints in some operating system character encoding. `name` contains strings encoded in particular character encodings. Prior to the widespread adoption of Unicode as a common character encoding, the platform-specific nature of character encodings meant that data needed to be tagged with its platform character encoding so that it could be properly interpreted. Additionally, for fonts to operate correctly on multiple platforms, glyph mappings and text strings needed to be specified in multiple encodings, one for each platform on which the font was expected to operate.
 
 * Platform ID 3 platform encoding ID 0 refers to the character repertoire and encoding used by the [Wingdings font](https://en.wikipedia.org/wiki/Wingdings#Character_set). It should only be used for symbol fonts following this encoding.
 
@@ -317,7 +317,7 @@ platforms.
 
 </div>
 
-<h4><dfn>Language Identifier</dfn></h4>
+<h4 id="language-id"><dfn>Language Identifier</dfn></h4>
 
 The cmap and name tables also specify that data refers to particular
 languages: language-specific character-to-glyph mappings in the case of
@@ -332,7 +332,7 @@ There are no language identifiers defined for the Unicode platform
 platform (platform ID = 4). This means that while these platforms may be
 used for cmap table entries, they cannot be used for name table entries.
 
-<h5><dfn>Macintosh language ID</dfn></h5>
+<h5 id="mac-language-id"><dfn>Macintosh language ID</dfn></h5>
 
 <table>
 
@@ -459,7 +459,7 @@ used for cmap table entries, they cannot be used for name table entries.
 </tbody>
 </table>
 
-<h5><dfn>Windows language ID</dfn></h5>
+<h5 id="windows-language-id">Windows language ID</h5>
 
 <pre class=biblio>
   {

@@ -1,10 +1,10 @@
-<h3><dfn>Processing Variable Fonts</dfn></h3>
+<h3 id="processing-variable-fonts">Processing Variable Fonts</h3>
 
 When processing variable fonts, font consumers must take note of the following requirements:
 
 * XXX rounding
 
-<h4>Axis Coordinate Normalization</h4>
+<h4 id="axis-coordinate-normalization">Axis Coordinate Normalization</h4>
 
 To normalise an axis value from a [=user coordinate=] to a [=normalized coordinate=], the following algorithm should be used:
 

@@ -1,5 +1,4 @@
-Overview {#chapter.overview}
-========
+<h2 id="overview">Overview</h2>
 
 This "CommonType" document has three purposes:
 
@@ -7,8 +6,7 @@ This "CommonType" document has three purposes:
 * To describe best practices, methods and algorithms for producing and consuming font information.
 * To provide a possible way forward for development of a new font format.
 
-Related documentation
----------------------
+<h3 id="related-docs">Related documentation</h3>
 
 <pre class=biblio>
     { "atn5176": {

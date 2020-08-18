@@ -1,4 +1,4 @@
-<h4>Format 10 cmap subtable</h4>
+<h4 id="format-10-cmap">Format 10 cmap subtable</h4>
 
 <table>
     <tr><th>Introduced</th> <td> 1.3 </td> </tr>

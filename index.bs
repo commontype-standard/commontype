@@ -26,6 +26,7 @@ Abstract: CommonType describes and annotates the file format and processing requ
 <pre class=include>path: CBDT-CBLC.md</pre>
 <pre class=include>path: COLR-CPAL.md</pre>
 <pre class=include>path: cmap/index.md</pre>
+<pre class=include>path: cvt.md</pre>
 <pre class=include>path: EBDT-EBLC.md</pre>
 
 

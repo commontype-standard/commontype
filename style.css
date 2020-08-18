@@ -31,3 +31,12 @@ table thead { font-weight: bold; }
 table thead td,th {background-color: #efefef; }
 table td,th { border: 1px solid #ccc; }
 *[role=deprecated] { background-color: #fff3f3; }
+
+*[role=unfinished]:after {
+  content: "Unfinished!";
+  color: #fafafa;
+  display: inline;
+  margin: 20px;
+  padding: 10px;
+  background-color: #f99;
+}

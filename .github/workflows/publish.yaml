@@ -14,13 +14,10 @@ jobs:
 
       - name: Output to HTML
         uses: netwerk-digitaal-erfgoed/bikeshed-action@v1
-        with:
-          args:
-            source: .
-            destination: public
 
       - name: Publish HTML to GitHub Pages
         if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .

@@ -22,6 +22,7 @@ Abstract: CommonType describes and annotates the file format and processing requ
 <pre class=include>path: BASE.md</pre>
 <pre class=include>path: CBDT-CBLC.md</pre>
 <pre class=include>path: cmap/index.md</pre>
+<pre class=include>path: EBDT-EBLC.md</pre>
 
 
 <h2 id="producer-notes">General implementation notes for font producers</h2>

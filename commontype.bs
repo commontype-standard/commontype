@@ -1,0 +1,32 @@
+<pre class='metadata'>
+Title: CommonType
+Shortname: commontype
+Level: 1
+Status: LD
+URL: http://www.commontype.org/
+Editor: Simon Cozens, Corvel Software, simon@simon-cozens.org
+Issue Tracking: GitHub https://github.com/commontype-standard/commontype/issues
+Markup Shorthands: markdown yes
+Abstract: CommonType describes and annotates the file format and processing requirements for OpenType fonts.
+</pre>
+
+<pre class=include>path: 00-overview.md</pre>
+
+# File format
+
+<pre class=include>path: 01-font_file.md</pre>
+<pre class=include>path: 02-common_structures.md</pre>
+<pre class=include>path: 03-common_tables.md</pre>
+<pre class=include>path: avar.md</pre>
+<pre class=include>path: BASE.md</pre>
+<pre class=include>path: CBDT-CBLC.md</pre>
+<pre class=include>path: cmap/index.md</pre>
+
+
+<h2 id="producer-notes">General implementation notes for font producers</h2>
+
+<h2 id="consumer-notes">General implementation notes for font consumers</h2>
+
+<pre class=include>path: consumers-cmap.md</pre>
+<pre class=include>path: consumers-color.md</pre>
+<pre class=include>path: consumers-otvar.md</pre>

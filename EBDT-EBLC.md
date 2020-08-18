@@ -1,4 +1,4 @@
-<h3 id="EBDT-EBLC"><dfn>EBDT table</dfn> and <dfn>EBLC</dfn> tables - Bitmap Glyphs</h3>
+<h3 id="EBDT-EBLC" role="unfinished"><dfn>EBDT table</dfn> and <dfn>EBLC</dfn> tables - Bitmap Glyphs</h3>
 
 <table>
     <tr><th>Introduced</th> <td> 1.0 </td> </tr>
@@ -149,3 +149,4 @@ interface IndexSubtable4 :IndexSubtableCommon {
   attribute GlyphIdOffsetPair[] glyphArray;
 }
 </pre>
+

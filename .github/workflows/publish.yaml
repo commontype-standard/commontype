@@ -15,7 +15,9 @@ jobs:
       - name: Output to HTML
         uses: netwerk-digitaal-erfgoed/bikeshed-action@v1
         with:
-          destination: public
+          args:
+            source: .
+            destination: public
 
       - name: Publish HTML to GitHub Pages
         if: success()

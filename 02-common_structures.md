@@ -3,8 +3,7 @@
 <h4><dfn>Platform and Encoding Identifiers</dfn></h4>
 
 Data entries in the [=cmap table=] and [=name table=] are designated as being for the
-consumption of particular combinations of platform and platform
-encoding. The platform encoding selects a character repertoire and
+consumption of particular combinations of *platform* and *platform encoding*. The *platform encoding* selects a character repertoire and
 codepoint-to-character mapping available on the given platform. The
 platform encoding identifier is not unique across platforms, and hence
 implementors must consider platform and platform encoding as a tuple.
@@ -14,283 +13,288 @@ The following table defines the platform and platform encoding tuples.
   <thead>
     <tr>
       <td>Platform ID</td>
-      <td>Encoding ID</td>
+      <td>Platform Encoding ID</td>
       <td>Description</td>
     </tr>
   </thead>
   <tbody>
+    <tr><th colspan=3>Platform 0 (Unicode)</th></tr>
     <tr role="deprecated">
-      <td>0 (Unicode)</td>
+      <td>0</td>
       <td>0</td>
       <td>Unicode 1.0</td>
     </tr>
     <tr role="deprecated">
-      <td>0 (Unicode)</td>
+      <td>0</td>
       <td>1</td>
       <td>Unicode 1.1</td>
     </tr>
     <tr role="deprecated">
-      <td>0 (Unicode)</td>
+      <td>0</td>
       <td>2</td>
       <td>ISO/IEC 10646</td>
     </tr>
     <tr>
-      <td>0 (Unicode)</td>
+      <td>0</td>
       <td>3</td>
       <td>Unicode 2.0+ BMP (see discussion)</td>
     </tr>
     <tr>
-      <td>0 (Unicode)</td>
+      <td>0</td>
       <td>4</td>
       <td>Unicode 2.0+ (see discussion)</td>
     </tr>
     <tr>
-      <td>0 (Unicode)</td>
+      <td>0</td>
       <td>5</td>
       <td>Unicode Variation Sequences</td>
     </tr>
     <tr>
-      <td>0 (Unicode)</td>
+      <td>0</td>
       <td>6</td>
       <td>Unicode 2.0+ (see discussion)</td>
     </tr>
+    <tr><th colspan=3>Platform 1 (Macintosh)</th></tr>
     <tr>
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>0</td>
       <td>Roman</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>1</td>
       <td>Japanese</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>2</td>
       <td>Chinese (Traditional)</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>3</td>
       <td>Korean</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>4</td>
       <td>Arabic</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>5</td>
       <td>Hebrew</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>6</td>
       <td>Greek</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>7</td>
       <td>Russian</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>8</td>
       <td>RSymbol</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>9</td>
       <td>Devanagari</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>10</td>
       <td>Gurmukhi</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>11</td>
       <td>Gujarati</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>12</td>
       <td>Oriya</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>13</td>
       <td>Bengali</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>14</td>
       <td>Tamil</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>15</td>
       <td>Telugu</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>16</td>
       <td>Kannada</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>17</td>
       <td>Malayalam</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>18</td>
       <td>Sinhalese</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>19</td>
       <td>Burmese</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>20</td>
       <td>Khmer</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>21</td>
       <td>Thai</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>22</td>
       <td>Laotian</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>23</td>
       <td>Georgian</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>24</td>
       <td>Armenian</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>25</td>
       <td>Chinese (Simplified)</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>26</td>
       <td>Tibetan</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>27</td>
       <td>Mongolian</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>28</td>
       <td>Geez</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>29</td>
       <td>Slavic</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>30</td>
       <td>Vietnamese</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>31</td>
       <td>Sindhi</td>
     </tr>
     <tr role="deprecated">
-      <td>1 (Macintosh)</td>
+      <td>1</td>
       <td>32</td>
       <td>Uninterpreted</td>
     </tr>
+    <tr><th colspan=3>Platform 2 (ISO)</th></tr>
     <tr role="deprecated">
-      <td>2 (ISO)</td>
+      <td>2</td>
       <td>0</td>
       <td>7-bit ASCII</td>
     </tr>
     <tr role="deprecated">
-      <td>2 (ISO)</td>
+      <td>2</td>
       <td>1</td>
       <td>ISO 10646</td>
     </tr>
     <tr role="deprecated">
-      <td>2 (ISO)</td>
+      <td>2</td>
       <td>2</td>
       <td>ISO 8859-1</td>
     </tr>
+    <tr><th colspan=3>Platform 3 (Windows)</th></tr>
     <tr>
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>0</td>
-      <td>Symbol font (see discussion)</td>
+      <td>Symbol font *(see discussion)*</td>
     </tr>
     <tr>
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>1</td>
       <td>Unicode (BMP characters only)</td>
     </tr>
     <tr role="deprecated">
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>2</td>
       <td>ShiftJIS</td>
     </tr>
     <tr role="deprecated">
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>3</td>
       <td>PRC</td>
     </tr>
     <tr role="deprecated">
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>4</td>
       <td>Big5</td>
     </tr>
     <tr role="deprecated">
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>5</td>
       <td>Wansung</td>
     </tr>
     <tr role="deprecated">
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>6</td>
       <td>Johab</td>
     </tr>
     <tr role="deprecated">
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>7</td>
       <td>Reserved</td>
     </tr>
     <tr role="deprecated">
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>9</td>
       <td>Reserved</td>
     </tr>
     <tr role="deprecated">
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>9</td>
       <td>Reserved</td>
     </tr>
     <tr>
-      <td>3 (Windows)</td>
+      <td>3</td>
       <td>10</td>
       <td>Unicode (access to full range)</td>
     </tr>
+    <tr><th colspan=3>Platform 4 (Custom)</th></tr>
     <tr role="deprecated">
-      <td>4 (Custom)</td>
+      <td>4</td>
       <td>0-255</td>
       <td>OTF Windows NT compatibility mapping</td>
     </tr>
@@ -301,7 +305,7 @@ PlatformID values 240 through 255 are reserved for user-defined
 platforms.
 
 <div class="note">
-Platform IDs and platform encoding IDs are used in two OpenType
+* Platform IDs and platform encoding IDs are used in two OpenType
 tables: [=cmap=] and name. cmap contains mappings between glyph IDs and
 codepoints in some operating system character encoding. name contains
 strings encoded in particular character encodings. Prior to the
@@ -313,12 +317,12 @@ multiple platforms, glyph mappings and text strings needed to be
 specified in multiple encodings, one for each platform on which the font
 was expected to operate.
 
-Platform ID 3 platform encoding ID 0 refers to the character repertoire
+* Platform ID 3 platform encoding ID 0 refers to the character repertoire
 and encoding used by the [Wingdings
 font](https://en.wikipedia.org/wiki/Wingdings#Character_set). It should
 only be used for symbol fonts following this encoding.
 
-The Unicode platform was introduced to allow for cross-platform
+* The Unicode platform was introduced to allow for cross-platform
 encoding. However, the Unicode character assignments did not stabilize
 until backwards compatibility was guaranteed after the release of
 Unicode 2.0. For example, in Unicode 1.0, codepoint U+370 was allocated
@@ -329,13 +333,13 @@ encoded. Despite the current prevalence of Unicode, the platform ID
 system is still required for the name table, as will be explained in the
 appropriate chapter.
 
-Platform ID 2 (ISO) was introduced to accommodate the character
+* Platform ID 2 (ISO) was introduced to accommodate the character
 repertoire of ISO/IEC 10646, but when this standard was released it used
 the same character repertoire as Unicode and so this platform became
 redundant. Its use is discouraged by CommonType: font producers should not
 use it, and font consumers should use an alternative name/cmap entry instead.
 
-Platform 4 was introduced as a compatibility measure for Windows NT to
+* Platform 4 was introduced as a compatibility measure for Windows NT to
 allow non-Unicode applications to use fonts as though they were Windows
 ANSI encoded. Its use is discouraged by CommonType: font producers should not use it.
 </div>
@@ -359,7 +363,8 @@ used for cmap table entries, they cannot be used for name table entries.
 
 <table>
 
-  <tr><th>Code</th><th>   Language</th></tr>
+  <thead><tr><th>Code</th><th>   Language</th></tr></thead>
+  <tbody>
 <tr><td>  0</td><td>      English</td></tr>
 <tr><td>  1</td><td>      French</td></tr>
 <tr><td>  2</td><td>      German</td></tr>
@@ -478,74 +483,18 @@ used for cmap table entries, they cannot be used for name table entries.
 <tr><td>  148</td><td>    Greek (polytonic)</td></tr>
 <tr><td>  149</td><td>    Greenlandic</td></tr>
 <tr><td>  150</td><td>    Azerbaijani (Roman script)</td></tr>
+</tbody>
 </table>
 
 <h5><dfn>Windows language ID</dfn></h5>
 
-The language ID (LCID in the table below) refers to a value which
-identifies the language in which a particular string is written. Fifty
-of the language ID\'s assigned by Microsoft are listed below, along with
-their corresponding code pages. There are 85 additional language ID\'s
-assigned. corresponding code pages. For a full list, please see the
-[Microsoft Global
-Development](http://www.microsoft.com/globaldev/reference/loclanghome.asp)
-site or [Knowledge Base article
-Q224804](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q224804).
-
-  Primary Language   Locale Name                  Language ID   Windows codepage   OEM codepage
-  ------------------ ---------------------------- ------------- ------------------ ----------------
-  Albanian           Albania                      (041c; SQI)                      
-  Basque             Basque                       (042D; EUQ)   1252               850
-  Byelorussian       Byelorussia                  (0423, BEL)   1251               866
-  Bulgarian          Bulgaria                     (0402, BGR)   1251               866
-  Catalan            Catalan                      (0403; CAT)   1252               850
-  Croatian           Croatian                     (041a, SHL)   1250               852
-  Czech              Czech                        (0405; CSY)   1250               852
-  Danish             Danish                       (0406; DAN)   1252               865
-  Dutch (2):         Dutch (Standard)             (0413; NLD)   1252               850
-  Dutch (2):         Belgian (Flemish)            (0813; NLB)   1252               850
-  English (6):       American                     (0409; ENU)   1252               437
-  English (6):       British                      (0809; ENG)   1252               850
-  English (6):       Australian                   (0c09; ENA)   1252               850
-  English (6):       Canadian                     (1009; ENC)   1252               850
-  English (6):       New Zealand                  (1409; ENZ)   1252               850
-  English (6):       Ireland                      (1809; ENI)   1252               850
-  Estonian           Estonia                      (0425, ETI)   1257               775
-  Finnish            Finnish                      (040b; FIN)   1252               850
-  French             French (Standard)            (040c; FRA)   1252               850
-  French             Belgian                      (080c; FRB)   1252               850
-  French             Canadian                     (0c0c; FRC)   1252               850
-  French             Swiss                        (100c; FRS)   1252               850
-  French             Luxembourg                   (140c; FRL)   1252               850
-  German             German (Standard)            (0407; DEU)   1252               850
-  German             Swiss                        (0807; DES)   1252               850
-  German             Austrian                     (0c07; DEA)   1252               850
-  German             Luxembourg                   (1007; DEL)   1252               850
-  German             Liechtenstein                (1407; DEC)   1252               850
-  Greek              Greek                        (0408; ELL)   1253               737 or 869[^1]
-  Hungarian          Hungarian                    (040e; HUN)   1250               852
-  Icelandic          Icelandic                    (040F; ISL)   1252               850
-  Italian (2):       Italian (Standard)           (0410; ITA)   1252               850
-  Italian (2):       Swiss                        (0810; ITS)   1252               850
-  Latvian            Latvia                       (0426, LVI)   1257               775
-  Lithuanian         Lithuania                    (0427, LTH)   1257               775
-  Norwegian (2):     Norwegian (Bokmal)           (0414; NOR)   1252               850
-  Norwegian (2):     Norwegian (Nynorsk)          (0814; NON)   1252               850
-  Polish             Polish                       (0415; PLK)   1250               852
-  Portuguese (2):    Portuguese (Brazilian)       (0416; PTB)   1252               850
-  Portuguese (2):    Portuguese (Standard)        (0816; PTG)   1252               850
-  Romanian (2):      Romania                      (0418, ROM)   1250               852
-  Russian            Russian                      (0419; RUS)   1251               866
-  Slovak             Slovak                       (041b; SKY)   1250               852
-  Slovenian          Slovenia                     (0424, SLV)   1250               852
-  Spanish (3):       Spanish (Traditional Sort)   (040a; ESP)   1252               850
-  Spanish (3):       Mexican                      (080a; ESM)   1252               850
-  Spanish (3):       Spanish (Modern Sort)        (0c0a; ESN)   1252               850
-  Swedish            Swedish                      (041D; SVE)   1252               850
-  Turkish            Turkish                      (041f; TRK)   1254               857
-  Ukrainian          Ukraine                      (0422, UKR)   1251               866
-
-  : Windows Language IDs
-
-[^1]: 737 is default, but 869 (IBM Greek) will be available at setup
-    time through the selection of a bogus Greek locale in Custom Setup.
+<pre class=biblio>
+  {
+    "ms-lcid": {
+    "title": "Windows Language Code Identifier (LCID) Reference",
+    "href": "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-lcid/",
+    "publisher": "Microsoft"
+  }
+  }
+</pre>
+On the Windows platform, Microsoft LCIDs should be used to refer to languages. See [[!ms-lcid]] for the list of LCID values and their interpretation.

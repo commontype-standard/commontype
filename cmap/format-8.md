@@ -5,7 +5,7 @@
     <tr><th>Deprecated</th> <td> 1.9 of CommonType </td> </tr>
     <tr><th>Will be removed</th> <td> 1.10 of CommonType </td> </tr>
     <tr><th>Originator</th> <td> </td> </tr>
-    <tr><th>Requirement status</th> <td> Discouraged by CommonType and OpenType</td> </tr>
+    <tr><th>Requirement status</th> <td> Discouraged by CommonType</td> </tr>
     <tr><th>Dependencies</th> <td> </td> </tr>
 </table>
 

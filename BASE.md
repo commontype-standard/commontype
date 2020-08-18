@@ -9,7 +9,7 @@
     <tr><th>Dependencies</th> <td> </td> </tr>
 </table>
 
-The BASE table provides information to allow font consumers to align glyphs from different scripts along appropriate baselines. It may also be used for adjusting the baseline-to-baseline spacing of a text by defining script-, language-, and OpenType-feature specific glyph extent values.
+The BASE table provides information to allow font consumers to align glyphs from different scripts along appropriate baselines. It may also be used for adjusting the baseline-to-baseline spacing of a text by defining script-, language-, and feature specific glyph extent values.
 
 <pre class="idl">
 interface BaseTableHeaderVersion10 {
@@ -120,7 +120,7 @@ interface BaseLangSysRecord {
 
 * The {{baseCoordFormat}} must be 1, 2, or 3 respectively.
 * In a format 2 coordinate table, {{referenceGlyph}} and {{baseCoordPoint}} are respectively the glyph ID and coordinate index of a point on the glyph, such that if the process of hinting adjusts the position of this point, {{coordinate}} is also adjusted by the same amount.
-* In a non-OpenType Variations Font file, the format 3 {{deviceTable}} offset refers to a {{DeviceTable}}; in an OpenType Variations Font file, it refers to an {{ItemVariationStore}}.
+* In a non-variable font file, the format 3 {{deviceTable}} offset refers to a {{DeviceTable}}; in a variable font file, it refers to an {{ItemVariationStore}}.
 
 <h4 id="base-discussion">Discussion</h4>
 <div class="nonnormative">
@@ -129,7 +129,7 @@ The purpose of this table is to enable the correct display of mixed-script text 
 
 The baselines in the `BASE` table can be further specified by script, and separate values may be provided for horizontal and vertical layout.
 
-As well as specifying baselines, the `BASE` table can be used to adjust the line spacing of a text by providing alternate glyph extent values depending on the combination of script, language and enabled OpenType features in use.
+As well as specifying baselines, the `BASE` table can be used to adjust the line spacing of a text by providing alternate glyph extent values depending on the combination of script, language and enabled layout features in use.
 
 For each axis (horizontal and vertical) specified in the table:
 
@@ -139,7 +139,7 @@ For each axis (horizontal and vertical) specified in the table:
     * {{baseValuesOffset}}, a pointer to a {{BaseValues}} table which contains the list of baseline coordinate information, corresponding to the baselines defined in the {{BaseTagList}}, as well as a selector {{defaultBaselineIndex}} specifying the default baseline for this script.
     * {{defaultMinMaxOffset}}, a pointer to a default glyph extents table (a {{MinMax}} table) for this script.
     * and a list of {{BaseLangSysRecord}} tables which specify language-specific glyph extents by mapping between [=language tag=] and a {{MinMax}} table.
-* Each glyph extents table (the {{MinMax}} table) may also provide alternative extent values to be used when certain OpenType features are enabled.
+* Each glyph extents table (the {{MinMax}} table) may also provide alternative extent values to be used when certain layout features are enabled.
 
 </div>
 

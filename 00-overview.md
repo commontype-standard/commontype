@@ -3,9 +3,9 @@ Overview {#chapter.overview}
 
 This "CommonType" document has three purposes:
 
-* To provide a formal description of the OpenType font format.
-* To describe best practices, methods and algorithms for producing and consuming font information in OpenType format.
-* To provide a possible way forward for development of the OpenType font format.
+* To provide a formal description of commonly used font formats.
+* To describe best practices, methods and algorithms for producing and consuming font information.
+* To provide a possible way forward for development of a new font format.
 
 Related documentation
 ---------------------

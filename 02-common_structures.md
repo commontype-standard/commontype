@@ -1,5 +1,23 @@
 <h3 id="common-structures">Common Structures and Data</h3>
 
+<h4 id="variation-common-structures" role="unfinished">Common Structures for Variable Fonts</h4>
+
+<pre class="idl">
+interface Tuple {
+  attribute F2DOT14[] coordinates;
+};
+
+interface TupleVariationHeader {
+  attribute USHORT variationDataSize;
+  attribute USHORT tupleIndex;
+  attribute Tuple peakTuple;
+  attribute Tuple intermediateStartTuple;
+  attribute Tuple intermediateEndTuple;
+};
+</pre>
+
+XXX
+
 <h4 id="platform-and-encoding-ids"><dfn>Platform and Encoding Identifiers</dfn></h4>
 
 Data entries in the [=cmap table=] and [=name table=] are designated as being for the

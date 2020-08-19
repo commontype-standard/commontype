@@ -12,12 +12,16 @@
 This table contains an array of values used by the TrueType instruction processor. Instructions in the [=glyf table=] can load values from this table using the `RCVT[]` instruction.
 
 <pre class="idl">
-interface cvtTable {
+interface CvtTable {
   attribute FWORD[] values;
 };
 </pre>
 
 The number of values is determined by the {{TableRecord/length}} of the table specified in the {{TableRecord}} in the `sfnt` header. This length must be an multiple of 2.
+
+<div class="note">
+    Note that since table names have four characters, the full name of this table ends with a space and is "`cvt `".
+</div>
 
 <h4 id="cvt-in-cons">Implementation notes for font consumers</h4>
 

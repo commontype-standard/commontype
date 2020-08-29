@@ -4,9 +4,9 @@ Title: CommonType
 Shortname: commontype
 Level: 1
 Status: LD
-URL: http://www.commontype.org/
+URL: https://www.commontype.org/
 Editor: Simon Cozens, Corvel Software, simon@simon-cozens.org
-Issue Tracking: GitHub https://github.com/commontype-standard/commontype/issues
+Repository: commontype-standard/commontype
 Markup Shorthands: markdown yes
 Abstract: CommonType describes and annotates the file format and processing requirements for font files.
 </pre>

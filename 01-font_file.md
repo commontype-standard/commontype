@@ -77,7 +77,7 @@ interface TableDirectoryEntry {
 <dl dfn-type=attribute dfn-for=TableDirectoryEntry>
   <dt><dfn>tableTag</dfn></dt>
   <dd>The four-character tag name for this table, from the [=table tag registry=].</dd>
-  <dt><dfn>checkSum</dfn></dt>
+  <dt><dfn>checksum</dfn></dt>
   <dd>The table checksum. See below.</dd>
   <dt><dfn>offset</dfn></dt>
   <dd>Byte position of the table, measured from the start of the {{TableDirectory}} table.

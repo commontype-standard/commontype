@@ -13,15 +13,15 @@ The `cmap` table defines the mapping from characters to glyphs. A font file may 
 
 <pre class="idl">
 interface CmapTableHeader {
-  attribute short tableVersion;
-  attribute short numSubTables;
+  attribute SHORT tableVersion;
+  attribute SHORT numSubTables;
   attribute CmapEncodingRecord[] cmapEncodingRecords;
 };
 
 interface CmapEncodingRecord {
-  attribute short platformID;
-  attribute short encodingID;
-  attribute long offset;
+  attribute SHORT platformID;
+  attribute SHORT encodingID;
+  attribute LONG offset;
 };
 
 </pre>

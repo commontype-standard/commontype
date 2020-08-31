@@ -87,21 +87,21 @@ interface TableDirectoryEntry {
 
 * Tables must aligned to a four byte boundary.
 
+* Table lengths must be a multiple of four bytes. Zero padding should be added to the end to make up an integral multiple if necessary.
+
 * Table checksums are computed using the following <dfn>checksum algorithm</dfn> (in Python):
 
 <pre>
-def calcChecksum(data):
-    # Zero pad data to four-byte boundary
-    remainder = len(data) % 4
-    if remainder:
-        data += b"\0" * (4 - remainder)
-    value = 0
-    blockSize = 4096
+def calcChecksum(table):
+    # Zero-pad table to four-byte boundary
+    while len(table) % 4 > 0:
+        table += b"\0"
+
     # Calculate the unsigned sum of all four-byte values
-    for i in range(0, len(data), blockSize):
-        block = data[i:i+blockSize]
-        longs = struct.unpack(">%dL" % (len(block) // 4), block)
-        value = (value + sum(longs)) & 0xffffffff
+    value = 0
+    for i in range(0, len(table), 4):
+        long = struct.unpack(">L", table[i:i+4])
+        value = (value + long) & 0xffffffff
     return value
 </pre>
 
@@ -141,7 +141,7 @@ Here is an example of filling in the header information for a font file with 11 
 
 <h5 id="TableDirectory.in-cons">Implementation notes for font consumers</h5>
 
-* When validating table checksums, the [=head table=] must be treated as a special case, and its `checkSumAdjustment` value set to four zero bytes for the purposes of checksumming.
+* When validating table checksums, the [=head table=] must be treated as a special case, and its `checkSumAdjustment` value set to four zero bytes for the purposes of checksumming. Font consumers should not assume that the table length will be a multiple of four, and should use the above checksumming algorithm which adds zero padding to the table data.
 
 * The {{TableDirectory/searchRange}}, {{TableDirectory/entrySelector}}, and {{TableDirectory/rangeShift}} fields should be ignored by font consumers. There is no requirement to use binary tree search to locate the tables, but if a binary tree is used, these values should be recomputed from the {{TableDirectory/numTables}} field.
 

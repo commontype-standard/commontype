@@ -29,7 +29,7 @@ A font file is represented as a collection of *tables*. The term <dfn>table</dfn
 A font file may represent glyph data in a number of formats. A font file must have exactly one <dfn>primary outline representation format</dfn>, which must be either:
 
 * TrueType outlines, stored in the [=glyf table=].
-* PostScript outlines, stored in the [=CFF table=].
+* CFF version 1 outlines, (sometimes informally called "PostScript outlines") stored in the [=CFF table=].
 * CFF version 2 outlines, stored in the [=CFF2 table=].
 
 A font file may also contain data in one or more of *secondary outline representation formats*. The only secondary outline representation format currently supported is Scalable Vector Graphics, stored in the [=SVG table=].
@@ -63,7 +63,7 @@ interface TableDirectoryEntry {
 
 <dl dfn-type=attribute dfn-for=TableDirectory>
   <dt><dfn>sfntVersion</dfn></dt>
-  <dd>File magic number. Must be `0x00010000` if the font file's [=primary outline representation format=] is TrueType outlines, or the four bytes `OTTO` if the primary outline representation format is PostScript outlines.</dd>
+  <dd>File magic number. Must be `0x00010000` if the font file's [=primary outline representation format=] is TrueType outlines, or the four bytes `OTTO` if the primary outline representation format is CFF outlines.</dd>
   <dt><dfn>numTables</dfn></dt>
   <dd>The number of top-level tables in the font file.</dd>
   <dt><dfn>searchRange</dfn></dt>

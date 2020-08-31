@@ -39,3 +39,6 @@ limitations under the License.
 <pre class=include>path: consumers-cmap.md</pre>
 <pre class=include>path: consumers-color.md</pre>
 <pre class=include>path: consumers-otvar.md</pre>
+
+<pre class=include>path: a-platform-table.md</pre>
+<pre class=include>path: b-mac-language.md</pre>

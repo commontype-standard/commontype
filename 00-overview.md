@@ -45,12 +45,12 @@ The following documents may be consulted for further information:
 -   <i>Adobe Type 1 Font Format</i> [[type1]]
 
 -   [Adobe Technical Note
-    \#5087](https://www.adobe.com/content/dam/acom/en/devnet/postscript/pdfs/5087.MM_Fond.pdf):
-    \"Multiple Master Font Programs for the Macintosh.\"
+    #5087](https://www.adobe.com/content/dam/acom/en/devnet/postscript/pdfs/5087.MM_Fond.pdf):
+    "Multiple Master Font Programs for the Macintosh."
 
 -   [Adobe Technical Note
-    \#5088](https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5088.FontNames.pdf):
-    \"Font Naming Issues.\" Discusses general font name issues.
+    #5088](https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5088.FontNames.pdf):
+    "Font Naming Issues." Discusses general font name issues.
 
 -   The [Adobe Glyph List
     Specification](https://github.com/adobe-type-tools/agl-specification).

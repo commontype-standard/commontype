@@ -1,0 +1,26 @@
+{
+	"avarTable": [
+		{"name": "tableMajorVersion", "type": "USHORT" },
+		{"name": "tableMinorVersion", "type": "USHORT" },
+		{"name": "reserved", "type": "USHORT" },
+		{"name": "axisCount", "type": "USHORT" },
+		{"name": "axisSegmentMaps", "type": "SegmentMaps[]", "count": "axisCount" }
+	],
+
+	"SegmentMaps": [
+		{"name": "positionMapCount", "type": "USHORT" },
+	  {"name": "axisValueMaps", "type": "AxisValueMap[]", "count": "positionMapCount" }
+	],
+
+	"AxisValueMap": [
+		{"type":"F2DOT14", "name": "fromCoordinate" },
+		{"type":"F2DOT14", "name": "toCoordinate" }
+	],
+
+	"BASETable": [
+		{"type": "VERSION", "name": "tableVersion" },
+		{"type": "Offset16", "name": "horizAxisOffset", "to": "BaseAxisTable" },
+		{"type": "Offset16", "name": "vertAxisOffset", "to": "BaseAxisTable" },
+		{"type": "Offset16", "name": "itemVarStoreOffset", "to": "ItemVariationStore", "optional": true }
+	]
+}

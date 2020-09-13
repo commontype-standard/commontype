@@ -1221,9 +1221,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 40de15f9, updated Thu Jun 11 17:47:04 2020 -0700" name="generator">
+  <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://www.commontype.org/" rel="canonical">
-  <meta content="8e6174bd552ca4d3dfe1ba14fa67d26e0ddb99ec" name="document-revision">
+  <meta content="b8a4c3669813a890389db29955f6770ab7f8cde5" name="document-revision">
   <link href="style.css" rel="stylesheet">
 <style>/* style-autolinks */
 
@@ -1471,7 +1471,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">CommonType</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-09-02">2 September 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-09-13">13 September 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2055,8 +2055,8 @@ used for cmap table entries, they cannot be used for name table entries.</p>
 };
 
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="basecoordformat2"><code><c- g>BaseCoordFormat2</c-></code></dfn> {
-  <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort②①"><c- n>USHORT</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="BaseCoordFormat2" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-basecoordformat2-basecoordformat"><code><c- g>baseCoordFormat</c-></code></dfn>;
-  <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-short" id="ref-for-typedefdef-short⑨"><c- n>SHORT</c-></a> <dfn class="idl-code" data-dfn-for="BaseCoordFormat2" data-dfn-type="attribute" data-export data-type="SHORT" id="dom-basecoordformat2-coordinate"><code><c- g>coordinate</c-></code><a class="self-link" href="#dom-basecoordformat2-coordinate"></a></dfn>;
+  <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort②①"><c- n>USHORT</c-></a> <dfn class="idl-code" data-dfn-for="BaseCoordFormat2" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-basecoordformat2-basecoordformat"><code><c- g>baseCoordFormat</c-></code><a class="self-link" href="#dom-basecoordformat2-basecoordformat"></a></dfn>;
+  <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-short" id="ref-for-typedefdef-short⑨"><c- n>SHORT</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="BaseCoordFormat2" data-dfn-type="attribute" data-export data-type="SHORT" id="dom-basecoordformat2-coordinate"><code><c- g>coordinate</c-></code></dfn>;
   <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort②②"><c- n>USHORT</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="BaseCoordFormat2" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-basecoordformat2-referenceglyph"><code><c- g>referenceGlyph</c-></code></dfn>;
   <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort②③"><c- n>USHORT</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="BaseCoordFormat2" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-basecoordformat2-basecoordpoint"><code><c- g>baseCoordPoint</c-></code></dfn>;
 };
@@ -2069,9 +2069,9 @@ used for cmap table entries, they cannot be used for name table entries.</p>
 </pre>
    <ul>
     <li data-md>
-     <p>The <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat2-basecoordformat" id="ref-for-dom-basecoordformat2-basecoordformat">baseCoordFormat</a></code> must be 1, 2, or 3 respectively.</p>
+     <p>The <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat1-basecoordformat" id="ref-for-dom-basecoordformat1-basecoordformat">baseCoordFormat</a></code> must be 1, 2, or 3 respectively.</p>
     <li data-md>
-     <p>In a format 2 coordinate table, <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat2-referenceglyph" id="ref-for-dom-basecoordformat2-referenceglyph">referenceGlyph</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat2-basecoordpoint" id="ref-for-dom-basecoordformat2-basecoordpoint">baseCoordPoint</a></code> are respectively the glyph ID and coordinate index of a point on the glyph, such that if the process of hinting adjusts the position of this point, <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat1-coordinate" id="ref-for-dom-basecoordformat1-coordinate">coordinate</a></code> is also adjusted by the same amount.</p>
+     <p>In a format 2 coordinate table, <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat2-referenceglyph" id="ref-for-dom-basecoordformat2-referenceglyph">referenceGlyph</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat2-basecoordpoint" id="ref-for-dom-basecoordformat2-basecoordpoint">baseCoordPoint</a></code> are respectively the glyph ID and coordinate index of a point on the glyph, such that if the process of hinting adjusts the position of this point, <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat2-coordinate" id="ref-for-dom-basecoordformat2-coordinate">coordinate</a></code> is also adjusted by the same amount.</p>
     <li data-md>
      <p>In a non-variable font file, the format 3 <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat3-devicetable" id="ref-for-dom-basecoordformat3-devicetable">deviceTable</a></code> offset refers to a <code class="idl"><a data-link-type="idl">DeviceTable</a></code>; in a variable font file, it refers to an <code class="idl"><a data-link-type="idl">ItemVariationStore</a></code>.</p>
    </ul>
@@ -2114,14 +2114,14 @@ used for cmap table entries, they cannot be used for name table entries.</p>
       <p>Create a <code class="idl"><a data-link-type="idl" href="#basevalues" id="ref-for-basevalues①">BaseValues</a></code> table with baseline values for each of the baselines we are defining. Set <code class="idl"><a data-link-type="idl" href="#dom-basevalues-basecoordcount" id="ref-for-dom-basevalues-basecoordcount①">baseCoordCount</a></code>=2 and, as the default baseline for this font will be the Roman baseline, set <code class="idl"><a data-link-type="idl" href="#dom-basevalues-defaultbaselineindex" id="ref-for-dom-basevalues-defaultbaselineindex①">defaultBaselineIndex</a></code>=0. The <code class="idl"><a data-link-type="idl" href="#dom-basevalues-basecoords" id="ref-for-dom-basevalues-basecoords">baseCoords</a></code> array will point to two <code class="idl"><a data-link-type="idl" href="#typedefdef-basecoord" id="ref-for-typedefdef-basecoord①">BaseCoord</a></code> tables, one for each of the two baselines in turn:</p>
       <ul>
        <li data-md>
-        <p>One <code class="idl"><a data-link-type="idl" href="#basecoordformat1" id="ref-for-basecoordformat1①">BaseCoordFormat1</a></code> table with <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat1-basecoordformat" id="ref-for-dom-basecoordformat1-basecoordformat">baseCoordFormat</a></code>=1 and <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat1-coordinate" id="ref-for-dom-basecoordformat1-coordinate①">coordinate</a></code>=0 to represent the Roman baseline.</p>
+        <p>One <code class="idl"><a data-link-type="idl" href="#basecoordformat1" id="ref-for-basecoordformat1①">BaseCoordFormat1</a></code> table with <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat1-basecoordformat" id="ref-for-dom-basecoordformat1-basecoordformat①">baseCoordFormat</a></code>=1 and <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat1-coordinate" id="ref-for-dom-basecoordformat1-coordinate">coordinate</a></code>=0 to represent the Roman baseline.</p>
        <li data-md>
-        <p>A second <code class="idl"><a data-link-type="idl" href="#basecoordformat1" id="ref-for-basecoordformat1②">BaseCoordFormat1</a></code> table with <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat1-basecoordformat" id="ref-for-dom-basecoordformat1-basecoordformat①">baseCoordFormat</a></code>=1 and <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat1-coordinate" id="ref-for-dom-basecoordformat1-coordinate②">coordinate</a></code>=-163 to represent the ideographic baseline.</p>
+        <p>A second <code class="idl"><a data-link-type="idl" href="#basecoordformat1" id="ref-for-basecoordformat1②">BaseCoordFormat1</a></code> table with <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat1-basecoordformat" id="ref-for-dom-basecoordformat1-basecoordformat②">baseCoordFormat</a></code>=1 and <code class="idl"><a data-link-type="idl" href="#dom-basecoordformat1-coordinate" id="ref-for-dom-basecoordformat1-coordinate①">coordinate</a></code>=-163 to represent the ideographic baseline.</p>
       </ul>
      <li data-md>
       <p>Create an <code class="idl"><a data-link-type="idl" href="#baseaxistable" id="ref-for-baseaxistable">BaseAxisTable</a></code> containing offsets to the <code class="idl"><a data-link-type="idl" href="#basetaglist" id="ref-for-basetaglist③">BaseTagList</a></code> and <code class="idl"><a data-link-type="idl" href="#basescriptlist" id="ref-for-basescriptlist③">BaseScriptList</a></code> tables.</p>
      <li data-md>
-      <p>Create a <code class="idl"><a data-link-type="idl" href="#basetableheaderversion10" id="ref-for-basetableheaderversion10①">BaseTableHeaderVersion10</a></code> with <code class="idl"><a data-link-type="idl" href="#dom-basetableheaderversion10-tablemajorversion" id="ref-for-dom-basetableheaderversion10-tablemajorversion①">tableMajorVersion</a></code>=1 and <code class="idl"><a data-link-type="idl" href="#dom-eblctable-tableminorversion" id="ref-for-dom-eblctable-tableminorversion">tableMinorVersion</a></code>=0, and with <code class="idl"><a data-link-type="idl" href="#dom-basetableheaderversion10-horizaxisoffset" id="ref-for-dom-basetableheaderversion10-horizaxisoffset①">horizAxisOffset</a></code> pointing to the <code class="idl"><a data-link-type="idl" href="#baseaxistable" id="ref-for-baseaxistable①">BaseAxisTable</a></code>.</p>
+      <p>Create a <code class="idl"><a data-link-type="idl" href="#basetableheaderversion10" id="ref-for-basetableheaderversion10①">BaseTableHeaderVersion10</a></code> with <code class="idl"><a data-link-type="idl" href="#dom-avartable-tablemajorversion" id="ref-for-dom-avartable-tablemajorversion①">tableMajorVersion</a></code>=1 and <code class="idl"><a data-link-type="idl" href="#dom-eblctable-tableminorversion" id="ref-for-dom-eblctable-tableminorversion">tableMinorVersion</a></code>=0, and with <code class="idl"><a data-link-type="idl" href="#dom-basetableheaderversion10-horizaxisoffset" id="ref-for-dom-basetableheaderversion10-horizaxisoffset①">horizAxisOffset</a></code> pointing to the <code class="idl"><a data-link-type="idl" href="#baseaxistable" id="ref-for-baseaxistable①">BaseAxisTable</a></code>.</p>
     </ul>
    </div>
    <h3 class="heading settled" data-level="2.5" id="CBDT-CBLC" role="unfinished"><span class="secno">2.5. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="cbdt-table">CBDT table</dfn> and <dfn data-dfn-type="dfn" data-noexport id="cblc">CBLC<a class="self-link" href="#cblc"></a></dfn> tables - Color Bitmaps</span><a class="self-link" href="#CBDT-CBLC"></a></h3>
@@ -2349,7 +2349,7 @@ used for cmap table entries, they cannot be used for name table entries.</p>
   <c- b>attribute</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-byte" id="ref-for-idl-byte②"><c- b>byte</c-></a>[] <dfn class="dfn-paneled idl-code" data-dfn-for="CmapFormat0Subtable" data-dfn-type="attribute" data-export data-type="byte[]" id="dom-cmapformat0subtable-glyphidarray"><code><c- g>glyphIdArray</c-></code></dfn>;
 };
 </pre>
-   <p><a data-link-type="dfn">Font producers</a> must include 256 elements in the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray">glyphIdArray</a></code> and set the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat0subtable-length" id="ref-for-dom-cmapformat0subtable-length">length</a></code> to 262.</p>
+   <p><a data-link-type="dfn">Font producers</a> must include 256 elements in the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-glyphidarray" id="ref-for-dom-cmapformat4subtable-glyphidarray">glyphIdArray</a></code> and set the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat0subtable-length" id="ref-for-dom-cmapformat0subtable-length">length</a></code> to 262.</p>
    <h4 class="heading settled" data-level="2.7.2" id="format-2-cmap-subtable"><span class="secno">2.7.2. </span><span class="content">Format 2 cmap subtable</span><a class="self-link" href="#format-2-cmap-subtable"></a></h4>
    <table>
     <tbody>
@@ -2376,7 +2376,7 @@ used for cmap table entries, they cannot be used for name table entries.</p>
    <p>In a mixed encoding, codepoints may be represented either by a one byte integer or a two byte integer, with certain values of the initial byte acting as a continuation signal.</p>
 <pre class="idl highlight def"><c- b>interface</c-> <dfn class="idl-code" data-dfn-type="interface" data-export id="cmapformat2subtable"><code><c- g>CmapFormat2Subtable</c-></code><a class="self-link" href="#cmapformat2subtable"></a></dfn> {
   <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort④⑤"><c- n>USHORT</c-></a> <a class="idl-code" data-link-type="attribute" data-type="USHORT" href="#dom-cmapformat2subtable-format" id="ref-for-dom-cmapformat2subtable-format"><c- g>format</c-></a>;
-  <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort④⑥"><c- n>USHORT</c-></a> <dfn class="idl-code" data-dfn-for="CmapFormat2Subtable" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-cmapformat2subtable-length"><code><c- g>length</c-></code><a class="self-link" href="#dom-cmapformat2subtable-length"></a></dfn>;
+  <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort④⑥"><c- n>USHORT</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="CmapFormat2Subtable" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-cmapformat2subtable-length"><code><c- g>length</c-></code></dfn>;
   <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort④⑦"><c- n>USHORT</c-></a> <dfn class="idl-code" data-dfn-for="CmapFormat2Subtable" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-cmapformat2subtable-language"><code><c- g>language</c-></code><a class="self-link" href="#dom-cmapformat2subtable-language"></a></dfn>;
   <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort④⑧"><c- n>USHORT</c-></a>[] <a class="idl-code" data-link-type="attribute" data-type="USHORT[]" href="#dom-cmapformat2subtable-subheaderkeys" id="ref-for-dom-cmapformat2subtable-subheaderkeys"><c- g>subHeaderKeys</c-></a>;
   <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#cmapformat2subheader" id="ref-for-cmapformat2subheader"><c- n>CmapFormat2Subheader</c-></a>[] <dfn class="dfn-paneled idl-code" data-dfn-for="CmapFormat2Subtable" data-dfn-type="attribute" data-export data-type="CmapFormat2Subheader[]" id="dom-cmapformat2subtable-subheaders"><code><c- g>subheaders</c-></code></dfn>;
@@ -2403,8 +2403,8 @@ used for cmap table entries, they cannot be used for name table entries.</p>
     <dd>Number of low-byte values handled by this subheader.
     <dt><dfn class="dfn-paneled idl-code" data-dfn-for="CmapFormat2Subheader" data-dfn-type="attribute" data-export id="dom-cmapformat2subheader-idrangeoffset"><code>idRangeOffset</code></dfn>, <span> of type <a data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑤⑥">USHORT</a></span>
     <dd>
-     The element of the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subtable-glyphindexarray" id="ref-for-dom-cmapformat2subtable-glyphindexarray">glyphIndexArray</a></code> array corresponding to the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subheader-firstcode" id="ref-for-dom-cmapformat2subheader-firstcode①">firstCode</a></code>. Note that unlike most offset values in this standard, the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subheader-idrangeoffset" id="ref-for-dom-cmapformat2subheader-idrangeoffset①">idRangeOffset</a></code> counts the number of bytes from 
-     <emphasis>the byte position of the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subheader-idrangeoffset" id="ref-for-dom-cmapformat2subheader-idrangeoffset②">idRangeOffset</a></code> record itself</emphasis>
+     The element of the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subtable-glyphindexarray" id="ref-for-dom-cmapformat2subtable-glyphindexarray">glyphIndexArray</a></code> array corresponding to the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-firstcode" id="ref-for-dom-cmapformat6subtable-firstcode">firstCode</a></code>. Note that unlike most offset values in this standard, the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subheader-idrangeoffset" id="ref-for-dom-cmapformat2subheader-idrangeoffset①">idRangeOffset</a></code> counts the number of bytes from 
+     <emphasis>the byte position of the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset">idRangeOffset</a></code> record itself</emphasis>
       to the target element, rather than from the start of the subtable header.
    </dl>
    <p>The first element of the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subtable-subheaders" id="ref-for-dom-cmapformat2subtable-subheaders">subheaders</a></code> array must contain the following values:</p>
@@ -2458,7 +2458,7 @@ used for cmap table entries, they cannot be used for name table entries.</p>
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑥⑤"><c- n>USHORT</c-></a> <dfn class="idl-code" data-dfn-for="CmapFormat4Subtable" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-cmapformat4subtable-reservedpad"><code><c- g>reservedPad</c-></code><a class="self-link" href="#dom-cmapformat4subtable-reservedpad"></a></dfn>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑥⑥"><c- n>USHORT</c-></a>[] <a class="idl-code" data-link-type="attribute" data-type="USHORT[]" href="#dom-cmapformat4subtable-startcode" id="ref-for-dom-cmapformat4subtable-startcode"><c- g>startCode</c-></a>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-short" id="ref-for-typedefdef-short①⑧"><c- n>SHORT</c-></a>[] <a class="idl-code" data-link-type="attribute" data-type="SHORT[]" href="#dom-cmapformat4subtable-iddelta" id="ref-for-dom-cmapformat4subtable-iddelta"><c- g>idDelta</c-></a>;
-    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑥⑦"><c- n>USHORT</c-></a> <a class="idl-code" data-link-type="attribute" data-type="USHORT" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset"><c- g>idRangeOffset</c-></a>;
+    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑥⑦"><c- n>USHORT</c-></a> <a class="idl-code" data-link-type="attribute" data-type="USHORT" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset①"><c- g>idRangeOffset</c-></a>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑥⑧"><c- n>USHORT</c-></a>[] <dfn class="dfn-paneled idl-code" data-dfn-for="CmapFormat4Subtable" data-dfn-type="attribute" data-export data-type="USHORT[]" id="dom-cmapformat4subtable-glyphidarray"><code><c- g>glyphIdArray</c-></code></dfn>;
 };
 </pre>
@@ -2479,10 +2479,10 @@ used for cmap table entries, they cannot be used for name table entries.</p>
     <dd>An array of <code>segCount</code> 16-bit values representing the delta to be added to each codepoint in the segment. 
     <dt><dfn class="dfn-paneled idl-code" data-dfn-for="CmapFormat4Subtable" data-dfn-type="attribute" data-export id="dom-cmapformat4subtable-idrangeoffset"><code>idRangeOffset</code></dfn>, <span> of type <a data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑦③">USHORT</a></span>
     <dd>
-     An array of <code>segCount</code> unsigned 16-bit values representing the offset into the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray①">glyphIdArray</a></code> for this segment. 
-     <div class="note" role="note"> Note that unlike most offset values in the file format, the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset①">idRangeOffset</a></code> counts the number of bytes from <em>the byte position of the</em> <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset②">idRangeOffset</a></code> <em>record itself</em> to the target element, rather than from the start of the subtable header. </div>
+     An array of <code>segCount</code> unsigned 16-bit values representing the offset into the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray">glyphIdArray</a></code> for this segment. 
+     <div class="note" role="note"> Note that unlike most offset values in the file format, the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subheader-idrangeoffset" id="ref-for-dom-cmapformat2subheader-idrangeoffset②">idRangeOffset</a></code> counts the number of bytes from <em>the byte position of the</em> <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset②">idRangeOffset</a></code> <em>record itself</em> to the target element, rather than from the start of the subtable header. </div>
    </dl>
-   <div class="note" role="note"> It is a security vulnerability for font consumers to trust the values of <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-searchrange" id="ref-for-dom-cmapformat4subtable-searchrange①">searchRange</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-tabledirectory-entryselector" id="ref-for-dom-tabledirectory-entryselector③">entrySelector</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-tabledirectory-rangeshift" id="ref-for-dom-tabledirectory-rangeshift③">rangeShift</a></code>, instead of computing them afresh from the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-segcountx2" id="ref-for-dom-cmapformat4subtable-segcountx2①">segCountX2</a></code> value. Their use is therefore <em>discouraged</em> by CommonType. </div>
+   <div class="note" role="note"> It is a security vulnerability for font consumers to trust the values of <code class="idl"><a data-link-type="idl" href="#dom-tabledirectory-searchrange" id="ref-for-dom-tabledirectory-searchrange③">searchRange</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-tabledirectory-entryselector" id="ref-for-dom-tabledirectory-entryselector③">entrySelector</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-tabledirectory-rangeshift" id="ref-for-dom-tabledirectory-rangeshift③">rangeShift</a></code>, instead of computing them afresh from the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-segcountx2" id="ref-for-dom-cmapformat4subtable-segcountx2①">segCountX2</a></code> value. Their use is therefore <em>discouraged</em> by CommonType. </div>
    <h5 class="heading settled" data-level="2.7.3.1" id="cmap-10-impl-prod"><span class="secno">2.7.3.1. </span><span class="content">Implementation notes for font producers</span><a class="self-link" href="#cmap-10-impl-prod"></a></h5>
    <p>The final segment must have an endCode value of <code>0xFFFF</code>.
 This segment need not contain any valid mappings, but must be present.</p>
@@ -2507,7 +2507,7 @@ This segment need not contain any valid mappings, but must be present.</p>
        <td>14
        <td>2 x 39 - 64
     </table>
-    <p>That said, the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-searchrange" id="ref-for-dom-cmapformat4subtable-searchrange②">searchRange</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-tabledirectory-entryselector" id="ref-for-dom-tabledirectory-entryselector④">entrySelector</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-rangeshift" id="ref-for-dom-cmapformat4subtable-rangeshift①">rangeShift</a></code> fields are
+    <p>That said, the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-searchrange" id="ref-for-dom-cmapformat4subtable-searchrange①">searchRange</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-entryselector" id="ref-for-dom-cmapformat4subtable-entryselector①">entrySelector</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-rangeshift" id="ref-for-dom-cmapformat4subtable-rangeshift①">rangeShift</a></code> fields are
 ignored by all current implementations, and should be treated as unused.</p>
    </div>
    <div class="note" role="note"> Uniscribe will fail if the final segment does not have an <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-endcode" id="ref-for-dom-cmapformat4subtable-endcode①">endCode</a></code> of
@@ -2539,9 +2539,9 @@ ignored by all current implementations, and should be treated as unused.</p>
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑦④"><c- n>USHORT</c-></a> <dfn class="idl-code" data-dfn-for="CmapFormat6Subtable" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-cmapformat6subtable-format"><code><c- g>format</c-></code><a class="self-link" href="#dom-cmapformat6subtable-format"></a></dfn>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑦⑤"><c- n>USHORT</c-></a> <dfn class="idl-code" data-dfn-for="CmapFormat6Subtable" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-cmapformat6subtable-length"><code><c- g>length</c-></code><a class="self-link" href="#dom-cmapformat6subtable-length"></a></dfn>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑦⑥"><c- n>USHORT</c-></a> <dfn class="idl-code" data-dfn-for="CmapFormat6Subtable" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-cmapformat6subtable-language"><code><c- g>language</c-></code><a class="self-link" href="#dom-cmapformat6subtable-language"></a></dfn>;
-    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑦⑦"><c- n>USHORT</c-></a> <a class="idl-code" data-link-type="attribute" data-type="USHORT" href="#dom-cmapformat6subtable-firstcode" id="ref-for-dom-cmapformat6subtable-firstcode"><c- g>firstCode</c-></a>;
+    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑦⑦"><c- n>USHORT</c-></a> <a class="idl-code" data-link-type="attribute" data-type="USHORT" href="#dom-cmapformat6subtable-firstcode" id="ref-for-dom-cmapformat6subtable-firstcode①"><c- g>firstCode</c-></a>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑦⑧"><c- n>USHORT</c-></a> <a class="idl-code" data-link-type="attribute" data-type="USHORT" href="#dom-cmapformat6subtable-entrycount" id="ref-for-dom-cmapformat6subtable-entrycount"><c- g>entryCount</c-></a>;
-    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑦⑨"><c- n>USHORT</c-></a>[] <a class="idl-code" data-link-type="attribute" data-type="USHORT[]" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray②"><c- g>glyphIdArray</c-></a>;
+    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑦⑨"><c- n>USHORT</c-></a>[] <a class="idl-code" data-link-type="attribute" data-type="USHORT[]" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray①"><c- g>glyphIdArray</c-></a>;
 };
 </pre>
    <dl>
@@ -2601,7 +2601,7 @@ ignored by all current implementations, and should be treated as unused.</p>
 <pre class="idl highlight def"><c- b>interface</c-> <dfn class="idl-code" data-dfn-type="interface" data-export id="cmapformat10subtable"><code><c- g>CmapFormat10Subtable</c-></code><a class="self-link" href="#cmapformat10subtable"></a></dfn> {
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑧②"><c- n>USHORT</c-></a> <dfn class="idl-code" data-dfn-for="CmapFormat10Subtable" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-cmapformat10subtable-format"><code><c- g>format</c-></code><a class="self-link" href="#dom-cmapformat10subtable-format"></a></dfn>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort⑧③"><c- n>USHORT</c-></a> <dfn class="idl-code" data-dfn-for="CmapFormat10Subtable" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-cmapformat10subtable-formatversionminor"><code><c- g>formatVersionMinor</c-></code><a class="self-link" href="#dom-cmapformat10subtable-formatversionminor"></a></dfn>;
-    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong①"><c- n>ULONG</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="CmapFormat10Subtable" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-cmapformat10subtable-length"><code><c- g>length</c-></code></dfn>;
+    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong①"><c- n>ULONG</c-></a> <dfn class="idl-code" data-dfn-for="CmapFormat10Subtable" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-cmapformat10subtable-length"><code><c- g>length</c-></code><a class="self-link" href="#dom-cmapformat10subtable-length"></a></dfn>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong②"><c- n>ULONG</c-></a> <dfn class="idl-code" data-dfn-for="CmapFormat10Subtable" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-cmapformat10subtable-language"><code><c- g>language</c-></code><a class="self-link" href="#dom-cmapformat10subtable-language"></a></dfn>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong③"><c- n>ULONG</c-></a> <a class="idl-code" data-link-type="attribute" data-type="ULONG" href="#dom-cmapformat10subtable-startcharcode" id="ref-for-dom-cmapformat10subtable-startcharcode"><c- g>startCharCode</c-></a>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong④"><c- n>ULONG</c-></a> <a class="idl-code" data-link-type="attribute" data-type="ULONG" href="#dom-cmapformat10subtable-numchars" id="ref-for-dom-cmapformat10subtable-numchars"><c- g>numChars</c-></a>;
@@ -2649,7 +2649,7 @@ ignored by all current implementations, and should be treated as unused.</p>
 
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="sequentialmapgroup"><code><c- g>SequentialMapGroup</c-></code></dfn> {
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong①⓪"><c- n>ULONG</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="SequentialMapGroup" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-sequentialmapgroup-startcharcode"><code><c- g>startCharCode</c-></code></dfn>;
-    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong①①"><c- n>ULONG</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="SequentialMapGroup" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-sequentialmapgroup-endcharcode"><code><c- g>endCharCode</c-></code></dfn>;
+    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong①①"><c- n>ULONG</c-></a> <dfn class="idl-code" data-dfn-for="SequentialMapGroup" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-sequentialmapgroup-endcharcode"><code><c- g>endCharCode</c-></code><a class="self-link" href="#dom-sequentialmapgroup-endcharcode"></a></dfn>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong①②"><c- n>ULONG</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="SequentialMapGroup" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-sequentialmapgroup-startglyphid"><code><c- g>startGlyphID</c-></code></dfn>;
 };
 </pre>
@@ -2696,13 +2696,13 @@ codepoints to a single glyph ID.</p>
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="constantmapgroup"><code><c- g>ConstantMapGroup</c-></code></dfn> {
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong①⑥"><c- n>ULONG</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="ConstantMapGroup" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-constantmapgroup-startcharcode"><code><c- g>startCharCode</c-></code></dfn>;
     <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong①⑦"><c- n>ULONG</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="ConstantMapGroup" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-constantmapgroup-endcharcode"><code><c- g>endCharCode</c-></code></dfn>;
-    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong①⑧"><c- n>ULONG</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="ConstantMapGroup" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-constantmapgroup-glyphid"><code><c- g>glyphID</c-></code></dfn>;
+    <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ulong" id="ref-for-typedefdef-ulong①⑧"><c- n>ULONG</c-></a> <dfn class="idl-code" data-dfn-for="ConstantMapGroup" data-dfn-type="attribute" data-export data-type="ULONG" id="dom-constantmapgroup-glyphid"><code><c- g>glyphID</c-></code><a class="self-link" href="#dom-constantmapgroup-glyphid"></a></dfn>;
 };
 </pre>
    <h5 class="heading settled" data-level="2.7.8.1" id="cmap-13-impl-prod"><span class="secno">2.7.8.1. </span><span class="content">Implementation notes for font producers</span><a class="self-link" href="#cmap-13-impl-prod"></a></h5>
    <ul>
     <li data-md>
-     <p>Groups must be arranged in increasing value of <code class="idl"><a data-link-type="idl" href="#dom-cmapformat10subtable-startcharcode" id="ref-for-dom-cmapformat10subtable-startcharcode②">startCharCode</a></code>.</p>
+     <p>Groups must be arranged in increasing value of <code class="idl"><a data-link-type="idl" href="#dom-constantmapgroup-startcharcode" id="ref-for-dom-constantmapgroup-startcharcode">startCharCode</a></code>.</p>
     <li data-md>
      <p>Groups may not overlap.</p>
    </ul>
@@ -3026,7 +3026,7 @@ is not a language-specific encoding. </div>
 };
 
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="glyphidoffsetpair"><code><c- g>GlyphIdOffsetPair</c-></code></dfn> {
-  <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort①⓪⑨"><c- n>USHORT</c-></a> <dfn class="idl-code" data-dfn-for="GlyphIdOffsetPair" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-glyphidoffsetpair-glyphid"><code><c- g>glyphID</c-></code><a class="self-link" href="#dom-glyphidoffsetpair-glyphid"></a></dfn>;
+  <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-ushort" id="ref-for-typedefdef-ushort①⓪⑨"><c- n>USHORT</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="GlyphIdOffsetPair" data-dfn-type="attribute" data-export data-type="USHORT" id="dom-glyphidoffsetpair-glyphid"><code><c- g>glyphID</c-></code></dfn>;
   <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="#typedefdef-offset16" id="ref-for-typedefdef-offset16①⑧"><c- n>Offset16</c-></a> <dfn class="idl-code" data-dfn-for="GlyphIdOffsetPair" data-dfn-type="attribute" data-export data-type="Offset16" id="dom-glyphidoffsetpair-offset"><code><c- g>offset</c-></code><a class="self-link" href="#dom-glyphidoffsetpair-offset"></a></dfn>;
 };
 
@@ -3047,11 +3047,11 @@ is not a language-specific encoding. </div>
      <p>Character codes that are not mapped to any glyph in the font by the data in the cmap table (either because there is no subtable for their encoding or because the subtable in a format not supported by the application or because the subtable does not contain a mapping for this character code) should be mapped to glyph ID 0.</p>
    </ul>
    <h4 class="heading settled" data-level="4.1.1" id="processing-a-format-0-subtable"><span class="secno">4.1.1. </span><span class="content">Processing a format 0 subtable</span><a class="self-link" href="#processing-a-format-0-subtable"></a></h4>
-   <p>Font consumers must read the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat10subtable-length" id="ref-for-dom-cmapformat10subtable-length">length</a></code> field of the subtable, and read either <code>(length - 6)</code> glyph IDs or 256, whichever is fewer.</p>
+   <p>Font consumers must read the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subtable-length" id="ref-for-dom-cmapformat2subtable-length">length</a></code> field of the subtable, and read either <code>(length - 6)</code> glyph IDs or 256, whichever is fewer.</p>
    <p>To map codepoints to glyph IDs in a format 0 subtable, each input
-          codepoint is used to index the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray③">glyphIdArray</a></code> to retrieve a glyph ID.
+          codepoint is used to index the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat0subtable-glyphidarray" id="ref-for-dom-cmapformat0subtable-glyphidarray">glyphIdArray</a></code> to retrieve a glyph ID.
           Before indexing the array, the font consumer must ensure that the input
-          codepoint is less than the number of entries in the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat0subtable-glyphidarray" id="ref-for-dom-cmapformat0subtable-glyphidarray">glyphIdArray</a></code>;
+          codepoint is less than the number of entries in the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat0subtable-glyphidarray" id="ref-for-dom-cmapformat0subtable-glyphidarray①">glyphIdArray</a></code>;
           if it is not less, then the character is mapped to glyph index 0.</p>
    <h4 class="heading settled" data-level="4.1.2" id="processing-a-format-2-subtable"><span class="secno">4.1.2. </span><span class="content">Processing a format 2 subtable</span><a class="self-link" href="#processing-a-format-2-subtable"></a></h4>
    <ul>
@@ -3083,19 +3083,19 @@ is not a language-specific encoding. </div>
      <p>Finally, if the glyph ID is non-zero, <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-iddelta" id="ref-for-dom-cmapformat4subtable-iddelta①">idDelta</a></code> is added to the glyph ID module 65536 to return the final glyph ID.</p>
    </ul>
    <h4 class="heading settled" data-level="4.1.3" id="processing-a-format-4-subtable"><span class="secno">4.1.3. </span><span class="content">Processing a format 4 subtable</span><a class="self-link" href="#processing-a-format-4-subtable"></a></h4>
-   <p>When reading a format 4 subtable, the values <code class="idl"><a data-link-type="idl" href="#dom-tabledirectory-searchrange" id="ref-for-dom-tabledirectory-searchrange③">searchRange</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-entryselector" id="ref-for-dom-cmapformat4subtable-entryselector①">entrySelector</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-tabledirectory-rangeshift" id="ref-for-dom-tabledirectory-rangeshift④">rangeShift</a></code> should be ignored.</p>
+   <p>When reading a format 4 subtable, the values <code class="idl"><a data-link-type="idl" href="#dom-tabledirectory-searchrange" id="ref-for-dom-tabledirectory-searchrange④">searchRange</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-entryselector" id="ref-for-dom-cmapformat4subtable-entryselector②">entrySelector</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-tabledirectory-rangeshift" id="ref-for-dom-tabledirectory-rangeshift④">rangeShift</a></code> should be ignored.</p>
    <p>To map codepoints to glyph IDs in a format 4 subtable, the font
 consumer should first search the segment arrays for the first <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-endcode" id="ref-for-dom-cmapformat4subtable-endcode②">endCode</a></code> that is greater than or equal to the codepoint to be mapped. If the
 corresponding <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-startcode" id="ref-for-dom-cmapformat4subtable-startcode①">startCode</a></code> is less than or equal to the character code,
 then the segment contains a mapping for this codepoint. Otherwise,
 the missing glyph ID 0 is returned.</p>
    <p>XXX this para and next still needs rewriting.
-If the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset⑤">idRangeOffset</a></code> value for the segment is not 0, the
-mapping of character codes relies on <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-glyphidarray" id="ref-for-dom-cmapformat4subtable-glyphidarray">glyphIdArray</a></code>. The
-character code offset from <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-startcode" id="ref-for-dom-cmapformat4subtable-startcode②">startCode</a></code> is added to the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset⑥">idRangeOffset</a></code> value. This sum is used as an offset from the
-current location within <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset⑦">idRangeOffset</a></code> itself to index out
-the correct <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray④">glyphIdArray</a></code> value. This obscure indexing trick
-works because <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray⑤">glyphIdArray</a></code> immediately follows <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subheader-idrangeoffset" id="ref-for-dom-cmapformat2subheader-idrangeoffset③">idRangeOffset</a></code> in the font file. The C expression that yields the glyph
+If the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subheader-idrangeoffset" id="ref-for-dom-cmapformat2subheader-idrangeoffset③">idRangeOffset</a></code> value for the segment is not 0, the
+mapping of character codes relies on <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray②">glyphIdArray</a></code>. The
+character code offset from <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-startcode" id="ref-for-dom-cmapformat4subtable-startcode②">startCode</a></code> is added to the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset⑤">idRangeOffset</a></code> value. This sum is used as an offset from the
+current location within <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subheader-idrangeoffset" id="ref-for-dom-cmapformat2subheader-idrangeoffset④">idRangeOffset</a></code> itself to index out
+the correct <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray③">glyphIdArray</a></code> value. This obscure indexing trick
+works because <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray④">glyphIdArray</a></code> immediately follows <code class="idl"><a data-link-type="idl" href="#dom-cmapformat2subheader-idrangeoffset" id="ref-for-dom-cmapformat2subheader-idrangeoffset⑤">idRangeOffset</a></code> in the font file. The C expression that yields the glyph
 index is:</p>
 <pre>*(idRangeOffset[i]/2
 + (c - startCode[i])
@@ -3106,7 +3106,7 @@ the segment index in which <code>c</code> appears. If the value obtained
 from the indexing operation is not 0 (which indicates
 missingGlyph), <code>idDelta[i]</code> is added to it to get the glyph
 index. The <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-iddelta" id="ref-for-dom-cmapformat4subtable-iddelta②">idDelta</a></code> arithmetic is modulo 65536.</p>
-   <p>If the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset⑧">idRangeOffset</a></code> is 0, the idDelta value is added
+   <p>If the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat4subtable-idrangeoffset" id="ref-for-dom-cmapformat4subtable-idrangeoffset⑥">idRangeOffset</a></code> is 0, the idDelta value is added
 directly to the codepoint modulo 65536 (i.e. <code>(idDelta[i] + c)%65536</code>)
 and the value is returned as the glyph ID.</p>
    <div class="example" id="example-34d35f56">
@@ -3133,26 +3133,26 @@ idRangeOffset:   0    0     0     0
    </div>
    <h4 class="heading settled" data-level="4.1.4" id="processing-a-format-6-subtable"><span class="secno">4.1.4. </span><span class="content">Processing a format 6 subtable</span><a class="self-link" href="#processing-a-format-6-subtable"></a></h4>
    <p>To map codepoints to glyph IDs in a format 6 subtable, each input
-codepoint is subtracted from <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-firstcode" id="ref-for-dom-cmapformat6subtable-firstcode①">firstCode</a></code>, and this value is used to index the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-glyphidarray" id="ref-for-dom-cmapformat6subtable-glyphidarray⑥">glyphIdArray</a></code> to retrieve a glyph ID.</p>
+codepoint is subtracted from <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-firstcode" id="ref-for-dom-cmapformat6subtable-firstcode②">firstCode</a></code>, and this value is used to index the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat0subtable-glyphidarray" id="ref-for-dom-cmapformat0subtable-glyphidarray②">glyphIdArray</a></code> to retrieve a glyph ID.</p>
    <p>Before indexing the array, the font consumer must ensure that the input codepoint is less than the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat6subtable-entrycount" id="ref-for-dom-cmapformat6subtable-entrycount①">entryCount</a></code>; if it is not less, then the character is mapped to glyph index 0.</p>
    <h4 class="heading settled" data-level="4.1.5" id="processing-a-format-10-subtable"><span class="secno">4.1.5. </span><span class="content">Processing a format 10 subtable</span><a class="self-link" href="#processing-a-format-10-subtable"></a></h4>
    <p>To map codepoints to glyph IDs in a format 10 subtable, each input
-codepoint is subtracted from <code class="idl"><a data-link-type="idl" href="#dom-cmapformat10subtable-startcharcode" id="ref-for-dom-cmapformat10subtable-startcharcode③">startCharCode</a></code>, and this value is used to index the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat10subtable-glyphs" id="ref-for-dom-cmapformat10subtable-glyphs①">glyphs</a></code> to retrieve a glyph ID.</p>
+codepoint is subtracted from <code class="idl"><a data-link-type="idl" href="#dom-constantmapgroup-startcharcode" id="ref-for-dom-constantmapgroup-startcharcode①">startCharCode</a></code>, and this value is used to index the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat10subtable-glyphs" id="ref-for-dom-cmapformat10subtable-glyphs①">glyphs</a></code> to retrieve a glyph ID.</p>
    <p>Before indexing the array, the font consumer must ensure that the input codepoint is less than the <code class="idl"><a data-link-type="idl" href="#dom-cmapformat10subtable-numchars" id="ref-for-dom-cmapformat10subtable-numchars①">numChars</a></code>; if it is not less, then the character is mapped to glyph index 0.</p>
    <h4 class="heading settled" data-level="4.1.6" id="processing-a-format-12-subtable"><span class="secno">4.1.6. </span><span class="content">Processing a format 12 subtable</span><a class="self-link" href="#processing-a-format-12-subtable"></a></h4>
    <p>To map codepoints to glyph IDs in a format 12 subtable, the font
 consumer should first search the groups for the first <code class="idl"><a data-link-type="idl" href="#dom-constantmapgroup-endcharcode" id="ref-for-dom-constantmapgroup-endcharcode">endCharCode</a></code> that is greater than or equal to the codepoint to be mapped. If the
-corresponding <code class="idl"><a data-link-type="idl" href="#dom-cmapformat10subtable-startcharcode" id="ref-for-dom-cmapformat10subtable-startcharcode④">startCharCode</a></code> is less than or equal to the character code,
+corresponding <code class="idl"><a data-link-type="idl" href="#dom-sequentialmapgroup-startcharcode" id="ref-for-dom-sequentialmapgroup-startcharcode">startCharCode</a></code> is less than or equal to the character code,
 then the segment contains a mapping for this codepoint. Otherwise,
 the missing glyph ID 0 is returned.</p>
-   <p>Next the value of <code class="idl"><a data-link-type="idl" href="#dom-sequentialmapgroup-startcharcode" id="ref-for-dom-sequentialmapgroup-startcharcode">startCharCode</a></code> is subtracted from the codepoint, and
+   <p>Next the value of <code class="idl"><a data-link-type="idl" href="#dom-constantmapgroup-startcharcode" id="ref-for-dom-constantmapgroup-startcharcode②">startCharCode</a></code> is subtracted from the codepoint, and
 the result is added to <code class="idl"><a data-link-type="idl" href="#dom-sequentialmapgroup-startglyphid" id="ref-for-dom-sequentialmapgroup-startglyphid">startGlyphID</a></code> to retrieve a glyph ID.</p>
    <h4 class="heading settled" data-level="4.1.7" id="processing-a-format-13-subtable"><span class="secno">4.1.7. </span><span class="content">Processing a format 13 subtable</span><a class="self-link" href="#processing-a-format-13-subtable"></a></h4>
    <p>To map codepoints to glyph IDs in a format 12 subtable, the font
-consumer should first search the groups for the first <code class="idl"><a data-link-type="idl" href="#dom-sequentialmapgroup-endcharcode" id="ref-for-dom-sequentialmapgroup-endcharcode">endCharCode</a></code> that is greater than or equal to the codepoint to be mapped. If the
-corresponding <code class="idl"><a data-link-type="idl" href="#dom-constantmapgroup-startcharcode" id="ref-for-dom-constantmapgroup-startcharcode">startCharCode</a></code> is less than or equal to the character code,
+consumer should first search the groups for the first <code class="idl"><a data-link-type="idl" href="#dom-constantmapgroup-endcharcode" id="ref-for-dom-constantmapgroup-endcharcode①">endCharCode</a></code> that is greater than or equal to the codepoint to be mapped. If the
+corresponding <code class="idl"><a data-link-type="idl" href="#dom-cmapformat10subtable-startcharcode" id="ref-for-dom-cmapformat10subtable-startcharcode②">startCharCode</a></code> is less than or equal to the character code,
 then the segment contains a mapping for this codepoint. Otherwise,
-the missing glyph ID 0 is returned. Once a matching group is found, the value of <code class="idl"><a data-link-type="idl" href="#dom-constantmapgroup-glyphid" id="ref-for-dom-constantmapgroup-glyphid">glyphID</a></code> is returned.</p>
+the missing glyph ID 0 is returned. Once a matching group is found, the value of <code class="idl"><a data-link-type="idl" href="#dom-glyphidoffsetpair-glyphid" id="ref-for-dom-glyphidoffsetpair-glyphid">glyphID</a></code> is returned.</p>
    <h4 class="heading settled" data-level="4.1.8" id="processing-a-format-14-subtable"><span class="secno">4.1.8. </span><span class="content">Processing a format 14 subtable</span><a class="self-link" href="#processing-a-format-14-subtable"></a></h4>
    <p>To map codepoints to glyph IDs in a format 14 subtable, both the base codepoint and the codepoint of the Unicode Variation Selector need to be considered together.</p>
    <p>First, the font consumer should search for a <code class="idl"><a data-link-type="idl" href="#variationselector" id="ref-for-variationselector⑤">VariationSelector</a></code> record with a <code class="idl"><a data-link-type="idl" href="#dom-variationselector-varselector" id="ref-for-dom-variationselector-varselector④">varSelector</a></code> equal to the codepoint of the Unicode Variation Selector. If no record is found, format 14 table processing ends and the codepoint is mapped using the next available subtable.</p>
@@ -4991,7 +4991,8 @@ platforms.</p>
     <li><a href="#ref-for-dom-tabledirectory-searchrange">2.1.3. Table Directory</a>
     <li><a href="#ref-for-dom-tabledirectory-searchrange①">2.1.3.1. Implementation notes for font producers</a>
     <li><a href="#ref-for-dom-tabledirectory-searchrange②">2.1.3.2. Implementation notes for font consumers</a>
-    <li><a href="#ref-for-dom-tabledirectory-searchrange③">4.1.3. Processing a format 4 subtable</a>
+    <li><a href="#ref-for-dom-tabledirectory-searchrange③">2.7.3. Format 4 cmap subtable</a>
+    <li><a href="#ref-for-dom-tabledirectory-searchrange④">4.1.3. Processing a format 4 subtable</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-tabledirectory-entryselector">
@@ -5001,7 +5002,6 @@ platforms.</p>
     <li><a href="#ref-for-dom-tabledirectory-entryselector①">2.1.3.1. Implementation notes for font producers</a>
     <li><a href="#ref-for-dom-tabledirectory-entryselector②">2.1.3.2. Implementation notes for font consumers</a>
     <li><a href="#ref-for-dom-tabledirectory-entryselector③">2.7.3. Format 4 cmap subtable</a>
-    <li><a href="#ref-for-dom-tabledirectory-entryselector④">2.7.3.1. Implementation notes for font producers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-tabledirectory-rangeshift">
@@ -5103,6 +5103,7 @@ platforms.</p>
    <b><a href="#dom-avartable-tablemajorversion">#dom-avartable-tablemajorversion</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-avartable-tablemajorversion">2.3. avar table - Axis Variations Table</a>
+    <li><a href="#ref-for-dom-avartable-tablemajorversion①">2.4.2. Implementation notes for font producers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-avartable-tableminorversion">
@@ -5128,7 +5129,6 @@ platforms.</p>
    <b><a href="#dom-basetableheaderversion10-tablemajorversion">#dom-basetableheaderversion10-tablemajorversion</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-basetableheaderversion10-tablemajorversion">2.4. BASE table - Baseline Table</a>
-    <li><a href="#ref-for-dom-basetableheaderversion10-tablemajorversion①">2.4.2. Implementation notes for font producers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-basetableheaderversion10-tableminorversion">
@@ -5329,14 +5329,14 @@ platforms.</p>
   <aside class="dfn-panel" data-for="dom-basecoordformat1-basecoordformat">
    <b><a href="#dom-basecoordformat1-basecoordformat">#dom-basecoordformat1-basecoordformat</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-basecoordformat1-basecoordformat">2.4.2. Implementation notes for font producers</a> <a href="#ref-for-dom-basecoordformat1-basecoordformat①">(2)</a>
+    <li><a href="#ref-for-dom-basecoordformat1-basecoordformat">2.4. BASE table - Baseline Table</a>
+    <li><a href="#ref-for-dom-basecoordformat1-basecoordformat①">2.4.2. Implementation notes for font producers</a> <a href="#ref-for-dom-basecoordformat1-basecoordformat②">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-basecoordformat1-coordinate">
    <b><a href="#dom-basecoordformat1-coordinate">#dom-basecoordformat1-coordinate</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-basecoordformat1-coordinate">2.4. BASE table - Baseline Table</a>
-    <li><a href="#ref-for-dom-basecoordformat1-coordinate①">2.4.2. Implementation notes for font producers</a> <a href="#ref-for-dom-basecoordformat1-coordinate②">(2)</a>
+    <li><a href="#ref-for-dom-basecoordformat1-coordinate">2.4.2. Implementation notes for font producers</a> <a href="#ref-for-dom-basecoordformat1-coordinate①">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="basecoordformat2">
@@ -5345,10 +5345,10 @@ platforms.</p>
     <li><a href="#ref-for-basecoordformat2">2.4. BASE table - Baseline Table</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-basecoordformat2-basecoordformat">
-   <b><a href="#dom-basecoordformat2-basecoordformat">#dom-basecoordformat2-basecoordformat</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dom-basecoordformat2-coordinate">
+   <b><a href="#dom-basecoordformat2-coordinate">#dom-basecoordformat2-coordinate</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-basecoordformat2-basecoordformat">2.4. BASE table - Baseline Table</a>
+    <li><a href="#ref-for-dom-basecoordformat2-coordinate">2.4. BASE table - Baseline Table</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-basecoordformat2-referenceglyph">
@@ -5583,7 +5583,14 @@ platforms.</p>
   <aside class="dfn-panel" data-for="dom-cmapformat0subtable-glyphidarray">
    <b><a href="#dom-cmapformat0subtable-glyphidarray">#dom-cmapformat0subtable-glyphidarray</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-cmapformat0subtable-glyphidarray">4.1.1. Processing a format 0 subtable</a>
+    <li><a href="#ref-for-dom-cmapformat0subtable-glyphidarray">4.1.1. Processing a format 0 subtable</a> <a href="#ref-for-dom-cmapformat0subtable-glyphidarray①">(2)</a>
+    <li><a href="#ref-for-dom-cmapformat0subtable-glyphidarray②">4.1.4. Processing a format 6 subtable</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="dom-cmapformat2subtable-length">
+   <b><a href="#dom-cmapformat2subtable-length">#dom-cmapformat2subtable-length</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dom-cmapformat2subtable-length">4.1.1. Processing a format 0 subtable</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-cmapformat2subtable-subheaders">
@@ -5620,7 +5627,7 @@ platforms.</p>
   <aside class="dfn-panel" data-for="dom-cmapformat2subheader-firstcode">
    <b><a href="#dom-cmapformat2subheader-firstcode">#dom-cmapformat2subheader-firstcode</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-cmapformat2subheader-firstcode">2.7.2. Format 2 cmap subtable</a> <a href="#ref-for-dom-cmapformat2subheader-firstcode①">(2)</a>
+    <li><a href="#ref-for-dom-cmapformat2subheader-firstcode">2.7.2. Format 2 cmap subtable</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-cmapformat2subheader-entrycount">
@@ -5632,14 +5639,15 @@ platforms.</p>
   <aside class="dfn-panel" data-for="dom-cmapformat2subheader-idrangeoffset">
    <b><a href="#dom-cmapformat2subheader-idrangeoffset">#dom-cmapformat2subheader-idrangeoffset</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-cmapformat2subheader-idrangeoffset">2.7.2. Format 2 cmap subtable</a> <a href="#ref-for-dom-cmapformat2subheader-idrangeoffset①">(2)</a> <a href="#ref-for-dom-cmapformat2subheader-idrangeoffset②">(3)</a>
-    <li><a href="#ref-for-dom-cmapformat2subheader-idrangeoffset③">4.1.3. Processing a format 4 subtable</a>
+    <li><a href="#ref-for-dom-cmapformat2subheader-idrangeoffset">2.7.2. Format 2 cmap subtable</a> <a href="#ref-for-dom-cmapformat2subheader-idrangeoffset①">(2)</a>
+    <li><a href="#ref-for-dom-cmapformat2subheader-idrangeoffset②">2.7.3. Format 4 cmap subtable</a>
+    <li><a href="#ref-for-dom-cmapformat2subheader-idrangeoffset③">4.1.3. Processing a format 4 subtable</a> <a href="#ref-for-dom-cmapformat2subheader-idrangeoffset④">(2)</a> <a href="#ref-for-dom-cmapformat2subheader-idrangeoffset⑤">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-cmapformat4subtable-glyphidarray">
    <b><a href="#dom-cmapformat4subtable-glyphidarray">#dom-cmapformat4subtable-glyphidarray</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-cmapformat4subtable-glyphidarray">4.1.3. Processing a format 4 subtable</a>
+    <li><a href="#ref-for-dom-cmapformat4subtable-glyphidarray">2.7.1. Format 0 cmap subtable</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-cmapformat4subtable-segcountx2">
@@ -5651,15 +5659,16 @@ platforms.</p>
   <aside class="dfn-panel" data-for="dom-cmapformat4subtable-searchrange">
    <b><a href="#dom-cmapformat4subtable-searchrange">#dom-cmapformat4subtable-searchrange</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-cmapformat4subtable-searchrange">2.7.3. Format 4 cmap subtable</a> <a href="#ref-for-dom-cmapformat4subtable-searchrange①">(2)</a>
-    <li><a href="#ref-for-dom-cmapformat4subtable-searchrange②">2.7.3.1. Implementation notes for font producers</a>
+    <li><a href="#ref-for-dom-cmapformat4subtable-searchrange">2.7.3. Format 4 cmap subtable</a>
+    <li><a href="#ref-for-dom-cmapformat4subtable-searchrange①">2.7.3.1. Implementation notes for font producers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-cmapformat4subtable-entryselector">
    <b><a href="#dom-cmapformat4subtable-entryselector">#dom-cmapformat4subtable-entryselector</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-cmapformat4subtable-entryselector">2.7.3. Format 4 cmap subtable</a>
-    <li><a href="#ref-for-dom-cmapformat4subtable-entryselector①">4.1.3. Processing a format 4 subtable</a>
+    <li><a href="#ref-for-dom-cmapformat4subtable-entryselector①">2.7.3.1. Implementation notes for font producers</a>
+    <li><a href="#ref-for-dom-cmapformat4subtable-entryselector②">4.1.3. Processing a format 4 subtable</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-cmapformat4subtable-rangeshift">
@@ -5695,16 +5704,18 @@ platforms.</p>
   <aside class="dfn-panel" data-for="dom-cmapformat4subtable-idrangeoffset">
    <b><a href="#dom-cmapformat4subtable-idrangeoffset">#dom-cmapformat4subtable-idrangeoffset</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-cmapformat4subtable-idrangeoffset">2.7.3. Format 4 cmap subtable</a> <a href="#ref-for-dom-cmapformat4subtable-idrangeoffset①">(2)</a> <a href="#ref-for-dom-cmapformat4subtable-idrangeoffset②">(3)</a>
+    <li><a href="#ref-for-dom-cmapformat4subtable-idrangeoffset">2.7.2. Format 2 cmap subtable</a>
+    <li><a href="#ref-for-dom-cmapformat4subtable-idrangeoffset①">2.7.3. Format 4 cmap subtable</a> <a href="#ref-for-dom-cmapformat4subtable-idrangeoffset②">(2)</a>
     <li><a href="#ref-for-dom-cmapformat4subtable-idrangeoffset③">4.1.2. Processing a format 2 subtable</a> <a href="#ref-for-dom-cmapformat4subtable-idrangeoffset④">(2)</a>
-    <li><a href="#ref-for-dom-cmapformat4subtable-idrangeoffset⑤">4.1.3. Processing a format 4 subtable</a> <a href="#ref-for-dom-cmapformat4subtable-idrangeoffset⑥">(2)</a> <a href="#ref-for-dom-cmapformat4subtable-idrangeoffset⑦">(3)</a> <a href="#ref-for-dom-cmapformat4subtable-idrangeoffset⑧">(4)</a>
+    <li><a href="#ref-for-dom-cmapformat4subtable-idrangeoffset⑤">4.1.3. Processing a format 4 subtable</a> <a href="#ref-for-dom-cmapformat4subtable-idrangeoffset⑥">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-cmapformat6subtable-firstcode">
    <b><a href="#dom-cmapformat6subtable-firstcode">#dom-cmapformat6subtable-firstcode</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-cmapformat6subtable-firstcode">2.7.4. Format 6 cmap subtable</a>
-    <li><a href="#ref-for-dom-cmapformat6subtable-firstcode①">4.1.4. Processing a format 6 subtable</a>
+    <li><a href="#ref-for-dom-cmapformat6subtable-firstcode">2.7.2. Format 2 cmap subtable</a>
+    <li><a href="#ref-for-dom-cmapformat6subtable-firstcode①">2.7.4. Format 6 cmap subtable</a>
+    <li><a href="#ref-for-dom-cmapformat6subtable-firstcode②">4.1.4. Processing a format 6 subtable</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-cmapformat6subtable-entrycount">
@@ -5717,18 +5728,9 @@ platforms.</p>
   <aside class="dfn-panel" data-for="dom-cmapformat6subtable-glyphidarray">
    <b><a href="#dom-cmapformat6subtable-glyphidarray">#dom-cmapformat6subtable-glyphidarray</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-cmapformat6subtable-glyphidarray">2.7.1. Format 0 cmap subtable</a>
-    <li><a href="#ref-for-dom-cmapformat6subtable-glyphidarray①">2.7.3. Format 4 cmap subtable</a>
-    <li><a href="#ref-for-dom-cmapformat6subtable-glyphidarray②">2.7.4. Format 6 cmap subtable</a>
-    <li><a href="#ref-for-dom-cmapformat6subtable-glyphidarray③">4.1.1. Processing a format 0 subtable</a>
-    <li><a href="#ref-for-dom-cmapformat6subtable-glyphidarray④">4.1.3. Processing a format 4 subtable</a> <a href="#ref-for-dom-cmapformat6subtable-glyphidarray⑤">(2)</a>
-    <li><a href="#ref-for-dom-cmapformat6subtable-glyphidarray⑥">4.1.4. Processing a format 6 subtable</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="dom-cmapformat10subtable-length">
-   <b><a href="#dom-cmapformat10subtable-length">#dom-cmapformat10subtable-length</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dom-cmapformat10subtable-length">4.1.1. Processing a format 0 subtable</a>
+    <li><a href="#ref-for-dom-cmapformat6subtable-glyphidarray">2.7.3. Format 4 cmap subtable</a>
+    <li><a href="#ref-for-dom-cmapformat6subtable-glyphidarray①">2.7.4. Format 6 cmap subtable</a>
+    <li><a href="#ref-for-dom-cmapformat6subtable-glyphidarray②">4.1.3. Processing a format 4 subtable</a> <a href="#ref-for-dom-cmapformat6subtable-glyphidarray③">(2)</a> <a href="#ref-for-dom-cmapformat6subtable-glyphidarray④">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-cmapformat10subtable-startcharcode">
@@ -5736,9 +5738,7 @@ platforms.</p>
    <ul>
     <li><a href="#ref-for-dom-cmapformat10subtable-startcharcode">2.7.6. Format 10 cmap subtable</a>
     <li><a href="#ref-for-dom-cmapformat10subtable-startcharcode①">2.7.7.1. Implementation notes for font producers</a>
-    <li><a href="#ref-for-dom-cmapformat10subtable-startcharcode②">2.7.8.1. Implementation notes for font producers</a>
-    <li><a href="#ref-for-dom-cmapformat10subtable-startcharcode③">4.1.5. Processing a format 10 subtable</a>
-    <li><a href="#ref-for-dom-cmapformat10subtable-startcharcode④">4.1.6. Processing a format 12 subtable</a>
+    <li><a href="#ref-for-dom-cmapformat10subtable-startcharcode②">4.1.7. Processing a format 13 subtable</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-cmapformat10subtable-numchars">
@@ -5767,12 +5767,6 @@ platforms.</p>
     <li><a href="#ref-for-dom-sequentialmapgroup-startcharcode">4.1.6. Processing a format 12 subtable</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-sequentialmapgroup-endcharcode">
-   <b><a href="#dom-sequentialmapgroup-endcharcode">#dom-sequentialmapgroup-endcharcode</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dom-sequentialmapgroup-endcharcode">4.1.7. Processing a format 13 subtable</a>
-   </ul>
-  </aside>
   <aside class="dfn-panel" data-for="dom-sequentialmapgroup-startglyphid">
    <b><a href="#dom-sequentialmapgroup-startglyphid">#dom-sequentialmapgroup-startglyphid</a></b><b>Referenced in:</b>
    <ul>
@@ -5788,19 +5782,16 @@ platforms.</p>
   <aside class="dfn-panel" data-for="dom-constantmapgroup-startcharcode">
    <b><a href="#dom-constantmapgroup-startcharcode">#dom-constantmapgroup-startcharcode</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-constantmapgroup-startcharcode">4.1.7. Processing a format 13 subtable</a>
+    <li><a href="#ref-for-dom-constantmapgroup-startcharcode">2.7.8.1. Implementation notes for font producers</a>
+    <li><a href="#ref-for-dom-constantmapgroup-startcharcode①">4.1.5. Processing a format 10 subtable</a>
+    <li><a href="#ref-for-dom-constantmapgroup-startcharcode②">4.1.6. Processing a format 12 subtable</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-constantmapgroup-endcharcode">
    <b><a href="#dom-constantmapgroup-endcharcode">#dom-constantmapgroup-endcharcode</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-constantmapgroup-endcharcode">4.1.6. Processing a format 12 subtable</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="dom-constantmapgroup-glyphid">
-   <b><a href="#dom-constantmapgroup-glyphid">#dom-constantmapgroup-glyphid</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dom-constantmapgroup-glyphid">4.1.7. Processing a format 13 subtable</a>
+    <li><a href="#ref-for-dom-constantmapgroup-endcharcode①">4.1.7. Processing a format 13 subtable</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="variationselector">
@@ -6060,6 +6051,12 @@ platforms.</p>
    <b><a href="#glyphidoffsetpair">#glyphidoffsetpair</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-glyphidoffsetpair">2.9. EBDT table and EBLC tables - Bitmap Glyphs</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="dom-glyphidoffsetpair-glyphid">
+   <b><a href="#dom-glyphidoffsetpair-glyphid">#dom-glyphidoffsetpair-glyphid</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dom-glyphidoffsetpair-glyphid">4.1.7. Processing a format 13 subtable</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="indexsubtable4">

@@ -587,76 +587,59 @@ postTable:
       - postTableVersion20
       - postTableVersion25
       - postTableVersion30
+postTableCommon:
+  fields:
+    - name: italicAngle
+      type: FIXED
+    - name: underlinePosition
+      type: SHORT
+    - name: underlineThickness
+      type: SHORT
+    - name: isFixedPitch
+      type: ULONG
+    - name: minMemType42
+      type: ULONG
+    - name: maxMemType42
+      type: ULONG
+    - name: minMemType1
+      type: ULONG
+    - name: maxMemType1
+      type: ULONG
 postTableVersion10:
   fields:
     - name: version
       type: VERSION
       value: 1.0
-    - name: italicAngle
-      type: FIXED
-    - name: underlinePosition
-      type: SHORT
-    - name: underlineThickness
-      type: SHORT
-    - name: isFixedPitch
-      type: ULONG
-    - name: minMemType42
-      type: ULONG
-    - name: maxMemType42
-      type: ULONG
-    - name: minMemType1
-      type: ULONG
-    - name: maxMemType1
-      type: ULONG
+    - name: postTableCommon
+      type: postTableCommon
 postTableVersion20:
   fields:
     - name: version
       type: VERSION
       value: 2.0
-    - name: italicAngle
-      type: FIXED
-    - name: underlinePosition
-      type: SHORT
-    - name: underlineThickness
-      type: SHORT
-    - name: isFixedPitch
-      type: ULONG
-    - name: minMemType42
-      type: ULONG
-    - name: maxMemType42
-      type: ULONG
-    - name: minMemType1
-      type: ULONG
-    - name: maxMemType1
-      type: ULONG
+    - name: postTableCommon
+      type: postTableCommon
     - name: numGlyphs
       type: USHORT
     - name: glyphNameIndex
       count: numGlyphs
       type: USHORT[]
     - name: names
+      type: PascalString[]
+PascalString:
+  fields:
+    - name: length
+      type: uint8
+    - name: string
       type: byte[]
+      count: length
 postTableVersion25:
   fields:
     - name: version
       type: VERSION
       value: 2.5
-    - name: italicAngle
-      type: FIXED
-    - name: underlinePosition
-      type: SHORT
-    - name: underlineThickness
-      type: SHORT
-    - name: isFixedPitch
-      type: ULONG
-    - name: minMemType42
-      type: ULONG
-    - name: maxMemType42
-      type: ULONG
-    - name: minMemType1
-      type: ULONG
-    - name: maxMemType1
-      type: ULONG
+    - name: postTableCommon
+      type: postTableCommon
     - name: numGlyphs
       type: USHORT
     - name: offset
@@ -667,22 +650,8 @@ postTableVersion30:
     - name: version
       type: VERSION
       value: 3.0
-    - name: italicAngle
-      type: FIXED
-    - name: underlinePosition
-      type: SHORT
-    - name: underlineThickness
-      type: SHORT
-    - name: isFixedPitch
-      type: ULONG
-    - name: minMemType42
-      type: ULONG
-    - name: maxMemType42
-      type: ULONG
-    - name: minMemType1
-      type: ULONG
-    - name: maxMemType1
-      type: ULONG
+    - name: postTableCommon
+      type: postTableCommon
 
 
 ##

@@ -1,4 +1,4 @@
-<h4 id="fgpm"><dfn>fgpm  table</dfn> - Font Program Table</h4>
+<h4 id="fpgm"><dfn>fpgm table</dfn> - Font Program Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> 1.0 </td> </tr>
@@ -11,7 +11,7 @@
 
 This table contains an array of instructions used by the TrueType instruction processor. It is executed once at the start of font processing, and defines function and instruction definitions.
 
-<pre class=include>path: idl/fgpmTable.md</pre>
+<pre class=include>path: idl/fpgmTable.md</pre>
 
 The number of values is determined by the {{TableRecord/length}} of the table specified in the {{TableRecord}} in the `sfnt` header.
 

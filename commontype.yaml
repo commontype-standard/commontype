@@ -513,7 +513,7 @@ maxpTableCFF:
   fields:
   - name: version
     type: VERSION
-    value: 0.5
+    value: 0.2048 # 0x5000 (!)
   - name: numGlyphs
     type: USHORT
 maxpTableTT:
@@ -636,6 +636,54 @@ postTableVersion20:
       type: USHORT[]
     - name: names
       type: byte[]
+postTableVersion25:
+  fields:
+    - name: version
+      type: VERSION
+      value: 2.5
+    - name: italicAngle
+      type: FIXED
+    - name: underlinePosition
+      type: SHORT
+    - name: underlineThickness
+      type: SHORT
+    - name: isFixedPitch
+      type: ULONG
+    - name: minMemType42
+      type: ULONG
+    - name: maxMemType42
+      type: ULONG
+    - name: minMemType1
+      type: ULONG
+    - name: maxMemType1
+      type: ULONG
+    - name: numGlyphs
+      type: USHORT
+    - name: offset
+      count: numGlyphs
+      type: byte[]
+postTableVersion30:
+  fields:
+    - name: version
+      type: VERSION
+      value: 3.0
+    - name: italicAngle
+      type: FIXED
+    - name: underlinePosition
+      type: SHORT
+    - name: underlineThickness
+      type: SHORT
+    - name: isFixedPitch
+      type: ULONG
+    - name: minMemType42
+      type: ULONG
+    - name: maxMemType42
+      type: ULONG
+    - name: minMemType1
+      type: ULONG
+    - name: maxMemType1
+      type: ULONG
+
 
 ##
 ## VARIABLE FONT STRUCTURES

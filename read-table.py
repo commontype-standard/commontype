@@ -11,6 +11,7 @@ epoch_diff = calendar.timegm((1904, 1, 1, 0, 0, 0, 0, 0, 0))
 basetypes = {
     "USHORT": ">H",
     "Offset32": ">L",
+    "Offset16": ">H",
     "VERSION": (">HH", lambda x: x[0] + x[1] / (10 ** len(str(x[1])))),
     "F2DOT14": (">H", lambda x: x[0] / (1 << 14)),
     "FIXED": (">H", lambda x: x[0] / (1 << 8)),

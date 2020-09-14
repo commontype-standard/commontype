@@ -57,7 +57,8 @@ vhea, vmtx, VORG
 <pre class=include>path: cvt.md</pre>
 <pre class=include>path: fpgm.md</pre>
 <pre class=include>path: hdmx.md</pre>
-loca LTSH PCLT prep VDMX
+<pre class=include>path: prep.md</pre>
+loca LTSH PCLT VDMX
 
 <h3>Typesetting and Typography</h3>
 <pre class=include>path: BASE.md</pre>

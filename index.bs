@@ -28,7 +28,6 @@ limitations under the License.
 <pre class=include>path: head.md</pre>
 <pre class=include>path: cmap/index.md</pre>
 <pre class=include>path: DSIG.md</pre>
-<pre class=include>path: gasp.md</pre>
 <pre class=include>path: maxp.md</pre>
 meta, name, OS/2, STAT
 
@@ -61,7 +60,8 @@ JSTF, kern, MATH
 <pre class=include>path: avar.md</pre>
 cvar, fvar, gvar, HVAR, MVAR, VVAR
 
-<h3>Hinting</h3>
+<h3>Hinting and Rasterizing</h3>
+<pre class=include>path: gasp.md</pre>
 MERG
 
 <h2 id="producer-notes">General implementation notes for font producers</h2>

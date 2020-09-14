@@ -15,10 +15,6 @@ The `avar` table describes a function for variable font axes to map between a li
 
 
 <dl dfn-type=attribute dfn-for=avarTable>
-  <dt><dfn>tableMajorVersion</dfn></dt>
-  <dd>Table version. Must be 1.</dd>
-  <dt><dfn>tableMinorVersion</dfn></dt>
-  <dd>Table version. Must be 0.</dd>
   <dt><dfn>axisCount</dfn></dt>
   <dd>Must be equal to the number of axes defined in the [=fvar table=].</dd>
 </dl>

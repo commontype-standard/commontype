@@ -18,6 +18,9 @@ interface TupleVariationHeader {
 
 XXX
 
+<pre class=include>path: idl/ItemVariationStore.md</pre>
+
+
 <h4 id="platform-and-encoding-ids"><dfn>Platform and Encoding Identifiers</dfn></h4>
 
 Data entries in the [=cmap table=] and [=name table=] are designated as being for the

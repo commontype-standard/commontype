@@ -25,17 +25,44 @@ limitations under the License.
 <pre class=include>path: 03-common_tables.md</pre>
 
 <h3>Global Metadata Tables</h3>
+<pre class=include>path: head.md</pre>
 <pre class=include>path: cmap/index.md</pre>
 <pre class=include>path: DSIG.md</pre>
+<pre class=include>path: gasp.md</pre>
+<pre class=include>path: maxp.md</pre>
+meta, name, OS/2, STAT
 
-<h3>Stuff</h3>
-<pre class=include>path: avar.md</pre>
-<pre class=include>path: BASE.md</pre>
-<pre class=include>path: CBDT-CBLC.md</pre>
+<h3>Outline Glyph Representation Formats</h3>
 <pre class=include>path: COLR-CPAL.md</pre>
-<pre class=include>path: cvt.md</pre>
-<pre class=include>path: EBDT-EBLC.md</pre>
+CFF, CFF2, glyf, SVG
 
+<h3>Bitmap Glyph Representation Formats</h3>
+<pre class=include>path: CBDT-CBLC.md</pre>
+<pre class=include>path: EBDT-EBLC.md</pre>
+<pre class=include>path: EBSC.md</pre>
+sbix
+
+<h3>Glyph Metrics</h3>
+    hhea, hmtx, vhea, vmtx, VORG
+
+<h3>Layout</h3>
+    GDEF, GPOS, GSUB
+
+<h3>TrueType-related Tables</h3>
+
+<pre class=include>path: cvt.md</pre>
+fpgm hdmx loca LTSH PCLT prep VDMX
+
+<h3>Typesetting and Typography</h3>
+<pre class=include>path: BASE.md</pre>
+JSTF, kern, MATH
+
+<h3>Variable Font Tables</h3>
+<pre class=include>path: avar.md</pre>
+cvar, fvar, gvar, HVAR, MVAR, VVAR
+
+<h3>Hinting</h3>
+MERG
 
 <h2 id="producer-notes">General implementation notes for font producers</h2>
 

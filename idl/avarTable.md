@@ -1,7 +1,7 @@
 <pre class='idl'>
 interface avarTable {
-	attribute USHORT tableMajorVersion;
-	attribute USHORT tableMinorVersion;
+	attribute USHORT tableMajorVersion /* ==1 */;
+	attribute USHORT tableMinorVersion /* ==0 */;
 	attribute USHORT reserved;
 	attribute USHORT axisCount;
 	attribute SegmentMaps[] axisSegmentMaps;

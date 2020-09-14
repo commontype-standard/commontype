@@ -6,8 +6,10 @@ avarTable:
   fields:
   - name: tableMajorVersion
     type: USHORT
+    value: 1
   - name: tableMinorVersion
     type: USHORT
+    value: 0
   - name: reserved
     type: USHORT
   - name: axisCount
@@ -157,6 +159,292 @@ SignatureRecord:
     to: SignatureBlock
     type: Offset32
 
+## EBDT
+EBDTTable:
+  status: toplevel
+  fields:
+    - type: VERSION
+      name: tableVersion
+      value: 2.0
+    - type: byte[]
+      name: data
+
+## EBLC
+EBLCTable:
+  status: toplevel
+  fields:
+    - type: VERSION
+      name: tableVersion
+      value: 2.0
+    - type: ULONG
+      name: numSizes
+    - type: BitmapSize[]
+      name: strikes
+      count: numSizes
+BitmapSize:
+  fields:
+    - type: Offset32
+      name: indexSubTableArrayOffset
+      to: IndexSubTableArrayElement[]
+    - type: ULONG
+      name: indexTablesSize
+    - type: ULONG
+      name: numberOfIndexSubTables
+    - type: ULONG
+      name: unused
+    - type: SbitLineMetrics
+      name: hori
+    - type: SbitLineMetrics
+      name: vert
+    - type: USHORT
+      name: startGlyphIndex
+    - type: USHORT
+      name: endGlyphIndex
+    - type: uint8
+      name: ppemX
+    - type: uint8
+      name: ppemY
+    - type: uint8
+      name: bitDepth
+    - type: int8
+      name: flags
+SbitLineMetrics:
+  fields:
+    - type: int8
+      name: ascender
+    - type: int8
+      name: descender
+    - type: uint8
+      name: widthMax
+    - type: int8
+      name: caretSlopeNumerator
+    - type: int8
+      name: caretSlopeDenominator
+    - type: int8
+      name: caretOffset
+    - type: int8
+      name: minOriginSB
+    - type: int8
+      name: minAdvanceSB
+    - type: int8
+      name: maxBeforeBL
+    - type: int8
+      name: minAfterBL
+    - type: int8
+      name: pad1
+    - type: int8
+      name: pad2
+IndexSubTableArrayElement:
+  fields:
+    - type: USHORT
+      name: firstGlyphIndex
+    - type: USHORT
+      name: lastGlyphIndex
+    - type: Offset32
+      name: additionalOffsetToIndexSubtable
+      to: IndexSubTable
+IndexSubTableHeader:
+    - type: USHORT
+      name: indexFormat
+    - type: USHORT
+      name: imageFormat
+    - type: Offset32
+      name: imageDataOffset
+IndexSubTable:
+  union:
+    - IndexSubtable1
+    - IndexSubtable2
+    - IndexSubtable3
+    - IndexSubtable4
+    - IndexSubtable5
+IndexSubtable1:
+  fields:
+    - name: indexSubtableHeader
+      type: IndexSubtableHeader
+    - type: Offset32[]
+      name: offsetArray
+IndexSubtable2:
+  fields:
+    - name: indexSubtableHeader
+      type: IndexSubtableHeader
+    - type: ULONG
+      name: imageSize
+    - type: BigGlyphMetrics
+      name: bigMetrics
+IndexSubtable3:
+  fields:
+    - name: indexSubtableHeader
+      type: IndexSubtableHeader
+    - type: Offset32[]
+      name: offsetArray
+GlyphIdOffsetPair:
+  fields:
+    - type: USHORT
+      name: glyphID
+    - type: Offset16
+      name: offset
+IndexSubtable4:
+  fields:
+    - name: indexSubtableHeader
+      type: IndexSubtableHeader
+    - type: ULONG
+      name: numGlyphs
+    - type: GlyphIdOffsetPair[]
+      name: glyphArray
+      count: numGlyphs
+IndexSubtable5:
+  fields:
+    - name: indexSubtableHeader
+      type: IndexSubtableHeader
+    - type: ULONG
+      name: imageSize
+    - type: BigGlyphMetrics
+      name: bigMetrics
+    - type: ULONG
+      name: numGlyphs
+    - type: USHORT[]
+      name: glyphArray
+      count: numGlyphs
+
+## EBSC
+
+EBSCTable:
+  status: toplevel
+  fields:
+    - type: VERSION
+      name: tableVersion
+      value: 2.0
+    - type: ULONG
+      name: numSizes
+    - type: BitmapScale[]
+      count: numSizes
+      name: bitmapScales
+BitmapScale:
+  fields:
+    - type: SbitLineMetrics
+      name: hori
+    - type: SbitLineMetrics
+      name: vert
+    - type: uint8
+      name: ppemX
+    - type: uint8
+      name: ppemY
+    - type: uint8
+      name: substitutePpemX
+    - type: uint8
+      name: substitutePpemY
+
+## head
+
+headTable:
+  status: toplevel
+  fields:
+  - type: VERSION
+    name: tableVersion
+    value: 1.0
+  - type: VERSION
+    name: fontRevision
+  - type: ULONG
+    name: checkSumAdjustment
+  - type: ULONG
+    name: magicNumber
+    value: 0x5f0f3cf5
+  - type: USHORT
+    name: flags
+  - type: USHORT
+    name: unitsPerEm
+  - type: LONGDATETIME
+    name: created
+  - type: LONGDATETIME
+    name: modified
+  - type: SHORT
+    name: xMin
+  - type: SHORT
+    name: yMin
+  - type: SHORT
+    name: xMax
+  - type: SHORT
+    name: yMax
+  - type: USHORT
+    name: macStyle
+  - type: USHORT
+    name: lowestRecPPEM
+  - type: SHORT
+    name: fontDirectionHint
+  - type: SHORT
+    name: indexToLocFormat
+  - type: SHORT
+    name: unused
+
+## gasp
+
+gaspTable:
+  status: toplevel
+  fields:
+    - name: version
+      type: USHORT
+      value: 1
+    - name: numRanges
+      type: USHORT
+    - name: gaspRanges
+      type: GaspRange[]
+      count: numRanges
+GaspRange:
+  fields:
+    - name: rangeMaxPPEM
+      type: USHORT
+    - name: rangeGaspBehavior
+      type: USHORT
+
+## maxp
+
+maxpTable:
+  status: toplevel
+  union:
+      - maxpTableCFF
+      - maxpTableTT
+maxpTableCFF:
+  fields:
+  - name: version
+    type: VERSION
+    value: 0.5
+  - name: numGlyphs
+    type: USHORT
+maxpTableTT:
+  fields:
+  - name: version
+    type: VERSION
+    value: 1.0
+  - name: numGlyphs
+    type: USHORT
+  - name: maxPoints
+    type: USHORT
+  - name: maxContours
+    type: USHORT
+  - name: maxCompositePoints
+    type: USHORT
+  - name: maxCompositeContours
+    type: USHORT
+  - name: maxZones
+    type: USHORT
+    value: 2
+  - name: maxTwilightPoints
+    type: USHORT
+  - name: maxStorage
+    type: USHORT
+  - name: maxFunctionDefs
+    type: USHORT
+  - name: maxInstructionDefs
+    type: USHORT
+  - name: maxStackElements
+    type: USHORT
+  - name: maxSizeOfInstructions
+    type: USHORT
+  - name: maxComponentElements
+    type: USHORT
+  - name: maxComponentDepth
+    type: USHORT
+
 ##
 ## VARIABLE FONT STRUCTURES
 ##
@@ -167,13 +455,50 @@ ItemVariationStore:
   - name: format
     type: USHORT
   - name: varRegionList
-    to: VariationRegionList
+    to: VarRegionList
     type: Offset32
   - name: varDataCount
     type: USHORT
-  - count: VarDataCount
+  - count: varDataCount
     name: varData
-    to: ItemVariationData
+    to: VarData
     type: Offset32[]
   status: shared
-
+VarRegionList:
+  fields:
+  - name: regionAxisCount
+    type: USHORT
+  - name: regionCount
+    type: USHORT
+  - count: RegionCount
+    name: regions
+    type: VarRegion[]
+VarRegion:
+  fields:
+  - count: RegionAxisCount
+    name: varRegionAxes
+    type: VarRegionAxis[]
+VarRegionAxis:
+  fields:
+  - name: startCoord
+    type: F2Dot14
+  - name: peakCoord
+    type: F2Dot14
+  - name: endCoord
+    type: F2Dot14
+VarData:
+  fields:
+  - name: itemCount
+    type: USHORT
+  - name: numShorts
+    type: USHORT
+  - name: varRegionCount
+    type: USHORT
+  - count: VarRegionCount
+    name: varRegionIndices
+    type: USHORT[]
+  - count: ItemCount
+    name: items
+    type: VarDataValue[]
+VarDataValue:
+  fields: []

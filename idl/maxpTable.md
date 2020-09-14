@@ -1,7 +1,7 @@
 <pre class='idl'>
 typedef (maxpTableCFF or maxpTableTT) maxpTable;
 interface maxpTableCFF {
-	attribute VERSION version /* ==0.5 */;
+	attribute VERSION version /* ==0.2048 */;
 	attribute USHORT numGlyphs;
 };
 interface maxpTableTT {

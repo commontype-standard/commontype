@@ -19,7 +19,7 @@ The `avar` table describes a function for variable font axes to map between a li
   <dd>Must be equal to the number of axes defined in the [=fvar table=].</dd>
 </dl>
 
-<h4 id="avar.in-prod">Implementation notes for font producers</h4>
+<h5 id="avar.in-prod">Implementation notes for font producers</h5>
 
 * If this table is used, then all axes defined must have a corresponding {{SegmentMaps}} record. The records must appear in the order in which the axes are defined in the [=fvar table=].
 

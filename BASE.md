@@ -1,4 +1,4 @@
-<h3 id="BASE"><dfn>BASE table</dfn> - Baseline Table</h3>
+<h4 id="BASE"><dfn>BASE table</dfn> - Baseline Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>
@@ -138,7 +138,7 @@ For each axis (horizontal and vertical) specified in the table:
 
 </div>
 
-<h4 id="base-in-prod">Implementation notes for font producers</h4>
+<h5 id="base-in-prod">Implementation notes for font producers</h5>
 
 <div class="example">
 Let us assume that we have a font file which only contains Latin script glyphs. However, we want this font to display correctly when Japanese characters (of a different font file) are used in mixed-script text. The Roman baseline of the font is at y-coordinate 0, and we wish to specify that the ideographic baseline is at -163 design units. The font producer will perform the following operations:

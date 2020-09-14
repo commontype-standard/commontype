@@ -1,4 +1,4 @@
-<h3 id="EBDT-EBLC" role="unfinished"><dfn>EBDT table</dfn> and <dfn>EBLC</dfn> tables - Bitmap Glyphs</h3>
+<h4 id="EBDT-EBLC" role="unfinished"><dfn>EBDT table</dfn>, and <dfn>EBLC</dfn> tables - Bitmap Glyphs</h4>
 
 <table>
     <tr><th>Introduced</th> <td> 1.0 </td> </tr>
@@ -11,42 +11,31 @@
 
 These tables provide the ability to define glyphs as monochrome bitmaps. A font file may contain multiple sets of bitmap images, representing glyphs at a particular size. The `EBDT` table contains the bitmap data (and, optionally, metrics information) while the `EBLC` contains glyph metrics and indices into the `EBDT` table to locate the bitmaps.
 
-<pre class="idl">
-interface EBDTTable {
-    attribute USHORT tableMajorVersion;
-    attribute USHORT tableMinorVersion;
-    attribute byte[] data;
-};
-</pre>
+<pre class=include>path: idl/EBDTTable.md</pre>
 <dl dfn-type=attribute dfn-for=EBDTTable>
-  <dt><dfn>tableMajorVersion</dfn></dt>
-  <dd>Table version. Must be 2.</dd>
-  <dt><dfn>tableMinorVersion</dfn></dt>
-  <dd>Table version. Must be 0.</dd>
   <dt><dfn>data</dfn></dt>
   <dd>Bitmap and metric data, indexed by the `EBLC` table.</dd>
 </dl>
 
 <pre class="idl">
 interface EBLCTable {
-    attribute USHORT tableMajorVersion;
-    attribute USHORT tableMinorVersion;
-    attribute ULONG  numSizes;
-    attribute BitmapSize[] strikes;
+  attribute VERSION tableVersion /* ==2.0 */;
+  attribute ULONG numSizes;
+  attribute BitmapSize[] strikes;
 };
 interface BitmapSize {
-    attribute Offset32 indexSubTableArrayOffset;
-    attribute ULONG indexTablesSize;
-    attribute ULONG numberOfIndexSubTables;
-    attribute ULONG unused;
-    attribute SbitLineMetrics hori;
-    attribute SbitLineMetrics vert;
-    attribute USHORT startGlyphIndex;
-    attribute USHORT endGlyphIndex;
-    attribute uint8 ppemX;
-    attribute uint8 ppemY;
-    attribute uint8 bitDepth;
-    attribute int8 flags;
+  attribute Offset32 indexSubTableArrayOffset /* IndexSubTableArrayElement[] */;
+  attribute ULONG indexTablesSize;
+  attribute ULONG numberOfIndexSubTables;
+  attribute ULONG unused;
+  attribute SbitLineMetrics hori;
+  attribute SbitLineMetrics vert;
+  attribute USHORT startGlyphIndex;
+  attribute USHORT endGlyphIndex;
+  attribute uint8 ppemX;
+  attribute uint8 ppemY;
+  attribute uint8 bitDepth;
+  attribute int8 flags;
 };
 interface SbitLineMetrics {
     attribute int8 ascender;
@@ -64,10 +53,6 @@ interface SbitLineMetrics {
 };
 </pre>
 <dl dfn-type=attribute dfn-for=EBLCTable>
-  <dt><dfn>tableMajorVersion</dfn></dt>
-  <dd>Table version. Must be 2.</dd>
-  <dt><dfn>tableMinorVersion</dfn></dt>
-  <dd>Table version. Must be 0.</dd>
   <dt><dfn>strikes</dfn></dt>
   <dd>Specifies bitmaps used at a particular size.</dd>
 </dl>
@@ -101,7 +86,7 @@ Note that {{IndexSubTableArrayElement}} was previously known as `IndexSubTableAr
 interface IndexSubTableArrayElement {
   attribute USHORT firstGlyphIndex;
   attribute USHORT lastGlyphIndex;
-  attribute Offset32 additionalOffsetToIndexSubtable;
+  attribute Offset32 additionalOffsetToIndexSubtable /* IndexSubTable */;
 };
 </pre>
 <dl dfn-type=attribute dfn-for=IndexSubTableArrayElement>
@@ -120,22 +105,22 @@ interface IndexSubTableArrayElement {
 <pre class="idl">
 typedef (IndexSubtable1 or IndexSubtable2 or IndexSubtable3 or IndexSubtable4 or IndexSubtable5) IndexSubtable;
 
-interface IndexSubtableCommon {
+interface IndexSubtableHeader {
   attribute USHORT indexFormat;
   attribute USHORT imageFormat;
   attribute Offset32 imageDataOffset;
 };
 
-interface IndexSubtable1 :IndexSubtableCommon {
+interface IndexSubtable1 :IndexSubtableHeader {
   attribute Offset32[] offsetArray;
 };
 
-interface IndexSubtable2 :IndexSubtableCommon {
+interface IndexSubtable2 :IndexSubtableHeader {
   attribute ULONG imageSize;
   attribute BigGlyphMetrics bigMetrics;
 };
 
-interface IndexSubtable3 :IndexSubtableCommon {
+interface IndexSubtable3 :IndexSubtableHeader {
   attribute Offset32[] offsetArray;
 };
 
@@ -144,9 +129,10 @@ interface GlyphIdOffsetPair {
   attribute Offset16 offset;
 };
 
-interface IndexSubtable4 :IndexSubtableCommon {
+interface IndexSubtable4 :IndexSubtableHeader {
   attribute ULONG numGlyphs;
   attribute GlyphIdOffsetPair[] glyphArray;
 };
+
 </pre>
 

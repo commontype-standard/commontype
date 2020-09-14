@@ -29,7 +29,8 @@ limitations under the License.
 <pre class=include>path: cmap/index.md</pre>
 <pre class=include>path: DSIG.md</pre>
 <pre class=include>path: maxp.md</pre>
-meta, name, OS/2, STAT
+<pre class=include>path: meta.md</pre>
+name, OS/2, STAT
 
 <h3>Outline Glyph Representation Formats</h3>
 <pre class=include>path: COLR-CPAL.md</pre>

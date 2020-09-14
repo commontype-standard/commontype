@@ -43,23 +43,7 @@ Additionally, the font file may contain one or more binary representations of th
 
 The font file begins with the table directory, which locates the remainder of the tables in the file.
 
-<pre class="idl">
-interface TableDirectory {
-  attribute LONG sfntVersion;
-  attribute SHORT numTables;
-  attribute SHORT searchRange;
-  attribute SHORT entrySelector;
-  attribute SHORT rangeShift;
-  attribute TableDirectoryEntry[] entries;
-};
-
-interface TableDirectoryEntry {
-  attribute Tag tableTag;
-  attribute LONG checksum;
-  attribute OFFSET32 offset;
-  attribute LONG length;
-};
-</pre>
+<pre class=include>path: idl/TableDirectory.md</pre>
 
 <dl dfn-type=attribute dfn-for=TableDirectory>
   <dt><dfn>sfntVersion</dfn></dt>

@@ -1,5 +1,34 @@
 ---
 
+## Table directory - where it all begins
+
+TableDirectory:
+  fields:
+    - type: LONG
+      name: sfntVersion
+    - type: USHORT
+      name: numTables
+    - type: USHORT
+      name: searchRange
+    - type: USHORT
+      name: entrySelector
+    - type: USHORT
+      name: rangeShift
+    - type: TableDirectoryEntry[]
+      count: numTables
+      name: entries
+
+TableDirectoryEntry:
+  fields:
+    - type: Tag
+      name: tableTag
+    - type: ULONG
+      name: checksum
+    - type: Offset32
+      name: offset
+    - type: ULONG
+      name: length
+
 ## avar
 
 avarTable:
@@ -457,6 +486,8 @@ hheaTable:
 
 hmtxTable:
   status: toplevel
+  dependencies:
+    - hhea
   fields:
     - name: hMetrics
       type: LongHorMetric[]
@@ -546,6 +577,65 @@ DataMap:
       type: Offset32
     - name: dataLength
       type: ULONG
+
+## post
+
+postTable:
+  status: toplevel
+  union:
+      - postTableVersion10
+      - postTableVersion20
+      - postTableVersion25
+      - postTableVersion30
+postTableVersion10:
+  fields:
+    - name: version
+      type: VERSION
+      value: 1.0
+    - name: italicAngle
+      type: FIXED
+    - name: underlinePosition
+      type: SHORT
+    - name: underlineThickness
+      type: SHORT
+    - name: isFixedPitch
+      type: ULONG
+    - name: minMemType42
+      type: ULONG
+    - name: maxMemType42
+      type: ULONG
+    - name: minMemType1
+      type: ULONG
+    - name: maxMemType1
+      type: ULONG
+postTableVersion20:
+  fields:
+    - name: version
+      type: VERSION
+      value: 2.0
+    - name: italicAngle
+      type: FIXED
+    - name: underlinePosition
+      type: SHORT
+    - name: underlineThickness
+      type: SHORT
+    - name: isFixedPitch
+      type: ULONG
+    - name: minMemType42
+      type: ULONG
+    - name: maxMemType42
+      type: ULONG
+    - name: minMemType1
+      type: ULONG
+    - name: maxMemType1
+      type: ULONG
+    - name: numGlyphs
+      type: USHORT
+    - name: glyphNameIndex
+      count: numGlyphs
+      type: USHORT[]
+    - name: names
+      type: byte[]
 
 ##
 ## VARIABLE FONT STRUCTURES

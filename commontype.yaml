@@ -334,6 +334,26 @@ BitmapScale:
     - type: uint8
       name: substitutePpemY
 
+## gasp
+
+gaspTable:
+  status: toplevel
+  fields:
+    - name: version
+      type: USHORT
+      value: 1
+    - name: numRanges
+      type: USHORT
+    - name: gaspRanges
+      type: GaspRange[]
+      count: numRanges
+GaspRange:
+  fields:
+    - name: rangeMaxPPEM
+      type: USHORT
+    - name: rangeGaspBehavior
+      type: USHORT
+
 ## head
 
 headTable:
@@ -376,25 +396,47 @@ headTable:
   - type: SHORT
     name: unused
 
-## gasp
+## hhea
 
-gaspTable:
+hheaTable:
   status: toplevel
   fields:
-    - name: version
-      type: USHORT
-      value: 1
-    - name: numRanges
-      type: USHORT
-    - name: gaspRanges
-      type: GaspRange[]
-      count: numRanges
-GaspRange:
-  fields:
-    - name: rangeMaxPPEM
-      type: USHORT
-    - name: rangeGaspBehavior
-      type: USHORT
+    - type: VERSION
+      name: tableVersion
+      value: 1.0
+    - type: SHORT
+      name: ascender
+    - type: SHORT
+      name: descender
+    - type: SHORT
+      name: linegap
+    - type: USHORT
+      name: advanceWidthMax
+    - type: SHORT
+      name: minLeftSideBearing
+    - type: SHORT
+      name: minRightSideBearing
+    - type: SHORT
+      name: xMaxExtent
+    - type: SHORT
+      name: caretSlopeRise
+    - type: SHORT
+      name: caretSlopeRun
+    - type: SHORT
+      name: caretOffset
+    - type: SHORT
+      name: reserved1
+    - type: SHORT
+      name: reserved2
+    - type: SHORT
+      name: reserved3
+    - type: SHORT
+      name: reserved4
+    - type: SHORT
+      name: metricDataFormat
+      value: 0
+    - type: USHORT
+      name: numberofHMetrics
 
 ## maxp
 

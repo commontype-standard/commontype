@@ -1,4 +1,4 @@
-<h3 id="cmap"><dfn>head table</dfn> - Font Header Table</h3>
+<h4 id="cmap"><dfn>head table</dfn> - Font Header Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>
@@ -11,39 +11,16 @@
 
 The `head` table contains general header information.
 
-<pre class="idl">
-interface HeadTable {
-  attribute VERSION tableVersion;
-  attribute VERSION fontRevision;
-  attribute ULONG checkSumAdjustment;
-  attribute ULONG magicNumber;
-  attribute USHORT flags;
-  attribute USHORT unitsPerEm;
-  attribute LONGDATETIME created;
-  attribute LONGDATETIME modified;
-  attribute SHORT xMin;
-  attribute SHORT yMin;
-  attribute SHORT xMax;
-  attribute SHORT yMax;
-  attribute USHORT macStyle;
-  attribute USHORT lowestRecPPEM;
-  attribute SHORT fontDirectionHint;
-  attribute SHORT indexToLocFormat;
-  attribute SHORT unused;
-};
-</pre>
+<pre class=include>path: idl/headTable.md</pre>
 
-<dl dfn-type=attribute dfn-for=HeadTable>
-    <dt><dfn>tableVersion</dfn></dt>
-    <dd>Table version. Must be set to 1.0.</dd>
-    <dt><dfn>magicNumber</dfn></dt>
-    <dd>Must be set to 0x5f0f3cf5.</dd>
+
+<dl dfn-type=attribute dfn-for=headTable>
     <dt><dfn>flags</dfn></dt>
-    <dd>
+    <dd></dd>
 </dl>
 
-<h4 id="head.in-prod">Implementation notes for font producers</h4>
+<h5 id="head.in-prod">Implementation notes for font producers</h5>
 
-* The {fontRevision} value *should* be equivalent to the value in string 5 of the [=name table=].
-* The {checkSumAdjustment}
+* The {{fontRevision}} value *should* be equivalent to the value in string 5 of the [=name table=].
+* The {{checkSumAdjustment}}
 

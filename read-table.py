@@ -14,7 +14,7 @@ basetypes = {
     "Offset16": ">H",
     "VERSION": (">HH", lambda x: x[0] + x[1] / (10 ** len(str(x[1])))),
     "F2DOT14": (">H", lambda x: x[0] / (1 << 14)),
-    "FIXED": (">H", lambda x: x[0] / (1 << 8)),
+    "FIXED": (">l", lambda x: x[0] / (1 << 16)),
     "Tag": (">cccc", lambda x: "".join([g.decode() for g in x])),
     "LONGDATETIME": (
         ">Q",
@@ -65,7 +65,10 @@ def readAField(field, data, pos, tableSoFar):
         counter = field["count"]
         output = []
         for i in range(tableSoFar[counter]):
-            rv, pos = readATable(fType, data, pos)
+            if fType in commontype:
+                rv, pos = readATable(fType, data, pos)
+            else:
+                rv, pos = readAField({"type": fType}, data, pos, tableSoFar)
             output.append(rv)
     else:
         print("Unknown type %s" % fType)

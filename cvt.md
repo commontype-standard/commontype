@@ -1,4 +1,4 @@
-<h3 id="cvt"><dfn>cvt  table</dfn> - Control Value Table</h3>
+<h4 id="cvt"><dfn>cvt  table</dfn> - Control Value Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> 1.0 </td> </tr>
@@ -23,6 +23,6 @@ The number of values is determined by the {{TableRecord/length}} of the table sp
     Note that since table names have four characters, the full name of this table ends with a space and is "`cvt `".
 </div>
 
-<h4 id="cvt-in-cons">Implementation notes for font consumers</h4>
+<h5 id="cvt-in-cons">Implementation notes for font consumers</h5>
 
 As the TrueType control value table is also writable using `WCVF[]` and `WCVP[]` instructions, it is recommended to read this table and use it to initialize an in-memory Control Value Table.

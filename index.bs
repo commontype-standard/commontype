@@ -43,6 +43,7 @@ CFF, CFF2, glyf, SVG
 sbix
 
 <h3>Glyph Metrics</h3>
+<pre class=include>path: hhea.md</pre>
     hhea, hmtx, vhea, vmtx, VORG
 
 <h3>Layout</h3>
@@ -66,10 +67,12 @@ cvar, fvar, gvar, HVAR, MVAR, VVAR
 MERG
 
 <h2 id="producer-notes">General implementation notes for font producers</h2>
+<pre class=include>path: producers-metrics.md</pre>
 
 <h2 id="consumer-notes">General implementation notes for font consumers</h2>
 
 <pre class=include>path: consumers-cmap.md</pre>
+<pre class=include>path: consumers-metrics.md</pre>
 <pre class=include>path: consumers-color.md</pre>
 <pre class=include>path: consumers-otvar.md</pre>
 

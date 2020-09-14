@@ -3,7 +3,13 @@ import sys
 import struct
 from pprint import pprint
 
-basetypes = {"USHORT": ">H", "F2DOT14": (">H", lambda x: x / (1 << 14))}
+basetypes = {
+"USHORT": ">H",
+"F2DOT14": (">H", lambda x: x / (1 << 14)),
+"ULONG": ">L",
+"FWORD": ">h",
+"SHORT": ">h",
+}
 
 
 def consume(fmt, data, pos):

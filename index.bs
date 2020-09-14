@@ -44,7 +44,8 @@ sbix
 
 <h3>Glyph Metrics</h3>
 <pre class=include>path: hhea.md</pre>
-hmtx, vhea, vmtx, VORG
+<pre class=include>path: hmtx.md</pre>
+vhea, vmtx, VORG
 
 <h3>Layout</h3>
     GDEF, GPOS, GSUB

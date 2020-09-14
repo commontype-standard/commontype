@@ -452,6 +452,24 @@ hheaTable:
     - type: USHORT
       name: numberofHMetrics
 
+## hmtx
+
+hmtxTable:
+  status: toplevel
+  fields:
+    - name: hMetrics
+      type: LongHorMetric[]
+      count: hhea/numberofHMetrics
+    - name: leftSideBearings
+      type: USHORT[]
+LongHorMetric:
+  fields:
+    - name: advanceWidth
+      type: USHORT
+    - name: lsb
+      type: USHORT
+
+maxpTableCFF:
 ## maxp
 
 maxpTable:

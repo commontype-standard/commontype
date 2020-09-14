@@ -8,5 +8,7 @@
     <tr><th>Dependencies</th> <td> </td>  </tr>
 </table>
 
+This table contains font-level horizontal metric information.
+
 <pre class=include>path: idl/hheaTable.md</pre>
 

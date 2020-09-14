@@ -653,7 +653,117 @@ postTableVersion30:
     - name: postTableCommon
       type: postTableCommon
 
-
+## STAT
+STATTable:
+  status: toplevel
+  fields:
+  - name: version
+    type: Version
+  - name: designAxisRecordSize
+    type: USHORT
+  - name: designAxisCount
+    type: USHORT
+  - name: designAxisRecord
+    to: AxisRecordArray
+    type: Offset32
+  - name: axisValueCount
+    type: USHORT
+  - name: axisValueArray
+    to: AxisValueArray
+    type: Offset32
+  - condition: Version >= 0x00010001
+    name: elidedFallbackNameID
+    type: NameID
+AxisRecordArray:
+  fields:
+    - count: STATTable/DesignAxisCount
+      name: axes
+      type: AxisRecord[]
+AxisRecord:
+  fields:
+    - name: axisTag
+      type: Tag
+    - name: axisNameID
+      type: NameID
+    - name: axisOrdering
+      type: USHORT
+AxisValueArray:
+  fields:
+    - count: STATTable/AxisValueCount
+      name: axisValues
+      to: AxisValue
+      type: Offset16[]
+AxisValue:
+  union:
+    - AxisValueFormat1
+    - AxisValueFormat2
+    - AxisValueFormat3
+    - AxisValueFormat4
+AxisValueFormat1:
+  fields:
+    - name: format
+      type: USHORT
+      value: 1
+    - name: axisIndex
+      type: USHORT
+    - name: flags
+      type: USHORT
+    - name: valueNameID
+      type: NameID
+    - name: value
+      type: Fixed
+AxisValueFormat2:
+  fields:
+    - name: format
+      type: USHORT
+      value: 2
+    - name: axisIndex
+      type: USHORT
+    - name: flags
+      type: USHORT
+    - name: valueNameID
+      type: NameID
+    - name: nominalValue
+      type: Fixed
+    - name: rangeMinValue
+      type: Fixed
+    - name: rangeMaxValue
+      type: Fixed
+AxisValueFormat3:
+    fields:
+    - name: format
+      type: USHORT
+      value: 3
+    - name: axisIndex
+      type: USHORT
+    - name: flags
+      type: USHORT
+    - name: valueNameID
+      type: NameID
+    - name: value
+      type: Fixed
+    - name: linkedValue
+      type: Fixed
+AxisValueFormat4:
+  fields:
+  - name: format
+    type: USHORT
+    value: 4
+  - name: axisCount
+    type: USHORT
+  - name: flags
+    type: USHORT
+  - name: valueNameID
+    type: NameID
+  - count: AxisCount
+    name: axisValueRecords
+    type: AxisValueRecord[]
+AxisValueRecord:
+  fields:
+    - name: axisIndex
+      type: USHORT
+    - name: value
+      type: Fixed
 ##
 ## VARIABLE FONT STRUCTURES
 ##

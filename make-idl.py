@@ -41,6 +41,8 @@ def dumpATable(table, f):
             f.write(f'\tattribute {el["type"]} {el["name"]}')
             if "value" in el:
                 f.write(f' /* =={el["value"]} */')
+            if "condition" in el:
+                f.write(f' /* if {el["condition"]} */')
             if "to" in el:
                 offsettype2 = offsettype = el["to"]
                 if offsettype.endswith("[]"):

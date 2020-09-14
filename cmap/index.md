@@ -1,4 +1,4 @@
-<h3 id="cmap"><dfn>cmap table</dfn> - Character to Glyph Index Mapping Table</h3>
+<h4 id="cmap"><dfn>cmap table</dfn> - Character to Glyph Index Mapping Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>
@@ -48,7 +48,7 @@ The {{offset}} into each subtable, which contains the actual character to glyph 
 <pre class=include>path: cmap/format-13.md</pre>
 <pre class=include>path: cmap/format-14.md</pre>
 
-<h4 id="cmap.in-prod">Implementation notes for font producers</h4>
+<h5 id="cmap.in-prod">Implementation notes for font producers</h5>
 
 * Subtables contain a [=language identifier=] field. For cmap subtables with platform ID 1 (Macintosh) which contain language-specific mappings, this ID field must be set to the [=Macintosh language ID=] of the language *plus one*. Otherwise, the language ID field must be set to zero.
 
@@ -93,6 +93,6 @@ Mac OS Roman cmap subtable must set this field to 0, since Mac OS Roman
 is not a language-specific encoding.
 </div>
 
-<h4 id="cmap.in-cons">Implementation notes for font consumers</h4>
+<h5 id="cmap.in-cons">Implementation notes for font consumers</h5>
 
 See [=Mapping characters to glyphs=].

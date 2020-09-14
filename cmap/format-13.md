@@ -1,4 +1,4 @@
-<h4 id="format-13-cmap-subtable">Format 13 cmap subtable</h4>
+<h5 id="format-13-cmap-subtable">Format 13 cmap subtable</h5>
 
 <table>
     <tr><th>Introduced</th> <td> 1.6 </td> </tr>
@@ -29,7 +29,7 @@ interface ConstantMapGroup {
 };
 </pre>
 
-<h5 id="cmap-13-impl-prod">Implementation notes for font producers</h5>
+<h6 id="cmap-13-impl-prod">Implementation notes for font producers</h6>
 
 * Groups must be arranged in increasing value of {{startCharCode}}.
 * Groups may not overlap.

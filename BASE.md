@@ -15,12 +15,12 @@ The BASE table provides information to allow font consumers to align glyphs from
 interface BaseTableHeaderVersion10 {
   attribute USHORT tableMajorVersion;
   attribute USHORT tableMinorVersion;
-  attribute Offset16 horizAxisOffset;
-  attribute Offset16 vertAxisOffset;
+  attribute Offset16 horizAxisOffset /* BaseAxisTable */;
+  attribute Offset16 vertAxisOffset /* BaseAxisTable */;
 };
 
 interface BaseTableHeaderVersion11 : BaseTableHeaderVersion10 {
-  attribute Offset16 itemVarStoreOffset;
+  attribute Offset16 itemVarStoreOffset /* ItemVariationStore */;
 };
 </pre>
 
@@ -47,8 +47,8 @@ Both horizontal and vertical axis tables have the same structure. As this struct
 
 <pre class="idl">
 interface BaseAxisTable {
-  attribute Offset16 baseTagListOffset;
-  attribute Offset16 baseScriptListOffset;
+  attribute Offset16 baseTagListOffset /* BaseTagList */;
+  attribute Offset16 baseScriptListOffset /* BaseScriptList */;
 };
 interface BaseTagList {
   attribute USHORT baseTagCount;
@@ -60,33 +60,28 @@ interface BaseScriptList {
 };
 interface BaseScriptRecord {
   attribute Tag baseScriptTag;
-  attribute Offset16 baseScriptOffset;
+  attribute Offset16 baseScript /* BaseScript */;
 };
 interface BaseScript {
-  attribute Offset16 baseValuesOffset;
-  attribute Offset16 defaultMinMaxOffset;
+  attribute Offset16 baseValues /* BaseValues */;
+  attribute Offset16 defaultMinMax /* MinMax */;
   attribute USHORT baseLangSysCount;
   attribute BaseLangSysRecord[] baseLangSysRecords;
 };
 interface BaseValues {
-  attribute USHORT defaultBaselineIndex;
+  attribute USHORT defaultIndex;
   attribute USHORT baseCoordCount;
-  attribute Offset16[] baseCoords;
+  attribute Offset16[] baseCoords /* BaseCoord */;
 };
 interface MinMax {
-  attribute Offset16 minCoord;
-  attribute Offset16 maxCoord;
+  attribute Offset16 minCoord /* BaseCoord */;
+  attribute Offset16 maxCoord /* BaseCoord */;
   attribute USHORT featMinMaxCount;
-  attribute FeatMinMaxRecord featMinMaxRecords;
-};
-interface FeatMinMaxRecord {
-  attribute Tag featureTableTag;
-  attribute Offset16 minCoord;
-  attribute Offset16 maxCoord;
+  attribute FeatMinMaxRecord[] featMinMaxRecords;
 };
 interface BaseLangSysRecord {
   attribute Tag baseLangSysTag;
-  attribute Offset16 minMaxOffset;
+  attribute Offset16 minMax /* MinMax */;
 };
 </pre>
 
@@ -114,7 +109,7 @@ interface BaseLangSysRecord {
   interface BaseCoordFormat3 {
     attribute USHORT baseCoordFormat;
     attribute SHORT coordinate;
-    attribute Offset16 deviceTable;
+    attribute Offset16 deviceTable /* DeviceTable */;
   };
 </pre>
 

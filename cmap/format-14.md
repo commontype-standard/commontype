@@ -1,4 +1,4 @@
-<h4 id="format-14-cmap-subtable">Format 14 cmap subtable</h4>
+<h5 id="format-14-cmap-subtable">Format 14 cmap subtable</h5>
 
 <table>
     <tr><th>Introduced</th> <td> 1.6 </td> </tr>
@@ -73,7 +73,7 @@ interface UVSMapping {
 };
 </pre>
 
-<h5 id="cmap14-in">Implementation notes for font producers</h5>
+<h6 id="cmap14-in">Implementation notes for font producers</h6>
 
 * `startUnicodeValue + additionalCount` must not exceed `0xFFFFFF`.
 * {{UnicodeRange}} fields must appear in ascending order of {{startUnicodeValue}}.

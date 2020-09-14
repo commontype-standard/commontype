@@ -11,27 +11,10 @@
 
 The `avar` table describes a function for variable font axes to map between a linear axis value and a set of piecewise linear functions.
 
-<pre class="idl">
-interface AvarTable {
-  attribute USHORT tableMajorVersion;
-  attribute USHORT tableMinorVersion;
-  attribute USHORT reserved;
-  attribute USHORT axisCount;
-  attribute SegmentMaps[] axisSegmentMaps;
-};
+<pre class=include>path: idl/avarTable.md</pre>
 
-interface SegmentMaps {
-	attribute USHORT positionMapCount;
-	attribute AxisValueMap[] axisValueMaps;
-};
 
-interface AxisValueMap {
-	attribute F2DOT14 fromCoordinate;
-	attribute F2DOT14 toCoordinate;
-};
-</pre>
-
-<dl dfn-type=attribute dfn-for=AvarTable>
+<dl dfn-type=attribute dfn-for=avarTable>
   <dt><dfn>tableMajorVersion</dfn></dt>
   <dd>Table version. Must be 1.</dd>
   <dt><dfn>tableMinorVersion</dfn></dt>

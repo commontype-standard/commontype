@@ -445,6 +445,33 @@ maxpTableTT:
   - name: maxComponentDepth
     type: USHORT
 
+## meta
+metaTable:
+  status: toplevel
+  fields:
+  - name: version
+    type: ULONG
+    value: 1
+  - name: flags
+    type: ULONG
+    value: 0
+  - name: reserved
+    type: ULONG
+    value: 0
+  - name: dataMapsCount
+    type: ULONG
+  - name: dataMaps
+    type: DataMap[]
+    count: dataMapsCount
+DataMap:
+  fields:
+    - name: tag
+      type: Tag
+    - name: dataOffset
+      type: Offset32
+    - name: dataLength
+      type: ULONG
+
 ##
 ## VARIABLE FONT STRUCTURES
 ##

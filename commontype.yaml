@@ -6,8 +6,10 @@ avarTable:
   fields:
   - name: tableMajorVersion
     type: USHORT
+    value: 1
   - name: tableMinorVersion
     type: USHORT
+    value: 0
   - name: reserved
     type: USHORT
   - name: axisCount

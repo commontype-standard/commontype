@@ -16,6 +16,6 @@ This table contains glyph-level horizontal metric information.
   <dt><dfn>hMetrics</dfn></dt>
   <dd>The number of metrics is determined by {{hheaTable/numberofHMetrics}}.</dd>
   <dt><dfn>leftSideBearings</dfn></dt>
-  <dd>The number of entries in this array is determined by {{maxpTable/numGlyphs}} - {{hheaTable/numberofHMetrics}}.</dd>
+  <dd>The number of entries in this array is determined by {{maxpTableCFF/numGlyphs}} - {{hheaTable/numberofHMetrics}}.</dd>
 
 </dl>

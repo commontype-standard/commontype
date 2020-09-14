@@ -124,6 +124,13 @@ MinMax:
     name: featMinMaxRecords
     type: FeatMinMaxRecord[]
 
+## cvt
+
+cvtTable:
+  fields:
+    - name: values
+      type: USHORT[]
+
 ## DSIG
 
 DSIGTable:
@@ -334,6 +341,13 @@ BitmapScale:
     - type: uint8
       name: substitutePpemY
 
+## fpgm
+
+fpgmTable:
+  fields:
+    - name: values
+      type: USHORT[]
+
 ## gasp
 
 gaspTable:
@@ -438,6 +452,24 @@ hheaTable:
     - type: USHORT
       name: numberofHMetrics
 
+## hmtx
+
+hmtxTable:
+  status: toplevel
+  fields:
+    - name: hMetrics
+      type: LongHorMetric[]
+      count: hhea/numberofHMetrics
+    - name: leftSideBearings
+      type: USHORT[]
+LongHorMetric:
+  fields:
+    - name: advanceWidth
+      type: USHORT
+    - name: lsb
+      type: USHORT
+
+maxpTableCFF:
 ## maxp
 
 maxpTable:

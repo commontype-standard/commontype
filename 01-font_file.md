@@ -11,7 +11,8 @@ A font file is represented as a collection of *tables*. The term <dfn>table</dfn
     typedef unsigned short USHORT;
     typedef short SHORT;
     typedef unsigned short F2DOT14;
-    typedef unsigned short VERSION;
+    typedef unsigned long VERSION;
+    typedef unsigned short NameID;
     typedef unsigned short Offset16;
     typedef long LONG;
     typedef unsigned long ULONG;

@@ -397,6 +397,33 @@ GaspRange:
     - name: rangeGaspBehavior
       type: USHORT
 
+## hdmx
+
+hdmxTable:
+  status: toplevel
+  dependencies:
+    - maxp
+  fields:
+  - type: USHORT
+    name: tableVersion
+    value: 0
+  - name: numRecords
+    type: USHORT
+  - name: sizeDeviceRecord
+    type: ULONG
+  - name: records
+    type: DeviceRecord[]
+    count: numRecords
+DeviceRecord:
+  fields:
+    - type: uint8
+      name: pixelSize
+    - type: uint8
+      name: maxWidth
+    - type: uint8[]
+      count: maxp/numGlyphs
+      name: widths
+
 ## head
 
 headTable:

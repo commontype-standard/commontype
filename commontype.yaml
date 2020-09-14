@@ -680,6 +680,13 @@ postTableVersion30:
     - name: postTableCommon
       type: postTableCommon
 
+## prep
+
+prepTable:
+  fields:
+    - name: values
+      type: uint8[]
+
 ## STAT
 STATTable:
   status: toplevel

@@ -30,6 +30,7 @@ limitations under the License.
 <pre class=include>path: DSIG.md</pre>
 <pre class=include>path: maxp.md</pre>
 <pre class=include>path: meta.md</pre>
+<pre class=include>path: post.md</pre>
 name, OS/2, STAT
 
 <h3>Outline Glyph Representation Formats</h3>

@@ -11,11 +11,8 @@
 
 This table contains an array of values used by the TrueType instruction processor. Instructions in the [=glyf table=] can load values from this table using the `RCVT[]` instruction.
 
-<pre class="idl">
-interface CvtTable {
-  attribute FWORD[] values;
-};
-</pre>
+<pre class=include>path: idl/cvtTable.md</pre>
+
 
 The number of values is determined by the {{TableRecord/length}} of the table specified in the {{TableRecord}} in the `sfnt` header. This length must be an multiple of 2.
 

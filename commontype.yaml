@@ -124,6 +124,13 @@ MinMax:
     name: featMinMaxRecords
     type: FeatMinMaxRecord[]
 
+## cvt
+
+cvtTable:
+  fields:
+    - name: values
+      type: USHORT[]
+
 ## DSIG
 
 DSIGTable:
@@ -333,6 +340,13 @@ BitmapScale:
       name: substitutePpemX
     - type: uint8
       name: substitutePpemY
+
+## fpgm
+
+fpgmTable:
+  fields:
+    - name: values
+      type: USHORT[]
 
 ## gasp
 

@@ -44,7 +44,7 @@ sbix
 
 <h3>Glyph Metrics</h3>
 <pre class=include>path: hhea.md</pre>
-    hhea, hmtx, vhea, vmtx, VORG
+hmtx, vhea, vmtx, VORG
 
 <h3>Layout</h3>
     GDEF, GPOS, GSUB
@@ -52,7 +52,8 @@ sbix
 <h3>TrueType-related Tables</h3>
 
 <pre class=include>path: cvt.md</pre>
-fpgm hdmx loca LTSH PCLT prep VDMX
+<pre class=include>path: fpgm.md</pre>
+hdmx loca LTSH PCLT prep VDMX
 
 <h3>Typesetting and Typography</h3>
 <pre class=include>path: BASE.md</pre>

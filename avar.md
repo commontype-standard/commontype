@@ -1,4 +1,4 @@
-<h3 id="avar"><dfn>avar table</dfn> - Axis Variations Table</h3>
+<h4 id="avar"><dfn>avar table</dfn> - Axis Variations Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> 1.8 </td> </tr>
@@ -29,6 +29,6 @@ The `avar` table describes a function for variable font axes to map between a li
 
 * {{toCoordinate}} entries must increase monotonically.
 
-<h4 id="avar.in-cons">Implementation notes for font consumers</h4>
+<h5 id="avar.in-cons">Implementation notes for font consumers</h5>
 
 See [[#processing-variable-fonts]].

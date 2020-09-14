@@ -23,11 +23,16 @@ limitations under the License.
 <pre class=include>path: 01-font_file.md</pre>
 <pre class=include>path: 02-common_structures.md</pre>
 <pre class=include>path: 03-common_tables.md</pre>
+
+<h3>Global Metadata Tables</h3>
+<pre class=include>path: cmap/index.md</pre>
+<pre class=include>path: DSIG.md</pre>
+
+<h3>Stuff</h3>
 <pre class=include>path: avar.md</pre>
 <pre class=include>path: BASE.md</pre>
 <pre class=include>path: CBDT-CBLC.md</pre>
 <pre class=include>path: COLR-CPAL.md</pre>
-<pre class=include>path: cmap/index.md</pre>
 <pre class=include>path: cvt.md</pre>
 <pre class=include>path: EBDT-EBLC.md</pre>
 

@@ -1,4 +1,4 @@
-import json
+import yaml
 import sys
 import struct
 from pprint import pprint
@@ -17,8 +17,8 @@ def consume(fmt, data, pos):
         return fmt[1](output), pos
 
 
-with open("datastructures.json") as json_file:
-    commontype = json.load(json_file)
+with open("commontype.yaml") as yaml_file:
+    commontype = yaml.load(yaml_file, Loader=yaml.FullLoader)
 
 table = sys.argv[1]
 if table not in commontype:

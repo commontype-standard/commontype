@@ -1,0 +1,179 @@
+---
+
+## avar
+
+avarTable:
+  fields:
+  - name: tableMajorVersion
+    type: USHORT
+  - name: tableMinorVersion
+    type: USHORT
+  - name: reserved
+    type: USHORT
+  - name: axisCount
+    type: USHORT
+  - count: axisCount
+    name: axisSegmentMaps
+    type: SegmentMaps[]
+  status: toplevel
+SegmentMaps:
+  fields:
+  - name: positionMapCount
+    type: USHORT
+  - count: positionMapCount
+    name: axisValueMaps
+    type: AxisValueMap[]
+AxisValueMap:
+  fields:
+  - name: fromCoordinate
+    type: F2DOT14
+  - name: toCoordinate
+    type: F2DOT14
+
+## BASE
+
+BASETable:
+  fields:
+  - name: tableVersion
+    type: VERSION
+  - name: horizAxisOffset
+    to: BaseAxisTable
+    type: Offset16
+  - name: vertAxisOffset
+    to: BaseAxisTable
+    type: Offset16
+  - name: itemVarStoreOffset
+    optional: true
+    to: ItemVariationStore
+    type: Offset16
+  status: toplevel
+BaseAxisTable:
+  fields:
+  - name: baseTagListOffset
+    to: BaseTagList
+    type: Offset16
+  - name: baseScriptListOffset
+    to: BaseScriptList
+    type: Offset16
+BaseCoord: # Needs special-case
+  fields: []
+BaseLangSysRecord:
+  fields:
+  - name: baseLangSysTag
+    type: Tag
+  - name: minMax
+    to: MinMax
+    type: Offset16
+BaseScript:
+  fields:
+  - name: baseValues
+    to: BaseValues
+    type: Offset16
+  - name: defaultMinMax
+    to: MinMax
+    type: Offset16
+  - name: baseLangSysCount
+    type: USHORT
+  - count: BaseLangSysCount
+    name: baseLangSysRecords
+    type: BaseLangSysRecord[]
+BaseScriptList:
+  fields:
+  - name: baseScriptCount
+    type: USHORT
+  - count: BaseScriptCount
+    name: baseScriptRecords
+    type: BaseScriptRecord[]
+BaseScriptRecord:
+  fields:
+  - name: baseScriptTag
+    type: Tag
+  - name: baseScript
+    to: BaseScript
+    type: Offset16
+BaseTagList:
+  fields:
+  - name: baseTagCount
+    type: USHORT
+  - count: BaseTagCount
+    name: baselineTags
+    type: Tag[]
+BaseValues:
+  fields:
+  - name: defaultIndex
+    type: USHORT
+  - name: baseCoordCount
+    type: USHORT
+  - count: BaseCoordCount
+    name: baseCoords
+    to: BaseCoord
+    type: Offset16[]
+MinMax:
+  fields:
+  - name: minCoord
+    to: BaseCoord
+    type: Offset16
+  - name: maxCoord
+    to: BaseCoord
+    type: Offset16
+  - name: featMinMaxCount
+    type: USHORT
+  - count: FeatMinMaxCount
+    name: featMinMaxRecords
+    type: FeatMinMaxRecord[]
+
+## DSIG
+
+DSIGTable:
+  fields:
+  - name: tableVersion
+    type: ULONG
+  - name: numSignatures
+    type: USHORT
+  - name: flags
+    type: USHORT
+  - count: numSignatures
+    name: signatureRecords
+    type: SignatureRecord[]
+  status: toplevel
+SignatureBlock:
+  fields:
+  - name: reserved1
+    type: USHORT
+  - name: reserved2
+    type: USHORT
+  - name: signatureLength
+    type: ULONG
+  - count: signatureLength
+    name: signature
+    type: byte[]
+SignatureRecord:
+  fields:
+  - name: format
+    type: ULONG
+  - name: length
+    type: ULONG
+  - name: offset
+    to: SignatureBlock
+    type: Offset32
+
+##
+## VARIABLE FONT STRUCTURES
+##
+
+ItemVariationStore:
+  domain: variations
+  fields:
+  - name: format
+    type: USHORT
+  - name: varRegionList
+    to: VariationRegionList
+    type: Offset32
+  - name: varDataCount
+    type: USHORT
+  - count: VarDataCount
+    name: varData
+    to: ItemVariationData
+    type: Offset32[]
+  status: shared
+

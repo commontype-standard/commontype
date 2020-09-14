@@ -2,7 +2,7 @@
 # Structure to JSON
 
 from fontTools.ttLib.tables.otData import otData
-import json
+import yaml
 import sys
 
 typemap = {
@@ -31,9 +31,11 @@ for line in ot[table]:
 		field["count"] = line[2]
 		field["type"] = mapped_type + "[]"
 		field["name"] = name + "s"
+	if "Offset" in mapped_type:
+		field["to"] = "XXX"
 	if line[3]:
 		field["condition"] = line[3]
 	fields.append(field)
 
 obj = { table: { "fields": fields } }
-print(json.dumps(obj, sort_keys=True, indent=2))
+print(yaml.dump(obj, sort_keys=True, indent=2))

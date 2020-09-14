@@ -1,11 +1,11 @@
-import json
+import yaml
 import os
 import re
 import subprocess
 import sys
 
-with open("datastructures.json") as json_file:
-    commontype = json.load(json_file)
+with open("commontype.yaml") as yaml_file:
+    commontype = yaml.load(yaml_file, Loader=yaml.FullLoader)
 
 if not os.path.exists("idl"):
     os.mkdir("idl")

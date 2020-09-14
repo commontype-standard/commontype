@@ -408,7 +408,8 @@ headTable:
   - type: SHORT
     name: indexToLocFormat
   - type: SHORT
-    name: unused
+    name: glyphDataFormat
+    value: 0
 
 ## hhea
 

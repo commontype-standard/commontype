@@ -16,6 +16,6 @@ interface headTable {
 	attribute USHORT lowestRecPPEM;
 	attribute SHORT fontDirectionHint;
 	attribute SHORT indexToLocFormat;
-	attribute SHORT unused;
+	attribute SHORT glyphDataFormat /* ==0 */;
 };
 </pre>

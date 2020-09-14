@@ -19,7 +19,6 @@ def dumpATable(table, done, f):
     todo = []
     f.write("interface %s {\n" % table)
     for el in commontype[table]["fields"]:
-        f.write(f'\tattribute {el["type"]} {el["name"]};\n')
         basetype = el["type"].replace("[]", "")
         if (
             basetype in commontype
@@ -30,6 +29,19 @@ def dumpATable(table, done, f):
             )
         ):
             todo.append(basetype)
+        if "to" in el:
+            offsettype = el["to"]
+            if offsettype not in commontype:
+                print("Undefined offset type %s!" % offsettype)
+                sys.exit(1)
+            if offsettype not in done and ("status" not in commontype[offsettype]
+                or commontype[offsettype]["status"] != "shared"
+            ):
+                todo.append(offsettype)
+            f.write(f'\tattribute {el["type"]} {el["name"]} /* {offsettype} */;\n')
+        else:
+            f.write(f'\tattribute {el["type"]} {el["name"]};\n')
+
     f.write("};\n")
     done[table] = True
     for t in todo:

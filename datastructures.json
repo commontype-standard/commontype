@@ -25,11 +25,78 @@
   },
 
   "BASETable": {
+    "status": "toplevel",
     "fields": [
       {"type": "VERSION", "name": "tableVersion" },
-      {"type": "Offset16", "name": "horizAxisOffset", "to": "BASEAxisTable" },
-      {"type": "Offset16", "name": "vertAxisOffset", "to": "BASEAxisTable" },
+      {"type": "Offset16", "name": "horizAxisOffset", "to": "BaseAxisTable" },
+      {"type": "Offset16", "name": "vertAxisOffset", "to": "BaseAxisTable" },
       {"type": "Offset16", "name": "itemVarStoreOffset", "to": "ItemVariationStore", "optional": true }
+    ]
+  },
+  "BaseAxisTable": {
+    "fields": [
+      {"name": "baseTagListOffset", "type": "Offset16", "to": "BaseTagList"},
+      {"name": "baseScriptListOffset", "type": "Offset16", "to": "BaseScriptList"}
+    ]
+  },
+  "BaseTagList": {
+    "fields": [
+      {"name": "baseTagCount", "type": "USHORT"},
+      {"count": "BaseTagCount", "name": "baselineTags", "type": "Tag[]"}
+    ]
+  },
+  "BaseScriptList": {
+    "fields": [
+      {"name": "baseScriptCount", "type": "USHORT"},
+      {"count": "BaseScriptCount", "name": "baseScriptRecords", "type": "BaseScriptRecord[]"}
+    ]
+  },
+  "BaseScriptRecord": {
+    "fields": [
+      {"name": "baseScriptTag", "type": "Tag"},
+      {"name": "baseScript", "type": "Offset16", "to": "BaseScript" }
+    ]
+  },
+  "BaseScript": {
+    "fields": [
+      {"name": "baseValues", "type": "Offset16", "to": "BaseValues"},
+      {"name": "defaultMinMax", "type": "Offset16", "to": "MinMax"},
+      {"name": "baseLangSysCount", "type": "USHORT"},
+      {"count": "BaseLangSysCount", "name": "baseLangSysRecords", "type": "BaseLangSysRecord[]"}
+    ]
+  },
+  "MinMax": {
+    "fields": [
+      {"name": "minCoord", "type": "Offset16", "to": "BaseCoord"},
+      {"name": "maxCoord", "type": "Offset16", "to": "BaseCoord"},
+      {"name": "featMinMaxCount", "type": "USHORT"},
+      {"count": "FeatMinMaxCount", "name": "featMinMaxRecords", "type": "FeatMinMaxRecord[]"}
+    ]
+  },
+  "BaseValues": {
+    "fields": [
+      {"name": "defaultIndex", "type": "USHORT"},
+      {"name": "baseCoordCount", "type": "USHORT"},
+      {"count": "BaseCoordCount", "name": "baseCoords", "type": "Offset16[]", "to": "BaseCoord" }
+    ]
+  },
+  "BaseLangSysRecord": {
+    "fields": [
+      {"name": "baseLangSysTag", "type": "Tag"},
+      {"name": "minMax", "type": "Offset16", "to": "MinMax" }
+    ]
+  },
+  "BaseCoord": {
+    "fields": []
+  },
+  "ItemVariationStore": {
+    "status": "shared",
+    "domain": "variations",
+    "fields": [
+      {"name": "format", "type": "USHORT"},
+      {"name": "varRegionList", "type": "Offset32", "to": "VariationRegionList"},
+      {"name": "varDataCount", "type": "USHORT"},
+      {"count": "VarDataCount", "name": "varData", "type": "Offset32[]", "to": "ItemVariationData"}
     ]
   }
 }

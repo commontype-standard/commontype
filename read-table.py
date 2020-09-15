@@ -1,6 +1,7 @@
-import yaml
+import re
 import sys
 import struct
+import yaml
 from pprint import pprint
 from time import strftime, gmtime
 import calendar
@@ -10,6 +11,7 @@ epoch_diff = calendar.timegm((1904, 1, 1, 0, 0, 0, 0, 0, 0))
 
 basetypes = {
     "USHORT": ">H",
+    "GlyphID": ">H",
     "NameID": ">H",
     "Offset32": ">L",
     "Offset16": ">H",
@@ -31,6 +33,7 @@ trickyFields = {
     ("hmtxTable", "hMetrics"): lambda f, d, p, o: (0, p),
     ("hmtxTable", "leftSideBearings"): lambda f, d, p, o: (0, p),
     ("postTableVersion20", "names"): lambda f, d, p, o: ([], p),
+    ("prepTable", "values"): lambda f, d, p, o: ([], p),
 }
 
 
@@ -50,12 +53,26 @@ with open("commontype.yaml") as yaml_file:
 
 data = sys.stdin.buffer.read()
 
+def checkCondition(condition, table):
+    m = re.match(r'(\w+)\s*([<>=]+)\s*(.*)', condition)
+    if m:
+        # Super lazy
+        return eval(f'table["{m[1]}"] {m[2]} {m[3]}')
+    import code; code.interact(local=locals())
 
 def readAField(field, data, pos, tableSoFar):
     fType = field["type"]
+    if "condition" in field and not checkCondition(field["condition"], tableSoFar):
+        return None, pos
     if fType in basetypes:
         fmt = basetypes[fType]
         output, pos = consume(fmt, data, pos)
+        if "to" in field: # It's an offset
+            if output:
+                # Generally read from start of table...
+                output, _ = readATable(field["to"], data, output + tableSoFar["_pos"])
+            else:
+                output = {}
     elif fType in commontype:  # Bare field singly embedded
         output, pos = readATable(fType, data, pos)
     elif fType.endswith("[]"):
@@ -95,7 +112,7 @@ def readATable(table, data, pos=0):
             sys.exit(1)
 
     structure = commontype[table]["fields"]
-    output = {}
+    output = {"_pos": pos}
     doOffsets = []
     for field in structure:
         if (table, field["name"]) in trickyFields:

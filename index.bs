@@ -50,7 +50,8 @@ sbix
 vhea, vmtx, VORG
 
 <h3>Layout</h3>
-    GDEF, GPOS, GSUB
+<pre class=include>path: GDEF.md</pre>
+    GPOS, GSUB
 
 <h3>TrueType-related Tables</h3>
 

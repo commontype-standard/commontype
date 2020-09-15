@@ -6,7 +6,7 @@ interface STATTable {
 	attribute Offset32 designAxisRecord /* AxisRecordArray */;
 	attribute USHORT axisValueCount;
 	attribute Offset32 axisValueArray /* AxisValueArray */;
-	attribute NameID elidedFallbackNameID /* if Version >= 0x00010001 */;
+	attribute NameID elidedFallbackNameID /* if version >= 0x00010001 */;
 };
 interface AxisRecordArray {
 	attribute AxisRecord[] axes;

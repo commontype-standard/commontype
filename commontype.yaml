@@ -29,6 +29,73 @@ TableDirectoryEntry:
     - type: ULONG
       name: length
 
+## Common OTL table formats
+Coverage:
+  union:
+    - CoverageFormat1
+    - CoverageFormat2
+CoverageFormat1:
+  fields:
+  - name: coverageFormat
+    type: USHORT
+    value: 1
+  - name: glyphCount
+    type: USHORT
+  - count: GlyphCount
+    name: glyphArrays
+    type: GlyphID[]
+CoverageFormat2:
+  fields:
+  - name: coverageFormat
+    type: USHORT
+    value: 2
+  - name: rangeCount
+    type: USHORT
+  - count: rangeCount
+    name: rangeRecords
+    type: RangeRecord[]
+RangeRecord:
+  fields:
+  - name: start
+    type: GlyphID
+  - name: end
+    type: GlyphID
+  - name: startCoverageIndex
+    type: USHORT
+ClassDef:
+  union:
+    - ClassDefFormat1
+    - ClassDefFormat2
+ClassDefFormat1:
+  fields:
+  - name: classFormat
+    type: USHORT
+    value: 1
+  - name: startGlyph
+    type: GlyphID
+  - name: glyphCount
+    type: USHORT
+  - count: glyphCount
+    name: classValueArrays
+    type: USHORT[]
+ClassDefFormat2:
+  fields:
+  - name: classFormat
+    type: USHORT
+    value: 2
+  - name: classRangeCount
+    type: USHORT
+  - count: classRangeCount
+    name: classRangeRecords
+    type: ClassRangeRecord[]
+ClassRangeRecord:
+  fields:
+  - name: start
+    type: GlyphID
+  - name: end
+    type: GlyphID
+  - name: class
+    type: USHORT
 ## avar
 
 avarTable:
@@ -397,6 +464,111 @@ GaspRange:
     - name: rangeGaspBehavior
       type: USHORT
 
+## GDEF
+
+GDEFTable:
+  fields:
+  - name: version
+    type: VERSION
+  - name: glyphClassDef
+    to: ClassDef
+    type: Offset16
+  - name: attachList
+    to: AttachList
+    type: Offset16
+  - name: ligCaretList
+    to: LigCaretList
+    type: Offset16
+  - name: markAttachClassDef
+    to: ClassDef
+    type: Offset16
+  - condition: version >= 0x00010002
+    name: markGlyphSetsDef
+    to: MarkGlyphSetsDef
+    type: Offset16
+  - condition: version >= 0x00010003
+    name: varStore
+    to: ItemVariationStore
+    type: Offset32
+
+AttachList:
+  fields:
+  - name: coverage
+    to: Coverage
+    type: Offset16
+  - name: glyphCount
+    type: USHORT
+  - count: glyphCount
+    name: attachPoints
+    to: AttachPoint
+    type: Offset16[]
+AttachPoint:
+  fields:
+  - name: pointCount
+    type: USHORT
+  - count: pointCount
+    name: pointIndexs
+    type: USHORT[]
+LigCaretList:
+  fields:
+  - name: coverage
+    to: Coverage
+    type: Offset16
+  - name: ligGlyphCount
+    type: USHORT
+  - count: ligGlyphCount
+    name: ligGlyphs
+    to: LigGlyph
+    type: Offset16[]
+LigGlyph:
+  fields:
+  - name: caretCount
+    type: USHORT
+  - count: caretCount
+    name: caretValues
+    to: CaretValue
+    type: Offset16[]
+CaretValue:
+  union:
+    - CaretValueFormat1
+    - CaretValueFormat2
+    - CaretValueFormat3
+CaretValueFormat1:
+  fields:
+  - name: caretValueFormat
+    type: USHORT
+    value: 1
+  - name: coordinate
+    type: int16
+CaretValueFormat2:
+  fields:
+  - name: caretValueFormat
+    type: USHORT
+    value: 2
+  - name: caretValuePoint
+    type: USHORT
+CaretValueFormat3:
+  fields:
+  - name: caretValueFormat
+    type: USHORT
+    value: 3
+  - name: coordinate
+    type: int16
+  - name: deviceTable
+    to: Device
+    type: Offset16
+
+MarkGlyphSetsDef:
+  fields:
+  - name: markSetTableFormat
+    type: USHORT
+  - name: markSetCount
+    type: USHORT
+  - count: markSetCount
+    name: coverages
+    to: Coverage
+    type: Offset32[]
+
 ## hdmx
 
 hdmxTable:
@@ -705,7 +877,7 @@ STATTable:
   - name: axisValueArray
     to: AxisValueArray
     type: Offset32
-  - condition: Version >= 0x00010001
+  - condition: version >= 0x00010001
     name: elidedFallbackNameID
     type: NameID
 AxisRecordArray:
@@ -855,3 +1027,14 @@ VarData:
     type: VarDataValue[]
 VarDataValue:
   fields: []
+Device:
+  fields:
+  - name: startSize
+    type: USHORT
+  - name: endSize
+    type: USHORT
+  - name: deltaFormat
+    type: USHORT
+  - condition: deltaFormat in (1,2,3)
+    name: deltaValue
+    type: DeltaValue

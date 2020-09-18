@@ -1,4 +1,4 @@
-<h2 id="B-MacLanguage">Appendix B: Table of Macintosh Language Identifiers</h2>
+<h2 id="B-MacLanguage" rel="off-new-Annex-G">Appendix B: Table of Macintosh Language Identifiers</h2>
 <table>
 
   <thead><tr><th>Code</th><th>   Language</th></tr></thead>

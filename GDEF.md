@@ -1,4 +1,4 @@
-<h4 id="GDEF"><dfn>GDEF table</dfn> - Glyph Definition Table</h4>
+<h4 id="GDEF" rel="off-6.3.2"><dfn>GDEF table</dfn> - Glyph Definition Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>

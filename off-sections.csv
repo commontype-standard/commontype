@@ -1,0 +1,168 @@
+1,Scope
+2,Normative references
+3,Terms, definitions and abbreviated terms
+3.1,Terms and definitions
+3.2,Abbreviated terms
+4,The Open Font file format
+4.1,Description
+4.2,Filenames
+4.3,Data types
+4.4,Table version numbers
+4.5,Top-level OFF organization
+4.5.1,Offset table 
+4.5.2,Table directory 
+4.5.3,Calculating checksums 
+4.6,Font collections
+4.6.1,The Font Collection overview 
+4.6.2,The Font Collection file structure 
+4.6.3,TTC header 
+5,Open font tables
+5.1,General
+5.2,Required common tables
+5.2.1,List of required tables 
+5.2.2,cmap – Character to glyph index mapping table 
+5.2.3,head – Font header 
+5.2.4,hhea – Horizontal header 
+5.2.5,hmtx – Horizontal metrics 
+5.2.6,maxp – Maximum profile 
+5.2.7,name – Naming table 
+5.2.8,OS/2 – Global font information table 
+5.2.9,Font class parameters 
+5.2.10,post – PostScript 
+5.3,Tables related to TrueType outlines
+5.3.1,List of TrueType outlines tables 
+5.3.2,cvt – Control value table 
+5.3.3,fpgm – Font program 
+5.3.4,glyf – Glyf data 
+5.3.5,loca – Index to location 
+5.3.6,prep – Control value program 
+5.3.7,gasp – Grid-fitting and scan-conversion procedure table 
+5.4,Tables related to CFF outlines
+5.4.1,List of CFF outline tables
+5.4.2,CFF – Compact Font Format (version 1) table 
+5.4.3,CFF2 – Compact Font Format (version 2) table 
+5.4.4,VORG – Vertical origin table 
+5.5,Table for SVG glyph outlines
+5.5.1,SVG – The SVG (Scalable Vector Graphics) table 
+5.5.2,Color Palettes 
+5.5.3,Glyph Identifiers 
+5.5.4,Glyph Semantics and Metrics 
+5.5.5,Glyph Rendering 
+5.5.6,SVG glyph examples 
+5.6,Tables related to bitmap glyphs
+5.6.1,List of bitmap glyph tables
+5.6.2,EBDT – Embedded bitmap data table
+5.6.3,EBLC – Embedded bitmap location table 
+5.6.4,EBSC – Embedded bitmap scaling table 
+5.6.5,CBDT – Color bitmap data table 
+5.6.6,CBLC – Color bitmap location table 
+5.6.7,sbix – Standard bitmap graphics table 
+5.7,Optional tables
+5.7.1,DSIG – Digital signature table 
+5.7.2,hdmx – Horizontal device metrics 
+5.7.3,kern – Kerning 
+5.7.4,LTSH – Linear threshold 
+5.7.5,MERG – Merge table 
+5.7.6,meta – Metadata table 
+5.7.7,PCLT – PCL 5 table 
+5.7.8,VDMX – Vertical device metrics 
+5.7.9,vhea – Vertical header table 
+5.7.10,vmtx – Vertical metric table 
+5.7.11,COLR – Color Table 
+5.7.12,CPAL – Palette Table 
+6,Advanced Open Font layout tables
+6.1,Advanced Open Font layout extensions
+6.1.1,Overview of advanced typographic layout extensions 
+6.1.2,TrueType versus OFF layout 
+6.1.3,OFF layout terminology 
+6.1.4,Text processing with OFF layout 
+6.1.5,OFF layout and Font variations 
+6.2,OFF layout common table formats
+6.2.1,Overview 
+6.2.2,OFF layout and Font variations 
+6.2.3,Table organization 
+6.2.4,Scripts and languages 
+6.2.5,Features and lookups 
+6.2.6,Coverage table 
+6.2.7,Class definition table 
+6.2.8,Device and VariationIndex tables 
+6.2.9,Feature variations 
+6.2.10,Common table examples 
+6.3,Advanced typographic tables
+6.3.1,BASE Baseline table 
+6.3.2,GDEF – The glyph definition table 
+6.3.3,GPOS – The glyph positioning table
+6.3.4,GSUB – The glyph substitution table 
+6.3.5,JSTF – The justification table 
+6.3.6,MATH – The mathematical typesetting table 
+6.4,Layout tag registry
+6.4.1,Scripts tags 
+6.4.2,Language tags 
+6.4.3,Feature tags 
+6.4.4,Baseline tags 
+7,OFF font variations
+7.1,Font variations overview
+7.1.1,General 
+7.1.2,Terminology 
+7.1.3,Variation space, default instances and adjustment deltas 
+7.1.4,Coordinate scales and normalization 
+7.1.5,Variation data 
+7.1.6,Variation data tables and miscellaneous requirements 
+7.1.7,Algorithm for interpolation of instance values 
+7.1.8,Interpolation example 
+7.1.9,Dynamic generation of static instance fonts 
+7.2,Font variations common table formats
+7.2.1,Overview 
+7.2.2,Tuple variation store 
+7.2.3,Item variation stores 
+7.2.4,Design-variation axis tag registry 
+7.3,Font variations tables
+7.3.1,avar – Axis variations table 
+7.3.2,cvar – CVT variations table 
+7.3.3,fvar – Font variations table 
+7.3.4,gvar – Glyph variations table 
+7.3.5,HVAR – Horizontal metrics variations table 
+7.3.6,MVAR – Metrics variations table 
+7.3.7,STAT – Style attributes table 
+7.3.8,VVAR – Vertical metrics variations table 
+8,Recommendations for OFF fonts
+8.1,Byte ordering
+8.2,'sfnt' version
+8.3,Mixing outline formats
+8.4,Filenames
+8.5,Table alignment and length
+8.6,Glyph 0: the .notdef glyph
+8.7,'BASE' table
+8.8,'cmap' table
+8.9,'cvt' table
+8.10,'fpgm' table
+8.11,'glyf' table
+8.12,'hdmx' table
+8.13,'head' table
+8.14,'hhea' table
+8.15,'hmtx' table
+8.16,'kern' table
+8.17,'loca' table
+8.18,'LTSH' table
+8.19,'maxp' table
+8.20,'name' table
+8.21,'OS/2' table
+8.22,'post' table
+8.23,'prep' table
+8.24,'VDMX' table
+8.25,TrueType Collections
+9,General recommendations
+9.1,Optimized table ordering
+9.2,Non-standard (Symbol) fonts
+9.3,Baseline to baseline distances
+9.4,Style bits
+9.5,Drop-out control
+9.6,Embedded bitmaps
+9.7,OFF CJK font guidelines
+9.8,Stroke reduction in variable fonts
+9.9,Families with optical size variants
+Annex A (informative),  Font Class and Font Subclass parameters 
+Annex B (informative),  Earlier versions of OS/2 – OS/2 and Windows metrics 
+Annex C (informative),  OFF Mirroring Pairs List 
+Annex D (informative),  The CFF2 CharString Format 
+Annex E (informative),  CFF2 DICT Encoding 

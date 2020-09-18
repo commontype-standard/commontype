@@ -1,4 +1,4 @@
-<h2 id="A-PlatEncoding">Appendix A: Table of Platform and Encoding Identifiers</h2>
+<h2 id="A-PlatEncoding" rel="off-new-Annex-F">Appendix A: Table of Platform and Encoding Identifiers</h2>
 
 
 <table>

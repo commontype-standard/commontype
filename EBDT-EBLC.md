@@ -1,4 +1,4 @@
-<h4 id="EBDT-EBLC" role="unfinished"><dfn>EBDT table</dfn>, and <dfn>EBLC</dfn> tables - Bitmap Glyphs</h4>
+<h4 id="EBDT-EBLC" role="unfinished" rel="off-5.6.2+5.6.3"><dfn>EBDT table</dfn>, and <dfn>EBLC</dfn> tables - Bitmap Glyphs</h4>
 
 <table>
     <tr><th>Introduced</th> <td> 1.0 </td> </tr>

@@ -1,4 +1,4 @@
-<h4 id="STAT"><dfn>STAT table</dfn> - Style Attributes Table</h4>
+<h4 id="STAT" rel="off-7.3.7"><dfn>STAT table</dfn> - Style Attributes Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>

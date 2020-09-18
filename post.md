@@ -1,4 +1,4 @@
-<h4 id="avar"><dfn>post table</dfn> - PostScript Table</h4>
+<h4 id="post" rel="off-5.2.10+8.22"><dfn>post table</dfn> - PostScript Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> 1.0 </td> </tr>

@@ -1,4 +1,4 @@
-<h3 id="consumer-color"><dfn>Processing Color Fonts</dfn></h3>
+<h3 id="consumer-color" rel="off-new-10.3"><dfn>Processing Color Fonts</dfn></h3>
 
 <h4 id="consumer-colr">Processing a COLR/CPAL table</h4>
 

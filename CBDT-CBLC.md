@@ -1,4 +1,4 @@
-<h4 id="CBDT-CBLC" role="unfinished"><dfn>CBDT table</dfn> and <dfn>CBLC</dfn> tables - Color Bitmaps</h4>
+<h4 id="CBDT-CBLC" role="unfinished" rel="off-5.6.5+5.6.6"><dfn>CBDT table</dfn> and <dfn>CBLC</dfn> tables - Color Bitmaps</h4>
 
 <table>
     <tr><th>Introduced</th> <td> 1.7 </td> </tr>

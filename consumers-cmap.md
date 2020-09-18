@@ -1,4 +1,4 @@
-<h3 id="map-chars-process"><dfn>Mapping characters to glyphs</dfn></h3>
+<h3 id="map-chars-process" rel="off-new-10.1"><dfn>Mapping characters to glyphs</dfn></h3>
 
 When a text is being shaped by a font consumer, the font consumer uses the data in the cmap table to map codepoints in the input character repertoire to glyph IDs in the font.
 

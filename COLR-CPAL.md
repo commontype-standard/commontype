@@ -1,4 +1,4 @@
-<h4 id="COLR-CPAL"><dfn>COLR table</dfn> and <dfn>CPAL table</dfn> - Color Outlines</h4>
+<h4 id="COLR-CPAL" rel="off-5.7.11+5.7.12"><dfn>COLR table</dfn> and <dfn>CPAL table</dfn> - Color Outlines</h4>
 
 <table>
     <tr><th>Introduced</th> <td> 1.7 </td> </tr>

@@ -1,4 +1,4 @@
-<h4 id="hdmx"><dfn>hdmx table</dfn> - Horizontal Device Metrics Table</h4>
+<h4 id="hdmx" rel="off-5.7.2+8.12"><dfn>hdmx table</dfn> - Horizontal Device Metrics Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>

@@ -1,4 +1,4 @@
-<h3 id="processing-variable-fonts">Processing Variable Fonts</h3>
+<h3 id="processing-variable-fonts" rel="off-new-10.4">Processing Variable Fonts</h3>
 
 When processing variable fonts, font consumers must take note of the following requirements:
 

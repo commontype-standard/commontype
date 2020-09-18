@@ -1,4 +1,4 @@
-<h4 id="BASE"><dfn>BASE table</dfn> - Baseline Table</h4>
+<h4 id="BASE" rel="off-6.3.1+8.7"><dfn>BASE table</dfn> - Baseline Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>

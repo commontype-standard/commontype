@@ -1,4 +1,4 @@
-<h4 id="EBSC"><dfn>EBSC table</dfn> - Bitmap Scaling</h4>
+<h4 id="EBSC" rel="off-5.6.4"><dfn>EBSC table</dfn> - Bitmap Scaling</h4>
 <table>
     <tr><th>Introduced</th> <td> 1.0 </td> </tr>
     <tr><th>Deprecated</th> <td> </td> </tr>

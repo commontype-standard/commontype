@@ -1,4 +1,4 @@
-<h4 id="maxp"><dfn>maxp table</dfn> - Maximum Parameter Table</h4>
+<h4 id="maxp" rel="off-5.2.6+8.19"><dfn>maxp table</dfn> - Maximum Parameter Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>

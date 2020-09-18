@@ -1,4 +1,4 @@
-<h4 id="cmap"><dfn>head table</dfn> - Font Header Table</h4>
+<h4 id="head" rel="off-5.2.3+8.13"><dfn>head table</dfn> - Font Header Table</h4>
 
 <table>
     <tr><th>Introduced</th> <td> </td> </tr>

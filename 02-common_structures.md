@@ -1,4 +1,4 @@
-<h3 id="common-structures">Common Structures and Data</h3>
+<h3 id="common-structures" rel="off-new-4.7">Common Structures and Data</h3>
 
 <h4 id="variation-common-structures" role="unfinished">Common Structures for Variable Fonts</h4>
 

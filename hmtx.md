@@ -1,4 +1,4 @@
-<h4 id="hmtx"><dfn>hmtx table</dfn> - Horizontal Metrics Table</h4>
+<h4 id="hmtx" rel="off-5.2.5+8.15"><dfn>hmtx table</dfn> - Horizontal Metrics Table</h4>
 <table>
     <tr><th>Introduced</th> <td> 1.0 </td> </tr>
     <tr><th>Deprecated</th> <td> </td> </tr>

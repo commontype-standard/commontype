@@ -1,4 +1,4 @@
-<h4 id="meta"><dfn>meta table</dfn> - Metadata Table</h4>
+<h4 id="meta" rel="off-5.7.6"><dfn>meta table</dfn> - Metadata Table</h4>
 <table>
     <tr><th>Introduced</th> <td> 1.0 </td> </tr>
     <tr><th>Deprecated</th> <td> </td> </tr>

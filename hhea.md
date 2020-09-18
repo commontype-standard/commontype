@@ -1,4 +1,4 @@
-<h4 id="hhea"><dfn>hhea table</dfn> - Horizontal Header Table</h4>
+<h4 id="hhea" rel="off-5.2.4+8.14"><dfn>hhea table</dfn> - Horizontal Header Table</h4>
 <table>
     <tr><th>Introduced</th> <td> 1.0 </td> </tr>
     <tr><th>Deprecated</th> <td> </td> </tr>

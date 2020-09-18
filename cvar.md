@@ -1,4 +1,4 @@
-<h3 id="cvar"><dfn>cvar table</dfn> - CVT Variations Table</h3>
+<h3 id="cvar" rel="off-7.3.2"><dfn>cvar table</dfn> - CVT Variations Table</h3>
 
 <table>
     <tr><th>Introduced</th> <td> 1.8 </td> </tr>

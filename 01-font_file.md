@@ -1,4 +1,4 @@
-<h3 id="font-file-structure">Font File Structure</h3>
+<h3 id="font-file-structure" rel="off-4.5">Font File Structure</h3>
 
 A font file is represented as a collection of *tables*. The term <dfn>table</dfn> is used in two ways when discussing the font file. Generally, a "table" is equivalent to a C `struct`, a data structure with a number of fields; specifically, a table is also used in the sense of a database table, a top-level structure potentially containing a number of related sets of information. (For example, "the `cname` table".) In this second sense, a table may contain other tables; these contained tables are often referred to as "subtables".
 

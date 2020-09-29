@@ -21,6 +21,12 @@ This "CommonType" document has three purposes:
         "publisher": "Adobe Systems Incorporated",
         "date": "4 December 2003"
     },
+    "atn5177": {
+        "title": "Generating PostScript Names for Fonts Using OpenType Font Variations: Adobe Technical Note #5902",
+        "href": "https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5902.AdobePSNameGeneration.pdf",
+        "publisher": "Adobe Systems Incorporated",
+        "date": "14 September 14 2016"
+    },
     "msot": {
         "title": "The OpenType Specification",
         "href": "https://docs.microsoft.com/en-us/typography/opentype/spec/"
@@ -51,6 +57,10 @@ The following documents may be consulted for further information:
 -   [Adobe Technical Note
     #5088](https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5088.FontNames.pdf):
     "Font Naming Issues." Discusses general font name issues.
+
+-   [Adobe Technical Note
+    #5902](https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5902.AdobePSNameGeneration.pdf):
+    "Generating PostScript Names for Fonts Using OpenType Font Variations" Discusses font name issues specific to variable fonts.
 
 -   The [Adobe Glyph List
     Specification](https://github.com/adobe-type-tools/agl-specification).
